@@ -1,1 +1,0 @@
-# newscorpgsoc.github.io
