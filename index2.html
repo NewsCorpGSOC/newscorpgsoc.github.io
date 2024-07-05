@@ -49,13 +49,13 @@
     <script>
       $(document).ready(function(){
         // Show dropdown on hover
-        $('.dropdown-toggle').hover(function() {
+        $('.nav-item.dropdown').hover(function() {
           if ($(window).width() > 768) {
-            $(this).siblings('.dropdown-menu').css('display','flex');
+            $(this).find('.dropdown-menu').css('display','flex');
           }
         }, function() {
           if ($(window).width() > 768) {
-            $(this).siblings('.dropdown-menu').css('display','none');
+            $(this).find('.dropdown-menu').css('display','none');
           }
         });
   
