@@ -12,33 +12,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <style>
       /* Custom CSS for the sidebar */
-      .header, .sidebar {
-        position: relative;
-        overflow: hidden;
-        padding: 15px 0;
-        box-sizing: border-box;
-      }
-      
-      .header::before, .sidebar::before {
-        content: "";
-        display: block;
-        background: linear-gradient(
-          90deg,
-          #002060 30%,
-          transparent 30%,
-          transparent 75%,
-          #1e5799 75%
-        );
-        background-size: 40px;
-        position: absolute;
-        top: -1000px;
-        left: -50px;
-        bottom: -1000px;
-        right: -50px;
-        transform: rotate(45deg);
-        z-index: -1;
-      }
-      
       .header {
         position: sticky;
         top: 0;
@@ -54,6 +27,7 @@
         margin: 0;
         padding: 0;
         font-family: 'EB Garamond', serif;
+        color: white;
       }
       #sidebar {
         background-color: #002060;
@@ -252,7 +226,7 @@
         <main class="col-12 col-md-8 col-lg-10 px-md-4" style="padding-left: 20px;">
           <div class="mt-4">
             <h1>Welcome to the GSOC Tool Suite Page! 🚀</h1>
-            <p style="font-family: Georgia">This webpage serves as a central repository for accessing the tools and resources you need for the GSOC. You'll find everything you need right here.</p>
+            <p>This webpage serves as a central repository for accessing the tools and resources you need for the GSOC. You'll find everything you need right here.</p>
             <h2>GSOC: DataHub Links and Tools</h2>
             <p>GSOC: DataHub links and tools for analysts to use:</p>
             <ul>
