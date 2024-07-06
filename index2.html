@@ -12,6 +12,33 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <style>
       /* Custom CSS for the sidebar */
+      .header, .sidebar {
+        position: relative;
+        overflow: hidden;
+        padding: 15px 0;
+        box-sizing: border-box;
+      }
+      
+      .header::before, .sidebar::before {
+        content: "";
+        display: block;
+        background: linear-gradient(
+          90deg,
+          #002060 30%,
+          transparent 30%,
+          transparent 75%,
+          #1e5799 75%
+        ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        background-size: 40px;
+        position: absolute;
+        top: -1000px;
+        left: -50px;
+        bottom: -1000px;
+        right: -50px;
+        transform: rotate(45deg);
+        z-index: -1;
+      }
+
       body {
         background-image: url('icons/IntranetBackground_V8.png'); /* Replace with the path to your image */
         background-size: cover; /* Or use `100% 100%` */
@@ -137,7 +164,7 @@
   </head>
   <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #002060;">
+    <nav class="navbar navbar-expand-lg navbar-dark header" style="background-color: #002060;">
       <!-- Add your logo image here -->
       <a class="navbar-brand" href="index.html">
         <img src="icons/NewsCorpIntranetLogo.png" alt="Your Logo" width="200" class="d-inline-block align-top">
