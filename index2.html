@@ -28,7 +28,7 @@
           transparent 30%,
           transparent 75%,
           #1e5799 75%
-        ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        );
         background-size: 40px;
         position: absolute;
         top: -1000px;
@@ -38,28 +38,34 @@
         transform: rotate(45deg);
         z-index: -1;
       }
+      
+      .header {
+        position: sticky;
+        top: 0;
+        z-index: 1000; /* Ensure it stays above other content */
+      }
 
       body {
-        background-image: url('icons/IntranetBackground_V8.png'); /* Replace with the path to your image */
-        background-size: cover; /* Or use `100% 100%` */
+        background-image: url('icons/IntranetBackground_V8.png');
+        background-size: cover;
         background-repeat: no-repeat;
-        background-attachment: fixed; /* Optional: Keeps the background fixed during scroll */
-        background-position: center center; /* Center the background image */
+        background-attachment: fixed;
+        background-position: center center;
         margin: 0;
         padding: 0;
-        font-family: 'EB Garamond', serif; /* Example font */
+        font-family: 'EB Garamond', serif;
       }
       #sidebar {
-        background-color: #002060; /* Background color */
-        color: white; /* Text color */
-        height: 100vh; /* Set the sidebar height to 100% of the viewport height */
+        background-color: #002060;
+        color: black;
+        height: 100vh;
         position: sticky;
         top: 0;
         overflow-y: auto;
       }
 
       .sidebar .nav-link {
-        color: white; /* Text color for the links */
+        color: black; /* Text color for the links */
         background-color: #007bff;
         padding: 10px 15px;
         border-radius: 5px;
