@@ -42,6 +42,19 @@
         animation: worldMapScroll 360s infinite linear; /* Animation for world map */
       }
 
+      .nightlights_background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 200%;
+        height: 100%;
+        background-image: url('icons/IntranetBackground_WorldMapLights.png'), url('icons/IntranetBackground_WorldMapLights.png');
+        background-size: 50% 100%;
+        background-repeat: repeat-x;
+        z-index: -1; /* Behind everything else */
+        animation: worldMapScroll 360s infinite linear; /* Animation for world map */
+      }
+      
       .day-and-night-background {
         position: fixed;
         top: 0;
@@ -317,6 +330,7 @@
   <body>
     <div class="world-map-background"></div>
     <div class="day-and-night-background"></div>
+    <div class="nightlights_background"></div>
     <div class="content">
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark header" style="background-color: #002060;">
