@@ -112,7 +112,7 @@
       .animated-button:hover {
         box-shadow: 0 0 0 5px #00D6E360;
         color: #ffffff;
-	background-color: #778a8f;
+        background-color: #778a8f;
       }
     
       .animated-button:active {
@@ -204,8 +204,8 @@
       }
 
       .arrow {
-	width: 24px;  /* Adjust the width of the arrow */
-	height: 24px; /* Adjust the height of the arrow */
+      	width: 24px;  /* Adjust the width of the arrow */
+      	height: 24px; /* Adjust the height of the arrow */
         transform: translateX(8px);  /* Static position of the arrow */
       }
       
@@ -213,6 +213,12 @@
         fill: rgb(19, 19, 19);
       }
       
+      .button hover {
+        box-shadow: 0 0 0 5px #00D6E360;
+        color: #ffffff;
+        background-color: #778a8f;
+      }
+        
       .button:hover .arrow {
         animation: slide-in-left 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
       }
@@ -220,7 +226,7 @@
       @keyframes slide-in-left {
         0% {
           transform: translateX(0px);
-          opacity: 0;
+          opacity: 1;
         }
       
         100% {
