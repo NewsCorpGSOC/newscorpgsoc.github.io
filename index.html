@@ -38,8 +38,21 @@
         background-image: url('icons/IntranetBackground_WorldMap2.png'), url('icons/IntranetBackground_WorldMap2.png');
         background-size: 50% 100%;
         background-repeat: repeat-x;
-        z-index: -2; /* Behind everything else */
+        z-index: -3; /* Behind everything else */
         animation: worldMapScroll 360s infinite linear; /* Animation for world map */
+      }
+
+      .day-and-night-background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 200%;
+        height: 100%;
+        background-image: url('icons/IntranetBackground_DayAndNight.png'), url('icons/IntranetBackground_DayAndNight.png');
+        background-size: 50% 100%;
+        background-repeat: repeat-x;
+        z-index: -1; /* Behind everything else */
+        animation: DayandNightScroll 70s infinite linear; /* Animation for world map */
       }
 
       .content {
@@ -59,8 +72,8 @@
         background-image: url('icons/IntranetBackground_CloudCover.png'), url('icons/IntranetBackground_CloudCover.png');
         background-size: 50% 100%;
         background-repeat: repeat-x;
-        z-index: -1; /* Behind content */
-        opacity: 0.7; /* Adjust opacity for layer visibility */
+        z-index: -2; /* Behind content */
+        opacity: 0.5; /* Adjust opacity for layer visibility */
         animation: parallaxScroll 180s infinite linear; /* Adjust animation durations */
       }
 
@@ -70,6 +83,11 @@
       }
 
       @keyframes worldMapScroll {
+        from { transform: translateX(0); }
+        to { transform: translateX(-50%); } /* Adjust background-position percentage for desired effect */
+      }
+
+      @keyframes DayandNightScroll {
         from { transform: translateX(0); }
         to { transform: translateX(-50%); } /* Adjust background-position percentage for desired effect */
       }
@@ -298,6 +316,7 @@
   </head>
   <body>
     <div class="world-map-background"></div>
+    <div class="day-and-night-background"></div>
     <div class="content">
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark header" style="background-color: #002060;">
