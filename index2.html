@@ -41,7 +41,7 @@
         color: black;
         height: 100vh;
         position: sticky;
-        width: 400px;
+        width: 350px;
         top: 0;
         overflow-y: auto;
       }
@@ -204,6 +204,8 @@
       }
 
       .arrow {
+	width: 24px;  /* Adjust the width of the arrow */
+	height: 24px; /* Adjust the height of the arrow */
         transform: translateX(8px);  /* Static position of the arrow */
       }
       
@@ -217,12 +219,12 @@
       
       @keyframes slide-in-left {
         0% {
-          transform: translateX(-8px);
+          transform: translateX(0px);
           opacity: 0;
         }
       
         100% {
-          transform: translateX(8px);
+          transform: translateX(24px);
           opacity: 1;
         }
       }
