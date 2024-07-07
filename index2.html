@@ -40,6 +40,8 @@
         position: sticky;
         top: 0;
         overflow-y: auto;
+        width: 250px; /* Adjust the width of the sidebar */
+        transition: width 0.3s ease; /* Optional: Add a transition for smoother resizing */
       }
 
       .sidebar .nav-link {
@@ -61,9 +63,9 @@
         box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
       }
 
-      @media screen and (max-width: 250px) {
+      @media screen and (max-width: 550px) {
         #sidebar {
-          min-width: 50%; /* Full width for smaller screens */
+          min-width: 100%; /* Full width for smaller screens */
         }
       }
       /* Margin for Buttons CSS */
