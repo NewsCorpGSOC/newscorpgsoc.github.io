@@ -212,26 +212,15 @@
       
       .arrow path {
         fill: rgb(19, 19, 19);
+        transition: transform 0.3s ease; /* Add transition for smooth scaling */
       }
       
-      .text hover {
+      .button:hover .text {
         background-color: #778a8f;
       }
         
       .button:hover .arrow {
-        animation: slide-in-left 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-      }
-      
-      @keyframes slide-in-left {
-        0% {
-          transform: translateX(0px);
-          opacity: 1;
-        }
-      
-        100% {
-          transform: translateX(24px);
-          opacity: 1;
-        }
+        transform: scale(1.3); /* Scale up by 30% on hover */
       }
       
       .button:active {
