@@ -35,10 +35,9 @@
         left: 0;
         width: 200%;
         height: 100%;
-        background-image: url('icons/IntranetBackground_WorldMap2.png');
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
+        background-image: url('icons/IntranetBackground_WorldMap.png'), url('icons/IntranetBackground_WorldMap.png');
+        background-size: 50% 100%;
+        background-repeat: repeat-x;
         z-index: -2; /* Behind everything else */
         animation: worldMapScroll 360s infinite linear; /* Animation for world map */
       }
@@ -57,9 +56,9 @@
         left: 0;
         width: 200%;
         height: 100%;
-        background-image: url('icons/IntranetBackground_CloudCover.png');
-        background-size: cover;
-        background-position: center;
+        background-image: url('icons/IntranetBackground_CloudCover.png'), url('icons/IntranetBackground_CloudCover.png');
+        background-size: 50% 100%;
+        background-repeat: repeat-x;
         z-index: -1; /* Behind content */
         opacity: 0.7; /* Adjust opacity for layer visibility */
         animation: parallaxScroll 90s infinite linear; /* Adjust animation durations */
