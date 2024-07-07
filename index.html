@@ -31,6 +31,7 @@
         padding: 0;
         font-family: 'EB Garamond', serif;
         color: white;
+        animation: worldMapScroll 360s infinite linear; /* Animation for world map */
       }
 
       .content {
@@ -58,6 +59,11 @@
       @keyframes parallaxScroll {
         from { transform: translateX(0); }
         to { transform: translateX(-50%); } /* Adjust translateY percentage for desired effect */
+      }
+
+      @keyframes worldMapScroll {
+        from { background-position: 0 center; }
+        to { background-position: 100% center; } /* Adjust background-position percentage for desired effect */
       }
       
       #sidebar {
