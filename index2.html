@@ -12,25 +12,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <style>
       /* Custom CSS for the sidebar */
-      .header::before {
-			  content: "";
-			  display: block;
-			  background: linear-gradient(
-			    90deg,
-			    #002060 30%,
-			    transparent 30%,
-			    transparent 75%,
-			    #1e5799 75%
-			  ); /* Your gradient styles */
-			  background-size: 40px;
-			  position: absolute;
-			  top: 100%; /* Position it just below the header */
-			  left: calc(50% + 1rem); /* Adjust based on sidebar width and padding */
-			  width: calc(50% - 1rem); /* Adjust based on sidebar width and padding */
-			  height: 10px; /* Adjust as needed */
-			  transform: rotate(45deg);
-			  z-index: -1;
-			}
 
       .header {
         border-bottom: 5px solid #333;
@@ -38,6 +19,8 @@
         position: sticky;
         top: 0;
         z-index: 1000; /* Ensure it stays above other content */
+				width: calc(100% - 250px); /* Adjust according to your sidebar width */
+    		margin-left: 250px; /* Set to match sidebar width */
       }
 
       body {
@@ -60,8 +43,8 @@
         position: sticky;
         top: 0;
         overflow-y: auto;
-        width: 150px; /* Adjust the width of the sidebar */
-        transition: width 0.3s ease; /* Optional: Add a transition for smoother resizing */
+        width: 250px; /* Adjust the width of the sidebar */
+        float: left;
       }
 
       .sidebar .nav-link {
