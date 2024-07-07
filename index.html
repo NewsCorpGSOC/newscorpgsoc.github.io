@@ -51,7 +51,7 @@
 
       .content::before {
         content: '';
-        position: absolute;
+        position: fixed;
         top: 0;
         left: 0;
         width: 200%;
@@ -61,17 +61,17 @@
         background-repeat: repeat-x;
         z-index: -1; /* Behind content */
         opacity: 0.7; /* Adjust opacity for layer visibility */
-        animation: parallaxScroll 90s infinite linear; /* Adjust animation durations */
+        animation: parallaxScroll 180s infinite linear; /* Adjust animation durations */
       }
 
       @keyframes parallaxScroll {
         from { transform: translateX(0); }
-        to { transform: translateX(-100%); } /* Adjust translateY percentage for desired effect */
+        to { transform: translateX(-50%); } /* Adjust translateY percentage for desired effect */
       }
 
       @keyframes worldMapScroll {
         from { transform: translateX(0); }
-        to { transform: translateX(-100%); } /* Adjust background-position percentage for desired effect */
+        to { transform: translateX(-50%); } /* Adjust background-position percentage for desired effect */
       }
       
       #sidebar {
@@ -370,7 +370,7 @@
 
         <!-- Main Content -->
         <main class="col-12 col-md-8 col-lg-10 px-md-4" style="padding-left: 20px;">
-          <div class="content">
+          <div class="main-content">
             <h1>Welcome to the GSOC Tool Suite Page! 🚀</h1>
             <p>This webpage serves as a central repository for accessing the tools and resources you need for the GSOC. You'll find everything you need right here.</p>
             <h2>GSOC: DataHub Links and Tools</h2>
