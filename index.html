@@ -31,14 +31,13 @@
         padding: 0;
         font-family: 'EB Garamond', serif;
         color: white;
-        overflow-y: auto;
       }
 
       .content {
-        height: 2000px; /* Height for demonstration */
-        padding: 20px;
+        position: relative;
         transform: translate3d(0, 0, 0); /* Ensures hardware acceleration for smoother animation */
-        overflow-y: scroll; /* Enables scrolling for content */
+        overflow: hidden;
+        height: 100vh;
       }
 
       .content::before {
@@ -47,13 +46,18 @@
         top: 0;
         left: 0;
         width: 100%;
-        height: 100%;
+        height: 200%;
         background-image: url('icons/IntranetBackgroundLayer2.png');
         background-size: cover;
         background-position: center;
         z-index: -1; /* Behind content */
         opacity: 0.7; /* Adjust opacity for layer visibility */
-        transform: translate3d(0, 0, 0);
+        animation: parallaxScroll 10s infinite linear; /* Adjust animation duration and timing */
+      }
+
+      @keyframes parallaxScroll {
+        from { transform: translateY(0); }
+        to { transform: translateY(-50%); } /* Adjust translateY percentage for desired effect */
       }
       
       #sidebar {
