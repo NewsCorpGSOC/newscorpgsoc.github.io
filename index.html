@@ -52,7 +52,7 @@
         background-size: 50% 100%;
         background-repeat: repeat-x;
         z-index: -1; /* Behind everything else */
-        animation: worldMapScroll 360s infinite linear; /* Animation for world map */
+        animation: worldMapLightsScroll 360s infinite linear; /* Animation for world map */
       }
       
       .day-and-night-background {
@@ -103,6 +103,11 @@
       @keyframes DayandNightScroll {
         from { transform: translateX(0); }
         to { transform: translateX(-50%); } /* Adjust background-position percentage for desired effect */
+      }
+
+      @keyframes worldMapLightsScroll {
+        from { transform: translateX(0); }
+        to { transform: translateX(-50%); }
       }
       
       #sidebar {
