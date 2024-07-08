@@ -4,6 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login</title>
+  <script>
+    function checkPassword() {
+      var password = document.getElementById('password').value;
+      var correctPassword = 'GSOCIntranet2024'; // Replace with your actual password
+
+      if (password === correctPassword) {
+        sessionStorage.setItem('loggedIn', 'true');
+        window.location.href = 'index.html'; // Redirect to the main page after login
+      } else {
+        alert('Incorrect password. Please try again.');
+      }
+    }
+  </script>
   <style>
     body {
       display: flex;
@@ -44,23 +57,11 @@
   </style>
 </head>
 <body>
-  <div class="login-container">
-    <h2>Enter Password to Access</h2>
-    <input type="password" id="password" placeholder="Password">
-    <button onclick="checkPassword()">Login</button>
-    <p id="error-message" style="color: red; display: none;">Incorrect password. Please try again.</p>
-  </div>
-
-  <script>
-    function checkPassword() {
-      var password = document.getElementById('password').value;
-      var correctPassword = 'GSOCIntranet2024!'; // Replace 'yourpassword' with your actual password
-      if (password === correctPassword) {
-        window.location.href = 'index.html'; // Replace 'index.html' with the actual page to navigate to after login
-      } else {
-        document.getElementById('error-message').style.display = 'block';
-      }
-    }
-  </script>
+  <h1>Login</h1>
+  <form onsubmit="event.preventDefault(); checkPassword();">
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+    <button type="submit">Login</button>
+  </form>
 </body>
 </html>
