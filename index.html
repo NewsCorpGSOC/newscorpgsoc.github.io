@@ -27,10 +27,11 @@
       }
 
       .primary {
-        width: 1000px; /* Adjust width as needed */
+        width: 100%; /* Adjust width as needed */
         max-width: 1200px; /* Example: restrict maximum width */
         padding-left: 20px; /* Maintain left padding */
         padding-right: 20px; /* Maintain right padding */
+        box-sizing: border-box;
       }
       
       .main-content {
@@ -47,6 +48,12 @@
       .main-content a:hover {
         color: ##02eefa;
         text-decoration: underline; /* Optional: Add underline on hover */
+      }
+      
+      @media (max-width: 768px) {
+        .primary {
+          padding: 10px; /* Adjust padding for smaller screens */
+        }
       }
 /*---------------------------------- SIDEBAR ----------------------------------*/      
       #sidebar {
