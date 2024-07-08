@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🌐 NewsCorp GSOC Tools Suite</title>
+    <title>🌐 News Corp GSOC Intranet</title>
     <!-- Include Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&display=swap" rel="stylesheet">
@@ -11,39 +11,331 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <style>
-      /* Custom CSS for the sidebar */
-      #sidebar {
-        background-color: #0a3376ff; /* Background color */
-        color: white; /* Text color */
-        height: 100vh; /* Set the sidebar height to 100% of the viewport height */
+      .header {
+        border-bottom: 5px solid #333;
+        padding-bottom: 10px;
         position: sticky;
         top: 0;
+        z-index: 1000; /* Ensure it stays above other content */
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: 'EB Garamond', serif;
+        color: white;
+      }
+
+      .primary {
+        width: 100%; /* Adjust width as needed */
+        max-width: 1000px; /* Example: restrict maximum width */
+        padding-left: 20px; /* Maintain left padding */
+        padding-right: 20px; /* Maintain right padding */
+        box-sizing: border-box;
+      }
+      
+      .main-content {
+        padding-left: 20px; /* Adjust padding to maintain readability */
+        position: relative;
+        overflow-x: hidden;
+      }
+      
+      .main-content a {
+        color: #00d6e3; /* Change this to your desired color */
+        text-decoration: none; /* Optional: Removes underline from links */
+      }
+      
+      .main-content a:hover {
+        color: ##02eefa;
+        text-decoration: underline; /* Optional: Add underline on hover */
+      }
+      
+      @media (max-width: 768px) {
+        .primary {
+          padding: 10px; /* Adjust padding for smaller screens */
+        }
+      }
+/*---------------------------------- SIDEBAR ----------------------------------*/      
+      #sidebar {
+        border-right: 5px solid #333;
+        padding-top: 10px;
+        background-color: #002060;
+        color: black;
+        height: 100vh;
+        width: 350px;
+        top: 0;
+	left: 0;
+	bottom: 0;
         overflow-y: auto;
       }
 
-      .sidebar .nav-link {
-        color: white; /* Text color for the links */
+      .nav-link {
+        color: black; /* Text color for the links */
         background-color: #007bff;
         padding: 10px 15px;
         border-radius: 5px;
-        margin-bottom: 10px;
+        margin-bottom: 15px;
         text-align: center;
-        display: inline-block;
+        display: block;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         font-family: 'EB Garamond', serif;
         font-weight: bold;
       }
 
-      .sidebar .nav-link:hover {
+      .nav-link:hover {
         background-color: #0056b3;
         text-decoration: none;
         box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
       }
+/*---------------------------------- BACKGROUND IMAGES ----------------------------------*/
+      .world-map-background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 5570px;
+        height: 1492px;
+        background-image: url('icons/IntranetBackground_WorldMap2.png'), url('icons/IntranetBackground_WorldMap2.png');
+        background-size: 50% 100%;
+        background-repeat: repeat-x;
+        z-index: -4; /* Behind everything else */
+        animation: worldMapScroll 360s infinite linear; /* Animation for world map */
+      }
 
-      @media screen and (max-width: 768px) {
-        #sidebar {
-          min-width: 100%; /* Full width for smaller screens */
+      .nightlights_background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 5570px;
+        height: 1492px;
+        background-image: url('icons/IntranetBackground_WorldMapLights.png'), url('icons/IntranetBackground_WorldMapLights.png');
+        background-size: 50% 100%;
+        background-repeat: repeat-x;
+        z-index: -1; /* Behind everything else */
+        animation: worldMapLightsScroll 360s infinite linear; /* Animation for world map */
+      }
+      
+      .day-and-night-background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 5570px;
+        height: 1492px;
+        background-image: url('icons/IntranetBackground_DayAndNight.png'), url('icons/IntranetBackground_DayAndNight.png');
+        background-size: 50% 100%;
+        background-repeat: repeat-x;
+        z-index: -2; /* Behind everything else */
+        animation: DayandNightScroll 70s infinite linear; /* Animation for world map */
+      }
+
+      .content {
+        position: relative;
+        overflow-x: hidden;
+        padding: 0;
+        margin: 0;
+      }
+
+      .content::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 3660px;
+        height: 1492px;
+        background-image: url('icons/IntranetBackground_CloudCover.png'), url('icons/IntranetBackground_CloudCover.png');
+        background-size: 50% 100%;
+        background-repeat: repeat-x;
+        z-index: -3; /* Behind content */
+        opacity: 0.5; /* Adjust opacity for layer visibility */
+        animation: parallaxScroll 180s infinite linear; /* Adjust animation durations */
+      }
+
+      @keyframes parallaxScroll {
+        from { transform: translateX(0); }
+        to { transform: translateX(-50%); } /* Adjust translateY percentage for desired effect */
+      }
+
+      @keyframes worldMapScroll {
+        from { transform: translateX(0); }
+        to { transform: translateX(-50%); } /* Adjust background-position percentage for desired effect */
+      }
+
+      @keyframes DayandNightScroll {
+        from { transform: translateX(0); }
+        to { transform: translateX(-50%); } /* Adjust background-position percentage for desired effect */
+      }
+
+      @keyframes worldMapLightsScroll {
+        from { transform: translateX(0); }
+        to { transform: translateX(-50%); }
+      }
+/*---------------------------------- BUTTONS ----------------------------------*/
+      /* Margin for Buttons CSS */
+      .nav-item {
+        margin-bottom: 5px; /* Adjust the value to set the desired space */
+        margin-right: 5px;
+        margin-left: 5px;
+        margin-top: 5px;
+      }
+
+      /* Navigation Buttons CSS */
+      .animated-button {
+        position: relative;
+        display: inline-block;
+        padding: 12px 24px;
+        border: none;
+        font-size: 16px;
+        background-color: #404040;
+        border-radius: 100px;
+        font-weight: 600;
+        color: #ffffff40;
+        box-shadow: 0 0 0 2px #ffffff20;
+        cursor: pointer;
+        overflow: hidden;
+        transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+        text-decoration: none; /* Ensure it behaves like a link */
+      }
+    
+      .animated-button span:last-child {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 20px;
+        height: 20px;
+        background-color: #00D6E3;
+        border-radius: 50%;
+        opacity: 0;
+        transition: all 0.8s cubic-bezier(0.23, 1, 0.320, 1);
+      }
+    
+      .animated-button span:first-child {
+        position: relative;
+        z-index: 1;
+      }
+    
+      .animated-button:hover {
+        box-shadow: 0 0 0 5px #00D6E360;
+        color: #ffffff;
+        background-color: #778a8f;
+      }
+    
+      .animated-button:active {
+        transform: scale(0.95); /* Correct the typo from 'scale' to 'transform' */
+      }
+    
+      .animated-button:hover span:last-child {
+        width: 150px;
+        height: 150px;
+        opacity: 1;
+      }
+
+      /* Navigation Buttons CSS Button 84*/
+      .button-84 {
+        align-items: center;
+        background-color: initial;
+        background-image: linear-gradient(#00D6E3, #62888a);
+        border-radius: 8px;
+        border-width: 0;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, .1), 0 3px 6px rgba(0, 0, 0, .05);
+        box-sizing: border-box;
+        color: white;
+        cursor: pointer;
+        display: inline-flex;
+        flex-direction: column;
+        font-family: 'EB Garamond', serif;
+        font-weight: bold;
+        font-size: 18px;
+        height: 52px;
+        justify-content: center;
+        line-height: 1;
+        margin: 0;
+        outline: none;
+        overflow: hidden;
+        padding: 15px 15px 15px 15px;
+        text-align: center;
+        text-decoration: none;
+        transform: translate3d(0, 0, 0);
+        transition: all 150ms;
+        vertical-align: baseline;
+        white-space: nowrap;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+      }
+    
+      .button-84:hover {
+        box-shadow: rgba(0, 1, 0, .2) 0 2px 8px;
+        opacity: .85;
+      }
+      
+      .button-84:active {
+        outline: 0;
+      }
+      
+      .button-84:focus {
+        box-shadow: rgba(0, 0, 0, .5) 0 0 0 3px;
+      }
+      
+      @media (max-width: 420px) {
+        .button-84 {
+          height: 48px;
         }
+      }
+
+      .button {
+        width: 300px;  /* Increased width */
+        height: 50px;  /* Increased height */
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 12px;
+        cursor: pointer;
+        border: 3px solid #00d6e3;
+        background-color: #00d6e3;
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.137);
+      }
+      
+      .text {
+        width: 80%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #404040;
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+	text-decoration: none; /* Ensure it behaves like a link */
+	transition: background-color 0.3s ease; /* Add transition for smooth color change */
+      }
+
+      .arrow {
+      	width: 24px;  /* Adjust the width of the arrow */
+      	height: 24px; /* Adjust the height of the arrow */
+        transform: translateX(8px);  /* Static position of the arrow */
+      }
+      
+      .arrow path {
+        fill: rgb(19, 19, 19);
+        transition: transform 0.3s ease; /* Add transition for smooth scaling */
+      }
+      
+      .button:hover .text {
+        background-color: #778a8f;
+      }
+        
+      .button:hover .arrow {
+        transform: translateX(6px) scale(1.3); /* Scale up by 30% on hover */
+	transition: transform 0.3s ease; /* Add transition for smooth scaling */
+      }
+      
+      .button:active {
+        transform: scale(0.97);
+      }
+/*---------------------------------- FOOTER ----------------------------------*/      
+			footer {
+        border-top: 5px solid #333;
+        padding-top: 10px;
       }
     </style>
     <script>
@@ -69,8 +361,12 @@
     </script>
   </head>
   <body>
+    <div class="world-map-background"></div>
+    <div class="day-and-night-background"></div>
+    <div class="nightlights_background"></div>
+    <div class="content">
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #0a3376ff;">
+    <nav class="navbar navbar-expand-lg navbar-dark header" style="background-color: #002060;">
       <!-- Add your logo image here -->
       <a class="navbar-brand" href="index.html">
         <img src="icons/NewsCorpIntranetLogo.png" alt="Your Logo" width="200" class="d-inline-block align-top">
@@ -81,30 +377,16 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="page1.html" style="color: black; background-color: #00D6E3; padding: 10px 15px; border-radius: 5px; margin-right: 10px; text-align: center; display: inline-block; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); font-family: 'EB Garamond', serif; font-weight: bold;" 
-               onmouseover="this.style.backgroundColor='#00B5C1'; this.style.textDecoration='none'; this.style.boxShadow='0 8px 12px rgba(0, 0, 0, 0.2)';" 
-               onmouseout="this.style.backgroundColor='#00D6E3'; this.style.boxShadow='0 4px 6px rgba(0, 0, 0, 0.1)';">
-              GSOC: Phone Log Form
-            </a>
+            <a href="page1.html" class="animated-button">GSOC Phone Log Form<span></span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="page2.html" style="color: black; background-color: #00D6E3; padding: 10px 15px; border-radius: 5px; margin-right: 10px; text-align: center; display: inline-block; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); font-family: 'EB Garamond', serif; font-weight: bold;" 
-               onmouseover="this.style.backgroundColor='#00B5C1'; this.style.textDecoration='none'; this.style.boxShadow='0 8px 12px rgba(0, 0, 0, 0.2)';" 
-               onmouseout="this.style.backgroundColor='#00D6E3'; this.style.boxShadow='0 4px 6px rgba(0, 0, 0, 0.1)';">
-              News UK: Trip Intake Form
-            </a>
+            <a href="page2.html" class="animated-button">GSOC Phone Log Form<span></span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="page3.html" style="color: black; background-color: #00D6E3; padding: 10px 15px; border-radius: 5px; margin-right: 10px; text-align: center; display: inline-block; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); font-family: 'EB Garamond', serif; font-weight: bold;" 
-               onmouseover="this.style.backgroundColor='#00B5C1'; this.style.textDecoration='none'; this.style.boxShadow='0 8px 12px rgba(0, 0, 0, 0.2)';" 
-               onmouseout="this.style.backgroundColor='#00D6E3'; this.style.boxShadow='0 4px 6px rgba(0, 0, 0, 0.1)';">
-              GSOC: Intel Metrics Form
-            </a>
+            <a href="page3.html" class="animated-button">GSOC Phone Log Form<span></span></a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" aria-haspopup="true" aria-expanded="false" style="color: black; background-color: #00D6E3; padding: 10px 15px; border-radius: 5px; margin-right: 10px; text-align: center; display: inline-block; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); font-family: 'EB Garamond', serif; font-weight: bold;" 
-               onmouseover="this.style.backgroundColor='#00B5C1'; this.style.textDecoration='none'; this.style.boxShadow='0 8px 12px rgba(0, 0, 0, 0.2)';" 
-               onmouseout="this.style.backgroundColor='#00D6E3'; this.style.boxShadow='0 4px 6px rgba(0, 0, 0, 0.1)';">
+            <a class="animated-button dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               GSOC SOPs
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -120,45 +402,41 @@
     <div class="container-fluid">
       <div class="row">
         <!-- Sidebar -->
-        <div class="col-12 col-md-4 col-lg-2 sidebar" id="sidebar">
+        <div class="sidebar" id="sidebar">
           <!-- Sidebar content -->
           <nav class="d-flex flex-column">
             <ul class="nav flex-column">
               <li class="nav-item">
-                        <a class="nav-link" href="mena-map.html" target="_blank" style="color: black; background-color: #00D6E3; padding: 10px 15px; border-radius: 5px; margin-bottom: 10px; text-align: center; display: inline-block; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); font-family: 'EB Garamond', serif; font-weight: bold;" 
-                           onmouseover="this.style.backgroundColor='#00B5C1'; this.style.textDecoration='none'; this.style.boxShadow='0 8px 12px rgba(0, 0, 0, 0.2)';" 
-                           onmouseout="this.style.backgroundColor='#00D6E3'; this.style.boxShadow='0 4px 6px rgba(0, 0, 0, 0.1)';">
-                            MENA Map
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://docs.google.com/spreadsheets/d/1szW9dkl5YuBmwLu2U21dl-GTlbVVepuDX58WWhsvMDA/edit#gid=0" target="_blank" style="color: black; background-color: #00D6E3; padding: 10px 15px; border-radius: 5px; margin-bottom: 10px; text-align: center; display: inline-block; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); font-family: 'EB Garamond', serif; font-weight: bold;" 
-                           onmouseover="this.style.backgroundColor='#00B5C1'; this.style.textDecoration='none'; this.style.boxShadow='0 8px 12px rgba(0, 0, 0, 0.2)';" 
-                           onmouseout="this.style.backgroundColor='#00D6E3'; this.style.boxShadow='0 4px 6px rgba(0, 0, 0, 0.1)';">
-                            UKR NC Personnel
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://docs.google.com/spreadsheets/d/1u8ybGZnVho6Q_C1a7tSNJUaKTn9gRTbK5PnZfABWV1o/edit#gid=1687500248" target="_blank" style="color: black; background-color: #00D6E3; padding: 10px 15px; border-radius: 5px; margin-bottom: 10px; text-align: center; display: inline-block; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); font-family: 'EB Garamond', serif; font-weight: bold;" 
-                           onmouseover="this.style.backgroundColor='#00B5C1'; this.style.textDecoration='none'; this.style.boxShadow='0 8px 12px rgba(0, 0, 0, 0.2)';" 
-                           onmouseout="this.style.backgroundColor='#00D6E3'; this.style.boxShadow='0 4px 6px rgba(0, 0, 0, 0.1)';">
-                            WSJ Op Order
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://docs.google.com/spreadsheets/d/1fUKN-duu2alxozyCUNMCS6Xoqtcl9qASSQ5EkhXZ9aQ/edit#gid=373092647" target="_blank" style="color: black; background-color: #00D6E3; padding: 10px 15px; border-radius: 5px; margin-bottom: 10px; text-align: center; display: inline-block; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); font-family: 'EB Garamond', serif; font-weight: bold;" 
-                           onmouseover="this.style.backgroundColor='#00B5C1'; this.style.textDecoration='none'; this.style.boxShadow='0 8px 12px rgba(0, 0, 0, 0.2)';" 
-                           onmouseout="this.style.backgroundColor='#00D6E3'; this.style.boxShadow='0 4px 6px rgba(0, 0, 0, 0.1)';">
-                            Check-Ins Action List
-                        </a>
-                    </li>
+                <a href="mena-map.html" class="button">
+                  <span class="text">MENA Map</span>
+                  <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#282828" d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM281 385c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l71-71L136 280c-13.3 0-24-10.7-24-24s10.7-24 24-24l182.1 0-71-71c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L393 239c9.4 9.4 9.4 24.6 0 33.9L281 385z"/></svg>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="https://docs.google.com/spreadsheets/d/1szW9dkl5YuBmwLu2U21dl-GTlbVVepuDX58WWhsvMDA/edit#gid=0" target="_blank" class="button">
+                  <span class="text">UKR NC Personnel</span>
+                  <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#282828" d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM281 385c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l71-71L136 280c-13.3 0-24-10.7-24-24s10.7-24 24-24l182.1 0-71-71c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L393 239c9.4 9.4 9.4 24.6 0 33.9L281 385z"/></svg>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="https://docs.google.com/spreadsheets/d/1u8ybGZnVho6Q_C1a7tSNJUaKTn9gRTbK5PnZfABWV1o/edit#gid=1687500248" target="_blank" class="button">
+                  <span class="text">WSJ Op Order</span>
+                  <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#282828" d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM281 385c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l71-71L136 280c-13.3 0-24-10.7-24-24s10.7-24 24-24l182.1 0-71-71c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L393 239c9.4 9.4 9.4 24.6 0 33.9L281 385z"/></svg>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="https://docs.google.com/spreadsheets/d/1fUKN-duu2alxozyCUNMCS6Xoqtcl9qASSQ5EkhXZ9aQ/edit#gid=373092647" target="_blank" class="button">
+                  <span class="text">Check-Ins Action List</span>
+                  <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#282828" d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM281 385c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l71-71L136 280c-13.3 0-24-10.7-24-24s10.7-24 24-24l182.1 0-71-71c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L393 239c9.4 9.4 9.4 24.6 0 33.9L281 385z"/></svg>
+                </a>
+              </li>
             </ul>
           </nav>
         </div>
 
         <!-- Main Content -->
-        <main class="col-12 col-md-8 col-lg-10 px-md-4" style="padding-left: 20px;">
-          <div class="mt-4">
+        <main class="primary">
+          <div class="main-content">
             <iframe width="1500" height="1000" frameborder="5" src="https://widgets.scribblemaps.com/sm/?d&dv&cv&z&gc&af&mc&lat=31.558837973&lng=42.139304319&vz=6&type=mbb_terrain&ti&s&width=1500&height=1500&id=GSOCMENREGIONALSECURITYBRIEF" style="border:5; max-width: 100%;" allowfullscreen allow="geolocation" loading="lazy"></iframe>
           </div>
         </main>
