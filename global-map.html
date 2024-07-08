@@ -11,17 +11,9 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <style>
-      @font-face {
-        font-family: 'Heebo';
-        src: url('fonts/Heebo.ttf') format('truetype');
-        font-weight: normal;
-        font-style: normal;
-      }
-
       .header {
         border-bottom: 5px solid #333;
         padding-bottom: 10px;
-        font-family: 'EB Garamond', serif;
         position: sticky;
         top: 0;
         z-index: 1000; /* Ensure it stays above other content */
@@ -30,27 +22,23 @@
       body {
         margin: 0;
         padding: 0;
+        font-family: 'EB Garamond', serif;
         color: white;
       }
 
       .primary {
         width: 100%; /* Adjust width as needed */
-        max-width: 1000px; /* Example: restrict maximum width */
+        max-width: 1500px; /* Example: restrict maximum width */
         padding-left: 20px; /* Maintain left padding */
         padding-right: 20px; /* Maintain right padding */
+	padding-top: 20px;
         box-sizing: border-box;
       }
       
       .main-content {
         padding-left: 20px; /* Adjust padding to maintain readability */
         position: relative;
-        font-family: 'Heebo', EB Garamond, serif;
         overflow-x: hidden;
-      }
-
-      h1, h2, h3 {
-        font-family: 'EB Garamond', serif;
-        font-weight: normal;
       }
       
       .main-content a {
@@ -74,7 +62,6 @@
         padding-top: 10px;
         background-color: #002060;
         color: black;
-	font-family: 'EB Garamond', serif;
         height: 100vh;
         width: 350px;
         top: 0;
