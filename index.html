@@ -79,8 +79,8 @@
         background-image: url('icons/IntranetBackground_WorldMap2.png');
         background-size: cover;
         background-repeat: repeat-x;
-        z-index: -4; /* Behind everything else */
-        animation: worldMapScroll 360s infinite linear; /* Animation for world map */
+        z-index: -4;
+        animation: worldMapScroll 360s infinite linear;
       }
 
       .nightlights_background {
@@ -92,8 +92,8 @@
         background-image: url('icons/IntranetBackground_WorldMapLights.png');
         background-size: cover;
         background-repeat: repeat-x;
-        z-index: -1; /* Behind everything else */
-        animation: worldMapLightsScroll 360s infinite linear; /* Animation for world map */
+        z-index: -1;
+        animation: worldMapLightsScroll 360s infinite linear;
       }
       
       .day-and-night-background {
@@ -105,8 +105,8 @@
         background-image: url('icons/IntranetBackground_DayAndNight.png');
         background-size: cover;
         background-repeat: repeat-x;
-        z-index: -2; /* Behind everything else */
-        animation: DayandNightScroll 70s infinite linear; /* Animation for world map */
+        z-index: -2;
+        animation: DayandNightScroll 70s infinite linear;
       }
 
       .content {
@@ -126,9 +126,9 @@
         background-image: url('icons/IntranetBackground_CloudCover.png');
         background-size: cover;
         background-repeat: repeat-x;
-        z-index: -3; /* Behind content */
-        opacity: 0.5; /* Adjust opacity for layer visibility */
-        animation: parallaxScroll 180s infinite linear; /* Adjust animation durations */
+        z-index: -3;
+        opacity: 0.5;
+        animation: parallaxScroll 180s infinite linear;
       }
 
       @keyframes parallaxScroll {
@@ -137,18 +137,18 @@
       }
       
       @keyframes worldMapScroll {
-        from { background-position: 0 0; }
-        to { background-position: 100% 0; } /* Adjust background-position for smooth scrolling */
+        from { transform: translateX(0); }
+        to { transform: translateX(-100%); } /* Adjust translateX percentage for desired effect */
       }
       
       @keyframes DayandNightScroll {
-        from { background-position: 0 0; }
-        to { background-position: 100% 0; } /* Adjust background-position for smooth scrolling */
+        from { transform: translateX(0); }
+        to { transform: translateX(-100%); } /* Adjust translateX percentage for desired effect */
       }
       
       @keyframes worldMapLightsScroll {
-        from { background-position: 0 0; }
-        to { background-position: 100% 0; } /* Adjust background-position for smooth scrolling */
+        from { transform: translateX(0); }
+        to { transform: translateX(-100%); } /* Adjust translateX percentage for desired effect */
       }
 /*---------------------------------- BUTTONS ----------------------------------*/
       /* Margin for Buttons CSS */
