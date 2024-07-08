@@ -74,39 +74,39 @@
         position: fixed;
         top: 0;
         left: 0;
-        width: 100%;
+        width: 200%;
         height: 100%;
-        background-image: url('icons/IntranetBackground_WorldMap2.png');
-        background-size: 100% auto;
+        background-image: url('icons/IntranetBackground_WorldMap2.png'), url('icons/IntranetBackground_WorldMap2.png');
+        background-size: 50% 100%;
         background-repeat: repeat-x;
-        z-index: -4;
-        animation: worldMapScroll 360s infinite linear;
+        z-index: -4; /* Behind everything else */
+        animation: worldMapScroll 360s infinite linear; /* Animation for world map */
       }
 
       .nightlights_background {
         position: fixed;
         top: 0;
         left: 0;
-        width: 100%;
+        width: 200%;
         height: 100%;
-        background-image: url('icons/IntranetBackground_WorldMapLights.png');
-        background-size: 100% auto;
+        background-image: url('icons/IntranetBackground_WorldMapLights.png'), url('icons/IntranetBackground_WorldMapLights.png');
+        background-size: 50% 100%;
         background-repeat: repeat-x;
-        z-index: -1;
-        animation: worldMapLightsScroll 360s infinite linear;
+        z-index: -1; /* Behind everything else */
+        animation: worldMapLightsScroll 360s infinite linear; /* Animation for world map */
       }
       
       .day-and-night-background {
         position: fixed;
         top: 0;
         left: 0;
-        width: 100%;
+        width: 200%;
         height: 100%;
-        background-image: url('icons/IntranetBackground_DayAndNight.png');
-        background-size: 100% auto;
+        background-image: url('icons/IntranetBackground_DayAndNight.png'), url('icons/IntranetBackground_DayAndNight.png');
+        background-size: 50% 100%;
         background-repeat: repeat-x;
-        z-index: -2;
-        animation: DayandNightScroll 70s infinite linear;
+        z-index: -2; /* Behind everything else */
+        animation: DayandNightScroll 70s infinite linear; /* Animation for world map */
       }
 
       .content {
@@ -121,34 +121,34 @@
         position: fixed;
         top: 0;
         left: 0;
-        width: 100%;
+        width: 200%;
         height: 100%;
-        background-image: url('icons/IntranetBackground_CloudCover.png');
-        background-size: 100% auto;
+        background-image: url('icons/IntranetBackground_CloudCover.png'), url('icons/IntranetBackground_CloudCover.png');
+        background-size: 50% 100%;
         background-repeat: repeat-x;
-        z-index: -3;
-        opacity: 0.5;
-        animation: parallaxScroll 180s infinite linear;
+        z-index: -3; /* Behind content */
+        opacity: 0.5; /* Adjust opacity for layer visibility */
+        animation: parallaxScroll 180s infinite linear; /* Adjust animation durations */
       }
 
       @keyframes parallaxScroll {
         from { transform: translateX(0); }
-        to { transform: translateX(-50%); } /* Adjust translateX percentage for desired effect */
+        to { transform: translateX(-50%); } /* Adjust translateY percentage for desired effect */
       }
-      
+
       @keyframes worldMapScroll {
         from { transform: translateX(0); }
-        to { transform: translateX(-100%); } /* Adjust translateX percentage for desired effect */
+        to { transform: translateX(50%); } /* Adjust background-position percentage for desired effect */
       }
-      
+
       @keyframes DayandNightScroll {
         from { transform: translateX(0); }
-        to { transform: translateX(-100%); } /* Adjust translateX percentage for desired effect */
+        to { transform: translateX(-50%); } /* Adjust background-position percentage for desired effect */
       }
-      
+
       @keyframes worldMapLightsScroll {
         from { transform: translateX(0); }
-        to { transform: translateX(-100%); } /* Adjust translateX percentage for desired effect */
+        to { transform: translateX(50%); }
       }
 /*---------------------------------- BUTTONS ----------------------------------*/
       /* Margin for Buttons CSS */
