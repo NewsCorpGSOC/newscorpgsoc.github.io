@@ -7,7 +7,7 @@
   <script>
     function checkPassword() {
       var password = document.getElementById('password').value;
-      var correctPassword = 'GSOCIntranet2024'; // Replace with your actual password
+      var correctPassword = 'GSOCIntranet2024'; // Your actual password
 
       if (password === correctPassword) {
         sessionStorage.setItem('loggedIn', 'true');
@@ -57,11 +57,13 @@
   </style>
 </head>
 <body>
-  <h1>Login</h1>
-  <form onsubmit="event.preventDefault(); checkPassword();">
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password" required>
-    <button type="submit">Login</button>
-  </form>
+  <div class="login-container">
+    <h2>Login</h2>
+    <form onsubmit="event.preventDefault(); checkPassword();">
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+      <button type="submit">Login</button>
+    </form>
+  </div>
 </body>
 </html>
