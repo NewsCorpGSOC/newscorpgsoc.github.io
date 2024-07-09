@@ -90,7 +90,7 @@
 /*---------------------------------- SIDEBAR ----------------------------------*/      
       #sidebar {
         border-right: 5px solid #333;
-	background: linear-gradient(to right, #404040, rgba(64, 64, 64, 0));
+	background: linear-gradient(to right, #193c80, rgba(64, 64, 64, 0));
         padding-top: 35px;
         background-color: #002060;
         color: black;
@@ -101,6 +101,17 @@
 	left: 0;
 	bottom: 0;
         overflow-y: auto;
+      }
+	    
+      #sidebar::after {
+        content: '';
+        position: absolute;
+        right: -30px;
+        left: 0;
+        height: 100%;
+        width: 30px; /* Adjust height for the desired thickness of the border */
+        background: linear-gradient(to bottom, #404040, rgba(64, 64, 64, 0));
+        /* Adjust the colors and positions as needed */
       }
 
       .nav-link {
