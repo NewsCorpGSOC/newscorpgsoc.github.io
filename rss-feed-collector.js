@@ -54,10 +54,6 @@ document.addEventListener('DOMContentLoaded', () => {
       source: 'CNN News'
     },
     {
-      url: 'https://feeds.washingtonpost.com/rss/world?itid=lk_inline_manual_35',
-      source: 'Washington Post'
-    },
-    {
       url: 'https://feeds.npr.org/1001/rss.xml',
       source: 'NPR News'
     },
