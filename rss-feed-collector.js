@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
       source: 'The Guardian'
     },
     {
-      url: 'https://www.aljazeera.com/xml/rss/all.xml',
+      url: 'https://rss.app/feeds/06uBeqUYyx9MnlJE.xml',
       source: 'Al Jazeera'
     },
     {
