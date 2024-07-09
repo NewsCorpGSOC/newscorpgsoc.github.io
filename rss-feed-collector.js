@@ -1,5 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const feedsContainer = document.getElementById('feeds');
+  const feedsContainer = document.getElementById('feeds-container');
+  const filterLastHourBtn = document.getElementById('filterLastHour');
+  const filterLast12HoursBtn = document.getElementById('filterLast12Hours');
+  const filterLastDayBtn = document.getElementById('filterLastDay');
+  const filterAllBtn = document.getElementById('filterAll');
+  let feedItems = []; // Array to store all feed items
 
   const rssFeeds = [
     {
@@ -29,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
   ];
 
   function fetchFeeds() {
-    const feedItems = [];
+    feedItems = []; // Clear existing feed items
     let fetchCount = 0;
 
     rssFeeds.forEach(feed => {
@@ -44,26 +49,21 @@ document.addEventListener('DOMContentLoaded', () => {
             const title = item.querySelector('title').textContent;
             const link = item.querySelector('link').textContent;
             const description = item.querySelector('description').textContent;
-            const pubDate = item.querySelector('pubDate').textContent;
-
-            const date = new Date(pubDate);
-            const options = { timeZone: 'America/Los_Angeles', hour12: true, weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
-            const formattedDate = new Intl.DateTimeFormat('en-US', options).format(date);
+            const pubDate = new Date(item.querySelector('pubDate').textContent);
 
             feedItems.push({
               title,
               link,
               description,
-              pubDate: date,
-              formattedDate,
+              pubDate,
               source: feed.source
             });
           });
 
           fetchCount++;
           if (fetchCount === rssFeeds.length) {
-            feedItems.sort((a, b) => b.pubDate - a.pubDate);
-            displayFeeds(feedItems);
+            feedItems.sort((a, b) => b.pubDate - a.pubDate); // Sort by newest first
+            displayFeeds();
           }
         })
         .catch(error => {
@@ -72,24 +72,74 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  function displayFeeds(feedItems) {
+  // Display feeds based on current filter
+  function displayFeeds() {
     feedsContainer.innerHTML = ''; // Clear previous content
-    feedItems.forEach(item => {
+    const filteredFeeds = applyFilter(); // Apply current filter
+    filteredFeeds.forEach(item => {
       const feedElement = document.createElement('div');
       feedElement.classList.add('feed');
       feedElement.innerHTML = `
         <h2><a href="${item.link}" target="_blank">${item.title}</a></h2>
         <p>${item.description}</p>
-        <p><small>Published on: ${item.formattedDate} (PST/PDT)</small></p>
+        <p><small>Published on: ${item.pubDate.toLocaleString('en-US', { timeZone: 'America/Los_Angeles', hour12: true, weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' })} (PST/PDT)</small></p>
         <p><strong>Source:</strong> ${item.source}</p>
       `;
       feedsContainer.appendChild(feedElement);
     });
   }
 
-  // Initial fetch on page load
-  fetchFeeds();
+  // Apply filter based on selected time range
+  function applyFilter() {
+    const now = new Date();
+    let filteredFeeds = [];
 
-  // Fetch feeds every minute
-  setInterval(fetchFeeds, 60000); // 60000 milliseconds = 1 minute
+    if (filterLastHourBtn.classList.contains('active')) {
+      filteredFeeds = feedItems.filter(item => now - item.pubDate <= 3600000); // Within last hour (3600000 ms)
+    } else if (filterLast12HoursBtn.classList.contains('active')) {
+      filteredFeeds = feedItems.filter(item => now - item.pubDate <= 43200000); // Within last 12 hours (43200000 ms)
+    } else if (filterLastDayBtn.classList.contains('active')) {
+      filteredFeeds = feedItems.filter(item => now - item.pubDate <= 86400000); // Within last day (86400000 ms)
+    } else {
+      filteredFeeds = [...feedItems]; // All feeds
+    }
+
+    return filteredFeeds;
+  }
+
+  // Event listeners for filter buttons
+  filterLastHourBtn.addEventListener('click', () => {
+    filterLastHourBtn.classList.add('active');
+    filterLast12HoursBtn.classList.remove('active');
+    filterLastDayBtn.classList.remove('active');
+    filterAllBtn.classList.remove('active');
+    displayFeeds();
+  });
+
+  filterLast12HoursBtn.addEventListener('click', () => {
+    filterLastHourBtn.classList.remove('active');
+    filterLast12HoursBtn.classList.add('active');
+    filterLastDayBtn.classList.remove('active');
+    filterAllBtn.classList.remove('active');
+    displayFeeds();
+  });
+
+  filterLastDayBtn.addEventListener('click', () => {
+    filterLastHourBtn.classList.remove('active');
+    filterLast12HoursBtn.classList.remove('active');
+    filterLastDayBtn.classList.add('active');
+    filterAllBtn.classList.remove('active');
+    displayFeeds();
+  });
+
+  filterAllBtn.addEventListener('click', () => {
+    filterLastHourBtn.classList.remove('active');
+    filterLast12HoursBtn.classList.remove('active');
+    filterLastDayBtn.classList.remove('active');
+    filterAllBtn.classList.add('active');
+    displayFeeds();
+  });
+
+  // Initial fetch and display on page load
+  fetchFeeds();
 });
