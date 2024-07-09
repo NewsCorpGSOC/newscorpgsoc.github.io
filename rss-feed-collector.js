@@ -38,10 +38,6 @@ document.addEventListener('DOMContentLoaded', () => {
       source: 'World Online'
     },
     {
-      url: 'http://rss.cnn.com/rss/edition_us.rss',
-      source: 'CNN US News'
-    },
-    {
       url: 'http://hosted.ap.org/lineups/WORLDHEADS-rss_2.0.xml',
       source: 'Associated Press'
     },
