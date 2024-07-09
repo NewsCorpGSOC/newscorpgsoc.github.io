@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const feedsContainer = document.getElementById('feeds-container');
+  const feedsContainer = document.getElementById('feeds'); // Updated to match HTML ID
   const filterLastHourBtn = document.getElementById('filterLastHour');
   const filterLast12HoursBtn = document.getElementById('filterLast12Hours');
   const filterLastDayBtn = document.getElementById('filterLastDay');
