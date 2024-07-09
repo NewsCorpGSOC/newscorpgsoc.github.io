@@ -30,10 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
       source: 'Al Jazeera - World'
     },
     {
-      url: 'https://www.globalissues.org/whatsnew/whatsnew.xml',
-      source: 'Global Issues'
-    },
-    {
       url: 'https://wol.com/feed/',
       source: 'World Online'
     },
