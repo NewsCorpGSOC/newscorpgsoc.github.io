@@ -499,12 +499,23 @@
           </nav>
         </div>
 
-        <div class="filter-bar">
-          <button id="filterLastHour">Last Hour</button>
-          <button id="filterLast12Hours">Last 12 Hours</button>
-          <button id="filterLastDay">Last Day</button>
-          <button id="filterAll">All</button>
-        </div>
+	<div class="filter-bar">
+	  <label for="timelineFilter">Timeline Filter:</label>
+	  <select id="timelineFilter">
+	    <option value="lastHour">Last Hour</option>
+	    <option value="last12Hours">Last 12 Hours</option>
+	    <option value="lastDay">Last Day</option>
+	    <option value="all">All</option>
+	  </select>
+	
+	  <label for="topicFilter">Topic Filter:</label>
+	  <select id="topicFilter">
+	    <option value="all">All Topics</option>
+	    <option value="Russia">Russia</option>
+	    <option value="Israel">Israel</option>
+	    <option value="Protests">Protests</option>
+	  </select>
+	</div>
 
         <div class="feed-container" id="feeds-container">
           <h1>RSS Feed Collector</h1>
