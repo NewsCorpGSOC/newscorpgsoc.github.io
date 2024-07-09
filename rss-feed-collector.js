@@ -50,10 +50,6 @@ document.addEventListener('DOMContentLoaded', () => {
       source: 'CNN US News'
     },
     {
-      url: 'http://feeds.reuters.com/Reuters/worldNews',
-      source: 'Reuters'
-    },
-    {
       url: 'http://hosted.ap.org/lineups/WORLDHEADS-rss_2.0.xml',
       source: 'Associated Press'
     },
@@ -68,14 +64,6 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'http://feeds.nbcnews.com/nbcnews/topstories',
       source: 'NBC News'
-    },
-    {
-      url: 'http://feeds.washingtonpost.com/rss/national',
-      source: 'The Washington Post National'
-    },
-    {
-      url: 'http://feeds.washingtonpost.com/rss/world',
-      source: 'The Washington Post World'
     },
   ];
 
