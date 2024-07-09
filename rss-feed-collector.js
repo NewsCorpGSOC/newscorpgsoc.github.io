@@ -16,12 +16,20 @@ document.addEventListener('DOMContentLoaded', () => {
       source: 'BBC News'
     },
     {
+      url: 'http://feeds.bbci.co.uk/news/world/rss.xml',
+      source: 'BBC News - World'
+    },
+    {
       url: 'https://www.theguardian.com/world/rss',
       source: 'The Guardian'
     },
     {
-      url: 'https://rss.app/feeds/06uBeqUYyx9MnlJE.xml',
-      source: 'Al Jazeera'
+      url: 'https://www.aljazeera.com/xml/rss/all.xml',
+      source: 'Al Jazeera - Latest'
+    },
+    {
+      url: 'https://www.aljazeera.com/xml/rss/world.xml',
+      source: 'Al Jazeera - World'
     },
     {
       url: 'https://www.globalissues.org/whatsnew/whatsnew.xml',
@@ -30,6 +38,46 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://wol.com/feed/',
       source: 'World Online'
+    },
+    {
+      url: 'http://rss.cnn.com/rss/cnn_topstories.rss',
+      source: 'CNN Top Stories'
+    },
+    {
+      url: 'http://rss.cnn.com/rss/edition_world.rss',
+      source: 'CNN World News'
+    },
+    {
+      url: 'http://rss.cnn.com/rss/edition_us.rss',
+      source: 'CNN US News'
+    },
+    {
+      url: 'http://feeds.reuters.com/Reuters/worldNews',
+      source: 'Reuters'
+    },
+    {
+      url: 'http://hosted.ap.org/lineups/WORLDHEADS-rss_2.0.xml',
+      source: 'Associated Press'
+    },
+    {
+      url: 'http://feeds.foxnews.com/foxnews/world',
+      source: 'Fox News'
+    },
+    {
+      url: 'http://feeds.foxnews.com/foxnews/latest',
+      source: 'Fox News Top Stories'
+    },
+    {
+      url: 'http://feeds.nbcnews.com/nbcnews/topstories',
+      source: 'NBC News'
+    },
+    {
+      url: 'http://feeds.washingtonpost.com/rss/national',
+      source: 'The Washington Post National'
+    },
+    {
+      url: 'http://feeds.washingtonpost.com/rss/world',
+      source: 'The Washington Post World'
     },
   ];
 
