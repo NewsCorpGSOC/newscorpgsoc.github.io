@@ -14,6 +14,18 @@ document.addEventListener('DOMContentLoaded', () => {
       url: 'https://www.theguardian.com/world/rss',
       source: 'The Guardian'
     }
+    {
+      url: 'https://www.aljazeera.com/xml/rss/all.xml',
+      source: 'Al Jazeera'
+    },
+    {
+      url: 'https://www.globalissues.org/whatsnew/whatsnew.xml',
+      source: 'Global Issues'
+    },
+    {
+      url: 'https://wol.com/feed/',
+      source: 'World Online'
+    },
   ];
 
   const feedItems = [];
