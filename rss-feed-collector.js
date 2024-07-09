@@ -38,14 +38,6 @@ document.addEventListener('DOMContentLoaded', () => {
       source: 'World Online'
     },
     {
-      url: 'http://rss.cnn.com/rss/cnn_topstories.rss',
-      source: 'CNN Top Stories'
-    },
-    {
-      url: 'http://rss.cnn.com/rss/edition_world.rss',
-      source: 'CNN World News'
-    },
-    {
       url: 'http://rss.cnn.com/rss/edition_us.rss',
       source: 'CNN US News'
     },
