@@ -25,18 +25,9 @@
         font-style: normal;
       }
 /*---------------------------------- HEADER ----------------------------------*/       
-      @keyframes shadow-slide {
-        0% {
-          box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.2), 0 0 0 10px rgba(255, 255, 255, 0.5);
-        }
-        100% {
-          box-shadow: 100px 0 0 5px rgba(0, 0, 0, 0.2), 100px 0 0 10px rgba(255, 255, 255, 0.5);
-        }
-      }
-      
       @keyframes slide {
         from { transform: translateX(0); }
-        to { transform: translateX(-50%); } /* Adjust translateY percentage for desired effect */
+        to { transform: translateX(-100%); } /* Adjust translateY percentage for desired effect */
       }
       .header {
         padding-bottom: 10px;
@@ -58,9 +49,8 @@
 	background-size: 100% 100%;
         animation: slide 5s linear infinite;
         box-shadow:
-          0 0 0 5px rgba(0, 0, 0, 0.2), /* First layer */
-          0 0 0 10px rgba(255, 255, 255, 0.5); /* Second layer */
-        animation: shadow-slide 5s linear infinite; /* Animation for box shadow slide */
+          0 0 0 3px rgba(0, 0, 0, 0.2), /* First layer */
+          0 0 0 6px rgba(255, 255, 255, 0.5); /* Second layer */
       }
 
       body {
