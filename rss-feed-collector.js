@@ -28,55 +28,68 @@ document.addEventListener('DOMContentLoaded', () => {
     },
   ];
 
-  const feedItems = [];
-  let fetchCount = 0;
+  function fetchFeeds() {
+    const feedItems = [];
+    let fetchCount = 0;
 
-  rssFeeds.forEach(feed => {
-    fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(feed.url)}`)
-      .then(response => response.json())
-      .then(data => {
-        const parser = new DOMParser();
-        const xmlDoc = parser.parseFromString(data.contents, 'text/xml');
-        const items = xmlDoc.querySelectorAll('item');
+    rssFeeds.forEach(feed => {
+      fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(feed.url)}`)
+        .then(response => response.json())
+        .then(data => {
+          const parser = new DOMParser();
+          const xmlDoc = parser.parseFromString(data.contents, 'text/xml');
+          const items = xmlDoc.querySelectorAll('item');
 
-        items.forEach(item => {
-          const title = item.querySelector('title').textContent;
-          const link = item.querySelector('link').textContent;
-          const description = item.querySelector('description').textContent;
-          const pubDate = item.querySelector('pubDate').textContent;
+          items.forEach(item => {
+            const title = item.querySelector('title').textContent;
+            const link = item.querySelector('link').textContent;
+            const description = item.querySelector('description').textContent;
+            const pubDate = item.querySelector('pubDate').textContent;
 
-          const date = new Date(pubDate);
-          const options = { timeZone: 'America/Los_Angeles', hour12: true, weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
-          const formattedDate = new Intl.DateTimeFormat('en-US', options).format(date);
+            const date = new Date(pubDate);
+            const options = { timeZone: 'America/Los_Angeles', hour12: true, weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
+            const formattedDate = new Intl.DateTimeFormat('en-US', options).format(date);
 
-          feedItems.push({
-            title,
-            link,
-            description,
-            pubDate: date,
-            formattedDate,
-            source: feed.source
+            feedItems.push({
+              title,
+              link,
+              description,
+              pubDate: date,
+              formattedDate,
+              source: feed.source
+            });
           });
+
+          fetchCount++;
+          if (fetchCount === rssFeeds.length) {
+            feedItems.sort((a, b) => b.pubDate - a.pubDate);
+            displayFeeds(feedItems);
+          }
+        })
+        .catch(error => {
+          console.error('Error fetching RSS feed:', error);
         });
+    });
+  }
 
-        fetchCount++;
-        if (fetchCount === rssFeeds.length) {
-          feedItems.sort((a, b) => b.pubDate - a.pubDate);
-          feedItems.forEach(item => {
-            const feedElement = document.createElement('div');
-            feedElement.classList.add('feed');
-            feedElement.innerHTML = `
-              <h2><a href="${item.link}" target="_blank">${item.title}</a></h2>
-              <p>${item.description}</p>
-              <p><small>Published on: ${item.formattedDate} (PST/PDT)</small></p>
-              <p><strong>Source:</strong> ${item.source}</p>
-            `;
-            feedsContainer.appendChild(feedElement);
-          });
-        }
-      })
-      .catch(error => {
-        console.error('Error fetching RSS feed:', error);
-      });
-  });
+  function displayFeeds(feedItems) {
+    feedsContainer.innerHTML = ''; // Clear previous content
+    feedItems.forEach(item => {
+      const feedElement = document.createElement('div');
+      feedElement.classList.add('feed');
+      feedElement.innerHTML = `
+        <h2><a href="${item.link}" target="_blank">${item.title}</a></h2>
+        <p>${item.description}</p>
+        <p><small>Published on: ${item.formattedDate} (PST/PDT)</small></p>
+        <p><strong>Source:</strong> ${item.source}</p>
+      `;
+      feedsContainer.appendChild(feedElement);
+    });
+  }
+
+  // Initial fetch on page load
+  fetchFeeds();
+
+  // Fetch feeds every minute
+  setInterval(fetchFeeds, 60000); // 60000 milliseconds = 1 minute
 });
