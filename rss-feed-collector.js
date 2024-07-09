@@ -1,14 +1,23 @@
 document.addEventListener('DOMContentLoaded', () => {
   const feedsContainer = document.getElementById('feeds');
 
-  const rssUrls = [
-    'https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml',
-    'https://feeds.bbci.co.uk/news/rss.xml',
-    'https://www.theguardian.com/world/rss'
+  const rssFeeds = [
+    {
+      url: 'https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml',
+      source: 'The New York Times'
+    },
+    {
+      url: 'https://feeds.bbci.co.uk/news/rss.xml',
+      source: 'BBC News'
+    },
+    {
+      url: 'https://www.theguardian.com/world/rss',
+      source: 'The Guardian'
+    }
   ];
 
-  rssUrls.forEach(url => {
-    fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(url)}`)
+  rssFeeds.forEach(feed => {
+    fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(feed.url)}`)
       .then(response => response.json())
       .then(data => {
         const parser = new DOMParser();
@@ -20,15 +29,16 @@ document.addEventListener('DOMContentLoaded', () => {
           const description = item.querySelector('description').textContent;
           const pubDate = item.querySelector('pubDate').textContent;
 
-          const feed = document.createElement('div');
-          feed.classList.add('feed');
-          feed.innerHTML = `
+          const feedElement = document.createElement('div');
+          feedElement.classList.add('feed');
+          feedElement.innerHTML = `
             <h2><a href="${link}" target="_blank">${title}</a></h2>
             <p>${description}</p>
             <p><small>Published on: ${pubDate}</small></p>
+            <p><strong>Source:</strong> ${feed.source}</p>
           `;
 
-          feedsContainer.appendChild(feed);
+          feedsContainer.appendChild(feedElement);
         });
       })
       .catch(error => {
