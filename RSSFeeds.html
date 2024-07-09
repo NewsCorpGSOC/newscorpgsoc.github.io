@@ -124,6 +124,30 @@
         color: #fff;
       }
 
+      .filter-bar {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 20px;
+      }
+      
+      .filter-bar button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      
+      .filter-bar button:hover {
+        background-color: #0056b3;
+      }
+      
+      .filter-bar button.active {
+        background-color: #0056b3;
+      }
 /*---------------------------------- SIDEBAR ----------------------------------*/      
       #sidebar {
       	display: flex;
@@ -475,6 +499,12 @@
           </nav>
         </div>
 
+        <div class="filter-bar">
+          <button id="filterLastHour">Last Hour</button>
+          <button id="filterLast12Hours">Last 12 Hours</button>
+          <button id="filterLastDay">Last Day</button>
+          <button id="filterAll">All</button>
+        </div>
 
         <div class="feed-container">
           <h1>RSS Feed Collector</h1>
