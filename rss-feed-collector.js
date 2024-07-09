@@ -16,6 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   ];
 
+  const feedItems = [];
+
   rssFeeds.forEach(feed => {
     fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(feed.url)}`)
       .then(response => response.json())
@@ -23,6 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const parser = new DOMParser();
         const xmlDoc = parser.parseFromString(data.contents, 'text/xml');
         const items = xmlDoc.querySelectorAll('item');
+
         items.forEach(item => {
           const title = item.querySelector('title').textContent;
           const link = item.querySelector('link').textContent;
@@ -33,17 +36,30 @@ document.addEventListener('DOMContentLoaded', () => {
           const options = { timeZone: 'America/Los_Angeles', hour12: true, weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
           const formattedDate = new Intl.DateTimeFormat('en-US', options).format(date);
 
-          const feedElement = document.createElement('div');
-          feedElement.classList.add('feed');
-          feedElement.innerHTML = `
-            <h2><a href="${link}" target="_blank">${title}</a></h2>
-            <p>${description}</p>
-            <p><small>Published on: ${formattedDate} (PST/PDT)</small></p>
-            <p><strong>Source:</strong> ${feed.source}</p>
-          `;
-
-          feedsContainer.appendChild(feedElement);
+          feedItems.push({
+            title,
+            link,
+            description,
+            pubDate: date,
+            formattedDate,
+            source: feed.source
+          });
         });
+
+        if (feedItems.length === rssFeeds.length * items.length) {
+          feedItems.sort((a, b) => b.pubDate - a.pubDate);
+          feedItems.forEach(item => {
+            const feedElement = document.createElement('div');
+            feedElement.classList.add('feed');
+            feedElement.innerHTML = `
+              <h2><a href="${item.link}" target="_blank">${item.title}</a></h2>
+              <p>${item.description}</p>
+              <p><small>Published on: ${item.formattedDate} (PST/PDT)</small></p>
+              <p><strong>Source:</strong> ${item.source}</p>
+            `;
+            feedsContainer.appendChild(feedElement);
+          });
+        }
       })
       .catch(error => {
         console.error('Error fetching RSS feed:', error);
