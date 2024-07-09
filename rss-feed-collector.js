@@ -84,32 +84,48 @@ document.addEventListener('DOMContentLoaded', () => {
     let fetchCount = 0;
 
     rssFeeds.forEach(feed => {
-      fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(feed.url)}`)
-        .then(response => response.json())
+      const feedUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(feed.url)}`;
+
+      fetch(feedUrl)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`Network response was not ok: ${response.statusText}`);
+          }
+          return response.json();
+        })
         .then(data => {
-          const parser = new DOMParser();
-          const xmlDoc = parser.parseFromString(data.contents, 'text/xml');
-          const items = xmlDoc.querySelectorAll('item');
+          if (typeof data.contents === 'string') {
+            const parser = new DOMParser();
+            const xmlDoc = parser.parseFromString(data.contents, 'text/xml');
+            const items = xmlDoc.querySelectorAll('item');
 
-          items.forEach(item => {
-            const title = item.querySelector('title').textContent;
-            const link = item.querySelector('link').textContent;
-            const description = item.querySelector('description').textContent;
-            const pubDate = new Date(item.querySelector('pubDate').textContent);
+            items.forEach(item => {
+              const title = item.querySelector('title')?.textContent || 'No title';
+              const link = item.querySelector('link')?.textContent || '#';
+              const description = item.querySelector('description')?.textContent || 'No description';
+              const pubDateText = item.querySelector('pubDate')?.textContent;
+              const pubDate = pubDateText ? new Date(pubDateText) : new Date();
 
-            feedItems.push({
-              title,
-              link,
-              description,
-              pubDate,
-              source: feed.source
+              if (title && link && description && pubDate) {
+                feedItems.push({
+                  title,
+                  link,
+                  description,
+                  pubDate,
+                  source: feed.source
+                });
+              } else {
+                console.log('Incomplete item:', { title, link, description, pubDate });
+              }
             });
-          });
 
-          fetchCount++;
-          if (fetchCount === rssFeeds.length) {
-            feedItems.sort((a, b) => b.pubDate - a.pubDate); // Sort by newest first
-            displayFeeds();
+            fetchCount++;
+            if (fetchCount === rssFeeds.length) {
+              feedItems.sort((a, b) => b.pubDate - a.pubDate); // Sort by newest first
+              displayFeeds();
+            }
+          } else {
+            console.error('Response data is not string');
           }
         })
         .catch(error => {
@@ -118,10 +134,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Display feeds based on current filter
   function displayFeeds() {
     feedsContainer.innerHTML = ''; // Clear previous content
     const filteredFeeds = applyFilter(); // Apply current filter
+    console.log('Filtered feeds:', filteredFeeds); // Log filtered feeds
     filteredFeeds.forEach(item => {
       const feedElement = document.createElement('div');
       feedElement.classList.add('feed');
@@ -135,22 +151,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Apply filter based on selected time range
   function applyFilter() {
     const now = new Date();
     let filteredFeeds = [...feedItems]; // Start with all feeds
 
-    // Apply timeline filter
     const timelineValue = timelineFilter.value;
     if (timelineValue === 'lastHour') {
-      filteredFeeds = filteredFeeds.filter(item => now - item.pubDate <= 3600000); // Within last hour (3600000 ms)
+      filteredFeeds = filteredFeeds.filter(item => now - item.pubDate <= 3600000);
     } else if (timelineValue === 'last12Hours') {
-      filteredFeeds = filteredFeeds.filter(item => now - item.pubDate <= 43200000); // Within last 12 hours (43200000 ms)
+      filteredFeeds = filteredFeeds.filter(item => now - item.pubDate <= 43200000);
     } else if (timelineValue === 'lastDay') {
-      filteredFeeds = filteredFeeds.filter(item => now - item.pubDate <= 86400000); // Within last day (86400000 ms)
+      filteredFeeds = filteredFeeds.filter(item => now - item.pubDate <= 86400000);
     }
 
-    // Apply topic filter
     const topicValue = topicFilter.value;
     if (topicValue !== 'all') {
       filteredFeeds = filteredFeeds.filter(item => item.description.toLowerCase().includes(topicValue.toLowerCase()));
@@ -159,10 +172,8 @@ document.addEventListener('DOMContentLoaded', () => {
     return filteredFeeds;
   }
 
-  // Event listeners for filter changes
   timelineFilter.addEventListener('change', displayFeeds);
   topicFilter.addEventListener('change', displayFeeds);
 
-  // Initial fetch and display on page load
   fetchFeeds();
 });
