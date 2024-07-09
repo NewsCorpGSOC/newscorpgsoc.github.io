@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
   ];
 
   const feedItems = [];
+  let fetchCount = 0;
 
   rssFeeds.forEach(feed => {
     fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(feed.url)}`)
@@ -46,7 +47,8 @@ document.addEventListener('DOMContentLoaded', () => {
           });
         });
 
-        if (feedItems.length === rssFeeds.length * items.length) {
+        fetchCount++;
+        if (fetchCount === rssFeeds.length) {
           feedItems.sort((a, b) => b.pubDate - a.pubDate);
           feedItems.forEach(item => {
             const feedElement = document.createElement('div');
