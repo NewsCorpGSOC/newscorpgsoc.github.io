@@ -57,6 +57,18 @@ document.addEventListener('DOMContentLoaded', () => {
       url: 'http://feeds.nbcnews.com/nbcnews/topstories',
       source: 'NBC News'
     },
+    {
+      url: 'http://rss.cnn.com/rss/cnn_topstories.rss',
+      source: 'CNN News'
+    },
+    {
+      url: 'https://feeds.washingtonpost.com/rss/world?itid=lk_inline_manual_35',
+      source: 'Washington Post'
+    },
+    {
+      url: 'https://feeds.npr.org/1001/rss.xml',
+      source: 'NPR News'
+    },
   ];
 
   function fetchFeeds() {
