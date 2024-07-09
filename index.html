@@ -25,6 +25,15 @@
         font-style: normal;
       }
 /*---------------------------------- HEADER ----------------------------------*/       
+      @keyframes shadow-slide {
+        0% {
+          box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.2), 0 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+        100% {
+          box-shadow: 100px 0 0 5px rgba(0, 0, 0, 0.2), 100px 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+      }
+      
       @keyframes slide {
         from { transform: translateX(0); }
         to { transform: translateX(-50%); } /* Adjust translateY percentage for desired effect */
@@ -43,11 +52,15 @@
         position: absolute;
         bottom: -10px;
         left: 0;
-        width: 100%;
+        width: 200%;
         height: 10px; /* Adjust height for the desired thickness of the border */
-        background: linear-gradient(to left, #00D6E3 5%, #193c80 5%, #193c80 100%);
+        background: linear-gradient(to left, #193c80 50%, #00D6E3 5%, #193c80 5%, #193c80 50%);
 	background-size: 100% 100%;
         animation: slide 5s linear infinite;
+        box-shadow:
+          0 0 0 5px rgba(0, 0, 0, 0.2), /* First layer */
+          0 0 0 10px rgba(255, 255, 255, 0.5); /* Second layer */
+        animation: shadow-slide 5s linear infinite; /* Animation for box shadow slide */
       }
 
       body {
