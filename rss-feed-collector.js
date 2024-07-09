@@ -1,9 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const feedsContainer = document.getElementById('feeds'); // Updated to match HTML ID
-  const filterLastHourBtn = document.getElementById('filterLastHour');
-  const filterLast12HoursBtn = document.getElementById('filterLast12Hours');
-  const filterLastDayBtn = document.getElementById('filterLastDay');
-  const filterAllBtn = document.getElementById('filterAll');
+  const feedsContainer = document.getElementById('feeds');
+  const timelineFilter = document.getElementById('timelineFilter');
+  const topicFilter = document.getElementById('topicFilter');
   let feedItems = []; // Array to store all feed items
 
   const rssFeeds = [
@@ -140,53 +138,30 @@ document.addEventListener('DOMContentLoaded', () => {
   // Apply filter based on selected time range
   function applyFilter() {
     const now = new Date();
-    let filteredFeeds = [];
+    let filteredFeeds = [...feedItems]; // Start with all feeds
 
-    if (filterLastHourBtn.classList.contains('active')) {
-      filteredFeeds = feedItems.filter(item => now - item.pubDate <= 3600000); // Within last hour (3600000 ms)
-    } else if (filterLast12HoursBtn.classList.contains('active')) {
-      filteredFeeds = feedItems.filter(item => now - item.pubDate <= 43200000); // Within last 12 hours (43200000 ms)
-    } else if (filterLastDayBtn.classList.contains('active')) {
-      filteredFeeds = feedItems.filter(item => now - item.pubDate <= 86400000); // Within last day (86400000 ms)
-    } else {
-      filteredFeeds = [...feedItems]; // All feeds
+    // Apply timeline filter
+    const timelineValue = timelineFilter.value;
+    if (timelineValue === 'lastHour') {
+      filteredFeeds = filteredFeeds.filter(item => now - item.pubDate <= 3600000); // Within last hour (3600000 ms)
+    } else if (timelineValue === 'last12Hours') {
+      filteredFeeds = filteredFeeds.filter(item => now - item.pubDate <= 43200000); // Within last 12 hours (43200000 ms)
+    } else if (timelineValue === 'lastDay') {
+      filteredFeeds = filteredFeeds.filter(item => now - item.pubDate <= 86400000); // Within last day (86400000 ms)
+    }
+
+    // Apply topic filter
+    const topicValue = topicFilter.value;
+    if (topicValue !== 'all') {
+      filteredFeeds = filteredFeeds.filter(item => item.description.toLowerCase().includes(topicValue.toLowerCase()));
     }
 
     return filteredFeeds;
   }
 
-  // Event listeners for filter buttons
-  filterLastHourBtn.addEventListener('click', () => {
-    filterLastHourBtn.classList.add('active');
-    filterLast12HoursBtn.classList.remove('active');
-    filterLastDayBtn.classList.remove('active');
-    filterAllBtn.classList.remove('active');
-    displayFeeds();
-  });
-
-  filterLast12HoursBtn.addEventListener('click', () => {
-    filterLastHourBtn.classList.remove('active');
-    filterLast12HoursBtn.classList.add('active');
-    filterLastDayBtn.classList.remove('active');
-    filterAllBtn.classList.remove('active');
-    displayFeeds();
-  });
-
-  filterLastDayBtn.addEventListener('click', () => {
-    filterLastHourBtn.classList.remove('active');
-    filterLast12HoursBtn.classList.remove('active');
-    filterLastDayBtn.classList.add('active');
-    filterAllBtn.classList.remove('active');
-    displayFeeds();
-  });
-
-  filterAllBtn.addEventListener('click', () => {
-    filterLastHourBtn.classList.remove('active');
-    filterLast12HoursBtn.classList.remove('active');
-    filterLastDayBtn.classList.remove('active');
-    filterAllBtn.classList.add('active');
-    displayFeeds();
-  });
+  // Event listeners for filter changes
+  timelineFilter.addEventListener('change', displayFeeds);
+  topicFilter.addEventListener('change', displayFeeds);
 
   // Initial fetch and display on page load
   fetchFeeds();
