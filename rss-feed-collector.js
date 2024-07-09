@@ -50,10 +50,6 @@ document.addEventListener('DOMContentLoaded', () => {
       source: 'NBC News'
     },
     {
-      url: 'http://rss.cnn.com/rss/cnn_topstories.rss',
-      source: 'CNN News'
-    },
-    {
       url: 'https://feeds.npr.org/1001/rss.xml',
       source: 'NPR News'
     },
