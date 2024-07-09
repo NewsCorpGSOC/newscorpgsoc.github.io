@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://www.theguardian.com/world/rss',
       source: 'The Guardian'
-    }
+    },
     {
       url: 'https://www.aljazeera.com/xml/rss/all.xml',
       source: 'Al Jazeera'
