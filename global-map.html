@@ -4,7 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🌐 News Corp GSOC Intranet</title>
-    <!-- Include Bootstrap CSS -->
+    <script>
+      (function() {
+        var loggedIn = sessionStorage.getItem('loggedIn');
+        if (!loggedIn) {
+          window.location.href = 'login.html';
+        }
+      })();
+    </script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
