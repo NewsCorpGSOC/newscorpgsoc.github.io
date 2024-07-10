@@ -120,6 +120,15 @@ document.addEventListener('DOMContentLoaded', () => {
       url: 'https://www.nzherald.co.nz/arc/outboundfeeds/rss/section/world/?outputType=xml&_website=nzh',
       source: 'The New Zealand Herald'
     },
+//Social Media RSS Feeds
+    {
+      url: 'https://news.google.com/rss/search?q=site:twitter.com/centcom+when:7d',
+      source: 'USCENTCOM - TwitterX'
+    },
+    {
+      url: 'https://news.google.com/rss/search?q=site:twitter.com/middleeasteye+when:7d',
+      source: 'Middle East Eye - TwitterX'
+    },
   ];
 
   function fetchFeeds() {
