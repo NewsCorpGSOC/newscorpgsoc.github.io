@@ -73,10 +73,6 @@ document.addEventListener('DOMContentLoaded', () => {
       source: 'Politico'
     },
     {
-      url: 'https://www.usnews.com/rss/news',
-      source: 'US News'
-    },
-    {
       url: 'https://www.thestar.com/search/?f=rss&t=article&c=news/world*&l=50&s=start_time&sd=desc',
       source: 'The Star'
     },
@@ -131,7 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let fetchCount = 0;
 
     rssFeeds.forEach(feed => {
-      const feedUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feed.url)}`;
+      const feedUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(feed.url)}`;
 
       fetch(feedUrl)
         .then(response => {
