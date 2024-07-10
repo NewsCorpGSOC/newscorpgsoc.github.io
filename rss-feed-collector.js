@@ -53,6 +53,10 @@ document.addEventListener('DOMContentLoaded', () => {
       url: 'https://feeds.npr.org/1001/rss.xml',
       source: 'NPR News'
     },
+    {
+      url: 'https://news.un.org/feed/subscribe/en/news/all/rss.xml',
+      source: 'UN News'
+    },
   ];
 
   function fetchFeeds() {
