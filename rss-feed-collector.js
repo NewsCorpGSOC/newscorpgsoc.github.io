@@ -41,6 +41,10 @@ document.addEventListener('DOMContentLoaded', () => {
       source: 'Associated Press'
     },
     {
+      url: 'https://apnews.com/index.rss',
+      source: 'Associated Press'
+    },
+    {
       url: 'http://feeds.foxnews.com/foxnews/world',
       source: 'Fox News'
     },
@@ -70,6 +74,10 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       url: 'https://www.politico.com/rss/politicopicks.xml',
+      source: 'Politico'
+    },
+    {
+      url: 'https://www.politico.eu/feed/',
       source: 'Politico'
     },
     {
@@ -119,6 +127,38 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://www.nzherald.co.nz/arc/outboundfeeds/rss/section/world/?outputType=xml&_website=nzh',
       source: 'The New Zealand Herald'
+    },
+    {
+      url: 'https://www.newsweek.com/rss',
+      source: 'Newsweek'
+    },
+    {
+      url: 'https://feeds.a.dj.com/rss/RSSWorldNews.xml',
+      source: 'Wall Street Journal'
+    },
+    {
+      url: 'https://www.jpost.com/rss/',
+      source: 'The Jerusalem Post'
+    },
+    {
+      url: 'https://thehill.com/feed/',
+      source: 'The Hill'
+    },
+    {
+      url: 'https://en.globes.co.il/WebService/Rss/RssFeeder.asmx/FeederNode?iID=942',
+      source: 'Globes'
+    },
+    {
+      url: 'https://news.usni.org/feed',
+      source: 'USNI News'
+    },
+    {
+      url: 'https://timesofindia.indiatimes.com/rssfeeds/296589292.cms',
+      source: 'Times of India - World'
+    },
+    {
+      url: 'https://timesofindia.indiatimes.com/rssfeeds/1898272.cms',
+      source: 'Times of India - Middle East'
     },
 //Social Media RSS Feeds
     {
