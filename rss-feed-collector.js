@@ -160,6 +160,10 @@ document.addEventListener('DOMContentLoaded', () => {
       url: 'https://timesofindia.indiatimes.com/rssfeeds/1898272.cms',
       source: 'Times of India - Middle East'
     },
+    {
+      url: 'https://www.israelhayom.com/feed/',
+      source: 'Israel Hayom'
+    },
 //Social Media RSS Feeds
     {
       url: 'https://news.google.com/rss/search?q=site:twitter.com/centcom+when:7d',
