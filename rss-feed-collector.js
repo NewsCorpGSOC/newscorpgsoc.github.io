@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       url: 'https://www.thehindubusinessline.com/news/?service=rss',
-      source: 'The Hundu Business Line'
+      source: 'The Hindu Business Line'
     },
     {
       url: 'https://zeenews.india.com/rss/world-news.xml',
@@ -201,6 +201,30 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  function displayFeeds() {
+    feedsContainer.innerHTML = ''; // Clear previous content
+    const filteredFeeds = applyFilter(); // Apply current filter
+    const searchTerm = searchInput.value.trim().toLowerCase(); // Get search term
+    const searchFilteredFeeds = filteredFeeds.filter(item => 
+      item.title.toLowerCase().includes(searchTerm) || 
+      item.description.toLowerCase().includes(searchTerm) ||
+      item.source.toLowerCase().includes(searchTerm)
+    ); // Filter feeds based on search term
+    console.log('Filtered feeds:', searchFilteredFeeds); // Log filtered feeds
+    
+    searchFilteredFeeds.forEach(item => {
+      const feedElement = document.createElement('div');
+      feedElement.classList.add('feed');
+      feedElement.innerHTML = `
+        <h2><a href="${item.link}" target="_blank">${item.title}</a></h2>
+        <p>${item.description}</p>
+        <p><small>Published on: ${item.pubDate.toLocaleString('en-US', { timeZone: 'America/Los_Angeles', hour12: true, weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' })} (PST/PDT)</small></p>
+        <p><strong>Source:</strong> ${item.source}</p>
+      `;
+      feedsContainer.appendChild(feedElement);
+    });
+  }
+
   function applyFilter() {
     const now = new Date();
     let filteredFeeds = [...feedItems]; // Start with all feeds
@@ -227,14 +251,12 @@ document.addEventListener('DOMContentLoaded', () => {
       clearInterval(updateInterval);
     }
     const frequency = parseInt(updateFrequency.value, 10);
-    updateInterval = setInterval(fetchFeeds, frequency);
+    console.log(`Setting update interval to ${frequency} milliseconds`);
+    updateInterval = setInterval(() => {
+      console.log('Fetching feeds...');
+      fetchFeeds();
+    }, frequency);
   }
 
   timelineFilter.addEventListener('change', displayFeeds);
-  topicFilter.addEventListener('change', displayFeeds);
-  searchInput.addEventListener('input', displayFeeds);
-  updateFrequency.addEventListener('change', setUpdateInterval);
-
-  fetchFeeds();
-  setUpdateInterval(); // Set the initial update interval based on the default value
-});
+  topicFilter.addEventListener('change', displayFeeds
