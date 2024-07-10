@@ -91,19 +91,23 @@
         }
       }
 /*---------------------------------- RSS Feeds ----------------------------------*/      
-      .feed-container {
-        max-width: 800px;
-	position: relative;
+      .container {
+        display: flex;
+        justify-content: space-between;
+        max-width: 1200px;
         margin: auto;
+        padding: 20px;
+      }
+      
+      .feed-container {
+        flex: 3;
+        margin-right: 20px;
         background-color: #404040;
         border-radius: 8px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-	max-height: 83vh;
-	overflow-y: auto;
-	padding-left: 20px; /* Maintain left padding */
-        padding-right: 20px; /* Maintain right padding */
-	padding-top: 35px;
-	padding-bottom: 20px;
+      	max-height: 83vh;
+      	overflow-y: auto;
+      	padding: 35px 20px 20px 20px;
       }
       .feed {
         margin-bottom: 20px;
@@ -124,18 +128,24 @@
         color: #fff;
       }
 
-      .filter-bar {
-	position: relative;
-	top: 30px;
-	height: 50px;
+      .filter-container {
+        flex: 1;
         display: flex;
-        justify-content: center;
+        flex-direction: column;
+        gap: 20px;
+        background-color: #404040;
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      .filter-bar {
+      	display: flex;
+        flex-direction: column;
         gap: 10px;
-        margin-bottom: 20px;
       }
 
       .filter-bar select, .filter-bar input {
-        background-color: #00D6E3;
+        background-color: #f3f5f8;
         color: white;
         border: none;
         border-radius: 5px;
@@ -519,38 +529,44 @@
           </nav>
         </div>
 
-        <div class="filter-bar">
-          <label for="timelineFilter">Timeline Filter:</label>
-          <select id="timelineFilter">
-            <option value="lastHour">Last Hour</option>
-            <option value="last12Hours">Last 12 Hours</option>
-            <option value="lastDay">Last Day</option>
-            <option value="all">All</option>
-          </select>
+        <div class="container">
+          <div class="feed-container" id="feeds-container">
+            <h1>RSS Feed Collector</h1>
+            <div id="feeds"></div>
+          </div>
+          
+          <div class="filter-container">
+            <div class="filter-bar">
+              <label for="timelineFilter">Timeline Filter:</label>
+              <select id="timelineFilter">
+                <option value="lastHour">Last Hour</option>
+                <option value="last12Hours">Last 12 Hours</option>
+                <option value="lastDay">Last Day</option>
+                <option value="all">All</option>
+              </select>
         
-          <label for="topicFilter">Topic Filter:</label>
-          <select id="topicFilter">
-            <option value="all">All Topics</option>
-            <option value="Russia">Russia</option>
-            <option value="Israel">Israel</option>
-            <option value="Protests">Protests</option>
-          </select>
+              <label for="topicFilter">Topic Filter:</label>
+              <select id="topicFilter">
+                <option value="all">All Topics</option>
+                <option value="Russia">Russia</option>
+                <option value="Israel">Israel</option>
+                <option value="Protests">Protests</option>
+              </select>
         
-          <input type="text" id="searchInput" placeholder="Search...">
+              <label for="searchInput">Search:</label>
+              <input type="text" id="searchInput" placeholder="Search...">
         
-          <label for="updateFrequency">Update Frequency:</label>
-          <select id="updateFrequency">
-            <option value="60000">1 Minute</option>
-            <option value="300000">5 Minutes</option>
-            <option value="600000">10 Minutes</option>
-            <option value="1800000">30 Minutes</option>
-          </select>
+              <label for="updateFrequency">Update Frequency:</label>
+              <select id="updateFrequency">
+                <option value="60000">1 Minute</option>
+                <option value="300000">5 Minutes</option>
+                <option value="600000">10 Minutes</option>
+                <option value="1800000">30 Minutes</option>
+              </select>
+            </div>
+          </div>
         </div>
         
-        <div class="feed-container" id="feeds-container">
-          <h1>RSS Feed Collector</h1>
-          <div id="feeds"></div>
-        </div>
         <script src="rss-feed-collector.js"></script>
       </div>
     </div>
