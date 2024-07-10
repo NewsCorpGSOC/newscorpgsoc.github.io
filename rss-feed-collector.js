@@ -153,14 +153,6 @@ document.addEventListener('DOMContentLoaded', () => {
       source: 'USNI News'
     },
     {
-      url: 'https://timesofindia.indiatimes.com/rssfeeds/296589292.cms',
-      source: 'Times of India - World'
-    },
-    {
-      url: 'https://timesofindia.indiatimes.com/rssfeeds/1898272.cms',
-      source: 'Times of India - Middle East'
-    },
-    {
       url: 'https://www.israelhayom.com/feed/',
       source: 'Israel Hayom'
     },
