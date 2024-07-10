@@ -131,7 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let fetchCount = 0;
 
     rssFeeds.forEach(feed => {
-      const feedUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(feed.url)}`;
+      const feedUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feed.url)}`;
 
       fetch(feedUrl)
         .then(response => {
