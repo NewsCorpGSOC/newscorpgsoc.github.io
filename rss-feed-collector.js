@@ -3,7 +3,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const timelineFilter = document.getElementById('timelineFilter');
   const topicFilter = document.getElementById('topicFilter');
   const searchInput = document.getElementById('searchInput');
+  const updateFrequency = document.getElementById('updateFrequency');
   let feedItems = []; // Array to store all feed items
+  let updateInterval;
 
   const rssFeeds = [
     {
@@ -160,9 +162,19 @@ document.addEventListener('DOMContentLoaded', () => {
     return filteredFeeds;
   }
 
+  function setUpdateInterval() {
+    if (updateInterval) {
+      clearInterval(updateInterval);
+    }
+    const frequency = parseInt(updateFrequency.value, 10);
+    updateInterval = setInterval(fetchFeeds, frequency);
+  }
+
   timelineFilter.addEventListener('change', displayFeeds);
   topicFilter.addEventListener('change', displayFeeds);
   searchInput.addEventListener('input', displayFeeds);
+  updateFrequency.addEventListener('change', setUpdateInterval);
 
   fetchFeeds();
+  setUpdateInterval(); // Set the initial update interval based on the default value
 });
