@@ -133,6 +133,14 @@
         gap: 10px;
         margin-bottom: 20px;
       }
+
+      .filter-bar select, .filter-bar input {
+        background-color: #00D6E3;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 5px;
+      }
       
       .filter-bar button {
         padding: 10px 20px;
@@ -151,14 +159,12 @@
       .filter-bar button.active {
         background-color: #0056b3;
       }
-      /* CSS for filter bar and drop-down options */
-      .filter-bar select {
-        background-color: #00D6E3;
-        color: white;
-      }
       /* CSS specifically for drop-down options */
       .filter-bar option {
         background-color: #00D6E3;
+        color: white;
+      }
+      .filter-bar label {
         color: white;
       }
 
@@ -513,26 +519,34 @@
           </nav>
         </div>
 
-      	<div class="filter-bar">
-      	  <label for="timelineFilter">Timeline Filter:</label>
-      	  <select id="timelineFilter">
-      	    <option value="lastHour">Last Hour</option>
-      	    <option value="last12Hours">Last 12 Hours</option>
-      	    <option value="lastDay">Last Day</option>
-      	    <option value="all">All</option>
-      	  </select>
-      	
-      	  <label for="topicFilter">Topic Filter:</label>
-      	  <select id="topicFilter">
-      	    <option value="all">All Topics</option>
-      	    <option value="Russia">Russia</option>
-      	    <option value="Israel">Israel</option>
-      	    <option value="Protests">Protests</option>
-      	  </select>
-
+        <div class="filter-bar">
+          <label for="timelineFilter">Timeline Filter:</label>
+          <select id="timelineFilter">
+            <option value="lastHour">Last Hour</option>
+            <option value="last12Hours">Last 12 Hours</option>
+            <option value="lastDay">Last Day</option>
+            <option value="all">All</option>
+          </select>
+        
+          <label for="topicFilter">Topic Filter:</label>
+          <select id="topicFilter">
+            <option value="all">All Topics</option>
+            <option value="Russia">Russia</option>
+            <option value="Israel">Israel</option>
+            <option value="Protests">Protests</option>
+          </select>
+        
           <input type="text" id="searchInput" placeholder="Search...">
-      	</div>
-
+        
+          <label for="updateFrequency">Update Frequency:</label>
+          <select id="updateFrequency">
+            <option value="60000">1 Minute</option>
+            <option value="300000">5 Minutes</option>
+            <option value="600000">10 Minutes</option>
+            <option value="1800000">30 Minutes</option>
+          </select>
+        </div>
+        
         <div class="feed-container" id="feeds-container">
           <h1>RSS Feed Collector</h1>
           <div id="feeds"></div>
