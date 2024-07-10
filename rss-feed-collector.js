@@ -259,4 +259,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   timelineFilter.addEventListener('change', displayFeeds);
-  topicFilter.addEventListener('change', displayFeeds
+  topicFilter.addEventListener('change', displayFeeds);
+  searchInput.addEventListener('input', displayFeeds);
+  updateFrequency.addEventListener('change', setUpdateInterval);
+
+  fetchFeeds();
+  setUpdateInterval(); // Set the initial update interval based on the default value
+});
