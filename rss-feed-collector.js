@@ -118,9 +118,15 @@ document.addEventListener('DOMContentLoaded', () => {
   function displayFeeds() {
     feedsContainer.innerHTML = ''; // Clear previous content
     const filteredFeeds = applyFilter(); // Apply current filter
-    console.log('Filtered feeds:', filteredFeeds); // Log filtered feeds
     const searchTerm = searchInput.value.trim().toLowerCase(); // Get search term
-    filteredFeeds.forEach(item => {
+    const searchFilteredFeeds = filteredFeeds.filter(item => 
+      item.title.toLowerCase().includes(searchTerm) || 
+      item.description.toLowerCase().includes(searchTerm) ||
+      item.source.toLowerCase().includes(searchTerm)
+    ); // Filter feeds based on search term
+    console.log('Filtered feeds:', searchFilteredFeeds); // Log filtered feeds
+    
+    searchFilteredFeeds.forEach(item => {
       const feedElement = document.createElement('div');
       feedElement.classList.add('feed');
       feedElement.innerHTML = `
