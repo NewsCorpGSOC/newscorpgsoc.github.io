@@ -156,6 +156,10 @@ document.addEventListener('DOMContentLoaded', () => {
       url: 'https://www.israelhayom.com/feed/',
       source: 'Israel Hayom'
     },
+    {
+      url: 'https://kyivindependent.com/news-archive/rss/',
+      source: 'The Kyiv Independent'
+    },
 //Social Media RSS Feeds
     {
       url: 'https://news.google.com/rss/search?q=site:twitter.com/centcom+when:7d',
