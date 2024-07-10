@@ -41,10 +41,6 @@ document.addEventListener('DOMContentLoaded', () => {
       source: 'Associated Press'
     },
     {
-      url: 'https://apnews.com/index.rss',
-      source: 'Associated Press'
-    },
-    {
       url: 'http://feeds.foxnews.com/foxnews/world',
       source: 'Fox News'
     },
