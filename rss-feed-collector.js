@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
       source: 'World Online'
     },
     {
-      url: 'http://hosted.ap.org/lineups/WORLDHEADS-rss_2.0.xml',
+      url: 'https://hosted.ap.org',
       source: 'Associated Press'
     },
     {
