@@ -60,6 +60,70 @@ document.addEventListener('DOMContentLoaded', () => {
       url: 'https://news.un.org/feed/subscribe/en/news/all/rss.xml',
       source: 'UN News'
     },
+    {
+      url: 'http://www.huffingtonpost.com/feeds/verticals/world/index.xml',
+      source: 'Huffington Post'
+    },
+    {
+      url: 'http://rss.news.yahoo.com/rss/world',
+      source: 'Yahoo News'
+    },
+    {
+      url: 'https://www.politico.com/rss/politicopicks.xml',
+      source: 'Politico'
+    },
+    {
+      url: 'https://www.usnews.com/rss/news',
+      source: 'US News'
+    },
+    {
+      url: 'https://www.thestar.com/search/?f=rss&t=article&c=news/world*&l=50&s=start_time&sd=desc',
+      source: 'The Star'
+    },
+    {
+      url: 'https://www.brandonsun.com/feed?path=%2Fnational%2Fbreaking-news',
+      source: 'Brandon Sun'
+    },
+    {
+      url: 'https://www.thehindubusinessline.com/news/?service=rss',
+      source: 'The Hundu Business Line'
+    },
+    {
+      url: 'https://zeenews.india.com/rss/world-news.xml',
+      source: 'Zee News India'
+    },
+    {
+      url: 'https://www.livemint.com/rss/politics',
+      source: 'Live Mint India'
+    },
+    {
+      url: 'https://www.ft.com/world-uk?format=rss',
+      source: 'Financial Times'
+    },
+    {
+      url: 'https://www.channel4.com/news/uk/rss',
+      source: 'Channel 4 News'
+    },
+    {
+      url: 'https://feeds.skynews.com/feeds/rss/politics.xml',
+      source: 'Sky News Politics'
+    },
+    {
+      url: 'https://www.economist.com/europe/rss.xml',
+      source: 'The Economist - Europe'
+    },
+    {
+      url: 'https://www.economist.com/the-americas/rss.xml',
+      source: 'The Economist - Americas'
+    },
+    {
+      url: 'https://www.economist.com/middle-east-and-africa/rss.xml',
+      source: 'The Economist - MENA'
+    },
+    {
+      url: 'https://www.nzherald.co.nz/arc/outboundfeeds/rss/section/world/?outputType=xml&_website=nzh',
+      source: 'The New Zealand Herald'
+    },
   ];
 
   function fetchFeeds() {
