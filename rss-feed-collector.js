@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const feedsContainer = document.getElementById('feeds');
   const timelineFilter = document.getElementById('timelineFilter');
   const topicFilter = document.getElementById('topicFilter');
+  const searchInput = document.getElementById('searchInput');
   let feedItems = []; // Array to store all feed items
 
   const rssFeeds = [
@@ -118,6 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
     feedsContainer.innerHTML = ''; // Clear previous content
     const filteredFeeds = applyFilter(); // Apply current filter
     console.log('Filtered feeds:', filteredFeeds); // Log filtered feeds
+    const searchTerm = searchInput.value.trim().toLowerCase(); // Get search term
     filteredFeeds.forEach(item => {
       const feedElement = document.createElement('div');
       feedElement.classList.add('feed');
@@ -154,6 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   timelineFilter.addEventListener('change', displayFeeds);
   topicFilter.addEventListener('change', displayFeeds);
+  searchInput.addEventListener('input', displayFeeds);
 
   fetchFeeds();
 });
