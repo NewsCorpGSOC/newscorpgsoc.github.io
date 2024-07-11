@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let feedItems = []; // Array to store all feed items
   let updateInterval;
 
-  const { parseISO, format } = dateFns;
+  const { parse, format } = dateFns;
 
   const rssFeeds = [
     {
@@ -187,7 +187,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-   async function fetchFeed(feed) {
+  async function fetchFeed(feed) {
     try {
       const feedUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(feed.url)}`;
       const backupFeedUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feed.url)}`;
@@ -205,7 +205,7 @@ document.addEventListener('DOMContentLoaded', () => {
           const link = item.querySelector('link')?.textContent || '#';
           const description = item.querySelector('description')?.textContent || 'No description';
           const pubDateText = item.querySelector('pubDate')?.textContent;
-          const pubDate = pubDateText ? new Date(pubDateText) : new Date();
+          const pubDate = pubDateText ? parseDate(pubDateText) : new Date();
 
           const pacificDate = convertToPacificTime(pubDate);
 
@@ -227,7 +227,7 @@ document.addEventListener('DOMContentLoaded', () => {
           const link = item.link || '#';
           const description = item.description || 'No description';
           const pubDateText = item.pubDate;
-          const pubDate = pubDateText ? new Date(pubDateText) : new Date();
+          const pubDate = pubDateText ? parseDate(pubDateText) : new Date();
 
           const pacificDate = convertToPacificTime(pubDate);
 
@@ -251,8 +251,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  function parseDate(dateString) {
+    // Parse the date string using date-fns
+    const dateFormat = 'EEE, dd MMM yyyy HH:mm:ss X';
+    return parse(dateString, dateFormat, new Date());
+  }
+
   function convertToPacificTime(date) {
-    const options = { timeZone: 'America/Los_Angeles', hour12: false, year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+    const options = { timeZone: 'America/Los_Angeles', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
     const pacificDateStr = new Intl.DateTimeFormat('en-US', options).format(date);
     
     // Parse the formatted date string back into a Date object
