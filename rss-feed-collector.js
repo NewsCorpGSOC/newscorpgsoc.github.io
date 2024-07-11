@@ -7,8 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const updateFrequency = document.getElementById('updateFrequency');
   let feedItems = []; // Array to store all feed items
   let updateInterval;
+  let cache = {}; // Cache object to store fetched feed data
 
-  const { parseISO, format } = dateFns;
+  const { format } = dateFns;
 
   const rssFeeds = [
     {
@@ -187,13 +188,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  async function fetchFeed(feed) {
+  const fetchFeed = async (feed) => {
     try {
       const feedUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(feed.url)}`;
       const backupFeedUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feed.url)}`;
 
       const data = await fetchWithBackup(feedUrl, backupFeedUrl);
       const contents = data.contents ? data.contents : data.items;
+
+      let feedItems = [];
 
       if (typeof contents === 'string') {
         const parser = new DOMParser();
@@ -246,10 +249,13 @@ document.addEventListener('DOMContentLoaded', () => {
       } else {
         console.error('Unexpected data format');
       }
+
+      return feedItems;
     } catch (error) {
       console.error(`Error fetching RSS feed from ${feed.source}:`, error);
+      return [];
     }
-  }
+  };
 
   function parseDate(dateString) {
     // Manually parse the date string to handle different formats
@@ -299,12 +305,30 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   async function fetchFeeds() {
-    feedItems = []; // Clear existing feed items
     loadingOverlay.style.display = 'flex'; // Show loading overlay
-    for (const feed of rssFeeds) {
-      await fetchFeed(feed);
-    }
-    feedItems.sort((a, b) => b.pubDate - a.pubDate); // Sort by newest first
+
+    const fetchPromises = rssFeeds.map(feed => {
+      // Use cached data if available and not too old
+      const cacheTime = cache[feed.url] && cache[feed.url].timestamp;
+      const now = new Date().getTime();
+      const cacheDuration = 60000; // Cache duration in milliseconds (e.g., 1 minute)
+
+      if (cacheTime && (now - cacheTime < cacheDuration)) {
+        return Promise.resolve(cache[feed.url].data);
+      } else {
+        return fetchFeed(feed).then(data => {
+          cache[feed.url] = {
+            data,
+            timestamp: new Date().getTime()
+          };
+          return data;
+        });
+      }
+    });
+
+    const results = await Promise.all(fetchPromises);
+    feedItems = results.flat().sort((a, b) => b.pubDate - a.pubDate); // Flatten results and sort by newest first
+
     loadingOverlay.style.display = 'none'; // Hide loading overlay
     displayFeeds();
   }
