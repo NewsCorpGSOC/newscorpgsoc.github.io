@@ -187,7 +187,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  async function fetchFeed(feed) {
+   async function fetchFeed(feed) {
     try {
       const feedUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(feed.url)}`;
       const backupFeedUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feed.url)}`;
@@ -207,7 +207,7 @@ document.addEventListener('DOMContentLoaded', () => {
           const pubDateText = item.querySelector('pubDate')?.textContent;
           const pubDate = pubDateText ? new Date(pubDateText) : new Date();
 
-          const pacificDate = new Date(pubDate.toLocaleString('en-US', { timeZone: 'America/Los_Angeles' }));
+          const pacificDate = convertToPacificTime(pubDate);
 
           if (title && link && description && pacificDate) {
             feedItems.push({
@@ -229,7 +229,7 @@ document.addEventListener('DOMContentLoaded', () => {
           const pubDateText = item.pubDate;
           const pubDate = pubDateText ? new Date(pubDateText) : new Date();
 
-          const pacificDate = new Date(pubDate.toLocaleString('en-US', { timeZone: 'America/Los_Angeles' }));
+          const pacificDate = convertToPacificTime(pubDate);
 
           if (title && link && description && pacificDate) {
             feedItems.push({
@@ -249,6 +249,15 @@ document.addEventListener('DOMContentLoaded', () => {
     } catch (error) {
       console.error(`Error fetching RSS feed from ${feed.source}:`, error);
     }
+  }
+
+  function convertToPacificTime(date) {
+    const options = { timeZone: 'America/Los_Angeles', hour12: false, year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+    const pacificDateStr = new Intl.DateTimeFormat('en-US', options).format(date);
+    
+    // Parse the formatted date string back into a Date object
+    const [month, day, year, hour, minute, second] = pacificDateStr.match(/\d+/g);
+    return new Date(`${year}-${month}-${day}T${hour}:${minute}:${second}`);
   }
 
   async function fetchFeeds() {
