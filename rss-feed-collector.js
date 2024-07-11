@@ -270,9 +270,23 @@ document.addEventListener('DOMContentLoaded', () => {
     if (dateString.includes('GMT')) {
       adjustedDate.setHours(adjustedDate.getHours() - 7); // GMT to PDT
     } else if (dateString.includes('EDT')) {
-      adjustedDate.setHours(adjustedDate.getHours() - 3 - 7); // EDT to PDT
-    } else if (dateString.includes('EST')) {
-      adjustedDate.setHours(adjustedDate.getHours() - 5 - 7); // EST to PDT
+      adjustedDate.setHours(adjustedDate.getHours() - 4 - 7); // EDT to PDT
+    } else if (dateString.includes('CDT')) {
+      adjustedDate.setHours(adjustedDate.getHours() - 5 - 7); // CDT to PDT
+    } else if (dateString.includes('MDT')) {
+      adjustedDate.setHours(adjustedDate.getHours() - 6 - 7); // MDT to PDT
+    } else if (dateString.includes('BST')) {
+      adjustedDate.setHours(adjustedDate.getHours() + 1 - 7); // BST to PDT
+    } else if (dateString.includes('CEST')) {
+      adjustedDate.setHours(adjustedDate.getHours() + 2 - 7); // CEST to PDT
+    } else if (dateString.includes('IST')) {
+      adjustedDate.setHours(adjustedDate.getHours() + 5.5 - 7); // IST to PDT
+    } else if (dateString.includes('JST')) {
+      adjustedDate.setHours(adjustedDate.getHours() + 9 - 7); // JST to PDT
+    } else if (dateString.includes('AEST')) {
+      adjustedDate.setHours(adjustedDate.getHours() + 10 - 7); // AEST to PDT
+    } else if (dateString.includes('NZST')) {
+      adjustedDate.setHours(adjustedDate.getHours() + 12 - 7); // NZST to PDT
     } else if (dateString.includes('+0000')) {
       adjustedDate.setHours(adjustedDate.getHours() - 7); // GMT to PDT
     }
