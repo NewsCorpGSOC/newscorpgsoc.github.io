@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let feedItems = []; // Array to store all feed items
   let updateInterval;
 
-  const { parse, format } = dateFns;
+  const { parseISO, format } = dateFns;
 
   const rssFeeds = [
     {
@@ -207,7 +207,7 @@ document.addEventListener('DOMContentLoaded', () => {
           const pubDateText = item.querySelector('pubDate')?.textContent;
           const pubDate = pubDateText ? parseDate(pubDateText) : new Date();
 
-          const pacificDate = convertToPacificTime(pubDate, pubDateText);
+          const pacificDate = convertToPacificTime(pubDate);
 
           if (title && link && description && pacificDate) {
             feedItems.push({
@@ -229,7 +229,7 @@ document.addEventListener('DOMContentLoaded', () => {
           const pubDateText = item.pubDate;
           const pubDate = pubDateText ? parseDate(pubDateText) : new Date();
 
-          const pacificDate = convertToPacificTime(pubDate, pubDateText);
+          const pacificDate = convertToPacificTime(pubDate);
 
           if (title && link && description && pacificDate) {
             feedItems.push({
@@ -252,9 +252,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function parseDate(dateString) {
-    // Parse the date string using date-fns
-    const dateFormat = 'EEE, dd MMM yyyy HH:mm:ss X';
-    const parsedDate = parse(dateString, dateFormat, new Date());
+    // Manually parse the date string to handle different formats
+    const parsedDate = new Date(dateString);
 
     // Validate the parsed date
     if (isNaN(parsedDate)) {
@@ -264,28 +263,14 @@ document.addEventListener('DOMContentLoaded', () => {
     return parsedDate;
   }
 
-  function convertToPacificTime(date, dateString) {
-    let adjustedDate = new Date(date);
+  function convertToPacificTime(date) {
+    // Adjust the time manually for Pacific Time (PST/PDT)
+    const pacificTimeOffset = -7; // PDT is UTC-7
 
-    // Check if the date string includes "GMT" and adjust the time accordingly
-    if (dateString.includes('GMT')) {
-      adjustedDate.setHours(adjustedDate.getHours() - 7); // Subtract 7 hours for PDT
-    } else if (dateString.includes('+0000')) {
-      // Handle other GMT format
-      adjustedDate.setHours(adjustedDate.getHours() - 7);
-    }
+    const pacificDate = new Date(date);
+    pacificDate.setHours(pacificDate.getHours() + pacificTimeOffset);
 
-    try {
-      const options = { timeZone: 'America/Los_Angeles', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
-      const pacificDateStr = new Intl.DateTimeFormat('en-US', options).format(adjustedDate);
-
-      // Parse the formatted date string back into a Date object
-      const [month, day, year, hour, minute, second] = pacificDateStr.match(/\d+/g);
-      return new Date(`${year}-${month}-${day}T${hour}:${minute}:${second}`);
-    } catch (error) {
-      console.error(`Error converting to Pacific Time: ${error.message}`);
-      throw new Error('Invalid time value');
-    }
+    return pacificDate;
   }
 
   async function fetchFeeds() {
