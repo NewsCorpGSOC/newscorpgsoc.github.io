@@ -207,7 +207,7 @@ document.addEventListener('DOMContentLoaded', () => {
           const pubDateText = item.querySelector('pubDate')?.textContent;
           const pubDate = pubDateText ? parseDate(pubDateText) : new Date();
 
-          const pacificDate = convertToPacificTime(pubDate);
+          const pacificDate = convertToPacificTime(pubDate, pubDateText);
 
           if (title && link && description && pacificDate) {
             feedItems.push({
@@ -229,7 +229,7 @@ document.addEventListener('DOMContentLoaded', () => {
           const pubDateText = item.pubDate;
           const pubDate = pubDateText ? parseDate(pubDateText) : new Date();
 
-          const pacificDate = convertToPacificTime(pubDate);
+          const pacificDate = convertToPacificTime(pubDate, pubDateText);
 
           if (title && link && description && pacificDate) {
             feedItems.push({
@@ -263,14 +263,21 @@ document.addEventListener('DOMContentLoaded', () => {
     return parsedDate;
   }
 
-  function convertToPacificTime(date) {
-    // Adjust the time manually for Pacific Time (PST/PDT)
-    const pacificTimeOffset = -7; // PDT is UTC-7
+  function convertToPacificTime(date, dateString) {
+    let adjustedDate = new Date(date);
 
-    const pacificDate = new Date(date);
-    pacificDate.setHours(pacificDate.getHours() + pacificTimeOffset);
+    // Adjust time based on time zone in the date string
+    if (dateString.includes('GMT')) {
+      adjustedDate.setHours(adjustedDate.getHours() - 7); // GMT to PDT
+    } else if (dateString.includes('EDT')) {
+      adjustedDate.setHours(adjustedDate.getHours() - 3 - 7); // EDT to PDT
+    } else if (dateString.includes('EST')) {
+      adjustedDate.setHours(adjustedDate.getHours() - 5 - 7); // EST to PDT
+    } else if (dateString.includes('+0000')) {
+      adjustedDate.setHours(adjustedDate.getHours() - 7); // GMT to PDT
+    }
 
-    return pacificDate;
+    return adjustedDate;
   }
 
   async function fetchFeeds() {
