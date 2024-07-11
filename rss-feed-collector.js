@@ -142,8 +142,8 @@ document.addEventListener('DOMContentLoaded', () => {
       source: 'The Hill'
     },
     {
-      url: 'https://en.globes.co.il/WebService/Rss/RssFeeder.asmx/FeederNode?iID=942',
-      source: 'Globes'
+      url: 'https://nypost.com/feed/',
+      source: 'New York Post'
     },
     {
       url: 'https://news.usni.org/feed',
