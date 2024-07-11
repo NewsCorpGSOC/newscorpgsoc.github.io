@@ -254,16 +254,28 @@ document.addEventListener('DOMContentLoaded', () => {
   function parseDate(dateString) {
     // Parse the date string using date-fns
     const dateFormat = 'EEE, dd MMM yyyy HH:mm:ss X';
-    return parse(dateString, dateFormat, new Date());
+    const parsedDate = parse(dateString, dateFormat, new Date());
+
+    // Validate the parsed date
+    if (isNaN(parsedDate)) {
+      throw new Error(`Invalid date value: ${dateString}`);
+    }
+
+    return parsedDate;
   }
 
   function convertToPacificTime(date) {
-    const options = { timeZone: 'America/Los_Angeles', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
-    const pacificDateStr = new Intl.DateTimeFormat('en-US', options).format(date);
-    
-    // Parse the formatted date string back into a Date object
-    const [month, day, year, hour, minute, second] = pacificDateStr.match(/\d+/g);
-    return new Date(`${year}-${month}-${day}T${hour}:${minute}:${second}`);
+    try {
+      const options = { timeZone: 'America/Los_Angeles', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
+      const pacificDateStr = new Intl.DateTimeFormat('en-US', options).format(date);
+      
+      // Parse the formatted date string back into a Date object
+      const [month, day, year, hour, minute, second] = pacificDateStr.match(/\d+/g);
+      return new Date(`${year}-${month}-${day}T${hour}:${minute}:${second}`);
+    } catch (error) {
+      console.error(`Error converting to Pacific Time: ${error.message}`);
+      throw new Error('Invalid time value');
+    }
   }
 
   async function fetchFeeds() {
