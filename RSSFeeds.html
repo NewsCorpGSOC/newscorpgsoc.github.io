@@ -95,22 +95,22 @@
       .container {
         display: flex;
         justify-content: space-between;
-	align-items: flex-start;
+        align-items: flex-start; /* Align items to the top */
         max-width: 1200px;
-        margin: auto;
+        margin: 20px auto 0 auto; /* Align to the top and center horizontally */
         padding: 20px;
-	height: calc(100% - 40px);
+        height: calc(100% - 40px); /* Subtracting padding to make sure it fits within the viewport */
       }
-      
       .feed-container {
         flex: 3;
         margin-right: 20px;
         background-color: #404040;
         border-radius: 8px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      	max-height: 82.5vh;
-      	overflow-y: auto;
-      	padding: 35px 20px 20px 20px;
+        max-height: 82.5vh;
+        overflow-y: auto;
+        padding: 35px 20px 20px 20px;
+        position: relative;
       }
       .feed {
         margin-bottom: 20px;
@@ -180,6 +180,21 @@
       }
       .filter-bar label {
         color: white;
+      }
+      .loading-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        font-size: 24px;
+        z-index: 10;
+        display: none; /* Hidden by default */
       }
 
 /*---------------------------------- SIDEBAR ----------------------------------*/      
@@ -535,6 +550,7 @@
 
         <div class="container">
           <div class="feed-container" id="feeds-container">
+            <div class="loading-overlay" id="loading-overlay">Loading...</div>
             <h1>RSS Feed Collector</h1>
             <div id="feeds"></div>
           </div>
@@ -548,7 +564,7 @@
                 <option value="lastDay">Last Day</option>
                 <option value="all">All</option>
               </select>
-        
+      
               <label for="topicFilter">Topic Filter:</label>
               <select id="topicFilter">
                 <option value="all">All Topics</option>
@@ -556,10 +572,10 @@
                 <option value="Israel">Israel</option>
                 <option value="Protests">Protests</option>
               </select>
-        
+      
               <label for="searchInput">Search:</label>
               <input type="text" id="searchInput" placeholder="Search...">
-        
+      
               <label for="updateFrequency">Update Frequency:</label>
               <select id="updateFrequency">
                 <option value="60000">1 Minute</option>
