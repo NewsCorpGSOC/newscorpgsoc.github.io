@@ -271,6 +271,10 @@ document.addEventListener('DOMContentLoaded', () => {
       adjustedDate.setHours(adjustedDate.getHours() - 7); // GMT to PDT
     } else if (dateString.includes('EDT')) {
       adjustedDate.setHours(adjustedDate.getHours() - 4 - 7); // EDT to PDT
+    } else if (dateString.includes('ET')) {
+      adjustedDate.setHours(adjustedDate.getHours() - 4 - 7); // ET to PDT
+    } else if (dateString.includes('EST')) {
+      adjustedDate.setHours(adjustedDate.getHours() - 4 - 7); // EST to PDT
     } else if (dateString.includes('CDT')) {
       adjustedDate.setHours(adjustedDate.getHours() - 5 - 7); // CDT to PDT
     } else if (dateString.includes('MDT')) {
