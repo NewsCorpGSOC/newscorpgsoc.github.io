@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
   let updateInterval;
 
   const { parseISO, format } = dateFns;
-  const pacificTimeZone = 'America/Los_Angeles';
 
   const rssFeeds = [
     {
@@ -208,8 +207,7 @@ document.addEventListener('DOMContentLoaded', () => {
           const pubDateText = item.querySelector('pubDate')?.textContent;
           const pubDate = pubDateText ? new Date(pubDateText) : new Date();
 
-          const utcDate = new Date(pubDate.getTime() + pubDate.getTimezoneOffset() * 60000);
-          const pacificDate = new Date(utcDate.toLocaleString('en-US', { timeZone: pacificTimeZone }));
+          const pacificDate = new Date(pubDate.toLocaleString('en-US', { timeZone: 'America/Los_Angeles' }));
 
           if (title && link && description && pacificDate) {
             feedItems.push({
@@ -231,8 +229,7 @@ document.addEventListener('DOMContentLoaded', () => {
           const pubDateText = item.pubDate;
           const pubDate = pubDateText ? new Date(pubDateText) : new Date();
 
-          const utcDate = new Date(pubDate.getTime() + pubDate.getTimezoneOffset() * 60000);
-          const pacificDate = new Date(utcDate.toLocaleString('en-US', { timeZone: pacificTimeZone }));
+          const pacificDate = new Date(pubDate.toLocaleString('en-US', { timeZone: 'America/Los_Angeles' }));
 
           if (title && link && description && pacificDate) {
             feedItems.push({
@@ -282,7 +279,7 @@ document.addEventListener('DOMContentLoaded', () => {
       feedElement.innerHTML = `
         <h2><a href="${item.link}" target="_blank">${item.title}</a></h2>
         <p>${item.description}</p>
-        <p><small>Published on: ${format(item.pubDate, 'PPpp', { timeZone: pacificTimeZone })} (PST/PDT)</small></p>
+        <p><small>Published on: ${format(item.pubDate, 'PPpp')} (PST/PDT)</small></p>
         <p><strong>Source:</strong> ${item.source}</p>
       `;
       feedsContainer.appendChild(feedElement);
