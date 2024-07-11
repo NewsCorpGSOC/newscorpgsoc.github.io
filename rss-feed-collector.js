@@ -207,7 +207,7 @@ document.addEventListener('DOMContentLoaded', () => {
           const pubDateText = item.querySelector('pubDate')?.textContent;
           const pubDate = pubDateText ? parseDate(pubDateText) : new Date();
 
-          const pacificDate = convertToPacificTime(pubDate);
+          const pacificDate = convertToPacificTime(pubDate, pubDateText);
 
           if (title && link && description && pacificDate) {
             feedItems.push({
@@ -229,7 +229,7 @@ document.addEventListener('DOMContentLoaded', () => {
           const pubDateText = item.pubDate;
           const pubDate = pubDateText ? parseDate(pubDateText) : new Date();
 
-          const pacificDate = convertToPacificTime(pubDate);
+          const pacificDate = convertToPacificTime(pubDate, pubDateText);
 
           if (title && link && description && pacificDate) {
             feedItems.push({
@@ -264,11 +264,21 @@ document.addEventListener('DOMContentLoaded', () => {
     return parsedDate;
   }
 
-  function convertToPacificTime(date) {
+  function convertToPacificTime(date, dateString) {
+    let adjustedDate = new Date(date);
+
+    // Check if the date string includes "GMT" and adjust the time accordingly
+    if (dateString.includes('GMT')) {
+      adjustedDate.setHours(adjustedDate.getHours() - 7); // Subtract 7 hours for PDT
+    } else if (dateString.includes('+0000')) {
+      // Handle other GMT format
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
+    }
+
     try {
       const options = { timeZone: 'America/Los_Angeles', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
-      const pacificDateStr = new Intl.DateTimeFormat('en-US', options).format(date);
-      
+      const pacificDateStr = new Intl.DateTimeFormat('en-US', options).format(adjustedDate);
+
       // Parse the formatted date string back into a Date object
       const [month, day, year, hour, minute, second] = pacificDateStr.match(/\d+/g);
       return new Date(`${year}-${month}-${day}T${hour}:${minute}:${second}`);
