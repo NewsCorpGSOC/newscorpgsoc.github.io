@@ -8,8 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let feedItems = []; // Array to store all feed items
   let updateInterval;
 
-  const { parseISO, format } = dateFns;
-  const { zonedTimeToUtc, utcToZonedTime } = dateFnsTz;
+  const { parseISO, format, zonedTimeToUtc, utcToZonedTime } = dateFns;
   const pacificTimeZone = 'America/Los_Angeles';
 
   const rssFeeds = [
