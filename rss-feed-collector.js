@@ -168,17 +168,34 @@ document.addEventListener('DOMContentLoaded', () => {
     },
   ];
 
-  async function fetchFeed(feed) {
+  const fetchWithBackup = async (url, backupUrl) => {
     try {
-      const feedUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(feed.url)}`;
-      const response = await fetch(feedUrl);
+      const response = await fetch(url);
       if (!response.ok) {
         throw new Error(`Network response was not ok: ${response.statusText}`);
       }
-      const data = await response.json();
-      if (typeof data.contents === 'string') {
+      return await response.json();
+    } catch (error) {
+      console.warn(`Primary API failed, trying backup: ${error.message}`);
+      const backupResponse = await fetch(backupUrl);
+      if (!backupResponse.ok) {
+        throw new Error(`Backup API failed: ${backupResponse.statusText}`);
+      }
+      return await backupResponse.json();
+    }
+  };
+
+  async function fetchFeed(feed) {
+    try {
+      const feedUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(feed.url)}`;
+      const backupFeedUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feed.url)}`;
+
+      const data = await fetchWithBackup(feedUrl, backupFeedUrl);
+      const contents = data.contents ? data.contents : data.items;
+
+      if (typeof contents === 'string') {
         const parser = new DOMParser();
-        const xmlDoc = parser.parseFromString(data.contents, 'text/xml');
+        const xmlDoc = parser.parseFromString(contents, 'text/xml');
         const items = xmlDoc.querySelectorAll('item');
 
         items.forEach(item => {
@@ -200,8 +217,28 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log('Incomplete item:', { title, link, description, pubDate });
           }
         });
+      } else if (Array.isArray(contents)) {
+        contents.forEach(item => {
+          const title = item.title || 'No title';
+          const link = item.link || '#';
+          const description = item.description || 'No description';
+          const pubDateText = item.pubDate;
+          const pubDate = pubDateText ? new Date(pubDateText) : new Date();
+
+          if (title && link && description && pubDate) {
+            feedItems.push({
+              title,
+              link,
+              description,
+              pubDate,
+              source: feed.source
+            });
+          } else {
+            console.log('Incomplete item:', { title, link, description, pubDate });
+          }
+        });
       } else {
-        console.error('Response data is not string');
+        console.error('Unexpected data format');
       }
     } catch (error) {
       console.error(`Error fetching RSS feed from ${feed.source}:`, error);
