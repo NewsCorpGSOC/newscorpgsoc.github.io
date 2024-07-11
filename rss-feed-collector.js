@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let feedItems = []; // Array to store all feed items
   let updateInterval;
 
-  const { parseISO, format, zonedTimeToUtc, utcToZonedTime } = dateFns;
+  const { parseISO, format } = dateFns;
   const pacificTimeZone = 'America/Los_Angeles';
 
   const rssFeeds = [
@@ -208,8 +208,8 @@ document.addEventListener('DOMContentLoaded', () => {
           const pubDateText = item.querySelector('pubDate')?.textContent;
           const pubDate = pubDateText ? new Date(pubDateText) : new Date();
 
-          const utcDate = zonedTimeToUtc(pubDate, 'UTC');
-          const pacificDate = utcToZonedTime(utcDate, pacificTimeZone);
+          const utcDate = new Date(pubDate.getTime() + pubDate.getTimezoneOffset() * 60000);
+          const pacificDate = new Date(utcDate.toLocaleString('en-US', { timeZone: pacificTimeZone }));
 
           if (title && link && description && pacificDate) {
             feedItems.push({
@@ -231,8 +231,8 @@ document.addEventListener('DOMContentLoaded', () => {
           const pubDateText = item.pubDate;
           const pubDate = pubDateText ? new Date(pubDateText) : new Date();
 
-          const utcDate = zonedTimeToUtc(pubDate, 'UTC');
-          const pacificDate = utcToZonedTime(utcDate, pacificTimeZone);
+          const utcDate = new Date(pubDate.getTime() + pubDate.getTimezoneOffset() * 60000);
+          const pacificDate = new Date(utcDate.toLocaleString('en-US', { timeZone: pacificTimeZone }));
 
           if (title && link && description && pacificDate) {
             feedItems.push({
