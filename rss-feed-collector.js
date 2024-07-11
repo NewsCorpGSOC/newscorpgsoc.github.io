@@ -8,6 +8,9 @@ document.addEventListener('DOMContentLoaded', () => {
   let feedItems = []; // Array to store all feed items
   let updateInterval;
 
+  const { parseISO, format, zonedTimeToUtc, utcToZonedTime } = dateFnsTz;
+  const pacificTimeZone = 'America/Los_Angeles';
+
   const rssFeeds = [
     {
       url: 'https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml',
@@ -205,16 +208,19 @@ document.addEventListener('DOMContentLoaded', () => {
           const pubDateText = item.querySelector('pubDate')?.textContent;
           const pubDate = pubDateText ? new Date(pubDateText) : new Date();
 
-          if (title && link && description && pubDate) {
+          const utcDate = zonedTimeToUtc(pubDate, 'UTC');
+          const pacificDate = utcToZonedTime(utcDate, pacificTimeZone);
+
+          if (title && link && description && pacificDate) {
             feedItems.push({
               title,
               link,
               description,
-              pubDate,
+              pubDate: pacificDate,
               source: feed.source
             });
           } else {
-            console.log('Incomplete item:', { title, link, description, pubDate });
+            console.log('Incomplete item:', { title, link, description, pacificDate });
           }
         });
       } else if (Array.isArray(contents)) {
@@ -225,16 +231,19 @@ document.addEventListener('DOMContentLoaded', () => {
           const pubDateText = item.pubDate;
           const pubDate = pubDateText ? new Date(pubDateText) : new Date();
 
-          if (title && link && description && pubDate) {
+          const utcDate = zonedTimeToUtc(pubDate, 'UTC');
+          const pacificDate = utcToZonedTime(utcDate, pacificTimeZone);
+
+          if (title && link && description && pacificDate) {
             feedItems.push({
               title,
               link,
               description,
-              pubDate,
+              pubDate: pacificDate,
               source: feed.source
             });
           } else {
-            console.log('Incomplete item:', { title, link, description, pubDate });
+            console.log('Incomplete item:', { title, link, description, pacificDate });
           }
         });
       } else {
@@ -273,7 +282,7 @@ document.addEventListener('DOMContentLoaded', () => {
       feedElement.innerHTML = `
         <h2><a href="${item.link}" target="_blank">${item.title}</a></h2>
         <p>${item.description}</p>
-        <p><small>Published on: ${item.pubDate.toLocaleString('en-US', { timeZone: 'America/Los_Angeles', hour12: true, weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' })} (PST/PDT)</small></p>
+        <p><small>Published on: ${format(item.pubDate, 'PPpp', { timeZone: pacificTimeZone })} (PST/PDT)</small></p>
         <p><strong>Source:</strong> ${item.source}</p>
       `;
       feedsContainer.appendChild(feedElement);
