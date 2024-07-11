@@ -272,38 +272,41 @@ document.addEventListener('DOMContentLoaded', () => {
   function convertToPacificTime(date, dateString, source) {
     let adjustedDate = new Date(date);
 
-    // Adjust time based on time zone in the date string
-    if (dateString.includes('GMT')) {
-      adjustedDate.setHours(adjustedDate.getHours() - 7); // GMT to PDT
-    } else if (dateString.includes('EDT')) {
-      adjustedDate.setHours(adjustedDate.getHours() - 4 - 7); // EDT to PDT
-    } else if (dateString.includes('CDT')) {
-      adjustedDate.setHours(adjustedDate.getHours() - 5 - 7); // CDT to PDT
-    } else if (dateString.includes('MDT')) {
-      adjustedDate.setHours(adjustedDate.getHours() - 6 - 7); // MDT to PDT
-    } else if (dateString.includes('BST')) {
-      adjustedDate.setHours(adjustedDate.getHours() + 1 - 7); // BST to PDT
-    } else if (dateString.includes('CEST')) {
-      adjustedDate.setHours(adjustedDate.getHours() + 2 - 7); // CEST to PDT
-    } else if (dateString.includes('IST')) {
-      adjustedDate.setHours(adjustedDate.getHours() + 5.5 - 7); // IST to PDT
-    } else if (dateString.includes('JST')) {
-      adjustedDate.setHours(adjustedDate.getHours() + 9 - 7); // JST to PDT
-    } else if (dateString.includes('AEST')) {
-      adjustedDate.setHours(adjustedDate.getHours() + 10 - 7); // AEST to PDT
-    } else if (dateString.includes('NZST')) {
-      adjustedDate.setHours(adjustedDate.getHours() + 12 - 7); // NZST to PDT
-    } else if (dateString.includes('+0000')) {
-      adjustedDate.setHours(adjustedDate.getHours() - 7); // GMT to PDT
-    } else if (dateString.includes('-4000')) {
-      adjustedDate.setHours(adjustedDate.getHours() - 3); // GMT to PDT
+    // Prioritize source-specific adjustments
+    if (source === 'The Kyiv Independent') {
+      adjustedDate.setHours(adjustedDate.getHours() - 10); // Kyiv to PDT
+    } else if (source === 'The Hill') {
+      adjustedDate.setHours(adjustedDate.getHours() - 3); // The Hill to PDT
     } else {
-      // Adjust based on source if no time zone is provided
-      switch (source) {
-        case 'The Kyiv Independent':
-          adjustedDate.setHours(adjustedDate.getHours() - 10); // Kyiv to PDT
-          break;
-        // Add more source-specific adjustments if needed
+      // Adjust time based on time zone in the date string
+      if (dateString.includes('GMT')) {
+        adjustedDate.setHours(adjustedDate.getHours() - 7); // GMT to PDT
+      } else if (dateString.includes('EDT')) {
+        adjustedDate.setHours(adjustedDate.getHours() - 4 - 7); // EDT to PDT
+      } else if (dateString.includes('ET')) {
+        adjustedDate.setHours(adjustedDate.getHours() - 4 - 7); // ET to PDT
+      } else if (dateString.includes('EST')) {
+        adjustedDate.setHours(adjustedDate.getHours() - 4 - 7); // EST to PDT
+      } else if (dateString.includes('CDT')) {
+        adjustedDate.setHours(adjustedDate.getHours() - 5 - 7); // CDT to PDT
+      } else if (dateString.includes('MDT')) {
+        adjustedDate.setHours(adjustedDate.getHours() - 6 - 7); // MDT to PDT
+      } else if (dateString.includes('BST')) {
+        adjustedDate.setHours(adjustedDate.getHours() + 1 - 7); // BST to PDT
+      } else if (dateString.includes('CEST')) {
+        adjustedDate.setHours(adjustedDate.getHours() + 2 - 7); // CEST to PDT
+      } else if (dateString.includes('IST')) {
+        adjustedDate.setHours(adjustedDate.getHours() + 5.5 - 7); // IST to PDT
+      } else if (dateString.includes('JST')) {
+        adjustedDate.setHours(adjustedDate.getHours() + 9 - 7); // JST to PDT
+      } else if (dateString.includes('AEST')) {
+        adjustedDate.setHours(adjustedDate.getHours() + 10 - 7); // AEST to PDT
+      } else if (dateString.includes('NZST')) {
+        adjustedDate.setHours(adjustedDate.getHours() + 12 - 7); // NZST to PDT
+      } else if (dateString.includes('+0000')) {
+        adjustedDate.setHours(adjustedDate.getHours() - 7); // GMT to PDT
+      } else if (dateString.includes('-4000')) {
+        adjustedDate.setHours(adjustedDate.getHours() - 3); // GMT to PDT
       }
     }
 
