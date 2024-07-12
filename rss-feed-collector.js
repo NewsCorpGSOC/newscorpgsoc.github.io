@@ -226,7 +226,7 @@ document.addEventListener('DOMContentLoaded', () => {
           const pubDateText = item.querySelector('pubDate')?.textContent;
           const pubDate = pubDateText ? parseDate(pubDateText) : new Date();
 
-          const pacificDate = convertToPacificTime(pubDate, pubDateText);
+          const pacificDate = convertToPacificTime(pubDate, feed.source);
 
           if (title && link && description && pacificDate) {
             feedItems.push({
@@ -248,7 +248,7 @@ document.addEventListener('DOMContentLoaded', () => {
           const pubDateText = item.pubDate;
           const pubDate = pubDateText ? parseDate(pubDateText) : new Date();
 
-          const pacificDate = convertToPacificTime(pubDate, pubDateText);
+          const pacificDate = convertToPacificTime(pubDate, feed.source);
 
           if (title && link && description && pacificDate) {
             feedItems.push({
@@ -285,14 +285,14 @@ document.addEventListener('DOMContentLoaded', () => {
     return parsedDate;
   }
 
-  function convertToPacificTime(date, dateString, source) {
+  function convertToPacificTime(date, source) {
     let adjustedDate = new Date(date);
 
     // Prioritize source-specific adjustments
     if (source === 'The Kyiv Independent') {
       adjustedDate.setHours(adjustedDate.getHours() - 10);
     } else if (source === 'The Hill') {
-      adjustedDate.setHours(adjustedDate.getHours() - 7);
+      adjustedDate.setHours(adjustedDate.getHours() - 3);
     } else if (source === 'The New York Times') {
       adjustedDate.setHours(adjustedDate.getHours() - 7);
     } else if (source === 'BBC News') {
@@ -371,43 +371,12 @@ document.addEventListener('DOMContentLoaded', () => {
       adjustedDate.setHours(adjustedDate.getHours() - 7);
     } else if (source === 'Israel Hayom') {
       adjustedDate.setHours(adjustedDate.getHours() - 7);
-    } else if (source === 'The Kyiv Independent') {
-      adjustedDate.setHours(adjustedDate.getHours() - 7);
     } else if (source === 'USCENTCOM - TwitterX') {
       adjustedDate.setHours(adjustedDate.getHours() - 7);
     } else if (source === 'Middle East Eye - TwitterX') {
       adjustedDate.setHours(adjustedDate.getHours() - 7);
     } else {
-      // Adjust time based on time zone in the date string
-      if (dateString.includes('GMT')) {
-        adjustedDate.setHours(adjustedDate.getHours() - 7); // GMT to PDT
-      } else if (dateString.includes('EDT')) {
-        adjustedDate.setHours(adjustedDate.getHours() - 4 - 7); // EDT to PDT
-      } else if (dateString.includes('ET')) {
-        adjustedDate.setHours(adjustedDate.getHours() - 4 - 7); // ET to PDT
-      } else if (dateString.includes('EST')) {
-        adjustedDate.setHours(adjustedDate.getHours() - 4 - 7); // EST to PDT
-      } else if (dateString.includes('CDT')) {
-        adjustedDate.setHours(adjustedDate.getHours() - 5 - 7); // CDT to PDT
-      } else if (dateString.includes('MDT')) {
-        adjustedDate.setHours(adjustedDate.getHours() - 6 - 7); // MDT to PDT
-      } else if (dateString.includes('BST')) {
-        adjustedDate.setHours(adjustedDate.getHours() + 1 - 7); // BST to PDT
-      } else if (dateString.includes('CEST')) {
-        adjustedDate.setHours(adjustedDate.getHours() + 2 - 7); // CEST to PDT
-      } else if (dateString.includes('IST')) {
-        adjustedDate.setHours(adjustedDate.getHours() + 5.5 - 7); // IST to PDT
-      } else if (dateString.includes('JST')) {
-        adjustedDate.setHours(adjustedDate.getHours() + 9 - 7); // JST to PDT
-      } else if (dateString.includes('AEST')) {
-        adjustedDate.setHours(adjustedDate.getHours() + 10 - 7); // AEST to PDT
-      } else if (dateString.includes('NZST')) {
-        adjustedDate.setHours(adjustedDate.getHours() + 12 - 7); // NZST to PDT
-      } else if (dateString.includes('+0000')) {
-        adjustedDate.setHours(adjustedDate.getHours() - 7); // GMT to PDT
-      } else if (dateString.includes('-4000')) {
-        adjustedDate.setHours(adjustedDate.getHours() - 3); // GMT to PDT
-      }
+      console.warn(`No specific time adjustment found for source: ${source}`);
     }
 
     return adjustedDate;
@@ -434,7 +403,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       }
     });
-
+    
     const results = await Promise.all(fetchPromises);
     feedItems = results.flat().sort((a, b) => b.pubDate - a.pubDate); // Flatten results and sort by newest first
 
