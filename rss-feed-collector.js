@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       url: 'http://feeds.foxnews.com/foxnews/world',
-      source: 'Fox News'
+      source: 'Fox News - World'
     },
     {
       url: 'http://feeds.foxnews.com/foxnews/latest',
@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       url: 'https://www.politico.eu/feed/',
-      source: 'Politico'
+      source: 'Politico EU'
     },
     {
       url: 'https://www.thestar.com/search/?f=rss&t=article&c=news/world*&l=50&s=start_time&sd=desc',
@@ -307,20 +307,20 @@ document.addEventListener('DOMContentLoaded', () => {
       adjustedDate.setHours(adjustedDate.getHours() - 7);
     } else if (source === 'Associated Press') {
       adjustedDate.setHours(adjustedDate.getHours() - 3);
-    } else if (source === 'Fox News') {
+    } else if (source === 'Fox News - World') {
       adjustedDate.setHours(adjustedDate.getHours() - 7);
     } else if (source === 'Fox News Top Stories') {
       adjustedDate.setHours(adjustedDate.getHours() - 7);
     } else if (source === 'NPR News') {
-      adjustedDate.setHours(adjustedDate.getHours() - 3);
+      adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'UN News') {
       adjustedDate.setHours(adjustedDate.getHours() - 7);
     } else if (source === 'Yahoo News') {
-      adjustedDate.setHours(adjustedDate.getHours() - 3);
+      adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'Politico EU') {
       adjustedDate.setHours(adjustedDate.getHours() - 7);
     } else if (source === 'Politico') {
-      adjustedDate.setHours(adjustedDate.getHours() - 3);
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
     } else if (source === 'The Star') {
       adjustedDate.setHours(adjustedDate.getHours() - 3);
     } else if (source === 'Brandon Sun') {
@@ -344,7 +344,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (source === 'The Economist - MENA') {
       adjustedDate.setHours(adjustedDate.getHours() - 7);
     } else if (source === 'The New Zealand Herald') {
-      adjustedDate.setHours(adjustedDate.getHours() - 7);
+      adjustedDate.setHours(adjustedDate.getHours() - 4);
     } else if (source === 'Newsweek') {
       adjustedDate.setHours(adjustedDate.getHours() - 3);
     } else if (source === 'Wall Street Journal') {
