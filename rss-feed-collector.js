@@ -304,7 +304,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (source === 'Associated Press') {
       adjustedDate.setHours(adjustedDate.getHours() - 10);
     } else if (source === 'Fox News - World') {
-      adjustedDate.setHours(adjustedDate.getHours() - 7);
+      adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'Fox News Top Stories') {
       adjustedDate.setHours(adjustedDate.getHours() - 7);
     } else if (source === 'NPR News') {
@@ -322,11 +322,11 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (source === 'Brandon Sun') {
       adjustedDate.setHours(adjustedDate.getHours() - 7);
     } else if (source === 'The Hindu Business Line') {
-      adjustedDate.setHours(adjustedDate.getHours() - 0.5);
+      adjustedDate.setHours(adjustedDate.getHours() + 0.5);
     } else if (source === 'Zee News India') {
       adjustedDate.setHours(adjustedDate.getHours() - 12.5);
     } else if (source === 'Live Mint India') {
-      adjustedDate.setHours(adjustedDate.getHours() - 12.5);
+      adjustedDate.setHours(adjustedDate.getHours() - 6.5);
     } else if (source === 'Financial Times') {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'Channel 4 News') {
@@ -338,7 +338,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (source === 'The Economist - Americas') {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'The Economist - MENA') {
-      adjustedDate.setHours(adjustedDate.getHours() - 0);
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
     } else if (source === 'The New Zealand Herald') {
       adjustedDate.setHours(adjustedDate.getHours() - 3);
     } else if (source === 'Newsweek') {
@@ -368,7 +368,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (source === 'Israel Hayom') {
       adjustedDate.setHours(adjustedDate.getHours() - 7);
     } else if (source === 'USCENTCOM - TwitterX') {
-      adjustedDate.setHours(adjustedDate.getHours() - 7);
+      adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'Middle East Eye - TwitterX') {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else {
