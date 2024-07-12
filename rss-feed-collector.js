@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const timelineFilter = document.getElementById('timelineFilter');
   const topicFilter = document.getElementById('topicFilter');
   const sourceFilterContainer = document.getElementById('sourceFilterContainer');
+  const toggleSourceFilterButton = document.getElementById('toggleSourceFilter');
   const searchInput = document.getElementById('searchInput');
   const updateFrequency = document.getElementById('updateFrequency');
   let feedItems = []; // Array to store all feed items
@@ -184,10 +185,9 @@ document.addEventListener('DOMContentLoaded', () => {
     },
   ];
 
-  // Populate source filter checkboxes
   function populateSourceFilter() {
     const uniqueSources = [...new Set(rssFeeds.map(feed => feed.source))];
-    uniqueSources.forEach(source => {
+    uniqueSources.sort().forEach(source => {
       const checkbox = document.createElement('input');
       checkbox.type = 'checkbox';
       checkbox.id = source;
@@ -206,6 +206,12 @@ document.addEventListener('DOMContentLoaded', () => {
       sourceFilterContainer.appendChild(container);
     });
   }
+  // Toggle source filter visibility
+  toggleSourceFilterButton.addEventListener('click', () => {
+    const isHidden = sourceFilterContainer.style.display === 'none';
+    sourceFilterContainer.style.display = isHidden ? 'block' : 'none';
+    toggleSourceFilterButton.textContent = isHidden ? 'Hide Source Filter' : 'Show Source Filter';
+  });
   
   const fetchWithBackup = async (url, backupUrl) => {
     try {
@@ -458,7 +464,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function applyFilter() {
     const now = new Date();
     let filteredFeeds = [...feedItems]; // Start with all feeds
-
+  
     const timelineValue = timelineFilter.value;
     if (timelineValue === 'lastHour') {
       filteredFeeds = filteredFeeds.filter(item => now - item.pacificDate <= 3600000);
@@ -467,20 +473,20 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (timelineValue === 'lastDay') {
       filteredFeeds = filteredFeeds.filter(item => now - item.pacificDate <= 86400000);
     }
-
+  
     const topicValue = topicFilter.value;
     if (topicValue !== 'all') {
       filteredFeeds = filteredFeeds.filter(item => item.description.toLowerCase().includes(topicValue.toLowerCase()));
     }
-
+  
     const checkedSources = Array.from(document.querySelectorAll('input[name="sourceFilter"]:checked')).map(cb => cb.value);
     if (checkedSources.length > 0 && !checkedSources.includes('all')) {
       filteredFeeds = filteredFeeds.filter(item => checkedSources.includes(item.source));
     }
-
+  
     return filteredFeeds;
   }
-
+  
   function setUpdateInterval() {
     if (updateInterval) {
       clearInterval(updateInterval);
@@ -492,13 +498,13 @@ document.addEventListener('DOMContentLoaded', () => {
       fetchFeeds();
     }, frequency);
   }
-
+  
   timelineFilter.addEventListener('change', displayFeeds);
   topicFilter.addEventListener('change', displayFeeds);
   sourceFilterContainer.addEventListener('change', displayFeeds);
   searchInput.addEventListener('input', displayFeeds);
   updateFrequency.addEventListener('change', setUpdateInterval);
-
+  
   populateSourceFilter();
   fetchFeeds();
   setUpdateInterval(); // Set the initial update interval based on the default value
