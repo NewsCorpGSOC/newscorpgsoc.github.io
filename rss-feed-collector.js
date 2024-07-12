@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const loadingOverlay = document.getElementById('loading-overlay');
   const timelineFilter = document.getElementById('timelineFilter');
   const topicFilter = document.getElementById('topicFilter');
+  const sourceFilter = document.getElementById('sourceFilter');
   const searchInput = document.getElementById('searchInput');
   const updateFrequency = document.getElementById('updateFrequency');
   let feedItems = []; // Array to store all feed items
@@ -183,6 +184,16 @@ document.addEventListener('DOMContentLoaded', () => {
     },
   ];
 
+  function populateSourceFilter() {
+    const uniqueSources = [...new Set(rssFeeds.map(feed => feed.source))];
+    uniqueSources.forEach(source => {
+      const option = document.createElement('option');
+      option.value = source;
+      option.textContent = source;
+      sourceFilter.appendChild(option);
+    });
+  }
+  
   const fetchWithBackup = async (url, backupUrl) => {
     try {
       const response = await fetch(url);
@@ -437,16 +448,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const timelineValue = timelineFilter.value;
     if (timelineValue === 'lastHour') {
-      filteredFeeds = filteredFeeds.filter(item => now - item.pubDate <= 3600000);
+      filteredFeeds = filteredFeeds.filter(item => now - item.pacificDate <= 3600000);
     } else if (timelineValue === 'last12Hours') {
-      filteredFeeds = filteredFeeds.filter(item => now - item.pubDate <= 43200000);
+      filteredFeeds = filteredFeeds.filter(item => now - item.pacificDate <= 43200000);
     } else if (timelineValue === 'lastDay') {
-      filteredFeeds = filteredFeeds.filter(item => now - item.pubDate <= 86400000);
+      filteredFeeds = filteredFeeds.filter(item => now - item.pacificDate <= 86400000);
     }
 
     const topicValue = topicFilter.value;
     if (topicValue !== 'all') {
       filteredFeeds = filteredFeeds.filter(item => item.description.toLowerCase().includes(topicValue.toLowerCase()));
+    }
+
+    const sourceValue = sourceFilter.value;
+    if (sourceValue !== 'all') {
+      filteredFeeds = filteredFeeds.filter(item => item.source === sourceValue);
     }
 
     return filteredFeeds;
@@ -466,9 +482,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   timelineFilter.addEventListener('change', displayFeeds);
   topicFilter.addEventListener('change', displayFeeds);
+  sourceFilter.addEventListener('change', displayFeeds);
   searchInput.addEventListener('input', displayFeeds);
   updateFrequency.addEventListener('change', setUpdateInterval);
 
+  populateSourceFilter();
   fetchFeeds();
   setUpdateInterval(); // Set the initial update interval based on the default value
 });
