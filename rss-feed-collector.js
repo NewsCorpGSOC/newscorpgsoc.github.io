@@ -187,6 +187,23 @@ document.addEventListener('DOMContentLoaded', () => {
     },
   ];
 
+  const fetchWithBackup = async (url, backupUrl) => {
+    try {
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error(`Network response was not ok: ${response.statusText}`);
+      }
+      return await response.json();
+    } catch (error) {
+      console.warn(`Primary API failed, trying backup: ${error.message}`);
+      const backupResponse = await fetch(backupUrl);
+      if (!backupResponse.ok) {
+        throw new Error(`Backup API failed: ${backupResponse.statusText}`);
+      }
+      return await backupResponse.json();
+    }
+  };
+
   const fetchFeed = async (feed) => {
     try {
       const feedUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(feed.url)}`;
@@ -209,19 +226,18 @@ document.addEventListener('DOMContentLoaded', () => {
           const pubDateText = item.querySelector('pubDate')?.textContent;
           const pubDate = pubDateText ? parseDate(pubDateText) : new Date();
 
-          const pacificDate = convertToPacificTime(pubDate);
+          const pacificDate = convertToPacificTime(pubDate, feed.source);
 
           if (title && link && description && pacificDate) {
             feedItems.push({
               title,
               link,
               description,
-              pubDate,
-              pacificDate,
+              pubDate: pacificDate,
               source: feed.source
             });
           } else {
-            console.log('Incomplete item:', { title, link, description, pubDate, pacificDate });
+            console.log('Incomplete item:', { title, link, description, pacificDate });
           }
         });
       } else if (Array.isArray(contents)) {
@@ -232,19 +248,18 @@ document.addEventListener('DOMContentLoaded', () => {
           const pubDateText = item.pubDate;
           const pubDate = pubDateText ? parseDate(pubDateText) : new Date();
 
-          const pacificDate = convertToPacificTime(pubDate);
+          const pacificDate = convertToPacificTime(pubDate, feed.source);
 
           if (title && link && description && pacificDate) {
             feedItems.push({
               title,
               link,
               description,
-              pubDate,
-              pacificDate,
+              pubDate: pacificDate,
               source: feed.source
             });
           } else {
-            console.log('Incomplete item:', { title, link, description, pubDate, pacificDate });
+            console.log('Incomplete item:', { title, link, description, pacificDate });
           }
         });
       } else {
@@ -270,24 +285,101 @@ document.addEventListener('DOMContentLoaded', () => {
     return parsedDate;
   }
 
-  function convertToPacificTime(date) {
-    // Use Intl.DateTimeFormat to adjust to Pacific Time
-    const pacificFormatter = new Intl.DateTimeFormat('en-US', {
-      timeZone: 'America/Los_Angeles',
-      year: 'numeric',
-      month: '2-digit',
-      day: '2-digit',
-      hour: '2-digit',
-      minute: '2-digit',
-      second: '2-digit'
-    });
+  function convertToPacificTime(date, source) {
+    let adjustedDate = new Date(date);
 
-    const parts = pacificFormatter.formatToParts(date);
-    const pacificDate = new Date(
-      `${parts[4].value}-${parts[2].value}-${parts[0].value}T${parts[6].value}:${parts[8].value}:${parts[10].value}`
-    );
+    // Prioritize source-specific adjustments
+    if (source === 'The Kyiv Independent') {
+      adjustedDate.setHours(adjustedDate.getHours() - 10);
+    } else if (source === 'The Hill') {
+      adjustedDate.setHours(adjustedDate.getHours() + 7);
+    } else if (source === 'The New York Times') {
+      adjustedDate.setHours(adjustedDate.getHours() - 0);
+    } else if (source === 'BBC News') {
+      adjustedDate.setHours(adjustedDate.getHours() - 0);
+    } else if (source === 'The Guardian') {
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
+    } else if (source === 'Al Jazeera - Latest') {
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
+    } else if (source === 'Al Jazeera - World') {
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
+    } else if (source === 'World Online') {
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
+    } else if (source === 'Associated Press') {
+      adjustedDate.setHours(adjustedDate.getHours() - 3);
+    } else if (source === 'Fox News - World') {
+      adjustedDate.setHours(adjustedDate.getHours() - 0);
+    } else if (source === 'Fox News Top Stories') {
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
+    } else if (source === 'NPR News') {
+      adjustedDate.setHours(adjustedDate.getHours() - 0);
+    } else if (source === 'UN News') {
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
+    } else if (source === 'Yahoo News') {
+      adjustedDate.setHours(adjustedDate.getHours() - 0);
+    } else if (source === 'Politico EU') {
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
+    } else if (source === 'Politico') {
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
+    } else if (source === 'The Star') {
+      adjustedDate.setHours(adjustedDate.getHours() - 3);
+    } else if (source === 'Brandon Sun') {
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
+    } else if (source === 'The Hindu Business Line') {
+      adjustedDate.setHours(adjustedDate.getHours() - 12.5);
+    } else if (source === 'Zee News India') {
+      adjustedDate.setHours(adjustedDate.getHours() - 12.5);
+    } else if (source === 'Live Mint India') {
+      adjustedDate.setHours(adjustedDate.getHours() - 12.5);
+    } else if (source === 'Financial Times') {
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
+    } else if (source === 'Channel 4 News') {
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
+    } else if (source === 'Sky News Politics') {
+      adjustedDate.setHours(adjustedDate.getHours() - 8);
+    } else if (source === 'The Economist - Europe') {
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
+    } else if (source === 'The Economist - Americas') {
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
+    } else if (source === 'The Economist - MENA') {
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
+    } else if (source === 'The New Zealand Herald') {
+      adjustedDate.setHours(adjustedDate.getHours() - 1);
+    } else if (source === 'Newsweek') {
+      adjustedDate.setHours(adjustedDate.getHours() - 3);
+    } else if (source === 'Wall Street Journal') {
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
+    } else if (source === 'The Jerusalem Post - Arab-Israeli Conflict') {
+      adjustedDate.setHours(adjustedDate.getHours() - 10);
+    } else if (source === 'The Jerusalem Post - Breaking News') {
+      adjustedDate.setHours(adjustedDate.getHours() - 10);
+    } else if (source === 'The Jerusalem Post - World News') {
+      adjustedDate.setHours(adjustedDate.getHours() - 10);
+    } else if (source === 'The Jerusalem Post - Israel-Hamas War') {
+      adjustedDate.setHours(adjustedDate.getHours() - 10);
+    } else if (source === 'The Jerusalem Post - Middle East News') {
+      adjustedDate.setHours(adjustedDate.getHours() - 10);
+    } else if (source === 'The Jerusalem Post - Iran News') {
+      adjustedDate.setHours(adjustedDate.getHours() - 10);
+    } else if (source === 'The Jerusalem Post - Ukraine-Russia War') {
+      adjustedDate.setHours(adjustedDate.getHours() - 10);
+    } else if (source === 'The Jerusalem Post - Gaza') {
+      adjustedDate.setHours(adjustedDate.getHours() - 10);
+    } else if (source === 'New York Post') {
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
+    } else if (source === 'USNI News') {
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
+    } else if (source === 'Israel Hayom') {
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
+    } else if (source === 'USCENTCOM - TwitterX') {
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
+    } else if (source === 'Middle East Eye - TwitterX') {
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
+    } else {
+      console.warn(`No specific time adjustment found for source: ${source}`);
+    }
 
-    return pacificDate;
+    return adjustedDate;
   }
 
   async function fetchFeeds() {
@@ -311,7 +403,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       }
     });
-
+    
     const results = await Promise.all(fetchPromises);
     feedItems = results.flat().sort((a, b) => b.pubDate - a.pubDate); // Flatten results and sort by newest first
 
@@ -323,20 +415,20 @@ document.addEventListener('DOMContentLoaded', () => {
     feedsContainer.innerHTML = ''; // Clear previous content
     const filteredFeeds = applyFilter(); // Apply current filter
     const searchTerm = searchInput.value.trim().toLowerCase(); // Get search term
-    const searchFilteredFeeds = filteredFeeds.filter(item =>
-      item.title.toLowerCase().includes(searchTerm) ||
+    const searchFilteredFeeds = filteredFeeds.filter(item => 
+      item.title.toLowerCase().includes(searchTerm) || 
       item.description.toLowerCase().includes(searchTerm) ||
       item.source.toLowerCase().includes(searchTerm)
     ); // Filter feeds based on search term
     console.log('Filtered feeds:', searchFilteredFeeds); // Log filtered feeds
-
+    
     searchFilteredFeeds.forEach(item => {
       const feedElement = document.createElement('div');
       feedElement.classList.add('feed');
       feedElement.innerHTML = `
         <h2><a href="${item.link}" target="_blank">${item.title}</a></h2>
         <p>${item.description}</p>
-        <p><small>Published on: ${format(item.pubDate, 'PPpp')} [Local] // ${format(item.pacificDate, 'PPpp')} (PDT/PST)</small></p>
+        <p><small>Published on: ${format(item.pubDate, 'PPpp')} (PST/PDT)</small></p>
         <p><strong>Source:</strong> ${item.source}</p>
       `;
       feedsContainer.appendChild(feedElement);
@@ -349,11 +441,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const timelineValue = timelineFilter.value;
     if (timelineValue === 'lastHour') {
-      filteredFeeds = filteredFeeds.filter(item => now - item.pacificDate <= 3600000);
+      filteredFeeds = filteredFeeds.filter(item => now - item.pubDate <= 3600000);
     } else if (timelineValue === 'last12Hours') {
-      filteredFeeds = filteredFeeds.filter(item => now - item.pacificDate <= 43200000);
+      filteredFeeds = filteredFeeds.filter(item => now - item.pubDate <= 43200000);
     } else if (timelineValue === 'lastDay') {
-      filteredFeeds = filteredFeeds.filter(item => now - item.pacificDate <= 86400000);
+      filteredFeeds = filteredFeeds.filter(item => now - item.pubDate <= 86400000);
     }
 
     const topicValue = topicFilter.value;
