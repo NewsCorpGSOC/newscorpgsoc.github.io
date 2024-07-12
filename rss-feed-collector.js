@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const loadingOverlay = document.getElementById('loading-overlay');
   const timelineFilter = document.getElementById('timelineFilter');
   const topicFilter = document.getElementById('topicFilter');
-  const sourceFilter = document.getElementById('sourceFilter');
+  const sourceFilterContainer = document.getElementById('sourceFilterContainer');
   const searchInput = document.getElementById('searchInput');
   const updateFrequency = document.getElementById('updateFrequency');
   let feedItems = []; // Array to store all feed items
@@ -184,13 +184,26 @@ document.addEventListener('DOMContentLoaded', () => {
     },
   ];
 
+  // Populate source filter checkboxes
   function populateSourceFilter() {
     const uniqueSources = [...new Set(rssFeeds.map(feed => feed.source))];
     uniqueSources.forEach(source => {
-      const option = document.createElement('option');
-      option.value = source;
-      option.textContent = source;
-      sourceFilter.appendChild(option);
+      const checkbox = document.createElement('input');
+      checkbox.type = 'checkbox';
+      checkbox.id = source;
+      checkbox.name = 'sourceFilter';
+      checkbox.value = source;
+      checkbox.checked = true;
+
+      const label = document.createElement('label');
+      label.htmlFor = source;
+      label.textContent = source;
+
+      const container = document.createElement('div');
+      container.appendChild(checkbox);
+      container.appendChild(label);
+
+      sourceFilterContainer.appendChild(container);
     });
   }
   
@@ -460,9 +473,9 @@ document.addEventListener('DOMContentLoaded', () => {
       filteredFeeds = filteredFeeds.filter(item => item.description.toLowerCase().includes(topicValue.toLowerCase()));
     }
 
-    const sourceValue = sourceFilter.value;
-    if (sourceValue !== 'all') {
-      filteredFeeds = filteredFeeds.filter(item => item.source === sourceValue);
+    const checkedSources = Array.from(document.querySelectorAll('input[name="sourceFilter"]:checked')).map(cb => cb.value);
+    if (checkedSources.length > 0 && !checkedSources.includes('all')) {
+      filteredFeeds = filteredFeeds.filter(item => checkedSources.includes(item.source));
     }
 
     return filteredFeeds;
@@ -482,7 +495,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   timelineFilter.addEventListener('change', displayFeeds);
   topicFilter.addEventListener('change', displayFeeds);
-  sourceFilter.addEventListener('change', displayFeeds);
+  sourceFilterContainer.addEventListener('change', displayFeeds);
   searchInput.addEventListener('input', displayFeeds);
   updateFrequency.addEventListener('change', setUpdateInterval);
 
