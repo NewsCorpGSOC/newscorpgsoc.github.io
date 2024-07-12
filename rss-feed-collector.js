@@ -348,7 +348,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (source === 'Newsweek') {
       adjustedDate.setHours(adjustedDate.getHours() - 3);
     } else if (source === 'Wall Street Journal') {
-      adjustedDate.setHours(adjustedDate.getHours() - 3);
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
     } else if (source === 'The Jerusalem Post - Arab-Israeli Conflict') {
       adjustedDate.setHours(adjustedDate.getHours() - 10);
     } else if (source === 'The Jerusalem Post - Breaking News') {
