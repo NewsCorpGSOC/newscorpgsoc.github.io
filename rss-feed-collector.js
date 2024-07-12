@@ -226,18 +226,19 @@ document.addEventListener('DOMContentLoaded', () => {
           const pubDateText = item.querySelector('pubDate')?.textContent;
           const pubDate = pubDateText ? parseDate(pubDateText) : new Date();
 
-          const pacificDate = convertToPacificTime(pubDate, feed.source);
+          const pacificDate = convertToPacificTime(pubDate, pubDateText, feed.source);
 
           if (title && link && description && pacificDate) {
             feedItems.push({
               title,
               link,
               description,
-              pubDate: pacificDate,
+              pubDate,
+              pacificDate,
               source: feed.source
             });
           } else {
-            console.log('Incomplete item:', { title, link, description, pacificDate });
+            console.log('Incomplete item:', { title, link, description, pubDate, pacificDate });
           }
         });
       } else if (Array.isArray(contents)) {
@@ -248,18 +249,19 @@ document.addEventListener('DOMContentLoaded', () => {
           const pubDateText = item.pubDate;
           const pubDate = pubDateText ? parseDate(pubDateText) : new Date();
 
-          const pacificDate = convertToPacificTime(pubDate, feed.source);
+          const pacificDate = convertToPacificTime(pubDate, pubDateText, feed.source);
 
           if (title && link && description && pacificDate) {
             feedItems.push({
               title,
               link,
               description,
-              pubDate: pacificDate,
+              pubDate,
+              pacificDate,
               source: feed.source
             });
           } else {
-            console.log('Incomplete item:', { title, link, description, pacificDate });
+            console.log('Incomplete item:', { title, link, description, pubDate, pacificDate });
           }
         });
       } else {
@@ -428,24 +430,24 @@ document.addEventListener('DOMContentLoaded', () => {
       feedElement.innerHTML = `
         <h2><a href="${item.link}" target="_blank">${item.title}</a></h2>
         <p>${item.description}</p>
-        <p><small>Published on: ${format(item.pubDate, 'PPpp')} (PST/PDT)</small></p>
+        <p><small>Published on: ${format(item.pubDate, 'PPpp')} [Local] // ${format(item.pacificDate, 'PPpp')} (PDT/PST)</small></p>
         <p><strong>Source:</strong> ${item.source}</p>
       `;
       feedsContainer.appendChild(feedElement);
     });
   }
-
+  
   function applyFilter() {
     const now = new Date();
     let filteredFeeds = [...feedItems]; // Start with all feeds
 
     const timelineValue = timelineFilter.value;
     if (timelineValue === 'lastHour') {
-      filteredFeeds = filteredFeeds.filter(item => now - item.pubDate <= 3600000);
+      filteredFeeds = filteredFeeds.filter(item => now - item.pacificDate <= 3600000);
     } else if (timelineValue === 'last12Hours') {
-      filteredFeeds = filteredFeeds.filter(item => now - item.pubDate <= 43200000);
+      filteredFeeds = filteredFeeds.filter(item => now - item.pacificDate <= 43200000);
     } else if (timelineValue === 'lastDay') {
-      filteredFeeds = filteredFeeds.filter(item => now - item.pubDate <= 86400000);
+      filteredFeeds = filteredFeeds.filter(item => now - item.pacificDate <= 86400000);
     }
 
     const topicValue = topicFilter.value;
