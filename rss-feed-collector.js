@@ -17,12 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
       source: 'The New York Times'
     },
     {
-      url: 'https://feeds.bbci.co.uk/news/rss.xml',
-      source: 'BBC News'
-    },
-    {
       url: 'http://feeds.bbci.co.uk/news/world/rss.xml',
-      source: 'BBC News - World'
+      source: 'BBC News'
     },
     {
       url: 'https://www.theguardian.com/world/rss',
@@ -53,20 +49,12 @@ document.addEventListener('DOMContentLoaded', () => {
       source: 'Fox News Top Stories'
     },
     {
-      url: 'http://feeds.nbcnews.com/nbcnews/topstories',
-      source: 'NBC News'
-    },
-    {
       url: 'https://feeds.npr.org/1001/rss.xml',
       source: 'NPR News'
     },
     {
       url: 'https://news.un.org/feed/subscribe/en/news/all/rss.xml',
       source: 'UN News'
-    },
-    {
-      url: 'http://www.huffingtonpost.com/feeds/verticals/world/index.xml',
-      source: 'Huffington Post'
     },
     {
       url: 'http://rss.news.yahoo.com/rss/world',
@@ -137,8 +125,36 @@ document.addEventListener('DOMContentLoaded', () => {
       source: 'Wall Street Journal'
     },
     {
-      url: 'https://www.jpost.com/rss/',
-      source: 'The Jerusalem Post'
+      url: 'https://rss.jpost.com/rss/rssfeedsarabisraeliconflict.aspx',
+      source: 'The Jerusalem Post - Arab-Israeli Conflict'
+    },
+    {
+      url: 'https://rss.jpost.com/rss/rssfeedsheadlines.aspx',
+      source: 'The Jerusalem Post - Breaking News'
+    },
+    {
+      url: 'https://rss.jpost.com/rss/rssfeedsinternational',
+      source: 'The Jerusalem Post - World News'
+    },
+    {
+      url: 'https://rss.jpost.com/rss/israel-hamas-war',
+      source: 'The Jerusalem Post - Israel-Hamas War'
+    },
+    {
+      url: 'https://rss.jpost.com/rss/rssfeedsmiddleeastnews.aspx',
+      source: 'The Jerusalem Post - Middle East News'
+    },
+    {
+      url: 'https://rss.jpost.com/rss/rssfeedsiran',
+      source: 'The Jerusalem Post - Iran News'
+    },
+    {
+      url: 'https://rss.jpost.com/rss/rssukrainerussiawar',
+      source: 'The Jerusalem Post - Ukraine-Russia War'
+    },
+    {
+      url: 'https://rss.jpost.com/rss/rssfeedsgaza.aspx',
+      source: 'The Jerusalem Post - Gaza'
     },
     {
       url: 'https://thehill.com/feed/',
@@ -274,9 +290,93 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Prioritize source-specific adjustments
     if (source === 'The Kyiv Independent') {
-      adjustedDate.setHours(adjustedDate.getHours() - 10); // Kyiv to PDT
+      adjustedDate.setHours(adjustedDate.getHours() - 10);
     } else if (source === 'The Hill') {
-      adjustedDate.setHours(adjustedDate.getHours() - 3); // The Hill to PDT
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
+    } else if (source === 'The New York Times') {
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
+    } else if (source === 'BBC News') {
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
+    } else if (source === 'The Guardian') {
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
+    } else if (source === 'Al Jazeera - Latest') {
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
+    } else if (source === 'Al Jazeera - World') {
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
+    } else if (source === 'World Online') {
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
+    } else if (source === 'Associated Press') {
+      adjustedDate.setHours(adjustedDate.getHours() - 3);
+    } else if (source === 'Fox News') {
+      adjustedDate.setHours(adjustedDate.getHours() - 3);
+    } else if (source === 'Fox News Top Stories') {
+      adjustedDate.setHours(adjustedDate.getHours() - 3);
+    } else if (source === 'NPR News') {
+      adjustedDate.setHours(adjustedDate.getHours() - 3);
+    } else if (source === 'UN News') {
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
+    } else if (source === 'Yahoo News') {
+      adjustedDate.setHours(adjustedDate.getHours() - 3);
+    } else if (source === 'Politico EU') {
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
+    } else if (source === 'Politico') {
+      adjustedDate.setHours(adjustedDate.getHours() - 3);
+    } else if (source === 'The Star') {
+      adjustedDate.setHours(adjustedDate.getHours() - 3);
+    } else if (source === 'Brandon Sun') {
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
+    } else if (source === 'The Hindu Business Line') {
+      adjustedDate.setHours(adjustedDate.getHours() - 12.5);
+    } else if (source === 'Zee News India') {
+      adjustedDate.setHours(adjustedDate.getHours() - 12.5);
+    } else if (source === 'Live Mint India') {
+      adjustedDate.setHours(adjustedDate.getHours() - 12.5);
+    } else if (source === 'Financial Times') {
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
+    } else if (source === 'Channel 4 News') {
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
+    } else if (source === 'Sky News Politics') {
+      adjustedDate.setHours(adjustedDate.getHours() - 8);
+    } else if (source === 'The Economist - Europe') {
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
+    } else if (source === 'The Economist - Americas') {
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
+    } else if (source === 'The Economist - MENA') {
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
+    } else if (source === 'The New Zealand Herald') {
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
+    } else if (source === 'Newsweek') {
+      adjustedDate.setHours(adjustedDate.getHours() - 3);
+    } else if (source === 'Wall Street Journal') {
+      adjustedDate.setHours(adjustedDate.getHours() - 3);
+    } else if (source === 'The Jerusalem Post - Arab-Israeli Conflict') {
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
+    } else if (source === 'The Jerusalem Post - Breaking News') {
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
+    } else if (source === 'The Jerusalem Post - World News') {
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
+    } else if (source === 'The Jerusalem Post - Israel-Hamas War') {
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
+    } else if (source === 'The Jerusalem Post - Middle East News') {
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
+    } else if (source === 'The Jerusalem Post - Iran News') {
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
+    } else if (source === 'The Jerusalem Post - Ukraine-Russia War') {
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
+    } else if (source === 'The Jerusalem Post - Gaza') {
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
+    } else if (source === 'New York Post') {
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
+    } else if (source === 'USNI News') {
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
+    } else if (source === 'Israel Hayom') {
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
+    } else if (source === 'The Kyiv Independent') {
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
+    } else if (source === 'USCENTCOM - TwitterX') {
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
+    } else if (source === 'Middle East Eye - TwitterX') {
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
     } else {
       // Adjust time based on time zone in the date string
       if (dateString.includes('GMT')) {
