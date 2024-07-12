@@ -308,9 +308,9 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (source === 'Associated Press') {
       adjustedDate.setHours(adjustedDate.getHours() - 3);
     } else if (source === 'Fox News') {
-      adjustedDate.setHours(adjustedDate.getHours() - 3);
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
     } else if (source === 'Fox News Top Stories') {
-      adjustedDate.setHours(adjustedDate.getHours() - 3);
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
     } else if (source === 'NPR News') {
       adjustedDate.setHours(adjustedDate.getHours() - 3);
     } else if (source === 'UN News') {
