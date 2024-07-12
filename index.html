@@ -47,6 +47,20 @@
           0 0 0 3px rgba(0, 0, 0, 0.2), /* First layer */
           0 0 0 6px rgba(255, 255, 255, 0.5); /* Second layer */
       }
+      
+      .header-title {
+        font-size: 24px;
+        color: white;
+        margin-right: auto;
+        font-family: 'EB Garamond', serif;
+        padding-left: 20px;
+      }
+      
+      .navbar-buttons {
+        display: flex;
+        align-items: center;
+        margin-top: 10px; /* Adjust the value to push the buttons down */
+      }
 
       body {
         margin: 0;
@@ -362,24 +376,27 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a href="page1.html" class="animated-button">GSOC Phone Log Form<span></span></a>
-          </li>
-          <li class="nav-item">
-            <a href="RSSFeeds.html" class="animated-button">Live News Reports (RSS Feed)<span></span></a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="animated-button dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              GSOC SOPs
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="https://docs.google.com/document/d/1QgCk9qFH2U3x0BN3e3YF7tlcey5eNPQIk4SZGAWJLLQ/edit">GPM 01.01</a>
-              <a class="dropdown-item" href="GPM_02_01.html">GPM 02.01</a>
-              <a class="dropdown-item" href="GPM_02_02.html">GPM 02.02</a>
-            </div>
-          </li>
-        </ul>
+        <h1 class="header-title">Home Page</h1>
+        <div class="navbar-buttons">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a href="page1.html" class="animated-button">GSOC Phone Log Form<span></span></a>
+            </li>
+            <li class="nav-item">
+              <a href="RSSFeeds.html" class="animated-button">Live News Reports (RSS Feed)<span></span></a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="animated-button dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                GSOC SOPs
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="https://docs.google.com/document/d/1QgCk9qFH2U3x0BN3e3YF7tlcey5eNPQIk4SZGAWJLLQ/edit">GPM 01.01</a>
+                <a class="dropdown-item" href="GPM_02_01.html">GPM 02.01</a>
+                <a class="dropdown-item" href="GPM_02_02.html">GPM 02.02</a>
+              </div>
+            </li>
+          </ul>
+        </div>
       </div>
     </nav>
 
