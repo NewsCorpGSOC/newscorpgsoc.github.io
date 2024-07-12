@@ -292,11 +292,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (source === 'The Kyiv Independent') {
       adjustedDate.setHours(adjustedDate.getHours() - 10);
     } else if (source === 'The Hill') {
-      adjustedDate.setHours(adjustedDate.getHours() - 3);
+      adjustedDate.setHours(adjustedDate.getHours() + 7);
     } else if (source === 'The New York Times') {
-      adjustedDate.setHours(adjustedDate.getHours() - 7);
+      adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'BBC News') {
-      adjustedDate.setHours(adjustedDate.getHours() - 7);
+      adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'The Guardian') {
       adjustedDate.setHours(adjustedDate.getHours() - 7);
     } else if (source === 'Al Jazeera - Latest') {
@@ -308,7 +308,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (source === 'Associated Press') {
       adjustedDate.setHours(adjustedDate.getHours() - 3);
     } else if (source === 'Fox News - World') {
-      adjustedDate.setHours(adjustedDate.getHours() - 7);
+      adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'Fox News Top Stories') {
       adjustedDate.setHours(adjustedDate.getHours() - 7);
     } else if (source === 'NPR News') {
@@ -344,7 +344,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (source === 'The Economist - MENA') {
       adjustedDate.setHours(adjustedDate.getHours() - 7);
     } else if (source === 'The New Zealand Herald') {
-      adjustedDate.setHours(adjustedDate.getHours() - 4);
+      adjustedDate.setHours(adjustedDate.getHours() - 1);
     } else if (source === 'Newsweek') {
       adjustedDate.setHours(adjustedDate.getHours() - 3);
     } else if (source === 'Wall Street Journal') {
