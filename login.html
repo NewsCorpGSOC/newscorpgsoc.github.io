@@ -73,7 +73,7 @@
       padding-top: 30px;
       margin-bottom: -10px;
     }
-    .login-container input[type="password"] {
+    .login-container input[type="text"], .login-container input[type="password"] {
       padding: 10px;
       margin-bottom: 20px;
       width: 100%;
@@ -340,6 +340,8 @@
     <div class="login-container">
       <h1>🌐 Intranet Login 🌐</h1>
       <form action="login.php" method="POST">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" required>
         <button type="submit" class="animated-button">
