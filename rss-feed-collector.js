@@ -174,6 +174,66 @@ document.addEventListener('DOMContentLoaded', () => {
       url: 'https://kyivindependent.com/news-archive/rss/',
       source: 'The Kyiv Independent'
     },
+    {
+      url: 'https://www.voanews.com/api/zobo_egviy',
+      source: 'VOA News - East Asia'
+    },
+    {
+      url: 'https://www.voanews.com/api/z-botevtiq',
+      source: 'VOA News - Africa'
+    },
+    {
+      url: 'https://www.voanews.com/api/zmjuqteb_kqo',
+      source: 'VOA News - China News'
+    },
+    {
+      url: 'https://www.voanews.com/api/z_-mqyerv_qv',
+      source: 'VOA News - South and Central Asia'
+    },
+    {
+      url: 'https://www.voanews.com/api/zrbopeuvim',
+      source: 'VOA News - Middle East'
+    },
+    {
+      url: 'https://www.voanews.com/api/zvgmqieo__qm',
+      source: 'VOA News - Iran'
+    },
+    {
+      url: 'https://www.voanews.com/api/zjboveytit',
+      source: 'VOA News - Europe'
+    },
+    {
+      url: 'https://www.voanews.com/api/zt_rqyeirqqy',
+      source: 'VOA News - Ukraine'
+    },
+    {
+      url: 'https://www.voanews.com/api/zoripegtim',
+      source: 'VOA News - Americas'
+    },
+    {
+      url: 'https://www.voanews.com/api/zbuiqyetppqv',
+      source: 'VOA News - Extremism Watch'
+    },
+    {
+      url: 'https://www.voanews.com/api/ziu-qoejibqo',
+      source: 'VOA News - Flashpoint Global Crises'
+    },
+    {
+      url: 'https://www.voanews.com/api/z-ukqqevpgqi',
+      source: 'VOA News - Flashpoint Ukraine'
+    },
+    {
+      url: 'https://www.voanews.com/api/zumgqoepbgqp',
+      source: 'VOA News - International Edition'
+    },
+    {
+      url: 'https://www.voanews.com/api/zvq-qveok-qv',
+      source: 'VOA News - Issues in the News'
+    },
+    {
+      url: 'https://www.voanews.com/api/zmbjqvebv-qr',
+      source: 'VOA News - Fact Checks'
+    },
     // Social Media RSS Feeds
     {
       url: 'https://news.google.com/rss/search?q=site:twitter.com/centcom+when:7d',
@@ -397,6 +457,36 @@ document.addEventListener('DOMContentLoaded', () => {
       adjustedDate.setHours(adjustedDate.getHours() - 7);
     } else if (source === 'Israel Hayom') {
       adjustedDate.setHours(adjustedDate.getHours() - 7);
+    } else if (source === 'VOA News - East Asia') {
+      adjustedDate.setHours(adjustedDate.getHours() - 3);
+    } else if (source === 'VOA News - China News') {
+      adjustedDate.setHours(adjustedDate.getHours() - 3);
+    } else if (source === 'VOA News - Africa') {
+      adjustedDate.setHours(adjustedDate.getHours() - 3);
+    } else if (source === 'VOA News - Middle East') {
+      adjustedDate.setHours(adjustedDate.getHours() - 3);
+    } else if (source === 'VOA News - Iran') {
+      adjustedDate.setHours(adjustedDate.getHours() - 3);
+    } else if (source === 'VOA News - Europe') {
+      adjustedDate.setHours(adjustedDate.getHours() - 3);
+    } else if (source === 'VOA News - Ukraine') {
+      adjustedDate.setHours(adjustedDate.getHours() - 3);
+    } else if (source === 'VOA News - Americas') {
+      adjustedDate.setHours(adjustedDate.getHours() - 3);
+    } else if (source === 'VOA News - Extremism Watch') {
+      adjustedDate.setHours(adjustedDate.getHours() - 3);
+    } else if (source === 'VOA News - Flashpoint Global Crises') {
+      adjustedDate.setHours(adjustedDate.getHours() - 3);
+    } else if (source === 'VOA News - International Edition') {
+      adjustedDate.setHours(adjustedDate.getHours() - 3);
+    } else if (source === 'VOA News - South and Central Asia') {
+      adjustedDate.setHours(adjustedDate.getHours() - 3);
+    } else if (source === 'VOA News - Issues in the News') {
+      adjustedDate.setHours(adjustedDate.getHours() - 3);
+    } else if (source === 'VOA News - Flashpoint Ukraine') {
+      adjustedDate.setHours(adjustedDate.getHours() - 3);
+    } else if (source === 'VOA News - Fact Checks') {
+      adjustedDate.setHours(adjustedDate.getHours() - 3);
     } else if (source === 'USCENTCOM - TwitterX') {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'Middle East Eye - TwitterX') {
