@@ -329,6 +329,7 @@
       text-align: center;
     }
   </style>
+  <script src="login.js"></script>
 </head>
 <body>
   <div class="world-map-background"></div>
@@ -340,7 +341,7 @@
     </div>
     <div class="login-container">
       <h1>🌐 Intranet Login 🌐</h1>
-      <form action="login.php" method="POST">
+      <form onsubmit="checkLogin(event)">
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required>
         <label for="password">Password:</label>
