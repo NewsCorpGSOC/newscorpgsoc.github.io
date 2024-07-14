@@ -1,0 +1,8 @@
+// config.js.sample
+const config = {
+  users: {
+    'sample.user@example.com': 'samplePassword'
+  }
+};
+
+export default config;
