@@ -24,12 +24,11 @@
         font-weight: normal;
         font-style: normal;
       }
-/*---------------------------------- HEADER ----------------------------------*/ 
+      
+      /*---------------------------------- HEADER ----------------------------------*/ 
       .header {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 10px 0;
+        position: relative;
+        padding: 0 0 10px 0;
         border-bottom: 10px solid transparent;
         font-family: 'EB Garamond', serif;
         position: sticky;
@@ -52,12 +51,18 @@
           0 0 0 6px rgba(255, 255, 255, 0.5); /* Second layer */
       }
       
+      .logo {
+        position: absolute;
+        top: 10px;
+        left: 20px;
+      }
+      
       .header-title {
         font-size: 24px;
         color: white;
         text-align: center;
         margin: 0;
-        margin-bottom: 10px; /* Add margin below the title */
+        margin-top: 10px; /* Add margin below the logo */
         font-family: 'EB Garamond', serif;
       }
       
@@ -65,15 +70,17 @@
         display: flex;
         justify-content: center; /* Center the buttons */
         margin: 0;
+        padding: 0;
+        margin-top: 10px; /* Add margin above the buttons */
         margin-bottom: 10px; /* Add margin below the buttons */
       }
-
+      
       body {
         margin: 0;
         padding: 0;
         color: white;
       }
-
+      
       .primary {
         width: 100%; /* Adjust width as needed */
         max-width: 1000px; /* Example: restrict maximum width */
@@ -89,7 +96,7 @@
         font-family: 'Heebo', EB Garamond, serif;
         overflow-x: hidden;
       }
-
+      
       h1, h2, h3 {
         font-family: 'EB Garamond', serif;
         font-weight: normal;
@@ -110,7 +117,8 @@
           padding: 10px; /* Adjust padding for smaller screens */
         }
       }
-/*---------------------------------- SIDEBAR ----------------------------------*/      
+      
+      /*---------------------------------- SIDEBAR ----------------------------------*/      
       #sidebar {
         display: flex;
         flex: 1;
@@ -124,7 +132,7 @@
         flex: 0 0 350px;
         overflow-y: auto;
       }
-
+      
       .nav-link {
         color: black; /* Text color for the links */
         background-color: #007bff;
@@ -137,13 +145,14 @@
         font-family: 'EB Garamond', serif;
         font-weight: bold;
       }
-
+      
       .nav-link:hover {
         background-color: #0056b3;
         text-decoration: none;
         box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
       }
-/*---------------------------------- BACKGROUND IMAGES ----------------------------------*/
+      
+      /*---------------------------------- BACKGROUND IMAGES ----------------------------------*/
       .world-map-background {
         position: fixed;
         top: 0;
@@ -156,7 +165,7 @@
         z-index: -4; /* Behind everything else */
         animation: worldMapScroll 360s infinite linear; /* Animation for world map */
       }
-
+      
       .nightlights_background {
         position: fixed;
         top: 0;
@@ -169,7 +178,7 @@
         z-index: -1; /* Behind everything else */
         animation: worldMapLightsScroll 360s infinite linear; /* Animation for world map */
       }
-      
+        
       .day-and-night-background {
         position: fixed;
         top: 0;
@@ -182,14 +191,14 @@
         z-index: -2; /* Behind everything else */
         animation: DayandNightScroll 70s infinite linear; /* Animation for world map */
       }
-
+      
       .content {
         position: relative;
         overflow-x: hidden;
         padding: 0;
         margin: 0;
       }
-
+      
       .content::before {
         content: '';
         position: fixed;
@@ -204,36 +213,35 @@
         opacity: 0.5; /* Adjust opacity for layer visibility */
         animation: parallaxScroll 180s infinite linear; /* Adjust animation durations */
       }
-
+      
       @keyframes parallaxScroll {
         from { transform: translateX(0); }
         to { transform: translateX(-50%); } /* Adjust translateY percentage for desired effect */
       }
-
+      
       @keyframes worldMapScroll {
         from { transform: translateX(0); }
         to { transform: translateX(-50%); } /* Adjust background-position percentage for desired effect */
       }
-
+      
       @keyframes DayandNightScroll {
         from { transform: translateX(0); }
         to { transform: translateX(-50%); } /* Adjust background-position percentage for desired effect */
       }
-
+      
       @keyframes worldMapLightsScroll {
         from { transform: translateX(0); }
         to { transform: translateX(-50%); }
       }
-/*---------------------------------- BUTTONS ----------------------------------*/
-      /* Margin for Buttons CSS */
+      
+      /*---------------------------------- BUTTONS ----------------------------------*/
       .nav-item {
         margin-bottom: 0px; /* Adjust the value to set the desired space */
         margin-right: 5px;
         margin-left: 5px;
         margin-top: 0px;
       }
-
-      /* Navigation Buttons CSS */
+      
       .animated-button {
         position: relative;
         display: inline-block;
@@ -250,7 +258,7 @@
         transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
         text-decoration: none; /* Ensure it behaves like a link */
       }
-    
+      
       .animated-button span:last-child {
         position: absolute;
         top: 50%;
@@ -263,28 +271,28 @@
         opacity: 0;
         transition: all 0.8s cubic-bezier(0.23, 1, 0.320, 1);
       }
-    
+      
       .animated-button span:first-child {
         position: relative;
         z-index: 1;
       }
-    
+      
       .animated-button:hover {
         box-shadow: 0 0 0 5px #00D6E360;
         color: #ffffff;
         background-color: #778a8f;
       }
-    
+      
       .animated-button:active {
         transform: scale(0.95); /* Correct the typo from 'scale' to 'transform' */
       }
-    
+      
       .animated-button:hover span:last-child {
         width: 150px;
         height: 150px;
         opacity: 1;
       }
-
+      
       .button {
         width: 300px;  /* Increased width */
         height: 50px;  /* Increased height */
@@ -297,7 +305,7 @@
         background-color: #00d6e3;
         box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.137);
       }
-      
+        
       .text {
         width: 80%;
         height: 100%;
@@ -311,31 +319,32 @@
         text-decoration: none; /* Ensure it behaves like a link */
         transition: background-color 0.3s ease; /* Add transition for smooth color change */
       }
-
+      
       .arrow {
         width: 24px;  /* Adjust the width of the arrow */
         height: 24px; /* Adjust the height of the arrow */
         transform: translateX(8px);  /* Static position of the arrow */
       }
-      
+        
       .arrow path {
         fill: rgb(19, 19, 19);
         transition: transform 0.3s ease; /* Add transition for smooth scaling */
       }
-      
+        
       .button:hover .text {
         background-color: #778a8f;
       }
-        
+          
       .button:hover .arrow {
         transform: translateX(6px) scale(1.3); /* Scale up by 30% on hover */
         transition: transform 0.3s ease; /* Add transition for smooth scaling */
       }
-      
+        
       .button:active {
         transform: scale(0.97);
       }
-/*---------------------------------- FOOTER ----------------------------------*/      
+      
+      /*---------------------------------- FOOTER ----------------------------------*/      
       footer {
         border-top: 5px solid #333;
         padding-top: 10px;
@@ -374,14 +383,16 @@
     <div class="content">
       <!-- Navbar -->
       <div class="header">
+        <!-- Logo -->
+        <div class="logo">
+          <a class="navbar-brand" href="index.html">
+            <img src="icons/NewGSOCLogoBordered_White.png" alt="Your Logo" width="50" class="d-inline-block align-top">
+          </a>
+        </div>
         <!-- Title -->
         <h1 class="header-title">Home Page</h1>
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg navbar-dark">
-          <!-- Add your logo image here -->
-          <a class="navbar-brand" href="index.html">
-            <img src="icons/NewGSOCLogoBordered_White.png" alt="Your Logo" width="50" class="d-inline-block align-top">
-          </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
