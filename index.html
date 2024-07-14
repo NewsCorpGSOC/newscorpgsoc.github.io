@@ -26,7 +26,10 @@
       }
 /*---------------------------------- HEADER ----------------------------------*/ 
       .header {
-        padding: 10px 0 10px 0; /* Add top padding to align with other elements */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px 0;
         border-bottom: 10px solid transparent;
         font-family: 'EB Garamond', serif;
         position: sticky;
@@ -54,15 +57,15 @@
         color: white;
         text-align: center;
         margin: 0;
-        padding: 10px 0 10px 0; /* Adjusted padding */
+        margin-bottom: 10px; /* Add margin below the title */
         font-family: 'EB Garamond', serif;
       }
       
       .navbar-buttons {
         display: flex;
         justify-content: center; /* Center the buttons */
-        margin: 0 0 10px 0; /* Adjust margin for spacing */
-        padding: 0; /* Remove padding */
+        margin: 0;
+        margin-bottom: 10px; /* Add margin below the buttons */
       }
 
       body {
