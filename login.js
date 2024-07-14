@@ -16,3 +16,5 @@ function checkLogin(event) {
     alert('Incorrect username or password. Please try again.');
   }
 }
+
+export { checkLogin };
