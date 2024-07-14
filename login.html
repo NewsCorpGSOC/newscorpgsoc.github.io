@@ -329,7 +329,11 @@
       text-align: center;
     }
   </style>
-  <script src="login.js" type="module"></script>
+  <script type="module">
+    import { checkLogin } from './login.js';
+
+    window.checkLogin = checkLogin;
+  </script>
 </head>
 <body>
   <div class="world-map-background"></div>
