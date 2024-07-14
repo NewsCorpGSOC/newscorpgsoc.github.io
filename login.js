@@ -1,11 +1,9 @@
 // login.js
+import config from './config.js';
 
 function checkLogin(event) {
   event.preventDefault();
-  const users = {
-    'tporter.consultant@newscorp.com': 'GSOCIntranet2024!',
-    'lagsoc@newscorp.com': 'GSOCIntranet2024'
-  };
+  const users = config.users;
 
   const username = document.getElementById('username').value;
   const password = document.getElementById('password').value;
