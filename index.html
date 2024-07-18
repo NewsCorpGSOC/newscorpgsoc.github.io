@@ -408,6 +408,11 @@
             $(this).find('.dropdown-menu').first().stop(true, true).slideUp();
           }
         });
+    
+        // Prevent dropdown from closing on click inside
+        $('.dropdown-menu').click(function(e) {
+          e.stopPropagation();
+        });
       });
     </script>
   </head>
@@ -441,7 +446,7 @@
                   <a href="RSSFeeds.html" class="animated-button">Live News Reports (RSS Feed)<span></span></a>
                 </li>
                 <li class="nav-item dropdown">
-                  <a class="animated-button dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <a class="animated-button dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" aria-haspopup="true" aria-expanded="false">
                     GSOC SOPs
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -450,16 +455,17 @@
                     <a class="dropdown-item" href="GPM_02_02.html">GPM 02.02</a>
                   </div>
                 </li>
+                
                 <li class="nav-item dropdown">
-                  <a class="animated-button dropdown-toggle" href="#" id="googleDriveDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <a class="animated-button dropdown-toggle" href="#" id="googleDriveDropdown" role="button" aria-haspopup="true" aria-expanded="false">
                     Google Drive Quick Access
                   </a>
                   <div class="dropdown-menu" aria-labelledby="googleDriveDropdown">
                     <a class="dropdown-item" href="https://drive.google.com/drive/u/0/folders/1vwNLEW_91yVty727lZWpBwwBuoSSDmmS">1.0 ACTION</a>
                     <div class="dropdown-submenu">
-                      <a class="dropdown-item dropdown-toggle" href="https://drive.google.com/drive/u/0/folders/1GB2q-Sfo3bI4HkVVhCGulfWx7oyOmGo3">DAILY DELIVERABLES</a>
+                      <a class="dropdown-item dropdown-toggle" href="#">DAILY DELIVERABLES</a>
                       <ul class="dropdown-menu">
-                        <a class="dropdown-item" href="https://drive.google.com/drive/u/0/folders/1CMbS6_VmVCirTVH60ObN44p3xRzuu5cS">ELECTION BRIEF 2024</a>
+                        <a class="dropdown-item" href="#">ELECTION BRIEF 2024</a>
                         <div class="dropdown-submenu">
                           <a class="dropdown-item dropdown-toggle" href="#">02.2024</a>
                           <a class="dropdown-item" href="#">03.2024</a>
