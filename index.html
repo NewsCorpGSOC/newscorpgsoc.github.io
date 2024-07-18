@@ -29,14 +29,12 @@
       /* Add this CSS to your stylesheet */
       /* Ensures dropdown items are displayed vertically */
       .dropdown-menu {
-        display: flex;
-        flex-direction: column;
+        display: block; /* Ensure dropdown items are displayed vertically */
       }
-
+      
       .dropdown-item {
-        display: block;
+        display: block; /* Ensure each item is displayed as a block element */
       }
-
 
       .dropdown-submenu {
         position: relative;
@@ -391,14 +389,14 @@
         // Show dropdown on hover
         $('.nav-item.dropdown').hover(function() {
           if ($(window).width() > 768) {
-            $(this).find('.dropdown-menu').css('display','flex');
+            $(this).find('.dropdown-menu').css('display','block');
           }
         }, function() {
           if ($(window).width() > 768) {
             $(this).find('.dropdown-menu').css('display','none');
           }
         });
-  
+    
         // Close dropdown on mouse leave
         $('.dropdown-menu').mouseleave(function() {
           if ($(window).width() > 768) {
