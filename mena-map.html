@@ -25,6 +25,34 @@
         font-style: normal;
       }
       
+      /*---------------------------------- HEADER NAVIGATION BAR ----------------------------------*/       
+        /* Ensures dropdown items are displayed vertically */
+        .dropdown-menu {
+            display: none;
+            position: absolute; /* Ensure it stays within the containing element */
+            left: 0;
+            top: 100%;
+        }
+        
+        .dropdown-item {
+            display: block; /* Ensure each item is displayed as a block element */
+        }
+
+        .dropdown-submenu {
+            position: relative;
+        }
+        
+        .dropdown-submenu .dropdown-menu {
+            top: 0;
+            left: 100%;
+            margin-top: -1px;
+        }
+        
+        .nav-item.dropdown:hover > .dropdown-menu,
+        .dropdown-submenu:hover > .dropdown-menu {
+            display: block;
+        }
+      
       /*---------------------------------- HEADER ----------------------------------*/ 
       .header {
         position: relative;
@@ -359,155 +387,400 @@
         border-top: 5px solid #333;
         padding-top: 10px;
       }
-      .dropdown-menu option {
-        background-color: #00D6E3;
-        color: white;
-      }
+        .dropdown-menu option {
+            background-color: #00D6E3;
+            color: white;
+        }
+
+        /*---------------------------------- FADE EFFECT ----------------------------------*/
+        main.primary {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        
+        main.primary.visible {
+            opacity: 1;
+        }
+        
+        main.primary.fade-out {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
     </style>
     <script>
-      $(document).ready(function(){
-        // Show dropdown on hover
-        $('.nav-item.dropdown').hover(function() {
-          if ($(window).width() > 768) {
-            $(this).find('.dropdown-menu').css('display','flex');
-          }
-        }, function() {
-          if ($(window).width() > 768) {
-            $(this).find('.dropdown-menu').css('display','none');
-          }
+        $(document).ready(function(){
+            // Show dropdown on hover
+            $('.nav-item.dropdown').hover(function() {
+                if ($(window).width() > 768) {
+                    $(this).find('.dropdown-menu').first().stop(true, true).slideDown();
+                }
+            }, function() {
+                if ($(window).width() > 768) {
+                    $(this).find('.dropdown-menu').first().stop(true, true).slideUp();
+                }
+            });
+        
+            // Show submenu on hover
+            $('.dropdown-submenu').hover(function() {
+                if ($(window).width() > 768) {
+                    $(this).find('.dropdown-menu').first().stop(true, true).slideDown();
+                }
+            }, function() {
+                if ($(window).width() > 768) {
+                    $(this).find('.dropdown-menu').first().stop(true, true).slideUp();
+                }
+            });
+        
+            // Prevent dropdown from closing on click inside
+            $('.dropdown-menu').click(function(e) {
+                e.stopPropagation();
+            });
+    
+            // Fade in the main content on page load
+            $("main.primary").addClass("visible");
+    
+            // Fade out the main content on link click
+            $("a").click(function(event) {
+                event.preventDefault();
+                var linkLocation = this.href;
+                $("main.primary").removeClass("visible").addClass("fade-out");
+    
+                setTimeout(function() {
+                    window.location = linkLocation;
+                }, 1000); // Adjust the delay to match the fade-out duration
+            });
         });
-  
-        // Close dropdown on mouse leave
-        $('.dropdown-menu').mouseleave(function() {
-          if ($(window).width() > 768) {
-            $(this).css('display','none');
-          }
-        });
-      });
     </script>
   </head>
   <body>
-    <div class="world-map-background"></div>
-    <div class="day-and-night-background"></div>
-    <div class="nightlights_background"></div>
-    <div class="content">
-      <!-- Navbar -->
-      <div class="header">
-        <!-- Logo -->
-        <div class="logo">
-          <a class="navbar-brand" href="index.html">
-            <img src="icons/NewGSOCLogoBordered_White.png" alt="Your Logo" width="125" class="d-inline-block align-top">
-          </a>
-        </div>
-        <!-- Title -->
-        <h1 class="header-title">Middle East-North Africa Situation Map</h1>
-        <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-dark">
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <div class="navbar-buttons">
-              <ul class="navbar-nav">
-                <li class="nav-item">
-                  <a href="page1.html" class="animated-button">GSOC Phone Log Form<span></span></a>
-                </li>
-                <li class="nav-item">
-                  <a href="RSSFeeds.html" class="animated-button">Live News Reports (RSS Feed)<span></span></a>
-                </li>
-                <li class="nav-item dropdown">
-                  <a class="animated-button dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    GSOC SOPs
+      <div class="world-map-background"></div>
+      <div class="day-and-night-background"></div>
+      <div class="nightlights_background"></div>
+      <div id="content">
+          <!-- Navbar -->
+          <div class="header">
+              <!-- Logo -->
+              <div class="logo">
+                  <a class="navbar-brand" href="index.html">
+                      <img src="icons/NewGSOCLogoBordered_White.png" alt="Your Logo" width="125" class="d-inline-block align-top">
                   </a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="https://docs.google.com/document/d/1QgCk9qFH2U3x0BN3e3YF7tlcey5eNPQIk4SZGAWJLLQ/edit">GPM 01.01</a>
-                    <a class="dropdown-item" href="GPM_02_01.html">GPM 02.01</a>
-                    <a class="dropdown-item" href="GPM_02_02.html">GPM 02.02</a>
+              </div>
+              <!-- Title -->
+              <h1 class="header-title">News Corp Global Security Intranet Home Page</h1>
+              <!-- Navbar -->
+              <nav class="navbar navbar-expand-lg navbar-dark">
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarNav">
+                      <div class="navbar-buttons">
+                          <ul class="navbar-nav">
+                              <li class="nav-item">
+                                  <a href="page1.html" class="animated-button">GSOC Phone Log Form<span></span></a>
+                              </li>
+                              <li class="nav-item">
+                                  <a href="RSSFeeds.html" class="animated-button">Live News Reports (RSS Feed)<span></span></a>
+                              </li>
+                              <li class="nav-item dropdown">
+                                  <a class="animated-button dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" aria-haspopup="true" aria-expanded="false">
+                                      GSOC SOPs
+                                  </a>
+                                  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                      <a class="dropdown-item" href="https://docs.google.com/document/d/1QgCk9qFH2U3x0BN3e3YF7tlcey5eNPQIk4SZGAWJLLQ/edit">GPM 01.01</a>
+                                      <a class="dropdown-item" href="GPM_02_01.html">GPM 02.01</a>
+                                      <a class="dropdown-item" href="GPM_02_02.html">GPM 02.02</a>
+                                  </div>
+                              </li>
+                              <li class="nav-item dropdown">
+                                  <a class="animated-button dropdown-toggle" href="#" id="googleDriveDropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                      Google Drive Quick Access
+                                  </a>
+                                  <div class="dropdown-menu" aria-labelledby="googleDriveDropdown">
+                                      <div class="dropdown-submenu">
+                                          <a class="dropdown-item dropdown-toggle" href="#">1.0 ACTION</a>
+                                          <ul class="dropdown-menu">
+                                              <li>
+                                                  <div class="dropdown-submenu">
+                                                      <a class="dropdown-item dropdown-toggle" href="#">DAILY DELIVERABLES</a>
+                                                      <ul class="dropdown-menu">
+                                                          <li>
+                                                              <div class="dropdown-submenu">
+                                                                  <a class="dropdown-item dropdown-toggle" href="#">ELECTION BRIEF 2024</a>
+                                                                  <ul class="dropdown-menu">
+                                                                      <li><a class="dropdown-item" href="#">02.2024</a></li>
+                                                                      <li><a class="dropdown-item" href="#">03.2024</a></li>
+                                                                      <li><a class="dropdown-item" href="#">04.2024</a></li>
+                                                                      <li><a class="dropdown-item" href="#">05.2024</a></li>
+                                                                      <li><a class="dropdown-item" href="#">06.2024</a></li>
+                                                                      <li><a class="dropdown-item" href="#">07.2024</a></li>
+                                                                      <li><a class="dropdown-item" href="#">08.2024</a></li>
+                                                                      <li><a class="dropdown-item" href="#">09.2024</a></li>
+                                                                      <li><a class="dropdown-item" href="#">10.2024</a></li>
+                                                                      <li><a class="dropdown-item" href="#">11.2024</a></li>
+                                                                      <li><a class="dropdown-item" href="#">12.2024</a></li>
+                                                                  </ul>
+                                                              </div>
+                                                          </li>
+                                                      </ul>
+                                                  </div>
+                                              </li>
+                                              <li><a class="dropdown-item" href="#">DAILY USE</a></li>
+                                              <li><a class="dropdown-item" href="#">HIGH PRIORITY</a></li>
+                                              <li>
+                                                  <div class="dropdown-submenu">
+                                                      <a class="dropdown-item dropdown-toggle" href="#">INCIDENT TRIAGES</a>
+                                                      <ul class="dropdown-menu">
+                                                          <li><a class="dropdown-item" href="#">09.2023</a></li>
+                                                          <li><a class="dropdown-item" href="#">10.2023</a></li>
+                                                          <li><a class="dropdown-item" href="#">11.2023</a></li>
+                                                          <li><a class="dropdown-item" href="#">12.2023</a></li>
+                                                          <li><a class="dropdown-item" href="#">01.2024</a></li>
+                                                          <li><a class="dropdown-item" href="#">02.2024</a></li>
+                                                      </ul>
+                                                  </div>
+                                              </li>
+                                          </ul>
+                                      </div>
+                                      <div class="dropdown-submenu">
+                                          <a class="dropdown-item dropdown-toggle" href="#">1.1 ADMIN</a>
+                                          <ul class="dropdown-menu">
+                                              <li>
+                                                  <div class="dropdown-submenu">
+                                                      <a class="dropdown-item dropdown-toggle" href="#">Assets</a>
+                                                      <ul class="dropdown-menu">
+                                                          <li><a class="dropdown-item" href="#">CONTROLLED CIS ARCHIVES</a></li>
+                                                      </ul>
+                                                  </div>
+                                              </li>
+                                              <li><a class="dropdown-item" href="#">Branding & Style Resources</a></li>
+                                              <li>
+                                                  <div class="dropdown-submenu">
+                                                      <a class="dropdown-item dropdown-toggle" href="#">Contacts</a>
+                                                      <ul class="dropdown-menu">
+                                                          <li>
+                                                              <div class="dropdown-submenu">
+                                                                  <a class="dropdown-item dropdown-toggle" href="#">Contact Lists</a>
+                                                                  <ul class="dropdown-menu">
+                                                                      <li><a class="dropdown-item" href="#">Fox</a></li>
+                                                                      <li><a class="dropdown-item" href="#">News Corp</a></li>
+                                                                  </ul>
+                                                              </div>
+                                                          </li>
+                                                      </ul>
+                                                  </div>
+                                              </li>
+                                              <li><a class="dropdown-item" href="#">Forms</a></li>
+                                              <li><a class="dropdown-item" href="#">GSG</a></li>
+                                              <li><a class="dropdown-item" href="#">GSOC & Intel Ops Offices</a></li>
+                                              <li>
+                                                  <div class="dropdown-submenu">
+                                                      <a class="dropdown-item dropdown-toggle" href="#">Intel Analysts</a>
+                                                      <ul class="dropdown-menu">
+                                                          <li><a class="dropdown-item" href="#">TOOLS</a></li>
+                                                      </ul>
+                                                  </div>
+                                              </li>
+                                              <li>
+                                                  <div class="dropdown-submenu">
+                                                      <a class="dropdown-item dropdown-toggle" href="#">Key Deliverables</a>
+                                                      <ul class="dropdown-menu">
+                                                          <li>
+                                                              <div class="dropdown-submenu">
+                                                                  <a class="dropdown-item dropdown-toggle" href="#">DAILY</a>
+                                                                  <ul class="dropdown-menu">
+                                                                      <li><a class="dropdown-item" href="#">07.2023</a></li>
+                                                                      <li><a class="dropdown-item" href="#">08.2023</a></li>
+                                                                      <li><a class="dropdown-item" href="#">09.2023</a></li>
+                                                                      <li><a class="dropdown-item" href="#">10.2023</a></li>
+                                                                      <li><a class="dropdown-item" href="#">11.2023</a></li>
+                                                                      <li><a class="dropdown-item" href="#">12.2023</a></li>
+                                                                  </ul>
+                                                              </div>
+                                                          </li>
+                                                          <li><a class="dropdown-item" href="#">MONTHLY</a></li>
+                                                          <li><a class="dropdown-item" href="#">WEEKLY</a></li>
+                                                      </ul>
+                                                  </div>
+                                              </li>
+                                              <li><a class="dropdown-item" href="#">Onboarding</a></li>
+                                              <li><a class="dropdown-item" href="#">Presentations</a></li>
+                                              <li><a class="dropdown-item" href="#">Professional Development</a></li>
+                                              <li>
+                                                  <div class="dropdown-submenu">
+                                                      <a class="dropdown-item dropdown-toggle" href="#">Schedule</a>
+                                                      <ul class="dropdown-menu">
+                                                          <li><a class="dropdown-item" href="#">2023</a></li>
+                                                          <li>
+                                                              <div class="dropdown-submenu">
+                                                                  <a class="dropdown-item dropdown-toggle" href="#">2024</a>
+                                                                  <ul class="dropdown-menu">
+                                                                      <li><a class="dropdown-item" href="#">Testing</a></li>
+                                                                      <li>
+                                                                          <div class="dropdown-submenu">
+                                                                              <a class="dropdown-item dropdown-toggle" href="#">Time Off Requests</a>
+                                                                              <ul class="dropdown-menu">
+                                                                                  <li><a class="dropdown-item" href="#">Approved</a></li>
+                                                                                  <li><a class="dropdown-item" href="#">Pending</a></li>
+                                                                              </ul>
+                                                                          </div>
+                                                                      </li>
+                                                                  </ul>
+                                                              </div>
+                                                          </li>
+                                                      </ul>
+                                                  </div>
+                                              </li>
+                                              <li><a class="dropdown-item" href="#">Telephones</a></li>
+                                              <li>
+                                                  <div class="dropdown-submenu">
+                                                      <a class="dropdown-item dropdown-toggle" href="#">Timesheets</a>
+                                                      <ul class="dropdown-menu">
+                                                          <li>
+                                                              <div class="dropdown-submenu">
+                                                                  <a class="dropdown-item dropdown-toggle" href="#">2023</a>
+                                                                  <ul class="dropdown-menu">
+                                                                      <li><a class="dropdown-item" href="#">2023.07</a></li>
+                                                                      <li><a class="dropdown-item" href="#">2023.08</a></li>
+                                                                      <li><a class="dropdown-item" href="#">2023.09</a></li>
+                                                                      <li><a class="dropdown-item" href="#">2023.10</a></li>
+                                                                      <li><a class="dropdown-item" href="#">2023.11</a></li>
+                                                                      <li><a class="dropdown-item" href="#">2023.12</a></li>
+                                                                  </ul>
+                                                              </div>
+                                                          </li>
+                                                          <li>
+                                                              <div class="dropdown-submenu">
+                                                                  <a class="dropdown-item dropdown-toggle" href="#">2024</a>
+                                                                  <ul class="dropdown-menu">
+                                                                      <li><a class="dropdown-item" href="#">01.2024: JANUARY</a></li>
+                                                                      <li><a class="dropdown-item" href="#">02.2024: FEBRUARY</a></li>
+                                                                      <li><a class="dropdown-item" href="#">03.2024: MARCH</a></li>
+                                                                      <li><a class="dropdown-item" href="#">04.2024: APRIL</a></li>
+                                                                      <li><a class="dropdown-item" href="#">05.2024: MAY</a></li>
+                                                                      <li><a class="dropdown-item" href="#">06.2024: JUNE</a></li>
+                                                                      <li><a class="dropdown-item" href="#">07.2024: JULY</a></li>
+                                                                      <li><a class="dropdown-item" href="#">08.2024: AUGUST</a></li>
+                                                                      <li><a class="dropdown-item" href="#">09.2024: SEPTEMBER</a></li>
+                                                                      <li><a class="dropdown-item" href="#">10.2024: OCTOBER</a></li>
+                                                                  </ul>
+                                                              </div>
+                                                          </li>
+                                                          <li><a class="dropdown-item" href="#">Assets</a></li>
+                                                      </ul>
+                                                  </div>
+                                              </li>
+                                              <li>
+                                                  <div class="dropdown-submenu">
+                                                      <a class="dropdown-item dropdown-toggle" href="#">Training & Onboarding</a>
+                                                      <ul class="dropdown-menu">
+                                                          <li><a class="dropdown-item" href="#">Anvil Tris</a></li>
+                                                          <li><a class="dropdown-item" href="#">New Employee Passwords & Resources</a></li>
+                                                          <li><a class="dropdown-item" href="#">Training Manuals</a></li>
+                                                          <li><a class="dropdown-item" href="#">TravelTracker</a></li>
+                                                          <li><a class="dropdown-item" href="#">Vismo</a></li>
+                                                      </ul>
+                                                  </div>
+                                              </li>
+                                              <li><a class="dropdown-item" href="#">Whiteboard and Corkboard</a></li>
+                                          </ul>
+                                      </div>
+                                      <a class="dropdown-item" href="#">1.2 CONFLICT ZONES</a>
+                                      <a class="dropdown-item" href="#">1.3 CRISIS MANAGEMENT</a>
+                                      <a class="dropdown-item" href="#">1.4 DATA</a>
+                                      <a class="dropdown-item" href="#">1.5 DOCUMENTATION</a>
+                                      <a class="dropdown-item" href="#">1.6 EMERGENCY RESPONSE</a>
+                                      <a class="dropdown-item" href="#">1.7 EVENTS</a>
+                                      <a class="dropdown-item" href="#">1.8 INTELLIGENCE</a>
+                                  </div>
+                              </li>
+                          </ul>
+                      </div>
                   </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-      </div>
-
-      <div class="container-fluid">
-        <div class="row">
-          <!-- Sidebar -->
-          <div class="sidebar" id="sidebar">
-            <!-- Sidebar content -->
-            <nav class="d-flex flex-column">
-              <ul class="nav flex-column">
-                <li class="nav-item">
-                  <a href="mena-map.html" class="button">
-                    <span class="text">MENA Map</span>
-                    <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#282828" d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM281 385c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l71-71L136 280c-13.3 0-24-10.7-24-24s10.7-24 24-24l182.1 0-71-71c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L393 239c9.4 9.4 9.4 24.6 0 33.9L281 385z"/></svg>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="global-map.html" class="button">
-                    <span class="text">Global Map</span>
-                    <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#282828" d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM281 385c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l71-71L136 280c-13.3 0-24-10.7-24-24s10.7-24 24-24l182.1 0-71-71c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L393 239c9.4 9.4 9.4 24.6 0 33.9L281 385z"/></svg>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="google-earth-assets-map.html" class="button">
-                    <span class="text">Google Earth Assets Map</span>
-                    <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#282828" d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM281 385c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l71-71L136 280c-13.3 0-24-10.7-24-24s10.7-24 24-24l182.1 0-71-71c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L393 239c9.4 9.4 9.4 24.6 0 33.9L281 385z"/></svg>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="onboarding.html" class="button">
-                    <span class="text">Onboarding</span>
-                    <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#282828" d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM281 385c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l71-71L136 280c-13.3 0-24-10.7-24-24s10.7-24 24-24l182.1 0-71-71c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L393 239c9.4 9.4 9.4 24.6 0 33.9L281 385z"/></svg>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="emergency-response-los-angeles.html" class="button">
-                    <span class="text">Emergency Response L.A.</span>
-                    <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#282828" d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM281 385c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l71-71L136 280c-13.3 0-24-10.7-24-24s10.7-24 24-24l182.1 0-71-71c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L393 239c9.4 9.4 9.4 24.6 0 33.9L281 385z"/></svg>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="NYCWebCams.html" class="button">
-                    <span class="text">NYC Web Cams Map</span>
-                    <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#282828" d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM281 385c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l71-71L136 280c-13.3 0-24-10.7-24-24s10.7-24 24-24l182.1 0-71-71c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L393 239c9.4 9.4 9.4 24.6 0 33.9L281 385z"/></svg>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="https://docs.google.com/spreadsheets/d/1szW9dkl5YuBmwLu2U21dl-GTlbVVepuDX58WWhsvMDA/edit#gid=0" target="_blank" class="button">
-                    <span class="text">UKR NC Personnel</span>
-                    <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#282828" d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM281 385c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l71-71L136 280c-13.3 0-24-10.7-24-24s10.7-24 24-24l182.1 0-71-71c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L393 239c9.4 9.4 9.4 24.6 0 33.9L281 385z"/></svg>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="https://docs.google.com/spreadsheets/d/1u8ybGZnVho6Q_C1a7tSNJUaKTn9gRTbK5PnZfABWV1o/edit#gid=1687500248" target="_blank" class="button">
-                    <span class="text">WSJ Op Order</span>
-                    <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#282828" d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM281 385c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l71-71L136 280c-13.3 0-24-10.7-24-24s10.7-24 24-24l182.1 0-71-71c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L393 239c9.4 9.4 9.4 24.6 0 33.9L281 385z"/></svg>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="https://docs.google.com/spreadsheets/d/1fUKN-duu2alxozyCUNMCS6Xoqtcl9qASSQ5EkhXZ9aQ/edit#gid=373092647" target="_blank" class="button">
-                    <span class="text">Check-Ins Action List</span>
-                    <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#282828" d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM281 385c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l71-71L136 280c-13.3 0-24-10.7-24-24s10.7-24 24-24l182.1 0-71-71c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L393 239c9.4 9.4 9.4 24.6 0 33.9L281 385z"/></svg>
-                  </a>
-                </li>
-              </ul>
-            </nav>
+              </nav>
           </div>
 
-          <!-- Main Content -->
-          <main class="primary">
-            <div class="main-content">
-              <iframe width="2500" height="1000" frameborder="5" src="https://widgets.scribblemaps.com/sm/?d&dv&cv&z&gc&af&mc&lat=31.558837973&lng=42.139304319&vz=6&type=mbb_terrain&ti&s&width=2500&height=1500&id=GSOCMENREGIONALSECURITYBRIEF" style="border:5; max-width: 100%;" allowfullscreen loading="lazy"></iframe>
+        <div class="container-fluid">
+            <div class="row">
+                <!-- Sidebar -->
+                <div class="sidebar" id="sidebar">
+                    <!-- Sidebar content -->
+                    <nav class="d-flex flex-column">
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a href="mena-map.html" class="button">
+                                    <span class="text">MENA Map</span>
+                                    <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#282828" d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM281 385c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l71-71L136 280c-13.3 0-24-10.7-24-24s10.7-24 24-24l182.1 0-71-71c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L393 239c9.4 9.4 9.4 24.6 0 33.9L281 385z"/></svg>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="global-map.html" class="button">
+                                    <span class="text">Global Map</span>
+                                    <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#282828" d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM281 385c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l71-71L136 280c-13.3 0-24-10.7-24-24s10.7-24 24-24l182.1 0-71-71c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L393 239c9.4 9.4 9.4 24.6 0 33.9L281 385z"/></svg>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="RNCMap.html" class="button">
+                                    <span class="text">RNC Map</span>
+                                    <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#282828" d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM281 385c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l71-71L136 280c-13.3 0-24-10.7-24-24s10.7-24 24-24l182.1 0-71-71c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L393 239c9.4 9.4 9.4 24.6 0 33.9L281 385z"/></svg>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="google-earth-assets-map.html" class="button">
+                                    <span class="text">Google Earth Assets Map</span>
+                                    <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#282828" d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM281 385c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l71-71L136 280c-13.3 0-24-10.7-24-24s10.7-24 24-24l182.1 0-71-71c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L393 239c9.4 9.4 9.4 24.6 0 33.9L281 385z"/></svg>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="onboarding.html" class="button">
+                                    <span class="text">Onboarding</span>
+                                    <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#282828" d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM281 385c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l71-71L136 280c-13.3 0-24-10.7-24-24s10.7-24 24-24l182.1 0-71-71c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L393 239c9.4 9.4 9.4 24.6 0 33.9L281 385z"/></svg>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="emergency-response-los-angeles.html" class="button">
+                                    <span class="text">Emergency Response L.A.</span>
+                                    <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#282828" d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM281 385c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l71-71L136 280c-13.3 0-24-10.7-24-24s10.7-24 24-24l182.1 0-71-71c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L393 239c9.4 9.4 9.4 24.6 0 33.9L281 385z"/></svg>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="NYCWebCams.html" class="button">
+                                    <span class="text">NYC Web Cams Map</span>
+                                    <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#282828" d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM281 385c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l71-71L136 280c-13.3 0-24-10.7-24-24s10.7-24 24-24l182.1 0-71-71c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L393 239c9.4 9.4 9.4 24.6 0 33.9L281 385z"/></svg>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://docs.google.com/spreadsheets/d/1szW9dkl5YuBmwLu2U21dl-GTlbVVepuDX58WWhsvMDA/edit#gid=0" target="_blank" class="button">
+                                    <span class="text">UKR NC Personnel</span>
+                                    <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#282828" d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM281 385c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l71-71L136 280c-13.3 0-24-10.7-24-24s10.7-24 24-24l182.1 0-71-71c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L393 239c9.4 9.4 9.4 24.6 0 33.9L281 385z"/></svg>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://docs.google.com/spreadsheets/d/1u8ybGZnVho6Q_C1a7tSNJUaKTn9gRTbK5PnZfABWV1o/edit#gid=1687500248" target="_blank" class="button">
+                                    <span class="text">WSJ Op Order</span>
+                                    <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#282828" d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM281 385c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l71-71L136 280c-13.3 0-24-10.7-24-24s10.7-24 24-24l182.1 0-71-71c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L393 239c9.4 9.4 9.4 24.6 0 33.9L281 385z"/></svg>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://docs.google.com/spreadsheets/d/1fUKN-duu2alxozyCUNMCS6Xoqtcl9qASSQ5EkhXZ9aQ/edit#gid=373092647" target="_blank" class="button">
+                                    <span class="text">Check-Ins Action List</span>
+                                    <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#282828" d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM281 385c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l71-71L136 280c-13.3 0-24-10.7-24-24s10.7-24 24-24l182.1 0-71-71c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L393 239c9.4 9.4 9.4 24.6 0 33.9L281 385z"/></svg>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <main class="primary">
+                    <div class="main-content">
+                      <iframe width="2500" height="1000" frameborder="5" src="https://widgets.scribblemaps.com/sm/?d&dv&cv&z&gc&af&mc&lat=31.558837973&lng=42.139304319&vz=6&type=mbb_terrain&ti&s&width=2500&height=1500&id=GSOCMENREGIONALSECURITYBRIEF" style="border:5; max-width: 100%;" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                </main>
             </div>
-          </main>
         </div>
-      </div>
-  
-      <!-- Footer -->
-      <footer class="text-center py-3" style="background-color: #0a3376ff; color: white;">
-        <p>&copy; 2024 NewsCorp GSOC Intranet</p>
-      </footer>
-    </body>
-  </html>
+
+        <!-- Footer -->
+        <footer class="text-center py-3" style="background-color: #002060; color: white;">
+            <p>&copy; 2024 NewsCorp GSOC Intranet</p>
+        </footer>
+    </div>
+</body>
+</html>
