@@ -396,16 +396,16 @@
         }
 
         /*---------------------------------- FADE EFFECT ----------------------------------*/
-        main.primary {
+        .fade {
             opacity: 0;
             transition: opacity 1s ease-in-out;
         }
         
-        main.primary.visible {
+        .fade.visible {
             opacity: 1;
         }
         
-        main.primary.fade-out {
+        .fade.fade-out {
             opacity: 0;
             transition: opacity 1s ease-in-out;
         }
@@ -439,14 +439,14 @@
                 e.stopPropagation();
             });
     
-            // Fade in the main content on page load
-            $("main.primary").addClass("visible");
+            // Fade in the main content and backgrounds on page load
+            $(".fade").addClass("visible");
     
-            // Fade out the main content on link click
+            // Fade out the main content and backgrounds on link click
             $("a").click(function(event) {
                 event.preventDefault();
                 var linkLocation = this.href;
-                $("main.primary").removeClass("visible").addClass("fade-out");
+                $(".fade").removeClass("visible").addClass("fade-out");
     
                 setTimeout(function() {
                     window.location = linkLocation;
@@ -456,9 +456,9 @@
     </script>
 </head>
 <body>
-    <div class="world-map-background"></div>
-    <div class="day-and-night-background"></div>
-    <div class="nightlights_background"></div>
+    <div class="world-map-background fade"></div>
+    <div class="day-and-night-background fade"></div>
+    <div class="nightlights_background fade"></div>
     <div id="content">
         <!-- Navbar -->
         <div class="header">
@@ -774,7 +774,7 @@
                 </div>
 
                 <!-- Main Content -->
-                <main class="primary">
+                <main class="primary fade">
                     <div class="main-content">
                         <h1>Welcome to the GSOC Tool Suite Page! 🚀</h1>
                         <p>This webpage serves as a central repository for accessing the tools and resources you need for the GSOC. You'll find everything you need right here.</p>
