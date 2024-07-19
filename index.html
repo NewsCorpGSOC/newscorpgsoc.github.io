@@ -87,14 +87,24 @@
             z-index: 1100; /* Ensure the logo stays above other content */
         }
         
+        /* Typewriter effect */
         @keyframes typewriter {
-          from { width: 0; }
-          to { width: 100%; }
+          from {
+            width: 0;
+          }
+          to {
+            width: 100%;
+          }
         }
         
         @keyframes blinkCursor {
-          from, to { border-color: transparent; }
-          50% { border-color: white; }
+          from,
+          to {
+            border-color: transparent;
+          }
+          50% {
+            border-color: white;
+          }
         }
         
         .header-title {
@@ -109,9 +119,13 @@
           overflow: hidden; /* Ensures the text is hidden until animated */
           border-right: .15em solid white; /* Cursor effect */
           white-space: nowrap; /* Keeps the text on a single line */
-          animation:
-            typewriter 4s steps(40, end),
-            blinkCursor .75s step-end infinite;
+          width: 0; /* Start with zero width */
+          margin: 0 auto; /* Center the text */
+          animation: typewriter 4s steps(40, end) 1s 1 normal both, blinkCursor .75s step-end infinite;
+        }
+        
+        .header-title.finished {
+          border-right: none; /* Remove cursor when typing is finished */
         }
         
         .navbar-buttons {
@@ -427,6 +441,27 @@
         }
     </style>
     <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        const title = document.querySelector(".header-title");
+    
+        title.addEventListener("animationend", function() {
+          if (title.style.animationName === "typewriter") {
+            title.classList.add("finished");
+          }
+        });
+      });
+    </script>
+
+    <script>
+          document.addEventListener("DOMContentLoaded", function() {
+            const title = document.querySelector(".header-title");
+        
+            title.addEventListener("animationend", function() {
+              if (title.style.animationName === "typewriter") {
+                title.classList.add("finished");
+              }
+            });
+          });
         $(document).ready(function(){
             // Show dropdown on hover
             $('.nav-item.dropdown').hover(function() {
