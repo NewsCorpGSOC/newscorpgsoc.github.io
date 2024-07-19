@@ -440,65 +440,66 @@
         }
     </style>
     <script>
-      document.addEventListener("DOMContentLoaded", function() {
-        // Typewriter effect completion handling
-        const title = document.querySelector(".header-title");
-        const typewriterDuration = 3000; // 4s for typewriter + 1s delay
+        document.addEventListener("DOMContentLoaded", function() {
+            // Typewriter effect completion handling
+            const title = document.querySelector(".header-title");
+            const typewriterDuration = 5000; // 4s for typewriter + 1s delay
     
-        title.addEventListener("animationend", function(event) {
-          if (event.animationName === "typewriter") {
-            title.classList.add("finished");
-          }
+            title.addEventListener("animationend", function(event) {
+                if (event.animationName === "typewriter") {
+                    title.classList.add("finished");
+                }
+            });
+    
+            setTimeout(function() {
+                title.classList.add("finished");
+            }, typewriterDuration);
+    
+            // Dropdown hover handling
+            const handleDropdownHover = function() {
+                if (window.innerWidth > 768) {
+                    $(this).find('.dropdown-menu').first().stop(true, true).slideDown();
+                }
+            };
+    
+            const handleDropdownHoverOut = function() {
+                if (window.innerWidth > 768) {
+                    $(this).find('.dropdown-menu').first().stop(true, true).slideUp();
+                }
+            };
+    
+            $('.nav-item.dropdown').hover(handleDropdownHover, handleDropdownHoverOut);
+            $('.dropdown-submenu').hover(handleDropdownHover, handleDropdownHoverOut);
+    
+            // Prevent dropdown from closing on click inside
+            $('.dropdown-menu').click(function(e) {
+                e.stopPropagation();
+            });
+    
+            // Fade effect on page load and link click
+            const mainContent = document.querySelector('.main-content');
+            const backgrounds = document.querySelectorAll('.world-map-background, .day-and-night-background, .nightlights_background');
+    
+            // Apply fade-in on page load
+            $(".fade").addClass("visible");
+    
+            // Handle fade-out on link click
+            $("a").click(function(event) {
+                event.preventDefault();
+                var linkLocation = this.href;
+                $(".fade").removeClass("visible").addClass("fade-out");
+    
+                setTimeout(function() {
+                    window.location = linkLocation;
+                }, 1000); // Adjust the delay to match the fade-out duration
+            });
+    
+            // Ensure background and content fade in correctly
+            setTimeout(() => {
+                mainContent.classList.add('visible');
+                backgrounds.forEach(bg => bg.classList.add('visible'));
+            }, 10);
         });
-    
-        setTimeout(function() {
-          title.classList.add("finished");
-        }, typewriterDuration);
-    
-        // Dropdown hover handling
-        const handleDropdownHover = function() {
-          if (window.innerWidth > 768) {
-            $(this).find('.dropdown-menu').first().stop(true, true).slideDown();
-          }
-        };
-    
-        const handleDropdownHoverOut = function() {
-          if (window.innerWidth > 768) {
-            $(this).find('.dropdown-menu').first().stop(true, true).slideUp();
-          }
-        };
-    
-        $('.nav-item.dropdown').hover(handleDropdownHover, handleDropdownHoverOut);
-        $('.dropdown-submenu').hover(handleDropdownHover, handleDropdownHoverOut);
-    
-        // Prevent dropdown from closing on click inside
-        $('.dropdown-menu').click(function(e) {
-          e.stopPropagation();
-        });
-    
-        // Fade effect on page load and link click
-        const mainContent = document.querySelector('.main-content');
-        const backgrounds = document.querySelectorAll('.world-map-background, .day-and-night-background, .nightlights_background');
-    
-        // Apply fade-in on page load
-        document.body.style.opacity = 0;
-        setTimeout(() => {
-          document.body.style.transition = 'opacity 1s ease-in-out';
-          document.body.style.opacity = 1;
-        }, 10);
-    
-        // Handle fade-out on link click
-        $("a").click(function(event) {
-          event.preventDefault();
-          var linkLocation = this.href;
-          mainContent.style.opacity = 0;
-          backgrounds.forEach(bg => bg.style.opacity = 0);
-    
-          setTimeout(function() {
-            window.location = linkLocation;
-          }, 1000); // Adjust the delay to match the fade-out duration
-        });
-      });
     </script>
 </head>
 <body>
