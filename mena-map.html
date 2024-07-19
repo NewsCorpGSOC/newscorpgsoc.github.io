@@ -97,6 +97,8 @@
         margin-bottom: -25px;
         font-family: 'EB Garamond', serif;
         font-weight: bold;
+        opacity: 0; /* Start with zero opacity */
+        transition: opacity 1s ease-in-out; /* Ensure the fade effect applies */
       }
       
       .navbar-buttons {
@@ -116,6 +118,7 @@
         margin: 0;
         padding: 0;
         color: white;
+        background-color: black;
       }
         
       body, html {
@@ -412,43 +415,43 @@
         }
     </style>
     <script>
-        $(document).ready(function(){
-            // Show dropdown on hover
-            $('.nav-item.dropdown').hover(function() {
-                if ($(window).width() > 768) {
+        document.addEventListener("DOMContentLoaded", function() {
+            // Dropdown hover handling
+            const handleDropdownHover = function() {
+                if (window.innerWidth > 768) {
                     $(this).find('.dropdown-menu').first().stop(true, true).slideDown();
                 }
-            }, function() {
-                if ($(window).width() > 768) {
-                    $(this).find('.dropdown-menu').first().stop(true, true).slideUp();
-                }
-            });
+            };
         
-            // Show submenu on hover
-            $('.dropdown-submenu').hover(function() {
-                if ($(window).width() > 768) {
-                    $(this).find('.dropdown-menu').first().stop(true, true).slideDown();
-                }
-            }, function() {
-                if ($(window).width() > 768) {
+            const handleDropdownHoverOut = function() {
+                if (window.innerWidth > 768) {
                     $(this).find('.dropdown-menu').first().stop(true, true).slideUp();
                 }
-            });
+            };
+        
+            $('.nav-item.dropdown').hover(handleDropdownHover, handleDropdownHoverOut);
+            $('.dropdown-submenu').hover(handleDropdownHover, handleDropdownHoverOut);
         
             // Prevent dropdown from closing on click inside
             $('.dropdown-menu').click(function(e) {
                 e.stopPropagation();
             });
-    
-            // Fade in the main content on page load
-            $("main.primary").addClass("visible");
-    
-            // Fade out the main content on link click
+        
+            // Fade effect on page load and link click
+            const elementsToFade = document.querySelectorAll('.fade');
+        
+            // Apply fade-in on page load
+            setTimeout(function() {
+                elementsToFade.forEach(el => el.classList.add('visible'));
+            }, 10);
+        
+            // Handle fade-out on link click
             $("a").click(function(event) {
                 event.preventDefault();
                 var linkLocation = this.href;
-                $("main.primary").removeClass("visible").addClass("fade-out");
-    
+                elementsToFade.forEach(el => el.classList.remove('visible'));
+                elementsToFade.forEach(el => el.classList.add('fade-out'));
+        
                 setTimeout(function() {
                     window.location = linkLocation;
                 }, 1000); // Adjust the delay to match the fade-out duration
@@ -457,9 +460,9 @@
     </script>
   </head>
   <body>
-      <div class="world-map-background"></div>
-      <div class="day-and-night-background"></div>
-      <div class="nightlights_background"></div>
+      <div class="world-map-background fade"></div>
+      <div class="day-and-night-background fade"></div>
+      <div class="nightlights_background fade"></div>
       <div id="content">
           <!-- Navbar -->
           <div class="header">
@@ -470,7 +473,7 @@
                   </a>
               </div>
               <!-- Title -->
-              <h1 class="header-title">Middle East-North Africa Conflict Map</h1>
+              <h1 class="header-title fade">Middle East-North Africa Conflict Map</h1>
               <!-- Navbar -->
               <nav class="navbar navbar-expand-lg navbar-dark">
                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -773,7 +776,7 @@
                         </ul>
                     </nav>
                 </div>
-                <main class="primary">
+                <main class="primary fade">
                     <div class="main-content">
                       <iframe width="2500" height="1000" frameborder="5" src="https://widgets.scribblemaps.com/sm/?d&dv&cv&z&gc&af&mc&lat=31.558837973&lng=42.139304319&vz=6&type=mbb_terrain&ti&s&width=2500&height=1500&id=GSOCMENREGIONALSECURITYBRIEF" style="border:5; max-width: 100%;" allowfullscreen loading="lazy"></iframe>
                     </div>
