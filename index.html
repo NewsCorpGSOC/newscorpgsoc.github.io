@@ -392,16 +392,59 @@
         }
 
         /*---------------------------------- FADE EFFECT ----------------------------------*/
-        #content {
-            display: none;
+        main.primary {
             opacity: 0;
             transition: opacity 1s ease-in-out;
         }
-
-        .fade-out {
+        
+        main.primary.fade-out {
             opacity: 0;
             transition: opacity 1s ease-in-out;
         }
+    <script>
+        $(document).ready(function(){
+            // Show dropdown on hover
+            $('.nav-item.dropdown').hover(function() {
+                if ($(window).width() > 768) {
+                    $(this).find('.dropdown-menu').first().stop(true, true).slideDown();
+                }
+            }, function() {
+                if ($(window).width() > 768) {
+                    $(this).find('.dropdown-menu').first().stop(true, true).slideUp();
+                }
+            });
+        
+            // Show submenu on hover
+            $('.dropdown-submenu').hover(function() {
+                if ($(window).width() > 768) {
+                    $(this).find('.dropdown-menu').first().stop(true, true).slideDown();
+                }
+            }, function() {
+                if ($(window).width() > 768) {
+                    $(this).find('.dropdown-menu').first().stop(true, true).slideUp();
+                }
+            });
+        
+            // Prevent dropdown from closing on click inside
+            $('.dropdown-menu').click(function(e) {
+                e.stopPropagation();
+            });
+    
+            // Fade in the main content on page load
+            $("main.primary").css("opacity", 1);
+    
+            // Fade out the main content on link click
+            $("a").click(function(event) {
+                event.preventDefault();
+                var linkLocation = this.href;
+                $("main.primary").addClass("fade-out");
+    
+                setTimeout(function() {
+                    window.location = linkLocation;
+                }, 1000); // Adjust the delay to match the fade-out duration
+            });
+        });
+    </script>
     </style>
     <script>
         $(document).ready(function(){
