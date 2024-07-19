@@ -98,8 +98,7 @@
         }
         
         @keyframes blinkCursor {
-          from,
-          to {
+          from, to {
             border-color: transparent;
           }
           50% {
@@ -112,27 +111,19 @@
           color: white;
           text-align: center;
           margin: 0;
-          padding-top: 15px;
-          /* Add margin below the logo */
+          padding-top: 15px; /* Add margin below the logo */
           margin-bottom: -25px;
           font-family: 'EB Garamond', serif;
           font-weight: bold;
-          overflow: hidden;
-          /* Ensures the text is hidden until animated */
-          border-right: .15em solid white;
-          /* Cursor effect */
-          white-space: nowrap;
-          /* Keeps the text on a single line */
-          width: 0;
-          /* Start with zero width */
-          margin: 0 auto;
-          /* Center the text */
+          overflow: hidden; /* Ensures the text is hidden until animated */
+          border-right: .15em solid white; /* Cursor effect */
+          white-space: nowrap; /* Keeps the text on a single line */
+          display: inline-block; /* Adjust the width of the element to fit the text */
           animation: typewriter 4s steps(40, end) 1s 1 normal both, blinkCursor .75s step-end infinite;
         }
-    
+        
         .header-title.finished {
-          border-right: none;
-          /* Remove cursor when typing is finished */
+          border-right: none; /* Remove cursor when typing is finished */
         }
         
         .navbar-buttons {
@@ -449,68 +440,55 @@
     </style>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+        // Typewriter effect completion handling
         const title = document.querySelector(".header-title");
-    
-        // Listener for animation end event
         title.addEventListener("animationend", function(event) {
           if (event.animationName === "typewriter") {
             title.classList.add("finished");
           }
         });
-      });
-    </script>
-    <script>
-          document.addEventListener("DOMContentLoaded", function() {
-            const title = document.querySelector(".header-title");
-        
-            title.addEventListener("animationend", function() {
-              if (title.style.animationName === "typewriter") {
-                title.classList.add("finished");
-              }
-            });
-          });
-        $(document).ready(function(){
-            // Show dropdown on hover
-            $('.nav-item.dropdown').hover(function() {
-                if ($(window).width() > 768) {
-                    $(this).find('.dropdown-menu').first().stop(true, true).slideDown();
-                }
-            }, function() {
-                if ($(window).width() > 768) {
-                    $(this).find('.dropdown-menu').first().stop(true, true).slideUp();
-                }
-            });
-        
-            // Show submenu on hover
-            $('.dropdown-submenu').hover(function() {
-                if ($(window).width() > 768) {
-                    $(this).find('.dropdown-menu').first().stop(true, true).slideDown();
-                }
-            }, function() {
-                if ($(window).width() > 768) {
-                    $(this).find('.dropdown-menu').first().stop(true, true).slideUp();
-                }
-            });
-        
-            // Prevent dropdown from closing on click inside
-            $('.dropdown-menu').click(function(e) {
-                e.stopPropagation();
-            });
     
-            // Fade in the main content and backgrounds on page load
-            $(".fade").addClass("visible");
+        // Dropdown hover handling
+        const handleDropdownHover = function() {
+          if ($(window).width() > 768) {
+            $(this).find('.dropdown-menu').first().stop(true, true).slideDown();
+          }
+        };
     
-            // Fade out the main content and backgrounds on link click
-            $("a").click(function(event) {
-                event.preventDefault();
-                var linkLocation = this.href;
-                $(".fade").removeClass("visible").addClass("fade-out");
+        const handleDropdownHoverOut = function() {
+          if ($(window).width() > 768) {
+            $(this).find('.dropdown-menu').first().stop(true, true).slideUp();
+          }
+        };
     
-                setTimeout(function() {
-                    window.location = linkLocation;
-                }, 1000); // Adjust the delay to match the fade-out duration
-            });
+        $('.nav-item.dropdown').hover(handleDropdownHover, handleDropdownHoverOut);
+        $('.dropdown-submenu').hover(handleDropdownHover, handleDropdownHoverOut);
+    
+        // Prevent dropdown from closing on click inside
+        $('.dropdown-menu').click(function(e) {
+          e.stopPropagation();
         });
+    
+        // Fade effect on page load and link click
+        $(".fade").addClass("visible");
+    
+        $("a").click(function(event) {
+          event.preventDefault();
+          var linkLocation = this.href;
+          $(".fade").removeClass("visible").addClass("fade-out");
+    
+          setTimeout(function() {
+            window.location = linkLocation;
+          }, 1000); // Adjust the delay to match the fade-out duration
+        });
+    
+        // Fade in the main content and backgrounds on page load
+        document.body.style.opacity = 0;
+        setTimeout(() => {
+          document.body.style.transition = 'opacity 1s ease-in-out';
+          document.body.style.opacity = 1;
+        }, 10);
+      });
     </script>
 </head>
 <body>
