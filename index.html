@@ -119,14 +119,13 @@
           border-right: .15em solid white; /* Cursor effect */
           white-space: nowrap; /* Keeps the text on a single line */
           width: fit-content; /* Adjust width to the content */
-          max-width: 100%; /* Ensure it doesn't exceed the container's width */
-          display: inline-block; /* Ensure it can grow only to fit the text */
           animation: typewriter 4s steps(40, end) 1s 1 normal both, blinkCursor .75s step-end infinite;
         }
         
         .header-title.finished {
           border-right: none; /* Remove cursor when typing is finished */
         }
+
         
         .navbar-buttons {
             display: flex;
@@ -442,6 +441,7 @@
     </style>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+        // Typewriter effect completion handling
         const title = document.querySelector(".header-title");
         title.addEventListener("animationend", function(event) {
           if (event.animationName === "typewriter") {
