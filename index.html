@@ -110,7 +110,7 @@
           font-size: 48px;
           color: white;
           text-align: center;
-          margin: 0;
+          margin: 0 auto; /* Center the text */
           padding-top: 15px; /* Add margin below the logo */
           margin-bottom: -25px;
           font-family: 'EB Garamond', serif;
@@ -118,7 +118,7 @@
           overflow: hidden; /* Ensures the text is hidden until animated */
           border-right: .15em solid white; /* Cursor effect */
           white-space: nowrap; /* Keeps the text on a single line */
-          display: inline-block; /* Adjust the width of the element to fit the text */
+          width: fit-content; /* Adjust width to the content */
           animation: typewriter 4s steps(40, end) 1s 1 normal both, blinkCursor .75s step-end infinite;
         }
         
