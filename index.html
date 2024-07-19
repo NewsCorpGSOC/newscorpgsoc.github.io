@@ -87,15 +87,31 @@
             z-index: 1100; /* Ensure the logo stays above other content */
         }
         
+        @keyframes typewriter {
+          from { width: 0; }
+          to { width: 100%; }
+        }
+        
+        @keyframes blinkCursor {
+          from, to { border-color: transparent; }
+          50% { border-color: white; }
+        }
+        
         .header-title {
-            font-size: 48px;
-            color: white;
-            text-align: center;
-            margin: 0;
-            padding-top: 15px; /* Add margin below the logo */
-            margin-bottom: -25px;
-            font-family: 'EB Garamond', serif;
-            font-weight: bold;
+          font-size: 48px;
+          color: white;
+          text-align: center;
+          margin: 0;
+          padding-top: 15px; /* Add margin below the logo */
+          margin-bottom: -25px;
+          font-family: 'EB Garamond', serif;
+          font-weight: bold;
+          overflow: hidden; /* Ensures the text is hidden until animated */
+          border-right: .15em solid white; /* Cursor effect */
+          white-space: nowrap; /* Keeps the text on a single line */
+          animation:
+            typewriter 4s steps(40, end),
+            blinkCursor .75s step-end infinite;
         }
         
         .navbar-buttons {
