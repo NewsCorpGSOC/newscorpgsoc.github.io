@@ -443,11 +443,17 @@
       document.addEventListener("DOMContentLoaded", function() {
         // Typewriter effect completion handling
         const title = document.querySelector(".header-title");
+        const typewriterDuration = 5000; // 4s for typewriter + 1s delay
+    
         title.addEventListener("animationend", function(event) {
           if (event.animationName === "typewriter") {
             title.classList.add("finished");
           }
         });
+    
+        setTimeout(function() {
+          title.classList.add("finished");
+        }, typewriterDuration);
     
         // Dropdown hover handling
         const handleDropdownHover = function() {
