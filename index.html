@@ -87,43 +87,17 @@
             z-index: 1100; /* Ensure the logo stays above other content */
         }
         
-        /* Typewriter effect */
-        @keyframes typewriter {
-          from {
-            width: 0;
-          }
-          to {
-            width: 100%;
-          }
-        }
-        
-        @keyframes blinkCursor {
-          from, to {
-            border-color: transparent;
-          }
-          50% {
-            border-color: white;
-          }
-        }
-        
         .header-title {
-          font-size: 48px;
-          color: white;
-          text-align: center;
-          margin: 0 auto; /* Center the text */
-          padding-top: 15px; /* Add margin below the logo */
-          margin-bottom: -25px;
-          font-family: 'EB Garamond', serif;
-          font-weight: bold;
-          overflow: hidden; /* Ensures the text is hidden until animated */
-          border-right: .15em solid white; /* Cursor effect */
-          white-space: nowrap; /* Keeps the text on a single line */
-          width: fit-content; /* Adjust width to the content */
-          animation: typewriter 4s steps(40, end) 1s 1 normal both, blinkCursor .75s step-end infinite;
-        }
-        
-        .header-title.finished {
-          border-right: none; /* Remove cursor when typing is finished */
+            font-size: 48px;
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding-top: 15px; /* Add margin below the logo */
+            margin-bottom: -25px;
+            font-family: 'EB Garamond', serif;
+            font-weight: bold;
+            opacity: 0; /* Start with zero opacity */
+            transition: opacity 1s ease-in-out; /* Ensure the fade effect applies */
         }
 
         
@@ -441,20 +415,6 @@
     </style>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            const title = document.querySelector(".header-title");
-            const typewriterDuration = 3100; // 4s for typewriter + 1s delay
-        
-            // Typewriter effect completion handling
-            title.addEventListener("animationend", function(event) {
-                if (event.animationName === "typewriter") {
-                    title.classList.add("finished");
-                }
-            });
-        
-            setTimeout(function() {
-                title.classList.add("finished");
-            }, typewriterDuration);
-        
             // Dropdown hover handling
             const handleDropdownHover = function() {
                 if (window.innerWidth > 768) {
@@ -477,19 +437,19 @@
             });
         
             // Fade effect on page load and link click
-            const mainContent = document.querySelector('.main-content');
-            const backgrounds = document.querySelectorAll('.world-map-background, .day-and-night-background, .nightlights_background');
+            const elementsToFade = document.querySelectorAll('.fade');
         
             // Apply fade-in on page load
             setTimeout(function() {
-                $(".fade").addClass("visible");
+                elementsToFade.forEach(el => el.classList.add('visible'));
             }, 10);
         
             // Handle fade-out on link click
             $("a").click(function(event) {
                 event.preventDefault();
                 var linkLocation = this.href;
-                $(".fade").removeClass("visible").addClass("fade-out");
+                elementsToFade.forEach(el => el.classList.remove('visible'));
+                elementsToFade.forEach(el => el.classList.add('fade-out'));
         
                 setTimeout(function() {
                     window.location = linkLocation;
@@ -512,7 +472,7 @@
                 </a>
             </div>
             <!-- Title -->
-            <h1 class="header-title">News Corp Global Security Intranet Home Page</h1>
+            <h1 class="header-title fade">News Corp Global Security Intranet Home Page</h1>
             <!-- Navbar -->
             <nav class="navbar navbar-expand-lg navbar-dark">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
