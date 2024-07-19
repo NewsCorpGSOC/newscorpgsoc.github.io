@@ -443,7 +443,7 @@
         document.addEventListener("DOMContentLoaded", function() {
             // Typewriter effect completion handling
             const title = document.querySelector(".header-title");
-            const typewriterDuration = 3100; // 4s for typewriter + 1s delay
+            const typewriterDuration = 2800; // 4s for typewriter + 1s delay
     
             title.addEventListener("animationend", function(event) {
                 if (event.animationName === "typewriter") {
@@ -477,7 +477,7 @@
             });
     
             // Fade effect on page load and link click
-            const mainContent = document.querySelector('.main-content');
+            const mainContent = document.querySelector('.primary');
             const backgrounds = document.querySelectorAll('.world-map-background, .day-and-night-background, .nightlights_background');
     
             // Apply fade-in on page load
