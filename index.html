@@ -457,13 +457,13 @@
     
         // Dropdown hover handling
         const handleDropdownHover = function() {
-          if ($(window).width() > 768) {
+          if (window.innerWidth > 768) {
             $(this).find('.dropdown-menu').first().stop(true, true).slideDown();
           }
         };
     
         const handleDropdownHoverOut = function() {
-          if ($(window).width() > 768) {
+          if (window.innerWidth > 768) {
             $(this).find('.dropdown-menu').first().stop(true, true).slideUp();
           }
         };
@@ -477,24 +477,27 @@
         });
     
         // Fade effect on page load and link click
-        $(".fade").addClass("visible");
+        const mainContent = document.querySelector('.main-content');
+        const backgrounds = document.querySelectorAll('.world-map-background, .day-and-night-background, .nightlights_background');
     
-        $("a").click(function(event) {
-          event.preventDefault();
-          var linkLocation = this.href;
-          $(".fade").removeClass("visible").addClass("fade-out");
-    
-          setTimeout(function() {
-            window.location = linkLocation;
-          }, 1000); // Adjust the delay to match the fade-out duration
-        });
-    
-        // Fade in the main content and backgrounds on page load
+        // Apply fade-in on page load
         document.body.style.opacity = 0;
         setTimeout(() => {
           document.body.style.transition = 'opacity 1s ease-in-out';
           document.body.style.opacity = 1;
         }, 10);
+    
+        // Handle fade-out on link click
+        $("a").click(function(event) {
+          event.preventDefault();
+          var linkLocation = this.href;
+          mainContent.style.opacity = 0;
+          backgrounds.forEach(bg => bg.style.opacity = 0);
+    
+          setTimeout(function() {
+            window.location = linkLocation;
+          }, 1000); // Adjust the delay to match the fade-out duration
+        });
       });
     </script>
 </head>
