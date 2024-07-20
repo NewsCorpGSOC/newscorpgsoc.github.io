@@ -54,20 +54,17 @@
             display: block;
         }
 
-        .header, footer {
-            background-color: #002060;
-            color: white;
-            text-align: center;
-            font-family: 'EB Garamond', serif;
-        }
-        
         .header {
+            position: relative;
+            padding: 0;
+            margin-top: 10px;
+            border-bottom: 10px solid transparent;
+            font-family: 'EB Garamond', serif;
             position: sticky;
             top: 0;
             z-index: 1000; /* Ensure it stays above other content */
-            border-bottom: 10px solid transparent;
-            padding: 0;
-            margin: 0;
+            background-color: #002060; /* Added background color for clarity */
+            margin: 0; /* Ensure there's no margin */
         }
         
         .header::after {
@@ -118,30 +115,24 @@
             margin-left: 150px;
         }
         
-        body, html {
+        body {
             margin: 0;
             padding: 0;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
             color: white;
             background-color: black;
-            overflow-x: hidden; /* Prevent horizontal overflow */
         }
-
-        body {
-            min-height: 100vh;
         
-        #main {
-            display: flex;
-            flex-grow: 1;
-            overflow: hidden;
+        body, html {
+            overflow-x: hidden; /* Prevent horizontal overflow */
         }
         
         .primary {
-            flex: 1;
-            overflow: auto;
-            padding: 20px;
+            width: 1650px; /* Adjust width as needed */
+            max-width: 1650px; /* Example: restrict maximum width */
+            padding-left: 20px; /* Maintain left padding */
+            padding-right: 20px; /* Maintain right padding */
+            padding-top: 20px;
+            box-sizing: border-box;
         }
         
         .main-content {
@@ -175,7 +166,8 @@
         /*---------------------------------- SIDEBAR ----------------------------------*/      
         #sidebar {
             display: flex;
-            flex-direction: column;
+            flex: 1;
+            min-height: 81.35vh;
             background: linear-gradient(to right, #193c80, rgba(64, 64, 64, 0));
             border-right: 5px solid #333;
             padding-top: 10px;
@@ -402,11 +394,6 @@
         footer {
             border-top: 5px solid #333;
             padding-top: 10px;
-            background-color: #002060;
-            color: white;
-            text-align: center;
-            flex-shrink: 0; /* Ensure the footer does not shrink */
-            bottom: 0;
         }
         .dropdown-menu option {
             background-color: #00D6E3;
