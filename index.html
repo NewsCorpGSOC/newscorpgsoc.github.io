@@ -210,6 +210,33 @@
             text-decoration: none;
             box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
         }
+/*---------------------------------- SIDEBAR DROPDOWN MENU ----------------------------------*/
+        .sidebar-dropdown {
+            display: none;
+            position: absolute;
+            left: 100%; /* Position the dropdown to the right of the button */
+            top: 0;
+            background-color: #007bff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            z-index: 1;
+        }
+        
+        .sidebar-dropdown a {
+            color: black;
+            padding: 10px 15px;
+            text-decoration: none;
+            display: block;
+            font-family: 'EB Garamond', serif;
+        }
+        
+        .sidebar-dropdown a:hover {
+            background-color: #0056b3;
+        }
+        
+        .nav-item:hover .sidebar-dropdown {
+            display: block;
+        }
         
         /*---------------------------------- BACKGROUND IMAGES ----------------------------------*/
         .world-map-background {
@@ -673,6 +700,19 @@
                     <!-- Sidebar content -->
                     <nav class="d-flex flex-column">
                         <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a href="#" class="button">
+                                    <span class="text">Conflict & Security Maps</span>
+                                    <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#282828" d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM281 385c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l71-71L136 280c-13.3 0-24-10.7-24-24s10.7-24 24-24l182.1 0-71-71c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L393 239c9.4 9.4 9.4 24.6 0 33.9L281 385z"/></svg>
+                                </a>
+                                <div class="sidebar-dropdown">
+                                    <a href="mena-map.html">MENA Map</a>
+                                    <a href="global-map.html">Global Map</a>
+                                    <a href="RNCMap.html">RNC Map</a>
+                                    <a href="google-earth-assets-map.html">Google Earth Assets Map</a>
+                                    <a href="NYCWebCams.html">NYC Streetcams</a>
+                                </div>
+                            </li>
                             <li class="nav-item">
                                 <a href="mena-map.html" class="button">
                                     <span class="text">MENA Map</span>
