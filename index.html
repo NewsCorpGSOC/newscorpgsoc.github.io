@@ -127,8 +127,7 @@
             margin-left: 150px;
         }
         
-        html, body {
-            height: 100%;
+        body {
             margin: 0;
             padding: 0;
             color: white;
@@ -137,6 +136,9 @@
         
         body, html {
             overflow-x: hidden; /* Prevent horizontal overflow */
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
         
         .primary {
@@ -180,7 +182,7 @@
         #sidebar {
             display: flex;
             flex-direction: column;
-            height: 100vh; /* Set the sidebar to take the full height of the viewport */
+            height: 100vh;
             background: linear-gradient(to right, #193c80, rgba(64, 64, 64, 0));
             border-right: 5px solid #333;
             padding-top: 10px;
@@ -257,7 +259,7 @@
             margin: 0;
             display: flex;
             flex-direction: column;
-            min-height: 100vh;
+            min-height: 100vh;            
         }
         
         .content::before {
@@ -404,6 +406,10 @@
           
         .button:active {
             transform: scale(0.97);
+        }
+        .dropdown-menu option {
+            background-color: #00D6E3;
+            color: white;
         }
 
         /*---------------------------------- FADE EFFECT ----------------------------------*/
@@ -714,7 +720,7 @@
         </div>
 
         <div class="container-fluid">
-            <div class="row" style="flex: 1;">
+            <div class="row" style = "flex: 1;">
                 <!-- Sidebar -->
                 <div class="sidebar" id="sidebar">
                     <!-- Sidebar content -->
@@ -785,7 +791,7 @@
                 </div>
 
                 <!-- Main Content -->
-                <main class="primary fade" style="flex: 1;">
+                <main class="primary fade style="flex: 1">
                     <div class="main-content">
                         <h1>Welcome to the GSOC Tool Suite Page! 🚀</h1>
                         <p>This webpage serves as a central repository for accessing the tools and resources you need for the GSOC. You'll find everything you need right here.</p>
