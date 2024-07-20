@@ -135,17 +135,15 @@
         }
         
         body, html {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
+            overflow-x: hidden; /* Prevent horizontal overflow */
         }
         
         .primary {
-            width: 85vw; /* Adjust width as needed */
-            max-width: 85vw;
+            min-width: 10vw; /* Adjust width as needed */
+            max-width: 75vw; /* Example: restrict maximum width */
             padding-left: 20px; /* Maintain left padding */
             padding-right: 20px; /* Maintain right padding */
-            padding-top: 35px;
+            padding-top: 20px;
             box-sizing: border-box;
         }
         
@@ -153,6 +151,7 @@
             padding-left: 20px; /* Adjust padding to maintain readability */
             position: relative;
             font-family: 'Heebo', EB Garamond, serif;
+            overflow-x: hidden;
         }
         
         h1, h2, h3 {
@@ -177,16 +176,10 @@
         }
         
         /*---------------------------------- SIDEBAR ----------------------------------*/      
-        #main {
+        #sidebar {
             display: flex;
             flex: 1;
-            overflow: hidden;
-        }
-        
-        #sidebar {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
+            min-height: 81.35vh;
             background: linear-gradient(to right, #193c80, rgba(64, 64, 64, 0));
             border-right: 5px solid #333;
             padding-top: 10px;
@@ -260,7 +253,7 @@
             position: relative;
             overflow-x: hidden;
             padding: 0;
-            margin: 0;        
+            margin: 0;
         }
         
         .content::before {
@@ -408,6 +401,12 @@
         .button:active {
             transform: scale(0.97);
         }
+        
+        /*---------------------------------- FOOTER ----------------------------------*/      
+        footer {
+            border-top: 5px solid #333;
+            padding-top: 10px;
+        }
         .dropdown-menu option {
             background-color: #00D6E3;
             color: white;
@@ -487,7 +486,7 @@
                 </a>
             </div>
             <!-- Title -->
-            <h1 class="header-title fade">GSOC World Asset & Security Map</h1>
+            <h1 class="header-title fade">News Corp Global Assets Map</h1>
             <!-- Navbar -->
             <nav class="navbar navbar-expand-lg navbar-dark">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -721,7 +720,7 @@
         </div>
 
         <div class="container-fluid">
-            <div class="row" style = "flex: 1;">
+            <div class="row">
                 <!-- Sidebar -->
                 <div class="sidebar" id="sidebar">
                     <!-- Sidebar content -->
@@ -790,15 +789,18 @@
                         </ul>
                     </nav>
                 </div>
-
-                <!-- Main Content -->
-                <main class="primary fade style="flex: 1">
+                <main class="primary fade">
                     <div class="main-content">
                         <iframe width="2500" height="1000" frameborder="5" src="https://widgets.scribblemaps.com/sm/?d&dv&cv&z&l&gc&af&mc&lat=40.93093491&lng=-74.277311237&vz=7&type=mbb_terrain&ti&s&width=2500&height=1500&id=GSOCFIRSTLIGHTWORLD" style="border:5; max-width: 100%;" allowfullscreen loading="lazy"></iframe>
                     </div>
                 </main>
             </div>
         </div>
+
+        <!-- Footer -->
+        <footer class="text-center py-3" style="background-color: #002060; color: white;">
+            <p>&copy; 2024 NewsCorp GSOC Intranet</p>
+        </footer>
     </div>
 </body>
 </html>
