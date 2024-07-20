@@ -54,17 +54,19 @@
             display: block;
         }
 
-        .header {
-            position: relative;
-            padding: 0;
-            margin-top: 10px;
+        .header, footer {
+            background-color: #002060;
+            color: white;
+            text-align: center;
+            padding: 10px;
             border-bottom: 10px solid transparent;
             font-family: 'EB Garamond', serif;
+        }
+        
+        .header {
             position: sticky;
             top: 0;
             z-index: 1000; /* Ensure it stays above other content */
-            background-color: #002060; /* Added background color for clarity */
-            margin: 0; /* Ensure there's no margin */
         }
         
         .header::after {
@@ -115,24 +117,27 @@
             margin-left: 150px;
         }
         
-        body {
+        body, html {
             margin: 0;
             padding: 0;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
             color: white;
             background-color: black;
-        }
-        
-        body, html {
             overflow-x: hidden; /* Prevent horizontal overflow */
         }
         
+        #main {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+        }
+        
         .primary {
-            width: 1650px; /* Adjust width as needed */
-            max-width: 1650px; /* Example: restrict maximum width */
-            padding-left: 20px; /* Maintain left padding */
-            padding-right: 20px; /* Maintain right padding */
-            padding-top: 20px;
-            box-sizing: border-box;
+            flex: 1;
+            overflow: auto;
+            padding: 20px;
         }
         
         .main-content {
@@ -166,8 +171,7 @@
         /*---------------------------------- SIDEBAR ----------------------------------*/      
         #sidebar {
             display: flex;
-            flex: 1;
-            min-height: 81.35vh;
+            flex-direction: column;
             background: linear-gradient(to right, #193c80, rgba(64, 64, 64, 0));
             border-right: 5px solid #333;
             padding-top: 10px;
@@ -394,8 +398,10 @@
         footer {
             border-top: 5px solid #333;
             padding-top: 10px;
-            position: absolute;
-            bottom: 0;
+            background-color: #002060;
+            color: white;
+            text-align: center;
+            flex-shrink: 0; /* Ensure the footer does not shrink */
         }
         .dropdown-menu option {
             background-color: #00D6E3;
