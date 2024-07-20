@@ -220,7 +220,7 @@
             justify-content: flex-start;
             gap: 12px;
             margin-top: 10px;
-            margin-left: 4px;
+            margin-left: 5px;
             cursor: pointer;
             border: 3px solid #00d6e3;
             background-color: #00d6e3;
@@ -283,6 +283,7 @@
             border-radius: 5px;
             z-index: 1200;
             overflow: visible;
+            opacity: 0;
             transition: opacity 1s ease-in-out; /* Ensure the fade effect applies */
         }
         
@@ -307,6 +308,7 @@
         
         .sidebar-nav-item:hover .sidebar-dropdown {
             display: block;
+            opacity: 1;
         }
 
 /*---------------------------------- BACKGROUND IMAGES ----------------------------------*/
