@@ -272,10 +272,11 @@
         .sidebar-dropdown {
             display: none;
             position: absolute;
-            left: 110%; /* Position the dropdown to the right of the button */
+            width: 100px;
+            left: 102%; /* Position the dropdown to the right of the button */
             top: 10px;
             padding: 5px;
-            background-color: #007bff;
+            background-color: #00D6e3;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             border-radius: 5px;
             z-index: 1200;
@@ -283,7 +284,8 @@
         }
         
         .sidebar-dropdown a {
-            color: black;
+            color: white;
+            font-weight: bold;
             padding: 10px 15px;
             text-decoration: none;
             display: block;
@@ -291,7 +293,8 @@
         }
         
         .sidebar-dropdown a:hover {
-            background-color: #0056b3;
+            background-color: #009199;
+            transition: background-color 0.3s ease; /* Add transition for smooth color change */
         }
         
         .sidebar-nav-item:hover .sidebar-dropdown {
