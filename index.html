@@ -210,7 +210,65 @@
             text-decoration: none;
             box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
         }
-/*---------------------------------- SIDEBAR DROPDOWN MENU ----------------------------------*/
+        
+        /*---------------------------------- SIDEBAR BUTTONS APPEARANCE ----------------------------------*/      
+        .sidebar-button {
+            width: 300px;  /* Increased width */
+            height: 50px;  /* Increased height */
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 12px;
+            margin-top: 10px;
+            cursor: pointer;
+            border: 3px solid #00d6e3;
+            background-color: #00d6e3;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.137);
+        }
+          
+        .sidebar-text {
+            width: 80%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #404040;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none; /* Ensure it behaves like a link */
+            transition: background-color 0.3s ease; /* Add transition for smooth color change */
+        }
+        
+        .sidebar-arrow {
+            width: 24px;  /* Adjust the width of the arrow */
+            height: 24px; /* Adjust the height of the arrow */
+            transform: translateX(8px);  /* Static position of the arrow */
+        }
+          
+        .sidebar-arrow path {
+            fill: rgb(19, 19, 19);
+            transition: transform 0.3s ease; /* Add transition for smooth scaling */
+        }
+          
+        .sidebar-button:hover .sidebar-text {
+            background-color: #778a8f;
+        }
+            
+        .sidebar-button:hover .sidebar-arrow {
+            transform: translateX(6px) scale(1.3); /* Scale up by 30% on hover */
+            transition: transform 0.3s ease; /* Add transition for smooth scaling */
+        }
+          
+        .sidebar-button:active {
+            transform: scale(0.97);
+        }
+        
+        /*---------------------------------- SIDEBAR DROPDOWN MENU ----------------------------------*/
+        .sidebar-nav-item {
+            position: relative; /* Ensure the nav-item is the reference for absolute positioning */
+        }
+        
         .sidebar-dropdown {
             display: none;
             position: absolute;
@@ -234,11 +292,11 @@
             background-color: #0056b3;
         }
         
-        .nav-item:hover .sidebar-dropdown {
+        .sidebar-nav-item:hover .sidebar-dropdown {
             display: block;
         }
-        
-        /*---------------------------------- BACKGROUND IMAGES ----------------------------------*/
+
+/*---------------------------------- BACKGROUND IMAGES ----------------------------------*/
         .world-map-background {
             position: fixed;
             top: 0;
@@ -377,58 +435,6 @@
             width: 150px;
             height: 150px;
             opacity: 1;
-        }
-        
-        .button {
-            width: 300px;  /* Increased width */
-            height: 50px;  /* Increased height */
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            gap: 12px;
-            margin-top: 10px;
-            cursor: pointer;
-            border: 3px solid #00d6e3;
-            background-color: #00d6e3;
-            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.137);
-        }
-          
-        .text {
-            width: 80%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #404040;
-            color: white;
-            font-size: 16px;
-            font-weight: bold;
-            text-decoration: none; /* Ensure it behaves like a link */
-            transition: background-color 0.3s ease; /* Add transition for smooth color change */
-        }
-        
-        .arrow {
-            width: 24px;  /* Adjust the width of the arrow */
-            height: 24px; /* Adjust the height of the arrow */
-            transform: translateX(8px);  /* Static position of the arrow */
-        }
-          
-        .arrow path {
-            fill: rgb(19, 19, 19);
-            transition: transform 0.3s ease; /* Add transition for smooth scaling */
-        }
-          
-        .button:hover .text {
-            background-color: #778a8f;
-        }
-            
-        .button:hover .arrow {
-            transform: translateX(6px) scale(1.3); /* Scale up by 30% on hover */
-            transition: transform 0.3s ease; /* Add transition for smooth scaling */
-        }
-          
-        .button:active {
-            transform: scale(0.97);
         }
         
         /*---------------------------------- FOOTER ----------------------------------*/      
@@ -700,10 +706,10 @@
                     <!-- Sidebar content -->
                     <nav class="d-flex flex-column">
                         <ul class="nav flex-column">
-                            <li class="nav-item">
-                                <a href="#" class="button">
-                                    <span class="text">Conflict & Security Maps</span>
-                                    <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#282828" d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM281 385c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l71-71L136 280c-13.3 0-24-10.7-24-24s10.7-24 24-24l182.1 0-71-71c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L393 239c9.4 9.4 9.4 24.6 0 33.9L281 385z"/></svg>
+                            <li class="sidebar-nav-item">
+                                <a href="#" class="sidebar-button">
+                                    <span class="sidebar-text">Conflict & Security Maps</span>
+                                    <svg class="sidebar-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#282828" d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM281 385c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l71-71L136 280c-13.3 0-24-10.7-24-24s10.7-24 24-24l182.1 0-71-71c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L393 239c9.4 9.4 9.4 24.6 0 33.9L281 385z"/></svg>
                                 </a>
                                 <div class="sidebar-dropdown">
                                     <a href="mena-map.html">MENA Map</a>
@@ -713,69 +719,70 @@
                                     <a href="NYCWebCams.html">NYC Streetcams</a>
                                 </div>
                             </li>
-                            <li class="nav-item">
-                                <a href="mena-map.html" class="button">
-                                    <span class="text">MENA Map</span>
-                                    <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#282828" d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM281 385c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l71-71L136 280c-13.3 0-24-10.7-24-24s10.7-24 24-24l182.1 0-71-71c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L393 239c9.4 9.4 9.4 24.6 0 33.9L281 385z"/></svg>
+                            <li class="sidebar-nav-item">
+                                <a href="mena-map.html" class="sidebar-button">
+                                    <span class="sidebar-text">MENA Map</span>
+                                    <svg class="sidebar-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#282828" d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM281 385c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l71-71L136 280c-13.3 0-24-10.7-24-24s10.7-24 24-24l182.1 0-71-71c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L393 239c9.4 9.4 9.4 24.6 0 33.9L281 385z"/></svg>
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a href="global-map.html" class="button">
-                                    <span class="text">Global Map</span>
-                                    <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#282828" d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM281 385c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l71-71L136 280c-13.3 0-24-10.7-24-24s10.7-24 24-24l182.1 0-71-71c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L393 239c9.4 9.4 9.4 24.6 0 33.9L281 385z"/></svg>
+                            <li class="sidebar-nav-item">
+                                <a href="global-map.html" class="sidebar-button">
+                                    <span class="sidebar-text">Global Map</span>
+                                    <svg class="sidebar-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#282828" d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM281 385c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l71-71L136 280c-13.3 0-24-10.7-24-24s10.7-24 24-24l182.1 0-71-71c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L393 239c9.4 9.4 9.4 24.6 0 33.9L281 385z"/></svg>
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a href="RNCMap.html" class="button">
-                                    <span class="text">RNC Map</span>
-                                    <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#282828" d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM281 385c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l71-71L136 280c-13.3 0-24-10.7-24-24s10.7-24 24-24l182.1 0-71-71c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L393 239c9.4 9.4 9.4 24.6 0 33.9L281 385z"/></svg>
+                            <li class="sidebar-nav-item">
+                                <a href="RNCMap.html" class="sidebar-button">
+                                    <span class="sidebar-text">RNC Map</span>
+                                    <svg class="sidebar-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#282828" d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM281 385c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l71-71L136 280c-13.3 0-24-10.7-24-24s10.7-24 24-24l182.1 0-71-71c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L393 239c9.4 9.4 9.4 24.6 0 33.9L281 385z"/></svg>
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a href="google-earth-assets-map.html" class="button">
-                                    <span class="text">Google Earth Assets Map</span>
-                                    <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#282828" d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM281 385c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l71-71L136 280c-13.3 0-24-10.7-24-24s10.7-24 24-24l182.1 0-71-71c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L393 239c9.4 9.4 9.4 24.6 0 33.9L281 385z"/></svg>
+                            <li class="sidebar-nav-item">
+                                <a href="google-earth-assets-map.html" class="sidebar-button">
+                                    <span class="sidebar-text">Google Earth Assets Map</span>
+                                    <svg class="sidebar-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#282828" d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM281 385c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l71-71L136 280c-13.3 0-24-10.7-24-24s10.7-24 24-24l182.1 0-71-71c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L393 239c9.4 9.4 9.4 24.6 0 33.9L281 385z"/></svg>
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a href="onboarding.html" class="button">
-                                    <span class="text">Onboarding</span>
-                                    <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#282828" d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM281 385c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l71-71L136 280c-13.3 0-24-10.7-24-24s10.7-24 24-24l182.1 0-71-71c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L393 239c9.4 9.4 9.4 24.6 0 33.9L281 385z"/></svg>
+                            <li class="sidebar-nav-item">
+                                <a href="onboarding.html" class="sidebar-button">
+                                    <span class="sidebar-text">Onboarding</span>
+                                    <svg class="sidebar-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#282828" d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM281 385c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l71-71L136 280c-13.3 0-24-10.7-24-24s10.7-24 24-24l182.1 0-71-71c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L393 239c9.4 9.4 9.4 24.6 0 33.9L281 385z"/></svg>
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a href="emergency-response-los-angeles.html" class="button">
-                                    <span class="text">Emergency Response L.A.</span>
-                                    <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#282828" d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM281 385c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l71-71L136 280c-13.3 0-24-10.7-24-24s10.7-24 24-24l182.1 0-71-71c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L393 239c9.4 9.4 9.4 24.6 0 33.9L281 385z"/></svg>
+                            <li class="sidebar-nav-item">
+                                <a href="emergency-response-los-angeles.html" class="sidebar-button">
+                                    <span class="sidebar-text">Emergency Response L.A.</span>
+                                    <svg class="sidebar-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#282828" d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM281 385c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l71-71L136 280c-13.3 0-24-10.7-24-24s10.7-24 24-24l182.1 0-71-71c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L393 239c9.4 9.4 9.4 24.6 0 33.9L281 385z"/></svg>
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a href="NYCWebCams.html" class="button">
-                                    <span class="text">NYC Web Cams Map</span>
-                                    <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#282828" d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM281 385c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l71-71L136 280c-13.3 0-24-10.7-24-24s10.7-24 24-24l182.1 0-71-71c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L393 239c9.4 9.4 9.4 24.6 0 33.9L281 385z"/></svg>
+                            <li class="sidebar-nav-item">
+                                <a href="NYCWebCams.html" class="sidebar-button">
+                                    <span class="sidebar-text">NYC Web Cams Map</span>
+                                    <svg class="sidebar-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#282828" d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM281 385c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l71-71L136 280c-13.3 0-24-10.7-24-24s10.7-24 24-24l182.1 0-71-71c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L393 239c9.4 9.4 9.4 24.6 0 33.9L281 385z"/></svg>
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a href="https://docs.google.com/spreadsheets/d/1szW9dkl5YuBmwLu2U21dl-GTlbVVepuDX58WWhsvMDA/edit#gid=0" target="_blank" class="button">
-                                    <span class="text">UKR NC Personnel</span>
-                                    <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#282828" d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM281 385c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l71-71L136 280c-13.3 0-24-10.7-24-24s10.7-24 24-24l182.1 0-71-71c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L393 239c9.4 9.4 9.4 24.6 0 33.9L281 385z"/></svg>
+                            <li class="sidebar-nav-item">
+                                <a href="https://docs.google.com/spreadsheets/d/1szW9dkl5YuBmwLu2U21dl-GTlbVVepuDX58WWhsvMDA/edit#gid=0" target="_blank" class="sidebar-button">
+                                    <span class="sidebar-text">UKR NC Personnel</span>
+                                    <svg class="sidebar-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#282828" d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM281 385c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l71-71L136 280c-13.3 0-24-10.7-24-24s10.7-24 24-24l182.1 0-71-71c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L393 239c9.4 9.4 9.4 24.6 0 33.9L281 385z"/></svg>
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a href="https://docs.google.com/spreadsheets/d/1u8ybGZnVho6Q_C1a7tSNJUaKTn9gRTbK5PnZfABWV1o/edit#gid=1687500248" target="_blank" class="button">
-                                    <span class="text">WSJ Op Order</span>
-                                    <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#282828" d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM281 385c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l71-71L136 280c-13.3 0-24-10.7-24-24s10.7-24 24-24l182.1 0-71-71c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L393 239c9.4 9.4 9.4 24.6 0 33.9L281 385z"/></svg>
+                            <li class="sidebar-nav-item">
+                                <a href="https://docs.google.com/spreadsheets/d/1u8ybGZnVho6Q_C1a7tSNJUaKTn9gRTbK5PnZfABWV1o/edit#gid=1687500248" target="_blank" class="sidebar-button">
+                                    <span class="sidebar-text">WSJ Op Order</span>
+                                    <svg class="sidebar-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#282828" d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM281 385c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l71-71L136 280c-13.3 0-24-10.7-24-24s10.7-24 24-24l182.1 0-71-71c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L393 239c9.4 9.4 9.4 24.6 0 33.9L281 385z"/></svg>
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a href="https://docs.google.com/spreadsheets/d/1fUKN-duu2alxozyCUNMCS6Xoqtcl9qASSQ5EkhXZ9aQ/edit#gid=373092647" target="_blank" class="button">
-                                    <span class="text">Check-Ins Action List</span>
-                                    <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#282828" d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM281 385c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l71-71L136 280c-13.3 0-24-10.7-24-24s10.7-24 24-24l182.1 0-71-71c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L393 239c9.4 9.4 9.4 24.6 0 33.9L281 385z"/></svg>
+                            <li class="sidebar-nav-item">
+                                <a href="https://docs.google.com/spreadsheets/d/1fUKN-duu2alxozyCUNMCS6Xoqtcl9qASSQ5EkhXZ9aQ/edit#gid=373092647" target="_blank" class="sidebar-button">
+                                    <span class="sidebar-text">Check-Ins Action List</span>
+                                    <svg class="sidebar-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#282828" d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM281 385c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l71-71L136 280c-13.3 0-24-10.7-24-24s10.7-24 24-24l182.1 0-71-71c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L393 239c9.4 9.4 9.4 24.6 0 33.9L281 385z"/></svg>
                                 </a>
                             </li>
                         </ul>
                     </nav>
                 </div>
+
                 <main class="primary fade">
                     <div class="main-content">
                         <h1>Welcome to the GSOC Tool Suite Page! 🚀</h1>
