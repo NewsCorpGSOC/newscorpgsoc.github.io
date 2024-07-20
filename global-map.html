@@ -132,32 +132,22 @@
             padding: 0;
             color: white;
             background-color: black;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
         }
         
         body, html {
-            margin: 0;
-            padding: 0;
-            color: white;
-            background-color: black;
+            overflow-x: hidden; /* Prevent horizontal overflow */
+            height: 100%;
             display: flex;
             flex-direction: column;
-            min-height: 100vh;
-            overflow-x: hidden; /* Prevent horizontal overflow */
         }
         
         .primary {
             width: 100%; /* Adjust width as needed */
+            max-width: 1000px; /* Example: restrict maximum width */
             padding-left: 20px; /* Maintain left padding */
             padding-right: 20px; /* Maintain right padding */
-            padding-top: 20px;
+            padding-top: 35px;
             box-sizing: border-box;
-            flex: 1; /* Allow primary content to expand and fill the available space */
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
         }
         
         .main-content {
@@ -191,15 +181,15 @@
         /*---------------------------------- SIDEBAR ----------------------------------*/      
         #sidebar {
             display: flex;
-            flex: 1;
-            min-height: 81.35vh;
+            flex-direction: column;
+            height: 100vh;
             background: linear-gradient(to right, #193c80, rgba(64, 64, 64, 0));
             border-right: 5px solid #333;
             padding-top: 10px;
             background-color: #002060;
             color: black;
             font-family: 'EB Garamond', serif;
-            flex: 0 0 350px;
+            width: 350px;
             overflow-y: auto;
         }
         
@@ -266,7 +256,7 @@
             position: relative;
             overflow-x: hidden;
             padding: 0;
-            margin: 0;
+            margin: 0;        
         }
         
         .content::before {
@@ -414,13 +404,6 @@
         .button:active {
             transform: scale(0.97);
         }
-        
-        /*---------------------------------- FOOTER ----------------------------------*/      
-        footer {
-            border-top: 5px solid #333;
-            padding-top: 10px;
-            background-color: #002060; /* Ensure footer has the same background color as the header */
-        }
         .dropdown-menu option {
             background-color: #00D6E3;
             color: white;
@@ -500,7 +483,7 @@
                 </a>
             </div>
             <!-- Title -->
-            <h1 class="header-title fade">GSOC World Asset & Security Map</h1>
+            <h1 class="header-title fade">News Corp Global Security Intranet Home Page</h1>
             <!-- Navbar -->
             <nav class="navbar navbar-expand-lg navbar-dark">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -734,7 +717,7 @@
         </div>
 
         <div class="container-fluid">
-            <div class="row">
+            <div class="row" style = "flex: 1;">
                 <!-- Sidebar -->
                 <div class="sidebar" id="sidebar">
                     <!-- Sidebar content -->
@@ -803,18 +786,15 @@
                         </ul>
                     </nav>
                 </div>
-                <main class="primary fade">
+
+                <!-- Main Content -->
+                <main class="primary fade style="flex: 1">
                     <div class="main-content">
                         <iframe width="2500" height="1000" frameborder="5" src="https://widgets.scribblemaps.com/sm/?d&dv&cv&z&l&gc&af&mc&lat=40.93093491&lng=-74.277311237&vz=7&type=mbb_terrain&ti&s&width=2500&height=1500&id=GSOCFIRSTLIGHTWORLD" style="border:5; max-width: 100%;" allowfullscreen loading="lazy"></iframe>
                     </div>
                 </main>
             </div>
         </div>
-
-        <!-- Footer -->
-        <footer class="text-center py-3" style="background-color: #002060; color: white;">
-            <p>&copy; 2024 NewsCorp GSOC Intranet</p>
-        </footer>
     </div>
 </body>
 </html>
