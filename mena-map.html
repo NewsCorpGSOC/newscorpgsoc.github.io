@@ -67,7 +67,7 @@
         }
 
         .header {
-            position: sticky;
+            position: relative;
             padding: 0;
             margin-top: 10px;
             border-bottom: 10px solid transparent;
@@ -136,25 +136,22 @@
         
         body, html {
             overflow-x: hidden; /* Prevent horizontal overflow */
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
         }
         
         .primary {
-            flex: 1;
-            overflow: auto;
+            width: 1650px; /* Adjust width as needed */
+            max-width: 1650px; /* Example: restrict maximum width */
             padding-left: 20px; /* Maintain left padding */
             padding-right: 20px; /* Maintain right padding */
             padding-top: 20px;
+            box-sizing: border-box;
         }
         
         .main-content {
             padding-left: 20px; /* Adjust padding to maintain readability */
             position: relative;
             font-family: 'Heebo', EB Garamond, serif;
+            overflow-x: hidden;
         }
         
         h1, h2, h3 {
@@ -177,15 +174,12 @@
                 padding: 10px; /* Adjust padding for smaller screens */
             }
         }
-        #main {
-            display: flex;
-            flex: 1;
-            overflow: hidden;
-        }
+        
         /*---------------------------------- SIDEBAR ----------------------------------*/      
         #sidebar {
             display: flex;
-            flex-direction: column;
+            flex: 1;
+            min-height: 81.35vh;
             background: linear-gradient(to right, #193c80, rgba(64, 64, 64, 0));
             border-right: 5px solid #333;
             padding-top: 10px;
@@ -412,10 +406,6 @@
         footer {
             border-top: 5px solid #333;
             padding-top: 10px;
-            background-color: #002060;
-            color: white;
-            text-align: center;
-            flex-shrink: 0; /* Ensure the footer does not shrink */
         }
         .dropdown-menu option {
             background-color: #00D6E3;
