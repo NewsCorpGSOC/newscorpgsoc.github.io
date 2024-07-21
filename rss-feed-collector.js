@@ -16,15 +16,27 @@ document.addEventListener('DOMContentLoaded', () => {
   const rssFeeds = [
     {
       url: 'https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml',
-      source: 'The New York Times'
+      source: 'The New York Times',
+      backups: [
+        'https://rss.nytimes.com/services/xml/rss/nyt/World.xml',
+        'https://rss.nytimes.com/services/xml/rss/nyt/US.xml'
+      ]
     },
     {
       url: 'http://feeds.bbci.co.uk/news/world/rss.xml',
-      source: 'BBC News'
+      source: 'BBC News',
+      backups: [
+        'http://feeds.bbci.co.uk/news/rss.xml',
+        'http://feeds.bbci.co.uk/news/uk/rss.xml'
+      ]
     },
     {
       url: 'https://www.theguardian.com/world/rss',
-      source: 'The Guardian'
+      source: 'The Guardian',
+      backups: [
+        'https://www.theguardian.com/uk/rss',
+        'https://www.theguardian.com/us/rss'
+      ]
     },
     {
       url: 'https://www.aljazeera.com/xml/rss/all.xml',
@@ -140,11 +152,10 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       url: 'https://rss.jpost.com/rss/rssfeedsmiddleeastnews.aspx',
-      source: 'The Jerusalem Post - Middle East News'
-    },
-    {
-      url: 'https://rss.jpost.com/rss/rssfeedsiran',
-      source: 'The Jerusalem Post - Iran News'
+      source: 'The Jerusalem Post - Middle East News',
+      backups: [
+        'https://rss.jpost.com/rss/rssfeedsiran'
+      ]
     },
     {
       url: 'https://rss.jpost.com/rss/rssukrainerussiawar',
@@ -192,11 +203,10 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       url: 'https://www.voanews.com/api/zrbopeuvim',
-      source: 'VOA News - Middle East'
-    },
-    {
-      url: 'https://www.voanews.com/api/zvgmqieo__qm',
-      source: 'VOA News - Iran'
+      source: 'VOA News - Middle East',
+      backups: [
+        'https://www.voanews.com/api/zvgmqieo__qm'
+      ]
     },
     {
       url: 'https://www.voanews.com/api/zjboveytit',
@@ -236,8 +246,12 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       url: 'https://blog.4president.us/2024/atom.xml',
-      source: 'Blog4President'
-    },
+      source: 'Blog4President',
+      backups: [
+        'https://blog.4president.us/2024/index.rdf',
+        'https://blog.4president.us/2024/rss.xml'
+      ]
+    }
     // Social Media RSS Feeds
     {
       url: 'https://news.google.com/rss/search?q=site:twitter.com/centcom+when:7d',
@@ -270,36 +284,32 @@ document.addEventListener('DOMContentLoaded', () => {
       sourceFilterContainer.appendChild(container);
     });
   }
+
   // Toggle source filter visibility
   toggleSourceFilterButton.addEventListener('click', () => {
     const isHidden = sourceFilterContainer.style.display === 'none';
     sourceFilterContainer.style.display = isHidden ? 'block' : 'none';
     toggleSourceFilterButton.textContent = isHidden ? 'Hide Source Filter' : 'Show Source Filter';
   });
-  
-  const fetchWithBackup = async (url, backupUrl) => {
-    try {
-      const response = await fetch(url);
-      if (!response.ok) {
-        throw new Error(`Network response was not ok: ${response.statusText}`);
+
+  const fetchWithBackup = async (urls) => {
+    for (const url of urls) {
+      try {
+        const response = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(url)}`);
+        if (response.ok) {
+          return await response.json();
+        }
+      } catch (error) {
+        console.warn(`Failed to fetch from ${url}: ${error.message}`);
       }
-      return await response.json();
-    } catch (error) {
-      console.warn(`Primary API failed, trying backup: ${error.message}`);
-      const backupResponse = await fetch(backupUrl);
-      if (!backupResponse.ok) {
-        throw new Error(`Backup API failed: ${backupResponse.statusText}`);
-      }
-      return await backupResponse.json();
     }
+    throw new Error('All backup URLs failed');
   };
 
   const fetchFeed = async (feed) => {
     try {
-      const feedUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(feed.url)}`;
-      const backupFeedUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feed.url)}`;
-
-      const data = await fetchWithBackup(feedUrl, backupFeedUrl);
+      const urls = [feed.url, ...(feed.backups || [])];
+      const data = await fetchWithBackup(urls);
       const contents = data.contents ? data.contents : data.items;
 
       let feedItems = [];
@@ -449,8 +459,6 @@ document.addEventListener('DOMContentLoaded', () => {
       adjustedDate.setHours(adjustedDate.getHours() - 7);
     } else if (source === 'The Jerusalem Post - Middle East News') {
       adjustedDate.setHours(adjustedDate.getHours() - 7);
-    } else if (source === 'The Jerusalem Post - Iran News') {
-      adjustedDate.setHours(adjustedDate.getHours() - 7);
     } else if (source === 'The Jerusalem Post - Ukraine-Russia War') {
       adjustedDate.setHours(adjustedDate.getHours() - 7);
     } else if (source === 'The Jerusalem Post - Gaza') {
@@ -468,8 +476,6 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (source === 'VOA News - Africa') {
       adjustedDate.setHours(adjustedDate.getHours() - 3);
     } else if (source === 'VOA News - Middle East') {
-      adjustedDate.setHours(adjustedDate.getHours() - 3);
-    } else if (source === 'VOA News - Iran') {
       adjustedDate.setHours(adjustedDate.getHours() - 3);
     } else if (source === 'VOA News - Europe') {
       adjustedDate.setHours(adjustedDate.getHours() - 3);
@@ -490,7 +496,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (source === 'VOA News - Flashpoint Ukraine') {
       adjustedDate.setHours(adjustedDate.getHours() - 3);
     } else if (source === 'VOA News - Fact Checks') {
-      adjustedDate.setHours(adjustedDate.getHours() - 3);
+      adjustedDate.setHours(adjustedDate.getHours() - 2);
     } else if (source === 'Blog4President') {
       adjustedDate.setHours(adjustedDate.getHours() - 2);
     } else if (source === 'USCENTCOM - TwitterX') {
@@ -525,7 +531,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       }
     });
-    
+
     const results = await Promise.all(fetchPromises);
     feedItems = results.flat().sort((a, b) => b.pubDate - a.pubDate); // Flatten results and sort by newest first
 
@@ -537,13 +543,13 @@ document.addEventListener('DOMContentLoaded', () => {
     feedsContainer.innerHTML = ''; // Clear previous content
     const filteredFeeds = applyFilter(); // Apply current filter
     const searchTerm = searchInput.value.trim().toLowerCase(); // Get search term
-    const searchFilteredFeeds = filteredFeeds.filter(item => 
-      item.title.toLowerCase().includes(searchTerm) || 
+    const searchFilteredFeeds = filteredFeeds.filter(item =>
+      item.title.toLowerCase().includes(searchTerm) ||
       item.description.toLowerCase().includes(searchTerm) ||
       item.source.toLowerCase().includes(searchTerm)
     ); // Filter feeds based on search term
     console.log('Filtered feeds:', searchFilteredFeeds); // Log filtered feeds
-    
+
     searchFilteredFeeds.forEach(item => {
       const feedElement = document.createElement('div');
       feedElement.classList.add('feed');
@@ -560,7 +566,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function applyFilter() {
     const now = new Date();
     let filteredFeeds = [...feedItems]; // Start with all feeds
-  
+
     const timelineValue = timelineFilter.value;
     if (timelineValue === 'lastHour') {
       filteredFeeds = filteredFeeds.filter(item => now - item.pacificDate <= 3600000);
@@ -569,20 +575,20 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (timelineValue === 'lastDay') {
       filteredFeeds = filteredFeeds.filter(item => now - item.pacificDate <= 86400000);
     }
-  
+
     const topicValue = topicFilter.value;
     if (topicValue !== 'all') {
       filteredFeeds = filteredFeeds.filter(item => item.description.toLowerCase().includes(topicValue.toLowerCase()));
     }
-  
+
     const checkedSources = Array.from(document.querySelectorAll('input[name="sourceFilter"]:checked')).map(cb => cb.value);
     if (checkedSources.length > 0 && !checkedSources.includes('all')) {
       filteredFeeds = filteredFeeds.filter(item => checkedSources.includes(item.source));
     }
-  
+
     return filteredFeeds;
   }
-  
+
   function setUpdateInterval() {
     if (updateInterval) {
       clearInterval(updateInterval);
@@ -594,13 +600,13 @@ document.addEventListener('DOMContentLoaded', () => {
       fetchFeeds();
     }, frequency);
   }
-  
+
   timelineFilter.addEventListener('change', displayFeeds);
   topicFilter.addEventListener('change', displayFeeds);
   sourceFilterContainer.addEventListener('change', displayFeeds);
   searchInput.addEventListener('input', displayFeeds);
   updateFrequency.addEventListener('change', setUpdateInterval);
-  
+
   populateSourceFilter();
   fetchFeeds();
   setUpdateInterval(); // Set the initial update interval based on the default value
