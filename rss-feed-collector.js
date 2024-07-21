@@ -234,6 +234,10 @@ document.addEventListener('DOMContentLoaded', () => {
       url: 'https://www.voanews.com/api/zmbjqvebv-qr',
       source: 'VOA News - Fact Checks'
     },
+    {
+      url: 'https://blog.4president.us/2024/atom.xml',
+      source: 'Blog4President'
+    },
     // Social Media RSS Feeds
     {
       url: 'https://news.google.com/rss/search?q=site:twitter.com/centcom+when:7d',
@@ -487,6 +491,8 @@ document.addEventListener('DOMContentLoaded', () => {
       adjustedDate.setHours(adjustedDate.getHours() - 3);
     } else if (source === 'VOA News - Fact Checks') {
       adjustedDate.setHours(adjustedDate.getHours() - 3);
+    } else if (source === 'Blog4President') {
+      adjustedDate.setHours(adjustedDate.getHours() - 2);
     } else if (source === 'USCENTCOM - TwitterX') {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'Middle East Eye - TwitterX') {
