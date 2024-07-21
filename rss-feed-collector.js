@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const toggleSourceFilterButton = document.getElementById('toggleSourceFilter');
   const searchInput = document.getElementById('searchInput');
   const updateFrequency = document.getElementById('updateFrequency');
+  const statusContainer = document.getElementById('statusContainer'); // New container for RSS feed statuses
   let feedItems = []; // Array to store all feed items
   let updateInterval;
   let cache = {}; // Cache object to store fetched feed data
@@ -365,12 +366,26 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('Unexpected data format');
       }
 
+      updateStatus(feed.source, true); // Update status to success
       return feedItems;
     } catch (error) {
       console.error(`Error fetching RSS feed from ${feed.source}:`, error);
+      updateStatus(feed.source, false); // Update status to failure
       return [];
     }
   };
+
+  function updateStatus(source, success) {
+    const statusElement = document.querySelector(`[data-source="${source}"]`);
+    if (statusElement) {
+      statusElement.innerHTML = success ? '✅' : '❌';
+    } else {
+      const statusItem = document.createElement('div');
+      statusItem.dataset.source = source;
+      statusItem.innerHTML = `${source}: ${success ? '✅' : '❌'}`;
+      statusContainer.appendChild(statusItem);
+    }
+  }
 
   function parseDate(dateString) {
     // Manually parse the date string to handle different formats
