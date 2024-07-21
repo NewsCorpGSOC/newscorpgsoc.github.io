@@ -252,7 +252,10 @@ document.addEventListener('DOMContentLoaded', () => {
         'https://blog.4president.us/2024/rss.xml'
       ]
     }
-    // Social Media RSS Feeds
+  ];
+
+  // Social Media RSS Feeds
+  const socialMediaRssFeeds = [
     {
       url: 'https://news.google.com/rss/search?q=site:twitter.com/centcom+when:7d',
       source: 'USCENTCOM - TwitterX'
