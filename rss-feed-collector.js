@@ -376,14 +376,14 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   function updateStatus(source, success) {
-    const statusElement = document.querySelector(`[data-source="${source}"]`);
-    if (statusElement) {
-      statusElement.innerHTML = success ? '✅' : '❌';
+    const statusItem = document.querySelector(`[data-source="${source}"]`);
+    if (statusItem) {
+      statusItem.innerHTML = `${success ? '✅' : '❌'} ${source}`;
     } else {
-      const statusItem = document.createElement('div');
-      statusItem.dataset.source = source;
-      statusItem.innerHTML = `${source}: ${success ? '✅' : '❌'}`;
-      statusContainer.appendChild(statusItem);
+      const newItem = document.createElement('div');
+      newItem.dataset.source = source;
+      newItem.innerHTML = `${success ? '✅' : '❌'} ${source}`;
+      statusContainer.appendChild(newItem);
     }
   }
 
