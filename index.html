@@ -512,6 +512,10 @@
         
             // Handle fade-out on link click
             $("a").click(function(event) {
+                if (this.target === "_blank") {
+                    return;
+                }
+        
                 event.preventDefault();
                 var linkLocation = this.href;
                 elementsToFade.forEach(el => el.classList.remove('visible'));
