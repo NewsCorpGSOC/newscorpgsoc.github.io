@@ -203,7 +203,17 @@
         .feed p {
           color: #fff;
         }
-  
+        .connection-container {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          background-color: #404040;
+          border-radius: 8px;
+          padding: 20px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
         .filter-container {
           flex: 1;
           display: flex;
@@ -889,7 +899,11 @@
                     </nav>
                 </div>
 
-              	<div class="container">
+              	<div class="connection-container">
+                    <div id="statusContainer"></div>
+                </div>
+                    
+                <div class="container">
               	    <div class="feed-container" id="feeds-container">
               	        <div class="loading-overlay" id="loading-overlay">Loading...</div>
               	            <h1>RSS Feed Collector</h1>
@@ -931,7 +945,6 @@
                     	      <div id="sourceFilterContainer" style="display: none; max-height: 300px; overflow-y: auto;">
                     	        <!-- Checkboxes will be dynamically added here -->
                     	      </div>
-                            <div id="statusContainer"></div>
                   	  </div>
                 </div>
             </div>
