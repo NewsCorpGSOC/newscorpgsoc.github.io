@@ -8,10 +8,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const searchInput = document.getElementById('searchInput');
   const updateFrequency = document.getElementById('updateFrequency');
   const statusContainer = document.getElementById('statusContainer'); // New container for RSS feed statuses
+  const refreshTimerDisplay = document.getElementById('refresh-timer'); // Timer display element
   let feedItems = []; // Array to store all feed items
   let latestFeedDate = new Date(0); // Date to track the latest feed date
   let updateInterval;
   let cache = {}; // Cache object to store fetched feed data
+  let nextRefreshTime; // Track the next refresh time
 
   const { format } = dateFns;
 
@@ -622,6 +624,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     loadingOverlay.style.display = 'none'; // Hide loading overlay
     displayFeeds();
+    resetRefreshTimer(); // Reset the refresh timer
   }
 
   function playSound() {
@@ -689,6 +692,27 @@ document.addEventListener('DOMContentLoaded', () => {
       console.log('Fetching feeds...');
       fetchFeeds();
     }, frequency);
+    
+    nextRefreshTime = Date.now() + frequency; // Set the next refresh time
+    startRefreshTimer(); // Start the countdown timer
+  }
+
+  function startRefreshTimer() {
+    const timerInterval = setInterval(() => {
+      const remainingTime = nextRefreshTime - Date.now();
+      if (remainingTime <= 0) {
+        clearInterval(timerInterval);
+        refreshTimerDisplay.textContent = '00:00';
+      } else {
+        const minutes = String(Math.floor(remainingTime / 60000)).padStart(2, '0');
+        const seconds = String(Math.floor((remainingTime % 60000) / 1000)).padStart(2, '0');
+        refreshTimerDisplay.textContent = `${minutes}:${seconds}`;
+      }
+    }, 1000);
+  }
+
+  function resetRefreshTimer() {
+    nextRefreshTime = Date.now() + parseInt(updateFrequency.value, 10); // Reset the next refresh time
   }
 
   timelineFilter.addEventListener('change', displayFeeds);
