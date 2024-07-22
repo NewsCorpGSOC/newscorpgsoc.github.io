@@ -254,6 +254,11 @@ document.addEventListener('DOMContentLoaded', () => {
       ]
     },
     {
+      url: 'https://www.spaceforce.mil/DesktopModules/ArticleCS/RSS.ashx?ContentType=1&Site=1060&isdashboardselected=0&max=20&Category=23812',
+      source: 'Space Force News'
+    },
+/*----------------------------SOCIAL MEDIA--------------------------------*/
+    {
       url: 'https://news.google.com/rss/search?q=site:twitter.com/centcom+when:7d',
       source: 'USCENTCOM - TwitterX'
     },
@@ -515,6 +520,8 @@ document.addEventListener('DOMContentLoaded', () => {
       adjustedDate.setHours(adjustedDate.getHours() - 2);
     } else if (source === 'Blog4President') {
       adjustedDate.setHours(adjustedDate.getHours() - 2);
+    } else if (source === 'Space Force News') {
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
     } else if (source === 'USCENTCOM - TwitterX') {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'Middle East Eye - TwitterX') {
