@@ -595,10 +595,26 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     const results = await Promise.all(fetchPromises);
-    feedItems = results.flat().sort((a, b) => b.pubDate - a.pubDate); // Flatten results and sort by newest first
+    const newFeedItems = results.flat().sort((a, b) => b.pubDate - a.pubDate); // Flatten results and sort by newest first
+
+    // Determine if there are any new articles
+    const newItems = newFeedItems.filter(newItem => {
+      return !feedItems.some(existingItem => existingItem.link === newItem.link);
+    });
+
+    if (newItems.length > 0) {
+      playSound(); // Play sound if there are new articles
+    }
+
+    feedItems = newFeedItems; // Update feedItems with the new fetched data
 
     loadingOverlay.style.display = 'none'; // Hide loading overlay
     displayFeeds();
+  }
+
+  function playSound() {
+    const audio = new Audio('sounds/news-alert-notification.mp3');
+    audio.play();
   }
 
   function displayFeeds() {
