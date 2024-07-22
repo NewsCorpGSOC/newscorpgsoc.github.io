@@ -584,9 +584,9 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (source === 'U.S. Department of Defense') {
       adjustedDate.setHours(adjustedDate.getHours() - 7);
     } else if (source === 'CNBC') {
-      adjustedDate.setHours(adjustedDate.getHours() - 7);
+      adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'RT World News') {
-      adjustedDate.setHours(adjustedDate.getHours() - 7);
+      adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'USCENTCOM - TwitterX') {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'Middle East Eye - TwitterX') {
