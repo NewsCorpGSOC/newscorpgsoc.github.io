@@ -284,6 +284,14 @@ document.addEventListener('DOMContentLoaded', () => {
       url: 'https://www.state.gov/rss-feed/near-east/feed/',
       source: 'U.S. State Department - Near East'
     },
+    {
+      url: 'https://www.defense.gov/DesktopModules/ArticleCS/RSS.ashx?ContentType=9&Site=945&max=10',
+      source: 'U.S. Department of Defense'
+    },
+    {
+      url: 'https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=100727362',
+      source: 'CNBC'
+    },
 /*----------------------------SOCIAL MEDIA--------------------------------*/
     {
       url: 'https://news.google.com/rss/search?q=site:twitter.com/centcom+when:7d',
@@ -561,6 +569,10 @@ document.addEventListener('DOMContentLoaded', () => {
       adjustedDate.setHours(adjustedDate.getHours() - 7);
     } else if (source === 'U.S. State Department - South and Central Asia') {
       adjustedDate.setHours(adjustedDate.getHours() - 7);
+    } else if (source === 'U.S. Department of Defense') {
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
+    } else if (source === 'CNBC') {
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
     } else if (source === 'USCENTCOM - TwitterX') {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'Middle East Eye - TwitterX') {
@@ -599,13 +611,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Determine if there are any new articles
     const newItems = newFeedItems.filter(newItem => {
-      return !feedItems.some(existingItem => existingItem.link === newItem.link);
+      return !previousFeedItems.some(existingItem => existingItem.link === newItem.link);
     });
 
     if (newItems.length > 0) {
       playSound(); // Play sound if there are new articles
     }
 
+    previousFeedItems = feedItems; // Update previous feed items for the next comparison
     feedItems = newFeedItems; // Update feedItems with the new fetched data
 
     loadingOverlay.style.display = 'none'; // Hide loading overlay
