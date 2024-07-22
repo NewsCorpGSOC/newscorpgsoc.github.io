@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let updateInterval;
   let cache = {}; // Cache object to store fetched feed data
   let nextRefreshTime; // Track the next refresh time
+  let timerInterval; // Interval ID for the timer
 
   const { format } = dateFns;
 
