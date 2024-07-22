@@ -112,6 +112,13 @@ document.addEventListener('DOMContentLoaded', () => {
       source: 'Sky News Politics'
     },
     {
+      url: 'https://feeds.skynews.com/feeds/rss/politics.xml',
+      source: 'Sky News Politics',
+      backups: [
+        'https://feeds.skynews.com/feeds/rss/world.xml'
+      ]
+    },
+    {
       url: 'https://www.economist.com/europe/rss.xml',
       source: 'The Economist - Europe'
     },
@@ -256,6 +263,26 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://www.spaceforce.mil/DesktopModules/ArticleCS/RSS.ashx?ContentType=1&Site=1060&isdashboardselected=0&max=20&Category=23812',
       source: 'Space Force News'
+    },
+    {
+      url: 'https://www.smh.com.au/rss/world.xml',
+      source: 'Sydney Morning Herald'
+    },
+    {
+      url: 'https://www.state.gov/rss-feed/africa/feed/',
+      source: 'U.S. State Department - Africa'
+    },
+    {
+      url: 'https://www.state.gov/rss-feed/east-asia-and-the-pacific/feed/',
+      source: 'U.S. State Department - East Asia and the Pacific'
+    },
+    {
+      url: 'https://www.state.gov/rss-feed/europe-and-eurasia/feed/',
+      source: 'U.S. State Department - Europe and Eurasia'
+    },
+    {
+      url: 'https://www.state.gov/rss-feed/near-east/feed/',
+      source: 'U.S. State Department - Near East'
     },
 /*----------------------------SOCIAL MEDIA--------------------------------*/
     {
@@ -521,6 +548,18 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (source === 'Blog4President') {
       adjustedDate.setHours(adjustedDate.getHours() - 2);
     } else if (source === 'Space Force News') {
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
+    } else if (source === 'Sydney Morning Herald') {
+      adjustedDate.setHours(adjustedDate.getHours() - 17);
+    } else if (source === 'U.S. State Department - Africa') {
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
+    } else if (source === 'U.S. State Department - East Asia and the Pacific') {
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
+    } else if (source === 'U.S. State Department - Europe and Eurasia') {
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
+    } else if (source === 'U.S. State Department - Near East') {
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
+    } else if (source === 'U.S. State Department - South and Central Asia') {
       adjustedDate.setHours(adjustedDate.getHours() - 7);
     } else if (source === 'USCENTCOM - TwitterX') {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
