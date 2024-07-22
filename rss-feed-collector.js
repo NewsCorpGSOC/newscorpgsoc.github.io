@@ -262,7 +262,9 @@ document.addEventListener('DOMContentLoaded', () => {
       source: 'Middle East Eye - TwitterX'
     },
   ];
-
+  
+  rssFeeds.sort((a, b) => a.source.localeCompare(b.source));
+  
   function populateSourceFilter() {
     const uniqueSources = [...new Set(rssFeeds.map(feed => feed.source))];
     uniqueSources.sort().forEach(source => {
