@@ -318,6 +318,10 @@ document.addEventListener('DOMContentLoaded', () => {
       url: 'https://www.ctvnews.ca/rss/world/ctvnews-ca-world-public-rss-1.822289',
       source: 'CTV News'
     },
+    {
+      url: 'https://www.channelnewsasia.com/api/v1/rss-outbound-feed?_format=xml&category=6511',
+      source: 'Channel News Asia'
+    },
 /*----------------------------SOCIAL MEDIA--------------------------------*/
     {
       url: 'https://news.google.com/rss/search?q=site:twitter.com/centcom+when:7d',
@@ -641,6 +645,8 @@ document.addEventListener('DOMContentLoaded', () => {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'CTV News') {
       adjustedDate.setHours(adjustedDate.getHours() - 3);
+    } else if (source === 'Channel News Asia') {
+      adjustedDate.setHours(adjustedDate.getHours() - 15);
     } else {
       console.warn(`No specific time adjustment found for source: ${source}`);
     }
