@@ -304,6 +304,10 @@ document.addEventListener('DOMContentLoaded', () => {
       url: 'https://www.rt.com/rss/news/',
       source: 'RT World News'
     },
+    {
+      url: 'https://www.understandingwar.org/feeds.xml',
+      source: 'ISW'
+    },
 /*----------------------------SOCIAL MEDIA--------------------------------*/
     {
       url: 'https://news.google.com/rss/search?q=site:twitter.com/centcom+when:7d',
@@ -312,6 +316,26 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://news.google.com/rss/search?q=site:twitter.com/middleeasteye+when:7d',
       source: 'Middle East Eye - TwitterX'
+    },
+    {
+      url: 'https://news.google.com/rss/search?q=site:twitter.com/mondefense+when:7d',
+      source: 'Taiwan Ministry of National Defense - TwitterX'
+    },
+    {
+      url: 'https://news.google.com/rss/search?q=site:twitter.com/gardaworldc24+when:7d',
+      source: 'Crisis24 - TwitterX'
+    },
+    {
+      url: 'https://news.google.com/rss/search?q=site:twitter.com/aggregateosint+when:7d',
+      source: 'OSINT Aggregator - TwitterX'
+    },
+    {
+      url: 'https://news.google.com/rss/search?q=site:twitter.com/thestudyofwar+when:7d',
+      source: 'Institute for the Study of War - TwitterX'
+    },
+    {
+      url: 'https://news.google.com/rss/search?q=site:twitter.com/sentdefender+when:7d',
+      source: 'OSINT Defender - TwitterX'
     },
   ];
   
@@ -587,9 +611,21 @@ document.addEventListener('DOMContentLoaded', () => {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'RT World News') {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
+    } else if (source === 'ISW') {
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
     } else if (source === 'USCENTCOM - TwitterX') {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'Middle East Eye - TwitterX') {
+      adjustedDate.setHours(adjustedDate.getHours() - 0);
+    } else if (source === 'Taiwan Ministry of National Defense - TwitterX') {
+      adjustedDate.setHours(adjustedDate.getHours() - 0);
+    } else if (source === 'Crisis24 - TwitterX') {
+      adjustedDate.setHours(adjustedDate.getHours() - 0);
+    } else if (source === 'OSINT Aggregator - TwitterX') {
+      adjustedDate.setHours(adjustedDate.getHours() - 0);
+    } else if (source === 'Institute for the Study of War - TwitterX') {
+      adjustedDate.setHours(adjustedDate.getHours() - 0);
+    } else if (source === 'OSINT Defender - TwitterX') {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else {
       console.warn(`No specific time adjustment found for source: ${source}`);
