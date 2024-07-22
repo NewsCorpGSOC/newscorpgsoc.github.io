@@ -692,13 +692,17 @@ document.addEventListener('DOMContentLoaded', () => {
       console.log('Fetching feeds...');
       fetchFeeds();
     }, frequency);
-    
+
     nextRefreshTime = Date.now() + frequency; // Set the next refresh time
     startRefreshTimer(); // Start the countdown timer
   }
 
   function startRefreshTimer() {
-    const timerInterval = setInterval(() => {
+    if (timerInterval) {
+      clearInterval(timerInterval);
+    }
+
+    timerInterval = setInterval(() => {
       const remainingTime = nextRefreshTime - Date.now();
       if (remainingTime <= 0) {
         clearInterval(timerInterval);
@@ -713,6 +717,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function resetRefreshTimer() {
     nextRefreshTime = Date.now() + parseInt(updateFrequency.value, 10); // Reset the next refresh time
+    startRefreshTimer(); // Restart the countdown timer
   }
 
   timelineFilter.addEventListener('change', displayFeeds);
