@@ -288,12 +288,20 @@ document.addEventListener('DOMContentLoaded', () => {
       source: 'U.S. State Department - Near East'
     },
     {
+      url: 'https://www.state.gov/rss-feed/south-and-central-asia/feed/',
+      source: 'U.S. State Department - South and Central Asia'
+    },
+    {
       url: 'https://www.defense.gov/DesktopModules/ArticleCS/RSS.ashx?ContentType=9&Site=945&max=10',
       source: 'U.S. Department of Defense'
     },
     {
       url: 'https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=100727362',
       source: 'CNBC'
+    },
+    {
+      url: 'https://www.rt.com/rss/news/',
+      source: 'RT World News'
     },
 /*----------------------------SOCIAL MEDIA--------------------------------*/
     {
@@ -575,6 +583,8 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (source === 'U.S. Department of Defense') {
       adjustedDate.setHours(adjustedDate.getHours() - 7);
     } else if (source === 'CNBC') {
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
+    } else if (source === 'RT World News') {
       adjustedDate.setHours(adjustedDate.getHours() - 7);
     } else if (source === 'USCENTCOM - TwitterX') {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
