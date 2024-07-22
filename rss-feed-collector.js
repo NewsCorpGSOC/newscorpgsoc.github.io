@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const updateFrequency = document.getElementById('updateFrequency');
   const statusContainer = document.getElementById('statusContainer'); // New container for RSS feed statuses
   let feedItems = []; // Array to store all feed items
+  let latestFeedDate = new Date(0); // Date to track the latest feed date
   let updateInterval;
   let cache = {}; // Cache object to store fetched feed data
 
@@ -609,16 +610,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const results = await Promise.all(fetchPromises);
     const newFeedItems = results.flat().sort((a, b) => b.pubDate - a.pubDate); // Flatten results and sort by newest first
 
-    // Determine if there are any new articles
-    const newItems = newFeedItems.filter(newItem => {
-      return !previousFeedItems.some(existingItem => existingItem.link === newItem.link);
-    });
+    // Determine if any new feed items have a newer adjustedDate
+    const hasNewItems = newFeedItems.some(item => item.pubDate > latestFeedDate);
 
-    if (newItems.length > 0) {
-      playSound(); // Play sound if there are new articles
+    if (hasNewItems) {
+      playSound(); // Play sound if there are new articles with a newer adjustedDate
+      latestFeedDate = newFeedItems[0].pubDate; // Update the latestFeedDate with the newest item
     }
 
-    previousFeedItems = feedItems; // Update previous feed items for the next comparison
     feedItems = newFeedItems; // Update feedItems with the new fetched data
 
     loadingOverlay.style.display = 'none'; // Hide loading overlay
