@@ -310,6 +310,14 @@ document.addEventListener('DOMContentLoaded', () => {
       url: 'https://www.cbc.ca/webfeed/rss/rss-world',
       source: 'CBC'
     },
+    {
+      url: 'https://www.thecipherbrief.com/feed',
+      source: 'Cipher Brief'
+    },
+    {
+      url: 'https://www.ctvnews.ca/rss/world/ctvnews-ca-world-public-rss-1.822289',
+      source: 'CTV News'
+    },
 /*----------------------------SOCIAL MEDIA--------------------------------*/
     {
       url: 'https://news.google.com/rss/search?q=site:twitter.com/centcom+when:7d',
@@ -615,6 +623,8 @@ document.addEventListener('DOMContentLoaded', () => {
       adjustedDate.setHours(adjustedDate.getHours() - 7);
     } else if (source === 'CBC') {
       adjustedDate.setHours(adjustedDate.getHours() - 3);
+    } else if (source === 'Cipher Brief') {
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
     } else if (source === 'USCENTCOM - TwitterX') {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'Middle East Eye - TwitterX') {
@@ -629,6 +639,8 @@ document.addEventListener('DOMContentLoaded', () => {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'OSINT Defender - TwitterX') {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
+    } else if (source === 'CTV News') {
+      adjustedDate.setHours(adjustedDate.getHours() - 3);
     } else {
       console.warn(`No specific time adjustment found for source: ${source}`);
     }
@@ -665,6 +677,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const hasNewItems = newFeedItems.some(item => item.pubDate > latestFeedDate);
 
     if (hasNewItems) {
+      console.log('New items detected, playing sound');
       playSound(); // Play sound if there are new articles with a newer adjustedDate
       latestFeedDate = newFeedItems[0].pubDate; // Update the latestFeedDate with the newest item
     }
@@ -677,9 +690,12 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function playSound() {
+    console.log('Playing sound at volume:', pingVolume);
     const audio = new Audio('icons/ping.mp3');
     audio.volume = pingVolume; // Set the volume based on the slider value
-    audio.play();
+    audio.play().catch(error => {
+      console.error('Error playing sound:', error);
+    });
   }
 
   function displayFeeds() {
@@ -708,7 +724,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function applyFilter() {
     const now = new Date();
-    let filteredFeeds = [...feedItems]; // Start with all feeds
+    let filteredFeeds = [...feedItems];
 
     const timelineValue = timelineFilter.value;
     if (timelineValue === 'lastHour') {
@@ -777,6 +793,7 @@ document.addEventListener('DOMContentLoaded', () => {
   updateFrequency.addEventListener('change', setUpdateInterval);
   volumeSlider.addEventListener('input', (event) => {
     pingVolume = event.target.value;
+    console.log('Volume slider value:', pingVolume);
   });
 
   populateSourceFilter();
