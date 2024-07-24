@@ -699,7 +699,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function playSound() {
     console.log('Playing sound at volume:', pingVolume);
-    const audio = new Audio('icons/ping.mp3');
+    const audio = new Audio('sounds/news-alert-notification.mp3');
     audio.volume = pingVolume; // Set the volume based on the slider value
     audio.play().catch(error => {
       console.error('Error playing sound:', error);
