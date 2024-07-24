@@ -706,7 +706,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
     // Parse the search term for operators
     const searchTerms = parseSearchTerm(searchTerm);
-    
+  
     // Filter feeds based on parsed search terms
     const searchFilteredFeeds = filteredFeeds.filter(item =>
       searchTerms.every(termGroup =>
@@ -734,8 +734,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   
   function parseSearchTerm(searchTerm) {
-    const termGroups = searchTerm.split(' OR ').map(group => {
-      return group.split(' AND ').map(term => term.replace(/"/g, '').trim());
+    const termGroups = searchTerm.split(/\s+OR\s+/i).map(group => {
+      return group.split(/\s+AND\s+/i).map(term => term.replace(/"/g, '').trim());
     });
     return termGroups;
   }
