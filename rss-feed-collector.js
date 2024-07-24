@@ -7,16 +7,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const toggleSourceFilterButton = document.getElementById('toggleSourceFilter');
   const searchInput = document.getElementById('searchInput');
   const updateFrequency = document.getElementById('updateFrequency');
-  const statusContainer = document.getElementById('statusContainer'); // New container for RSS feed statuses
-  const refreshTimerDisplay = document.getElementById('refresh-timer'); // Timer display element
-  const volumeSlider = document.getElementById('volumeSlider'); // Volume slider element
+  const statusContainer = document.getElementById('statusContainer');
+  const refreshTimerDisplay = document.getElementById('refresh-timer');
+  const volumeSlider = document.getElementById('volumeSlider');
   let feedItems = [];
   let latestFeedDate = new Date(0);
   let updateInterval;
   let cache = {};
   let nextRefreshTime;
   let timerInterval;
-  let pingVolume = 1; // Default volume set to max
+  let pingVolume = 1;
 
   console.log("DOM fully loaded and parsed");
 
@@ -388,9 +388,18 @@ document.addEventListener('DOMContentLoaded', () => {
     toggleSourceFilterButton.textContent = isHidden ? 'Hide Source Filter' : 'Show Source Filter';
   });
 
+  const RATE_LIMIT_INTERVAL = 2000;
+  let lastRequestTime = 0;
+
   const fetchWithBackup = async (urls) => {
     for (const url of urls) {
+      const now = Date.now();
+      if (now - lastRequestTime < RATE_LIMIT_INTERVAL) {
+        await new Promise(resolve => setTimeout(resolve, RATE_LIMIT_INTERVAL - (now - lastRequestTime)));
+      }
+
       try {
+        lastRequestTime = Date.now();
         const response = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(url)}`);
         if (response.ok) {
           return await response.json();
@@ -703,14 +712,11 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function displayFeeds() {
-    feedsContainer.innerHTML = ''; // Clear previous content
-    const filteredFeeds = applyFilter(); // Apply current filter
-    const searchTerm = searchInput.value.trim().toLowerCase(); // Get search term
-  
-    // Parse the search term for operators
+    feedsContainer.innerHTML = '';
+    const filteredFeeds = applyFilter();
+    const searchTerm = searchInput.value.trim().toLowerCase();
     const searchTerms = parseSearchTerm(searchTerm);
-  
-    // Filter feeds based on parsed search terms
+
     const searchFilteredFeeds = filteredFeeds.filter(item =>
       searchTerms.every(termGroup =>
         termGroup.some(term =>
@@ -721,8 +727,8 @@ document.addEventListener('DOMContentLoaded', () => {
       )
     );
   
-    console.log('Filtered feeds:', searchFilteredFeeds); // Log filtered feeds
-  
+    console.log('Filtered feeds:', searchFilteredFeeds);
+
     searchFilteredFeeds.forEach(item => {
       const feedElement = document.createElement('div');
       feedElement.classList.add('feed');
@@ -831,5 +837,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
   populateSourceFilter();
   fetchFeeds();
-  setUpdateInterval(); // Set the initial update interval based on the default value
+  setUpdateInterval();
 });
