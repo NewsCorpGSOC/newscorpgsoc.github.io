@@ -18,6 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
   let timerInterval;
   let pingVolume = 1; // Default volume set to max
 
+  console.log("DOM fully loaded and parsed");
+
   const { format } = dateFns;
 
   const rssFeeds = [
