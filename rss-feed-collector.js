@@ -603,7 +603,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (source === 'Space Force News') {
       adjustedDate.setHours(adjustedDate.getHours() - 7);
     } else if (source === 'Sydney Morning Herald') {
-      adjustedDate.setHours(adjustedDate.getHours() - 17);
+      adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'U.S. State Department - Africa') {
       adjustedDate.setHours(adjustedDate.getHours() - 7);
     } else if (source === 'U.S. State Department - East Asia and the Pacific') {
