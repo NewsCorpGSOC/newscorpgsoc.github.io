@@ -348,6 +348,35 @@
           width: 100%;
         }
 
+        .tooltip {
+          position: relative;
+          display: inline-block;
+          cursor: pointer;
+          margin-left: 5px;
+        }
+        
+        .tooltip .tooltiptext {
+          visibility: hidden;
+          width: 300px;
+          background-color: #555;
+          color: #fff;
+          text-align: center;
+          border-radius: 5px;
+          padding: 5px;
+          position: absolute;
+          z-index: 1;
+          bottom: 100%;
+          left: 50%;
+          margin-left: -150px;
+          opacity: 0;
+          transition: opacity 0.3s;
+        }
+        
+        .tooltip:hover .tooltiptext {
+          visibility: visible;
+          opacity: 1;
+        }
+
         /*---------------------------------- SIDEBAR ----------------------------------*/      
         #sidebar {
             display: flex;
@@ -1034,8 +1063,14 @@
                             </select>
 
                 	
-                    	      <label for="searchInput">Search:</label>
-                    	      <input type="text" id="searchInput" placeholder="Search...">
+                            <label for="searchInput">
+                              Search: 
+                              <span class="tooltip">
+                                ?
+                                <span class="tooltiptext">This search bar supports the "AND" and "OR" search operators. To use, simply type the search term followed by the operator and the second search term. If you would like to see articles that refer to both Israel and Saudi Arabia, you would type: Israel AND "Saudi Arabia". Note the usage of quotation marks around search terms that are more than one word long.</span>
+                              </span>
+                            </label>
+                            <input type="text" id="searchInput" placeholder="Search...">
                 	
                     	      <label for="updateFrequency">Update Frequency:</label>
                     	      <select id="updateFrequency">
