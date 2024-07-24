@@ -571,33 +571,33 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (source === 'Israel Hayom') {
       adjustedDate.setHours(adjustedDate.getHours() - 7);
     } else if (source === 'VOA News - East Asia') {
-      adjustedDate.setHours(adjustedDate.getHours() - 3);
+      adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'VOA News - China News') {
-      adjustedDate.setHours(adjustedDate.getHours() - 3);
+      adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'VOA News - Africa') {
-      adjustedDate.setHours(adjustedDate.getHours() - 3);
+      adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'VOA News - Middle East') {
-      adjustedDate.setHours(adjustedDate.getHours() - 3);
+      adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'VOA News - Europe') {
-      adjustedDate.setHours(adjustedDate.getHours() - 3);
+      adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'VOA News - Ukraine') {
-      adjustedDate.setHours(adjustedDate.getHours() - 3);
+      adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'VOA News - Americas') {
-      adjustedDate.setHours(adjustedDate.getHours() - 3);
+      adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'VOA News - Extremism Watch') {
-      adjustedDate.setHours(adjustedDate.getHours() - 3);
+      adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'VOA News - Flashpoint Global Crises') {
-      adjustedDate.setHours(adjustedDate.getHours() - 3);
+      adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'VOA News - International Edition') {
-      adjustedDate.setHours(adjustedDate.getHours() - 3);
+      adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'VOA News - South and Central Asia') {
-      adjustedDate.setHours(adjustedDate.getHours() - 3);
+      adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'VOA News - Issues in the News') {
-      adjustedDate.setHours(adjustedDate.getHours() - 3);
+      adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'VOA News - Flashpoint Ukraine') {
-      adjustedDate.setHours(adjustedDate.getHours() - 3);
+      adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'VOA News - Fact Checks') {
-      adjustedDate.setHours(adjustedDate.getHours() - 2);
+      adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'Blog4President') {
       adjustedDate.setHours(adjustedDate.getHours() - 2);
     } else if (source === 'Space Force News') {
