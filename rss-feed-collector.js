@@ -305,8 +305,11 @@ document.addEventListener('DOMContentLoaded', () => {
       source: 'RT World News'
     },
     {
-      url: 'https://www.understandingwar.org/feeds.xml',
-      source: 'ISW'
+      url: 'https://www.understandingwar.org/rss.xml',
+      source: 'ISW',
+      backups: [
+        'https://www.understandingwar.org/feeds.xml'
+      ]
     },
     {
       url: 'https://www.cbc.ca/webfeed/rss/rss-world',
