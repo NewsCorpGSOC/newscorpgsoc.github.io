@@ -390,22 +390,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const RATE_LIMIT_INTERVAL = 2000;
   let lastRequestTime = 0;
+  const proxies = [
+    'https://cors-anywhere.herokuapp.com/',
+    'https://api.allorigins.win/get?url=',
+    // Add more proxy URLs as needed
+  ];
 
   const fetchWithBackup = async (urls) => {
     for (const url of urls) {
-      const now = Date.now();
-      if (now - lastRequestTime < RATE_LIMIT_INTERVAL) {
-        await new Promise(resolve => setTimeout(resolve, RATE_LIMIT_INTERVAL - (now - lastRequestTime)));
-      }
-
-      try {
-        lastRequestTime = Date.now();
-        const response = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(url)}`);
-        if (response.ok) {
-          return await response.json();
+      for (const proxy of proxies) {
+        const now = Date.now();
+        if (now - lastRequestTime < RATE_LIMIT_INTERVAL) {
+          await new Promise(resolve => setTimeout(resolve, RATE_LIMIT_INTERVAL - (now - lastRequestTime)));
         }
-      } catch (error) {
-        console.warn(`Failed to fetch from ${url}: ${error.message}`);
+
+        try {
+          lastRequestTime = Date.now();
+          const response = await fetch(`${proxy}${encodeURIComponent(url)}`);
+          if (response.ok) {
+            return await response.json();
+          }
+        } catch (error) {
+          console.warn(`Failed to fetch from ${proxy}${url}: ${error.message}`);
+        }
       }
     }
     throw new Error('All backup URLs failed');
