@@ -379,7 +379,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Toggle source filter visibility
   toggleSourceFilterButton.addEventListener('click', () => {
     const isHidden = sourceFilterContainer.style.display === 'none';
     sourceFilterContainer.style.display = isHidden ? 'block' : 'none';
@@ -460,11 +459,11 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('Unexpected data format');
       }
 
-      updateStatus(feed.source, true); // Update status to success
+      updateStatus(feed.source, true);
       return feedItems;
     } catch (error) {
       console.error(`Error fetching RSS feed from ${feed.source}:`, error);
-      updateStatus(feed.source, false); // Update status to failure
+      updateStatus(feed.source, false);
       return [];
     }
   };
@@ -482,14 +481,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function parseDate(dateString) {
-    // Manually parse the date string to handle different formats
     const parsedDate = new Date(dateString);
-
-    // Validate the parsed date
     if (isNaN(parsedDate)) {
       throw new Error(`Invalid date value: ${dateString}`);
     }
-
     return parsedDate;
   }
 
@@ -657,13 +652,12 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   async function fetchFeeds() {
-    loadingOverlay.style.display = 'flex'; // Show loading overlay
+    loadingOverlay.style.display = 'flex';
 
     const fetchPromises = rssFeeds.map(feed => {
-      // Use cached data if available and not too old
       const cacheTime = cache[feed.url] && cache[feed.url].timestamp;
       const now = new Date().getTime();
-      const cacheDuration = 60000; // Cache duration in milliseconds (e.g., 1 minute)
+      const cacheDuration = 60000;
 
       if (cacheTime && (now - cacheTime < cacheDuration)) {
         return Promise.resolve(cache[feed.url].data);
@@ -679,43 +673,43 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     const results = await Promise.all(fetchPromises);
-    const newFeedItems = results.flat().sort((a, b) => b.pubDate - a.pubDate); // Flatten results and sort by newest first
+    const newFeedItems = results.flat().sort((a, b) => b.pubDate - a.pubDate);
 
-    // Determine if any new feed items have a newer adjustedDate
     const hasNewItems = newFeedItems.some(item => item.pubDate > latestFeedDate);
 
     if (hasNewItems) {
       console.log('New items detected, playing sound');
-      playSound(); // Play sound if there are new articles with a newer adjustedDate
-      latestFeedDate = newFeedItems[0].pubDate; // Update the latestFeedDate with the newest item
+      playSound();
+      latestFeedDate = newFeedItems[0].pubDate;
     }
 
-    feedItems = newFeedItems; // Update feedItems with the new fetched data
+    feedItems = newFeedItems;
 
-    loadingOverlay.style.display = 'none'; // Hide loading overlay
+    loadingOverlay.style.display = 'none';
     displayFeeds();
-    resetRefreshTimer(); // Reset the refresh timer
+    resetRefreshTimer();
   }
 
   function playSound() {
     console.log('Playing sound at volume:', pingVolume);
     const audio = new Audio('sounds/news-alert-notification.mp3');
-    audio.volume = pingVolume; // Set the volume based on the slider value
+    audio.volume = pingVolume;
     audio.play().catch(error => {
       console.error('Error playing sound:', error);
     });
   }
 
   function displayFeeds() {
-    feedsContainer.innerHTML = ''; // Clear previous content
-    const filteredFeeds = applyFilter(); // Apply current filter
-    const searchTerm = searchInput.value.trim().toLowerCase(); // Get search term
+    feedsContainer.innerHTML = '';
+    const filteredFeeds = applyFilter();
+    const searchTerm = searchInput.value.trim().toLowerCase();
     const searchFilteredFeeds = filteredFeeds.filter(item =>
       item.title.toLowerCase().includes(searchTerm) ||
       item.description.toLowerCase().includes(searchTerm) ||
       item.source.toLowerCase().includes(searchTerm)
-    ); // Filter feeds based on search term
-    console.log('Filtered feeds:', searchFilteredFeeds); // Log filtered feeds
+    );
+
+    console.log('Filtered feeds:', searchFilteredFeeds);
 
     searchFilteredFeeds.forEach(item => {
       const feedElement = document.createElement('div');
@@ -736,11 +730,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const timelineValue = timelineFilter.value;
     if (timelineValue === 'lastHour') {
-      filteredFeeds = filteredFeeds.filter(item => now - item.pacificDate <= 3600000);
+      filteredFeeds = filteredFeeds.filter(item => now - item.pubDate <= 3600000);
     } else if (timelineValue === 'last12Hours') {
-      filteredFeeds = filteredFeeds.filter(item => now - item.pacificDate <= 43200000);
+      filteredFeeds = filteredFeeds.filter(item => now - item.pubDate <= 43200000);
     } else if (timelineValue === 'lastDay') {
-      filteredFeeds = filteredFeeds.filter(item => now - item.pacificDate <= 86400000);
+      filteredFeeds = filteredFeeds.filter(item => now - item.pubDate <= 86400000);
     }
 
     const topicValue = topicFilter.value;
@@ -767,8 +761,8 @@ document.addEventListener('DOMContentLoaded', () => {
       fetchFeeds();
     }, frequency);
 
-    nextRefreshTime = Date.now() + frequency; // Set the next refresh time
-    startRefreshTimer(); // Start the countdown timer
+    nextRefreshTime = Date.now() + frequency;
+    startRefreshTimer();
   }
 
   function startRefreshTimer() {
@@ -790,8 +784,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function resetRefreshTimer() {
-    nextRefreshTime = Date.now() + parseInt(updateFrequency.value, 10); // Reset the next refresh time
-    startRefreshTimer(); // Restart the countdown timer
+    nextRefreshTime = Date.now() + parseInt(updateFrequency.value, 10);
+    startRefreshTimer();
   }
 
   timelineFilter.addEventListener('change', displayFeeds);
