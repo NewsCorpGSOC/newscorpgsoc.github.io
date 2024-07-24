@@ -700,16 +700,15 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function displayFeeds() {
-    feedsContainer.innerHTML = '';
-    const filteredFeeds = applyFilter();
-    const searchTerm = searchInput.value.trim().toLowerCase();
+    feedsContainer.innerHTML = ''; // Clear previous content
+    const filteredFeeds = applyFilter(); // Apply current filter
+    const searchTerm = searchInput.value.trim().toLowerCase(); // Get search term
     const searchFilteredFeeds = filteredFeeds.filter(item =>
       item.title.toLowerCase().includes(searchTerm) ||
       item.description.toLowerCase().includes(searchTerm) ||
       item.source.toLowerCase().includes(searchTerm)
-    );
-
-    console.log('Filtered feeds:', searchFilteredFeeds);
+    ); // Filter feeds based on search term
+    console.log('Filtered feeds:', searchFilteredFeeds); // Log filtered feeds
 
     searchFilteredFeeds.forEach(item => {
       const feedElement = document.createElement('div');
@@ -737,9 +736,21 @@ document.addEventListener('DOMContentLoaded', () => {
       filteredFeeds = filteredFeeds.filter(item => now - item.pubDate <= 86400000);
     }
 
+    const topicKeywords = {
+      'Russia': ['Russia', 'Ukraine', 'Kyiv', 'Kharkiv', 'Belarus', 'Donbas', 'Crimea'],
+      'Israel': ['Israel', 'Hamas', 'Palestine', 'Palestinian Authority', 'Gaza', 'West Bank'],
+      'MENA': ['Lebanon', 'Syria', 'Iraq', 'Iran', 'Islamic Resistance', 'Houthi', 'Yemen', 'Saudi Arabia', 'UAE', 'United Arab Emirates', 'Turkey', 'Israel', 'Hamas', 'Palestine', 'Palestinian Authority', 'Gaza', 'West Bank', 'Jordan', 'IRGC', 'Hezbollah'],
+      'Weather': ['climate', 'environment', 'storm', 'tornado', 'hurricane', 'heatwave', 'earthquake', 'tsunami'],
+      // Add more topics and their corresponding keywords here
+    };
+
     const topicValue = topicFilter.value;
     if (topicValue !== 'all') {
-      filteredFeeds = filteredFeeds.filter(item => item.description.toLowerCase().includes(topicValue.toLowerCase()));
+      const keywords = topicKeywords[topicValue] || [topicValue.toLowerCase()];
+      filteredFeeds = filteredFeeds.filter(item => {
+        const content = `${item.title} ${item.description}`.toLowerCase();
+        return keywords.some(keyword => content.includes(keyword));
+      });
     }
 
     const checkedSources = Array.from(document.querySelectorAll('input[name="sourceFilter"]:checked')).map(cb => cb.value);
