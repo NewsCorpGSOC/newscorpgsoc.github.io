@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let nextRefreshTime;
   let timerInterval;
   let pingVolume = 1;
+  const statusItems = new Map();  // Map to store status items
 
   console.log("DOM fully loaded and parsed");
 
@@ -493,17 +494,20 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   function updateStatus(source, url, success) {
-    const statusItem = document.querySelector(`[data-source="${source}"]`);
     const statusHtml = `${success ? '✅' : '❌'} <a href="${url}" target="_blank">${source}</a>`;
+    statusItems.set(source, statusHtml);  // Update the status map
 
-    if (statusItem) {
-      statusItem.innerHTML = statusHtml;
-    } else {
-      const newItem = document.createElement('div');
-      newItem.dataset.source = source;
-      newItem.innerHTML = statusHtml;
-      statusContainer.appendChild(newItem);
-    }
+    // Sort the status items alphabetically by source
+    const sortedStatusItems = Array.from(statusItems.entries()).sort(([sourceA], [sourceB]) => sourceA.localeCompare(sourceB));
+
+    // Clear the status container and re-append sorted status items
+    statusContainer.innerHTML = '';
+    sortedStatusItems.forEach(([source, html]) => {
+      const statusItem = document.createElement('div');
+      statusItem.dataset.source = source;
+      statusItem.innerHTML = html;
+      statusContainer.appendChild(statusItem);
+    });
   }
   
   function parseDate(dateString) {
