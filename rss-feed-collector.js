@@ -393,6 +393,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const proxies = [
     'https://cors-anywhere.herokuapp.com/',
     'https://api.allorigins.win/get?url=',
+    'https://thingproxy.freeboard.io/fetch/',
     // Add more proxy URLs as needed
   ];
 
@@ -408,11 +409,23 @@ document.addEventListener('DOMContentLoaded', () => {
           lastRequestTime = Date.now();
           const response = await fetch(`${proxy}${encodeURIComponent(url)}`);
           if (response.ok) {
-            return await response.json();
+            const data = await response.json();
+            return proxy.includes('allorigins') ? data.contents : data;
           }
         } catch (error) {
           console.warn(`Failed to fetch from ${proxy}${url}: ${error.message}`);
         }
+      }
+
+      // Attempt direct fetching if all proxies fail
+      try {
+        const response = await fetch(url);
+        if (response.ok) {
+          const data = await response.text();
+          return data;
+        }
+      } catch (error) {
+        console.warn(`Failed to fetch directly from ${url}: ${error.message}`);
       }
     }
     throw new Error('All backup URLs failed');
