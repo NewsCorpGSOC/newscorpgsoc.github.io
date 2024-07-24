@@ -513,7 +513,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (source === 'Fox News - World') {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'Fox News Top Stories') {
-      adjustedDate.setHours(adjustedDate.getHours() - 7);
+      adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'NPR News') {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'UN News') {
@@ -641,9 +641,9 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (source === 'OSINT Defender - TwitterX') {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'CTV News') {
-      adjustedDate.setHours(adjustedDate.getHours() - 3);
+      adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'Channel News Asia') {
-      adjustedDate.setHours(adjustedDate.getHours() - 15);
+      adjustedDate.setHours(adjustedDate.getHours() - 12);
     } else {
       console.warn(`No specific time adjustment found for source: ${source}`);
     }
