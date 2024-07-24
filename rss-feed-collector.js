@@ -9,12 +9,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const updateFrequency = document.getElementById('updateFrequency');
   const statusContainer = document.getElementById('statusContainer'); // New container for RSS feed statuses
   const refreshTimerDisplay = document.getElementById('refresh-timer'); // Timer display element
-  let feedItems = []; // Array to store all feed items
-  let latestFeedDate = new Date(0); // Date to track the latest feed date
+  const volumeSlider = document.getElementById('volumeSlider'); // Volume slider element
+  let feedItems = [];
+  let latestFeedDate = new Date(0);
   let updateInterval;
-  let cache = {}; // Cache object to store fetched feed data
-  let nextRefreshTime; // Track the next refresh time
-  let timerInterval; // Interval ID for the timer
+  let cache = {};
+  let nextRefreshTime;
+  let timerInterval;
+  let pingVolume = 1; // Default volume set to max
 
   const { format } = dateFns;
 
@@ -137,10 +139,6 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://www.nzherald.co.nz/arc/outboundfeeds/rss/section/world/?outputType=xml&_website=nzh',
       source: 'The New Zealand Herald'
-    },
-    {
-      url: 'https://www.newsweek.com/rss',
-      source: 'Newsweek'
     },
     {
       url: 'https://feeds.a.dj.com/rss/RSSWorldNews.xml',
@@ -307,6 +305,22 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://www.understandingwar.org/feeds.xml',
       source: 'ISW'
+    },
+    {
+      url: 'https://www.cbc.ca/webfeed/rss/rss-world',
+      source: 'CBC'
+    },
+    {
+      url: 'https://www.thecipherbrief.com/feed',
+      source: 'Cipher Brief'
+    },
+    {
+      url: 'https://www.ctvnews.ca/rss/world/ctvnews-ca-world-public-rss-1.822289',
+      source: 'CTV News'
+    },
+    {
+      url: 'https://www.channelnewsasia.com/api/v1/rss-outbound-feed?_format=xml&category=6511',
+      source: 'Channel News Asia'
     },
 /*----------------------------SOCIAL MEDIA--------------------------------*/
     {
@@ -537,8 +551,6 @@ document.addEventListener('DOMContentLoaded', () => {
       adjustedDate.setHours(adjustedDate.getHours() - 7);
     } else if (source === 'The New Zealand Herald') {
       adjustedDate.setHours(adjustedDate.getHours() - 3);
-    } else if (source === 'Newsweek') {
-      adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'Wall Street Journal') {
       adjustedDate.setHours(adjustedDate.getHours() - 7);
     } else if (source === 'The Jerusalem Post - Arab-Israeli Conflict') {
@@ -613,6 +625,10 @@ document.addEventListener('DOMContentLoaded', () => {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'ISW') {
       adjustedDate.setHours(adjustedDate.getHours() - 7);
+    } else if (source === 'CBC') {
+      adjustedDate.setHours(adjustedDate.getHours() - 3);
+    } else if (source === 'Cipher Brief') {
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
     } else if (source === 'USCENTCOM - TwitterX') {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'Middle East Eye - TwitterX') {
@@ -627,6 +643,10 @@ document.addEventListener('DOMContentLoaded', () => {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'OSINT Defender - TwitterX') {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
+    } else if (source === 'CTV News') {
+      adjustedDate.setHours(adjustedDate.getHours() - 3);
+    } else if (source === 'Channel News Asia') {
+      adjustedDate.setHours(adjustedDate.getHours() - 15);
     } else {
       console.warn(`No specific time adjustment found for source: ${source}`);
     }
@@ -663,6 +683,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const hasNewItems = newFeedItems.some(item => item.pubDate > latestFeedDate);
 
     if (hasNewItems) {
+      console.log('New items detected, playing sound');
       playSound(); // Play sound if there are new articles with a newer adjustedDate
       latestFeedDate = newFeedItems[0].pubDate; // Update the latestFeedDate with the newest item
     }
@@ -675,8 +696,12 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function playSound() {
-    const audio = new Audio('sounds/news-alert-notification.mp3');
-    audio.play();
+    console.log('Playing sound at volume:', pingVolume);
+    const audio = new Audio('icons/ping.mp3');
+    audio.volume = pingVolume; // Set the volume based on the slider value
+    audio.play().catch(error => {
+      console.error('Error playing sound:', error);
+    });
   }
 
   function displayFeeds() {
@@ -705,7 +730,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function applyFilter() {
     const now = new Date();
-    let filteredFeeds = [...feedItems]; // Start with all feeds
+    let filteredFeeds = [...feedItems];
 
     const timelineValue = timelineFilter.value;
     if (timelineValue === 'lastHour') {
@@ -772,6 +797,10 @@ document.addEventListener('DOMContentLoaded', () => {
   sourceFilterContainer.addEventListener('change', displayFeeds);
   searchInput.addEventListener('input', displayFeeds);
   updateFrequency.addEventListener('change', setUpdateInterval);
+  volumeSlider.addEventListener('input', (event) => {
+    pingVolume = event.target.value;
+    console.log('Volume slider value:', pingVolume);
+  });
 
   populateSourceFilter();
   fetchFeeds();
