@@ -746,12 +746,11 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const topicValue = topicFilter.value;
-    if (topicValue !== 'all') {
-      const keywords = topicKeywords[topicValue] || [topicValue.toLowerCase()];
-      filteredFeeds = filteredFeeds.filter(item => {
-        const content = `${item.title} ${item.description}`.toLowerCase();
-        return keywords.some(keyword => content.includes(keyword));
-      });
+    if (topicValue !== 'all' && topicKeywords[topicValue]) {
+      const keywords = topicKeywords[topicValue].map(keyword => keyword.toLowerCase());
+      filteredFeeds = filteredFeeds.filter(item =>
+        keywords.some(keyword => item.description.toLowerCase().includes(keyword))
+      );
     }
 
     const checkedSources = Array.from(document.querySelectorAll('input[name="sourceFilter"]:checked')).map(cb => cb.value);
