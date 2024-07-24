@@ -483,27 +483,29 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('Unexpected data format');
       }
 
-      updateStatus(feed.source, true);
+      updateStatus(feed.source, feed.url, true);
       return feedItems;
     } catch (error) {
       console.error(`Error fetching RSS feed from ${feed.source}:`, error);
-      updateStatus(feed.source, false);
+      updateStatus(feed.source, feed.url, false);
       return [];
     }
   };
 
-  function updateStatus(source, success) {
+  function updateStatus(source, url, success) {
     const statusItem = document.querySelector(`[data-source="${source}"]`);
+    const statusHtml = `${success ? '✅' : '❌'} <a href="${url}" target="_blank">${source}</a>`;
+
     if (statusItem) {
-      statusItem.innerHTML = `${success ? '✅' : '❌'} ${source}`;
+      statusItem.innerHTML = statusHtml;
     } else {
       const newItem = document.createElement('div');
       newItem.dataset.source = source;
-      newItem.innerHTML = `${success ? '✅' : '❌'} ${source}`;
+      newItem.innerHTML = statusHtml;
       statusContainer.appendChild(newItem);
     }
   }
-
+  
   function parseDate(dateString) {
     const parsedDate = new Date(dateString);
     if (isNaN(parsedDate)) {
