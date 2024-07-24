@@ -703,13 +703,23 @@ document.addEventListener('DOMContentLoaded', () => {
     feedsContainer.innerHTML = ''; // Clear previous content
     const filteredFeeds = applyFilter(); // Apply current filter
     const searchTerm = searchInput.value.trim().toLowerCase(); // Get search term
+  
+    // Parse the search term for operators
+    const searchTerms = parseSearchTerm(searchTerm);
+    
+    // Filter feeds based on parsed search terms
     const searchFilteredFeeds = filteredFeeds.filter(item =>
-      item.title.toLowerCase().includes(searchTerm) ||
-      item.description.toLowerCase().includes(searchTerm) ||
-      item.source.toLowerCase().includes(searchTerm)
-    ); // Filter feeds based on search term
+      searchTerms.every(termGroup =>
+        termGroup.some(term =>
+          item.title.toLowerCase().includes(term) ||
+          item.description.toLowerCase().includes(term) ||
+          item.source.toLowerCase().includes(term)
+        )
+      )
+    );
+  
     console.log('Filtered feeds:', searchFilteredFeeds); // Log filtered feeds
-
+  
     searchFilteredFeeds.forEach(item => {
       const feedElement = document.createElement('div');
       feedElement.classList.add('feed');
@@ -721,6 +731,13 @@ document.addEventListener('DOMContentLoaded', () => {
       `;
       feedsContainer.appendChild(feedElement);
     });
+  }
+  
+  function parseSearchTerm(searchTerm) {
+    const termGroups = searchTerm.split(' OR ').map(group => {
+      return group.split(' AND ').map(term => term.replace(/"/g, '').trim());
+    });
+    return termGroups;
   }
 
   function applyFilter() {
