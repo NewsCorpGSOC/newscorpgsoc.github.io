@@ -782,15 +782,18 @@ document.addEventListener('DOMContentLoaded', () => {
     // Fetch all feeds initially
     await Promise.all(rssFeeds.map(feed => fetchFeedAndUpdate(feed)));
 
-    for (const feed of rssFeeds) {
-      // Set up the interval to fetch each feed every 3 minutes, staggered by the initial delay
+    rssFeeds.forEach((feed, index) => {
+      console.log(`Scheduling fetch for ${feed.source} with delay of ${delayOffset} ms`);
       setTimeout(() => {
         fetchFeedAndUpdate(feed);
-        setInterval(() => fetchFeedAndUpdate(feed), fetchInterval);
+        setInterval(() => {
+          console.log(`Periodic fetch for ${feed.source}`);
+          fetchFeedAndUpdate(feed);
+        }, fetchInterval);
       }, delayOffset);
 
       delayOffset += interval;
-    }
+    });
   }
 
   async function fetchFeedAndUpdate(feed) {
@@ -817,7 +820,7 @@ document.addEventListener('DOMContentLoaded', () => {
       displayFeeds();
     }
   }
-
+  
   function playSound() {
     console.log('Playing sound at volume:', pingVolume);
     const audio = new Audio('sounds/news-alert-notification.mp3');
