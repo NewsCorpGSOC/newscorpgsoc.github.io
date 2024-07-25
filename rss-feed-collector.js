@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const sourceFilterContainer = document.getElementById('sourceFilterContainer');
   const toggleSourceFilterButton = document.getElementById('toggleSourceFilter');
   const searchInput = document.getElementById('searchInput');
-  const updateFrequency = document.getElementById('updateFrequency');
   const statusContainer = document.getElementById('statusContainer');
   const refreshTimerDisplay = document.getElementById('refresh-timer');
   const volumeSlider = document.getElementById('volumeSlider');
@@ -619,6 +618,23 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  async function fetchFeedsSequentially() {
+    const interval = 3000; // 3 seconds interval
+    const fetchInterval = 180000; // 3 minutes interval
+    let delayOffset = 0;
+
+    for (const feed of rssFeeds) {
+      // Fetch each feed initially with a delay
+      setTimeout(async () => {
+        await fetchFeedAndUpdate(feed);
+        // Set up the interval to fetch each feed every 3 minutes
+        setInterval(() => fetchFeedAndUpdate(feed), fetchInterval);
+      }, delayOffset);
+
+      delayOffset += interval;
+    }
+  }
+
   async function fetchFeedAndUpdate(feed) {
     console.log(`Fetching feed from ${feed.source}`);
     const cacheTime = cache.get(feed.url) && cache.get(feed.url).timestamp;
@@ -743,7 +759,6 @@ document.addEventListener('DOMContentLoaded', () => {
   topicFilter.addEventListener('change', debounce(displayFeeds, 300));
   sourceFilterContainer.addEventListener('change', debounce(displayFeeds, 300));
   searchInput.addEventListener('input', debounce(displayFeeds, 300));
-  updateFrequency.addEventListener('change', setUpdateInterval);
   volumeSlider.addEventListener('input', (event) => {
     pingVolume = event.target.value;
     console.log('Volume slider value:', pingVolume);
