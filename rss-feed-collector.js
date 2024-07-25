@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const volumeSlider = document.getElementById('volumeSlider');
   let feedItems = [];
   let latestFeedDate = new Date(0);
-  let updateInterval;
   let cache = new Map();
   let nextRefreshTime;
   let timerInterval;
@@ -324,6 +323,10 @@ document.addEventListener('DOMContentLoaded', () => {
       url: 'https://corsproxy.io/?https%3A%2F%2Fwww.channelnewsasia.com%2Fapi%2Fv1%2Frss-outbound-feed%3F_format%3Dxml%26category%3D6511',
       source: 'Channel News Asia'
     },
+    {
+      url: 'https://feeds.buzzsprout.com/1759080.rss',
+      source: 'Factal Forecast'
+    },
   ];
   
   rssFeeds.sort((a, b) => a.source.localeCompare(b.source));
@@ -441,7 +444,7 @@ document.addEventListener('DOMContentLoaded', () => {
       statusContainer.appendChild(statusItem);
     });
   }
-  
+
   function parseDate(dateString) {
     const parsedDate = new Date(dateString);
     if (isNaN(parsedDate)) {
@@ -599,42 +602,39 @@ document.addEventListener('DOMContentLoaded', () => {
     return adjustedDate;
   }
 
-  async function fetchFeeds() {
-    loadingOverlay.style.display = 'flex';
+  async function fetchFeedsSequentially() {
+    const interval = 3000; // 3 seconds interval
+    const fetchInterval = 180000; // 3 minutes interval
+    let delayOffset = 0;
 
-    const fetchPromises = rssFeeds.map(feed => {
-      const cacheTime = cache.get(feed.url) && cache.get(feed.url).timestamp;
-      const now = new Date().getTime();
+    for (const feed of rssFeeds) {
+      // Fetch each feed initially with a delay
+      setTimeout(async () => {
+        await fetchFeedAndUpdate(feed);
+        // Set up the interval to fetch each feed every 3 minutes
+        setInterval(() => fetchFeedAndUpdate(feed), fetchInterval);
+      }, delayOffset);
 
-      if (cacheTime && (now - cacheTime < CACHE_EXPIRATION)) {
-        return Promise.resolve(cache.get(feed.url).data);
-      } else {
-        return fetchFeed(feed).then(data => {
-          cache.set(feed.url, {
-            data,
-            timestamp: new Date().getTime()
-          });
-          return data;
-        });
-      }
-    });
-
-    const results = await Promise.all(fetchPromises);
-    const newFeedItems = results.flat().sort((a, b) => b.pubDate - a.pubDate);
-
-    const hasNewItems = newFeedItems.some(item => item.pubDate > latestFeedDate);
-
-    if (hasNewItems) {
-      console.log('New items detected, playing sound');
-      playSound();
-      latestFeedDate = newFeedItems[0].pubDate;
+      delayOffset += interval;
     }
+  }
 
-    feedItems = newFeedItems;
+  async function fetchFeedAndUpdate(feed) {
+    console.log(`Fetching feed from ${feed.source}`);
+    const cacheTime = cache.get(feed.url) && cache.get(feed.url).timestamp;
+    const now = new Date().getTime();
 
-    loadingOverlay.style.display = 'none';
-    displayFeeds();
-    resetRefreshTimer();
+    if (cacheTime && (now - cacheTime < CACHE_EXPIRATION)) {
+      displayFeeds(); // Use cached data if not expired
+    } else {
+      const data = await fetchFeed(feed);
+      cache.set(feed.url, {
+        data,
+        timestamp: new Date().getTime()
+      });
+      feedItems = [...feedItems.filter(item => item.source !== feed.source), ...data];
+      displayFeeds();
+    }
   }
 
   function playSound() {
@@ -648,17 +648,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function displayFeeds() {
     feedsContainer.innerHTML = '';
-  
+
     const now = new Date();
     const oneYearAgo = new Date(now.setFullYear(now.getFullYear() - 1));
-  
+
     const filteredFeeds = applyFilter();
     const searchTerm = searchInput.value.trim().toLowerCase();
     const searchTerms = parseSearchTerm(searchTerm);
-  
+
     // Filter out items older than one year
     const recentFeeds = filteredFeeds.filter(item => item.pubDate > oneYearAgo);
-  
+
     const searchFilteredFeeds = recentFeeds.filter(item =>
       searchTerms.every(termGroup =>
         termGroup.some(term =>
@@ -668,20 +668,20 @@ document.addEventListener('DOMContentLoaded', () => {
         )
       )
     );
-  
+
     console.log('Filtered feeds:', searchFilteredFeeds);
-  
+
     const fragment = document.createDocumentFragment();
     searchFilteredFeeds.forEach(item => {
       const feedElement = document.createElement('div');
       feedElement.classList.add('feed');
-  
+
       // Add error handling to images with fallback image URL
       let imageHtml = '';
       if (item.image) {
         imageHtml = `<img src="${item.image}" alt="Feed image" onerror="this.onerror=null;this.src='https://i.imgur.com/GQPN5Q9.jpeg';" />`;
       }
-  
+
       feedElement.innerHTML = `
         <h2><a href="${item.link}" target="_blank">${item.title}</a></h2>
         ${imageHtml}
@@ -693,7 +693,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     feedsContainer.appendChild(fragment);
   }
-  
+
   function parseSearchTerm(searchTerm) {
     const termGroups = searchTerm.split(/\s+OR\s+/i).map(group => {
       return group.split(/\s+AND\s+/i).map(term => term.replace(/"/g, '').trim());
@@ -739,44 +739,6 @@ document.addEventListener('DOMContentLoaded', () => {
     return filteredFeeds;
   }
 
-  function setUpdateInterval() {
-    if (updateInterval) {
-      clearInterval(updateInterval);
-    }
-    const frequency = parseInt(updateFrequency.value, 10);
-    console.log(`Setting update interval to ${frequency} milliseconds`);
-    updateInterval = setInterval(() => {
-      console.log('Fetching feeds...');
-      fetchFeeds();
-    }, frequency);
-
-    nextRefreshTime = Date.now() + frequency;
-    startRefreshTimer();
-  }
-
-  function startRefreshTimer() {
-    if (timerInterval) {
-      clearInterval(timerInterval);
-    }
-
-    timerInterval = setInterval(() => {
-      const remainingTime = nextRefreshTime - Date.now();
-      if (remainingTime <= 0) {
-        clearInterval(timerInterval);
-        refreshTimerDisplay.textContent = '00:00';
-      } else {
-        const minutes = String(Math.floor(remainingTime / 60000)).padStart(2, '0');
-        const seconds = String(Math.floor((remainingTime % 60000) / 1000)).padStart(2, '0');
-        refreshTimerDisplay.textContent = `${minutes}:${seconds}`;
-      }
-    }, 1000);
-  }
-
-  function resetRefreshTimer() {
-    nextRefreshTime = Date.now() + parseInt(updateFrequency.value, 10);
-    startRefreshTimer();
-  }
-
   timelineFilter.addEventListener('change', debounce(displayFeeds, 300));
   topicFilter.addEventListener('change', debounce(displayFeeds, 300));
   sourceFilterContainer.addEventListener('change', debounce(displayFeeds, 300));
@@ -788,6 +750,5 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   populateSourceFilter();
-  fetchFeeds();
-  setUpdateInterval();
+  fetchFeedsSequentially();
 });
