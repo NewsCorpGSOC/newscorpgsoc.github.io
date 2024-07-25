@@ -13,11 +13,11 @@ document.addEventListener('DOMContentLoaded', () => {
   let feedItems = [];
   let latestFeedDate = new Date(0);
   let updateInterval;
-  let cache = {};
+  let cache = new Map();
   let nextRefreshTime;
   let timerInterval;
   let pingVolume = 1;
-  const statusItems = new Map();  // Map to store status items
+  const statusItems = new Map();
 
   console.log("DOM fully loaded and parsed");
 
@@ -360,7 +360,7 @@ document.addEventListener('DOMContentLoaded', () => {
   ];
   
   rssFeeds.sort((a, b) => a.source.localeCompare(b.source));
-  
+
   function populateSourceFilter() {
     const uniqueSources = [...new Set(rssFeeds.map(feed => feed.source))];
     uniqueSources.sort().forEach(source => {
@@ -390,13 +390,15 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   const RATE_LIMIT_INTERVAL = 2000;
+  const CACHE_EXPIRATION = 60 * 60 * 1000; // 1 hour
+  const MAX_CONCURRENT_REQUESTS = 5;
+  const RETRIES = 3;
   let lastRequestTime = 0;
   const proxies = [
     'https://cors-anywhere.herokuapp.com/',
     'https://api.allorigins.win/get?url=',
     'https://thingproxy.freeboard.io/fetch/',
     'https://cors.bridged.cc/',
-    // Add more proxy URLs as needed
   ];
 
   const fetchWithBackup = async (urls) => {
@@ -685,18 +687,17 @@ document.addEventListener('DOMContentLoaded', () => {
     loadingOverlay.style.display = 'flex';
 
     const fetchPromises = rssFeeds.map(feed => {
-      const cacheTime = cache[feed.url] && cache[feed.url].timestamp;
+      const cacheTime = cache.get(feed.url) && cache.get(feed.url).timestamp;
       const now = new Date().getTime();
-      const cacheDuration = 60000;
 
-      if (cacheTime && (now - cacheTime < cacheDuration)) {
-        return Promise.resolve(cache[feed.url].data);
+      if (cacheTime && (now - cacheTime < CACHE_EXPIRATION)) {
+        return Promise.resolve(cache.get(feed.url).data);
       } else {
         return fetchFeed(feed).then(data => {
-          cache[feed.url] = {
+          cache.set(feed.url, {
             data,
             timestamp: new Date().getTime()
-          };
+          });
           return data;
         });
       }
