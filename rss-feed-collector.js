@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
       url: 'https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml',
       source: 'The New York Times',
       backups: [
+        'https://corsproxy.io/?https%3A%2F%2Frss.nytimes.com%2Fservices%2Fxml%2Frss%2Fnyt%2FHomePage.xml',
         'https://corsproxy.io/?https%3A%2F%2Frss.nytimes.com%2Fservices%2Fxml%2Frss%2Fnyt%2FWorld.xml',
         'https://corsproxy.io/?https%3A%2F%2Frss.nytimes.com%2Fservices%2Fxml%2Frss%2Fnyt%2FUS.xml'
       ]
@@ -34,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
       url: 'https://feeds.bbci.co.uk/news/world/rss.xml',
       source: 'BBC News',
       backups: [
+        'https://corsproxy.io/?https%3A%2F%2Ffeeds.bbci.co.uk%2Fnews%2Fworld%2Frss.xml',
         'https://corsproxy.io/?https%3A%2F%2Ffeeds.bbci.co.uk%2Fnews%2Frss.xml',
         'http://feeds.bbci.co.uk/news/uk/rss.xml'
       ]
@@ -42,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
       url: 'https://www.theguardian.com/world/rss',
       source: 'The Guardian',
       backups: [
-        'https://corsproxy.io/?https%3A%2F%2Fwww.theguardian.com%2Fuk%2Frss',
+        'https://corsproxy.io/?https%3A%2F%2Fwww.theguardian.com%2Fworld%2Frss',
         'https://corsproxy.io/?https%3A%2F%2Fwww.theguardian.com%2Fus%2Frss'
       ]
     },
@@ -155,6 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
       url: 'https://feeds.skynews.com/feeds/rss/politics.xml',
       source: 'Sky News Politics',
       backups: [
+        'https://corsproxy.io/?https%3A%2F%2Ffeeds.skynews.com%2Ffeeds%2Frss%2Fpolitics.xml',
         'https://corsproxy.io/?https%3A%2F%2Ffeeds.skynews.com%2Ffeeds%2Frss%2Fworld.xml',
       ]
     },
