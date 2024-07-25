@@ -651,7 +651,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const filteredFeeds = applyFilter();
     const searchTerm = searchInput.value.trim().toLowerCase();
     const searchTerms = parseSearchTerm(searchTerm);
-
+  
     const searchFilteredFeeds = filteredFeeds.filter(item =>
       searchTerms.every(termGroup =>
         termGroup.some(term =>
@@ -663,13 +663,21 @@ document.addEventListener('DOMContentLoaded', () => {
     );
   
     console.log('Filtered feeds:', searchFilteredFeeds);
-
+  
     const fragment = document.createDocumentFragment();
     searchFilteredFeeds.forEach(item => {
       const feedElement = document.createElement('div');
       feedElement.classList.add('feed');
+  
+      // Add error handling to images with fallback image URL
+      let imageHtml = '';
+      if (item.image) {
+        imageHtml = `<img src="${item.image}" alt="Feed image" onerror="this.onerror=null;this.src='https://i.imgur.com/GQPN5Q9.jpeg';" />`;
+      }
+  
       feedElement.innerHTML = `
         <h2><a href="${item.link}" target="_blank">${item.title}</a></h2>
+        ${imageHtml}
         <p>${item.description}</p>
         <p><small>Published on: ${format(item.pubDate, 'PPpp')} (PST/PDT)</small></p>
         <p><strong>Source:</strong> ${item.source}</p>
