@@ -594,6 +594,8 @@ document.addEventListener('DOMContentLoaded', () => {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'Channel News Asia') {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
+    } else if (source === 'Factal Forecast') {
+      adjustedDate.setHours(adjustedDate.getHours() - 3);
     } else {
       console.warn(`No specific time adjustment found for source: ${source}`);
     }
