@@ -376,6 +376,9 @@
           visibility: visible;
           opacity: 1;
         }
+        .connection-container a {
+            color: #fff;
+        }
 
         /*---------------------------------- SIDEBAR ----------------------------------*/      
         #sidebar {
@@ -1023,7 +1026,73 @@
                     </nav>
                 </div>
 
-              	<div class='sk-ww-rss-feed' data-embed-id='25441470'></div><script src='https://widgets.sociablekit.com/rss-feed/widget.js' async defer></script>
+              	<div class="connection-container">
+                    <h2>Source Connectivity</h2>
+                    <div id="statusContainer"></div>
+                </div>
+                    
+                <div class="container">
+              	    <div class="feed-container" id="feeds-container">
+              	        <div class="loading-overlay" id="loading-overlay">Loading...</div>
+              	            <h1>RSS Feed Collector</h1>
+              	        <div id="feeds"></div>
+              	    </div>
+              	  
+              	    <div class="filter-container">
+                        <div class="refresh-timer">
+                            Time to refresh: <span id="refresh-timer">00:00</span>
+                        </div>
+                        <div class="volume-slider-container">
+                            <label for="volumeSlider">Ping Volume:</label>
+                            <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="1">
+                        </div>                       
+              	        <div class="filter-bar">
+              	            <label for="timelineFilter">Timeline Filter:</label>
+              	            <select id="timelineFilter">
+              	                <option value="lastHour">Last Hour</option>
+                      	        <option value="last12Hours">Last 12 Hours</option>
+                      	        <option value="lastDay">Last Day</option>
+                      	        <option value="all">All</option>
+                    	      </select>
+                	
+                            <label for="topicFilter">Topic Filter:</label>
+                            <select id="topicFilter">
+                                <option value="all">All Topics</option>
+                                <option value="Russia">Russia</option>
+                                <option value="Israel">Israel</option>
+                                <option value="MENA">MENA</option>
+                                <option value="Protests">Protests</option>
+                                <option value="Weather">Weather</option>
+                            </select>
+
+                	
+                            <label for="searchInput">
+                              Search: 
+                              <span class="tooltip">
+                                ?
+                                <span class="tooltiptext">This search bar supports the "AND" and "OR" search operators. To use, simply type the search term followed by the operator and the second search term. If you would like to see articles that refer to both Israel and Saudi Arabia, you would type: Israel AND "Saudi Arabia". Note the usage of quotation marks around search terms that are more than one word long.</span>
+                              </span>
+                            </label>
+                            <input type="text" id="searchInput" placeholder="Search...">
+                	
+                    	      <label for="updateFrequency">Update Frequency:</label>
+                    	      <select id="updateFrequency">
+                      	        <option value="60000">1 Minute</option>
+                      	        <option value="150000">2.5 Minutes</option>
+                      	        <option value="300000">5 Minutes</option>
+                      	        <option value="600000">10 Minutes</option>
+                      	        <option value="1800000">30 Minutes</option>
+                    	      </select>
+                	
+                    	      <label>Source Filter:</label>
+                    	      <button id="toggleSourceFilter" class="btn btn-secondary">Toggle Source Filter</button>
+                    	      <div id="sourceFilterContainer" style="display: none; max-height: 300px; overflow-y: auto;">
+                    	        <!-- Checkboxes will be dynamically added here -->
+                    	      </div>
+                  	  </div>
+                </div>
+            </div>
+                <script src="rss-feed-collector_backup.js"></script>
             </div>
         </div>
 
