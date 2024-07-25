@@ -403,10 +403,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const RETRIES = 3;
   let lastRequestTime = 0;
   const proxies = [
-    'https://cors-anywhere.herokuapp.com/',
-    'https://api.allorigins.win/get?url=',
+    'corsproxy.io/?',
+    //'https://api.allorigins.win/get?url=', Being Rate Limited for now
     'https://thingproxy.freeboard.io/fetch/',
-    'https://cors.bridged.cc/',
+    // 'https://cors.bridged.cc/', <-- This is a paid service... Probably fine only if you want to pay $4 a month. Even then, not sure if its guranteed to work properly.
   ];
 
   const fetchWithBackup = async (urls) => {
