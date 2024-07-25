@@ -323,36 +323,6 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://corsproxy.io/?https%3A%2F%2Fwww.channelnewsasia.com%2Fapi%2Fv1%2Frss-outbound-feed%3F_format%3Dxml%26category%3D6511',
       source: 'Channel News Asia'
-    },
-/*----------------------------SOCIAL MEDIA--------------------------------*/
-    {
-      url: 'https://news.google.com/rss/search?q=site:twitter.com/centcom+when:7d&hl=en-US&gl=US&ceid=US:en',
-      source: 'USCENTCOM - TwitterX'
-    },
-    {
-      url: 'https://news.google.com/rss/search?q=site:twitter.com/middleeasteye+when:7d&hl=en-US&gl=US&ceid=US:en',
-      source: 'Middle East Eye - TwitterX'
-    },
-    {
-      url: 'https://news.google.com/rss/search?q=site:twitter.com/mondefense+when:7d&hl=en-GB&gl=GB&ceid=GB:en',
-      source: 'Taiwan Ministry of National Defense - TwitterX'
-    },
-    {
-      url: 'https://news.google.com/rss/search?q=site:twitter.com/gardaworldc24+when:7d&hl=en-US&gl=US&ceid=US:en',
-      source: 'Crisis24 - TwitterX'
-    },
-    {
-      url: 'https://news.google.com/rss/search?q=site:twitter.com/aggregateosint+when:7d&hl=en-US&gl=US&ceid=US:en',
-      source: 'OSINT Aggregator - TwitterX'
-    },
-    {
-      url: 'https://news.google.com/rss/search?q=site:twitter.com/thestudyofwar+when:7d&hl=en-US&gl=US&ceid=US:en',
-      source: 'Institute for the Study of War - TwitterX'
-    },
-    {
-      url: 'https://news.google.com/rss/search?q=site:twitter.com/sentdefender+when:7d&hl=en-US&gl=US&ceid=US:en',
-      source: 'OSINT Defender - TwitterX'
-    },
   ];
   
   rssFeeds.sort((a, b) => a.source.localeCompare(b.source));
@@ -536,19 +506,19 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (source === 'Wall Street Journal') {
       adjustedDate.setHours(adjustedDate.getHours() - 7);
     } else if (source === 'The Jerusalem Post - Arab-Israeli Conflict') {
-      adjustedDate.setHours(adjustedDate.getHours() + 3);
+      adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'The Jerusalem Post - Breaking News') {
-      adjustedDate.setHours(adjustedDate.getHours() + 3);
+      adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'The Jerusalem Post - World News') {
-      adjustedDate.setHours(adjustedDate.getHours() + 3);
+      adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'The Jerusalem Post - Israel-Hamas War') {
-      adjustedDate.setHours(adjustedDate.getHours() + 3);
+      adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'The Jerusalem Post - Middle East News') {
-      adjustedDate.setHours(adjustedDate.getHours() + 3);
+      adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'The Jerusalem Post - Ukraine-Russia War') {
-      adjustedDate.setHours(adjustedDate.getHours() + 3);
+      adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'The Jerusalem Post - Gaza') {
-      adjustedDate.setHours(adjustedDate.getHours() + 3);
+      adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'New York Post') {
       adjustedDate.setHours(adjustedDate.getHours() - 7);
     } else if (source === 'USNI News') {
@@ -611,20 +581,6 @@ document.addEventListener('DOMContentLoaded', () => {
       adjustedDate.setHours(adjustedDate.getHours() - 3);
     } else if (source === 'Cipher Brief') {
       adjustedDate.setHours(adjustedDate.getHours() - 7);
-    } else if (source === 'USCENTCOM - TwitterX') {
-      adjustedDate.setHours(adjustedDate.getHours() - 0);
-    } else if (source === 'Middle East Eye - TwitterX') {
-      adjustedDate.setHours(adjustedDate.getHours() - 0);
-    } else if (source === 'Taiwan Ministry of National Defense - TwitterX') {
-      adjustedDate.setHours(adjustedDate.getHours() - 0);
-    } else if (source === 'Crisis24 - TwitterX') {
-      adjustedDate.setHours(adjustedDate.getHours() - 0);
-    } else if (source === 'OSINT Aggregator - TwitterX') {
-      adjustedDate.setHours(adjustedDate.getHours() - 0);
-    } else if (source === 'Institute for the Study of War - TwitterX') {
-      adjustedDate.setHours(adjustedDate.getHours() - 0);
-    } else if (source === 'OSINT Defender - TwitterX') {
-      adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'CTV News') {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'Channel News Asia') {
