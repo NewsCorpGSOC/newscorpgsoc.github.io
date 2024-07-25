@@ -2,7 +2,7 @@ name: Fetch RSS Feeds
 
 on:
   schedule:
-    - cron: '*/4 * * * *'  # Runs every 4 minutes
+    - cron: '*/3 * * * *'  # Runs every 3 minutes
   push:
     branches:
       - main
