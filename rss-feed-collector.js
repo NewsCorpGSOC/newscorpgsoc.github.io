@@ -88,6 +88,10 @@ document.addEventListener('DOMContentLoaded', () => {
     };
   }
 
+  function delay(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
   function populateSourceFilter() {
     const uniqueSources = [...new Set(rssFeeds.map(feed => feed.source))];
     uniqueSources.sort().forEach(source => {
