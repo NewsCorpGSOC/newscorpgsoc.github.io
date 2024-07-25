@@ -4,6 +4,7 @@ const fetch = require('node-fetch');
 const RSS_FEEDS = [
   'https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml',
   'https://feeds.bbci.co.uk/news/rss.xml',
+  'https://www.theguardian.com/world/rss',
   // Add more RSS feed URLs here
 ];
 
