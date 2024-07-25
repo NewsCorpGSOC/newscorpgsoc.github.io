@@ -25,23 +25,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const rssFeeds = [
     {
-      url: 'https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml',
+      url: 'https://corsproxy.io/?https%3A%2F%2Frss.nytimes.com%2Fservices%2Fxml%2Frss%2Fnyt%2FHomePage.xml',
       source: 'The New York Times',
       backups: [
-        'https://rss.nytimes.com/services/xml/rss/nyt/World.xml',
-        'https://rss.nytimes.com/services/xml/rss/nyt/US.xml'
+        'https://corsproxy.io/?https%3A%2F%2Frss.nytimes.com%2Fservices%2Fxml%2Frss%2Fnyt%2FWorld.xml',
+        'https://corsproxy.io/?https%3A%2F%2Frss.nytimes.com%2Fservices%2Fxml%2Frss%2Fnyt%2FUS.xml'
       ]
     },
     {
-      url: 'http://feeds.bbci.co.uk/news/world/rss.xml',
+      url: 'https://corsproxy.io/?https%3A%2F%2Ffeeds.bbci.co.uk%2Fnews%2Fworld%2Frss.xml',
       source: 'BBC News',
       backups: [
-        'http://feeds.bbci.co.uk/news/rss.xml',
+        'https://corsproxy.io/?https%3A%2F%2Ffeeds.bbci.co.uk%2Fnews%2Frss.xml',
         'http://feeds.bbci.co.uk/news/uk/rss.xml'
       ]
     },
     {
-      url: 'https://www.theguardian.com/world/rss',
+      url: 'https://corsproxy.io/?https%3A%2F%2Fwww.theguardian.com%2Fworld%2Frss',
       source: 'The Guardian',
       backups: [
         'https://www.theguardian.com/uk/rss',
@@ -49,35 +49,31 @@ document.addEventListener('DOMContentLoaded', () => {
       ]
     },
     {
-      url: 'https://www.aljazeera.com/xml/rss/all.xml',
+      url: 'https://corsproxy.io/?https%3A%2F%2Fwww.aljazeera.com%2Fxml%2Frss%2Fall.xml',
       source: 'Al Jazeera - Latest'
     },
     {
-      url: 'https://www.aljazeera.com/xml/rss/world.xml',
-      source: 'Al Jazeera - World'
-    },
-    {
-      url: 'https://wol.com/feed/',
+      url: 'https://corsproxy.io/?https%3A%2F%2Fwol.com%2Ffeed%2F',
       source: 'World Online'
     },
     {
-      url: 'https://hosted.ap.org',
+      url: 'https://rss-bridge.org/bridge01/?action=display&topic=world-news&context=Custom+Topic&bridge=AssociatedPressNewsBridge&format=Atom',
       source: 'Associated Press'
     },
     {
-      url: 'http://feeds.foxnews.com/foxnews/world',
+      url: 'https://moxie.foxnews.com/google-publisher/world.xml',
       source: 'Fox News - World'
     },
     {
-      url: 'http://feeds.foxnews.com/foxnews/latest',
+      url: 'https://moxie.foxnews.com/google-publisher/latest.xml',
       source: 'Fox News Top Stories'
     },
     {
-      url: 'https://feeds.npr.org/1001/rss.xml',
+      url: 'https://corsproxy.io/?https%3A%2F%2Ffeeds.npr.org%2F1001%2Frss.xml',
       source: 'NPR News'
     },
     {
-      url: 'https://news.un.org/feed/subscribe/en/news/all/rss.xml',
+      url: 'https://corsproxy.io/?https%3A%2F%2Fnews.un.org%2Ffeed%2Fsubscribe%2Fen%2Fnews%2Fall%2Frss.xml',
       source: 'UN News'
     },
     {
@@ -179,7 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
       source: 'The Jerusalem Post - Gaza'
     },
     {
-      url: 'https://thehill.com/feed/',
+      url: 'https://thehill.com/feed/?feed=partnerfeed-news-feed&format=rss',
       source: 'The Hill'
     },
     {
@@ -397,50 +393,16 @@ document.addEventListener('DOMContentLoaded', () => {
     toggleSourceFilterButton.textContent = isHidden ? 'Hide Source Filter' : 'Show Source Filter';
   });
 
-  const RATE_LIMIT_INTERVAL = 5000;  // Increased rate limit interval
   const CACHE_EXPIRATION = 60 * 60 * 1000; // 1 hour
-  const MAX_CONCURRENT_REQUESTS = 5;
   const RETRIES = 3;
-  let lastRequestTime = 0;
-  const proxies = [
-    'corsproxy.io/?',
-    //'https://api.allorigins.win/get?url=', Being Rate Limited for now
-    'https://thingproxy.freeboard.io/fetch/',
-    // 'https://cors.bridged.cc/', <-- This is a paid service... Probably fine only if you want to pay $4 a month. Even then, not sure if its guranteed to work properly.
-  ];
 
-  const fetchWithBackup = async (urls) => {
-    const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
-    
-    for (const url of urls) {
-      for (const proxy of proxies) {
-        try {
-          const now = Date.now();
-          const timeSinceLastRequest = now - lastRequestTime;
-          if (timeSinceLastRequest < RATE_LIMIT_INTERVAL) {
-            await delay(RATE_LIMIT_INTERVAL - timeSinceLastRequest);
-          }
-          lastRequestTime = Date.now();
-          
-          const response = await fetch(`${proxy}${encodeURIComponent(url)}`);
-          if (response.ok) {
-            return await response.json();
-          } else if (response.status === 403) {
-            console.warn(`403 Forbidden from ${proxy}${url}`);
-            continue;
-          }
-        } catch (error) {
-          console.warn(`Failed to fetch from ${proxy}${url}: ${error.message}`);
-        }
-      }
-    }
-    throw new Error('All backup URLs failed');
-  };
-  
   const fetchFeed = async (feed, retries = RETRIES) => {
     try {
-      const urls = [feed.url, ...(feed.backups || [])];
-      const data = await fetchWithBackup(urls);
+      const response = await fetch(feed.url);
+      if (!response.ok) {
+        throw new Error(`Failed to fetch from ${feed.url}`);
+      }
+      const data = await response.json();
       const contents = data.contents ? data.contents : data.items;
 
       let feedItems = [];
@@ -735,7 +697,7 @@ document.addEventListener('DOMContentLoaded', () => {
     displayFeeds();
     resetRefreshTimer();
   }
-  
+
   function playSound() {
     console.log('Playing sound at volume:', pingVolume);
     const audio = new Audio('sounds/news-alert-notification.mp3');
