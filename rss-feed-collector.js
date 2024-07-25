@@ -386,7 +386,13 @@ document.addEventListener('DOMContentLoaded', () => {
       
       items.forEach(item => {
         const title = item.querySelector('title')?.textContent || 'No title';
-        const link = item.querySelector('link')?.textContent || '#';
+        let link = item.querySelector('link')?.textContent || '#';
+        if (link === '#') {
+          const linkElement = item.querySelector('link[rel="alternate"]');
+          if (linkElement) {
+            link = linkElement.getAttribute('href');
+          }
+        }
         const description = item.querySelector('description, summary')?.textContent || 'No description';
         const pubDateText = item.querySelector('pubDate, updated')?.textContent;
         const pubDate = pubDateText ? parseDate(pubDateText) : new Date();
