@@ -402,21 +402,24 @@ document.addEventListener('DOMContentLoaded', () => {
   ];
 
   const fetchWithBackup = async (urls) => {
+    const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
+    
     for (const url of urls) {
       for (const proxy of proxies) {
-        const now = Date.now();
-        if (now - lastRequestTime < RATE_LIMIT_INTERVAL) {
-          await new Promise(resolve => setTimeout(resolve, RATE_LIMIT_INTERVAL - (now - lastRequestTime)));
-        }
-
         try {
+          const now = Date.now();
+          const timeSinceLastRequest = now - lastRequestTime;
+          if (timeSinceLastRequest < RATE_LIMIT_INTERVAL) {
+            await delay(RATE_LIMIT_INTERVAL - timeSinceLastRequest);
+          }
           lastRequestTime = Date.now();
+          
           const response = await fetch(`${proxy}${encodeURIComponent(url)}`);
           if (response.ok) {
             return await response.json();
           } else if (response.status === 403) {
             console.warn(`403 Forbidden from ${proxy}${url}`);
-            continue;  // Try the next proxy in the list
+            continue;
           }
         } catch (error) {
           console.warn(`Failed to fetch from ${proxy}${url}: ${error.message}`);
@@ -426,28 +429,28 @@ document.addEventListener('DOMContentLoaded', () => {
     throw new Error('All backup URLs failed');
   };
 
-  const fetchFeed = async (feed) => {
+  const fetchFeed = async (feed, retries = RETRIES) => {
     try {
       const urls = [feed.url, ...(feed.backups || [])];
       const data = await fetchWithBackup(urls);
       const contents = data.contents ? data.contents : data.items;
-
+  
       let feedItems = [];
-
+  
       if (typeof contents === 'string') {
         const parser = new DOMParser();
         const xmlDoc = parser.parseFromString(contents, 'text/xml');
         const items = xmlDoc.querySelectorAll('item');
-
+  
         items.forEach(item => {
           const title = item.querySelector('title')?.textContent || 'No title';
           const link = item.querySelector('link')?.textContent || '#';
           const description = item.querySelector('description')?.textContent || 'No description';
           const pubDateText = item.querySelector('pubDate')?.textContent;
           const pubDate = pubDateText ? parseDate(pubDateText) : new Date();
-
+  
           const pacificDate = convertToPacificTime(pubDate, feed.source);
-
+  
           if (title && link && description && pacificDate) {
             feedItems.push({
               title,
@@ -467,9 +470,9 @@ document.addEventListener('DOMContentLoaded', () => {
           const description = item.description || 'No description';
           const pubDateText = item.pubDate;
           const pubDate = pubDateText ? parseDate(pubDateText) : new Date();
-
+  
           const pacificDate = convertToPacificTime(pubDate, feed.source);
-
+  
           if (title && link && description && pacificDate) {
             feedItems.push({
               title,
@@ -491,6 +494,10 @@ document.addEventListener('DOMContentLoaded', () => {
     } catch (error) {
       console.error(`Error fetching RSS feed from ${feed.source}:`, error);
       updateStatus(feed.source, feed.url, false);
+      if (retries > 0) {
+        await delay(2000); // wait before retrying
+        return fetchFeed(feed, retries - 1);
+      }
       return [];
     }
   };
@@ -685,11 +692,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   async function fetchFeeds() {
     loadingOverlay.style.display = 'flex';
-
+  
     const fetchPromises = rssFeeds.map(feed => {
       const cacheTime = cache.get(feed.url) && cache.get(feed.url).timestamp;
       const now = new Date().getTime();
-
+  
       if (cacheTime && (now - cacheTime < CACHE_EXPIRATION)) {
         return Promise.resolve(cache.get(feed.url).data);
       } else {
@@ -702,20 +709,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       }
     });
-
+  
     const results = await Promise.all(fetchPromises);
     const newFeedItems = results.flat().sort((a, b) => b.pubDate - a.pubDate);
-
+  
     const hasNewItems = newFeedItems.some(item => item.pubDate > latestFeedDate);
-
+  
     if (hasNewItems) {
       console.log('New items detected, playing sound');
       playSound();
       latestFeedDate = newFeedItems[0].pubDate;
     }
-
+  
     feedItems = newFeedItems;
-
+  
     loadingOverlay.style.display = 'none';
     displayFeeds();
     resetRefreshTimer();
