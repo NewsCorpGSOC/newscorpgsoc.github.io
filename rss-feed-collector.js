@@ -453,13 +453,6 @@ document.addEventListener('DOMContentLoaded', () => {
       ]
     },
     {
-      url: 'https://www.rt.com/rss/news/',
-      source: 'RT World News',
-      backups: [
-        'https://corsproxy.io/?https%3A%2F%2Fwww.rt.com%2Frss%2Fnews%2F',
-      ]
-    },
-    {
       url: 'https://www.understandingwar.org/rss.xml',
       source: 'ISW',
       backups: [
@@ -752,8 +745,6 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (source === 'U.S. Department of Defense') {
       adjustedDate.setHours(adjustedDate.getHours() - 2);
     } else if (source === 'CNBC') {
-      adjustedDate.setHours(adjustedDate.getHours() - 0);
-    } else if (source === 'RT World News') {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'ISW') {
       adjustedDate.setHours(adjustedDate.getHours() - 7);
