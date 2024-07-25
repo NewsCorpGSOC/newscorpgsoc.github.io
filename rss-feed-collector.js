@@ -648,11 +648,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function displayFeeds() {
     feedsContainer.innerHTML = '';
+  
+    const now = new Date();
+    const oneYearAgo = new Date(now.setFullYear(now.getFullYear() - 1));
+  
     const filteredFeeds = applyFilter();
     const searchTerm = searchInput.value.trim().toLowerCase();
     const searchTerms = parseSearchTerm(searchTerm);
   
-    const searchFilteredFeeds = filteredFeeds.filter(item =>
+    // Filter out items older than one year
+    const recentFeeds = filteredFeeds.filter(item => item.pubDate > oneYearAgo);
+  
+    const searchFilteredFeeds = recentFeeds.filter(item =>
       searchTerms.every(termGroup =>
         termGroup.some(term =>
           item.title.toLowerCase().includes(term) ||
