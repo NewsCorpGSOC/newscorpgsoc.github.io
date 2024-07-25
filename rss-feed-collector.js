@@ -677,8 +677,6 @@ document.addEventListener('DOMContentLoaded', () => {
       )
     );
 
-    console.log('Filtered feeds:', searchFilteredFeeds);
-
     const fragment = document.createDocumentFragment();
     searchFilteredFeeds.forEach(item => {
       const feedElement = document.createElement('div');
