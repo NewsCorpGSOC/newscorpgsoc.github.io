@@ -1,7 +1,7 @@
 {
   "name": "rss-fetcher",
   "version": "1.0.0",
-  "description": "A script to fetch RSS feeds and save them to a JSON file",
+  "description": "A script to fetch RSS feeds and save them to a JSON file.",
   "main": "fetchRSS.js",
   "scripts": {
     "fetch": "node fetchRSS.js"
