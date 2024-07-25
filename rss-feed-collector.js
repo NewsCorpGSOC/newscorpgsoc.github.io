@@ -323,6 +323,7 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://corsproxy.io/?https%3A%2F%2Fwww.channelnewsasia.com%2Fapi%2Fv1%2Frss-outbound-feed%3F_format%3Dxml%26category%3D6511',
       source: 'Channel News Asia'
+    },
   ];
   
   rssFeeds.sort((a, b) => a.source.localeCompare(b.source));
