@@ -577,25 +577,25 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (source === 'The Economist - Americas') {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'The Economist - MENA') {
-      adjustedDate.setHours(adjustedDate.getHours() - 7);
+      adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'The New Zealand Herald') {
       adjustedDate.setHours(adjustedDate.getHours() - 3);
     } else if (source === 'Wall Street Journal') {
       adjustedDate.setHours(adjustedDate.getHours() - 7);
     } else if (source === 'The Jerusalem Post - Arab-Israeli Conflict') {
-      adjustedDate.setHours(adjustedDate.getHours() - 7);
+      adjustedDate.setHours(adjustedDate.getHours() + 3);
     } else if (source === 'The Jerusalem Post - Breaking News') {
-      adjustedDate.setHours(adjustedDate.getHours() - 7);
+      adjustedDate.setHours(adjustedDate.getHours() + 3);
     } else if (source === 'The Jerusalem Post - World News') {
-      adjustedDate.setHours(adjustedDate.getHours() - 7);
+      adjustedDate.setHours(adjustedDate.getHours() + 3);
     } else if (source === 'The Jerusalem Post - Israel-Hamas War') {
-      adjustedDate.setHours(adjustedDate.getHours() - 7);
+      adjustedDate.setHours(adjustedDate.getHours() + 3);
     } else if (source === 'The Jerusalem Post - Middle East News') {
-      adjustedDate.setHours(adjustedDate.getHours() - 7);
+      adjustedDate.setHours(adjustedDate.getHours() + 3);
     } else if (source === 'The Jerusalem Post - Ukraine-Russia War') {
-      adjustedDate.setHours(adjustedDate.getHours() - 7);
+      adjustedDate.setHours(adjustedDate.getHours() + 3);
     } else if (source === 'The Jerusalem Post - Gaza') {
-      adjustedDate.setHours(adjustedDate.getHours() - 7);
+      adjustedDate.setHours(adjustedDate.getHours() + 3);
     } else if (source === 'New York Post') {
       adjustedDate.setHours(adjustedDate.getHours() - 7);
     } else if (source === 'USNI News') {
@@ -647,7 +647,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (source === 'U.S. State Department - South and Central Asia') {
       adjustedDate.setHours(adjustedDate.getHours() - 7);
     } else if (source === 'U.S. Department of Defense') {
-      adjustedDate.setHours(adjustedDate.getHours() - 7);
+      adjustedDate.setHours(adjustedDate.getHours() - 2);
     } else if (source === 'CNBC') {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'RT World News') {
@@ -675,7 +675,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (source === 'CTV News') {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'Channel News Asia') {
-      adjustedDate.setHours(adjustedDate.getHours() - 12);
+      adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else {
       console.warn(`No specific time adjustment found for source: ${source}`);
     }
