@@ -565,7 +565,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (source === 'Blog4President') {
       adjustedDate.setHours(adjustedDate.getHours() - 2);
     } else if (source === 'Space Force News') {
-      adjustedDate.setHours(adjustedDate.getHours() - 7);
+      adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'Sydney Morning Herald') {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'U.S. State Department - Africa') {
