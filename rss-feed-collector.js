@@ -462,15 +462,15 @@ document.addEventListener('DOMContentLoaded', () => {
       adjustedDate.setHours(adjustedDate.getHours() - 7);
     } else if (source === 'The New York Times') {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
-    } else if (source === 'BBC News') {
+    } else if (source === 'BBC News') {                                 
       adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'The Guardian') {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'Al Jazeera - Latest') {
-      adjustedDate.setHours(adjustedDate.getHours() - 7);
+      adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'Al Jazeera - World') {
-      adjustedDate.setHours(adjustedDate.getHours() - 7);
-    } else if (source === 'World Online') {
+      adjustedDate.setHours(adjustedDate.getHours() - 0);
+    } else if (source === 'World Online') {                                                                                                                       
       adjustedDate.setHours(adjustedDate.getHours() - 7);
     } else if (source === 'Associated Press') {
       adjustedDate.setHours(adjustedDate.getHours() - 10);
@@ -606,28 +606,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const fetchInterval = 180000; // 3 minutes interval
     let delayOffset = 0;
 
-    for (const feed of rssFeeds) {
-      // Fetch each feed initially with a delay
-      setTimeout(async () => {
-        await fetchFeedAndUpdate(feed);
-        // Set up the interval to fetch each feed every 3 minutes
-        setInterval(() => fetchFeedAndUpdate(feed), fetchInterval);
-      }, delayOffset);
-
-      delayOffset += interval;
-    }
-  }
-
-  async function fetchFeedsSequentially() {
-    const interval = 3000; // 3 seconds interval
-    const fetchInterval = 180000; // 3 minutes interval
-    let delayOffset = 0;
+    // Fetch all feeds initially
+    await Promise.all(rssFeeds.map(feed => fetchFeedAndUpdate(feed)));
 
     for (const feed of rssFeeds) {
-      // Fetch each feed initially with a delay
-      setTimeout(async () => {
-        await fetchFeedAndUpdate(feed);
-        // Set up the interval to fetch each feed every 3 minutes
+      // Set up the interval to fetch each feed every 3 minutes, staggered by the initial delay
+      setTimeout(() => {
+        fetchFeedAndUpdate(feed);
         setInterval(() => fetchFeedAndUpdate(feed), fetchInterval);
       }, delayOffset);
 
@@ -649,6 +634,13 @@ document.addEventListener('DOMContentLoaded', () => {
         timestamp: new Date().getTime()
       });
       feedItems = [...feedItems.filter(item => item.source !== feed.source), ...data];
+      feedItems.sort((a, b) => b.pubDate - a.pubDate); // Sort by date, newest first
+
+      if (data.length > 0 && data[0].pubDate > latestFeedDate) {
+        latestFeedDate = data[0].pubDate;
+        playSound();
+      }
+
       displayFeeds();
     }
   }
