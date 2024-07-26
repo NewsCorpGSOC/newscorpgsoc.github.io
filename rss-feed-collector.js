@@ -595,32 +595,32 @@ document.addEventListener('DOMContentLoaded', () => {
       url: 'https://www.reddit.com/r/breakingnews/new.rss',
       source: 'Breaking News Subreddit',
       backups: [
-        'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.reddit.com%2Fr%2Fbreakingnews.rss',
         'https://corsproxy.io/?https%3A%2F%2Fwww.reddit.com%2Fr%2Fbreakingnews.rss',
+        'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.reddit.com%2Fr%2Fbreakingnews.rss',
       ]
     },
     {
       url: 'https://www.reddit.com/r/YemeniCrisis/new.rss',
       source: 'Yemeni Crisis Subreddit',
       backups: [
-        'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.reddit.com%2Fr%2FYemeniCrisis%2Fnew.rss',
         'https://corsproxy.io/?https%3A%2F%2Fwww.reddit.com%2Fr%2FYemeniCrisis%2Fnew.rss',
+        'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.reddit.com%2Fr%2FYemeniCrisis%2Fnew.rss',
       ]
     },
     {
       url: 'https://www.reddit.com/r/worldnews/rising.rss',
       source: 'World News Subreddit',
       backups: [
-        'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.reddit.com%2Fr%2Fworldnews%2Frising.rss',
         'https://corsproxy.io/?https%3A%2F%2Fwww.reddit.com%2Fr%2Fworldnews%2Frising.rss',
+        'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.reddit.com%2Fr%2Fworldnews%2Frising.rss',
       ]
     },
     {
       url: 'https://www.reddit.com/r/InternationalNews.rss',
       source: 'International News Subreddit',
       backups: [
-        'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.reddit.com%2Fr%2FInternationalNews.rss',
         'https://corsproxy.io/?https%3A%2F%2Fwww.reddit.com%2Fr%2FInternationalNews.rss',
+        'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.reddit.com%2Fr%2FInternationalNews.rss',
       ]
     },
     {
