@@ -663,6 +663,20 @@ document.addEventListener('DOMContentLoaded', () => {
         'https://api.allorigins.win/get?url=https%3A%2F%2Fapi.weather.gov%2Falerts%2Factive.atom%3Fcertainty%3DLikely%252CObserved%26severity%3DExtreme%252CSevere%26urgency%3DFuture%252CExpected%252CImmediate',
       ]
     },
+    {
+      url: 'https://rsshub.app/telegram/channel/News_cabinet_news',
+      source: 'Israel Security Cabinet News',
+      backups: [
+        'https://corsproxy.io/?https%3A%2F%2Frsshub.app%2Ftelegram%2Fchannel%2FNews_cabinet_news',
+      ]
+    },
+    {
+      url: 'https://rsshub.app/telegram/channel/Saba_Newsye',
+      source: 'Saba Agency Telegram',
+      backups: [
+        'https://corsproxy.io/?https%3A%2F%2Frsshub.app%2Ftelegram%2Fchannel%2FSaba_Newsye',
+      ]
+    },
   ];
   
   rssFeeds.sort((a, b) => a.source.localeCompare(b.source));
@@ -957,6 +971,10 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (source === 'Air Force of the Armed Forces of Ukraine Telegram') {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'National Weather Service') {
+      adjustedDate.setHours(adjustedDate.getHours() - 0);
+    } else if (source === 'Israel Security Cabinet News') {
+      adjustedDate.setHours(adjustedDate.getHours() - 0);
+    } else if (source === 'Saba Agency Telegram') {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else {
       console.warn(`No specific time adjustment found for source: ${source}`);
