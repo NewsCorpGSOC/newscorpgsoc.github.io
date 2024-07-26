@@ -639,6 +639,22 @@ document.addEventListener('DOMContentLoaded', () => {
         'https://corsproxy.io/?https%3A%2F%2Fwww.naharnet.com%2Ftags%2Fmiddle-east%2Fen%2Ffeed.atom',
       ]
     },
+    {
+      url: 'https://rsshub.app/telegram/channel/WOLPalestine',
+      source: 'WOLPalestine Telegram',
+      backups: [
+        'https://api.allorigins.win/get?url=https%3A%2F%2Frsshub.app%2Ftelegram%2Fchannel%2FWOLPalestine',
+        'https://corsproxy.io/?https%3A%2F%2Frsshub.app%2Ftelegram%2Fchannel%2FWOLPalestine',
+      ]
+    },
+    {
+      url: 'https://rsshub.app/telegram/channel/kpszsu',
+      source: 'Air Force of the Armed Forces of Ukraine Telegram',
+      backups: [
+        'https://api.allorigins.win/get?url=https%3A%2F%2Frsshub.app%2Ftelegram%2Fchannel%2Fkpszsu',
+        'https://corsproxy.io/?https%3A%2F%2Frsshub.app%2Ftelegram%2Fchannel%2Fkpszsu',
+      ]
+    },
   ];
   
   rssFeeds.sort((a, b) => a.source.localeCompare(b.source));
@@ -918,6 +934,10 @@ document.addEventListener('DOMContentLoaded', () => {
       adjustedDate.setHours(adjustedDate.getHours() - 10);
     } else if (source === 'Naharnet - Middle East') {
       adjustedDate.setHours(adjustedDate.getHours() - 10);
+    } else if (source === 'WolPalestine Telegram') {
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
+    } else if (source === 'Air Force of the Armed Forces of Ukraine Telegram') {
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
     } else {
       console.warn(`No specific time adjustment found for source: ${source}`);
     }
