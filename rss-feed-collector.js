@@ -992,6 +992,16 @@ document.addEventListener('DOMContentLoaded', () => {
     return adjustedDate;
   }
 
+  function removeDuplicateTitles(items) {
+    const uniqueItems = new Map();
+    items.forEach(item => {
+      if (!uniqueItems.has(item.title) || uniqueItems.get(item.title).pubDate < item.pubDate) {
+        uniqueItems.set(item.title, item);
+      }
+    });
+    return Array.from(uniqueItems.values());
+  }
+  
   async function fetchFeedsSequentially() {
     const interval = 3000; // 3 seconds interval
     const fetchInterval = 180000; // 3 minutes interval
@@ -1042,6 +1052,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function displayFeeds() {
     feedsContainer.innerHTML = '';
+    feedItems = removeDuplicateTitles(feedItems);
   
     const now = new Date();
     const oneYearAgo = new Date(now.setFullYear(now.getFullYear() - 1));
