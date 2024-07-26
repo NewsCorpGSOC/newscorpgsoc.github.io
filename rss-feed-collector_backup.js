@@ -396,6 +396,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const RETRIES = 3;
   let lastRequestTime = 0;
   const proxies = [
+    '',
     'https://cors-anywhere.herokuapp.com/',
     'https://api.allorigins.win/get?url=',
     'https://thingproxy.freeboard.io/fetch/',
