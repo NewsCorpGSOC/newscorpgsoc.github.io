@@ -725,7 +725,7 @@ document.addEventListener('DOMContentLoaded', () => {
         feedItemsArray.forEach(item => {
           const title = item.querySelector('title')?.textContent || 'No title';
           const link = isAtom ? item.querySelector('link[rel="alternate"]')?.getAttribute('href') : item.querySelector('link')?.textContent || '#';
-          const description = isAtom ? item.querySelector('summary')?.textContent || 'No description' : item.querySelector('description')?.textContent || 'No description';
+          const description = isAtom ? item.querySelector('summary')?.textContent || item.querySelector('content')?.textContent || 'No description' : item.querySelector('description')?.textContent || 'No description';
           const pubDateText = isAtom ? item.querySelector('published')?.textContent : item.querySelector('pubDate')?.textContent;
           const pubDate = pubDateText ? parseDate(pubDateText) : new Date();
   
