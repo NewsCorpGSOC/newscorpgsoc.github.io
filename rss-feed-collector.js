@@ -677,6 +677,13 @@ document.addEventListener('DOMContentLoaded', () => {
         'https://corsproxy.io/?https%3A%2F%2Frsshub.app%2Ftelegram%2Fchannel%2FSaba_Newsye',
       ]
     },
+    {
+      url: 'https://rsshub.app/telegram/channel/epochtimes',
+      source: 'Epoch Times Telegram',
+      backups: [
+        'https://corsproxy.io/?https%3A%2F%2Frsshub.app%2Ftelegram%2Fchannel%2Fepochtimes',
+      ]
+    },
   ];
   
   rssFeeds.sort((a, b) => a.source.localeCompare(b.source));
@@ -975,6 +982,8 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (source === 'Israel Security Cabinet News') {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'Saba Agency Telegram') {
+      adjustedDate.setHours(adjustedDate.getHours() - 0);
+    } else if (source === 'Epoch Times Telegram') {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else {
       console.warn(`No specific time adjustment found for source: ${source}`);
