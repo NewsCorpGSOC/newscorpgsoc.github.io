@@ -943,9 +943,9 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (source === 'International News Subreddit') {
       adjustedDate.setHours(adjustedDate.getHours() - 7);
     } else if (source === 'Naharnet - Lebanon') {
-      adjustedDate.setHours(adjustedDate.getHours() - 10);
+      adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'Naharnet - Middle East') {
-      adjustedDate.setHours(adjustedDate.getHours() - 10);
+      adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'WolPalestine Telegram') {
       adjustedDate.setHours(adjustedDate.getHours() - 7);
     } else if (source === 'Air Force of the Armed Forces of Ukraine Telegram') {
