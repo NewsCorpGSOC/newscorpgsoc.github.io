@@ -627,40 +627,40 @@ document.addEventListener('DOMContentLoaded', () => {
       url: 'https://www.naharnet.com/tags/lebanon/en/feed.atom',
       source: 'Naharnet - Lebanon',
       backups: [
-        'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.naharnet.com%2Ftags%2Flebanon%2Fen%2Ffeed.atom',
         'https://corsproxy.io/?https%3A%2F%2Fwww.naharnet.com%2Ftags%2Flebanon%2Fen%2Ffeed.atom',
+        'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.naharnet.com%2Ftags%2Flebanon%2Fen%2Ffeed.atom',
       ]
     },
     {
       url: 'https://www.naharnet.com/tags/middle-east/en/feed.atom',
       source: 'Naharnet - Middle East',
       backups: [
-        'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.naharnet.com%2Ftags%2Fmiddle-east%2Fen%2Ffeed.atom',
         'https://corsproxy.io/?https%3A%2F%2Fwww.naharnet.com%2Ftags%2Fmiddle-east%2Fen%2Ffeed.atom',
+        'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.naharnet.com%2Ftags%2Fmiddle-east%2Fen%2Ffeed.atom',
       ]
     },
     {
       url: 'https://rsshub.app/telegram/channel/WOLPalestine',
       source: 'WOLPalestine Telegram',
       backups: [
-        'https://api.allorigins.win/get?url=https%3A%2F%2Frsshub.app%2Ftelegram%2Fchannel%2FWOLPalestine',
         'https://corsproxy.io/?https%3A%2F%2Frsshub.app%2Ftelegram%2Fchannel%2FWOLPalestine',
+        'https://api.allorigins.win/get?url=https%3A%2F%2Frsshub.app%2Ftelegram%2Fchannel%2FWOLPalestine',
       ]
     },
     {
       url: 'https://rsshub.app/telegram/channel/kpszsu',
       source: 'Air Force of the Armed Forces of Ukraine Telegram',
       backups: [
-        'https://api.allorigins.win/get?url=https%3A%2F%2Frsshub.app%2Ftelegram%2Fchannel%2Fkpszsu',
         'https://corsproxy.io/?https%3A%2F%2Frsshub.app%2Ftelegram%2Fchannel%2Fkpszsu',
+        'https://api.allorigins.win/get?url=https%3A%2F%2Frsshub.app%2Ftelegram%2Fchannel%2Fkpszsu',
       ]
     },
     {
       url: 'https://api.weather.gov/alerts/active.atom?certainty=Likely%2CObserved&severity=Extreme%2CSevere&urgency=Future%2CExpected%2CImmediate',
       source: 'National Weather Service',
       backups: [
-        'https://api.allorigins.win/get?url=https%3A%2F%2Fapi.weather.gov%2Falerts%2Factive.atom%3Fcertainty%3DLikely%252CObserved%26severity%3DExtreme%252CSevere%26urgency%3DFuture%252CExpected%252CImmediate',
         'https://corsproxy.io/?https%3A%2F%2Fapi.weather.gov%2Falerts%2Factive.atom%3Fcertainty%3DLikely%252CObserved%26severity%3DExtreme%252CSevere%26urgency%3DFuture%252CExpected%252CImmediate',
+        'https://api.allorigins.win/get?url=https%3A%2F%2Fapi.weather.gov%2Falerts%2Factive.atom%3Fcertainty%3DLikely%252CObserved%26severity%3DExtreme%252CSevere%26urgency%3DFuture%252CExpected%252CImmediate',
       ]
     },
   ];
@@ -980,6 +980,9 @@ document.addEventListener('DOMContentLoaded', () => {
   async function fetchFeedAndUpdate(feed) {
     console.log(`Fetching feed from ${feed.source}`);
     const data = await fetchFeed(feed);
+    if (data.length === 0) {
+      console.log(`No items found in feed from ${feed.source}`);
+    }
     feedItems = [...feedItems.filter(item => item.source !== feed.source), ...data];
     feedItems.sort((a, b) => b.pubDate - a.pubDate); // Sort by date, newest first
 
