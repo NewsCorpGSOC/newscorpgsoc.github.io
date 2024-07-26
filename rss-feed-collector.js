@@ -536,7 +536,7 @@ document.addEventListener('DOMContentLoaded', () => {
     toggleSourceFilterButton.textContent = isHidden ? 'Hide Source Filter' : 'Show Source Filter';
   });
 
-  const RETRIES = 3;
+  const RETRIES = 1;
 
   const fetchFeed = async (feed, retries = RETRIES) => {
     for (const url of [feed.url, ...(feed.backups || [])]) {
