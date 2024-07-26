@@ -1002,6 +1002,21 @@ document.addEventListener('DOMContentLoaded', () => {
     return Array.from(uniqueItems.values());
   }
   
+  function removeDuplicateImages(description) {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(description, 'text/html');
+    const imgElements = doc.querySelectorAll('img');
+    const uniqueImages = new Set();
+    imgElements.forEach(img => {
+      if (uniqueImages.has(img.src)) {
+        img.remove();
+      } else {
+        uniqueImages.add(img.src);
+      }
+    });
+    return doc.body.innerHTML;
+  }
+  
   async function fetchFeedsSequentially() {
     const interval = 3000; // 3 seconds interval
     const fetchInterval = 180000; // 3 minutes interval
@@ -1089,6 +1104,8 @@ document.addEventListener('DOMContentLoaded', () => {
       if (img) {
         imageHtml = `<img src="${img.src}" alt="Feed image" onerror="this.onerror=null;this.src='https://i.imgur.com/GQPN5Q9.jpeg';" />`;
       }
+
+      const cleanedDescription = removeDuplicateImages(item.description);
   
       feedElement.innerHTML = `
         <h2><a href="${item.link}" target="_blank">${item.title}</a></h2>
