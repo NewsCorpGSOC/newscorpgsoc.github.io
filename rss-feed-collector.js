@@ -951,7 +951,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (source === 'Air Force of the Armed Forces of Ukraine Telegram') {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'National Weather Service') {
-      adjustedDate.setHours(adjustedDate.getHours() - 2);
+      adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else {
       console.warn(`No specific time adjustment found for source: ${source}`);
     }
