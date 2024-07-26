@@ -458,40 +458,40 @@ document.addEventListener('DOMContentLoaded', () => {
       url: 'https://www.state.gov/rss-feed/africa/feed/',
       source: 'U.S. State Department - Africa',
       backups: [
-        'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.state.gov%2Frss-feed%2Fafrica%2Ffeed%2F',
         'https://corsproxy.io/?https%3A%2F%2Fwww.state.gov%2Frss-feed%2Fafrica%2Ffeed%2F',
+        'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.state.gov%2Frss-feed%2Fafrica%2Ffeed%2F',
       ]
     },
     {
       url: 'https://www.state.gov/rss-feed/east-asia-and-the-pacific/feed/',
       source: 'U.S. State Department - East Asia and the Pacific',
       backups: [
-        'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.state.gov%2Frss-feed%2Feast-asia-and-the-pacific%2Ffeed%2F',
         'https://corsproxy.io/?https%3A%2F%2Fwww.state.gov%2Frss-feed%2Feast-asia-and-the-pacific%2Ffeed%2F',
+        'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.state.gov%2Frss-feed%2Feast-asia-and-the-pacific%2Ffeed%2F',
       ]
     },
     {
       url: 'https://www.state.gov/rss-feed/europe-and-eurasia/feed/',
       source: 'U.S. State Department - Europe and Eurasia',
       backups: [
-        'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.state.gov%2Frss-feed%2Feurope-and-eurasia%2Ffeed%2F',
         'https://corsproxy.io/?https%3A%2F%2Fwww.state.gov%2Frss-feed%2Feurope-and-eurasia%2Ffeed%2F',
+        'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.state.gov%2Frss-feed%2Feurope-and-eurasia%2Ffeed%2F',
       ]
     },
     {
       url: 'https://www.state.gov/rss-feed/near-east/feed/',
       source: 'U.S. State Department - Near East',
       backups: [
-        'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.state.gov%2Frss-feed%2Fnear-east%2Ffeed%2F',
         'https://corsproxy.io/?https%3A%2F%2Fwww.state.gov%2Frss-feed%2Fnear-east%2Ffeed%2F',
+        'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.state.gov%2Frss-feed%2Fnear-east%2Ffeed%2F',
       ]
     },
     {
       url: 'https://www.state.gov/rss-feed/south-and-central-asia/feed/',
       source: 'U.S. State Department - South and Central Asia',
       backups: [
-        'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.state.gov%2Frss-feed%2Fsouth-and-central-asia%2Ffeed%2F',
         'https://corsproxy.io/?https%3A%2F%2Fwww.state.gov%2Frss-feed%2Fsouth-and-central-asia%2Ffeed%2F',
+        'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.state.gov%2Frss-feed%2Fsouth-and-central-asia%2Ffeed%2F',
       ]
     },
     {
