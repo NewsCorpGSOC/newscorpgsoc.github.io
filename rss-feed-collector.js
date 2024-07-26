@@ -615,6 +615,30 @@ document.addEventListener('DOMContentLoaded', () => {
         'https://corsproxy.io/?https%3A%2F%2Fwww.reddit.com%2Fr%2Fworldnews%2Frising.rss',
       ]
     },
+    {
+      url: 'https://www.reddit.com/r/InternationalNews.rss',
+      source: 'International News Subreddit',
+      backups: [
+        'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.reddit.com%2Fr%2FInternationalNews.rss',
+        'https://corsproxy.io/?https%3A%2F%2Fwww.reddit.com%2Fr%2FInternationalNews.rss',
+      ]
+    },
+    {
+      url: 'https://www.naharnet.com/tags/lebanon/en/feed.atom',
+      source: 'Naharnet - Lebanon',
+      backups: [
+        'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.naharnet.com%2Ftags%2Flebanon%2Fen%2Ffeed.atom',
+        'https://corsproxy.io/?https%3A%2F%2Fwww.naharnet.com%2Ftags%2Flebanon%2Fen%2Ffeed.atom',
+      ]
+    },
+    {
+      url: 'https://www.naharnet.com/tags/middle-east/en/feed.atom',
+      source: 'Naharnet - Middle East',
+      backups: [
+        'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.naharnet.com%2Ftags%2Fmiddle-east%2Fen%2Ffeed.atom',
+        'https://corsproxy.io/?https%3A%2F%2Fwww.naharnet.com%2Ftags%2Fmiddle-east%2Fen%2Ffeed.atom',
+      ]
+    },
   ];
   
   rssFeeds.sort((a, b) => a.source.localeCompare(b.source));
@@ -888,6 +912,12 @@ document.addEventListener('DOMContentLoaded', () => {
       adjustedDate.setHours(adjustedDate.getHours() - 7);
     } else if (source === 'World News Subreddit') {
       adjustedDate.setHours(adjustedDate.getHours() - 7);
+    } else if (source === 'International News Subreddit') {
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
+    } else if (source === 'Naharnet - Lebanon') {
+      adjustedDate.setHours(adjustedDate.getHours() - 10);
+    } else if (source === 'Naharnet - Middle East') {
+      adjustedDate.setHours(adjustedDate.getHours() - 10);
     } else {
       console.warn(`No specific time adjustment found for source: ${source}`);
     }
