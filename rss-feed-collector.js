@@ -712,22 +712,24 @@ document.addEventListener('DOMContentLoaded', () => {
   const fetchFeed = async (feed, retries = RETRIES) => {
     for (const url of [feed.url, ...(feed.backups || [])]) {
       try {
+        console.log(`Fetching URL: ${url}`);
         const response = await fetch(url);
-        const data = await response.text(); // Fetch the raw text as it is XML
+        const data = await response.text();
         const parser = new DOMParser();
         const xmlDoc = parser.parseFromString(data, 'application/xml');
-        const items = xmlDoc.querySelectorAll('item');
+        const isAtom = xmlDoc.documentElement.nodeName === 'feed';
+        const items = isAtom ? xmlDoc.getElementsByTagName('entry') : xmlDoc.getElementsByTagName('item');
         let feedItems = [];
-
+  
         items.forEach(item => {
           const title = item.querySelector('title')?.textContent || 'No title';
-          const link = item.querySelector('link')?.textContent || '#';
-          const description = item.querySelector('description')?.textContent || 'No description';
-          const pubDateText = item.querySelector('pubDate')?.textContent;
+          const link = isAtom ? item.querySelector('link[rel="alternate"]')?.getAttribute('href') : item.querySelector('link')?.textContent || '#';
+          const description = isAtom ? item.querySelector('summary')?.textContent || 'No description' : item.querySelector('description')?.textContent || 'No description';
+          const pubDateText = isAtom ? item.querySelector('published')?.textContent : item.querySelector('pubDate')?.textContent;
           const pubDate = pubDateText ? parseDate(pubDateText) : new Date();
-
+  
           const pacificDate = convertToPacificTime(pubDate, feed.source);
-
+  
           if (title && link && description && pacificDate) {
             feedItems.push({
               title,
@@ -740,8 +742,9 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log('Incomplete item:', { title, link, description, pacificDate });
           }
         });
-
+  
         updateStatus(feed.source, feed.url, true);
+        console.log(`Fetched ${feedItems.length} items from ${feed.source}`);
         return feedItems;
       } catch (error) {
         console.error(`Error fetching RSS feed from ${feed.source}:`, error);
@@ -1005,17 +1008,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function displayFeeds() {
     feedsContainer.innerHTML = '';
-
+  
     const now = new Date();
     const oneYearAgo = new Date(now.setFullYear(now.getFullYear() - 1));
-
+  
     const filteredFeeds = applyFilter();
+    console.log(`Filtered Feeds Count: ${filteredFeeds.length}`);
+  
     const searchTerm = searchInput.value.trim().toLowerCase();
     const searchTerms = parseSearchTerm(searchTerm);
-
-    // Filter out items older than one year
+  
     const recentFeeds = filteredFeeds.filter(item => item.pubDate > oneYearAgo);
-
+    console.log(`Recent Feeds Count: ${recentFeeds.length}`);
+  
     const searchFilteredFeeds = recentFeeds.filter(item =>
       searchTerms.every(termGroup =>
         termGroup.some(term =>
@@ -1025,22 +1030,25 @@ document.addEventListener('DOMContentLoaded', () => {
         )
       )
     );
-
+    console.log(`Search Filtered Feeds Count: ${searchFilteredFeeds.length}`);
+  
     const fragment = document.createDocumentFragment();
     searchFilteredFeeds.forEach(item => {
       const feedElement = document.createElement('div');
       feedElement.classList.add('feed');
-
-      // Add error handling to images with fallback image URL
+  
       let imageHtml = '';
-      if (item.image) {
-        imageHtml = `<img src="${item.image}" alt="Feed image" onerror="this.onerror=null;this.src='https://i.imgur.com/GQPN5Q9.jpeg';" />`;
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(item.description, 'text/html');
+      const img = doc.querySelector('img');
+      if (img) {
+        imageHtml = `<img src="${img.src}" alt="Feed image" onerror="this.onerror=null;this.src='https://i.imgur.com/GQPN5Q9.jpeg';" />`;
       }
-
+  
       feedElement.innerHTML = `
         <h2><a href="${item.link}" target="_blank">${item.title}</a></h2>
         ${imageHtml}
-        <p>${item.description}</p>
+        <p>${doc.body.innerHTML}</p>
         <p><small>Published on: ${format(item.pubDate, 'PPpp')} (PST/PDT)</small></p>
         <p><strong>Source:</strong> ${item.source}</p>
       `;
@@ -1059,7 +1067,8 @@ document.addEventListener('DOMContentLoaded', () => {
   function applyFilter() {
     const now = new Date();
     let filteredFeeds = [...feedItems];
-
+    console.log(`Total Feed Items: ${feedItems.length}`);
+  
     const timelineValue = timelineFilter.value;
     if (timelineValue === 'lastHour') {
       filteredFeeds = filteredFeeds.filter(item => now - item.pubDate <= 3600000);
@@ -1087,12 +1096,13 @@ document.addEventListener('DOMContentLoaded', () => {
         keywords.some(keyword => item.description.toLowerCase().includes(keyword))
       );
     }
-
+  
     const checkedSources = Array.from(document.querySelectorAll('input[name="sourceFilter"]:checked')).map(cb => cb.value);
     if (checkedSources.length > 0 && !checkedSources.includes('all')) {
       filteredFeeds = filteredFeeds.filter(item => checkedSources.includes(item.source));
     }
-
+  
+    console.log(`Filtered Feeds After ApplyFilter: ${filteredFeeds.length}`);
     return filteredFeeds;
   }
 
