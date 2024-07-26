@@ -559,6 +559,62 @@ document.addEventListener('DOMContentLoaded', () => {
         'https://corsproxy.io/?https%3A%2F%2Ffeeds.buzzsprout.com%2F1759080.rss',
       ]
     },
+    {
+      url: 'https://worldnewsera.com/feed/',
+      source: 'World News Era',
+      backups: [
+        'https://api.allorigins.win/get?url=https%3A%2F%2Fworldnewsera.com%2Ffeed%2F',
+        'https://corsproxy.io/?https%3A%2F%2Fworldnewsera.com%2Ffeed%2F',
+      ]
+    },
+    {
+      url: 'https://www.scmp.com/rss/91/feed',
+      source: 'South China Morning Post',
+      backups: [
+        'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.scmp.com%2Frss%2F91%2Ffeed',
+        'https://corsproxy.io/?https%3A%2F%2Fwww.scmp.com%2Frss%2F91%2Ffeed',
+      ]
+    },
+    {
+      url: 'https://www.euronews.com/rss?level=vertical&name=news',
+      source: 'Euro News',
+      backups: [
+        'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.euronews.com%2Frss%3Flevel%3Dvertical%26name%3Dnews',
+        'https://corsproxy.io/?https%3A%2F%2Fwww.euronews.com%2Frss%3Flevel%3Dvertical%26name%3Dnews',
+      ]
+    },
+    {
+      url: 'https://thefederalist.com/feed/',
+      source: 'The Federalist',
+      backups: [
+        'https://api.allorigins.win/get?url=https%3A%2F%2Fthefederalist.com%2Ffeed%2F',
+        'https://corsproxy.io/?https%3A%2F%2Fthefederalist.com%2Ffeed%2F',
+      ]
+    },
+    {
+      url: 'https://www.reddit.com/r/breakingnews/new.rss',
+      source: 'Breaking News Subreddit',
+      backups: [
+        'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.reddit.com%2Fr%2Fbreakingnews.rss',
+        'https://corsproxy.io/?https%3A%2F%2Fwww.reddit.com%2Fr%2Fbreakingnews.rss',
+      ]
+    },
+    {
+      url: 'https://www.reddit.com/r/YemeniCrisis/new.rss',
+      source: 'Yemeni Crisis Subreddit',
+      backups: [
+        'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.reddit.com%2Fr%2FYemeniCrisis%2Fnew.rss',
+        'https://corsproxy.io/?https%3A%2F%2Fwww.reddit.com%2Fr%2FYemeniCrisis%2Fnew.rss',
+      ]
+    },
+    {
+      url: 'https://www.reddit.com/r/worldnews/rising.rss',
+      source: 'World News Subreddit',
+      backups: [
+        'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.reddit.com%2Fr%2Fworldnews%2Frising.rss',
+        'https://corsproxy.io/?https%3A%2F%2Fwww.reddit.com%2Fr%2Fworldnews%2Frising.rss',
+      ]
+    },
   ];
   
   rssFeeds.sort((a, b) => a.source.localeCompare(b.source));
@@ -818,6 +874,20 @@ document.addEventListener('DOMContentLoaded', () => {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'Factal Forecast') {
       adjustedDate.setHours(adjustedDate.getHours() - 3);
+    } else if (source === 'World News Era') {
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
+    } else if (source === 'South China Morning Post') {
+      adjustedDate.setHours(adjustedDate.getHours() - 15);
+    } else if (source === 'South China Morning Post') {
+      adjustedDate.setHours(adjustedDate.getHours() - 9);
+    } else if (source === 'The Federalist') {
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
+    } else if (source === 'Breaking News Subreddit') {
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
+    } else if (source === 'Yemeni Crisis Subreddit') {
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
+    } else if (source === 'World News Subreddit') {
+      adjustedDate.setHours(adjustedDate.getHours() - 7);
     } else {
       console.warn(`No specific time adjustment found for source: ${source}`);
     }
