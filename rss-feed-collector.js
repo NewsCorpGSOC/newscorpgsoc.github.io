@@ -945,7 +945,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (source === 'WolPalestine Telegram') {
       adjustedDate.setHours(adjustedDate.getHours() - 7);
     } else if (source === 'Air Force of the Armed Forces of Ukraine Telegram') {
-      adjustedDate.setHours(adjustedDate.getHours() - 7);
+      adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'National Weather Service') {
       adjustedDate.setHours(adjustedDate.getHours() - 2);
     } else {
