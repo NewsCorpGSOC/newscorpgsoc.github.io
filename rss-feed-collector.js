@@ -542,54 +542,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const CACHE_EXPIRATION = 60 * 60 * 1000; // 1 hour
   const RETRIES = 3;
 
-  const fetchFeed = async (feed, retries = RETRIES) => {
-    for (const url of [feed.url, ...(feed.backups || [])]) {
-      try {
-        const response = await fetch(url);
-        if (!response.ok) {
-          throw new Error(`Failed to fetch from ${url}`);
-        }
-        const data = await response.text(); // Fetch the raw text as it is XML
-        const parser = new DOMParser();
-        const xmlDoc = parser.parseFromString(data, 'application/xml');
-        const items = xmlDoc.querySelectorAll('item');
-        let feedItems = [];
 
-        items.forEach(item => {
-          const title = item.querySelector('title')?.textContent || 'No title';
-          const link = item.querySelector('link')?.textContent || '#';
-          const description = item.querySelector('description')?.textContent || 'No description';
-          const pubDateText = item.querySelector('pubDate')?.textContent;
-          const pubDate = pubDateText ? parseDate(pubDateText) : new Date();
-
-          const pacificDate = convertToPacificTime(pubDate, feed.source);
-
-          if (title && link && description && pacificDate) {
-            feedItems.push({
-              title,
-              link,
-              description,
-              pubDate: pacificDate,
-              source: feed.source
-            });
-          } else {
-            console.log('Incomplete item:', { title, link, description, pacificDate });
-          }
-        });
-
-        updateStatus(feed.source, feed.url, true);
-        return feedItems;
-      } catch (error) {
-        console.error(`Error fetching RSS feed from ${feed.source}:`, error);
-        updateStatus(feed.source, feed.url, false);
-        if (retries > 0) {
-          await delay(2000); // wait before retrying
-          return fetchFeed(feed, retries - 1);
-        }
-      }
-    }
-    return [];
-  };
 
   function updateStatus(source, url, success) {
     const statusHtml = `${success ? '✅' : '❌'} <a href="${url}" target="_blank">${source}</a>`;
@@ -791,7 +744,7 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log(`Fetching feed from ${feed.source}`);
     const cacheTime = cache.get(feed.url) && cache.get(feed.url).timestamp;
     const now = new Date().getTime();
-
+  
     if (cacheTime && (now - cacheTime < CACHE_EXPIRATION)) {
       displayFeeds(); // Use cached data if not expired
     } else {
@@ -802,12 +755,12 @@ document.addEventListener('DOMContentLoaded', () => {
       });
       feedItems = [...feedItems.filter(item => item.source !== feed.source), ...data];
       feedItems.sort((a, b) => b.pubDate - a.pubDate); // Sort by date, newest first
-
+  
       if (data.length > 0 && data[0].pubDate > latestFeedDate) {
         latestFeedDate = data[0].pubDate;
         playSound();
       }
-
+  
       displayFeeds();
     }
   }
