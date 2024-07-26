@@ -758,11 +758,28 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     return [];
   };
-  
+
   function decodeHTMLEntities(text) {
     const textarea = document.createElement('textarea');
     textarea.innerHTML = text;
     return textarea.value;
+  }
+  
+  function updateStatus(source, url, success) {
+    const statusHtml = `${success ? '✅' : '❌'} <a href="${url}" target="_blank">${source}</a>`;
+    statusItems.set(source, statusHtml);  // Update the status map
+
+    // Sort the status items alphabetically by source
+    const sortedStatusItems = Array.from(statusItems.entries()).sort(([sourceA], [sourceB]) => sourceA.localeCompare(sourceB));
+
+    // Clear the status container and re-append sorted status items
+    statusContainer.innerHTML = '';
+    sortedStatusItems.forEach(([source, html]) => {
+      const statusItem = document.createElement('div');
+      statusItem.dataset.source = source;
+      statusItem.innerHTML = html;
+      statusContainer.appendChild(statusItem);
+    });
   }
 
   function parseDate(dateString) {
