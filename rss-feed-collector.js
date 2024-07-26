@@ -11,9 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const volumeSlider = document.getElementById('volumeSlider');
   let feedItems = [];
   let latestFeedDate = new Date(0);
-  let cache = new Map();
-  let nextRefreshTime;
-  let timerInterval;
   let pingVolume = 1;
   const statusItems = new Map();
 
@@ -539,7 +536,6 @@ document.addEventListener('DOMContentLoaded', () => {
     toggleSourceFilterButton.textContent = isHidden ? 'Hide Source Filter' : 'Show Source Filter';
   });
 
-  const CACHE_EXPIRATION = 2 * 2 * 1000; // 1 hour
   const RETRIES = 3;
 
   const fetchFeed = async (feed, retries = RETRIES) => {
@@ -789,27 +785,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   async function fetchFeedAndUpdate(feed) {
     console.log(`Fetching feed from ${feed.source}`);
-    const cacheTime = cache.get(feed.url) && cache.get(feed.url).timestamp;
-    const now = new Date().getTime();
+    const data = await fetchFeed(feed);
+    feedItems = [...feedItems.filter(item => item.source !== feed.source), ...data];
+    feedItems.sort((a, b) => b.pubDate - a.pubDate); // Sort by date, newest first
 
-    if (cacheTime && (now - cacheTime < CACHE_EXPIRATION)) {
-      displayFeeds(); // Use cached data if not expired
-    } else {
-      const data = await fetchFeed(feed);
-      cache.set(feed.url, {
-        data,
-        timestamp: new Date().getTime()
-      });
-      feedItems = [...feedItems.filter(item => item.source !== feed.source), ...data];
-      feedItems.sort((a, b) => b.pubDate - a.pubDate); // Sort by date, newest first
-
-      if (data.length > 0 && data[0].pubDate > latestFeedDate) {
-        latestFeedDate = data[0].pubDate;
-        playSound();
-      }
-
-      displayFeeds();
+    if (data.length > 0 && data[0].pubDate > latestFeedDate) {
+      latestFeedDate = data[0].pubDate;
+      playSound();
     }
+
+    displayFeeds();
   }
   
   function playSound() {
