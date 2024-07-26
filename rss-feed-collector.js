@@ -1049,7 +1049,7 @@ document.addEventListener('DOMContentLoaded', () => {
       feedElement.innerHTML = `
         <h2><a href="${item.link}" target="_blank">${item.title}</a></h2>
         ${imageHtml}
-        <p>${doc.body.innerHTML}</p>
+        <div>${doc.body.innerHTML}</div>
         <p><small>Published on: ${format(item.pubDate, 'PPpp')} (PST/PDT)</small></p>
         <p><strong>Source:</strong> ${item.source}</p>
       `;
