@@ -655,6 +655,14 @@ document.addEventListener('DOMContentLoaded', () => {
         'https://corsproxy.io/?https%3A%2F%2Frsshub.app%2Ftelegram%2Fchannel%2Fkpszsu',
       ]
     },
+    {
+      url: 'https://api.weather.gov/alerts/active.atom?certainty=Likely%2CObserved&severity=Extreme%2CSevere&urgency=Future%2CExpected%2CImmediate',
+      source: 'National Weather Service',
+      backups: [
+        'https://api.allorigins.win/get?url=https%3A%2F%2Fapi.weather.gov%2Falerts%2Factive.atom%3Fcertainty%3DLikely%252CObserved%26severity%3DExtreme%252CSevere%26urgency%3DFuture%252CExpected%252CImmediate',
+        'https://corsproxy.io/?https%3A%2F%2Fapi.weather.gov%2Falerts%2Factive.atom%3Fcertainty%3DLikely%252CObserved%26severity%3DExtreme%252CSevere%26urgency%3DFuture%252CExpected%252CImmediate',
+      ]
+    },
   ];
   
   rssFeeds.sort((a, b) => a.source.localeCompare(b.source));
@@ -938,6 +946,8 @@ document.addEventListener('DOMContentLoaded', () => {
       adjustedDate.setHours(adjustedDate.getHours() - 7);
     } else if (source === 'Air Force of the Armed Forces of Ukraine Telegram') {
       adjustedDate.setHours(adjustedDate.getHours() - 7);
+    } else if (source === 'National Weather Service') {
+      adjustedDate.setHours(adjustedDate.getHours() - 2);
     } else {
       console.warn(`No specific time adjustment found for source: ${source}`);
     }
