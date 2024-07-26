@@ -250,15 +250,6 @@
             padding-bottom: -5px;
         }
 
-        .refresh-timer {
-            background-color: #00d3e6;
-            border-radius: 8px;
-            border: 2mm ridge rgba(64, 64, 64, .6);
-            color: #404040;
-            text-align: center;
-            font-weight: bold;
-        }
-
         .filter-container {
           flex: 1;
           display: flex;
@@ -1039,9 +1030,6 @@
               	    </div>
               	  
               	    <div class="filter-container">
-                        <div class="refresh-timer">
-                            Time to refresh: <span id="refresh-timer">00:00</span>
-                        </div>
                         <div class="volume-slider-container">
                             <label for="volumeSlider">Ping Volume:</label>
                             <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="1">
@@ -1074,15 +1062,6 @@
                               </span>
                             </label>
                             <input type="text" id="searchInput" placeholder="Search...">
-                	
-                    	      <label for="updateFrequency">Update Frequency:</label>
-                    	      <select id="updateFrequency">
-                      	        <option value="60000">1 Minute</option>
-                      	        <option value="150000">2.5 Minutes</option>
-                      	        <option value="300000">5 Minutes</option>
-                      	        <option value="600000">10 Minutes</option>
-                      	        <option value="1800000">30 Minutes</option>
-                    	      </select>
                 	
                     	      <label>Source Filter:</label>
                     	      <button id="toggleSourceFilter" class="btn btn-secondary">Toggle Source Filter</button>
