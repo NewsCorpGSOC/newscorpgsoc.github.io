@@ -609,9 +609,6 @@ document.addEventListener('DOMContentLoaded', () => {
     for (const url of [feed.url, ...(feed.backups || [])]) {
       try {
         const response = await fetch(url);
-        if (!response.ok) {
-          throw new Error(`Failed to fetch from ${url}`);
-        }
         const data = await response.text(); // Fetch the raw text as it is XML
         const parser = new DOMParser();
         const xmlDoc = parser.parseFromString(data, 'application/xml');
