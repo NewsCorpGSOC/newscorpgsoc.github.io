@@ -719,9 +719,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const xmlDoc = parser.parseFromString(data, 'application/xml');
         const isAtom = xmlDoc.documentElement.nodeName === 'feed';
         const items = isAtom ? xmlDoc.getElementsByTagName('entry') : xmlDoc.getElementsByTagName('item');
+        const feedItemsArray = Array.from(items);
         let feedItems = [];
   
-        items.forEach(item => {
+        feedItemsArray.forEach(item => {
           const title = item.querySelector('title')?.textContent || 'No title';
           const link = isAtom ? item.querySelector('link[rel="alternate"]')?.getAttribute('href') : item.querySelector('link')?.textContent || '#';
           const description = isAtom ? item.querySelector('summary')?.textContent || 'No description' : item.querySelector('description')?.textContent || 'No description';
@@ -757,7 +758,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     return [];
   };
-
+  
   function updateStatus(source, url, success) {
     const statusHtml = `${success ? '✅' : '❌'} <a href="${url}" target="_blank">${source}</a>`;
     statusItems.set(source, statusHtml);  // Update the status map
