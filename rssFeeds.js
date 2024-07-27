@@ -802,7 +802,7 @@ const rssFeeds = [
     ]
   },
   {
-    url: 'https://rsshub.app/telegram/channel/News_cabinet_news',
+    url: 'https://rsshub.woodland.cafe/telegram/channel/News_cabinet_news',
     source: 'Israel Security Cabinet News',
     requiredTerms: [],
     ignoreTerms: [],
@@ -811,7 +811,7 @@ const rssFeeds = [
     ]
   },
   {
-    url: 'https://rsshub.app/telegram/channel/Saba_Newsye',
+    url: 'https://rsshub.viki.moe/telegram/channel/Saba_Newsye',
     source: 'Saba Agency Telegram',
     requiredTerms: [],
     ignoreTerms: [],
@@ -820,7 +820,7 @@ const rssFeeds = [
     ]
   },
   {
-    url: 'https://rsshub.app/telegram/channel/epochtimes',
+    url: 'https://rss.peachyjoy.top/telegram/channel/epochtimes',
     source: 'Epoch Times Telegram',
     requiredTerms: [],
     ignoreTerms: [],
@@ -829,7 +829,7 @@ const rssFeeds = [
     ]
   },
   {
-    url: 'https://rsshub.app/telegram/channel/StandWithUsBreakingNews',
+    url: 'https://rsshub.speednet.icu/telegram/channel/StandWithUsBreakingNews',
     source: 'Stand With Us Breaking News Telegram',
     requiredTerms: [],
     ignoreTerms: [],
