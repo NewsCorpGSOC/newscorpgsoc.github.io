@@ -2,6 +2,7 @@ const rssFeeds = [
   {
     url: 'https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml',
     source: 'The New York Times',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -14,6 +15,7 @@ const rssFeeds = [
   {
     url: 'https://feeds.bbci.co.uk/news/world/rss.xml',
     source: 'BBC News',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -26,6 +28,7 @@ const rssFeeds = [
   {
     url: 'https://www.theguardian.com/world/rss',
     source: 'The Guardian',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -38,6 +41,7 @@ const rssFeeds = [
   {
     url: 'https://www.aljazeera.com/xml/rss/all.xml',
     source: 'Al Jazeera - Latest',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -48,6 +52,7 @@ const rssFeeds = [
   {
     url: 'https://wol.com/feed/',
     source: 'World Online',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -58,6 +63,7 @@ const rssFeeds = [
   {
     url: 'https://rss-bridge.org/bridge01/?action=display&topic=world-news&context=Custom+Topic&bridge=AssociatedPressNewsBridge&format=Atom',
     source: 'Associated Press',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -68,6 +74,7 @@ const rssFeeds = [
   {
     url: 'https://moxie.foxnews.com/google-publisher/world.xml',
     source: 'Fox News - World',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -78,6 +85,7 @@ const rssFeeds = [
   {
     url: 'https://moxie.foxnews.com/google-publisher/latest.xml',
     source: 'Fox News Top Stories',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -88,6 +96,7 @@ const rssFeeds = [
   {
     url: 'https://feeds.npr.org/1001/rss.xml',
     source: 'NPR News',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -98,6 +107,7 @@ const rssFeeds = [
   {
     url: 'https://news.un.org/feed/subscribe/en/news/all/rss.xml',
     source: 'UN News',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -108,6 +118,7 @@ const rssFeeds = [
   {
     url: 'https://news.yahoo.com/rss/world',
     source: 'Yahoo News',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -834,6 +845,7 @@ const rssFeeds = [
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
+      'https://api.allorigins.win/get?url=https%3A%2F%2Frsshub.speednet.icu%2Ftelegram%2Fchannel%2FStandWithUsBreakingNews',
       'https://corsproxy.io/?https%3A%2F%2Frsshub.app%2Ftelegram%2Fchannel%2FStandWithUsBreakingNews',
     ]
   },
