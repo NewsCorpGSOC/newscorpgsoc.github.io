@@ -815,7 +815,7 @@ document.addEventListener('DOMContentLoaded', () => {
       url: 'https://api.weather.gov/alerts/active.atom?certainty=Likely%2CObserved&severity=Extreme%2CSevere&urgency=Future%2CExpected%2CImmediate',
       source: 'National Weather Service',
       requiredTerms: [],
-      ignoreTerms: [],
+      ignoreTerms: ['Flood Warning'],
       backups: [
         'https://corsproxy.io/?https%3A%2F%2Fapi.weather.gov%2Falerts%2Factive.atom%3Fcertainty%3DLikely%252CObserved%26severity%3DExtreme%252CSevere%26urgency%3DFuture%252CExpected%252CImmediate',
         'https://api.allorigins.win/get?url=https%3A%2F%2Fapi.weather.gov%2Falerts%2Factive.atom%3Fcertainty%3DLikely%252CObserved%26severity%3DExtreme%252CSevere%26urgency%3DFuture%252CExpected%252CImmediate',
@@ -855,6 +855,14 @@ document.addEventListener('DOMContentLoaded', () => {
       ignoreTerms: [],
       backups: [
         'https://corsproxy.io/?https%3A%2F%2Frsshub.app%2Ftelegram%2Fchannel%2FStandWithUsBreakingNews',
+      ]
+      {
+      url: 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_week.atom',
+      source: 'USGS',
+      requiredTerms: [],
+      ignoreTerms: [],
+      backups: [
+        'https://corsproxy.io/?https%3A%2F%2Fearthquake.usgs.gov%2Fearthquakes%2Ffeed%2Fv1.0%2Fsummary%2Fsignificant_week.atom',
       ]
     },
   ];
@@ -1180,6 +1188,8 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (source === 'Epoch Times Telegram') {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'Stand With Us Breaking News Telegram') {
+      adjustedDate.setHours(adjustedDate.getHours() - 0);
+    } else if (source === 'USGS') {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else {
       console.warn(`No specific time adjustment found for source: ${source}`);
