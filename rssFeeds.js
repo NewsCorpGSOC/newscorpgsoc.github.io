@@ -887,7 +887,7 @@ const rssFeeds = [
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
-      'https://api.allorigins.win/get?url=https%3A%2F%2Frsshub.app%2Ftelegram%2Fchannel%2FNews_cabinet_news'
+      'https://api.allorigins.win/get?url=https%3A%2F%2Frsshub.app%2Ftelegram%2Fchannel%2FNews_cabinet_news',
       'https://corsproxy.io/?https%3A%2F%2Frsshub.app%2Ftelegram%2Fchannel%2FNews_cabinet_news',
     ]
   },
