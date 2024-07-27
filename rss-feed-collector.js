@@ -378,23 +378,26 @@ document.addEventListener('DOMContentLoaded', () => {
   
   async function fetchFeedsSequentially() {
     const interval = 3000; // 3 seconds interval
-    const fetchInterval = 180000; // 3 minutes interval
-    let delayOffset = 0;
+
+    const priorityIntervals = {
+      'Very High': 30000, // 30 seconds
+      'High': 60000, // 1 minute
+      'Medium': 180000, // 3 minutes
+      'Low': 300000, // 5 minutes
+      'Very Low': 600000 // 10 minutes
+    };
 
     // Fetch all feeds initially
     await Promise.all(rssFeeds.map(feed => fetchFeedAndUpdate(feed)));
 
-    rssFeeds.forEach((feed, index) => {
-      console.log(`Scheduling fetch for ${feed.source} with delay of ${delayOffset} ms`);
-      setTimeout(() => {
-        fetchFeedAndUpdate(feed);
-        setInterval(() => {
-          console.log(`Periodic fetch for ${feed.source}`);
-          fetchFeedAndUpdate(feed);
-        }, fetchInterval);
-      }, delayOffset);
+    rssFeeds.forEach((feed) => {
+      const fetchInterval = priorityIntervals[feed.priorityLevel] || 180000; // Default to 3 minutes if not specified
+      console.log(`Scheduling fetch for ${feed.source} with interval of ${fetchInterval} ms`);
 
-      delayOffset += interval;
+      setInterval(() => {
+        console.log(`Periodic fetch for ${feed.source}`);
+        fetchFeedAndUpdate(feed);
+      }, fetchInterval);
     });
   }
 
