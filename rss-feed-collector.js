@@ -858,12 +858,12 @@ document.addEventListener('DOMContentLoaded', () => {
       ]
     },
     {
-      url: 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_week.atom',
-      source: 'USGS',
+      url: 'https://global.shakemovie.princeton.edu/shakemovie/rss',
+      source: 'Global Shake Princeton',
       requiredTerms: [],
       ignoreTerms: [],
       backups: [
-        'https://corsproxy.io/?https%3A%2F%2Fearthquake.usgs.gov%2Fearthquakes%2Ffeed%2Fv1.0%2Fsummary%2Fsignificant_week.atom',
+        'https://corsproxy.io/?https%3A%2F%2Fglobal.shakemovie.princeton.edu%2Fshakemovie%2Frss',
       ]
     },
   ];
@@ -1190,7 +1190,7 @@ document.addEventListener('DOMContentLoaded', () => {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'Stand With Us Breaking News Telegram') {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
-    } else if (source === 'USGS') {
+    } else if (source === 'Global Shake Princeton') {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else {
       console.warn(`No specific time adjustment found for source: ${source}`);
