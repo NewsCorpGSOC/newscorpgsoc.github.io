@@ -955,6 +955,24 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     return [];
   };
+
+  function filterFeedItems(items, requiredTerms, ignoreTerms) {
+    return items.filter(item => {
+      const content = `${item.title} ${item.description}`.toLowerCase();
+      
+      // If requiredTerms is not empty, ensure at least one required term is found
+      if (requiredTerms.length > 0 && !requiredTerms.some(term => content.includes(term.toLowerCase()))) {
+        return false;
+      }
+      
+      // If ignoreTerms is not empty, ensure no ignore term is found
+      if (ignoreTerms.length > 0 && ignoreTerms.some(term => content.includes(term.toLowerCase()))) {
+        return false;
+      }
+      
+      return true;
+    });
+  }
   
   function decodeHTMLEntities(text) {
     const textarea = document.createElement('textarea');
