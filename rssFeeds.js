@@ -129,6 +129,7 @@ const rssFeeds = [
   {
     url: 'https://www.politico.eu/feed/',
     source: 'Politico EU',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -139,6 +140,7 @@ const rssFeeds = [
   {
     url: 'https://www.thestar.com/search/?f=rss&t=article&c=news/world*&l=50&s=start_time&sd=desc',
     source: 'The Star',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -149,6 +151,7 @@ const rssFeeds = [
   {
     url: 'https://www.brandonsun.com/feed?path=%2Fnational%2Fbreaking-news',
     source: 'Brandon Sun',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -159,6 +162,7 @@ const rssFeeds = [
   {
     url: 'https://www.thehindubusinessline.com/news/?service=rss',
     source: 'The Hindu Business Line',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -169,6 +173,7 @@ const rssFeeds = [
   {
     url: 'https://zeenews.india.com/rss/world-news.xml',
     source: 'Zee News India',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -179,6 +184,7 @@ const rssFeeds = [
   {
     url: 'https://www.livemint.com/rss/politics',
     source: 'Live Mint India',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -189,6 +195,7 @@ const rssFeeds = [
   {
     url: 'https://www.ft.com/world-uk?format=rss',
     source: 'Financial Times',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -199,6 +206,7 @@ const rssFeeds = [
   {
     url: 'https://feeds.skynews.com/feeds/rss/politics.xml',
     source: 'Sky News Politics',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -210,6 +218,7 @@ const rssFeeds = [
   {
     url: 'https://www.economist.com/europe/rss.xml',
     source: 'The Economist - Europe',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -220,6 +229,7 @@ const rssFeeds = [
   {
     url: 'https://www.economist.com/the-americas/rss.xml',
     source: 'The Economist - Americas',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -230,6 +240,7 @@ const rssFeeds = [
   {
     url: 'https://www.economist.com/middle-east-and-africa/rss.xml',
     source: 'The Economist - MENA',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -240,6 +251,7 @@ const rssFeeds = [
   {
     url: 'https://www.nzherald.co.nz/arc/outboundfeeds/rss/section/world/?outputType=xml&_website=nzh',
     source: 'The New Zealand Herald',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -250,6 +262,7 @@ const rssFeeds = [
   {
     url: 'https://feeds.a.dj.com/rss/RSSWorldNews.xml',
     source: 'Wall Street Journal',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -260,6 +273,7 @@ const rssFeeds = [
   {
     url: 'https://rss.jpost.com/rss/rssfeedsarabisraeliconflict.aspx',
     source: 'The Jerusalem Post - Arab-Israeli Conflict',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -270,6 +284,7 @@ const rssFeeds = [
   {
     url: 'https://rss.jpost.com/rss/rssfeedsheadlines.aspx',
     source: 'The Jerusalem Post - Breaking News',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -280,6 +295,7 @@ const rssFeeds = [
   {
     url: 'https://rss.jpost.com/rss/rssfeedsinternational',
     source: 'The Jerusalem Post - World News',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -290,6 +306,7 @@ const rssFeeds = [
   {
     url: 'https://rss.jpost.com/rss/israel-hamas-war',
     source: 'The Jerusalem Post - Israel-Hamas War',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -300,6 +317,7 @@ const rssFeeds = [
   {
     url: 'https://rss.jpost.com/rss/rssfeedsmiddleeastnews.aspx',
     source: 'The Jerusalem Post - Middle East News',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -311,6 +329,7 @@ const rssFeeds = [
   {
     url: 'https://rss.jpost.com/rss/rssukrainerussiawar',
     source: 'The Jerusalem Post - Ukraine-Russia War',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -321,6 +340,7 @@ const rssFeeds = [
   {
     url: 'https://rss.jpost.com/rss/rssfeedsgaza.aspx',
     source: 'The Jerusalem Post - Gaza',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -331,6 +351,7 @@ const rssFeeds = [
   {
     url: 'https://thehill.com/feed/?feed=partnerfeed-news-feed&format=rss',
     source: 'The Hill',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -341,6 +362,7 @@ const rssFeeds = [
   {
     url: 'https://nypost.com/feed/',
     source: 'New York Post',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -351,6 +373,7 @@ const rssFeeds = [
   {
     url: 'https://news.usni.org/feed',
     source: 'USNI News',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -361,6 +384,7 @@ const rssFeeds = [
   {
     url: 'https://www.israelhayom.com/feed/',
     source: 'Israel Hayom',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -371,6 +395,7 @@ const rssFeeds = [
   {
     url: 'https://kyivindependent.com/news-archive/rss/',
     source: 'The Kyiv Independent',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -381,6 +406,7 @@ const rssFeeds = [
   {
     url: 'https://www.voanews.com/api/zobo_egviy',
     source: 'VOA News - East Asia',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -391,6 +417,7 @@ const rssFeeds = [
   {
     url: 'https://www.voanews.com/api/z-botevtiq',
     source: 'VOA News - Africa',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -401,6 +428,7 @@ const rssFeeds = [
   {
     url: 'https://www.voanews.com/api/zmjuqteb_kqo',
     source: 'VOA News - China News',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -411,6 +439,7 @@ const rssFeeds = [
   {
     url: 'https://www.voanews.com/api/z_-mqyerv_qv',
     source: 'VOA News - South and Central Asia',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -421,6 +450,7 @@ const rssFeeds = [
   {
     url: 'https://www.voanews.com/api/zrbopeuvim',
     source: 'VOA News - Middle East',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -432,6 +462,7 @@ const rssFeeds = [
   {
     url: 'https://www.voanews.com/api/zjboveytit',
     source: 'VOA News - Europe',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -442,6 +473,7 @@ const rssFeeds = [
   {
     url: 'https://www.voanews.com/api/zt_rqyeirqqy',
     source: 'VOA News - Ukraine',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -452,6 +484,7 @@ const rssFeeds = [
   {
     url: 'https://www.voanews.com/api/zoripegtim',
     source: 'VOA News - Americas',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -462,6 +495,7 @@ const rssFeeds = [
   {
     url: 'https://www.voanews.com/api/zbuiqyetppqv',
     source: 'VOA News - Extremism Watch',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -472,6 +506,7 @@ const rssFeeds = [
   {
     url: 'https://www.voanews.com/api/ziu-qoejibqo',
     source: 'VOA News - Flashpoint Global Crises',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -482,6 +517,7 @@ const rssFeeds = [
   {
     url: 'https://www.voanews.com/api/z-ukqqevpgqi',
     source: 'VOA News - Flashpoint Ukraine',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -492,6 +528,7 @@ const rssFeeds = [
   {
     url: 'https://www.voanews.com/api/zumgqoepbgqp',
     source: 'VOA News - International Edition',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -502,6 +539,7 @@ const rssFeeds = [
   {
     url: 'https://www.voanews.com/api/zvq-qveok-qv',
     source: 'VOA News - Issues in the News',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -512,6 +550,7 @@ const rssFeeds = [
   {
     url: 'https://www.voanews.com/api/zmbjqvebv-qr',
     source: 'VOA News - Fact Checks',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -522,6 +561,7 @@ const rssFeeds = [
   {
     url: 'https://blog.4president.us/2024/atom.xml',
     source: 'Blog4President',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -534,6 +574,7 @@ const rssFeeds = [
   {
     url: 'https://www.spaceforce.mil/DesktopModules/ArticleCS/RSS.ashx?ContentType=1&Site=1060&isdashboardselected=0&max=20&Category=23812',
     source: 'Space Force News',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -544,6 +585,7 @@ const rssFeeds = [
   {
     url: 'https://www.smh.com.au/rss/world.xml',
     source: 'Sydney Morning Herald',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -554,6 +596,7 @@ const rssFeeds = [
   {
     url: 'https://www.state.gov/rss-feed/africa/feed/',
     source: 'U.S. State Department - Africa',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -564,6 +607,7 @@ const rssFeeds = [
   {
     url: 'https://www.state.gov/rss-feed/east-asia-and-the-pacific/feed/',
     source: 'U.S. State Department - East Asia and the Pacific',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -574,6 +618,7 @@ const rssFeeds = [
   {
     url: 'https://www.state.gov/rss-feed/europe-and-eurasia/feed/',
     source: 'U.S. State Department - Europe and Eurasia',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -584,6 +629,7 @@ const rssFeeds = [
   {
     url: 'https://www.state.gov/rss-feed/near-east/feed/',
     source: 'U.S. State Department - Near East',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -594,6 +640,7 @@ const rssFeeds = [
   {
     url: 'https://www.state.gov/rss-feed/south-and-central-asia/feed/',
     source: 'U.S. State Department - South and Central Asia',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -604,6 +651,7 @@ const rssFeeds = [
   {
     url: 'https://www.defense.gov/DesktopModules/ArticleCS/RSS.ashx?ContentType=9&Site=945&max=10',
     source: 'U.S. Department of Defense',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -614,6 +662,7 @@ const rssFeeds = [
   {
     url: 'https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=100727362',
     source: 'CNBC',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -624,6 +673,7 @@ const rssFeeds = [
   {
     url: 'https://www.understandingwar.org/rss.xml',
     source: 'ISW',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -635,6 +685,7 @@ const rssFeeds = [
   {
     url: 'https://www.cbc.ca/webfeed/rss/rss-world',
     source: 'CBC',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -645,6 +696,7 @@ const rssFeeds = [
   {
     url: 'https://www.thecipherbrief.com/feed',
     source: 'Cipher Brief',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -655,6 +707,7 @@ const rssFeeds = [
   {
     url: 'https://www.ctvnews.ca/rss/world/ctvnews-ca-world-public-rss-1.822289',
     source: 'CTV News',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -665,6 +718,7 @@ const rssFeeds = [
   {
     url: 'https://www.channelnewsasia.com/api/v1/rss-outbound-feed?_format=xml&category=6511',
     source: 'Channel News Asia',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -675,6 +729,7 @@ const rssFeeds = [
   {
     url: 'https://feeds.buzzsprout.com/1759080.rss',
     source: 'Factal Forecast',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -685,6 +740,7 @@ const rssFeeds = [
   {
     url: 'https://worldnewsera.com/feed/',
     source: 'World News Era',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -695,6 +751,7 @@ const rssFeeds = [
   {
     url: 'https://www.scmp.com/rss/91/feed',
     source: 'South China Morning Post',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -705,6 +762,7 @@ const rssFeeds = [
   {
     url: 'https://www.euronews.com/rss?level=vertical&name=news',
     source: 'Euro News',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -715,6 +773,7 @@ const rssFeeds = [
   {
     url: 'https://thefederalist.com/feed/',
     source: 'The Federalist',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -725,6 +784,7 @@ const rssFeeds = [
   {
     url: 'https://www.reddit.com/r/breakingnews/new.rss',
     source: 'Breaking News Subreddit',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -735,6 +795,7 @@ const rssFeeds = [
   {
     url: 'https://www.reddit.com/r/YemeniCrisis/new.rss',
     source: 'Yemeni Crisis Subreddit',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -745,6 +806,7 @@ const rssFeeds = [
   {
     url: 'https://www.reddit.com/r/worldnews/rising.rss',
     source: 'World News Subreddit',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -755,6 +817,7 @@ const rssFeeds = [
   {
     url: 'https://www.reddit.com/r/InternationalNews.rss',
     source: 'International News Subreddit',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -765,6 +828,7 @@ const rssFeeds = [
   {
     url: 'https://www.naharnet.com/tags/lebanon/en/feed.atom',
     source: 'Naharnet - Lebanon',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -775,6 +839,7 @@ const rssFeeds = [
   {
     url: 'https://www.naharnet.com/tags/middle-east/en/feed.atom',
     source: 'Naharnet - Middle East',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -785,6 +850,7 @@ const rssFeeds = [
   {
     url: 'https://rsshub.app/telegram/channel/WOLPalestine',
     source: 'WOLPalestine Telegram',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -795,6 +861,7 @@ const rssFeeds = [
   {
     url: 'https://rsshub.app/telegram/channel/kpszsu',
     source: 'Air Force of the Armed Forces of Ukraine Telegram',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -805,6 +872,7 @@ const rssFeeds = [
   {
     url: 'https://api.weather.gov/alerts/active.atom?certainty=Likely%2CObserved&severity=Extreme%2CSevere&urgency=Future%2CExpected%2CImmediate',
     source: 'National Weather Service',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: ['Flood Warning'],
     backups: [
@@ -815,15 +883,18 @@ const rssFeeds = [
   {
     url: 'https://rsshub.woodland.cafe/telegram/channel/News_cabinet_news',
     source: 'Israel Security Cabinet News',
+    priorityLevel: 'High',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
+      'https://api.allorigins.win/get?url=https%3A%2F%2Frsshub.app%2Ftelegram%2Fchannel%2FNews_cabinet_news'
       'https://corsproxy.io/?https%3A%2F%2Frsshub.app%2Ftelegram%2Fchannel%2FNews_cabinet_news',
     ]
   },
   {
     url: 'https://rsshub.viki.moe/telegram/channel/Saba_Newsye',
-    source: 'Saba Agency Telegram',
+    source: 'High',
+    priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -833,6 +904,7 @@ const rssFeeds = [
   {
     url: 'https://rss.peachyjoy.top/telegram/channel/epochtimes',
     source: 'Epoch Times Telegram',
+    priorityLevel: 'High',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -842,6 +914,7 @@ const rssFeeds = [
   {
     url: 'https://rss-bridge.org/bridge01/?action=display&username=StandWithUsBreakingNews&bridge=TelegramBridge&format=Atom',
     source: 'Stand With Us Breaking News Telegram',
+    priorityLevel: 'High',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
@@ -852,6 +925,7 @@ const rssFeeds = [
   {
     url: 'https://global.shakemovie.princeton.edu/shakemovie/rss',
     source: 'Global Shake Princeton',
+    priorityLevel: 'Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
