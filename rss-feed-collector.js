@@ -856,7 +856,8 @@ document.addEventListener('DOMContentLoaded', () => {
       backups: [
         'https://corsproxy.io/?https%3A%2F%2Frsshub.app%2Ftelegram%2Fchannel%2FStandWithUsBreakingNews',
       ]
-      {
+    },
+    {
       url: 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_week.atom',
       source: 'USGS',
       requiredTerms: [],
