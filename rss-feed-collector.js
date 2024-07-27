@@ -684,6 +684,13 @@ document.addEventListener('DOMContentLoaded', () => {
         'https://corsproxy.io/?https%3A%2F%2Frsshub.app%2Ftelegram%2Fchannel%2Fepochtimes',
       ]
     },
+    {
+      url: 'https://rsshub.app/telegram/channel/StandWithUsBreakingNews',
+      source: 'Stand With Us Breaking News Telegram',
+      backups: [
+        'https://corsproxy.io/?https%3A%2F%2Frsshub.app%2Ftelegram%2Fchannel%2FStandWithUsBreakingNews',
+      ]
+    },
   ];
   
   rssFeeds.sort((a, b) => a.source.localeCompare(b.source));
@@ -984,6 +991,8 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (source === 'Saba Agency Telegram') {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'Epoch Times Telegram') {
+      adjustedDate.setHours(adjustedDate.getHours() - 0);
+    } else if (source === 'Stand With Us Breaking News Telegram') {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else {
       console.warn(`No specific time adjustment found for source: ${source}`);
