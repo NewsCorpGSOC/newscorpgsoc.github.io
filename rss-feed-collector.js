@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const volumeSlider = document.getElementById('volumeSlider');
   let feedItems = [];
   let latestFeedDate = new Date(0);
-  let pingVolume = 1;
+  let pingVolume = 0.5;
   const statusItems = new Map();
 
   console.log("DOM fully loaded and parsed");
