@@ -22,6 +22,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml',
       source: 'The New York Times',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://api.allorigins.win/get?url=https%3A%2F%2Frss.nytimes.com%2Fservices%2Fxml%2Frss%2Fnyt%2FWorld.xml',
         'https://corsproxy.io/?https%3A%2F%2Frss.nytimes.com%2Fservices%2Fxml%2Frss%2Fnyt%2FHomePage.xml',
@@ -32,6 +34,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://feeds.bbci.co.uk/news/world/rss.xml',
       source: 'BBC News',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://api.allorigins.win/get?url=https%3A%2F%2Ffeeds.bbci.co.uk%2Fnews%2Fworld%2Frss.xml',
         'https://corsproxy.io/?https%3A%2F%2Ffeeds.bbci.co.uk%2Fnews%2Fworld%2Frss.xml',
@@ -42,6 +46,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://www.theguardian.com/world/rss',
       source: 'The Guardian',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.theguardian.com%2Fworld%2Frss',
         'https://corsproxy.io/?https%3A%2F%2Fwww.theguardian.com%2Fworld%2Frss',
@@ -52,6 +58,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://www.aljazeera.com/xml/rss/all.xml',
       source: 'Al Jazeera - Latest',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.aljazeera.com%2Fxml%2Frss%2Fall.xml',
         'https://corsproxy.io/?https%3A%2F%2Fwww.aljazeera.com%2Fxml%2Frss%2Fall.xml',
@@ -60,6 +68,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://wol.com/feed/',
       source: 'World Online',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://api.allorigins.win/get?url=https%3A%2F%2Fwol.com%2Ffeed%2F',
         'https://corsproxy.io/?https%3A%2F%2Fwol.com%2Ffeed%2F',
@@ -68,6 +78,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://rss-bridge.org/bridge01/?action=display&topic=world-news&context=Custom+Topic&bridge=AssociatedPressNewsBridge&format=Atom',
       source: 'Associated Press',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://api.allorigins.win/get?url=https%3A%2F%2Frss-bridge.org%2Fbridge01%2F%3Faction%3Ddisplay%26topic%3Dworld-news%26context%3DCustom%2BTopic%26bridge%3DAssociatedPressNewsBridge%26format%3DAtom',
         'https://corsproxy.io/?https%3A%2F%2Frss-bridge.org%2Fbridge01%2F%3Faction%3Ddisplay%26topic%3Dworld-news%26context%3DCustom%2BTopic%26bridge%3DAssociatedPressNewsBridge%26format%3DAtom',
@@ -76,6 +88,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://moxie.foxnews.com/google-publisher/world.xml',
       source: 'Fox News - World',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://api.allorigins.win/get?url=https%3A%2F%2Fmoxie.foxnews.com%2Fgoogle-publisher%2Fworld.xml',
         'https://corsproxy.io/?https%3A%2F%2Fmoxie.foxnews.com%2Fgoogle-publisher%2Fworld.xml',
@@ -84,6 +98,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://moxie.foxnews.com/google-publisher/latest.xml',
       source: 'Fox News Top Stories',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://api.allorigins.win/get?url=https%3A%2F%2Fmoxie.foxnews.com%2Fgoogle-publisher%2Flatest.xml',
         'https://corsproxy.io/?https%3A%2F%2Fmoxie.foxnews.com%2Fgoogle-publisher%2Flatest.xml',
@@ -92,6 +108,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://feeds.npr.org/1001/rss.xml',
       source: 'NPR News',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://api.allorigins.win/get?url=https%3A%2F%2Ffeeds.npr.org%2F1001%2Frss.xml',
         'https://corsproxy.io/?https%3A%2F%2Ffeeds.npr.org%2F1001%2Frss.xml',
@@ -100,6 +118,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://news.un.org/feed/subscribe/en/news/all/rss.xml',
       source: 'UN News',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://api.allorigins.win/get?url=https%3A%2F%2Fnews.un.org%2Ffeed%2Fsubscribe%2Fen%2Fnews%2Fall%2Frss.xml',
         'https://corsproxy.io/?https%3A%2F%2Fnews.un.org%2Ffeed%2Fsubscribe%2Fen%2Fnews%2Fall%2Frss.xml',
@@ -108,6 +128,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://news.yahoo.com/rss/world',
       source: 'Yahoo News',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://api.allorigins.win/get?url=https%3A%2F%2Fnews.yahoo.com%2Frss%2Fworld',
         'https://corsproxy.io/?https%3A%2F%2Fnews.yahoo.com%2Frss%2Fworld',
@@ -116,6 +138,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://www.politico.eu/feed/',
       source: 'Politico EU',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.politico.eu%2Ffeed%2F',
         'https://corsproxy.io/?https%3A%2F%2Fwww.politico.eu%2Ffeed%2F',
@@ -124,6 +148,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://www.thestar.com/search/?f=rss&t=article&c=news/world*&l=50&s=start_time&sd=desc',
       source: 'The Star',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.thestar.com%2Fsearch%2F%3Ff%3Drss%26t%3Darticle%26c%3Dnews%2Fworld*%26l%3D50%26s%3Dstart_time%26sd%3Ddesc',
         'https://corsproxy.io/?https%3A%2F%2Fwww.thestar.com%2Fsearch%2F%3Ff%3Drss%26t%3Darticle%26c%3Dnews%2Fworld*%26l%3D50%26s%3Dstart_time%26sd%3Ddesc',
@@ -132,6 +158,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://www.brandonsun.com/feed?path=%2Fnational%2Fbreaking-news',
       source: 'Brandon Sun',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.brandonsun.com%2Ffeed%3Fpath%3D%252Fnational%252Fbreaking-news',
         'https://corsproxy.io/?https%3A%2F%2Fwww.brandonsun.com%2Ffeed%3Fpath%3D%252Fnational%252Fbreaking-news',
@@ -140,6 +168,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://www.thehindubusinessline.com/news/?service=rss',
       source: 'The Hindu Business Line',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.thehindubusinessline.com%2Fnews%2F%3Fservice%3Drss',
         'https://corsproxy.io/?https%3A%2F%2Fwww.thehindubusinessline.com%2Fnews%2F%3Fservice%3Drss',
@@ -148,6 +178,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://zeenews.india.com/rss/world-news.xml',
       source: 'Zee News India',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://api.allorigins.win/get?url=https%3A%2F%2Fzeenews.india.com%2Frss%2Fworld-news.xml',
         'https://corsproxy.io/?https%3A%2F%2Fzeenews.india.com%2Frss%2Fworld-news.xml',
@@ -156,6 +188,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://www.livemint.com/rss/politics',
       source: 'Live Mint India',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.livemint.com%2Frss%2Fpolitics',
         'https://corsproxy.io/?https%3A%2F%2Fwww.livemint.com%2Frss%2Fpolitics',
@@ -164,6 +198,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://www.ft.com/world-uk?format=rss',
       source: 'Financial Times',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.ft.com%2Fworld-uk%3Fformat%3Drss',
         'https://corsproxy.io/?https%3A%2F%2Fwww.ft.com%2Fworld-uk%3Fformat%3Drss',
@@ -172,6 +208,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://feeds.skynews.com/feeds/rss/politics.xml',
       source: 'Sky News Politics',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://api.allorigins.win/get?url=https%3A%2F%2Ffeeds.skynews.com%2Ffeeds%2Frss%2Fpolitics.xml',
         'https://corsproxy.io/?https%3A%2F%2Ffeeds.skynews.com%2Ffeeds%2Frss%2Fpolitics.xml',
@@ -181,6 +219,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://www.economist.com/europe/rss.xml',
       source: 'The Economist - Europe',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.economist.com%2Feurope%2Frss.xml',
         'https://corsproxy.io/?https%3A%2F%2Fwww.economist.com%2Feurope%2Frss.xml',
@@ -189,6 +229,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://www.economist.com/the-americas/rss.xml',
       source: 'The Economist - Americas',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.economist.com%2Fthe-americas%2Frss.xml',
         'https://corsproxy.io/?https%3A%2F%2Fwww.economist.com%2Fthe-americas%2Frss.xml',
@@ -197,6 +239,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://www.economist.com/middle-east-and-africa/rss.xml',
       source: 'The Economist - MENA',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.economist.com%2Fmiddle-east-and-africa%2Frss.xml',
         'https://corsproxy.io/?https%3A%2F%2Fwww.economist.com%2Fmiddle-east-and-africa%2Frss.xml',
@@ -205,6 +249,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://www.nzherald.co.nz/arc/outboundfeeds/rss/section/world/?outputType=xml&_website=nzh',
       source: 'The New Zealand Herald',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.nzherald.co.nz%2Farc%2Foutboundfeeds%2Frss%2Fsection%2Fworld%2F%3FoutputType%3Dxml%26_website%3Dnzh',
         'https://corsproxy.io/?https%3A%2F%2Fwww.nzherald.co.nz%2Farc%2Foutboundfeeds%2Frss%2Fsection%2Fworld%2F%3FoutputType%3Dxml%26_website%3Dnzh',
@@ -213,6 +259,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://feeds.a.dj.com/rss/RSSWorldNews.xml',
       source: 'Wall Street Journal',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://api.allorigins.win/get?url=https%3A%2F%2Ffeeds.a.dj.com%2Frss%2FRSSWorldNews.xml',
         'https://corsproxy.io/?https%3A%2F%2Ffeeds.a.dj.com%2Frss%2FRSSWorldNews.xml',
@@ -221,6 +269,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://rss.jpost.com/rss/rssfeedsarabisraeliconflict.aspx',
       source: 'The Jerusalem Post - Arab-Israeli Conflict',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://api.allorigins.win/get?url=https%3A%2F%2Frss.jpost.com%2Frss%2Frssfeedsarabisraeliconflict.aspx',
         'https://corsproxy.io/?https%3A%2F%2Frss.jpost.com%2Frss%2Frssfeedsarabisraeliconflict.aspx',
@@ -229,6 +279,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://rss.jpost.com/rss/rssfeedsheadlines.aspx',
       source: 'The Jerusalem Post - Breaking News',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://api.allorigins.win/get?url=https%3A%2F%2Frss.jpost.com%2Frss%2Frssfeedsheadlines.aspx',
         'https://corsproxy.io/?https%3A%2F%2Frss.jpost.com%2Frss%2Frssfeedsheadlines.aspx',
@@ -237,6 +289,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://rss.jpost.com/rss/rssfeedsinternational',
       source: 'The Jerusalem Post - World News',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://api.allorigins.win/get?url=https%3A%2F%2Frss.jpost.com%2Frss%2Frssfeedsinternational',
         'https://corsproxy.io/?https%3A%2F%2Frss.jpost.com%2Frss%2Frssfeedsinternational',
@@ -245,6 +299,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://rss.jpost.com/rss/israel-hamas-war',
       source: 'The Jerusalem Post - Israel-Hamas War',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://api.allorigins.win/get?url=https%3A%2F%2Frss.jpost.com%2Frss%2Fisrael-hamas-war',
         'https://corsproxy.io/?https%3A%2F%2Frss.jpost.com%2Frss%2Fisrael-hamas-war',
@@ -253,6 +309,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://rss.jpost.com/rss/rssfeedsmiddleeastnews.aspx',
       source: 'The Jerusalem Post - Middle East News',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://api.allorigins.win/get?url=https%3A%2F%2Frss.jpost.com%2Frss%2Frssfeedsmiddleeastnews.aspx',
         'https://corsproxy.io/?https%3A%2F%2Frss.jpost.com%2Frss%2Frssfeedsmiddleeastnews.aspx',
@@ -262,6 +320,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://rss.jpost.com/rss/rssukrainerussiawar',
       source: 'The Jerusalem Post - Ukraine-Russia War',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://api.allorigins.win/get?url=https%3A%2F%2Frss.jpost.com%2Frss%2Frssukrainerussiawar',
         'https://corsproxy.io/?https%3A%2F%2Frss.jpost.com%2Frss%2Frssukrainerussiawar',
@@ -270,6 +330,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://rss.jpost.com/rss/rssfeedsgaza.aspx',
       source: 'The Jerusalem Post - Gaza',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://api.allorigins.win/get?url=https%3A%2F%2Frss.jpost.com%2Frss%2Frssfeedsgaza.aspx',
         'https://corsproxy.io/?https%3A%2F%2Frss.jpost.com%2Frss%2Frssfeedsgaza.aspx',
@@ -278,6 +340,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://thehill.com/feed/?feed=partnerfeed-news-feed&format=rss',
       source: 'The Hill',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://api.allorigins.win/get?url=https%3A%2F%2Fthehill.com%2Ffeed%2F%3Ffeed%3Dpartnerfeed-news-feed%26format%3Drss',
         'https://corsproxy.io/?https%3A%2F%2Fthehill.com%2Ffeed%2F%3Ffeed%3Dpartnerfeed-news-feed%26format%3Drss',
@@ -286,6 +350,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://nypost.com/feed/',
       source: 'New York Post',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://api.allorigins.win/get?url=https%3A%2F%2Fnypost.com%2Ffeed%2F',
         'https://corsproxy.io/?https%3A%2F%2Fnypost.com%2Ffeed%2F',
@@ -294,6 +360,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://news.usni.org/feed',
       source: 'USNI News',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://api.allorigins.win/get?url=https%3A%2F%2Fnews.usni.org%2Ffeed',
         'https://corsproxy.io/?https%3A%2F%2Fnews.usni.org%2Ffeed',
@@ -302,6 +370,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://www.israelhayom.com/feed/',
       source: 'Israel Hayom',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.israelhayom.com%2Ffeed%2F',
         'https://corsproxy.io/?https%3A%2F%2Fwww.israelhayom.com%2Ffeed%2F',
@@ -310,6 +380,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://kyivindependent.com/news-archive/rss/',
       source: 'The Kyiv Independent',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://api.allorigins.win/get?url=https%3A%2F%2Fkyivindependent.com%2Fnews-archive%2Frss%2F',
         'https://corsproxy.io/?https%3A%2F%2Fkyivindependent.com%2Fnews-archive%2Frss%2F',
@@ -318,6 +390,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://www.voanews.com/api/zobo_egviy',
       source: 'VOA News - East Asia',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.voanews.com%2Fapi%2Fzobo_egviy',
         'https://corsproxy.io/?https%3A%2F%2Fwww.voanews.com%2Fapi%2Fzobo_egviy',
@@ -326,6 +400,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://www.voanews.com/api/z-botevtiq',
       source: 'VOA News - Africa',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.voanews.com%2Fapi%2Fz-botevtiq',
         'https://corsproxy.io/?https%3A%2F%2Fwww.voanews.com%2Fapi%2Fz-botevtiq',
@@ -334,6 +410,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://www.voanews.com/api/zmjuqteb_kqo',
       source: 'VOA News - China News',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.voanews.com%2Fapi%2Fzmjuqteb_kqo',
         'https://corsproxy.io/?https%3A%2F%2Fwww.voanews.com%2Fapi%2Fzmjuqteb_kqo',
@@ -342,6 +420,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://www.voanews.com/api/z_-mqyerv_qv',
       source: 'VOA News - South and Central Asia',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.voanews.com%2Fapi%2Fz_-mqyerv_qv',
         'https://corsproxy.io/?https%3A%2F%2Fwww.voanews.com%2Fapi%2Fz_-mqyerv_qv',
@@ -350,6 +430,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://www.voanews.com/api/zrbopeuvim',
       source: 'VOA News - Middle East',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.voanews.com%2Fapi%2Fzrbopeuvim',
         'https://corsproxy.io/?https%3A%2F%2Fwww.voanews.com%2Fapi%2Fzrbopeuvim',
@@ -359,6 +441,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://www.voanews.com/api/zjboveytit',
       source: 'VOA News - Europe',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.voanews.com%2Fapi%2Fzjboveytit',
         'https://corsproxy.io/?https%3A%2F%2Fwww.voanews.com%2Fapi%2Fzjboveytit',
@@ -367,6 +451,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://www.voanews.com/api/zt_rqyeirqqy',
       source: 'VOA News - Ukraine',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.voanews.com%2Fapi%2Fzt_rqyeirqqy',
         'https://corsproxy.io/?https%3A%2F%2Fwww.voanews.com%2Fapi%2Fzt_rqyeirqqy',
@@ -375,6 +461,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://www.voanews.com/api/zoripegtim',
       source: 'VOA News - Americas',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.voanews.com%2Fapi%2Fzoripegtim',
         'https://corsproxy.io/?https%3A%2F%2Fwww.voanews.com%2Fapi%2Fzoripegtim',
@@ -383,6 +471,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://www.voanews.com/api/zbuiqyetppqv',
       source: 'VOA News - Extremism Watch',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.voanews.com%2Fapi%2Fzbuiqyetppqv',
         'https://corsproxy.io/?https%3A%2F%2Fwww.voanews.com%2Fapi%2Fzbuiqyetppqv',
@@ -391,6 +481,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://www.voanews.com/api/ziu-qoejibqo',
       source: 'VOA News - Flashpoint Global Crises',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.voanews.com%2Fapi%2Fziu-qoejibqo',
         'https://corsproxy.io/?https%3A%2F%2Fwww.voanews.com%2Fapi%2Fziu-qoejibqo',
@@ -399,6 +491,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://www.voanews.com/api/z-ukqqevpgqi',
       source: 'VOA News - Flashpoint Ukraine',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.voanews.com%2Fapi%2Fz-ukqqevpgqi',
         'https://corsproxy.io/?https%3A%2F%2Fwww.voanews.com%2Fapi%2Fz-ukqqevpgqi',
@@ -407,6 +501,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://www.voanews.com/api/zumgqoepbgqp',
       source: 'VOA News - International Edition',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.voanews.com%2Fapi%2Fzumgqoepbgqp',
         'https://corsproxy.io/?https%3A%2F%2Fwww.voanews.com%2Fapi%2Fzumgqoepbgqp',
@@ -415,6 +511,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://www.voanews.com/api/zvq-qveok-qv',
       source: 'VOA News - Issues in the News',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.voanews.com%2Fapi%2Fzvq-qveok-qv',
         'https://corsproxy.io/?https%3A%2F%2Fwww.voanews.com%2Fapi%2Fzvq-qveok-qv',
@@ -423,6 +521,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://www.voanews.com/api/zmbjqvebv-qr',
       source: 'VOA News - Fact Checks',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.voanews.com%2Fapi%2Fzmbjqvebv-qr',
         'https://corsproxy.io/?https%3A%2F%2Fwww.voanews.com%2Fapi%2Fzmbjqvebv-qr',
@@ -431,6 +531,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://blog.4president.us/2024/atom.xml',
       source: 'Blog4President',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://api.allorigins.win/get?url=https%3A%2F%2Fblog.4president.us%2F2024%2Fatom.xml',
         'https://corsproxy.io/?https%3A%2F%2Fblog.4president.us%2F2024%2Fatom.xml',
@@ -441,6 +543,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://www.spaceforce.mil/DesktopModules/ArticleCS/RSS.ashx?ContentType=1&Site=1060&isdashboardselected=0&max=20&Category=23812',
       source: 'Space Force News',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.spaceforce.mil%2FDesktopModules%2FArticleCS%2FRSS.ashx%3FContentType%3D1%26Site%3D1060%26isdashboardselected%3D0%26max%3D20%26Category%3D23812',
         'https://corsproxy.io/?https%3A%2F%2Fwww.spaceforce.mil%2FDesktopModules%2FArticleCS%2FRSS.ashx%3FContentType%3D1%26Site%3D1060%26isdashboardselected%3D0%26max%3D20%26Category%3D23812',
@@ -449,6 +553,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://www.smh.com.au/rss/world.xml',
       source: 'Sydney Morning Herald',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.smh.com.au%2Frss%2Fworld.xml',
         'https://corsproxy.io/?https%3A%2F%2Fwww.smh.com.au%2Frss%2Fworld.xml',
@@ -457,6 +563,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://www.state.gov/rss-feed/africa/feed/',
       source: 'U.S. State Department - Africa',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://corsproxy.io/?https%3A%2F%2Fwww.state.gov%2Frss-feed%2Fafrica%2Ffeed%2F',
         'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.state.gov%2Frss-feed%2Fafrica%2Ffeed%2F',
@@ -465,6 +573,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://www.state.gov/rss-feed/east-asia-and-the-pacific/feed/',
       source: 'U.S. State Department - East Asia and the Pacific',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://corsproxy.io/?https%3A%2F%2Fwww.state.gov%2Frss-feed%2Feast-asia-and-the-pacific%2Ffeed%2F',
         'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.state.gov%2Frss-feed%2Feast-asia-and-the-pacific%2Ffeed%2F',
@@ -473,6 +583,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://www.state.gov/rss-feed/europe-and-eurasia/feed/',
       source: 'U.S. State Department - Europe and Eurasia',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://corsproxy.io/?https%3A%2F%2Fwww.state.gov%2Frss-feed%2Feurope-and-eurasia%2Ffeed%2F',
         'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.state.gov%2Frss-feed%2Feurope-and-eurasia%2Ffeed%2F',
@@ -481,6 +593,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://www.state.gov/rss-feed/near-east/feed/',
       source: 'U.S. State Department - Near East',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://corsproxy.io/?https%3A%2F%2Fwww.state.gov%2Frss-feed%2Fnear-east%2Ffeed%2F',
         'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.state.gov%2Frss-feed%2Fnear-east%2Ffeed%2F',
@@ -489,6 +603,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://www.state.gov/rss-feed/south-and-central-asia/feed/',
       source: 'U.S. State Department - South and Central Asia',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://corsproxy.io/?https%3A%2F%2Fwww.state.gov%2Frss-feed%2Fsouth-and-central-asia%2Ffeed%2F',
         'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.state.gov%2Frss-feed%2Fsouth-and-central-asia%2Ffeed%2F',
@@ -497,6 +613,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://www.defense.gov/DesktopModules/ArticleCS/RSS.ashx?ContentType=9&Site=945&max=10',
       source: 'U.S. Department of Defense',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.defense.gov%2FDesktopModules%2FArticleCS%2FRSS.ashx%3FContentType%3D9%26Site%3D945%26max%3D10',
         'https://corsproxy.io/?https%3A%2F%2Fwww.defense.gov%2FDesktopModules%2FArticleCS%2FRSS.ashx%3FContentType%3D9%26Site%3D945%26max%3D10',
@@ -505,6 +623,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=100727362',
       source: 'CNBC',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://api.allorigins.win/get?url=https%3A%2F%2Fsearch.cnbc.com%2Frs%2Fsearch%2Fcombinedcms%2Fview.xml%3FpartnerId%3Dwrss01%26id%3D100727362',
         'https://corsproxy.io/?https%3A%2F%2Fsearch.cnbc.com%2Frs%2Fsearch%2Fcombinedcms%2Fview.xml%3FpartnerId%3Dwrss01%26id%3D100727362',
@@ -513,6 +633,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://www.understandingwar.org/rss.xml',
       source: 'ISW',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.understandingwar.org%2Frss.xml',
         'https://corsproxy.io/?https%3A%2F%2Fwww.understandingwar.org%2Frss.xml',
@@ -522,6 +644,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://www.cbc.ca/webfeed/rss/rss-world',
       source: 'CBC',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.cbc.ca%2Fwebfeed%2Frss%2Frss-world',
         'https://corsproxy.io/?https%3A%2F%2Fwww.cbc.ca%2Fwebfeed%2Frss%2Frss-world',
@@ -530,6 +654,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://www.thecipherbrief.com/feed',
       source: 'Cipher Brief',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.thecipherbrief.com%2Ffeed',
         'https://corsproxy.io/?https%3A%2F%2Fwww.thecipherbrief.com%2Ffeed',
@@ -538,6 +664,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://www.ctvnews.ca/rss/world/ctvnews-ca-world-public-rss-1.822289',
       source: 'CTV News',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.ctvnews.ca%2Frss%2Fworld%2Fctvnews-ca-world-public-rss-1.822289',
         'https://corsproxy.io/?https%3A%2F%2Fwww.ctvnews.ca%2Frss%2Fworld%2Fctvnews-ca-world-public-rss-1.822289',
@@ -546,6 +674,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://www.channelnewsasia.com/api/v1/rss-outbound-feed?_format=xml&category=6511',
       source: 'Channel News Asia',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.channelnewsasia.com%2Fapi%2Fv1%2Frss-outbound-feed%3F_format%3Dxml%26category%3D6511',
         'https://corsproxy.io/?https%3A%2F%2Fwww.channelnewsasia.com%2Fapi%2Fv1%2Frss-outbound-feed%3F_format%3Dxml%26category%3D6511',
@@ -554,6 +684,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://feeds.buzzsprout.com/1759080.rss',
       source: 'Factal Forecast',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://api.allorigins.win/get?url=https%3A%2F%2Ffeeds.buzzsprout.com%2F1759080.rss',
         'https://corsproxy.io/?https%3A%2F%2Ffeeds.buzzsprout.com%2F1759080.rss',
@@ -562,6 +694,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://worldnewsera.com/feed/',
       source: 'World News Era',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://api.allorigins.win/get?url=https%3A%2F%2Fworldnewsera.com%2Ffeed%2F',
         'https://corsproxy.io/?https%3A%2F%2Fworldnewsera.com%2Ffeed%2F',
@@ -570,6 +704,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://www.scmp.com/rss/91/feed',
       source: 'South China Morning Post',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.scmp.com%2Frss%2F91%2Ffeed',
         'https://corsproxy.io/?https%3A%2F%2Fwww.scmp.com%2Frss%2F91%2Ffeed',
@@ -578,6 +714,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://www.euronews.com/rss?level=vertical&name=news',
       source: 'Euro News',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.euronews.com%2Frss%3Flevel%3Dvertical%26name%3Dnews',
         'https://corsproxy.io/?https%3A%2F%2Fwww.euronews.com%2Frss%3Flevel%3Dvertical%26name%3Dnews',
@@ -586,6 +724,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://thefederalist.com/feed/',
       source: 'The Federalist',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://api.allorigins.win/get?url=https%3A%2F%2Fthefederalist.com%2Ffeed%2F',
         'https://corsproxy.io/?https%3A%2F%2Fthefederalist.com%2Ffeed%2F',
@@ -594,6 +734,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://www.reddit.com/r/breakingnews/new.rss',
       source: 'Breaking News Subreddit',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://corsproxy.io/?https%3A%2F%2Fwww.reddit.com%2Fr%2Fbreakingnews.rss',
         'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.reddit.com%2Fr%2Fbreakingnews.rss',
@@ -602,6 +744,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://www.reddit.com/r/YemeniCrisis/new.rss',
       source: 'Yemeni Crisis Subreddit',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://corsproxy.io/?https%3A%2F%2Fwww.reddit.com%2Fr%2FYemeniCrisis%2Fnew.rss',
         'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.reddit.com%2Fr%2FYemeniCrisis%2Fnew.rss',
@@ -610,6 +754,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://www.reddit.com/r/worldnews/rising.rss',
       source: 'World News Subreddit',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://corsproxy.io/?https%3A%2F%2Fwww.reddit.com%2Fr%2Fworldnews%2Frising.rss',
         'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.reddit.com%2Fr%2Fworldnews%2Frising.rss',
@@ -618,6 +764,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://www.reddit.com/r/InternationalNews.rss',
       source: 'International News Subreddit',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://corsproxy.io/?https%3A%2F%2Fwww.reddit.com%2Fr%2FInternationalNews.rss',
         'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.reddit.com%2Fr%2FInternationalNews.rss',
@@ -626,6 +774,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://www.naharnet.com/tags/lebanon/en/feed.atom',
       source: 'Naharnet - Lebanon',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://corsproxy.io/?https%3A%2F%2Fwww.naharnet.com%2Ftags%2Flebanon%2Fen%2Ffeed.atom',
         'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.naharnet.com%2Ftags%2Flebanon%2Fen%2Ffeed.atom',
@@ -634,6 +784,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://www.naharnet.com/tags/middle-east/en/feed.atom',
       source: 'Naharnet - Middle East',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://corsproxy.io/?https%3A%2F%2Fwww.naharnet.com%2Ftags%2Fmiddle-east%2Fen%2Ffeed.atom',
         'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.naharnet.com%2Ftags%2Fmiddle-east%2Fen%2Ffeed.atom',
@@ -642,6 +794,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://rsshub.app/telegram/channel/WOLPalestine',
       source: 'WOLPalestine Telegram',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://corsproxy.io/?https%3A%2F%2Frsshub.app%2Ftelegram%2Fchannel%2FWOLPalestine',
         'https://api.allorigins.win/get?url=https%3A%2F%2Frsshub.app%2Ftelegram%2Fchannel%2FWOLPalestine',
@@ -650,6 +804,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://rsshub.app/telegram/channel/kpszsu',
       source: 'Air Force of the Armed Forces of Ukraine Telegram',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://corsproxy.io/?https%3A%2F%2Frsshub.app%2Ftelegram%2Fchannel%2Fkpszsu',
         'https://api.allorigins.win/get?url=https%3A%2F%2Frsshub.app%2Ftelegram%2Fchannel%2Fkpszsu',
@@ -658,6 +814,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://api.weather.gov/alerts/active.atom?certainty=Likely%2CObserved&severity=Extreme%2CSevere&urgency=Future%2CExpected%2CImmediate',
       source: 'National Weather Service',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://corsproxy.io/?https%3A%2F%2Fapi.weather.gov%2Falerts%2Factive.atom%3Fcertainty%3DLikely%252CObserved%26severity%3DExtreme%252CSevere%26urgency%3DFuture%252CExpected%252CImmediate',
         'https://api.allorigins.win/get?url=https%3A%2F%2Fapi.weather.gov%2Falerts%2Factive.atom%3Fcertainty%3DLikely%252CObserved%26severity%3DExtreme%252CSevere%26urgency%3DFuture%252CExpected%252CImmediate',
@@ -666,6 +824,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://rsshub.app/telegram/channel/News_cabinet_news',
       source: 'Israel Security Cabinet News',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://corsproxy.io/?https%3A%2F%2Frsshub.app%2Ftelegram%2Fchannel%2FNews_cabinet_news',
       ]
@@ -673,6 +833,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://rsshub.app/telegram/channel/Saba_Newsye',
       source: 'Saba Agency Telegram',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://corsproxy.io/?https%3A%2F%2Frsshub.app%2Ftelegram%2Fchannel%2FSaba_Newsye',
       ]
@@ -680,6 +842,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://rsshub.app/telegram/channel/epochtimes',
       source: 'Epoch Times Telegram',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://corsproxy.io/?https%3A%2F%2Frsshub.app%2Ftelegram%2Fchannel%2Fepochtimes',
       ]
@@ -687,6 +851,8 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       url: 'https://rsshub.app/telegram/channel/StandWithUsBreakingNews',
       source: 'Stand With Us Breaking News Telegram',
+      requiredTerms: [],
+      ignoreTerms: [],
       backups: [
         'https://corsproxy.io/?https%3A%2F%2Frsshub.app%2Ftelegram%2Fchannel%2FStandWithUsBreakingNews',
       ]
@@ -771,6 +937,9 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log('Incomplete item:', { title, link, description, pacificDate });
           }
         });
+
+        // Apply filtering based on required and ignore terms
+        feedItems = filterFeedItems(feedItems, feed.requiredTerms, feed.ignoreTerms);
   
         updateStatus(feed.source, feed.url, true);
         console.log(`Fetched ${feedItems.length} items from ${feed.source}`);
@@ -786,7 +955,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     return [];
   };
-
+  
   function decodeHTMLEntities(text) {
     const textarea = document.createElement('textarea');
     textarea.innerHTML = text;
