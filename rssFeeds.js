@@ -881,12 +881,13 @@ const rssFeeds = [
     ]
   },
   {
-    url: 'https://rsshub.woodland.cafe/telegram/channel/News_cabinet_news',
+    url: 'https://rss-bridge.org/bridge01/?action=display&username=News_cabinet_news&bridge=TelegramBridge&format=Atom',
     source: 'Israel Security Cabinet News',
     priorityLevel: 'High',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
+      'https://rsshub.woodland.cafe/telegram/channel/News_cabinet_news',
       'https://api.allorigins.win/get?url=https%3A%2F%2Frsshub.app%2Ftelegram%2Fchannel%2FNews_cabinet_news',
       'https://corsproxy.io/?https%3A%2F%2Frsshub.app%2Ftelegram%2Fchannel%2FNews_cabinet_news',
     ]
