@@ -829,7 +829,7 @@ const rssFeeds = [
     ]
   },
   {
-    url: 'https://rsshub.speednet.icu/telegram/channel/StandWithUsBreakingNews',
+    url: 'https://rss-bridge.org/bridge01/?action=display&username=StandWithUsBreakingNews&bridge=TelegramBridge&format=Atom',
     source: 'Stand With Us Breaking News Telegram',
     requiredTerms: [],
     ignoreTerms: [],
