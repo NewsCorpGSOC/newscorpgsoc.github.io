@@ -541,41 +541,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   volumeSlider.value = pingVolume;
 
-  async function fetchGoogleSheetDataFromCSV() {
-    const csvUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ0YYlH66mtlF0DWj4REUhGBgCZShMO1LXaWlkST5RurLGqf3DIdynDTDesB_3B0BftQHQyF1INIrtG/pub?output=csv';
-    try {
-      const response = await fetch(csvUrl);
-      const data = await response.text();
-      const parsedData = parseCSV(data);
-      return parsedData;
-    } catch (error) {
-      console.error('Error fetching Google Sheets CSV data:', error);
-    }
-  }
-
-  const parseCSV = (csv) => {
-    const rows = csv.split('\n').slice(1); // Remove header row
-    return rows.map(row => {
-      const columns = row.split(',');
-      return {
-        title: columns[0].trim(),
-        description: columns[1].trim(),
-        pubDate: new Date(columns[2].trim()),
-        link: columns[3].trim(),
-        source: 'Google Sheets' // Source can be set to distinguish these items
-      };
-    });
-  };
-
-  const integrateGoogleSheetData = async () => {
-    const googleSheetData = await fetchGoogleSheetDataFromCSV();
-    googleSheetData.forEach(item => {
-      feedItems.push(item);
-    });
-    fetchFeedsSequentially(); // Start fetching feeds after integrating Google Sheets data
-  };
-
-  integrateGoogleSheetData();
   populateSourceFilter();
   fetchFeedsSequentially();
 });
