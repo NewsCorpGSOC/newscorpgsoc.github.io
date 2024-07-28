@@ -1,4 +1,20 @@
 Sheet Name,Summary,Published (Pacific Time),Link
+National Weather Service,At 403 PM CDT, The public reported thunderstorms producing heavy
+rain across the warned area. Between 1.5 and 2.5 inches of rain have
+fallen. Additional rainfall amounts up to 1 inch are possible in the
+warned area. Flash flooding is already occurring.
+
+HAZARD...Flash flooding caused by thunderstorms.
+
+SOURCE...Public reported several flooded roadways across the
+Sioux City metro.
+
+IMPACT...Flash flooding of small creeks and streams, urban areas,
+highways, streets and underpasses as well as other poor
+drainage and low-lying areas.
+
+Some locations that will experience flash flooding include...
+Sioux City, South Sioux City, Sergeant Bluff and Dakota City.,Sun Jul 28 2024 14:03:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.cf98809b0f838cf532985fe812dad59dfc45d23f.001.1.cap
 National Weather Service,SVRUNR
 
 The National Weather Service in Rapid City has issued a
@@ -188,32 +204,6 @@ This includes Route 80 between mile markers 414 and 415.
 
 This includes the following streams and drainages...
 Silver Creek and Cave Creek.,Sun Jul 28 2024 13:31:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.7ace5e77cb2f21be2dc1033261d20ce862041ea8.001.1.cap
-National Weather Service,FFWFSD
-
-The National Weather Service in Sioux Falls has issued a
-
-* Flash Flood Warning for...
-Northwestern Woodbury County in west central Iowa...
-Northeastern Dakota County in northeastern Nebraska...
-
-* Until 630 PM CDT.
-
-* At 327 PM CDT, Doppler radar indicated thunderstorms producing
-heavy rain across the warned area. Between 1 and 2 inches of rain
-have fallen. Additional rainfall amounts up to 1 inch are possible
-in the warned area. Flash flooding is ongoing or expected to begin
-shortly.
-
-HAZARD...Flash flooding caused by thunderstorms.
-
-SOURCE...Radar.
-
-IMPACT...Flash flooding of small creeks and streams, urban
-areas, highways, streets and underpasses as well as
-other poor drainage and low-lying areas.
-
-* Some locations that will experience flash flooding include...
-Sioux City, South Sioux City, Sergeant Bluff and Dakota City.,Sun Jul 28 2024 13:27:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.460d3a83c94aba4e3196e6e31cbcfca07f2312d1.001.1.cap
 National Weather Service,FFWEPZ
 
 The National Weather Service in El Paso Tx/Santa Teresa has issued a
