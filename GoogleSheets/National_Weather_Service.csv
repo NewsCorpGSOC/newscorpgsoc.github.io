@@ -5,9 +5,39 @@ National Weather Service,#ERROR!,Sun Jul 28 2024 02:25:00 GMT-0700 (Pacific Dayl
 National Weather Service,#ERROR!,Sun Jul 28 2024 02:24:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4e99060219e0fcc29970539cb6fd16be7d1c2252.002.1.cap
 National Weather Service,#ERROR!,Sun Jul 28 2024 02:24:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4e99060219e0fcc29970539cb6fd16be7d1c2252.003.1.cap
 National Weather Service,#ERROR!,Sun Jul 28 2024 02:24:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4e99060219e0fcc29970539cb6fd16be7d1c2252.001.2.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 02:20:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.8943a25614c4bb53d822129375e80c410807cc2a.001.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 02:10:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.02df6b44ba1aaa6427ccab1804dbb0a3b2ee5640.001.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 02:04:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.3eeb5b6dab8f6483ff8ed0fe0889e75c1ff669e4.001.1.cap
+National Weather Service,* WHAT...Dangerously hot conditions with heat index values of 104 to
+114 possible.
+
+* WHERE...Portions of central, east central, north central, and
+northeast Kansas.
+
+* WHEN...From Monday afternoon through Thursday evening. Hottest
+conditions expected Tuesday and Wednesday afternoons.
+
+* IMPACTS...Heat related illnesses increase significantly during
+extreme heat and high humidity events.,Sun Jul 28 2024 02:20:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.8943a25614c4bb53d822129375e80c410807cc2a.001.1.cap
+National Weather Service,* IMPACTS: Low humidities and gusty winds could cause erratic fire
+behavior.
+
+* AFFECTED AREA:
+In Central WY...Fire Weather Zone 289.
+
+* COUNTIES AFFECTED:
+In Central WY...Fremont...Natrona.
+In Southwest WY...Sweetwater.
+
+* WIND: West 15 to 25 mph with gusts up to 35 mph.
+
+* HUMIDITY: As low as 13 percent.,Sun Jul 28 2024 02:10:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.02df6b44ba1aaa6427ccab1804dbb0a3b2ee5640.001.1.cap
+National Weather Service,* WHAT...Dangerously hot conditions with heat index values up to 108
+possible.
+
+* WHERE...Jewell, Mitchell, Osborne, and Smith Counties.
+
+* WHEN...From Monday afternoon through Thursday evening.
+
+* IMPACTS...Heat related illnesses increase significantly during
+extreme heat and high humidity events.,Sun Jul 28 2024 02:04:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.3eeb5b6dab8f6483ff8ed0fe0889e75c1ff669e4.001.1.cap
 National Weather Service,...The Flood Warning is extended for the following rivers in North
 Carolina...
 
