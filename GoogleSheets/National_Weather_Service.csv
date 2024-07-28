@@ -643,35 +643,6 @@ late tonight and continue falling to 15.2 feet Friday
 morning.
 - Flood stage is 26.0 feet.
 - http://www.weather.gov/safety/flood,Sun Jul 28 2024 08:50:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.afacab5c5ca9b1bbb05ecda6955db58ce9d2abe2.001.1.cap
-National Weather Service,SMWTAE
-
-The National Weather Service in Tallahassee has issued a
-
-* Special Marine Warning for...
-Coastal waters from Okaloosa-Walton County Line to Mexico Beach out
-20 NM...
-
-* Until 1130 AM CDT.
-
-* At 954 AM CDT, thunderstorms capable of producing waterspouts were
-located along a line extending from 18 nm southeast of Highway 331
-Bridge to near Panama City Beach to 12 nm northwest of Mexico
-Beach. The thunderstorms were nearly stationary.
-
-HAZARD...Waterspouts and wind gusts 34 knots or greater.
-
-SOURCE...Radar indicated.
-
-IMPACT...Waterspouts can quickly form and capsize boats...damage
-vessels...and create suddenly higher waves. Make sure all
-on board are in a secure location and wearing life
-jackets. Expect wind gusts in excess of 34
-knots...suddenly higher waves...frequent lightning...and
-heavy downpours. Make sure all on board are wearing life
-jackets.
-
-* Locations impacted include...
-Panama City Beach and Laguna Beach.,Sun Jul 28 2024 07:54:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.31e811e8cbc28d8fc60d8ad6e8bf619f1f1e6fcc.001.1.cap
 National Weather Service,...The National Weather Service in Wilmington NC has issued a Flood
 Warning for the following rivers in North Carolina...
 
@@ -1204,17 +1175,6 @@ sudden wind gusts in excess of 50 MPH possible.
 
 * IMPACTS...Any fires that develop will likely spread rapidly.
 Outdoor burning is not recommended.,Sun Jul 28 2024 02:34:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.8724b4d7077eb135daab34a4c715d23e4c289c43.002.1.cap
-National Weather Service,* AFFECTED AREA...In Colorado, Fire Weather Zone 203 Lower
-Colorado River and Fire Weather Zone 205 Colorado River
-Headwaters below 7000 feet.
-
-* WINDS...Southwest 10 to 15 mph with gusts up to 30 mph.
-
-* RELATIVE HUMIDITY...6 to 11 percent.
-
-* IMPACTS...Conditions may become favorable for the easy
-ignition and rapid spread of fires due to low relative
-humidity and strong gusty winds.,Sun Jul 28 2024 02:24:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4e99060219e0fcc29970539cb6fd16be7d1c2252.003.1.cap
 National Weather Service,* AFFECTED AREA...In Colorado, Fire Weather Zone 290 Paradox
 Valley Forecast Area, Fire Weather Zone 292 North Fork
 Forecast Area and Fire Weather Zone 293 Gunnison Basin
@@ -1229,6 +1189,17 @@ Basin, Fire Weather Zone 487 Book Cliffs and Fire Weather Zone
 * IMPACTS...Conditions may become favorable for the easy
 ignition and rapid spread of fires due to low relative
 humidity and strong gusty winds.,Sun Jul 28 2024 02:24:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4e99060219e0fcc29970539cb6fd16be7d1c2252.002.1.cap
+National Weather Service,* AFFECTED AREA...In Colorado, Fire Weather Zone 203 Lower
+Colorado River and Fire Weather Zone 205 Colorado River
+Headwaters below 7000 feet.
+
+* WINDS...Southwest 10 to 15 mph with gusts up to 30 mph.
+
+* RELATIVE HUMIDITY...6 to 11 percent.
+
+* IMPACTS...Conditions may become favorable for the easy
+ignition and rapid spread of fires due to low relative
+humidity and strong gusty winds.,Sun Jul 28 2024 02:24:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4e99060219e0fcc29970539cb6fd16be7d1c2252.003.1.cap
 National Weather Service,...FIRE WEATHER WATCH IN EFFECT FROM MONDAY AFTERNOON THROUGH
 MONDAY EVENING FOR GUSTY WINDS, LOW RELATIVE HUMIDITY AND DRY
 FUELS FOR FIRE WEATHER ZONES 200 AND 202...
