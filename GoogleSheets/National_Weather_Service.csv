@@ -1,67 +1,7 @@
 Sheet Name,Summary,Published (Pacific Time),Link
-National Weather Service,FFWHUN
-
-The National Weather Service in Huntsville has issued a
-
-* Flash Flood Warning for...
-North Central Cullman County in north central Alabama...
-Southeastern Morgan County in north central Alabama...
-
-* Until 315 PM CDT.
-
-* At 1219 PM CDT, Doppler radar and automated rain gauges indicated
-thunderstorms producing heavy rain across the warned area. Between
-1 and 3 inches of rain have fallen. The expected rainfall rate is
-1 to 3 inches in 1 hour. Flash flooding is ongoing or expected to
-begin shortly.
-
-HAZARD...Flash flooding caused by thunderstorms.
-
-SOURCE...Radar and automated gauges.
-
-IMPACT...Flash flooding of small creeks and streams, urban
-areas, highways, streets and underpasses as well as
-other poor drainage and low-lying areas.
-
-* Some locations that will experience flash flooding include...
-Cullman, Good Hope, Baldwin, Vinemont, Eva, Phelan and Ryan
-Crossroads.,Sun Jul 28 2024 10:19:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.a565328cf8be0eaab9bf78efa239db9ff1f35e09.001.1.cap
-National Weather Service,* WHAT...Flooding caused by excessive rainfall is expected.
-
-* WHERE...A portion of northeast Florida, including the following
-county, St. Johns.
-
-* WHEN...Until 230 PM EDT.
-
-* IMPACTS...Flooding of rivers, creeks, streams, and other low-lying
-and flood-prone locations is imminent or occurring.
-
-* ADDITIONAL DETAILS...
-- At 1254 PM EDT, Doppler radar indicated heavy rain due to
-thunderstorms. Flooding is ongoing or expected to begin
-shortly in the warned area. Between 2 and 3 inches of rain
-have fallen.
-- Additional rainfall amounts of 1 to 2 inches are possible in
-the warned area.
-- Some locations that will experience flooding include...
-mainly rural areas of South Central St. Johns County
-- http://www.weather.gov/safety/flood,Sun Jul 28 2024 09:54:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.8143fea6fb8095a1dcf00e9401b33d3231c2ad00.001.1.cap
-National Weather Service,The National Weather Service in Hanford has issued a Red Flag
-Warning, which is in effect until 11 PM PDT Monday.
-
-* AFFECTED AREA...Fire weather zone 595.
-
-* WIND...West/upsloping winds with maximum gusts 25-35 mph.
-
-* HUMIDITY...Minimum daytime humidity levels 15-25% or less.
-
-* THUNDERSTORMS...None.
-
-* IMPACTS...any fires that develop will likely spread rapidly.
-Outdoor burning is not recommended.
-
-* HIGHEST THREAT...dry fuels, low relative humidity, and
-elevated winds are favorable conditions for rapid fire spread.,Sun Jul 28 2024 09:24:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.e9fd8b56ca2214ffc6866894fa1396a444a6b6e0.001.1.cap
+National Weather Service,#ERROR!,Sun Jul 28 2024 10:19:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.a565328cf8be0eaab9bf78efa239db9ff1f35e09.001.1.cap
+National Weather Service,#ERROR!,Sun Jul 28 2024 09:54:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.8143fea6fb8095a1dcf00e9401b33d3231c2ad00.001.1.cap
+National Weather Service,#ERROR!,Sun Jul 28 2024 09:24:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.e9fd8b56ca2214ffc6866894fa1396a444a6b6e0.001.1.cap
 National Weather Service,* AFFECTED AREA...Fire weather zone 595.
 
 * WIND...West/upsloping winds with maximum gusts 25-35 mph.
@@ -1222,17 +1162,6 @@ sudden wind gusts in excess of 50 MPH possible.
 
 * IMPACTS...Any fires that develop will likely spread rapidly.
 Outdoor burning is not recommended.,Sun Jul 28 2024 02:34:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.8724b4d7077eb135daab34a4c715d23e4c289c43.002.1.cap
-National Weather Service,* AFFECTED AREA...In Colorado, Fire Weather Zone 203 Lower
-Colorado River and Fire Weather Zone 205 Colorado River
-Headwaters below 7000 feet.
-
-* WINDS...Southwest 10 to 15 mph with gusts up to 30 mph.
-
-* RELATIVE HUMIDITY...6 to 11 percent.
-
-* IMPACTS...Conditions may become favorable for the easy
-ignition and rapid spread of fires due to low relative
-humidity and strong gusty winds.,Sun Jul 28 2024 02:24:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4e99060219e0fcc29970539cb6fd16be7d1c2252.003.1.cap
 National Weather Service,* AFFECTED AREA...In Colorado, Fire Weather Zone 290 Paradox
 Valley Forecast Area, Fire Weather Zone 292 North Fork
 Forecast Area and Fire Weather Zone 293 Gunnison Basin
@@ -1247,6 +1176,17 @@ Basin, Fire Weather Zone 487 Book Cliffs and Fire Weather Zone
 * IMPACTS...Conditions may become favorable for the easy
 ignition and rapid spread of fires due to low relative
 humidity and strong gusty winds.,Sun Jul 28 2024 02:24:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4e99060219e0fcc29970539cb6fd16be7d1c2252.002.1.cap
+National Weather Service,* AFFECTED AREA...In Colorado, Fire Weather Zone 203 Lower
+Colorado River and Fire Weather Zone 205 Colorado River
+Headwaters below 7000 feet.
+
+* WINDS...Southwest 10 to 15 mph with gusts up to 30 mph.
+
+* RELATIVE HUMIDITY...6 to 11 percent.
+
+* IMPACTS...Conditions may become favorable for the easy
+ignition and rapid spread of fires due to low relative
+humidity and strong gusty winds.,Sun Jul 28 2024 02:24:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4e99060219e0fcc29970539cb6fd16be7d1c2252.003.1.cap
 National Weather Service,...FIRE WEATHER WATCH IN EFFECT FROM MONDAY AFTERNOON THROUGH
 MONDAY EVENING FOR GUSTY WINDS, LOW RELATIVE HUMIDITY AND DRY
 FUELS FOR FIRE WEATHER ZONES 200 AND 202...
