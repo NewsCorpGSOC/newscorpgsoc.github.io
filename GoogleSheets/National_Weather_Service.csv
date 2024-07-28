@@ -1,40 +1,6 @@
 Sheet Name,Summary,Published (Pacific Time),Link
-National Weather Service,* WHAT...Flooding caused by excessive rainfall is expected.
-
-* WHERE...A portion of northeast Florida, including the following
-county, St. Johns.
-
-* WHEN...Until 230 PM EDT.
-
-* IMPACTS...Flooding of rivers, creeks, streams, and other low-lying
-and flood-prone locations is imminent or occurring.
-
-* ADDITIONAL DETAILS...
-- At 1254 PM EDT, Doppler radar indicated heavy rain due to
-thunderstorms. Flooding is ongoing or expected to begin
-shortly in the warned area. Between 2 and 3 inches of rain
-have fallen.
-- Additional rainfall amounts of 1 to 2 inches are possible in
-the warned area.
-- Some locations that will experience flooding include...
-mainly rural areas of South Central St. Johns County
-- http://www.weather.gov/safety/flood,Sun Jul 28 2024 09:54:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.8143fea6fb8095a1dcf00e9401b33d3231c2ad00.001.1.cap
-National Weather Service,The National Weather Service in Hanford has issued a Red Flag
-Warning, which is in effect until 11 PM PDT Monday.
-
-* AFFECTED AREA...Fire weather zone 595.
-
-* WIND...West/upsloping winds with maximum gusts 25-35 mph.
-
-* HUMIDITY...Minimum daytime humidity levels 15-25% or less.
-
-* THUNDERSTORMS...None.
-
-* IMPACTS...any fires that develop will likely spread rapidly.
-Outdoor burning is not recommended.
-
-* HIGHEST THREAT...dry fuels, low relative humidity, and
-elevated winds are favorable conditions for rapid fire spread.,Sun Jul 28 2024 09:24:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.e9fd8b56ca2214ffc6866894fa1396a444a6b6e0.001.1.cap
+National Weather Service,#ERROR!,Sun Jul 28 2024 09:54:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.8143fea6fb8095a1dcf00e9401b33d3231c2ad00.001.1.cap
+National Weather Service,#ERROR!,Sun Jul 28 2024 09:24:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.e9fd8b56ca2214ffc6866894fa1396a444a6b6e0.001.1.cap
 National Weather Service,* AFFECTED AREA...Fire weather zone 595.
 
 * WIND...West/upsloping winds with maximum gusts 25-35 mph.
