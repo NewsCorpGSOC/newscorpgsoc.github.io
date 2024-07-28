@@ -1,4 +1,29 @@
 Sheet Name,Summary,Published (Pacific Time),Link
+National Weather Service,* AFFECTED AREA...Fire Weather Zone 482 Western Uintah Basin,
+Fire Weather Zone 483 Southern Ashley National Forest, Fire
+Weather Zone 484 Tavaputs Plateau, Fire Weather Zone 488 Manti
+National Forest, Fire Weather Zone 489 San Rafael Swell, Fire
+Weather Zone 494 Henry Mountains and Fire Weather Zone 497
+Mojave Desert.
+
+* WINDS...Southwest 10 to 15 mph with gusts up to 35 mph.
+
+* RELATIVE HUMIDITY...As low as 5 to 10 percent.
+
+* IMPACTS...Critical fire weather conditions are expected. Any
+new fire starts or existing fires may spread rapidly.,Sun Jul 28 2024 01:31:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.6eb8fcde8905696b8ae1e40120fd77ea0ab7ccb9.001.1.cap
+National Weather Service,* AFFECTED AREA...Fire Weather Zone 492 Central Utah West
+Desert, Fire Weather Zone 493 Central Utah Mountains, Fire
+Weather Zone 495 Color Country West Desert, Fire Weather Zone
+496 Color Country Mountains and Fire Weather Zone 498 Grand
+Staircase.
+
+* WINDS...Southwest 10 to 20 mph with gusts up to 30 mph.
+
+* RELATIVE HUMIDITY...As low as 5 to 10 percent.
+
+* IMPACTS...Critical fire weather conditions are expected. Any
+new fire starts or existing fires may spread rapidly.,Sun Jul 28 2024 01:31:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.6eb8fcde8905696b8ae1e40120fd77ea0ab7ccb9.002.1.cap
 National Weather Service,* WHAT...Dangerously hot conditions with heat index values up to 112
 expected.
 
@@ -1274,37 +1299,6 @@ Saturday, August 03.
 - Flood History...This crest compares to a previous crest of
 9.0 feet on 07/08/2014.
 - http://www.weather.gov/safety/flood,Sat Jul 27 2024 13:13:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.1728b382826161e42bbae5e476b8da7b18f8ab97.001.1.cap
-National Weather Service,* AFFECTED AREA...Fire Weather Zone 482 Western Uintah Basin,
-Fire Weather Zone 483 Southern Ashley National Forest, Fire
-Weather Zone 484 Tavaputs Plateau, Fire Weather Zone 488 Manti
-National Forest, Fire Weather Zone 489 San Rafael Swell, Fire
-Weather Zone 494 Henry Mountains and Fire Weather Zone 497
-Mojave Desert.
-
-* WINDS...On Saturday, southwest 15 to 25 mph with gusts up to
-35 mph. On Sunday, southwest winds 10 to 20 mph with gusts 25
-to 30 mph. Winds are expected to diminish Saturday night
-before redeveloping early Sunday afternoon.
-
-* RELATIVE HUMIDITY...As low as 5 to 15 percent.
-
-* IMPACTS...Critical fire weather conditions are expected. Any
-new fire starts or existing fires may spread rapidly.,Sat Jul 27 2024 12:22:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.cb6b9d2e1a11a79a4dc20c0f0d1854d7c49be8ab.002.1.cap
-National Weather Service,* AFFECTED AREA...Fire Weather Zone 492 Central Utah West
-Desert, Fire Weather Zone 493 Central Utah Mountains, Fire
-Weather Zone 495 Color Country West Desert, Fire Weather Zone
-496 Color Country Mountains and Fire Weather Zone 498 Grand
-Staircase.
-
-* WINDS...On Saturday, southwest 15 to 25 mph with gusts up to 40
-mph. On Sunday and Monday afternoon and evening, southwest winds
-10 to 20 mph with gusts 25 to 30 mph. Winds will diminish each
-night before redeveloping early each afternoon.
-
-* RELATIVE HUMIDITY...As low as 6 to 15 percent.
-
-* IMPACTS...Critical fire weather conditions are expected. Any
-new fire starts or existing fires may spread rapidly.,Sat Jul 27 2024 12:22:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.cb6b9d2e1a11a79a4dc20c0f0d1854d7c49be8ab.001.1.cap
 National Weather Service,* WHAT...Dangerously hot conditions with heat index values of 104 to
 112 possible.
 
