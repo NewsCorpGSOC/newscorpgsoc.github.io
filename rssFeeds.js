@@ -859,13 +859,13 @@ const rssFeeds = [
     ]
   },
   {
-    url: 'https://rsshub.app/telegram/channel/kpszsu',
+    url: 'https://corsproxy.io/?https%3A%2F%2Frsshub.app%2Ftelegram%2Fchannel%2Fkpszsu',
     source: 'Air Force of the Armed Forces of Ukraine Telegram',
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
-      'https://corsproxy.io/?https%3A%2F%2Frsshub.app%2Ftelegram%2Fchannel%2Fkpszsu',
+      'https://rsshub.app/telegram/channel/kpszsu',
       'https://api.allorigins.win/get?url=https%3A%2F%2Frsshub.app%2Ftelegram%2Fchannel%2Fkpszsu',
     ]
   },
