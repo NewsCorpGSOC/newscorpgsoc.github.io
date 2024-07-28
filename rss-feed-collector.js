@@ -119,57 +119,57 @@ document.addEventListener('DOMContentLoaded', () => {
 
   async function fetchCSVFiles() {
     const csvFiles = [
-      'Israel_Security_Cabinet_News.csv',
-      'Stand_With_Us_Breaking_News.csv',
-      'Ukraine_Air_Defense.csv',
-      'WOLPalestine.csv'
-    ]; // List all CSV files here
+      { file: 'Israel_Security_Cabinet_News.csv', source: 'CSV Israel Security Cabinet News' },
+      { file: 'Stand_With_Us_Breaking_News.csv', source: 'CSV Stand With Us Breaking News' },
+      { file: 'Ukraine_Air_Defense.csv', source: 'CSV Ukraine Air Defense' },
+      { file: 'WOLPalestine.csv', source: 'CSV WOLPalestine' }
+    ];
     let csvFeedItems = [];
 
-    for (const csvFile of csvFiles) {
+    for (const { file, source } of csvFiles) {
       try {
-        const response = await fetch(`GoogleSheets/${csvFile}`);
+        const response = await fetch(`GoogleSheets/${file}`);
         const csvText = await response.text();
-        console.log(`Fetched CSV: ${csvFile}`);
+        console.log(`Fetched CSV: ${file}`);
         console.log(csvText); // Log fetched CSV text for debugging
-        const parsedCSV = parseCSV(csvText);
+        const parsedCSV = parseCSV(csvText, source);
         console.log(parsedCSV); // Log parsed CSV data for debugging
         csvFeedItems = csvFeedItems.concat(parsedCSV);
       } catch (error) {
-        console.error(`Error fetching CSV file ${csvFile}:`, error);
+        console.error(`Error fetching CSV file ${file}:`, error);
       }
     }
     return csvFeedItems;
   }
 
-  function parseCSV(csvText) {
+  function parseCSV(csvText, source) {
     const lines = csvText.split('\n').filter(line => line.trim() !== ''); // Remove empty lines
     const headers = lines[0].split(',');
-
+  
     const sheetNameIndex = headers.indexOf('Sheet Name');
     const summaryIndex = headers.indexOf('Summary');
     const publishedIndex = headers.indexOf('Published (Pacific Time)');
     const linkIndex = headers.indexOf('Link');
-
+  
     return lines.slice(1).map((line, index) => {
       const cells = line.split(',');
-
+  
       const title = cells[sheetNameIndex]?.trim() || 'No title';
       const link = cells[linkIndex]?.trim() || '#';
       const description = decodeHTMLEntities(cells[summaryIndex]?.trim() || 'No description');
       const pubDate = parseDate(cells[publishedIndex]?.trim());
-
+  
       if (!pubDate) {
         console.warn(`Skipping row ${index + 2} due to invalid date: ${line}`);
         return null; // Skip rows with invalid dates
       }
-
+  
       return {
         title,
         link,
         description,
-        pubDate: convertToPacificTime(pubDate),
-        source: title // Assuming source is the sheet name
+        pubDate: convertToPacificTime(pubDate, source),
+        source // Use the source passed to the function
       };
     }).filter(item => item); // Filter out null values
   }
@@ -402,6 +402,16 @@ document.addEventListener('DOMContentLoaded', () => {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'Global Shake Princeton') {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
+    } else if (source === 'Euro News') {
+      adjustedDate.setHours(adjustedDate.getHours() - 0);
+    } else if (source === 'CSV Israel Security Cabinet News') {
+      adjustedDate.setHours(adjustedDate.getHours() + 0); // Adjust according to specific source timezone if needed
+    } else if (source === 'CSV Stand With Us Breaking News') {
+      adjustedDate.setHours(adjustedDate.getHours() + 0);
+    } else if (source === 'CSV Ukraine Air Defense') {
+      adjustedDate.setHours(adjustedDate.getHours() + 0);
+    } else if (source === 'CSV WOLPalestine') {
+      adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else {
       console.warn(`No specific time adjustment found for source: ${source}`);
     }
