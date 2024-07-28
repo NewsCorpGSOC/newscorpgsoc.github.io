@@ -1,15 +1,211 @@
 Sheet Name,Summary,Published (Pacific Time),Link
-National Weather Service,#ERROR!,Sun Jul 28 2024 03:51:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.58d89e1e0fcf2aece0873c2d2ca74950bc3f4b6e.001.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 02:34:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.8724b4d7077eb135daab34a4c715d23e4c289c43.002.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 02:25:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.182f39efcb0be2eb7d52672b8bf8af42057bc54d.001.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 02:24:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4e99060219e0fcc29970539cb6fd16be7d1c2252.003.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 02:24:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4e99060219e0fcc29970539cb6fd16be7d1c2252.002.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 02:24:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4e99060219e0fcc29970539cb6fd16be7d1c2252.001.2.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 02:20:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.8943a25614c4bb53d822129375e80c410807cc2a.001.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 02:10:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.02df6b44ba1aaa6427ccab1804dbb0a3b2ee5640.001.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 02:04:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.3eeb5b6dab8f6483ff8ed0fe0889e75c1ff669e4.001.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 01:50:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.432575a28a6e82be4ae263883210021d0119cf63.001.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 01:31:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.6eb8fcde8905696b8ae1e40120fd77ea0ab7ccb9.001.1.cap
+National Weather Service,SMWTAE
+
+The National Weather Service in Tallahassee has issued a
+
+* Special Marine Warning for...
+Coastal waters from Okaloosa-Walton County Line to Mexico Beach out
+20 NM...
+
+* Until 830 AM CDT.
+
+* At 703 AM CDT, severe thunderstorms capable of producing
+waterspouts were located along a line extending from 10 nm
+southeast of Santa Rosa Beach to 16 nm southwest of Mexico Beach,
+moving north at 10 knots.
+
+HAZARD...Waterspouts.
+
+SOURCE...Radar indicated.
+
+IMPACT...Waterspouts can quickly form and capsize boats...damage
+vessels...and create suddenly higher waves. Make sure all
+on board are in a secure location and wearing life
+jackets.
+
+* Locations impacted include...
+Laguna Beach, Santa Rosa Beach, Mexico Beach, Sandestin, Miramar
+Beach, and Panama City Beach.,Sun Jul 28 2024 05:04:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.74be8cfcc0e4e33e203c3db968a17e03ff21fba7.001.1.cap
+National Weather Service,SMWTAE
+
+The National Weather Service in Tallahassee has issued a
+
+* Special Marine Warning for...
+Coastal Waters From  Ochlockonee River to Apalachicola FL out to 20
+Nm...
+Coastal Waters from Mexico Beach to Apalachicola out 20 NM...
+
+* Until 815 AM EDT/715 AM CDT/.
+
+* At 651 AM EDT/551 AM CDT/, severe thunderstorms capable of
+producing waterspouts were located along a line extending from 12
+nm southwest of Port St. Joe to near St George Island, moving north
+at 5 knots.
+
+HAZARD...Waterspouts and wind gusts 34 knots or greater.
+
+SOURCE...Radar indicated.
+
+IMPACT...Waterspouts can quickly form and capsize boats...damage
+vessels...and create suddenly higher waves. Make sure all
+on board are in a secure location and wearing life
+jackets. Expect wind gusts in excess of 34
+knots...suddenly higher waves...frequent lightning...and
+heavy downpours. Make sure all on board are wearing life
+jackets.
+
+* Locations impacted include...
+Apalachicola, C Tower, Cape San Blas, St George Island, and Port
+St. Joe.,Sun Jul 28 2024 03:51:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.58d89e1e0fcf2aece0873c2d2ca74950bc3f4b6e.001.1.cap
+National Weather Service,..Red Flag Warnings in Effect for Zones 420, 421, 423, 425, 427,
+428 and 429 from Noon to 8pm MDT Sunday...
+
+* WIND...West to southwest winds at 20 to 30 mph with gusts to
+35 mph.
+
+* HUMIDITY...12 to 15 percent
+
+* HAINES...5 to 6.
+
+* THUNDERSTORMS...There is potential for isolated thunderstorms,
+some of which may produce gusty and erratic surface winds with
+sudden wind gusts in excess of 50 MPH possible.
+
+* IMPACTS...Any fires that develop will likely spread rapidly.
+Outdoor burning is not recommended.,Sun Jul 28 2024 02:34:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.8724b4d7077eb135daab34a4c715d23e4c289c43.002.1.cap
+National Weather Service,* AFFECTED AREA...Fire weather zone 595.
+
+* WIND...West/upsloping winds with maximum gusts 25-35 mph.
+
+* HUMIDITY...Minimum daytime humidity levels 15-20% or less.
+
+* THUNDERSTORMS...None.
+
+* IMPACTS...any fires that develop will likely spread rapidly.
+Outdoor burning is not recommended.
+
+* HIGHEST THREAT...dry fuels, low relative humidity, and
+elevated winds are favorable conditions for rapid fire spread.,Sun Jul 28 2024 02:25:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.182f39efcb0be2eb7d52672b8bf8af42057bc54d.001.1.cap
+National Weather Service,* AFFECTED AREA...In Colorado, Fire Weather Zone 290 Paradox
+Valley Forecast Area, Fire Weather Zone 292 North Fork
+Forecast Area and Fire Weather Zone 293 Gunnison Basin
+Forecast Area. In Utah, Fire Weather Zone 486 Eastern Uinta
+Basin, Fire Weather Zone 487 Book Cliffs and Fire Weather Zone
+490 Colorado River Basin.
+
+* WINDS...Southwest 10 to 20 mph with gusts up to 30 mph.
+
+* RELATIVE HUMIDITY...7 to 12 percent.
+
+* IMPACTS...Conditions may become favorable for the easy
+ignition and rapid spread of fires due to low relative
+humidity and strong gusty winds.,Sun Jul 28 2024 02:24:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4e99060219e0fcc29970539cb6fd16be7d1c2252.002.1.cap
+National Weather Service,* AFFECTED AREA...In Colorado, Fire Weather Zone 203 Lower
+Colorado River and Fire Weather Zone 205 Colorado River
+Headwaters below 7000 feet.
+
+* WINDS...Southwest 10 to 15 mph with gusts up to 30 mph.
+
+* RELATIVE HUMIDITY...6 to 11 percent.
+
+* IMPACTS...Conditions may become favorable for the easy
+ignition and rapid spread of fires due to low relative
+humidity and strong gusty winds.,Sun Jul 28 2024 02:24:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4e99060219e0fcc29970539cb6fd16be7d1c2252.003.1.cap
+National Weather Service,...FIRE WEATHER WATCH IN EFFECT FROM MONDAY AFTERNOON THROUGH
+MONDAY EVENING FOR GUSTY WINDS, LOW RELATIVE HUMIDITY AND DRY
+FUELS FOR FIRE WEATHER ZONES 200 AND 202...
+
+The National Weather Service in Grand Junction has issued a Fire
+Weather Watch for gusty winds, low relative humidity and dry
+fuels, which is in effect from Monday afternoon through Monday
+evening.
+
+* AFFECTED AREA...In Colorado, Fire Weather Zone 200 Little
+Snake Forecast Area and Fire Weather Zone 202 White River
+Forecast Area.
+
+* WINDS...Southwest 10 to 20 mph with gusts up to 30 mph.
+
+* RELATIVE HUMIDITY...6 to 11 percent.
+
+* IMPACTS...Conditions may become favorable for the easy
+ignition and rapid spread of fires due to low relative
+humidity and strong gusty winds.,Sun Jul 28 2024 02:24:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4e99060219e0fcc29970539cb6fd16be7d1c2252.001.2.cap
+National Weather Service,* WHAT...Dangerously hot conditions with heat index values of 104 to
+114 possible.
+
+* WHERE...Portions of central, east central, north central, and
+northeast Kansas.
+
+* WHEN...From Monday afternoon through Thursday evening. Hottest
+conditions expected Tuesday and Wednesday afternoons.
+
+* IMPACTS...Heat related illnesses increase significantly during
+extreme heat and high humidity events.,Sun Jul 28 2024 02:20:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.8943a25614c4bb53d822129375e80c410807cc2a.001.1.cap
+National Weather Service,* IMPACTS: Low humidities and gusty winds could cause erratic fire
+behavior.
+
+* AFFECTED AREA:
+In Central WY...Fire Weather Zone 289.
+
+* COUNTIES AFFECTED:
+In Central WY...Fremont...Natrona.
+In Southwest WY...Sweetwater.
+
+* WIND: West 15 to 25 mph with gusts up to 35 mph.
+
+* HUMIDITY: As low as 13 percent.,Sun Jul 28 2024 02:10:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.02df6b44ba1aaa6427ccab1804dbb0a3b2ee5640.001.1.cap
+National Weather Service,* WHAT...Dangerously hot conditions with heat index values up to 108
+possible.
+
+* WHERE...Jewell, Mitchell, Osborne, and Smith Counties.
+
+* WHEN...From Monday afternoon through Thursday evening.
+
+* IMPACTS...Heat related illnesses increase significantly during
+extreme heat and high humidity events.,Sun Jul 28 2024 02:04:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.3eeb5b6dab8f6483ff8ed0fe0889e75c1ff669e4.001.1.cap
+National Weather Service,...The Flood Warning is extended for the following rivers in North
+Carolina...
+
+Tar River At Tarboro affecting Edgecombe County.
+
+* WHAT...Minor flooding is occurring and forecast to continue.
+
+* WHERE...Tar River at Tarboro.
+
+* WHEN...Until Tuesday morning.
+
+* IMPACTS...At 17.0 feet, The river is at bankfull.
+At 19.0 feet, Minor flooding begins. The Riverside Park and River
+Road at the US64 bridge flood.
+At 20.0 feet, Lowland flooding begins south of Daniel Street in
+east Tarboro.
+
+* ADDITIONAL DETAILS...
+- At 4:15 AM EDT Sunday the stage was 19.5 feet.
+- Bankfull stage is 19.0 feet.
+- Recent Activity...The maximum river stage in the 24 hours
+ending at 4:15 AM EDT Sunday was 19.5 feet.
+- Forecast...The river is expected to rise to a crest of 20.2
+feet just after midnight tonight. It will then fall below
+flood stage Monday afternoon or evening.
+- Flood stage is 19.0 feet.
+- Flood History...This crest compares to a previous crest of
+22.2 feet on 04/02/2010.
+- http://www.weather.gov/safety/flood,Sun Jul 28 2024 01:50:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.432575a28a6e82be4ae263883210021d0119cf63.001.1.cap
+National Weather Service,* AFFECTED AREA...Fire Weather Zone 482 Western Uintah Basin,
+Fire Weather Zone 483 Southern Ashley National Forest, Fire
+Weather Zone 484 Tavaputs Plateau, Fire Weather Zone 488 Manti
+National Forest, Fire Weather Zone 489 San Rafael Swell, Fire
+Weather Zone 494 Henry Mountains and Fire Weather Zone 497
+Mojave Desert.
+
+* WINDS...Southwest 10 to 15 mph with gusts up to 35 mph.
+
+* RELATIVE HUMIDITY...As low as 5 to 10 percent.
+
+* IMPACTS...Critical fire weather conditions are expected. Any
+new fire starts or existing fires may spread rapidly.,Sun Jul 28 2024 01:31:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.6eb8fcde8905696b8ae1e40120fd77ea0ab7ccb9.001.1.cap
 National Weather Service,* AFFECTED AREA...Fire Weather Zone 492 Central Utah West
 Desert, Fire Weather Zone 493 Central Utah Mountains, Fire
 Weather Zone 495 Color Country West Desert, Fire Weather Zone
@@ -1211,80 +1407,20 @@ Rock River At Afton affecting Rock and Winnebago Counties.
 
 * WHERE...Rock River at Afton.
 
-* WHEN...Until tomorrow morning.
+* WHEN...Until early tomorrow afternoon.
 
-* IMPACTS...At 9.0 feet, Minor erosional flood damage occurs to
-lowland and agricultural land adjacent to the river in the Afton
-and Janesville areas.
+* IMPACTS...At 9.1 feet, Floodwaters affect property of a home on
+South Christian Road on the east side of the river in the Afton
+area.  There is minor erosional flood damage to lowland and
+agricultural land in the Afton and Janesville areas.
 
 * ADDITIONAL DETAILS...
-- At 2:00 PM CDT Saturday the stage was 9.0 feet.
+- At 9:00 AM CDT Saturday the stage was 9.0 feet.
 - Bankfull stage is 8.0 feet.
 - Recent Activity...The maximum river stage in the 24 hours
-ending at 2:00 PM CDT Saturday was 9.2 feet.
-- Forecast...The river is expected to fall below flood stage
-just after midnight tonight and continue falling to 7.8 feet
-Saturday, August 03.
+ending at 9:00 AM CDT Saturday was 9.2 feet.
+- Forecast...The river is expected to rise to a crest of 9.1
+feet this afternoon. It will then fall below flood stage
+tomorrow morning.
 - Flood stage is 9.0 feet.
-- Flood History...This crest compares to a previous crest of
-9.0 feet on 07/08/2014.
-- http://www.weather.gov/safety/flood,Sat Jul 27 2024 13:13:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.1728b382826161e42bbae5e476b8da7b18f8ab97.001.1.cap
-National Weather Service,...The Flood Warning continues for the following rivers in Texas...
-
-Trinity River at Riverside affecting San Jacinto, Polk, Walker
-and Trinity Counties.
-
-Trinity River at Liberty affecting Liberty County.
-
-Trinity River near Moss Bluff affecting Liberty and Chambers
-Counties.
-
-...The Flood Warning is extended for the following rivers in Texas...
-
-Menard Creek near Rye affecting Hardin, Polk and Liberty Counties.
-
-East Fork San Jacinto near New Caney affecting Liberty, Harris
-and Montgomery Counties.
-
-San Bernard River near Boling affecting Fort Bend, Brazoria and
-Wharton Counties.
-
-San Bernard River near Sweeny affecting Brazoria County.
-
-...The Flood Warning is cancelled for the following rivers in
-Texas...
-
-Long King Creek near Livingston affecting San Jacinto and Polk
-Counties.
-
-For the Trinity River...including Crockett, Riverside, Romayor,
-Goodrich, Liberty, Moss Bluff...Moderate flooding is forecast.
-For the Menard Creek...including Rye...Moderate flooding is forecast.
-For the East Fork San Jacinto River...including New Caney,
-Cleveland...Moderate flooding is forecast.
-For the San Bernard River...including Sweeny, East Bernard, Boling...
-Minor flooding is forecast.
-
-* WHAT...Minor flooding is occurring and minor flooding is forecast.
-
-* WHERE...Trinity River at Riverside.
-
-* WHEN...Until tomorrow morning.
-
-* IMPACTS...At 133.5 feet, Minor lowland flooding begins in the
-vicinity of the gage with water in the Green Rich Shores
-subdivision. Backwater flooding up Wright's Creek impacts
-Plantation Drive in the Deep River Plantation subdivision.
-
-* ADDITIONAL DETAILS...
-- At 1:30 PM CDT Saturday the stage was 133.5 feet.
-- Bankfull stage is 133.0 feet.
-- Recent Activity...The maximum river stage in the 24 hours
-ending at 1:30 PM CDT Saturday was 134.0 feet.
-- Forecast...The river is expected to fall below flood stage
-this evening and continue falling to 131.0 feet early
-Thursday afternoon.
-- Flood stage is 133.5 feet.
-- Flood History...This crest compares to a previous crest of
-133.7 feet on 03/10/2018.
-- http://www.weather.gov/safety/flood,Sat Jul 27 2024 11:51:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.5d9f47dd04d90b759fb81ae849a188c59c6d60da.004.1.cap
+- http://www.weather.gov/safety/flood,Sat Jul 27 2024 07:53:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.dbc3dda42f15925895833b78bb1c420d576b033f.001.1.cap
