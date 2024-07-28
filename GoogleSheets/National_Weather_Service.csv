@@ -1,17 +1,188 @@
 Sheet Name,Summary,Published (Pacific Time),Link
-National Weather Service,#ERROR!,Sun Jul 28 2024 02:24:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4e99060219e0fcc29970539cb6fd16be7d1c2252.002.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 02:24:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4e99060219e0fcc29970539cb6fd16be7d1c2252.003.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 02:24:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4e99060219e0fcc29970539cb6fd16be7d1c2252.001.2.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 02:20:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.8943a25614c4bb53d822129375e80c410807cc2a.001.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 02:10:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.02df6b44ba1aaa6427ccab1804dbb0a3b2ee5640.001.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 02:04:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.3eeb5b6dab8f6483ff8ed0fe0889e75c1ff669e4.001.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 01:50:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.432575a28a6e82be4ae263883210021d0119cf63.001.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 01:31:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.6eb8fcde8905696b8ae1e40120fd77ea0ab7ccb9.001.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 01:31:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.6eb8fcde8905696b8ae1e40120fd77ea0ab7ccb9.002.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 01:27:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.8f694df13b3f87290856aad3a8da036d73f1c2f7.001.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 01:27:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.8f694df13b3f87290856aad3a8da036d73f1c2f7.002.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 01:11:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.caa47725a2b8e1716dc285ac10cb852135248aa3.001.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 01:09:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.19d1fbf98e0271aa8820a8c5880bd6cd7315e4db.001.1.cap
+National Weather Service,* AFFECTED AREA...Fire weather zone 595.
+
+* WIND...West/upsloping winds with maximum gusts 25-35 mph.
+
+* HUMIDITY...Minimum daytime humidity levels 15-20% or less.
+
+* THUNDERSTORMS...None.
+
+* IMPACTS...any fires that develop will likely spread rapidly.
+Outdoor burning is not recommended.
+
+* HIGHEST THREAT...dry fuels, low relative humidity, and
+elevated winds are favorable conditions for rapid fire spread.,Sun Jul 28 2024 02:25:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.182f39efcb0be2eb7d52672b8bf8af42057bc54d.001.1.cap
+National Weather Service,* AFFECTED AREA...In Colorado, Fire Weather Zone 203 Lower
+Colorado River and Fire Weather Zone 205 Colorado River
+Headwaters below 7000 feet.
+
+* WINDS...Southwest 10 to 15 mph with gusts up to 30 mph.
+
+* RELATIVE HUMIDITY...6 to 11 percent.
+
+* IMPACTS...Conditions may become favorable for the easy
+ignition and rapid spread of fires due to low relative
+humidity and strong gusty winds.,Sun Jul 28 2024 02:24:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4e99060219e0fcc29970539cb6fd16be7d1c2252.003.1.cap
+National Weather Service,* AFFECTED AREA...In Colorado, Fire Weather Zone 290 Paradox
+Valley Forecast Area, Fire Weather Zone 292 North Fork
+Forecast Area and Fire Weather Zone 293 Gunnison Basin
+Forecast Area. In Utah, Fire Weather Zone 486 Eastern Uinta
+Basin, Fire Weather Zone 487 Book Cliffs and Fire Weather Zone
+490 Colorado River Basin.
+
+* WINDS...Southwest 10 to 20 mph with gusts up to 30 mph.
+
+* RELATIVE HUMIDITY...7 to 12 percent.
+
+* IMPACTS...Conditions may become favorable for the easy
+ignition and rapid spread of fires due to low relative
+humidity and strong gusty winds.,Sun Jul 28 2024 02:24:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4e99060219e0fcc29970539cb6fd16be7d1c2252.002.1.cap
+National Weather Service,...FIRE WEATHER WATCH IN EFFECT FROM MONDAY AFTERNOON THROUGH
+MONDAY EVENING FOR GUSTY WINDS, LOW RELATIVE HUMIDITY AND DRY
+FUELS FOR FIRE WEATHER ZONES 200 AND 202...
+
+The National Weather Service in Grand Junction has issued a Fire
+Weather Watch for gusty winds, low relative humidity and dry
+fuels, which is in effect from Monday afternoon through Monday
+evening.
+
+* AFFECTED AREA...In Colorado, Fire Weather Zone 200 Little
+Snake Forecast Area and Fire Weather Zone 202 White River
+Forecast Area.
+
+* WINDS...Southwest 10 to 20 mph with gusts up to 30 mph.
+
+* RELATIVE HUMIDITY...6 to 11 percent.
+
+* IMPACTS...Conditions may become favorable for the easy
+ignition and rapid spread of fires due to low relative
+humidity and strong gusty winds.,Sun Jul 28 2024 02:24:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4e99060219e0fcc29970539cb6fd16be7d1c2252.001.2.cap
+National Weather Service,* WHAT...Dangerously hot conditions with heat index values of 104 to
+114 possible.
+
+* WHERE...Portions of central, east central, north central, and
+northeast Kansas.
+
+* WHEN...From Monday afternoon through Thursday evening. Hottest
+conditions expected Tuesday and Wednesday afternoons.
+
+* IMPACTS...Heat related illnesses increase significantly during
+extreme heat and high humidity events.,Sun Jul 28 2024 02:20:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.8943a25614c4bb53d822129375e80c410807cc2a.001.1.cap
+National Weather Service,* IMPACTS: Low humidities and gusty winds could cause erratic fire
+behavior.
+
+* AFFECTED AREA:
+In Central WY...Fire Weather Zone 289.
+
+* COUNTIES AFFECTED:
+In Central WY...Fremont...Natrona.
+In Southwest WY...Sweetwater.
+
+* WIND: West 15 to 25 mph with gusts up to 35 mph.
+
+* HUMIDITY: As low as 13 percent.,Sun Jul 28 2024 02:10:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.02df6b44ba1aaa6427ccab1804dbb0a3b2ee5640.001.1.cap
+National Weather Service,* WHAT...Dangerously hot conditions with heat index values up to 108
+possible.
+
+* WHERE...Jewell, Mitchell, Osborne, and Smith Counties.
+
+* WHEN...From Monday afternoon through Thursday evening.
+
+* IMPACTS...Heat related illnesses increase significantly during
+extreme heat and high humidity events.,Sun Jul 28 2024 02:04:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.3eeb5b6dab8f6483ff8ed0fe0889e75c1ff669e4.001.1.cap
+National Weather Service,...The Flood Warning is extended for the following rivers in North
+Carolina...
+
+Tar River At Tarboro affecting Edgecombe County.
+
+* WHAT...Minor flooding is occurring and forecast to continue.
+
+* WHERE...Tar River at Tarboro.
+
+* WHEN...Until Tuesday morning.
+
+* IMPACTS...At 17.0 feet, The river is at bankfull.
+At 19.0 feet, Minor flooding begins. The Riverside Park and River
+Road at the US64 bridge flood.
+At 20.0 feet, Lowland flooding begins south of Daniel Street in
+east Tarboro.
+
+* ADDITIONAL DETAILS...
+- At 4:15 AM EDT Sunday the stage was 19.5 feet.
+- Bankfull stage is 19.0 feet.
+- Recent Activity...The maximum river stage in the 24 hours
+ending at 4:15 AM EDT Sunday was 19.5 feet.
+- Forecast...The river is expected to rise to a crest of 20.2
+feet just after midnight tonight. It will then fall below
+flood stage Monday afternoon or evening.
+- Flood stage is 19.0 feet.
+- Flood History...This crest compares to a previous crest of
+22.2 feet on 04/02/2010.
+- http://www.weather.gov/safety/flood,Sun Jul 28 2024 01:50:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.432575a28a6e82be4ae263883210021d0119cf63.001.1.cap
+National Weather Service,* AFFECTED AREA...Fire Weather Zone 482 Western Uintah Basin,
+Fire Weather Zone 483 Southern Ashley National Forest, Fire
+Weather Zone 484 Tavaputs Plateau, Fire Weather Zone 488 Manti
+National Forest, Fire Weather Zone 489 San Rafael Swell, Fire
+Weather Zone 494 Henry Mountains and Fire Weather Zone 497
+Mojave Desert.
+
+* WINDS...Southwest 10 to 15 mph with gusts up to 35 mph.
+
+* RELATIVE HUMIDITY...As low as 5 to 10 percent.
+
+* IMPACTS...Critical fire weather conditions are expected. Any
+new fire starts or existing fires may spread rapidly.,Sun Jul 28 2024 01:31:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.6eb8fcde8905696b8ae1e40120fd77ea0ab7ccb9.001.1.cap
+National Weather Service,* AFFECTED AREA...Fire Weather Zone 492 Central Utah West
+Desert, Fire Weather Zone 493 Central Utah Mountains, Fire
+Weather Zone 495 Color Country West Desert, Fire Weather Zone
+496 Color Country Mountains and Fire Weather Zone 498 Grand
+Staircase.
+
+* WINDS...Southwest 10 to 20 mph with gusts up to 30 mph.
+
+* RELATIVE HUMIDITY...As low as 5 to 10 percent.
+
+* IMPACTS...Critical fire weather conditions are expected. Any
+new fire starts or existing fires may spread rapidly.,Sun Jul 28 2024 01:31:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.6eb8fcde8905696b8ae1e40120fd77ea0ab7ccb9.002.1.cap
+National Weather Service,* WHAT...Dangerously hot conditions with heat index values up to 112
+expected.
+
+* WHERE...Jefferson MO, Saint Charles MO, Saint Louis City MO, and
+Saint Louis MO Counties.
+
+* WHEN...From 1 PM Monday to 7 PM CDT Thursday.
+
+* IMPACTS...Heat related illnesses increase significantly during
+extreme heat and high humidity events.,Sun Jul 28 2024 01:27:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.8f694df13b3f87290856aad3a8da036d73f1c2f7.001.1.cap
+National Weather Service,* WHAT...Dangerously hot conditions with heat index values up to 112
+expected.
+
+* WHERE...Madison IL, Monroe IL, and Saint Clair IL Counties.
+
+* WHEN...From 1 PM Tuesday to 7 PM CDT Thursday.
+
+* IMPACTS...Heat related illnesses increase significantly during
+extreme heat and high humidity events.,Sun Jul 28 2024 01:27:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.8f694df13b3f87290856aad3a8da036d73f1c2f7.002.1.cap
+National Weather Service,* WHAT...Dangerously hot conditions with heat index values up to 105
+on Monday with heat index values up to 114 possible on Tuesday and
+Wednesday, then heat index values up to 105 possible on Thursday.
+
+* WHERE...Portions of east central and northeast Kansas and central,
+north central, northeast, northwest, and west central Missouri.
+
+* WHEN...From Monday afternoon through Thursday evening.
+
+* IMPACTS...Heat related illnesses increase significantly during
+extreme heat and high humidity events.,Sun Jul 28 2024 01:11:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.caa47725a2b8e1716dc285ac10cb852135248aa3.001.1.cap
+National Weather Service,* WHAT...Dangerously hot conditions with heat index values up to 111
+possible.
+
+* WHERE...Portions of Central, South Central, and Southeast Kansas.
+
+* WHEN...From Monday afternoon through Thursday evening.
+
+* IMPACTS...Heat related illnesses increase significantly during
+extreme heat and high humidity events.,Sun Jul 28 2024 01:09:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.19d1fbf98e0271aa8820a8c5880bd6cd7315e4db.001.1.cap
 National Weather Service,* WHAT...Dangerously hot conditions with heat index values up to 110
 possible.
 
@@ -594,19 +765,6 @@ ending at 8:30 PM CDT Saturday was 28.0 feet.
 late Tuesday evening and continue falling to 22.0 feet
 Saturday, August 03.
 - Flood stage is 25.0 feet.,Sat Jul 27 2024 18:57:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.0b504f2c623444a1e107c72750411fef25dd3238.005.1.cap
-National Weather Service,* AFFECTED AREA...Fire weather zone 595.
-
-* WIND...West/upsloping winds with maximum gusts 25-35 mph.
-
-* HUMIDITY...Minimum daytime humidity levels 15-20% or less.
-
-* THUNDERSTORMS...None.
-
-* IMPACTS...any fires that develop will likely spread rapidly.
-Outdoor burning is not recommended.
-
-* HIGHEST THREAT...dry fuels, low relative humidity, and
-elevated winds are favorable conditions for rapid fire spread.,Sat Jul 27 2024 18:48:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.7cbb0febf4cfc040647c391adc0c5047553bed8c.001.1.cap
 National Weather Service,...The Flood Warning continues for the following rivers in Iowa...
 Illinois...
 
