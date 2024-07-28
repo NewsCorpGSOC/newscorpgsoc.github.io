@@ -1,11 +1,70 @@
 Sheet Name,Summary,Published (Pacific Time),Link
+National Weather Service,#ERROR!,Sun Jul 28 2024 02:04:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.3eeb5b6dab8f6483ff8ed0fe0889e75c1ff669e4.001.1.cap
 National Weather Service,#ERROR!,Sun Jul 28 2024 01:50:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.432575a28a6e82be4ae263883210021d0119cf63.001.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 01:31:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.6eb8fcde8905696b8ae1e40120fd77ea0ab7ccb9.001.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 01:31:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.6eb8fcde8905696b8ae1e40120fd77ea0ab7ccb9.002.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 01:27:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.8f694df13b3f87290856aad3a8da036d73f1c2f7.001.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 01:27:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.8f694df13b3f87290856aad3a8da036d73f1c2f7.002.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 01:11:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.caa47725a2b8e1716dc285ac10cb852135248aa3.001.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 01:09:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.19d1fbf98e0271aa8820a8c5880bd6cd7315e4db.001.1.cap
+National Weather Service,* AFFECTED AREA...Fire Weather Zone 482 Western Uintah Basin,
+Fire Weather Zone 483 Southern Ashley National Forest, Fire
+Weather Zone 484 Tavaputs Plateau, Fire Weather Zone 488 Manti
+National Forest, Fire Weather Zone 489 San Rafael Swell, Fire
+Weather Zone 494 Henry Mountains and Fire Weather Zone 497
+Mojave Desert.
+
+* WINDS...Southwest 10 to 15 mph with gusts up to 35 mph.
+
+* RELATIVE HUMIDITY...As low as 5 to 10 percent.
+
+* IMPACTS...Critical fire weather conditions are expected. Any
+new fire starts or existing fires may spread rapidly.,Sun Jul 28 2024 01:31:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.6eb8fcde8905696b8ae1e40120fd77ea0ab7ccb9.001.1.cap
+National Weather Service,* AFFECTED AREA...Fire Weather Zone 492 Central Utah West
+Desert, Fire Weather Zone 493 Central Utah Mountains, Fire
+Weather Zone 495 Color Country West Desert, Fire Weather Zone
+496 Color Country Mountains and Fire Weather Zone 498 Grand
+Staircase.
+
+* WINDS...Southwest 10 to 20 mph with gusts up to 30 mph.
+
+* RELATIVE HUMIDITY...As low as 5 to 10 percent.
+
+* IMPACTS...Critical fire weather conditions are expected. Any
+new fire starts or existing fires may spread rapidly.,Sun Jul 28 2024 01:31:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.6eb8fcde8905696b8ae1e40120fd77ea0ab7ccb9.002.1.cap
+National Weather Service,* WHAT...Dangerously hot conditions with heat index values up to 112
+expected.
+
+* WHERE...Jefferson MO, Saint Charles MO, Saint Louis City MO, and
+Saint Louis MO Counties.
+
+* WHEN...From 1 PM Monday to 7 PM CDT Thursday.
+
+* IMPACTS...Heat related illnesses increase significantly during
+extreme heat and high humidity events.,Sun Jul 28 2024 01:27:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.8f694df13b3f87290856aad3a8da036d73f1c2f7.001.1.cap
+National Weather Service,* WHAT...Dangerously hot conditions with heat index values up to 112
+expected.
+
+* WHERE...Madison IL, Monroe IL, and Saint Clair IL Counties.
+
+* WHEN...From 1 PM Tuesday to 7 PM CDT Thursday.
+
+* IMPACTS...Heat related illnesses increase significantly during
+extreme heat and high humidity events.,Sun Jul 28 2024 01:27:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.8f694df13b3f87290856aad3a8da036d73f1c2f7.002.1.cap
+National Weather Service,* WHAT...Dangerously hot conditions with heat index values up to 105
+on Monday with heat index values up to 114 possible on Tuesday and
+Wednesday, then heat index values up to 105 possible on Thursday.
+
+* WHERE...Portions of east central and northeast Kansas and central,
+north central, northeast, northwest, and west central Missouri.
+
+* WHEN...From Monday afternoon through Thursday evening.
+
+* IMPACTS...Heat related illnesses increase significantly during
+extreme heat and high humidity events.,Sun Jul 28 2024 01:11:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.caa47725a2b8e1716dc285ac10cb852135248aa3.001.1.cap
+National Weather Service,* WHAT...Dangerously hot conditions with heat index values up to 111
+possible.
+
+* WHERE...Portions of Central, South Central, and Southeast Kansas.
+
+* WHEN...From Monday afternoon through Thursday evening.
+
+* IMPACTS...Heat related illnesses increase significantly during
+extreme heat and high humidity events.,Sun Jul 28 2024 01:09:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.19d1fbf98e0271aa8820a8c5880bd6cd7315e4db.001.1.cap
 National Weather Service,* WHAT...Dangerously hot conditions with heat index values up to 110
 possible.
 
@@ -1239,15 +1298,6 @@ In Southwest WY...Sweetwater.
 * WIND: West 15 to 25 mph with gusts up to 35 mph.
 
 * HUMIDITY: As low as 13 percent.,Sat Jul 27 2024 12:13:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4d23d1457b4093a81f7c7702c2eb0642c5ed7ba8.001.1.cap
-National Weather Service,* WHAT...Dangerously hot conditions with heat index values up to 110
-possible.
-
-* WHERE...Jewell, Mitchell, Osborne, and Smith Counties.
-
-* WHEN...From Monday afternoon through Thursday evening.
-
-* IMPACTS...Heat related illnesses increase significantly during
-extreme heat and high humidity events.,Sat Jul 27 2024 12:12:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.cf384a3f42d6c285d5582608309b3ac8c918f4a4.001.1.cap
 National Weather Service,The National Weather Service in Grand Junction has issued a Red
 Flag Warning below 7000 feet for gusty winds, low relative
 humidity and dry fuels, which is in effect from noon to 8 PM MDT
