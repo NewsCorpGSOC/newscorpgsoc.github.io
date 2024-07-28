@@ -1,15 +1,337 @@
 Sheet Name,Summary,Published (Pacific Time),Link
-National Weather Service,#ERROR!,Sun Jul 28 2024 12:19:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.1b37a372822fd620cdefdbcf6b9b85632f5f5a1e.001.2.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 12:18:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.7183a0ad07f7d2edb4b535fe572051d26a628ec5.001.2.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 12:15:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.50b02efbb21f4942b2dbcb7912f00099fd4c0db3.001.2.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 12:09:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.6b8ac6b8e5c24f6fb4086ca336d84095cb30eb4b.001.2.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 11:56:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.1f1e5ab7c13fca60ffa685dccbfe435a2b3bbb55.002.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 11:56:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.1f1e5ab7c13fca60ffa685dccbfe435a2b3bbb55.003.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 11:56:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.1f1e5ab7c13fca60ffa685dccbfe435a2b3bbb55.005.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 11:56:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.1f1e5ab7c13fca60ffa685dccbfe435a2b3bbb55.006.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 11:56:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.1f1e5ab7c13fca60ffa685dccbfe435a2b3bbb55.004.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 11:41:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.96c03774ceb4572a184eddbc1ae80d6d6f446f01.001.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 11:30:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.e823fa384fd3cfb823d4c452c87392f0cf8a49c5.001.1.cap
+National Weather Service,* WHAT...Dangerously hot conditions with heat index values up to 112
+possible.
+
+* WHERE...Gage and Jefferson Counties.
+
+* WHEN...From Tuesday afternoon through Wednesday evening.
+
+* IMPACTS...Heat related illnesses increase significantly during
+extreme heat and high humidity events.,Sun Jul 28 2024 12:21:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.05c20d5a62cf07c8e038aae3f0463a870c9ae14d.002.1.cap
+National Weather Service,* WHAT...For the Heat Advisory, heat index values up to 104
+expected. For the Excessive Heat Watch, dangerously hot conditions
+with heat index values up to 115 possible.
+
+* WHERE...Portions of southwest Iowa and east central and southeast
+Nebraska.
+
+* WHEN...For the Heat Advisory, from 1 PM to 8 PM CDT Monday. For
+the Excessive Heat Watch, from Tuesday afternoon through Wednesday
+evening.
+
+* IMPACTS...Heat related illnesses increase significantly during
+extreme heat and high humidity events.,Sun Jul 28 2024 12:21:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.05c20d5a62cf07c8e038aae3f0463a870c9ae14d.001.1.cap
+National Weather Service,* WHAT...Dangerously hot conditions with heat index values of 110 to
+115 expected.
+
+* WHERE...Portions of Central, South Central, and Southeast Kansas.
+
+* WHEN...From noon Monday to 8 PM CDT Thursday.
+
+* IMPACTS...Heat related illnesses increase significantly during
+extreme heat and high humidity events.,Sun Jul 28 2024 12:21:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.344858f3015fe79848b123e2b599680af660e9a8.001.2.cap
+National Weather Service,The National Weather Service in Riverton has issued a Fire Weather
+Watch, which is in effect from Monday afternoon through Tuesday
+evening.
+
+* AFFECTED AREA:
+In Central WY...Fire Weather Zone 289.
+
+* COUNTIES AFFECTED:
+In Central WY...Fremont...Natrona.
+In Southwest WY...Sweetwater.
+
+* IMPACTS: Low humidities, warm temperatures, and gusty winds
+could cause erratic fire behavior.
+
+* WIND: West 15 to 25 mph with gusts up to 40 mph. Wind decreases
+for Monday night into Tuesday morning.
+
+* HUMIDITY: Sunday, as low as 13 percent. Monday and Tuesday, as
+low as 7 percent. Poor recovery Monday night into Tuesday
+morning.
+
+* TEMPERATURES: Highs in the mid 80s.,Sun Jul 28 2024 12:18:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.7183a0ad07f7d2edb4b535fe572051d26a628ec5.001.2.cap
+National Weather Service,* WHAT...Dangerously hot conditions with heat index values up to 114
+expected.
+
+* WHERE...Portions of east central and northeast Kansas and west
+central Missouri.
+
+* WHEN...From 1 PM Monday to 7 PM CDT Thursday.
+
+* IMPACTS...Heat related illnesses increase significantly during
+extreme heat and high humidity events.,Sun Jul 28 2024 12:15:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.50b02efbb21f4942b2dbcb7912f00099fd4c0db3.001.2.cap
+National Weather Service,* WHAT...Dangerously hot conditions with heat index values up to 112
+expected.
+
+* WHERE...Portions of central, east central, north central, and
+northeast Kansas.
+
+* WHEN...From 1 PM Monday to 7 PM CDT Thursday.
+
+* IMPACTS...Heat related illnesses increase significantly during
+extreme heat and high humidity events.,Sun Jul 28 2024 12:09:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.6b8ac6b8e5c24f6fb4086ca336d84095cb30eb4b.001.2.cap
+National Weather Service,...The Flood Warning is extended for the following rivers in Texas...
+
+Village Creek Near Kountze
+
+...The Flood Warning continues for the following rivers in
+Louisiana...Texas...
+
+Sabine River Near Deweyville
+
+Neches River at Neches River Saltwater Barrier
+
+Neches River Near Evadale
+
+Pine Island Bayou Near Sour Lake
+
+...The Flood Warning is cancelled for the following rivers in
+Louisiana...
+
+Bayou Anacoco Near Rosepine
+
+Additional information is available at www.weather.gov.
+
+The next statement will be issued this afternoon at 300 PM CDT.
+
+* WHAT...Minor flooding is occurring and minor flooding is forecast.
+
+* WHERE...Village Creek near Kountze.
+
+* WHEN...From this afternoon to early Wednesday morning.
+
+* IMPACTS...At 17.0 feet, Water covers low spots on Willard Lake
+Road and Village Creek Road near Lumberton.
+
+* ADDITIONAL DETAILS...
+- At 1:30 PM CDT Sunday the stage was 17.1 feet.
+- Recent Activity...The maximum river stage in the 24 hours
+ending at 1:30 PM CDT Sunday was 17.1 feet.
+- Forecast...The river is expected to rise to a crest of 18.0
+feet tomorrow evening. It will then fall below flood stage
+Tuesday afternoon.
+- Flood stage is 17.0 feet.
+- http://www.weather.gov/safety/flood,Sun Jul 28 2024 11:56:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.1f1e5ab7c13fca60ffa685dccbfe435a2b3bbb55.002.1.cap
+National Weather Service,...The Flood Warning is extended for the following rivers in Texas...
+
+Village Creek Near Kountze
+
+...The Flood Warning continues for the following rivers in
+Louisiana...Texas...
+
+Sabine River Near Deweyville
+
+Neches River at Neches River Saltwater Barrier
+
+Neches River Near Evadale
+
+Pine Island Bayou Near Sour Lake
+
+...The Flood Warning is cancelled for the following rivers in
+Louisiana...
+
+Bayou Anacoco Near Rosepine
+
+Additional information is available at www.weather.gov.
+
+The next statement will be issued this afternoon at 300 PM CDT.
+
+* WHAT...Minor flooding is occurring and minor flooding is forecast.
+
+* WHERE...Pine Island Bayou near Sour Lake.
+
+* WHEN...Until Wednesday morning.
+
+* IMPACTS...At 25.0 feet, Water inundates roads in lowland areas
+near the river. Low spots on Old Sour Lake Road are under water.
+
+* ADDITIONAL DETAILS...
+- At 12:45 PM CDT Sunday the stage was 26.1 feet.
+- Recent Activity...The maximum river stage in the 24 hours
+ending at 12:45 PM CDT Sunday was 26.1 feet.
+- Forecast...The river is expected to fall below flood stage
+Tuesday evening and continue falling to 21.4 feet early
+Friday afternoon.
+- Flood stage is 25.0 feet.
+- http://www.weather.gov/safety/flood,Sun Jul 28 2024 11:56:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.1f1e5ab7c13fca60ffa685dccbfe435a2b3bbb55.003.1.cap
+National Weather Service,...The Flood Warning is extended for the following rivers in Texas...
+
+Village Creek Near Kountze
+
+...The Flood Warning continues for the following rivers in
+Louisiana...Texas...
+
+Sabine River Near Deweyville
+
+Neches River at Neches River Saltwater Barrier
+
+Neches River Near Evadale
+
+Pine Island Bayou Near Sour Lake
+
+...The Flood Warning is cancelled for the following rivers in
+Louisiana...
+
+Bayou Anacoco Near Rosepine
+
+Additional information is available at www.weather.gov.
+
+The next statement will be issued this afternoon at 300 PM CDT.
+
+* WHAT...Minor flooding is forecast.
+
+* WHERE...Neches River near Evadale.
+
+* WHEN...Until Thursday evening.
+
+* IMPACTS...At 17.0 feet, Minor flooding expected with the boat
+ramps at Evadale possibly becoming inaccessible. Flooding can be
+expected in the low-lying areas of the Lakeview community in
+Orange County.
+
+* ADDITIONAL DETAILS...
+- At 1:00 PM CDT Sunday the stage was 16.9 feet.
+- Forecast...The river is expected to rise above flood stage
+just after midnight tonight to a crest of 17.2 feet tomorrow
+evening. It will then fall below flood stage Thursday
+morning.
+- Flood stage is 17.0 feet.
+- http://www.weather.gov/safety/flood,Sun Jul 28 2024 11:56:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.1f1e5ab7c13fca60ffa685dccbfe435a2b3bbb55.005.1.cap
+National Weather Service,...The Flood Warning is extended for the following rivers in Texas...
+
+Village Creek Near Kountze
+
+...The Flood Warning continues for the following rivers in
+Louisiana...Texas...
+
+Sabine River Near Deweyville
+
+Neches River at Neches River Saltwater Barrier
+
+Neches River Near Evadale
+
+Pine Island Bayou Near Sour Lake
+
+...The Flood Warning is cancelled for the following rivers in
+Louisiana...
+
+Bayou Anacoco Near Rosepine
+
+Additional information is available at www.weather.gov.
+
+The next statement will be issued this afternoon at 300 PM CDT.
+
+* WHAT...Minor flooding is occurring and minor flooding is forecast.
+
+* WHERE...Sabine River near Deweyville.
+
+* WHEN...Until further notice.
+
+* IMPACTS...At 25.0 feet, Lowest roads beside the river flood around
+Deweyville and subject to being closed. In addition, low-lying
+roads in Southwest Beauregard Parish are flooded including Robert
+Clark Road. Flooding occurs on the south side of Niblett Bluff
+Park with access roads to camp houses cut off around the park.
+Access roads to the river in Northeastern Orange County become
+flooded.
+
+* ADDITIONAL DETAILS...
+- At 12:45 PM CDT Sunday the stage was 24.9 feet.
+- Recent Activity...The maximum river stage in the 24 hours
+ending at 12:45 PM CDT Sunday was 24.9 feet.
+- Forecast...The river is expected to rise to a crest of 25.1
+feet tomorrow evening.
+- Flood stage is 24.0 feet.
+- http://www.weather.gov/safety/flood,Sun Jul 28 2024 11:56:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.1f1e5ab7c13fca60ffa685dccbfe435a2b3bbb55.006.1.cap
+National Weather Service,...The Flood Warning is extended for the following rivers in Texas...
+
+Village Creek Near Kountze
+
+...The Flood Warning continues for the following rivers in
+Louisiana...Texas...
+
+Sabine River Near Deweyville
+
+Neches River at Neches River Saltwater Barrier
+
+Neches River Near Evadale
+
+Pine Island Bayou Near Sour Lake
+
+...The Flood Warning is cancelled for the following rivers in
+Louisiana...
+
+Bayou Anacoco Near Rosepine
+
+Additional information is available at www.weather.gov.
+
+The next statement will be issued this afternoon at 300 PM CDT.
+
+* WHAT...Minor flooding is occurring and moderate flooding is
+forecast.
+
+* WHERE...Neches River at Neches River Saltwater Barrier.
+
+* WHEN...Until further notice.
+
+* IMPACTS...At 6.0 feet, Colliers Ferry Park is under water, and
+flooding of secondary roads near the river can be expected.
+
+* ADDITIONAL DETAILS...
+- At 1:15 PM CDT Sunday the stage was 5.7 feet.
+- Recent Activity...The maximum river stage in the 24 hours
+ending at 1:15 PM CDT Sunday was 5.7 feet.
+- Forecast...The river is expected to rise to a crest of 6.3
+feet early Wednesday afternoon.
+- Flood stage is 4.0 feet.
+- http://www.weather.gov/safety/flood,Sun Jul 28 2024 11:56:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.1f1e5ab7c13fca60ffa685dccbfe435a2b3bbb55.004.1.cap
+National Weather Service,* WHAT...Dangerously hot conditions with heat index values up to 111
+expected.
+
+* WHERE...Muskogee, Okmulgee, Rogers, Tulsa, Wagoner, and Washington
+Counties in Oklahoma.
+
+* WHEN...From noon to 9 PM CDT Monday.
+
+* IMPACTS...The combination of hot temperatures and high humidity
+will create a dangerous situation in which heat related illnesses
+are more likely.,Sun Jul 28 2024 11:41:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.96c03774ceb4572a184eddbc1ae80d6d6f446f01.001.1.cap
+National Weather Service,...The Flood Warning is extended for the following rivers in
+Louisiana...
+
+Calcasieu River Near Glenmora
+
+Additional information is available at www.weather.gov.
+
+The next statement will be issued Monday afternoon at 130 PM CDT.
+
+* WHAT...Minor flooding is occurring and minor flooding is forecast.
+
+* WHERE...Calcasieu River near Glenmora.
+
+* WHEN...Until early Thursday afternoon.
+
+* IMPACTS...At 14.0 feet, Some roads upstream from Glenmora,
+including Strothers Crossing Road near the community of Calcasieu
+and Price Crossing Road near Hineston have two to three feet of
+water over the road and are subject to being closed. Flooding of
+forested areas near the river will also occur.
+At 15.0 feet, Flooding of secondary roads near the river and its
+tributaries begins, including Ashmore Road. Strothers Crossing
+Road near Calcasieu and Price Crossing Road near Hineston have
+several feet of water over them and subject to washouts.
+
+* ADDITIONAL DETAILS...
+- At 12:45 PM CDT Sunday the stage was 14.6 feet.
+- Recent Activity...The maximum river stage in the 24 hours
+ending at 12:45 PM CDT Sunday was 14.6 feet.
+- Forecast...The river is expected to rise to a crest of 14.7
+feet this evening. It will then fall below flood stage
+Thursday morning.
+- Flood stage is 12.0 feet.
+- http://www.weather.gov/safety/flood,Sun Jul 28 2024 11:30:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.e823fa384fd3cfb823d4c452c87392f0cf8a49c5.001.1.cap
 National Weather Service,FFWOHX
 
 The National Weather Service in Nashville has extended the
@@ -932,6 +1254,17 @@ sudden wind gusts in excess of 50 MPH possible.
 
 * IMPACTS...Any fires that develop will likely spread rapidly.
 Outdoor burning is not recommended.,Sun Jul 28 2024 02:34:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.8724b4d7077eb135daab34a4c715d23e4c289c43.002.1.cap
+National Weather Service,* AFFECTED AREA...In Colorado, Fire Weather Zone 203 Lower
+Colorado River and Fire Weather Zone 205 Colorado River
+Headwaters below 7000 feet.
+
+* WINDS...Southwest 10 to 15 mph with gusts up to 30 mph.
+
+* RELATIVE HUMIDITY...6 to 11 percent.
+
+* IMPACTS...Conditions may become favorable for the easy
+ignition and rapid spread of fires due to low relative
+humidity and strong gusty winds.,Sun Jul 28 2024 02:24:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4e99060219e0fcc29970539cb6fd16be7d1c2252.003.1.cap
 National Weather Service,* AFFECTED AREA...In Colorado, Fire Weather Zone 290 Paradox
 Valley Forecast Area, Fire Weather Zone 292 North Fork
 Forecast Area and Fire Weather Zone 293 Gunnison Basin
@@ -946,17 +1279,6 @@ Basin, Fire Weather Zone 487 Book Cliffs and Fire Weather Zone
 * IMPACTS...Conditions may become favorable for the easy
 ignition and rapid spread of fires due to low relative
 humidity and strong gusty winds.,Sun Jul 28 2024 02:24:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4e99060219e0fcc29970539cb6fd16be7d1c2252.002.1.cap
-National Weather Service,* AFFECTED AREA...In Colorado, Fire Weather Zone 203 Lower
-Colorado River and Fire Weather Zone 205 Colorado River
-Headwaters below 7000 feet.
-
-* WINDS...Southwest 10 to 15 mph with gusts up to 30 mph.
-
-* RELATIVE HUMIDITY...6 to 11 percent.
-
-* IMPACTS...Conditions may become favorable for the easy
-ignition and rapid spread of fires due to low relative
-humidity and strong gusty winds.,Sun Jul 28 2024 02:24:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4e99060219e0fcc29970539cb6fd16be7d1c2252.003.1.cap
 National Weather Service,...FIRE WEATHER WATCH IN EFFECT FROM MONDAY AFTERNOON THROUGH
 MONDAY EVENING FOR GUSTY WINDS, LOW RELATIVE HUMIDITY AND DRY
 FUELS FOR FIRE WEATHER ZONES 200 AND 202...
