@@ -1,18 +1,491 @@
 Sheet Name,Summary,Published (Pacific Time),Link
-National Weather Service,#ERROR!,Sun Jul 28 2024 09:24:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.e9fd8b56ca2214ffc6866894fa1396a444a6b6e0.001.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 09:24:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.e9fd8b56ca2214ffc6866894fa1396a444a6b6e0.002.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 09:08:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.e4256a4b88b23b0a596e99a41a41309f43b6e37b.002.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 09:08:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.e4256a4b88b23b0a596e99a41a41309f43b6e37b.001.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 09:08:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.e4256a4b88b23b0a596e99a41a41309f43b6e37b.003.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 09:08:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.e4256a4b88b23b0a596e99a41a41309f43b6e37b.004.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 09:07:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.f2b1a73bde20fc72021110de11466495e9483fac.001.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 09:07:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.f2b1a73bde20fc72021110de11466495e9483fac.003.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 09:07:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.f2b1a73bde20fc72021110de11466495e9483fac.005.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 09:07:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.f2b1a73bde20fc72021110de11466495e9483fac.002.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 09:07:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.f2b1a73bde20fc72021110de11466495e9483fac.004.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 09:07:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.f2b1a73bde20fc72021110de11466495e9483fac.006.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 09:07:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.f2b1a73bde20fc72021110de11466495e9483fac.007.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 09:07:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.f2b1a73bde20fc72021110de11466495e9483fac.008.1.cap
+National Weather Service,The National Weather Service in Hanford has issued a Red Flag
+Warning, which is in effect until 11 PM PDT Monday.
+
+* AFFECTED AREA...Fire weather zone 595.
+
+* WIND...West/upsloping winds with maximum gusts 25-35 mph.
+
+* HUMIDITY...Minimum daytime humidity levels 15-25% or less.
+
+* THUNDERSTORMS...None.
+
+* IMPACTS...any fires that develop will likely spread rapidly.
+Outdoor burning is not recommended.
+
+* HIGHEST THREAT...dry fuels, low relative humidity, and
+elevated winds are favorable conditions for rapid fire spread.,Sun Jul 28 2024 09:24:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.e9fd8b56ca2214ffc6866894fa1396a444a6b6e0.001.1.cap
+National Weather Service,* AFFECTED AREA...Fire weather zone 595.
+
+* WIND...West/upsloping winds with maximum gusts 25-35 mph.
+
+* HUMIDITY...Minimum daytime humidity levels 15-20% or less.
+
+* THUNDERSTORMS...None.
+
+* IMPACTS...any fires that develop will likely spread rapidly.
+Outdoor burning is not recommended.
+
+* HIGHEST THREAT...dry fuels, low relative humidity, and
+elevated winds are favorable conditions for rapid fire spread.,Sun Jul 28 2024 09:24:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.e9fd8b56ca2214ffc6866894fa1396a444a6b6e0.002.1.cap
+National Weather Service,...The Flood Warning continues for the following points along the
+Mississippi River...
+
+Mississippi River at Winfield.
+
+Mississippi River at Hannibal.
+
+Mississippi River at Clarksville.
+
+Mississippi River at Louisiana.
+
+River forecasts are based on observed precipitation and forecast
+precipitation for the next 24 hours.
+
+* WHAT...Minor flooding is occurring and minor flooding is forecast.
+
+* WHERE...Mississippi River at Hannibal.
+
+* WHEN...Until late Tuesday morning.
+
+* ADDITIONAL DETAILS...
+- At 10:15 AM CDT Sunday the stage was 17.4 feet.
+- Forecast...The river is expected to fall below flood stage
+late tonight and continue falling to 14.4 feet Sunday, August
+04.
+- Flood stage is 17.0 feet.,Sun Jul 28 2024 09:08:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.e4256a4b88b23b0a596e99a41a41309f43b6e37b.002.1.cap
+National Weather Service,...The Flood Warning continues for the following points along the
+Mississippi River...
+
+Mississippi River at Winfield.
+
+Mississippi River at Hannibal.
+
+Mississippi River at Clarksville.
+
+Mississippi River at Louisiana.
+
+River forecasts are based on observed precipitation and forecast
+precipitation for the next 24 hours.
+
+* WHAT...Minor flooding is occurring and minor flooding is forecast.
+
+* WHERE...Mississippi River at Winfield.
+
+* WHEN...Until Wednesday morning.
+
+* ADDITIONAL DETAILS...
+- At 10:30 AM CDT Sunday the stage was 27.4 feet.
+- Forecast...The river is expected to fall below flood stage
+early Tuesday morning and continue falling to 21.9 feet
+Sunday, August 04.
+- Flood stage is 26.0 feet.,Sun Jul 28 2024 09:08:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.e4256a4b88b23b0a596e99a41a41309f43b6e37b.001.1.cap
+National Weather Service,...The Flood Warning continues for the following points along the
+Mississippi River...
+
+Mississippi River at Winfield.
+
+Mississippi River at Hannibal.
+
+Mississippi River at Clarksville.
+
+Mississippi River at Louisiana.
+
+River forecasts are based on observed precipitation and forecast
+precipitation for the next 24 hours.
+
+* WHAT...Minor flooding is occurring and minor flooding is forecast.
+
+* WHERE...Mississippi River at Louisiana.
+
+* WHEN...Until late Wednesday evening.
+
+* ADDITIONAL DETAILS...
+- At 10:30 AM CDT Sunday the stage was 16.5 feet.
+- Forecast...The river is expected to fall below flood stage
+Tuesday afternoon and continue falling to 12.5 feet Sunday,
+August 04.
+- Flood stage is 15.0 feet.,Sun Jul 28 2024 09:08:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.e4256a4b88b23b0a596e99a41a41309f43b6e37b.003.1.cap
+National Weather Service,...The Flood Warning continues for the following points along the
+Mississippi River...
+
+Mississippi River at Winfield.
+
+Mississippi River at Hannibal.
+
+Mississippi River at Clarksville.
+
+Mississippi River at Louisiana.
+
+River forecasts are based on observed precipitation and forecast
+precipitation for the next 24 hours.
+
+* WHAT...Minor flooding is occurring and minor flooding is forecast.
+
+* WHERE...Mississippi River at Clarksville.
+
+* WHEN...Until early Thursday morning.
+
+* ADDITIONAL DETAILS...
+- At 10:30 AM CDT Sunday the stage was 26.9 feet.
+- Forecast...The river is expected to fall below flood stage
+Tuesday evening and continue falling to 21.5 feet Sunday,
+August 04.
+- Flood stage is 25.0 feet.,Sun Jul 28 2024 09:08:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.e4256a4b88b23b0a596e99a41a41309f43b6e37b.004.1.cap
+National Weather Service,...The Flood Warning continues for the following rivers in
+Louisiana...Texas...
+
+Calcasieu River Near Glenmora
+
+Village Creek Near Kountze
+
+Pine Island Bayou Near Sour Lake
+
+Calcasieu River near White Oak Park
+
+Sabine River Near Deweyville
+
+Neches River at Neches River Saltwater Barrier
+
+...The Flood Warning is extended for the following rivers in
+Louisiana...Texas...
+
+Bayou Anacoco Near Rosepine
+
+Neches River Near Evadale
+
+Additional information is available at www.weather.gov.
+
+The next statement will be issued this evening at 800 PM CDT.
+
+* WHAT...No flooding is currently forecast.
+
+* WHERE...Bayou Anacoco near Rosepine.
+
+* WHEN...Until this evening.
+
+* IMPACTS...At 17.0 feet, Minor flooding of agricultural and
+forested areas near the bayou will occur.
+
+* ADDITIONAL DETAILS...
+- At 10:45 AM CDT Sunday the stage was 16.6 feet.
+- Forecast...The river is expected to fall to 6.8 feet Friday
+morning.
+- Flood stage is 17.0 feet.
+- http://www.weather.gov/safety/flood,Sun Jul 28 2024 09:07:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.f2b1a73bde20fc72021110de11466495e9483fac.001.1.cap
+National Weather Service,...The Flood Warning continues for the following rivers in
+Louisiana...Texas...
+
+Calcasieu River Near Glenmora
+
+Village Creek Near Kountze
+
+Pine Island Bayou Near Sour Lake
+
+Calcasieu River near White Oak Park
+
+Sabine River Near Deweyville
+
+Neches River at Neches River Saltwater Barrier
+
+...The Flood Warning is extended for the following rivers in
+Louisiana...Texas...
+
+Bayou Anacoco Near Rosepine
+
+Neches River Near Evadale
+
+Additional information is available at www.weather.gov.
+
+The next statement will be issued this evening at 800 PM CDT.
+
+* WHAT...Minor flooding is occurring and minor flooding is forecast.
+
+* WHERE...Calcasieu River near Glenmora.
+
+* WHEN...Until Tuesday evening.
+
+* IMPACTS...At 14.0 feet, Some roads upstream from Glenmora,
+including Strothers Crossing Road near the community of Calcasieu
+and Price Crossing Road near Hineston have two to three feet of
+water over the road and are subject to being closed. Flooding of
+forested areas near the river will also occur.
+
+* ADDITIONAL DETAILS...
+- At 10:45 AM CDT Sunday the stage was 14.4 feet.
+- Recent Activity...The maximum river stage in the 24 hours
+ending at 10:45 AM CDT Sunday was 14.4 feet.
+- Forecast...The river is expected to rise to a crest of 14.2
+feet this evening. It will then fall below flood stage early
+Tuesday afternoon.
+- Flood stage is 12.0 feet.
+- http://www.weather.gov/safety/flood,Sun Jul 28 2024 09:07:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.f2b1a73bde20fc72021110de11466495e9483fac.003.1.cap
+National Weather Service,...The Flood Warning continues for the following rivers in
+Louisiana...Texas...
+
+Calcasieu River Near Glenmora
+
+Village Creek Near Kountze
+
+Pine Island Bayou Near Sour Lake
+
+Calcasieu River near White Oak Park
+
+Sabine River Near Deweyville
+
+Neches River at Neches River Saltwater Barrier
+
+...The Flood Warning is extended for the following rivers in
+Louisiana...Texas...
+
+Bayou Anacoco Near Rosepine
+
+Neches River Near Evadale
+
+Additional information is available at www.weather.gov.
+
+The next statement will be issued this evening at 800 PM CDT.
+
+* WHAT...Minor flooding is forecast.
+
+* WHERE...Village Creek near Kountze.
+
+* WHEN...From this afternoon to early Wednesday morning.
+
+* IMPACTS...At 18.4 feet, The water will be at the low chord of
+Highway 418.
+
+* ADDITIONAL DETAILS...
+- At 10:30 AM CDT Sunday the stage was 16.8 feet.
+- Forecast...The river is expected to rise above flood stage
+late this afternoon to a crest of 18.0 feet tomorrow evening.
+It will then fall below flood stage Tuesday afternoon.
+- Flood stage is 17.0 feet.
+- http://www.weather.gov/safety/flood,Sun Jul 28 2024 09:07:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.f2b1a73bde20fc72021110de11466495e9483fac.005.1.cap
+National Weather Service,...The Flood Warning continues for the following rivers in
+Louisiana...Texas...
+
+Calcasieu River Near Glenmora
+
+Village Creek Near Kountze
+
+Pine Island Bayou Near Sour Lake
+
+Calcasieu River near White Oak Park
+
+Sabine River Near Deweyville
+
+Neches River at Neches River Saltwater Barrier
+
+...The Flood Warning is extended for the following rivers in
+Louisiana...Texas...
+
+Bayou Anacoco Near Rosepine
+
+Neches River Near Evadale
+
+Additional information is available at www.weather.gov.
+
+The next statement will be issued this evening at 800 PM CDT.
+
+* WHAT...Minor flooding is occurring and minor flooding is forecast.
+
+* WHERE...Pine Island Bayou near Sour Lake.
+
+* WHEN...Until Wednesday morning.
+
+* IMPACTS...At 25.0 feet, Water inundates roads in lowland areas
+near the river. Low spots on Old Sour Lake Road are under water.
+
+* ADDITIONAL DETAILS...
+- At 9:45 AM CDT Sunday the stage was 26.1 feet.
+- Recent Activity...The maximum river stage in the 24 hours
+ending at 9:45 AM CDT Sunday was 26.1 feet.
+- Forecast...The river is expected to rise to a crest of 26.1
+feet this afternoon. It will then fall below flood stage
+Tuesday evening.
+- Flood stage is 25.0 feet.
+- http://www.weather.gov/safety/flood,Sun Jul 28 2024 09:07:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.f2b1a73bde20fc72021110de11466495e9483fac.002.1.cap
+National Weather Service,...The Flood Warning continues for the following rivers in
+Louisiana...Texas...
+
+Calcasieu River Near Glenmora
+
+Village Creek Near Kountze
+
+Pine Island Bayou Near Sour Lake
+
+Calcasieu River near White Oak Park
+
+Sabine River Near Deweyville
+
+Neches River at Neches River Saltwater Barrier
+
+...The Flood Warning is extended for the following rivers in
+Louisiana...Texas...
+
+Bayou Anacoco Near Rosepine
+
+Neches River Near Evadale
+
+Additional information is available at www.weather.gov.
+
+The next statement will be issued this evening at 800 PM CDT.
+
+* WHAT...Minor flooding is forecast.
+
+* WHERE...Neches River near Evadale.
+
+* WHEN...Until Thursday evening.
+
+* IMPACTS...At 17.0 feet, Minor flooding expected with the boat
+ramps at Evadale possibly becoming inaccessible. Flooding can be
+expected in the low-lying areas of the Lakeview community in
+Orange County.
+
+* ADDITIONAL DETAILS...
+- At 10:00 AM CDT Sunday the stage was 16.9 feet.
+- Forecast...The river is expected to rise above flood stage
+tomorrow morning to a crest of 17.2 feet early Tuesday
+morning. It will then fall below flood stage Thursday
+morning.
+- Flood stage is 17.0 feet.
+- http://www.weather.gov/safety/flood,Sun Jul 28 2024 09:07:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.f2b1a73bde20fc72021110de11466495e9483fac.004.1.cap
+National Weather Service,...The Flood Warning continues for the following rivers in
+Louisiana...Texas...
+
+Calcasieu River Near Glenmora
+
+Village Creek Near Kountze
+
+Pine Island Bayou Near Sour Lake
+
+Calcasieu River near White Oak Park
+
+Sabine River Near Deweyville
+
+Neches River at Neches River Saltwater Barrier
+
+...The Flood Warning is extended for the following rivers in
+Louisiana...Texas...
+
+Bayou Anacoco Near Rosepine
+
+Neches River Near Evadale
+
+Additional information is available at www.weather.gov.
+
+The next statement will be issued this evening at 800 PM CDT.
+
+* WHAT...Minor flooding is occurring and minor flooding is forecast.
+
+* WHERE...Calcasieu River near White Oak Park.
+
+* WHEN...Until further notice.
+
+* IMPACTS...At 2.0 feet, Minor flooding of Goos Ferry Road will
+occur.
+
+* ADDITIONAL DETAILS...
+- At 9:35 AM CDT Sunday the stage was 2.1 feet.
+- Recent Activity...The maximum river stage in the 24 hours
+ending at 9:35 AM CDT Sunday was 2.1 feet.
+- Forecast...The river will oscillate above flood stage with a
+maximum value of 2.2 feet this afternoon.
+- Flood stage is 2.0 feet.
+- http://www.weather.gov/safety/flood,Sun Jul 28 2024 09:07:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.f2b1a73bde20fc72021110de11466495e9483fac.006.1.cap
+National Weather Service,...The Flood Warning continues for the following rivers in
+Louisiana...Texas...
+
+Calcasieu River Near Glenmora
+
+Village Creek Near Kountze
+
+Pine Island Bayou Near Sour Lake
+
+Calcasieu River near White Oak Park
+
+Sabine River Near Deweyville
+
+Neches River at Neches River Saltwater Barrier
+
+...The Flood Warning is extended for the following rivers in
+Louisiana...Texas...
+
+Bayou Anacoco Near Rosepine
+
+Neches River Near Evadale
+
+Additional information is available at www.weather.gov.
+
+The next statement will be issued this evening at 800 PM CDT.
+
+* WHAT...Minor flooding is occurring and moderate flooding is
+forecast.
+
+* WHERE...Neches River at Neches River Saltwater Barrier.
+
+* WHEN...Until further notice.
+
+* IMPACTS...At 6.0 feet, Colliers Ferry Park is under water, and
+flooding of secondary roads near the river can be expected.
+
+* ADDITIONAL DETAILS...
+- At 10:15 AM CDT Sunday the stage was 5.7 feet.
+- Recent Activity...The maximum river stage in the 24 hours
+ending at 10:15 AM CDT Sunday was 5.7 feet.
+- Forecast...The river is expected to rise to a crest of 6.2
+feet early Wednesday afternoon.
+- Flood stage is 4.0 feet.
+- http://www.weather.gov/safety/flood,Sun Jul 28 2024 09:07:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.f2b1a73bde20fc72021110de11466495e9483fac.007.1.cap
+National Weather Service,...The Flood Warning continues for the following rivers in
+Louisiana...Texas...
+
+Calcasieu River Near Glenmora
+
+Village Creek Near Kountze
+
+Pine Island Bayou Near Sour Lake
+
+Calcasieu River near White Oak Park
+
+Sabine River Near Deweyville
+
+Neches River at Neches River Saltwater Barrier
+
+...The Flood Warning is extended for the following rivers in
+Louisiana...Texas...
+
+Bayou Anacoco Near Rosepine
+
+Neches River Near Evadale
+
+Additional information is available at www.weather.gov.
+
+The next statement will be issued this evening at 800 PM CDT.
+
+* WHAT...Minor flooding is occurring and minor flooding is forecast.
+
+* WHERE...Sabine River near Deweyville.
+
+* WHEN...Until further notice.
+
+* IMPACTS...At 25.0 feet, Lowest roads beside the river flood around
+Deweyville and subject to being closed. In addition, low-lying
+roads in Southwest Beauregard Parish are flooded including Robert
+Clark Road. Flooding occurs on the south side of Niblett Bluff
+Park with access roads to camp houses cut off around the park.
+Access roads to the river in Northeastern Orange County become
+flooded.
+
+* ADDITIONAL DETAILS...
+- At 9:45 AM CDT Sunday the stage was 24.9 feet.
+- Recent Activity...The maximum river stage in the 24 hours
+ending at 9:45 AM CDT Sunday was 24.9 feet.
+- Forecast...The river is expected to rise to a crest of 25.2
+feet early Tuesday afternoon.
+- Flood stage is 24.0 feet.
+- http://www.weather.gov/safety/flood,Sun Jul 28 2024 09:07:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.f2b1a73bde20fc72021110de11466495e9483fac.008.1.cap
 National Weather Service,FFWOHX
 
 The National Weather Service in Nashville has issued a
@@ -192,11 +665,136 @@ feet tomorrow morning. It will then fall below flood stage
 Wednesday evening.
 - Flood stage is 13.0 feet.
 - http://www.weather.gov/safety/flood,Sun Jul 28 2024 07:17:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.64ff33ab64ca459f9c3eaf45607e64766d03f00e.001.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 07:01:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.143dcee44c8432fbdcb17b441d18f71e5d47ac56.001.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 06:54:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.e71beef4001a5880f0bca08e3047d2c5fbe6d6d7.001.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 06:53:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.fd23d7ccce6804ed7cbdcb1e6073cbe24f64c752.001.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 06:51:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.55d09fec248730f6c660b72ed81a4e4545c335ca.001.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 06:49:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.1fe74f7bc7acf27d929a6780f23f7c2a1b8a9075.001.1.cap
+National Weather Service,...The Flood Warning is extended for the following rivers in North
+Carolina...
+
+Tar River At Tarboro affecting Edgecombe County.
+
+* WHAT...Minor flooding is occurring and minor flooding is forecast.
+
+* WHERE...Tar River at Tarboro.
+
+* WHEN...Until late Tuesday morning.
+
+* IMPACTS...At 17.0 feet, The river is at bankfull.
+At 19.0 feet, Minor flooding begins. The Riverside Park and River
+Road at the US64 bridge flood.
+At 20.0 feet, Lowland flooding begins south of Daniel Street in
+east Tarboro.
+
+* ADDITIONAL DETAILS...
+- At 9:15 AM EDT Sunday the stage was 19.6 feet.
+- Bankfull stage is 19.0 feet.
+- Recent Activity...The maximum river stage in the 24 hours
+ending at 9:15 AM EDT Sunday was 19.6 feet.
+- Forecast...The river is expected to rise to a crest of 20.2
+feet this evening. It will then fall below flood stage late
+tomorrow evening.
+- Flood stage is 19.0 feet.
+- Flood History...This crest compares to a previous crest of
+22.2 feet on 04/02/2010.
+- http://www.weather.gov/safety/flood,Sun Jul 28 2024 07:01:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.143dcee44c8432fbdcb17b441d18f71e5d47ac56.001.1.cap
+National Weather Service,...The Flood Warning continues for the following rivers in North
+Carolina...
+
+Trent River At Trenton affecting Jones County.
+
+* WHAT...Minor flooding is occurring.
+
+* WHERE...Trent River at Trenton.
+
+* WHEN...Until further notice.
+
+* IMPACTS...At 14.0 feet, Boat Launch area at the end of Landfill
+Road is flooded, and parts of Landfill Road may be flooded. The
+end of West Jones Street is inundated as well.
+
+* ADDITIONAL DETAILS...
+- At 9:20 AM EDT Sunday the stage was 15.4 feet.
+- Recent Activity...The maximum river stage in the 24 hours
+ending at 9:20 AM EDT Sunday was 15.4 feet.
+- Forecast...No forecast is available for this location.
+- Flood stage is 14.0 feet.
+- http://www.weather.gov/safety/flood,Sun Jul 28 2024 06:54:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.e71beef4001a5880f0bca08e3047d2c5fbe6d6d7.001.1.cap
+National Weather Service,...The Flood Warning is extended for the following rivers in North
+Carolina...
+
+Trent River At West of Trenton affecting Jones County.
+
+For the Trent River...including West of Trenton...Minor flooding is
+forecast.
+
+* WHAT...Minor flooding is occurring and minor flooding is forecast.
+
+* WHERE...Trent River at West of Trenton.
+
+* WHEN...Until late tomorrow evening.
+
+* IMPACTS...At 14.0 feet, Farmland and fields are flooded along the
+river. Water inundates the Trent River Campground.
+
+* ADDITIONAL DETAILS...
+- At 9:45 AM EDT Sunday the stage was 14.9 feet.
+- Recent Activity...The maximum river stage in the 24 hours
+ending at 9:45 AM EDT Sunday was 15.1 feet.
+- Forecast...The river is expected to fall below flood stage
+tomorrow afternoon and continue falling to 11.0 feet Friday
+morning.
+- Flood stage is 14.0 feet.
+- http://www.weather.gov/safety/flood,Sun Jul 28 2024 06:53:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.fd23d7ccce6804ed7cbdcb1e6073cbe24f64c752.001.1.cap
+National Weather Service,...The Flood Warning is extended for the following rivers in North
+Carolina...
+
+Northeast Cape Fear River Near Chinquapin affecting Duplin County.
+
+For the North East Cape Fear River...including Chinquapin...Minor
+flooding is forecast.
+
+* WHAT...Minor flooding is occurring and minor flooding is forecast.
+
+* WHERE...Northeast Cape Fear River near Chinquapin.
+
+* WHEN...Until early Tuesday morning.
+
+* IMPACTS...At 13.0 feet, Low land flooding adjacent to the river
+and its tributaries is expected. River access docks are impacted
+as well.
+
+* ADDITIONAL DETAILS...
+- At 9:30 AM EDT Sunday the stage was 13.4 feet.
+- Recent Activity...The maximum river stage in the 24 hours
+ending at 9:30 AM EDT Sunday was 13.4 feet.
+- Forecast...The river is expected to fall below flood stage
+tomorrow evening and continue falling to 9.3 feet Friday
+morning.
+- Flood stage is 13.0 feet.
+- http://www.weather.gov/safety/flood,Sun Jul 28 2024 06:51:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.55d09fec248730f6c660b72ed81a4e4545c335ca.001.1.cap
+National Weather Service,...The Flood Warning is extended for the following rivers in North
+Carolina...
+
+Tar River At Greenville affecting Pitt County.
+
+For the Tar River...including Greenville...Minor flooding is
+forecast.
+
+* WHAT...Minor flooding is occurring and minor flooding is forecast.
+
+* WHERE...Tar River at Greenville.
+
+* WHEN...Until early Thursday morning.
+
+* IMPACTS...At 13.0 feet, Minor flooding of low lying areas adjacent
+to the river can be expected.
+
+* ADDITIONAL DETAILS...
+- At 9:00 AM EDT Sunday the stage was 13.5 feet.
+- Recent Activity...The maximum river stage in the 24 hours
+ending at 9:00 AM EDT Sunday was 13.5 feet.
+- Forecast...The river is expected to rise to a crest of 14.4
+feet Tuesday morning. It will then fall below flood stage
+Wednesday evening.
+- Flood stage is 13.0 feet.
+- http://www.weather.gov/safety/flood,Sun Jul 28 2024 06:49:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.1fe74f7bc7acf27d929a6780f23f7c2a1b8a9075.001.1.cap
 National Weather Service,...The Flood Warning continues for the following rivers in Texas...
 
 Menard Creek near Rye affecting Liberty, Polk and Hardin Counties.
