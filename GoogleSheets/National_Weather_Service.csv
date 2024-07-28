@@ -1,9 +1,136 @@
 Sheet Name,Summary,Published (Pacific Time),Link
-National Weather Service,#ERROR!,Sun Jul 28 2024 10:51:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.3159fa84fc849d3e0e4c839c08a50f7a3caab261.001.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 10:37:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.c24154dd0fbbafa27605f3866e0c31feaf318167.001.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 10:19:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.a565328cf8be0eaab9bf78efa239db9ff1f35e09.001.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 09:54:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.8143fea6fb8095a1dcf00e9401b33d3231c2ad00.001.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 09:24:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.e9fd8b56ca2214ffc6866894fa1396a444a6b6e0.001.1.cap
+National Weather Service,...The Flood Warning is extended for the following rivers in
+Louisiana...
+
+Calcasieu River Near Glenmora
+
+Additional information is available at www.weather.gov.
+
+The next statement will be issued Monday afternoon at 130 PM CDT.
+
+* WHAT...Minor flooding is occurring and minor flooding is forecast.
+
+* WHERE...Calcasieu River near Glenmora.
+
+* WHEN...Until early Thursday afternoon.
+
+* IMPACTS...At 14.0 feet, Some roads upstream from Glenmora,
+including Strothers Crossing Road near the community of Calcasieu
+and Price Crossing Road near Hineston have two to three feet of
+water over the road and are subject to being closed. Flooding of
+forested areas near the river will also occur.
+At 15.0 feet, Flooding of secondary roads near the river and its
+tributaries begins, including Ashmore Road. Strothers Crossing
+Road near Calcasieu and Price Crossing Road near Hineston have
+several feet of water over them and subject to washouts.
+
+* ADDITIONAL DETAILS...
+- At 12:45 PM CDT Sunday the stage was 14.6 feet.
+- Recent Activity...The maximum river stage in the 24 hours
+ending at 12:45 PM CDT Sunday was 14.6 feet.
+- Forecast...The river is expected to rise to a crest of 14.7
+feet this evening. It will then fall below flood stage
+Thursday morning.
+- Flood stage is 12.0 feet.
+- http://www.weather.gov/safety/flood,Sun Jul 28 2024 11:30:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.e823fa384fd3cfb823d4c452c87392f0cf8a49c5.001.1.cap
+National Weather Service,FFWOHX
+
+The National Weather Service in Nashville has extended the
+
+* Flash Flood Warning for...
+Macon County in middle Tennessee...
+Central Trousdale County in middle Tennessee...
+
+* Until 300 PM CDT.
+
+* At 1251 PM CDT, Doppler radar indicated thunderstorms producing
+heavy rain across the warned area. Between 2 and 4 inches of rain
+have fallen. Additional rainfall amounts of 0.5 to 1 inch are
+possible in the warned area. Flash flooding is ongoing or expected
+to begin shortly.
+
+HAZARD...Flash flooding caused by thunderstorms.
+
+SOURCE...Radar.
+
+IMPACT...Flash flooding of small creeks and streams, urban
+areas, highways, streets and underpasses as well as
+other poor drainage and low-lying areas.
+
+* Some locations that will experience flash flooding include...
+Lafayette, Hartsville and Red Boiling Springs.,Sun Jul 28 2024 10:51:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.3159fa84fc849d3e0e4c839c08a50f7a3caab261.001.1.cap
+National Weather Service,FFWBMX
+
+The National Weather Service in Birmingham has issued a
+
+* Flash Flood Warning for...
+Marion County in northwestern Alabama...
+Lamar County in west central Alabama...
+
+* Until 430 PM CDT.
+
+* At 1237 PM CDT, Doppler radar indicated thunderstorms producing
+heavy rain across the warned area. Between 2 and 4 inches of rain
+have fallen. Additional rainfall amounts up to 2 inches are
+possible in the warned area. Flash flooding is ongoing or expected
+to begin shortly.
+
+HAZARD...Flash flooding caused by thunderstorms.
+
+SOURCE...Radar.
+
+IMPACT...Flash flooding of small creeks and streams, urban
+areas, highways, streets and underpasses as well as
+other poor drainage and low-lying areas.
+
+* Some locations that will experience flash flooding include...
+Hamilton, Vernon, Sulligent, Guin, Hackleburg, Detroit, Beaverton,
+Weston, Crews, Lamar County Airport, Blooming Grove, Brinn,
+Bedford, Crossville, Bear Creek, Henson Springs, Marion County
+Public Lake, Pikeville, Rankin Fite Airport and Byrd.,Sun Jul 28 2024 10:37:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.c24154dd0fbbafa27605f3866e0c31feaf318167.001.1.cap
+National Weather Service,FFWHUN
+
+The National Weather Service in Huntsville has issued a
+
+* Flash Flood Warning for...
+North Central Cullman County in north central Alabama...
+Southeastern Morgan County in north central Alabama...
+
+* Until 315 PM CDT.
+
+* At 1219 PM CDT, Doppler radar and automated rain gauges indicated
+thunderstorms producing heavy rain across the warned area. Between
+1 and 3 inches of rain have fallen. The expected rainfall rate is
+1 to 3 inches in 1 hour. Flash flooding is ongoing or expected to
+begin shortly.
+
+HAZARD...Flash flooding caused by thunderstorms.
+
+SOURCE...Radar and automated gauges.
+
+IMPACT...Flash flooding of small creeks and streams, urban
+areas, highways, streets and underpasses as well as
+other poor drainage and low-lying areas.
+
+* Some locations that will experience flash flooding include...
+Cullman, Good Hope, Baldwin, Vinemont, Eva, Phelan and Ryan
+Crossroads.,Sun Jul 28 2024 10:19:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.a565328cf8be0eaab9bf78efa239db9ff1f35e09.001.1.cap
+National Weather Service,The National Weather Service in Hanford has issued a Red Flag
+Warning, which is in effect until 11 PM PDT Monday.
+
+* AFFECTED AREA...Fire weather zone 595.
+
+* WIND...West/upsloping winds with maximum gusts 25-35 mph.
+
+* HUMIDITY...Minimum daytime humidity levels 15-25% or less.
+
+* THUNDERSTORMS...None.
+
+* IMPACTS...any fires that develop will likely spread rapidly.
+Outdoor burning is not recommended.
+
+* HIGHEST THREAT...dry fuels, low relative humidity, and
+elevated winds are favorable conditions for rapid fire spread.,Sun Jul 28 2024 09:24:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.e9fd8b56ca2214ffc6866894fa1396a444a6b6e0.001.1.cap
 National Weather Service,* AFFECTED AREA...Fire weather zone 595.
 
 * WIND...West/upsloping winds with maximum gusts 25-35 mph.
@@ -162,53 +289,6 @@ forested areas near the bayou will occur.
 morning.
 - Flood stage is 17.0 feet.
 - http://www.weather.gov/safety/flood,Sun Jul 28 2024 09:07:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.f2b1a73bde20fc72021110de11466495e9483fac.001.1.cap
-National Weather Service,...The Flood Warning continues for the following rivers in
-Louisiana...Texas...
-
-Calcasieu River Near Glenmora
-
-Village Creek Near Kountze
-
-Pine Island Bayou Near Sour Lake
-
-Calcasieu River near White Oak Park
-
-Sabine River Near Deweyville
-
-Neches River at Neches River Saltwater Barrier
-
-...The Flood Warning is extended for the following rivers in
-Louisiana...Texas...
-
-Bayou Anacoco Near Rosepine
-
-Neches River Near Evadale
-
-Additional information is available at www.weather.gov.
-
-The next statement will be issued this evening at 800 PM CDT.
-
-* WHAT...Minor flooding is occurring and minor flooding is forecast.
-
-* WHERE...Calcasieu River near Glenmora.
-
-* WHEN...Until Tuesday evening.
-
-* IMPACTS...At 14.0 feet, Some roads upstream from Glenmora,
-including Strothers Crossing Road near the community of Calcasieu
-and Price Crossing Road near Hineston have two to three feet of
-water over the road and are subject to being closed. Flooding of
-forested areas near the river will also occur.
-
-* ADDITIONAL DETAILS...
-- At 10:45 AM CDT Sunday the stage was 14.4 feet.
-- Recent Activity...The maximum river stage in the 24 hours
-ending at 10:45 AM CDT Sunday was 14.4 feet.
-- Forecast...The river is expected to rise to a crest of 14.2
-feet this evening. It will then fall below flood stage early
-Tuesday afternoon.
-- Flood stage is 12.0 feet.
-- http://www.weather.gov/safety/flood,Sun Jul 28 2024 09:07:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.f2b1a73bde20fc72021110de11466495e9483fac.003.1.cap
 National Weather Service,...The Flood Warning continues for the following rivers in
 Louisiana...Texas...
 
@@ -1139,6 +1219,17 @@ sudden wind gusts in excess of 50 MPH possible.
 
 * IMPACTS...Any fires that develop will likely spread rapidly.
 Outdoor burning is not recommended.,Sun Jul 28 2024 02:34:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.8724b4d7077eb135daab34a4c715d23e4c289c43.002.1.cap
+National Weather Service,* AFFECTED AREA...In Colorado, Fire Weather Zone 203 Lower
+Colorado River and Fire Weather Zone 205 Colorado River
+Headwaters below 7000 feet.
+
+* WINDS...Southwest 10 to 15 mph with gusts up to 30 mph.
+
+* RELATIVE HUMIDITY...6 to 11 percent.
+
+* IMPACTS...Conditions may become favorable for the easy
+ignition and rapid spread of fires due to low relative
+humidity and strong gusty winds.,Sun Jul 28 2024 02:24:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4e99060219e0fcc29970539cb6fd16be7d1c2252.003.1.cap
 National Weather Service,* AFFECTED AREA...In Colorado, Fire Weather Zone 290 Paradox
 Valley Forecast Area, Fire Weather Zone 292 North Fork
 Forecast Area and Fire Weather Zone 293 Gunnison Basin
@@ -1153,17 +1244,6 @@ Basin, Fire Weather Zone 487 Book Cliffs and Fire Weather Zone
 * IMPACTS...Conditions may become favorable for the easy
 ignition and rapid spread of fires due to low relative
 humidity and strong gusty winds.,Sun Jul 28 2024 02:24:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4e99060219e0fcc29970539cb6fd16be7d1c2252.002.1.cap
-National Weather Service,* AFFECTED AREA...In Colorado, Fire Weather Zone 203 Lower
-Colorado River and Fire Weather Zone 205 Colorado River
-Headwaters below 7000 feet.
-
-* WINDS...Southwest 10 to 15 mph with gusts up to 30 mph.
-
-* RELATIVE HUMIDITY...6 to 11 percent.
-
-* IMPACTS...Conditions may become favorable for the easy
-ignition and rapid spread of fires due to low relative
-humidity and strong gusty winds.,Sun Jul 28 2024 02:24:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4e99060219e0fcc29970539cb6fd16be7d1c2252.003.1.cap
 National Weather Service,...FIRE WEATHER WATCH IN EFFECT FROM MONDAY AFTERNOON THROUGH
 MONDAY EVENING FOR GUSTY WINDS, LOW RELATIVE HUMIDITY AND DRY
 FUELS FOR FIRE WEATHER ZONES 200 AND 202...
