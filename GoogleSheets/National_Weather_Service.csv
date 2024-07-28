@@ -1,4 +1,33 @@
 Sheet Name,Summary,Published (Pacific Time),Link
+National Weather Service,The National Weather Service in Hanford has issued a Red Flag
+Warning, which is in effect until 11 PM PDT Monday.
+
+* AFFECTED AREA...Fire weather zone 595.
+
+* WIND...West/upsloping winds with maximum gusts 25-35 mph.
+
+* HUMIDITY...Minimum daytime humidity levels 15-25% or less.
+
+* THUNDERSTORMS...None.
+
+* IMPACTS...any fires that develop will likely spread rapidly.
+Outdoor burning is not recommended.
+
+* HIGHEST THREAT...dry fuels, low relative humidity, and
+elevated winds are favorable conditions for rapid fire spread.,Sun Jul 28 2024 09:24:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.e9fd8b56ca2214ffc6866894fa1396a444a6b6e0.001.1.cap
+National Weather Service,* AFFECTED AREA...Fire weather zone 595.
+
+* WIND...West/upsloping winds with maximum gusts 25-35 mph.
+
+* HUMIDITY...Minimum daytime humidity levels 15-20% or less.
+
+* THUNDERSTORMS...None.
+
+* IMPACTS...any fires that develop will likely spread rapidly.
+Outdoor burning is not recommended.
+
+* HIGHEST THREAT...dry fuels, low relative humidity, and
+elevated winds are favorable conditions for rapid fire spread.,Sun Jul 28 2024 09:24:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.e9fd8b56ca2214ffc6866894fa1396a444a6b6e0.002.1.cap
 National Weather Service,...The Flood Warning continues for the following points along the
 Mississippi River...
 
@@ -391,24 +420,28 @@ Additional information is available at www.weather.gov.
 
 The next statement will be issued this evening at 800 PM CDT.
 
-* WHAT...Minor flooding is occurring and moderate flooding is
-forecast.
+* WHAT...Minor flooding is occurring and minor flooding is forecast.
 
-* WHERE...Neches River at Neches River Saltwater Barrier.
+* WHERE...Sabine River near Deweyville.
 
 * WHEN...Until further notice.
 
-* IMPACTS...At 6.0 feet, Colliers Ferry Park is under water, and
-flooding of secondary roads near the river can be expected.
+* IMPACTS...At 25.0 feet, Lowest roads beside the river flood around
+Deweyville and subject to being closed. In addition, low-lying
+roads in Southwest Beauregard Parish are flooded including Robert
+Clark Road. Flooding occurs on the south side of Niblett Bluff
+Park with access roads to camp houses cut off around the park.
+Access roads to the river in Northeastern Orange County become
+flooded.
 
 * ADDITIONAL DETAILS...
-- At 10:15 AM CDT Sunday the stage was 5.7 feet.
+- At 9:45 AM CDT Sunday the stage was 24.9 feet.
 - Recent Activity...The maximum river stage in the 24 hours
-ending at 10:15 AM CDT Sunday was 5.7 feet.
-- Forecast...The river is expected to rise to a crest of 6.2
-feet early Wednesday afternoon.
-- Flood stage is 4.0 feet.
-- http://www.weather.gov/safety/flood,Sun Jul 28 2024 09:07:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.f2b1a73bde20fc72021110de11466495e9483fac.007.1.cap
+ending at 9:45 AM CDT Sunday was 24.9 feet.
+- Forecast...The river is expected to rise to a crest of 25.2
+feet early Tuesday afternoon.
+- Flood stage is 24.0 feet.
+- http://www.weather.gov/safety/flood,Sun Jul 28 2024 09:07:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.f2b1a73bde20fc72021110de11466495e9483fac.008.1.cap
 National Weather Service,...The Flood Warning continues for the following rivers in
 Louisiana...Texas...
 
@@ -435,28 +468,24 @@ Additional information is available at www.weather.gov.
 
 The next statement will be issued this evening at 800 PM CDT.
 
-* WHAT...Minor flooding is occurring and minor flooding is forecast.
+* WHAT...Minor flooding is occurring and moderate flooding is
+forecast.
 
-* WHERE...Sabine River near Deweyville.
+* WHERE...Neches River at Neches River Saltwater Barrier.
 
 * WHEN...Until further notice.
 
-* IMPACTS...At 25.0 feet, Lowest roads beside the river flood around
-Deweyville and subject to being closed. In addition, low-lying
-roads in Southwest Beauregard Parish are flooded including Robert
-Clark Road. Flooding occurs on the south side of Niblett Bluff
-Park with access roads to camp houses cut off around the park.
-Access roads to the river in Northeastern Orange County become
-flooded.
+* IMPACTS...At 6.0 feet, Colliers Ferry Park is under water, and
+flooding of secondary roads near the river can be expected.
 
 * ADDITIONAL DETAILS...
-- At 9:45 AM CDT Sunday the stage was 24.9 feet.
+- At 10:15 AM CDT Sunday the stage was 5.7 feet.
 - Recent Activity...The maximum river stage in the 24 hours
-ending at 9:45 AM CDT Sunday was 24.9 feet.
-- Forecast...The river is expected to rise to a crest of 25.2
-feet early Tuesday afternoon.
-- Flood stage is 24.0 feet.
-- http://www.weather.gov/safety/flood,Sun Jul 28 2024 09:07:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.f2b1a73bde20fc72021110de11466495e9483fac.008.1.cap
+ending at 10:15 AM CDT Sunday was 5.7 feet.
+- Forecast...The river is expected to rise to a crest of 6.2
+feet early Wednesday afternoon.
+- Flood stage is 4.0 feet.
+- http://www.weather.gov/safety/flood,Sun Jul 28 2024 09:07:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.f2b1a73bde20fc72021110de11466495e9483fac.007.1.cap
 National Weather Service,FFWOHX
 
 The National Weather Service in Nashville has issued a
@@ -1175,19 +1204,6 @@ sudden wind gusts in excess of 50 MPH possible.
 
 * IMPACTS...Any fires that develop will likely spread rapidly.
 Outdoor burning is not recommended.,Sun Jul 28 2024 02:34:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.8724b4d7077eb135daab34a4c715d23e4c289c43.002.1.cap
-National Weather Service,* AFFECTED AREA...Fire weather zone 595.
-
-* WIND...West/upsloping winds with maximum gusts 25-35 mph.
-
-* HUMIDITY...Minimum daytime humidity levels 15-20% or less.
-
-* THUNDERSTORMS...None.
-
-* IMPACTS...any fires that develop will likely spread rapidly.
-Outdoor burning is not recommended.
-
-* HIGHEST THREAT...dry fuels, low relative humidity, and
-elevated winds are favorable conditions for rapid fire spread.,Sun Jul 28 2024 02:25:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.182f39efcb0be2eb7d52672b8bf8af42057bc54d.001.1.cap
 National Weather Service,* AFFECTED AREA...In Colorado, Fire Weather Zone 203 Lower
 Colorado River and Fire Weather Zone 205 Colorado River
 Headwaters below 7000 feet.
