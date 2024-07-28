@@ -3,70 +3,11 @@ National Weather Service,#ERROR!,Sun Jul 28 2024 05:04:00 GMT-0700 (Pacific Dayl
 National Weather Service,#ERROR!,Sun Jul 28 2024 02:34:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.8724b4d7077eb135daab34a4c715d23e4c289c43.002.1.cap
 National Weather Service,#ERROR!,Sun Jul 28 2024 02:25:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.182f39efcb0be2eb7d52672b8bf8af42057bc54d.001.1.cap
 National Weather Service,#ERROR!,Sun Jul 28 2024 02:24:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4e99060219e0fcc29970539cb6fd16be7d1c2252.002.1.cap
-National Weather Service,* AFFECTED AREA...In Colorado, Fire Weather Zone 203 Lower
-Colorado River and Fire Weather Zone 205 Colorado River
-Headwaters below 7000 feet.
-
-* WINDS...Southwest 10 to 15 mph with gusts up to 30 mph.
-
-* RELATIVE HUMIDITY...6 to 11 percent.
-
-* IMPACTS...Conditions may become favorable for the easy
-ignition and rapid spread of fires due to low relative
-humidity and strong gusty winds.,Sun Jul 28 2024 02:24:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4e99060219e0fcc29970539cb6fd16be7d1c2252.003.1.cap
-National Weather Service,...FIRE WEATHER WATCH IN EFFECT FROM MONDAY AFTERNOON THROUGH
-MONDAY EVENING FOR GUSTY WINDS, LOW RELATIVE HUMIDITY AND DRY
-FUELS FOR FIRE WEATHER ZONES 200 AND 202...
-
-The National Weather Service in Grand Junction has issued a Fire
-Weather Watch for gusty winds, low relative humidity and dry
-fuels, which is in effect from Monday afternoon through Monday
-evening.
-
-* AFFECTED AREA...In Colorado, Fire Weather Zone 200 Little
-Snake Forecast Area and Fire Weather Zone 202 White River
-Forecast Area.
-
-* WINDS...Southwest 10 to 20 mph with gusts up to 30 mph.
-
-* RELATIVE HUMIDITY...6 to 11 percent.
-
-* IMPACTS...Conditions may become favorable for the easy
-ignition and rapid spread of fires due to low relative
-humidity and strong gusty winds.,Sun Jul 28 2024 02:24:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4e99060219e0fcc29970539cb6fd16be7d1c2252.001.2.cap
-National Weather Service,* WHAT...Dangerously hot conditions with heat index values of 104 to
-114 possible.
-
-* WHERE...Portions of central, east central, north central, and
-northeast Kansas.
-
-* WHEN...From Monday afternoon through Thursday evening. Hottest
-conditions expected Tuesday and Wednesday afternoons.
-
-* IMPACTS...Heat related illnesses increase significantly during
-extreme heat and high humidity events.,Sun Jul 28 2024 02:20:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.8943a25614c4bb53d822129375e80c410807cc2a.001.1.cap
-National Weather Service,* IMPACTS: Low humidities and gusty winds could cause erratic fire
-behavior.
-
-* AFFECTED AREA:
-In Central WY...Fire Weather Zone 289.
-
-* COUNTIES AFFECTED:
-In Central WY...Fremont...Natrona.
-In Southwest WY...Sweetwater.
-
-* WIND: West 15 to 25 mph with gusts up to 35 mph.
-
-* HUMIDITY: As low as 13 percent.,Sun Jul 28 2024 02:10:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.02df6b44ba1aaa6427ccab1804dbb0a3b2ee5640.001.1.cap
-National Weather Service,* WHAT...Dangerously hot conditions with heat index values up to 108
-possible.
-
-* WHERE...Jewell, Mitchell, Osborne, and Smith Counties.
-
-* WHEN...From Monday afternoon through Thursday evening.
-
-* IMPACTS...Heat related illnesses increase significantly during
-extreme heat and high humidity events.,Sun Jul 28 2024 02:04:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.3eeb5b6dab8f6483ff8ed0fe0889e75c1ff669e4.001.1.cap
+National Weather Service,#ERROR!,Sun Jul 28 2024 02:24:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4e99060219e0fcc29970539cb6fd16be7d1c2252.003.1.cap
+National Weather Service,#ERROR!,Sun Jul 28 2024 02:24:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4e99060219e0fcc29970539cb6fd16be7d1c2252.001.2.cap
+National Weather Service,#ERROR!,Sun Jul 28 2024 02:20:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.8943a25614c4bb53d822129375e80c410807cc2a.001.1.cap
+National Weather Service,#ERROR!,Sun Jul 28 2024 02:10:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.02df6b44ba1aaa6427ccab1804dbb0a3b2ee5640.001.1.cap
+National Weather Service,#ERROR!,Sun Jul 28 2024 02:04:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.3eeb5b6dab8f6483ff8ed0fe0889e75c1ff669e4.001.1.cap
 National Weather Service,...The Flood Warning is extended for the following rivers in North
 Carolina...
 
