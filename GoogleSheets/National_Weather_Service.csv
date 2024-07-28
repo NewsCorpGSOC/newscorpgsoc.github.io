@@ -7,28 +7,710 @@ National Weather Service,#ERROR!,Sat Jul 27 2024 20:04:00 GMT-0700 (Pacific Dayl
 National Weather Service,#ERROR!,Sat Jul 27 2024 20:04:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4792935a66e51362ca1f9c3cd149035ae63842e4.005.1.cap
 National Weather Service,#ERROR!,Sat Jul 27 2024 20:04:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4792935a66e51362ca1f9c3cd149035ae63842e4.003.1.cap
 National Weather Service,#ERROR!,Sat Jul 27 2024 20:04:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4792935a66e51362ca1f9c3cd149035ae63842e4.008.1.cap
-National Weather Service,#ERROR!,Sat Jul 27 2024 20:04:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4792935a66e51362ca1f9c3cd149035ae63842e4.009.1.cap
-National Weather Service,#ERROR!,Sat Jul 27 2024 20:04:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4792935a66e51362ca1f9c3cd149035ae63842e4.006.1.cap
-National Weather Service,#ERROR!,Sat Jul 27 2024 19:27:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.08454e970c3af639b5ada62cd57182ae55eb338c.001.1.cap
-National Weather Service,#ERROR!,Sat Jul 27 2024 19:11:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.965f88d026deb9bd80128fe77573134fd41fc497.001.1.cap
-National Weather Service,#ERROR!,Sat Jul 27 2024 19:09:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.54d5d5d9c4d84442735f2e071530f03136d4f308.001.1.cap
-National Weather Service,#ERROR!,Sat Jul 27 2024 18:57:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.0b504f2c623444a1e107c72750411fef25dd3238.002.1.cap
-National Weather Service,#ERROR!,Sat Jul 27 2024 18:57:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.0b504f2c623444a1e107c72750411fef25dd3238.003.1.cap
-National Weather Service,#ERROR!,Sat Jul 27 2024 18:57:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.0b504f2c623444a1e107c72750411fef25dd3238.001.1.cap
-National Weather Service,#ERROR!,Sat Jul 27 2024 18:57:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.0b504f2c623444a1e107c72750411fef25dd3238.004.1.cap
-National Weather Service,#ERROR!,Sat Jul 27 2024 18:57:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.0b504f2c623444a1e107c72750411fef25dd3238.005.1.cap
-National Weather Service,#ERROR!,Sat Jul 27 2024 18:48:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.7cbb0febf4cfc040647c391adc0c5047553bed8c.001.1.cap
-National Weather Service,#ERROR!,Sat Jul 27 2024 18:31:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.77028238d413df475419e801d1bae8b8d62ce4ae.001.1.cap
-National Weather Service,#ERROR!,Sat Jul 27 2024 18:14:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.5a744d9e3f3bbe287fabd681592df560f9434c8d.001.1.cap
-National Weather Service,#ERROR!,Sat Jul 27 2024 18:14:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.5a744d9e3f3bbe287fabd681592df560f9434c8d.002.1.cap
-National Weather Service,#ERROR!,Sat Jul 27 2024 18:14:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.5a744d9e3f3bbe287fabd681592df560f9434c8d.003.1.cap
-National Weather Service,#ERROR!,Sat Jul 27 2024 18:03:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.a1e98b6039fe5c1feb0ff8dd617aa7bddef6f157.001.1.cap
-National Weather Service,#ERROR!,Sat Jul 27 2024 18:01:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.99f761ded4dc78a38f5e1c28625d8b9d6a3c9ed0.001.1.cap
-National Weather Service,#ERROR!,Sat Jul 27 2024 18:01:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.99f761ded4dc78a38f5e1c28625d8b9d6a3c9ed0.002.1.cap
-National Weather Service,#ERROR!,Sat Jul 27 2024 17:59:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.60981f864699d519faa8cc47ffce80d4b58bdb1a.001.1.cap
-National Weather Service,#ERROR!,Sat Jul 27 2024 17:54:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.0c7296b50f1b11aeeb1458e202d416663c1b5d85.001.1.cap
-National Weather Service,#ERROR!,Sat Jul 27 2024 17:48:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.7f46755a36d0a35cfa233ae8cf0496a3b55b0cbf.001.1.cap
-National Weather Service,#ERROR!,Sat Jul 27 2024 17:47:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.5880094d3e8882e1cebf697e8b9f9a9c401c1ff9.001.1.cap
+National Weather Service,...The Flood Warning continues for the following rivers in
+Louisiana...Texas...
+
+Bayou Anacoco Near Rosepine
+
+Neches River Near Evadale
+
+Calcasieu River near White Oak Park
+
+Calcasieu River Near Glenmora
+
+Sabine River Near Deweyville
+
+Neches River at Neches River Saltwater Barrier
+
+...The Flood Warning is extended for the following rivers in Texas...
+
+Village Creek Near Kountze
+
+Pine Island Bayou Near Sour Lake
+
+...The Flood Warning is cancelled for the following rivers in
+Texas...
+
+Neches River Near Town Bluff
+
+Additional information is available at www.weather.gov.
+
+The next statement will be issued this evening at 1115 PM CDT.
+
+* WHAT...Minor flooding is occurring and minor flooding is forecast.
+
+* WHERE...Sabine River near Deweyville.
+
+* WHEN...Until further notice.
+
+* IMPACTS...At 25.0 feet, Lowest roads beside the river flood around
+Deweyville and subject to being closed. In addition, low-lying
+roads in Southwest Beauregard Parish are flooded including Robert
+Clark Road. Flooding occurs on the south side of Niblett Bluff
+Park with access roads to camp houses cut off around the park.
+Access roads to the river in Northeastern Orange County become
+flooded.
+
+* ADDITIONAL DETAILS...
+- At 8:45 PM CDT Saturday the stage was 24.8 feet.
+- Recent Activity...The maximum river stage in the 24 hours
+ending at 8:45 PM CDT Saturday was 24.9 feet.
+- Forecast...The river is expected to rise to a crest of 25.2
+feet Tuesday evening.
+- Flood stage is 24.0 feet.
+- http://www.weather.gov/safety/flood,Sat Jul 27 2024 20:04:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4792935a66e51362ca1f9c3cd149035ae63842e4.009.1.cap
+National Weather Service,...The Flood Warning continues for the following rivers in
+Louisiana...Texas...
+
+Bayou Anacoco Near Rosepine
+
+Neches River Near Evadale
+
+Calcasieu River near White Oak Park
+
+Calcasieu River Near Glenmora
+
+Sabine River Near Deweyville
+
+Neches River at Neches River Saltwater Barrier
+
+...The Flood Warning is extended for the following rivers in Texas...
+
+Village Creek Near Kountze
+
+Pine Island Bayou Near Sour Lake
+
+...The Flood Warning is cancelled for the following rivers in
+Texas...
+
+Neches River Near Town Bluff
+
+Additional information is available at www.weather.gov.
+
+The next statement will be issued this evening at 1115 PM CDT.
+
+* WHAT...Minor flooding is forecast.
+
+* WHERE...Calcasieu River near White Oak Park.
+
+* WHEN...Until further notice.
+
+* IMPACTS...At 2.0 feet, Minor flooding of Goos Ferry Road will
+occur.
+
+* ADDITIONAL DETAILS...
+- At 9:35 PM CDT Saturday the stage was 1.9 feet.
+- Forecast...The river will oscillate around flood stage with a
+maximum value of 2.2 feet early Tuesday morning.
+- Flood stage is 2.0 feet.
+- http://www.weather.gov/safety/flood,Sat Jul 27 2024 20:04:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4792935a66e51362ca1f9c3cd149035ae63842e4.006.1.cap
+National Weather Service,At 927 PM CDT, the public reported thunderstorms producing heavy
+rain across the warned area. Between 3 and 7 inches of rain have
+fallen. Flash flooding is already occurring.
+
+HAZARD...Flash flooding caused by thunderstorms.
+
+SOURCE...Public reported.
+
+IMPACT...Flash flooding of small creeks and streams, urban areas,
+highways, streets and underpasses as well as other poor
+drainage and low-lying areas.
+
+Some locations that will experience flash flooding include...
+Vernon, Sulligent, Bedford, Lamar County Airport, Blooming Grove,
+Crossville, Hightogy, Star, Lamar County Public Lake and Melborne.,Sat Jul 27 2024 19:27:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.08454e970c3af639b5ada62cd57182ae55eb338c.001.1.cap
+National Weather Service,FFWTWC
+
+The National Weather Service in Tucson has issued a
+
+* Flash Flood Warning for...
+North Central Pima County in southeastern Arizona...
+Southwestern Pinal County in southeastern Arizona...
+
+* Until 1015 PM MST.
+
+* At 711 PM MST, Doppler radar indicated thunderstorms producing
+heavy rain across the warned area. Between 1 and 2 inches of rain
+have fallen. Flash flooding is ongoing or expected to begin
+shortly.
+
+HAZARD...Life threatening flash flooding. Thunderstorms
+producing flash flooding.
+
+SOURCE...Radar.
+
+IMPACT...Life threatening flash flooding of creeks and streams,
+urban areas, highways, streets and underpasses.
+
+* Some locations that will experience flash flooding include...
+Santa Rosa, Chui-Chu, Anegam, Cockleburr, North Komelik, Kohatk,
+Jack Rabbit, Shopishk and East Chui-Chu.
+
+This includes the following Flash Flood Prone Locations...
+Sunland Gin Rd at Greene Wash.
+
+This includes the following streams and drainages...
+Quijotoa Wash, Mammoth Wash, Santa Rosa Wash, Tiro Wash, El,
+Anegam Wash, Sil Nakya Wash, Aguirre Wash and Gu Achi Wash.,Sat Jul 27 2024 19:11:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.965f88d026deb9bd80128fe77573134fd41fc497.001.1.cap
+National Weather Service,FFWJAN
+
+The National Weather Service in Jackson has issued a
+
+* Flash Flood Warning for...
+Southeastern Clay County in northeastern Mississippi...
+Northern Lowndes County in northeastern Mississippi...
+
+* Until 1115 PM CDT.
+
+* At 909 PM CDT, Doppler radar indicated thunderstorms producing
+heavy rain across the warned area. Between 2 and 4 inches of rain
+have fallen. Additional rainfall amounts of 1 to 2 inches are
+possible in the warned area. Flash flooding is ongoing or expected
+to begin shortly.
+
+HAZARD...Flash flooding caused by thunderstorms.
+
+SOURCE...Radar.
+
+IMPACT...Flash flooding of small creeks and streams, urban
+areas, highways, streets and underpasses as well as
+other poor drainage and low-lying areas.
+
+* Some locations that will experience flash flooding include...
+Columbus, Caledonia, Columbus AFB, Kolola Springs, Steens and
+Waverly.,Sat Jul 27 2024 19:09:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.54d5d5d9c4d84442735f2e071530f03136d4f308.001.1.cap
+National Weather Service,...The Flood Warning is extended for the following rivers in
+Illinois...Missouri...
+
+Mississippi River at Winfield.
+
+Mississippi River at Hannibal.
+
+Mississippi River at Louisiana.
+
+Mississippi River at Clarksville.
+
+...The Flood Warning continues for the following rivers in
+Illinois...Missouri...
+
+Mississippi River at Saverton.
+
+River forecasts are based on observed precipitation and forecast
+precipitation for the next 24 hours.
+
+* WHAT...Minor flooding is occurring and minor flooding is forecast.
+
+* WHERE...Mississippi River at Saverton.
+
+* WHEN...Until early Monday afternoon.
+
+* IMPACTS...At 15.5 feet, An access road to riverside raised homes
+on the riverward side of the Sny levee begins to flood near this
+level.
+
+* ADDITIONAL DETAILS...
+- At 6:00 PM CDT Saturday the stage was 16.6 feet.
+- Recent Activity...The maximum river stage in the 24 hours
+ending at 6:00 PM CDT Saturday was 17.2 feet.
+- Forecast...The river is expected to fall below flood stage
+tomorrow morning and continue falling to 11.3 feet Saturday,
+August 03.
+- Flood stage is 16.0 feet.,Sat Jul 27 2024 18:57:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.0b504f2c623444a1e107c72750411fef25dd3238.002.1.cap
+National Weather Service,...The Flood Warning is extended for the following rivers in
+Illinois...Missouri...
+
+Mississippi River at Winfield.
+
+Mississippi River at Hannibal.
+
+Mississippi River at Louisiana.
+
+Mississippi River at Clarksville.
+
+...The Flood Warning continues for the following rivers in
+Illinois...Missouri...
+
+Mississippi River at Saverton.
+
+River forecasts are based on observed precipitation and forecast
+precipitation for the next 24 hours.
+
+* WHAT...Minor flooding is occurring and minor flooding is forecast.
+
+* WHERE...Mississippi River at Hannibal.
+
+* WHEN...Until Tuesday afternoon.
+
+* IMPACTS...At 18.0 feet, The northern end of Southside Recreation
+#2 Park along Bear Creek begins flooding at this height. Gate
+wells are shut down to prevent the sewers from backing up.  Also
+at this level pumps are set to standby.
+
+* ADDITIONAL DETAILS...
+- At 8:15 PM CDT Saturday the stage was 18.0 feet.
+- Recent Activity...The maximum river stage in the 24 hours
+ending at 8:15 PM CDT Saturday was 18.7 feet.
+- Forecast...The river is expected to fall below flood stage
+late Monday morning and continue falling to 14.7 feet
+Saturday, August 03.
+- Flood stage is 17.0 feet.,Sat Jul 27 2024 18:57:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.0b504f2c623444a1e107c72750411fef25dd3238.003.1.cap
+National Weather Service,...The Flood Warning is extended for the following rivers in
+Illinois...Missouri...
+
+Mississippi River at Winfield.
+
+Mississippi River at Hannibal.
+
+Mississippi River at Louisiana.
+
+Mississippi River at Clarksville.
+
+...The Flood Warning continues for the following rivers in
+Illinois...Missouri...
+
+Mississippi River at Saverton.
+
+River forecasts are based on observed precipitation and forecast
+precipitation for the next 24 hours.
+
+* WHAT...Minor flooding is occurring and minor flooding is forecast.
+
+* WHERE...Mississippi River at Winfield.
+
+* WHEN...Until early Wednesday afternoon.
+
+* IMPACTS...At 27.8 feet, Near this height, Wilson Road just north
+of Washeon Road and Lehmond Island Road south of Sunset Drive in
+northern St. Charles County begin flooding.
+
+* ADDITIONAL DETAILS...
+- At 8:30 PM CDT Saturday the stage was 27.8 feet.
+- Recent Activity...The maximum river stage in the 24 hours
+ending at 8:30 PM CDT Saturday was 28.4 feet.
+- Forecast...The river is expected to fall below flood stage
+Tuesday morning and continue falling to 22.3 feet Saturday,
+August 03.
+- Flood stage is 26.0 feet.,Sat Jul 27 2024 18:57:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.0b504f2c623444a1e107c72750411fef25dd3238.001.1.cap
+National Weather Service,...The Flood Warning is extended for the following rivers in
+Illinois...Missouri...
+
+Mississippi River at Winfield.
+
+Mississippi River at Hannibal.
+
+Mississippi River at Louisiana.
+
+Mississippi River at Clarksville.
+
+...The Flood Warning continues for the following rivers in
+Illinois...Missouri...
+
+Mississippi River at Saverton.
+
+River forecasts are based on observed precipitation and forecast
+precipitation for the next 24 hours.
+
+* WHAT...Minor flooding is occurring and minor flooding is forecast.
+
+* WHERE...Mississippi River at Louisiana.
+
+* WHEN...Until Wednesday afternoon.
+
+* IMPACTS...At 17.0 feet, The parking area at the boat house floods.
+
+* ADDITIONAL DETAILS...
+- At 8:30 PM CDT Saturday the stage was 16.9 feet.
+- Recent Activity...The maximum river stage in the 24 hours
+ending at 8:30 PM CDT Saturday was 17.6 feet.
+- Forecast...The river is expected to fall below flood stage
+late Tuesday morning and continue falling to 12.6 feet
+Saturday, August 03.
+- Flood stage is 15.0 feet.,Sat Jul 27 2024 18:57:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.0b504f2c623444a1e107c72750411fef25dd3238.004.1.cap
+National Weather Service,...The Flood Warning is extended for the following rivers in
+Illinois...Missouri...
+
+Mississippi River at Winfield.
+
+Mississippi River at Hannibal.
+
+Mississippi River at Louisiana.
+
+Mississippi River at Clarksville.
+
+...The Flood Warning continues for the following rivers in
+Illinois...Missouri...
+
+Mississippi River at Saverton.
+
+River forecasts are based on observed precipitation and forecast
+precipitation for the next 24 hours.
+
+* WHAT...Minor flooding is occurring and minor flooding is forecast.
+
+* WHERE...Mississippi River at Clarksville.
+
+* WHEN...Until early Thursday morning.
+
+* IMPACTS...At 27.2 feet, Silo Park just northwest of Clarksville
+off Highway 79 begins flooding.
+
+* ADDITIONAL DETAILS...
+- At 8:30 PM CDT Saturday the stage was 27.3 feet.
+- Recent Activity...The maximum river stage in the 24 hours
+ending at 8:30 PM CDT Saturday was 28.0 feet.
+- Forecast...The river is expected to fall below flood stage
+late Tuesday evening and continue falling to 22.0 feet
+Saturday, August 03.
+- Flood stage is 25.0 feet.,Sat Jul 27 2024 18:57:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.0b504f2c623444a1e107c72750411fef25dd3238.005.1.cap
+National Weather Service,* AFFECTED AREA...Fire weather zone 595.
+
+* WIND...West/upsloping winds with maximum gusts 25-35 mph.
+
+* HUMIDITY...Minimum daytime humidity levels 15-20% or less.
+
+* THUNDERSTORMS...None.
+
+* IMPACTS...any fires that develop will likely spread rapidly.
+Outdoor burning is not recommended.
+
+* HIGHEST THREAT...dry fuels, low relative humidity, and
+elevated winds are favorable conditions for rapid fire spread.,Sat Jul 27 2024 18:48:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.7cbb0febf4cfc040647c391adc0c5047553bed8c.001.1.cap
+National Weather Service,FFWTWC
+
+The National Weather Service in Tucson has issued a
+
+* Flash Flood Warning for...
+West Central Greenlee County in southeastern Arizona...
+
+* Until 945 PM MST.
+
+* At 631 PM MST, Doppler radar indicated thunderstorms producing
+heavy rain across the warned area. Between 1 and 2 inches of rain
+have fallen. Flash flooding is ongoing or expected to begin
+shortly.
+
+HAZARD...Life threatening flash flooding. Thunderstorms
+producing flash flooding.
+
+SOURCE...Radar.
+
+IMPACT...Life threatening flash flooding of creeks and streams,
+urban areas, highways, streets and underpasses.
+
+* Some locations that will experience flash flooding include...
+Clifton and Morenci.
+
+This includes the following Flash Flood Prone Locations...
+Ward Canyon Rd.
+
+This includes Route 191 between mile markers 160 and 178.
+
+This includes the following streams and drainages...
+Eagle Creek, San Francisco River, Silver Creek, Limestone Gulch,
+Silver Basin Creek, Cave Creek, Gila River and Chase Creek.,Sat Jul 27 2024 18:31:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.77028238d413df475419e801d1bae8b8d62ce4ae.001.1.cap
+National Weather Service,...The Flood Warning continues for the following rivers in Iowa...
+Illinois...
+
+Mississippi River at Burlington affecting Henderson, Des Moines,
+Hancock and Lee Counties.
+
+Mississippi River at Gladstone LD18 affecting Des Moines and
+Henderson Counties.
+
+...The Flood Warning is extended for the following rivers in
+Illinois...
+
+Rock River near Joslin affecting Rock Island, Henry IL and
+Whiteside Counties.
+
+* WHAT...Minor flooding is occurring and minor flooding is forecast.
+
+* WHERE...Rock River near Joslin.
+
+* WHEN...Until tomorrow afternoon.
+
+* IMPACTS...At 12.0 feet, Water affects low lying agricultural land.
+
+* ADDITIONAL DETAILS...
+- At 7:45 PM CDT Saturday the stage was 12.2 feet.
+- Forecast...The river is expected to fall below flood stage
+tomorrow morning and continue falling to 9.9 feet Saturday,
+August 03.
+- Flood stage is 12.0 feet.,Sat Jul 27 2024 18:14:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.5a744d9e3f3bbe287fabd681592df560f9434c8d.001.1.cap
+National Weather Service,...The Flood Warning continues for the following rivers in Iowa...
+Illinois...
+
+Mississippi River at Burlington affecting Henderson, Des Moines,
+Hancock and Lee Counties.
+
+Mississippi River at Gladstone LD18 affecting Des Moines and
+Henderson Counties.
+
+...The Flood Warning is extended for the following rivers in
+Illinois...
+
+Rock River near Joslin affecting Rock Island, Henry IL and
+Whiteside Counties.
+
+* WHAT...Minor flooding is occurring and minor flooding is forecast.
+
+* WHERE...Mississippi River at Burlington.
+
+* WHEN...Until tomorrow evening.
+
+* IMPACTS...At 15.0 feet, Agricultural flooding occurs.
+
+* ADDITIONAL DETAILS...
+- At 8:00 PM CDT Saturday the stage was 15.1 feet.
+- Forecast...The river is expected to fall below flood stage
+just after midnight tonight and continue falling to 12.3 feet
+Saturday, August 03.
+- Flood stage is 15.0 feet.,Sat Jul 27 2024 18:14:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.5a744d9e3f3bbe287fabd681592df560f9434c8d.002.1.cap
+National Weather Service,...The Flood Warning continues for the following rivers in Iowa...
+Illinois...
+
+Mississippi River at Burlington affecting Henderson, Des Moines,
+Hancock and Lee Counties.
+
+Mississippi River at Gladstone LD18 affecting Des Moines and
+Henderson Counties.
+
+...The Flood Warning is extended for the following rivers in
+Illinois...
+
+Rock River near Joslin affecting Rock Island, Henry IL and
+Whiteside Counties.
+
+* WHAT...Minor flooding is occurring and minor flooding is forecast.
+
+* WHERE...Mississippi River at Gladstone LD18.
+
+* WHEN...Until early Monday morning.
+
+* ADDITIONAL DETAILS...
+- At 8:00 PM CDT Saturday the stage was 10.2 feet.
+- Forecast...The river is expected to fall below flood stage
+tomorrow morning and continue falling to 7.3 feet Saturday,
+August 03.
+- Flood stage is 10.0 feet.,Sat Jul 27 2024 18:14:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.5a744d9e3f3bbe287fabd681592df560f9434c8d.003.1.cap
+National Weather Service,...The Flood Warning is extended for the following rivers in Texas...
+
+East Fork San Jacinto near New Caney affecting Liberty,
+Montgomery and Harris Counties.
+
+For the East Fork San Jacinto River...including New Caney...Moderate
+flooding is forecast.
+
+* WHAT...Moderate flooding is occurring and moderate flooding is
+forecast.
+
+* WHERE...East Fork San Jacinto near New Caney.
+
+* WHEN...Until Thursday morning.
+
+* IMPACTS...At 62.0 feet, Moderate lowland flooding begins with
+secondary roads near the river inundated, including FM 1485 west
+of the river.
+
+* ADDITIONAL DETAILS...
+- At 7:00 PM CDT Saturday the stage was 62.8 feet.
+- Bankfull stage is 54.5 feet.
+- Recent Activity...The maximum river stage in the 24 hours
+ending at 7:00 PM CDT Saturday was 66.7 feet.
+- Forecast...The river is expected to rise to a crest of 63.0
+feet early Monday morning. It will then fall below flood
+stage Wednesday evening.
+- Flood stage is 58.0 feet.
+- Flood History...This crest compares to a previous crest of
+63.1 feet on 06/12/1987.
+- http://www.weather.gov/safety/flood,Sat Jul 27 2024 18:03:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.a1e98b6039fe5c1feb0ff8dd617aa7bddef6f157.001.1.cap
+National Weather Service,...The Flood Warning continues for the following rivers in Texas...
+
+San Bernard River near Boling affecting Wharton, Brazoria and
+Fort Bend Counties.
+
+...The Flood Warning is extended for the following rivers in Texas...
+
+San Bernard River near Sweeny affecting Brazoria County.
+
+For the San Bernard River...including Sweeny, Boling...Minor
+flooding is forecast.
+
+* WHAT...Minor flooding is occurring and minor flooding is forecast.
+
+* WHERE...San Bernard River near Boling.
+
+* WHEN...Until late Monday morning.
+
+* IMPACTS...At 18.0 feet, Minor lowland flooding begins upstream
+from gage. Minor backwater flooding up Peach Creek in Wharton
+County threatens low lying areas.
+
+* ADDITIONAL DETAILS...
+- At 7:15 PM CDT Saturday the stage was 19.4 feet.
+- Bankfull stage is 14.0 feet.
+- Recent Activity...The maximum river stage in the 24 hours
+ending at 7:15 PM CDT Saturday was 19.4 feet.
+- Forecast...The river is expected to rise to a crest of 19.8
+feet just after midnight tonight. It will then fall below
+flood stage late tomorrow evening.
+- Flood stage is 18.0 feet.
+- Flood History...This crest compares to a previous crest of
+19.7 feet on 03/06/2017.
+- http://www.weather.gov/safety/flood,Sat Jul 27 2024 18:01:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.99f761ded4dc78a38f5e1c28625d8b9d6a3c9ed0.001.1.cap
+National Weather Service,...The Flood Warning continues for the following rivers in Texas...
+
+San Bernard River near Boling affecting Wharton, Brazoria and
+Fort Bend Counties.
+
+...The Flood Warning is extended for the following rivers in Texas...
+
+San Bernard River near Sweeny affecting Brazoria County.
+
+For the San Bernard River...including Sweeny, Boling...Minor
+flooding is forecast.
+
+* WHAT...Minor flooding is occurring and minor flooding is forecast.
+
+* WHERE...San Bernard River near Sweeny.
+
+* WHEN...Until early Tuesday morning.
+
+* IMPACTS...At 10.0 feet, Water begins spilling into the left
+floodplain. Water is over the mid level walkway at the Phillips
+Terminal near Sweeny.
+
+* ADDITIONAL DETAILS...
+- At 7:45 PM CDT Saturday the stage was 10.5 feet.
+- Bankfull stage is 5.0 feet.
+- Recent Activity...The maximum river stage in the 24 hours
+ending at 7:45 PM CDT Saturday was 10.5 feet.
+- Forecast...The river is expected to rise to a crest of 10.5
+feet just after midnight tonight. It will then fall below
+flood stage early Monday afternoon.
+- Flood stage is 7.0 feet.
+- Flood History...This crest compares to a previous crest of
+10.7 feet on 12/09/2018.
+- http://www.weather.gov/safety/flood,Sat Jul 27 2024 18:01:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.99f761ded4dc78a38f5e1c28625d8b9d6a3c9ed0.002.1.cap
+National Weather Service,...The Flood Warning is extended for the following rivers in Texas...
+
+Tres Palacios River near Midfield affecting Wharton and Matagorda
+Counties.
+
+For the Tres Palacios River...including Midfield...Moderate flooding
+is forecast.
+
+* WHAT...Moderate flooding is occurring and moderate flooding is
+forecast.
+
+* WHERE...Tres Palacios River near Midfield.
+
+* WHEN...Until early Tuesday morning.
+
+* IMPACTS...At 28.0 feet, Water is over the road on FM 1468 near
+Clemville, FM 2431 east of Midfield, and FM 2853 southeast of
+Blessing all in Matagorda County with homes in the subdivisions of
+El Dorado Country upstream and Oak Grove and Tres Palacios Oaks
+downstream threatened.
+
+* ADDITIONAL DETAILS...
+- At 7:30 PM CDT Saturday the stage was 26.8 feet.
+- Bankfull stage is 15.0 feet.
+- Recent Activity...The maximum river stage in the 24 hours
+ending at 7:30 PM CDT Saturday was 26.8 feet.
+- Forecast...The river is expected to rise to a crest of 27.3
+feet tomorrow morning. It will then fall below flood stage
+Monday afternoon.
+- Flood stage is 24.0 feet.
+- Flood History...This crest compares to a previous crest of
+27.3 feet on 07/03/2010.
+- http://www.weather.gov/safety/flood,Sat Jul 27 2024 17:59:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.60981f864699d519faa8cc47ffce80d4b58bdb1a.001.1.cap
+National Weather Service,...The Flood Warning continues for the following rivers in North
+Carolina...
+
+Trent River At Trenton affecting Jones County.
+
+* WHAT...Minor flooding is occurring.
+
+* WHERE...Trent River at Trenton.
+
+* WHEN...Until further notice.
+
+* IMPACTS...At 14.0 feet, Boat Launch area at the end of Landfill
+Road is flooded, and parts of Landfill Road may be flooded. The
+end of West Jones Street is inundated as well.
+
+* ADDITIONAL DETAILS...
+- At 8:20 PM EDT Saturday the stage was 14.9 feet.
+- Recent Activity...The maximum river stage in the 24 hours
+ending at 8:20 PM EDT Saturday was 14.9 feet.
+- Forecast...No forecast is available for this location.
+- Flood stage is 14.0 feet.
+- http://www.weather.gov/safety/flood,Sat Jul 27 2024 17:54:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.0c7296b50f1b11aeeb1458e202d416663c1b5d85.001.1.cap
+National Weather Service,...The Flood Warning continues for the following rivers in North
+Carolina...
+
+Northeast Cape Fear River Near Chinquapin affecting Duplin County.
+
+For the North East Cape Fear River...including Chinquapin...Minor
+flooding is forecast.
+
+* WHAT...Minor flooding is occurring and minor flooding is forecast.
+
+* WHERE...Northeast Cape Fear River near Chinquapin.
+
+* WHEN...Until Monday evening.
+
+* IMPACTS...At 13.0 feet, Low land flooding adjacent to the river
+and its tributaries is expected. River access docks are impacted
+as well.
+
+* ADDITIONAL DETAILS...
+- At 8:30 PM EDT Saturday the stage was 13.3 feet.
+- Recent Activity...The maximum river stage in the 24 hours
+ending at 8:30 PM EDT Saturday was 13.3 feet.
+- Forecast...The river is expected to fall below flood stage
+early Monday afternoon and continue falling to 9.8 feet
+Thursday evening.
+- Flood stage is 13.0 feet.
+- http://www.weather.gov/safety/flood,Sat Jul 27 2024 17:48:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.7f46755a36d0a35cfa233ae8cf0496a3b55b0cbf.001.1.cap
+National Weather Service,...The Flood Warning is extended for the following rivers in Texas...
+
+Trinity River near Moss Bluff affecting Chambers and Liberty
+Counties.
+
+...The Flood Warning continues for the following rivers in Texas...
+
+Menard Creek near Rye affecting Polk, Hardin and Liberty Counties.
+
+Trinity River at Liberty affecting Liberty County.
+
+For the Trinity River...including Liberty, Moss Bluff...Moderate
+flooding is forecast.
+For the Menard Creek...including Rye...Moderate flooding is forecast.
+
+* WHAT...Minor flooding is occurring and moderate flooding is
+forecast.
+
+* WHERE...Menard Creek near Rye.
+
+* WHEN...Until late Monday evening.
+
+* IMPACTS...At 23.0 feet, Moderate lowland flooding begins as low
+lying areas along the creek are inundated.
+
+* ADDITIONAL DETAILS...
+- At 7:15 PM CDT Saturday the stage was 22.5 feet.
+- Bankfull stage is 17.0 feet.
+- Recent Activity...The maximum river stage in the 24 hours
+ending at 7:15 PM CDT Saturday was 22.5 feet.
+- Forecast...The river is expected to rise to a crest of 24.0
+feet tomorrow morning. It will then fall below flood stage
+late Monday morning.
+- Flood stage is 20.0 feet.
+- Flood History...This crest compares to a previous crest of
+24.0 feet on 05/03/2004.
+- http://www.weather.gov/safety/flood,Sat Jul 27 2024 17:47:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.5880094d3e8882e1cebf697e8b9f9a9c401c1ff9.001.1.cap
 National Weather Service,...The Flood Warning is extended for the following rivers in Texas...
 
 Trinity River near Moss Bluff affecting Chambers and Liberty
