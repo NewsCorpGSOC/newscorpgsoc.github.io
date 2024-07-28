@@ -1,220 +1,91 @@
 Sheet Name,Summary,Published (Pacific Time),Link
-National Weather Service,#ERROR!,Sun Jul 28 2024 12:36:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.a944809b671abba321fa99c86eeadd4ef6e9ad7d.001.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 12:35:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4c0d8039a5cf22f16a0c6bb12db72bf22450b313.001.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 12:35:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4c0d8039a5cf22f16a0c6bb12db72bf22450b313.002.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 12:35:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4c0d8039a5cf22f16a0c6bb12db72bf22450b313.004.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 12:35:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4c0d8039a5cf22f16a0c6bb12db72bf22450b313.003.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 12:35:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4c0d8039a5cf22f16a0c6bb12db72bf22450b313.005.1.cap
-National Weather Service,...The Flood Warning continues for the following rivers in Texas...
+National Weather Service,...The Flood Warning is extended for the following rivers in Texas...
 
-Menard Creek near Rye affecting Liberty, Polk and Hardin Counties.
-
-Trinity River near Moss Bluff affecting Chambers and Liberty
+Cypress Creek Near Sharp Road affecting Fort Bend and Harris
 Counties.
 
-Trinity River at Liberty affecting Liberty County.
-
-...The Flood Warning is extended for the following rivers in Texas...
-
-East Fork San Jacinto near New Caney affecting Liberty,
-Montgomery and Harris Counties.
-
-San Bernard River near Boling affecting Brazoria, Wharton and
-Fort Bend Counties.
-
-San Bernard River near Sweeny affecting Brazoria County.
-
-Tres Palacios River near Midfield affecting Matagorda and Wharton
-Counties.
-
-For the Trinity River...including Liberty, Moss Bluff...Moderate
-flooding is forecast.
-For the Menard Creek...including Rye...Minor flooding is forecast.
-For the East Fork San Jacinto River...including New Caney...Moderate
-flooding is forecast.
-For the San Bernard River...including Sweeny, Boling...Moderate
-flooding is forecast.
+For the Cypress Creek...including Sharp Road...Minor flooding is
+forecast.
 
 * WHAT...Minor flooding is occurring and minor flooding is forecast.
 
-* WHERE...Trinity River near Moss Bluff.
+* WHERE...Cypress Creek near Sharp Road.
 
-* WHEN...Until further notice.
-
-* IMPACTS...At 12.2 feet, Minor lowland flooding begins in the
-vicinity of the gage.
+* WHEN...Until tomorrow morning.
 
 * ADDITIONAL DETAILS...
-- At 1:30 PM CDT Sunday the stage was 12.7 feet.
-- Bankfull stage is 9.2 feet.
+- At 2:30 PM CDT Sunday the stage was 164.54 feet.
+- Bankfull stage is 164.2 feet.
 - Recent Activity...The maximum river stage in the 24 hours
-ending at 1:30 PM CDT Sunday was 12.8 feet.
-- Forecast...The river is expected to rise to a crest of 14.0
-feet early Tuesday afternoon.
-- Flood stage is 12.2 feet.
+ending at 2:30 PM CDT Sunday was 164.54 feet.
+- Forecast...The river is expected to fall below flood stage
+late tonight or early Monday morning and continue falling to
+160.4 feet Tuesday morning.
+- Flood stage is 164.2 feet.
 - Flood History...This crest compares to a previous crest of
-14.0 feet on 02/13/2005.
-- http://www.weather.gov/safety/flood,Sun Jul 28 2024 12:35:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4c0d8039a5cf22f16a0c6bb12db72bf22450b313.006.1.cap
-National Weather Service,...The Flood Warning continues for the following rivers in Texas...
-
-Menard Creek near Rye affecting Liberty, Polk and Hardin Counties.
-
-Trinity River near Moss Bluff affecting Chambers and Liberty
-Counties.
-
-Trinity River at Liberty affecting Liberty County.
-
-...The Flood Warning is extended for the following rivers in Texas...
-
-East Fork San Jacinto near New Caney affecting Liberty,
-Montgomery and Harris Counties.
-
-San Bernard River near Boling affecting Brazoria, Wharton and
-Fort Bend Counties.
-
-San Bernard River near Sweeny affecting Brazoria County.
-
-Tres Palacios River near Midfield affecting Matagorda and Wharton
-Counties.
-
-For the Trinity River...including Liberty, Moss Bluff...Moderate
-flooding is forecast.
-For the Menard Creek...including Rye...Minor flooding is forecast.
-For the East Fork San Jacinto River...including New Caney...Moderate
-flooding is forecast.
-For the San Bernard River...including Sweeny, Boling...Moderate
-flooding is forecast.
-
-* WHAT...Moderate flooding is occurring and moderate flooding is
-forecast.
-
-* WHERE...Trinity River at Liberty.
-
-* WHEN...Until further notice.
-
-* IMPACTS...At 27.0 feet, Moderate lowland flooding begins as roads
-into several outlying communities above Liberty are closed with
-residents in 5 or 6 subdivisions cut off if not evacuated.
-
-* ADDITIONAL DETAILS...
-- At 2:15 PM CDT Sunday the stage was 27.2 feet.
-- Bankfull stage is 21.0 feet.
-- Recent Activity...The maximum river stage in the 24 hours
-ending at 2:15 PM CDT Sunday was 27.2 feet.
-- Forecast...The river is expected to rise to a crest of 27.5
-feet just after midnight tonight.
-- Flood stage is 26.0 feet.
-- Flood History...This crest compares to a previous crest of
-27.5 feet on 05/17/2004.
-- http://www.weather.gov/safety/flood,Sun Jul 28 2024 12:35:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4c0d8039a5cf22f16a0c6bb12db72bf22450b313.007.1.cap
-National Weather Service,* WHAT...Dangerously hot conditions with heat index values up to 113
-expected.
-
-* WHERE...Madison IL, Monroe IL, and Saint Clair IL Counties.
-
-* WHEN...From 1 PM Tuesday to 7 PM CDT Thursday.
-
-* IMPACTS...Heat related illnesses increase significantly during
-extreme heat and high humidity events.,Sun Jul 28 2024 12:33:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.a6458097652f58f8eeab00a399af097f768ee09e.002.1.cap
-National Weather Service,* WHAT...Dangerously hot conditions with heat index values up to 112
-expected.
-
-* WHERE...Jefferson MO, Saint Charles MO, Saint Louis City MO, and
-Saint Louis MO Counties.
-
-* WHEN...From 1 PM Monday to 7 PM CDT Thursday.
-
-* IMPACTS...Heat related illnesses increase significantly during
-extreme heat and high humidity events.,Sun Jul 28 2024 12:33:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.a6458097652f58f8eeab00a399af097f768ee09e.001.1.cap
+164.5 feet on 03/11/2015.
+- http://www.weather.gov/safety/flood,Sun Jul 28 2024 12:42:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.1b036bcd57c7b9dd46c751a8cbdf3e5916e81433.001.1.cap
 National Weather Service,SVRTWC
 
 The National Weather Service in Tucson has issued a
 
 * Severe Thunderstorm Warning for...
-South central Cochise County in southeastern Arizona...
+Southwestern Cochise County in southeastern Arizona...
+Southeastern Santa Cruz County in southeastern Arizona...
 
-* Until 115 PM MST.
+* Until 130 PM MST.
 
-* At 1226 PM MST, two severe thunderstorma were located near Bisbee
-and Tombstone, moving north at 5 mph.
+* At 1239 PM MST, a severe thunderstorm was located near Hereford, or
+8 miles south of Sierra Vista, and is nearly stationary.
 
-HAZARD...60 mph wind gusts.
+HAZARD...60 mph wind gusts and nickel size hail.
 
 SOURCE...Radar indicated.
 
 IMPACT...Expect damage to roofs, siding, and trees.
 
 * Locations impacted include...
-Bisbee, Tombstone, Elfrida, and Sunizona.
+Sierra Vista, Hereford, Fort Huachuca, Palominas, Coronado National
+Memorial, and Ramsey Canyon Preserve.
 
-This includes the following highways...
-Route 80 between mile markers 314 and 350.
-Route 90 between mile markers 335 and 336.
-Route 92 between mile markers 352 and 355.
-Route 191 between mile markers 22 and 37.,Sun Jul 28 2024 12:27:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.f4f0510227955bc2494639c3721d6a5aa36acc4a.001.1.cap
-National Weather Service,* WHAT...Dangerously hot conditions with heat index values up to 112
+This includes Route 92 between mile markers 324 and 339.,Sun Jul 28 2024 12:39:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.1438522edb3851bf1b7bb70554f72b46ddbf1df3.001.1.cap
+National Weather Service,* WHAT...Dangerously hot conditions with heat index values up to 111
 possible.
 
-* WHERE...Gage and Jefferson Counties.
+* WHERE...Nuckolls and Thayer Counties.
 
 * WHEN...From Tuesday afternoon through Wednesday evening.
 
 * IMPACTS...Heat related illnesses increase significantly during
-extreme heat and high humidity events.,Sun Jul 28 2024 12:21:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.05c20d5a62cf07c8e038aae3f0463a870c9ae14d.002.1.cap
-National Weather Service,* WHAT...For the Heat Advisory, heat index values up to 104
+extreme heat and high humidity events.,Sun Jul 28 2024 12:39:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.1c03dff4e6df58a5d40567179d6bbe692445b22f.004.1.cap
+National Weather Service,* WHAT...For the Heat Advisory, heat index values up to 106
 expected. For the Excessive Heat Watch, dangerously hot conditions
-with heat index values up to 115 possible.
+with heat index values up to 111 possible.
 
-* WHERE...Portions of southwest Iowa and east central and southeast
-Nebraska.
+* WHERE...Jewell, Mitchell, and Osborne Counties.
 
-* WHEN...For the Heat Advisory, from 1 PM to 8 PM CDT Monday. For
+* WHEN...For the Heat Advisory, from noon to 8 PM CDT Monday. For
 the Excessive Heat Watch, from Tuesday afternoon through Wednesday
 evening.
 
 * IMPACTS...Heat related illnesses increase significantly during
-extreme heat and high humidity events.,Sun Jul 28 2024 12:21:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.05c20d5a62cf07c8e038aae3f0463a870c9ae14d.001.1.cap
-National Weather Service,* WHAT...Dangerously hot conditions with heat index values of 110 to
-115 expected.
-
-* WHERE...Portions of Central, South Central, and Southeast Kansas.
-
-* WHEN...From noon Monday to 8 PM CDT Thursday.
-
-* IMPACTS...Heat related illnesses increase significantly during
-extreme heat and high humidity events.,Sun Jul 28 2024 12:21:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.344858f3015fe79848b123e2b599680af660e9a8.001.2.cap
-National Weather Service,The National Weather Service in Riverton has issued a Fire Weather
-Watch, which is in effect from Monday afternoon through Tuesday
-evening.
-
-* AFFECTED AREA:
-In Central WY...Fire Weather Zone 289.
-
-* COUNTIES AFFECTED:
-In Central WY...Fremont...Natrona.
-In Southwest WY...Sweetwater.
-
-* IMPACTS: Low humidities, warm temperatures, and gusty winds
-could cause erratic fire behavior.
-
-* WIND: West 15 to 25 mph with gusts up to 40 mph. Wind decreases
-for Monday night into Tuesday morning.
-
-* HUMIDITY: Sunday, as low as 13 percent. Monday and Tuesday, as
-low as 7 percent. Poor recovery Monday night into Tuesday
-morning.
-
-* TEMPERATURES: Highs in the mid 80s.,Sun Jul 28 2024 12:18:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.7183a0ad07f7d2edb4b535fe572051d26a628ec5.001.2.cap
-National Weather Service,* WHAT...Dangerously hot conditions with heat index values up to 114
-expected.
-
-* WHERE...Portions of east central and northeast Kansas and west
-central Missouri.
-
-* WHEN...From 1 PM Monday to 7 PM CDT Thursday.
-
-* IMPACTS...Heat related illnesses increase significantly during
-extreme heat and high humidity events.,Sun Jul 28 2024 12:15:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.50b02efbb21f4942b2dbcb7912f00099fd4c0db3.001.2.cap
+extreme heat and high humidity events.,Sun Jul 28 2024 12:39:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.1c03dff4e6df58a5d40567179d6bbe692445b22f.002.2.cap
+National Weather Service,#ERROR!,Sun Jul 28 2024 12:36:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.a944809b671abba321fa99c86eeadd4ef6e9ad7d.001.1.cap
+National Weather Service,#ERROR!,Sun Jul 28 2024 12:35:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4c0d8039a5cf22f16a0c6bb12db72bf22450b313.001.1.cap
+National Weather Service,#ERROR!,Sun Jul 28 2024 12:35:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4c0d8039a5cf22f16a0c6bb12db72bf22450b313.002.1.cap
+National Weather Service,#ERROR!,Sun Jul 28 2024 12:35:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4c0d8039a5cf22f16a0c6bb12db72bf22450b313.004.1.cap
+National Weather Service,#ERROR!,Sun Jul 28 2024 12:35:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4c0d8039a5cf22f16a0c6bb12db72bf22450b313.003.1.cap
+National Weather Service,#ERROR!,Sun Jul 28 2024 12:35:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4c0d8039a5cf22f16a0c6bb12db72bf22450b313.005.1.cap
+National Weather Service,#ERROR!,Sun Jul 28 2024 12:35:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4c0d8039a5cf22f16a0c6bb12db72bf22450b313.006.1.cap
+National Weather Service,#ERROR!,Sun Jul 28 2024 12:35:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4c0d8039a5cf22f16a0c6bb12db72bf22450b313.007.1.cap
+National Weather Service,#ERROR!,Sun Jul 28 2024 12:33:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.a6458097652f58f8eeab00a399af097f768ee09e.002.1.cap
+National Weather Service,#ERROR!,Sun Jul 28 2024 12:33:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.a6458097652f58f8eeab00a399af097f768ee09e.001.1.cap
+National Weather Service,#ERROR!,Sun Jul 28 2024 12:27:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.f4f0510227955bc2494639c3721d6a5aa36acc4a.001.1.cap
+National Weather Service,#ERROR!,Sun Jul 28 2024 12:21:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.05c20d5a62cf07c8e038aae3f0463a870c9ae14d.002.1.cap
+National Weather Service,#ERROR!,Sun Jul 28 2024 12:21:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.05c20d5a62cf07c8e038aae3f0463a870c9ae14d.001.1.cap
+National Weather Service,#ERROR!,Sun Jul 28 2024 12:21:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.344858f3015fe79848b123e2b599680af660e9a8.001.2.cap
+National Weather Service,#ERROR!,Sun Jul 28 2024 12:18:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.7183a0ad07f7d2edb4b535fe572051d26a628ec5.001.2.cap
+National Weather Service,#ERROR!,Sun Jul 28 2024 12:15:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.50b02efbb21f4942b2dbcb7912f00099fd4c0db3.001.2.cap
 National Weather Service,* WHAT...Dangerously hot conditions with heat index values up to 112
 expected.
 
@@ -376,24 +247,28 @@ Additional information is available at www.weather.gov.
 
 The next statement will be issued this afternoon at 300 PM CDT.
 
-* WHAT...Minor flooding is occurring and moderate flooding is
-forecast.
+* WHAT...Minor flooding is occurring and minor flooding is forecast.
 
-* WHERE...Neches River at Neches River Saltwater Barrier.
+* WHERE...Sabine River near Deweyville.
 
 * WHEN...Until further notice.
 
-* IMPACTS...At 6.0 feet, Colliers Ferry Park is under water, and
-flooding of secondary roads near the river can be expected.
+* IMPACTS...At 25.0 feet, Lowest roads beside the river flood around
+Deweyville and subject to being closed. In addition, low-lying
+roads in Southwest Beauregard Parish are flooded including Robert
+Clark Road. Flooding occurs on the south side of Niblett Bluff
+Park with access roads to camp houses cut off around the park.
+Access roads to the river in Northeastern Orange County become
+flooded.
 
 * ADDITIONAL DETAILS...
-- At 1:15 PM CDT Sunday the stage was 5.7 feet.
+- At 12:45 PM CDT Sunday the stage was 24.9 feet.
 - Recent Activity...The maximum river stage in the 24 hours
-ending at 1:15 PM CDT Sunday was 5.7 feet.
-- Forecast...The river is expected to rise to a crest of 6.3
-feet early Wednesday afternoon.
-- Flood stage is 4.0 feet.
-- http://www.weather.gov/safety/flood,Sun Jul 28 2024 11:56:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.1f1e5ab7c13fca60ffa685dccbfe435a2b3bbb55.004.1.cap
+ending at 12:45 PM CDT Sunday was 24.9 feet.
+- Forecast...The river is expected to rise to a crest of 25.1
+feet tomorrow evening.
+- Flood stage is 24.0 feet.
+- http://www.weather.gov/safety/flood,Sun Jul 28 2024 11:56:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.1f1e5ab7c13fca60ffa685dccbfe435a2b3bbb55.006.1.cap
 National Weather Service,...The Flood Warning is extended for the following rivers in Texas...
 
 Village Creek Near Kountze
@@ -418,28 +293,24 @@ Additional information is available at www.weather.gov.
 
 The next statement will be issued this afternoon at 300 PM CDT.
 
-* WHAT...Minor flooding is occurring and minor flooding is forecast.
+* WHAT...Minor flooding is occurring and moderate flooding is
+forecast.
 
-* WHERE...Sabine River near Deweyville.
+* WHERE...Neches River at Neches River Saltwater Barrier.
 
 * WHEN...Until further notice.
 
-* IMPACTS...At 25.0 feet, Lowest roads beside the river flood around
-Deweyville and subject to being closed. In addition, low-lying
-roads in Southwest Beauregard Parish are flooded including Robert
-Clark Road. Flooding occurs on the south side of Niblett Bluff
-Park with access roads to camp houses cut off around the park.
-Access roads to the river in Northeastern Orange County become
-flooded.
+* IMPACTS...At 6.0 feet, Colliers Ferry Park is under water, and
+flooding of secondary roads near the river can be expected.
 
 * ADDITIONAL DETAILS...
-- At 12:45 PM CDT Sunday the stage was 24.9 feet.
+- At 1:15 PM CDT Sunday the stage was 5.7 feet.
 - Recent Activity...The maximum river stage in the 24 hours
-ending at 12:45 PM CDT Sunday was 24.9 feet.
-- Forecast...The river is expected to rise to a crest of 25.1
-feet tomorrow evening.
-- Flood stage is 24.0 feet.
-- http://www.weather.gov/safety/flood,Sun Jul 28 2024 11:56:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.1f1e5ab7c13fca60ffa685dccbfe435a2b3bbb55.006.1.cap
+ending at 1:15 PM CDT Sunday was 5.7 feet.
+- Forecast...The river is expected to rise to a crest of 6.3
+feet early Wednesday afternoon.
+- Flood stage is 4.0 feet.
+- http://www.weather.gov/safety/flood,Sun Jul 28 2024 11:56:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.1f1e5ab7c13fca60ffa685dccbfe435a2b3bbb55.004.1.cap
 National Weather Service,* WHAT...Dangerously hot conditions with heat index values up to 111
 expected.
 
@@ -1027,32 +898,6 @@ feet Tuesday morning. It will then fall below flood stage
 Wednesday evening.
 - Flood stage is 13.0 feet.
 - http://www.weather.gov/safety/flood,Sun Jul 28 2024 06:49:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.1fe74f7bc7acf27d929a6780f23f7c2a1b8a9075.001.1.cap
-National Weather Service,...The National Weather Service in Houston/Galveston TX has issued a
-Flood Warning for the following rivers in Texas...
-
-Cypress Creek Near Sharp Road affecting Fort Bend and Harris
-Counties.
-
-For the Cypress Creek...including Sharp Road...Minor flooding is
-forecast.
-
-* WHAT...Minor flooding is occurring and minor flooding is forecast.
-
-* WHERE...Cypress Creek near Sharp Road.
-
-* WHEN...From this morning to this evening.
-
-* ADDITIONAL DETAILS...
-- At 7:35 AM CDT Sunday the stage was 164.3 feet.
-- Bankfull stage is 164.2 feet.
-- Recent Activity...The maximum river stage in the 24 hours
-ending at 7:35 AM CDT Sunday was 164.3 feet.
-- Forecast...The river is expected to rise to 165.0 feet this
-morning. Additional rises are possible thereafter.
-- Flood stage is 164.2 feet.
-- Flood History...This crest compares to a previous crest of
-164.9 feet on 06/09/2001.
-- http://www.weather.gov/safety/flood,Sun Jul 28 2024 05:45:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.14073629ec0acd97bfc7023ea7fc7c2767868275.001.1.cap
 National Weather Service,..Red Flag Warnings in Effect for Zones 420, 421, 423, 425, 427,
 428 and 429 from Noon to 8pm MDT Sunday...
 
@@ -1114,15 +959,6 @@ Forecast Area.
 * IMPACTS...Conditions may become favorable for the easy
 ignition and rapid spread of fires due to low relative
 humidity and strong gusty winds.,Sun Jul 28 2024 02:24:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4e99060219e0fcc29970539cb6fd16be7d1c2252.001.2.cap
-National Weather Service,* WHAT...Dangerously hot conditions with heat index values up to 108
-possible.
-
-* WHERE...Jewell, Mitchell, Osborne, and Smith Counties.
-
-* WHEN...From Monday afternoon through Thursday evening.
-
-* IMPACTS...Heat related illnesses increase significantly during
-extreme heat and high humidity events.,Sun Jul 28 2024 02:04:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.3eeb5b6dab8f6483ff8ed0fe0889e75c1ff669e4.001.1.cap
 National Weather Service,* AFFECTED AREA...Fire Weather Zone 482 Western Uintah Basin,
 Fire Weather Zone 483 Southern Ashley National Forest, Fire
 Weather Zone 484 Tavaputs Plateau, Fire Weather Zone 488 Manti
