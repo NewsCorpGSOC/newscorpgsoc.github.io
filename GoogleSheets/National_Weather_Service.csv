@@ -1,4 +1,13 @@
 Sheet Name,Summary,Published (Pacific Time),Link
+National Weather Service,The storm which prompted the warning has weakened below severe
+limits, and no longer poses an immediate threat to life or property.
+Therefore, the warning will be allowed to expire.  However, heavy
+rain is still possible with this thunderstorm.,Sun Jul 28 2024 13:09:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.733ca06a8cbe68a8f8ef485bb28982470e00a785.001.1.cap
+National Weather Service,The storm which prompted the warning has weakened below severe
+limits, and no longer poses an immediate threat to life or property.
+Therefore, the warning will be allowed to expire.,Sun Jul 28 2024 13:08:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.d88e6a7b2138173e973d4e5466b0dd46aa1452a7.001.1.cap
+National Weather Service,The heavy rain has ended. Flooding is no longer expected to pose a
+threat. Please continue to heed remaining road closures.,Sun Jul 28 2024 13:05:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.7682d399f35fef6df9c10a675697d317fc93374d.001.1.cap
 National Weather Service,At 304 PM CDT, Doppler radar indicated thunderstorms producing heavy
 rain across the warned area. Between 2 and 4 inches of rain have
 fallen. Additional rainfall amounts up to 0.5 inches are possible in
@@ -396,30 +405,6 @@ evening.
 
 * IMPACTS...Heat related illnesses increase significantly during
 extreme heat and high humidity events.,Sun Jul 28 2024 12:39:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.1c03dff4e6df58a5d40567179d6bbe692445b22f.002.2.cap
-National Weather Service,SVRTWC
-
-The National Weather Service in Tucson has issued a
-
-* Severe Thunderstorm Warning for...
-Southwestern Cochise County in southeastern Arizona...
-Southeastern Santa Cruz County in southeastern Arizona...
-
-* Until 115 PM MST.
-
-* At 1236 PM MST, a severe thunderstorm was located near Parker
-Canyon Lake, or 17 miles west of Sierra Vista, and is nearly
-stationary.
-
-HAZARD...60 mph wind gusts and nickel size hail.
-
-SOURCE...Radar indicated.
-
-IMPACT...Expect damage to roofs, siding, and trees.
-
-* Locations impacted include...
-Fort Huachuca, Parker Canyon Lake, and Canelo.
-
-This includes Route 83 between mile markers 3 and 19.,Sun Jul 28 2024 12:36:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.a944809b671abba321fa99c86eeadd4ef6e9ad7d.001.1.cap
 National Weather Service,...The Flood Warning continues for the following rivers in Texas...
 
 Menard Creek near Rye affecting Liberty, Polk and Hardin Counties.
@@ -803,32 +788,6 @@ Saint Louis MO Counties.
 
 * IMPACTS...Heat related illnesses increase significantly during
 extreme heat and high humidity events.,Sun Jul 28 2024 12:33:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.a6458097652f58f8eeab00a399af097f768ee09e.001.1.cap
-National Weather Service,SVRTWC
-
-The National Weather Service in Tucson has issued a
-
-* Severe Thunderstorm Warning for...
-South central Cochise County in southeastern Arizona...
-
-* Until 115 PM MST.
-
-* At 1226 PM MST, two severe thunderstorma were located near Bisbee
-and Tombstone, moving north at 5 mph.
-
-HAZARD...60 mph wind gusts.
-
-SOURCE...Radar indicated.
-
-IMPACT...Expect damage to roofs, siding, and trees.
-
-* Locations impacted include...
-Bisbee, Tombstone, Elfrida, and Sunizona.
-
-This includes the following highways...
-Route 80 between mile markers 314 and 350.
-Route 90 between mile markers 335 and 336.
-Route 92 between mile markers 352 and 355.
-Route 191 between mile markers 22 and 37.,Sun Jul 28 2024 12:27:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.f4f0510227955bc2494639c3721d6a5aa36acc4a.001.1.cap
 National Weather Service,* WHAT...Dangerously hot conditions with heat index values up to 112
 possible.
 
@@ -1162,33 +1121,6 @@ feet this evening. It will then fall below flood stage
 Thursday morning.
 - Flood stage is 12.0 feet.
 - http://www.weather.gov/safety/flood,Sun Jul 28 2024 11:30:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.e823fa384fd3cfb823d4c452c87392f0cf8a49c5.001.1.cap
-National Weather Service,FFWHUN
-
-The National Weather Service in Huntsville has issued a
-
-* Flash Flood Warning for...
-North Central Cullman County in north central Alabama...
-Southeastern Morgan County in north central Alabama...
-
-* Until 315 PM CDT.
-
-* At 1219 PM CDT, Doppler radar and automated rain gauges indicated
-thunderstorms producing heavy rain across the warned area. Between
-1 and 3 inches of rain have fallen. The expected rainfall rate is
-1 to 3 inches in 1 hour. Flash flooding is ongoing or expected to
-begin shortly.
-
-HAZARD...Flash flooding caused by thunderstorms.
-
-SOURCE...Radar and automated gauges.
-
-IMPACT...Flash flooding of small creeks and streams, urban
-areas, highways, streets and underpasses as well as
-other poor drainage and low-lying areas.
-
-* Some locations that will experience flash flooding include...
-Cullman, Good Hope, Baldwin, Vinemont, Eva, Phelan and Ryan
-Crossroads.,Sun Jul 28 2024 10:19:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.a565328cf8be0eaab9bf78efa239db9ff1f35e09.001.1.cap
 National Weather Service,The National Weather Service in Hanford has issued a Red Flag
 Warning, which is in effect until 11 PM PDT Monday.
 
