@@ -1,10 +1,188 @@
 Sheet Name,Summary,Published (Pacific Time),Link
-National Weather Service,#ERROR!,Sun Jul 28 2024 12:33:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.a6458097652f58f8eeab00a399af097f768ee09e.002.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 12:33:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.a6458097652f58f8eeab00a399af097f768ee09e.001.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 12:27:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.f4f0510227955bc2494639c3721d6a5aa36acc4a.001.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 12:21:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.05c20d5a62cf07c8e038aae3f0463a870c9ae14d.002.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 12:21:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.05c20d5a62cf07c8e038aae3f0463a870c9ae14d.001.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 12:21:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.344858f3015fe79848b123e2b599680af660e9a8.001.2.cap
+National Weather Service,#ERROR!,Sun Jul 28 2024 12:36:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.a944809b671abba321fa99c86eeadd4ef6e9ad7d.001.1.cap
+National Weather Service,#ERROR!,Sun Jul 28 2024 12:35:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4c0d8039a5cf22f16a0c6bb12db72bf22450b313.001.1.cap
+National Weather Service,#ERROR!,Sun Jul 28 2024 12:35:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4c0d8039a5cf22f16a0c6bb12db72bf22450b313.002.1.cap
+National Weather Service,#ERROR!,Sun Jul 28 2024 12:35:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4c0d8039a5cf22f16a0c6bb12db72bf22450b313.004.1.cap
+National Weather Service,#ERROR!,Sun Jul 28 2024 12:35:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4c0d8039a5cf22f16a0c6bb12db72bf22450b313.003.1.cap
+National Weather Service,#ERROR!,Sun Jul 28 2024 12:35:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4c0d8039a5cf22f16a0c6bb12db72bf22450b313.005.1.cap
+National Weather Service,...The Flood Warning continues for the following rivers in Texas...
+
+Menard Creek near Rye affecting Liberty, Polk and Hardin Counties.
+
+Trinity River near Moss Bluff affecting Chambers and Liberty
+Counties.
+
+Trinity River at Liberty affecting Liberty County.
+
+...The Flood Warning is extended for the following rivers in Texas...
+
+East Fork San Jacinto near New Caney affecting Liberty,
+Montgomery and Harris Counties.
+
+San Bernard River near Boling affecting Brazoria, Wharton and
+Fort Bend Counties.
+
+San Bernard River near Sweeny affecting Brazoria County.
+
+Tres Palacios River near Midfield affecting Matagorda and Wharton
+Counties.
+
+For the Trinity River...including Liberty, Moss Bluff...Moderate
+flooding is forecast.
+For the Menard Creek...including Rye...Minor flooding is forecast.
+For the East Fork San Jacinto River...including New Caney...Moderate
+flooding is forecast.
+For the San Bernard River...including Sweeny, Boling...Moderate
+flooding is forecast.
+
+* WHAT...Minor flooding is occurring and minor flooding is forecast.
+
+* WHERE...Trinity River near Moss Bluff.
+
+* WHEN...Until further notice.
+
+* IMPACTS...At 12.2 feet, Minor lowland flooding begins in the
+vicinity of the gage.
+
+* ADDITIONAL DETAILS...
+- At 1:30 PM CDT Sunday the stage was 12.7 feet.
+- Bankfull stage is 9.2 feet.
+- Recent Activity...The maximum river stage in the 24 hours
+ending at 1:30 PM CDT Sunday was 12.8 feet.
+- Forecast...The river is expected to rise to a crest of 14.0
+feet early Tuesday afternoon.
+- Flood stage is 12.2 feet.
+- Flood History...This crest compares to a previous crest of
+14.0 feet on 02/13/2005.
+- http://www.weather.gov/safety/flood,Sun Jul 28 2024 12:35:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4c0d8039a5cf22f16a0c6bb12db72bf22450b313.006.1.cap
+National Weather Service,...The Flood Warning continues for the following rivers in Texas...
+
+Menard Creek near Rye affecting Liberty, Polk and Hardin Counties.
+
+Trinity River near Moss Bluff affecting Chambers and Liberty
+Counties.
+
+Trinity River at Liberty affecting Liberty County.
+
+...The Flood Warning is extended for the following rivers in Texas...
+
+East Fork San Jacinto near New Caney affecting Liberty,
+Montgomery and Harris Counties.
+
+San Bernard River near Boling affecting Brazoria, Wharton and
+Fort Bend Counties.
+
+San Bernard River near Sweeny affecting Brazoria County.
+
+Tres Palacios River near Midfield affecting Matagorda and Wharton
+Counties.
+
+For the Trinity River...including Liberty, Moss Bluff...Moderate
+flooding is forecast.
+For the Menard Creek...including Rye...Minor flooding is forecast.
+For the East Fork San Jacinto River...including New Caney...Moderate
+flooding is forecast.
+For the San Bernard River...including Sweeny, Boling...Moderate
+flooding is forecast.
+
+* WHAT...Moderate flooding is occurring and moderate flooding is
+forecast.
+
+* WHERE...Trinity River at Liberty.
+
+* WHEN...Until further notice.
+
+* IMPACTS...At 27.0 feet, Moderate lowland flooding begins as roads
+into several outlying communities above Liberty are closed with
+residents in 5 or 6 subdivisions cut off if not evacuated.
+
+* ADDITIONAL DETAILS...
+- At 2:15 PM CDT Sunday the stage was 27.2 feet.
+- Bankfull stage is 21.0 feet.
+- Recent Activity...The maximum river stage in the 24 hours
+ending at 2:15 PM CDT Sunday was 27.2 feet.
+- Forecast...The river is expected to rise to a crest of 27.5
+feet just after midnight tonight.
+- Flood stage is 26.0 feet.
+- Flood History...This crest compares to a previous crest of
+27.5 feet on 05/17/2004.
+- http://www.weather.gov/safety/flood,Sun Jul 28 2024 12:35:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4c0d8039a5cf22f16a0c6bb12db72bf22450b313.007.1.cap
+National Weather Service,* WHAT...Dangerously hot conditions with heat index values up to 113
+expected.
+
+* WHERE...Madison IL, Monroe IL, and Saint Clair IL Counties.
+
+* WHEN...From 1 PM Tuesday to 7 PM CDT Thursday.
+
+* IMPACTS...Heat related illnesses increase significantly during
+extreme heat and high humidity events.,Sun Jul 28 2024 12:33:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.a6458097652f58f8eeab00a399af097f768ee09e.002.1.cap
+National Weather Service,* WHAT...Dangerously hot conditions with heat index values up to 112
+expected.
+
+* WHERE...Jefferson MO, Saint Charles MO, Saint Louis City MO, and
+Saint Louis MO Counties.
+
+* WHEN...From 1 PM Monday to 7 PM CDT Thursday.
+
+* IMPACTS...Heat related illnesses increase significantly during
+extreme heat and high humidity events.,Sun Jul 28 2024 12:33:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.a6458097652f58f8eeab00a399af097f768ee09e.001.1.cap
+National Weather Service,SVRTWC
+
+The National Weather Service in Tucson has issued a
+
+* Severe Thunderstorm Warning for...
+South central Cochise County in southeastern Arizona...
+
+* Until 115 PM MST.
+
+* At 1226 PM MST, two severe thunderstorma were located near Bisbee
+and Tombstone, moving north at 5 mph.
+
+HAZARD...60 mph wind gusts.
+
+SOURCE...Radar indicated.
+
+IMPACT...Expect damage to roofs, siding, and trees.
+
+* Locations impacted include...
+Bisbee, Tombstone, Elfrida, and Sunizona.
+
+This includes the following highways...
+Route 80 between mile markers 314 and 350.
+Route 90 between mile markers 335 and 336.
+Route 92 between mile markers 352 and 355.
+Route 191 between mile markers 22 and 37.,Sun Jul 28 2024 12:27:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.f4f0510227955bc2494639c3721d6a5aa36acc4a.001.1.cap
+National Weather Service,* WHAT...Dangerously hot conditions with heat index values up to 112
+possible.
+
+* WHERE...Gage and Jefferson Counties.
+
+* WHEN...From Tuesday afternoon through Wednesday evening.
+
+* IMPACTS...Heat related illnesses increase significantly during
+extreme heat and high humidity events.,Sun Jul 28 2024 12:21:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.05c20d5a62cf07c8e038aae3f0463a870c9ae14d.002.1.cap
+National Weather Service,* WHAT...For the Heat Advisory, heat index values up to 104
+expected. For the Excessive Heat Watch, dangerously hot conditions
+with heat index values up to 115 possible.
+
+* WHERE...Portions of southwest Iowa and east central and southeast
+Nebraska.
+
+* WHEN...For the Heat Advisory, from 1 PM to 8 PM CDT Monday. For
+the Excessive Heat Watch, from Tuesday afternoon through Wednesday
+evening.
+
+* IMPACTS...Heat related illnesses increase significantly during
+extreme heat and high humidity events.,Sun Jul 28 2024 12:21:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.05c20d5a62cf07c8e038aae3f0463a870c9ae14d.001.1.cap
+National Weather Service,* WHAT...Dangerously hot conditions with heat index values of 110 to
+115 expected.
+
+* WHERE...Portions of Central, South Central, and Southeast Kansas.
+
+* WHEN...From noon Monday to 8 PM CDT Thursday.
+
+* IMPACTS...Heat related illnesses increase significantly during
+extreme heat and high humidity events.,Sun Jul 28 2024 12:21:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.344858f3015fe79848b123e2b599680af660e9a8.001.2.cap
 National Weather Service,The National Weather Service in Riverton has issued a Fire Weather
 Watch, which is in effect from Monday afternoon through Tuesday
 evening.
@@ -198,28 +376,24 @@ Additional information is available at www.weather.gov.
 
 The next statement will be issued this afternoon at 300 PM CDT.
 
-* WHAT...Minor flooding is occurring and minor flooding is forecast.
+* WHAT...Minor flooding is occurring and moderate flooding is
+forecast.
 
-* WHERE...Sabine River near Deweyville.
+* WHERE...Neches River at Neches River Saltwater Barrier.
 
 * WHEN...Until further notice.
 
-* IMPACTS...At 25.0 feet, Lowest roads beside the river flood around
-Deweyville and subject to being closed. In addition, low-lying
-roads in Southwest Beauregard Parish are flooded including Robert
-Clark Road. Flooding occurs on the south side of Niblett Bluff
-Park with access roads to camp houses cut off around the park.
-Access roads to the river in Northeastern Orange County become
-flooded.
+* IMPACTS...At 6.0 feet, Colliers Ferry Park is under water, and
+flooding of secondary roads near the river can be expected.
 
 * ADDITIONAL DETAILS...
-- At 12:45 PM CDT Sunday the stage was 24.9 feet.
+- At 1:15 PM CDT Sunday the stage was 5.7 feet.
 - Recent Activity...The maximum river stage in the 24 hours
-ending at 12:45 PM CDT Sunday was 24.9 feet.
-- Forecast...The river is expected to rise to a crest of 25.1
-feet tomorrow evening.
-- Flood stage is 24.0 feet.
-- http://www.weather.gov/safety/flood,Sun Jul 28 2024 11:56:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.1f1e5ab7c13fca60ffa685dccbfe435a2b3bbb55.006.1.cap
+ending at 1:15 PM CDT Sunday was 5.7 feet.
+- Forecast...The river is expected to rise to a crest of 6.3
+feet early Wednesday afternoon.
+- Flood stage is 4.0 feet.
+- http://www.weather.gov/safety/flood,Sun Jul 28 2024 11:56:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.1f1e5ab7c13fca60ffa685dccbfe435a2b3bbb55.004.1.cap
 National Weather Service,...The Flood Warning is extended for the following rivers in Texas...
 
 Village Creek Near Kountze
@@ -244,24 +418,28 @@ Additional information is available at www.weather.gov.
 
 The next statement will be issued this afternoon at 300 PM CDT.
 
-* WHAT...Minor flooding is occurring and moderate flooding is
-forecast.
+* WHAT...Minor flooding is occurring and minor flooding is forecast.
 
-* WHERE...Neches River at Neches River Saltwater Barrier.
+* WHERE...Sabine River near Deweyville.
 
 * WHEN...Until further notice.
 
-* IMPACTS...At 6.0 feet, Colliers Ferry Park is under water, and
-flooding of secondary roads near the river can be expected.
+* IMPACTS...At 25.0 feet, Lowest roads beside the river flood around
+Deweyville and subject to being closed. In addition, low-lying
+roads in Southwest Beauregard Parish are flooded including Robert
+Clark Road. Flooding occurs on the south side of Niblett Bluff
+Park with access roads to camp houses cut off around the park.
+Access roads to the river in Northeastern Orange County become
+flooded.
 
 * ADDITIONAL DETAILS...
-- At 1:15 PM CDT Sunday the stage was 5.7 feet.
+- At 12:45 PM CDT Sunday the stage was 24.9 feet.
 - Recent Activity...The maximum river stage in the 24 hours
-ending at 1:15 PM CDT Sunday was 5.7 feet.
-- Forecast...The river is expected to rise to a crest of 6.3
-feet early Wednesday afternoon.
-- Flood stage is 4.0 feet.
-- http://www.weather.gov/safety/flood,Sun Jul 28 2024 11:56:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.1f1e5ab7c13fca60ffa685dccbfe435a2b3bbb55.004.1.cap
+ending at 12:45 PM CDT Sunday was 24.9 feet.
+- Forecast...The river is expected to rise to a crest of 25.1
+feet tomorrow evening.
+- Flood stage is 24.0 feet.
+- http://www.weather.gov/safety/flood,Sun Jul 28 2024 11:56:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.1f1e5ab7c13fca60ffa685dccbfe435a2b3bbb55.006.1.cap
 National Weather Service,* WHAT...Dangerously hot conditions with heat index values up to 111
 expected.
 
@@ -849,344 +1027,6 @@ feet Tuesday morning. It will then fall below flood stage
 Wednesday evening.
 - Flood stage is 13.0 feet.
 - http://www.weather.gov/safety/flood,Sun Jul 28 2024 06:49:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.1fe74f7bc7acf27d929a6780f23f7c2a1b8a9075.001.1.cap
-National Weather Service,...The Flood Warning continues for the following rivers in Texas...
-
-Menard Creek near Rye affecting Liberty, Polk and Hardin Counties.
-
-East Fork San Jacinto near New Caney affecting Liberty,
-Montgomery and Harris Counties.
-
-Trinity River near Moss Bluff affecting Chambers and Liberty
-Counties.
-
-Trinity River at Liberty affecting Liberty County.
-
-...The Flood Warning is extended for the following rivers in Texas...
-
-San Bernard River near Boling affecting Brazoria, Wharton and
-Fort Bend Counties.
-
-Tres Palacios River near Midfield affecting Matagorda and Wharton
-Counties.
-
-For the Trinity River...including Liberty, Moss Bluff...Moderate
-flooding is forecast.
-For the Menard Creek...including Rye...Minor flooding is forecast.
-For the East Fork San Jacinto River...including New Caney...Moderate
-flooding is forecast.
-For the San Bernard River...including Sweeny, Boling...Moderate
-flooding is forecast.
-
-* WHAT...Minor flooding is occurring and minor flooding is forecast.
-
-* WHERE...Menard Creek near Rye.
-
-* WHEN...Until early tomorrow afternoon.
-
-* IMPACTS...At 20.0 feet, Minor lowland flooding begins as water
-escapes the main channel in the vicinity of the gage.
-
-* ADDITIONAL DETAILS...
-- At 7:15 AM CDT Sunday the stage was 22.5 feet.
-- Bankfull stage is 17.0 feet.
-- Recent Activity...The maximum river stage in the 24 hours
-ending at 7:15 AM CDT Sunday was 23.2 feet.
-- Forecast...The river is expected to fall below flood stage
-just after midnight tonight and continue falling to 11.0 feet
-Friday morning.
-- Flood stage is 20.0 feet.
-- Flood History...This crest compares to a previous crest of
-22.5 feet on 04/19/1973.
-- http://www.weather.gov/safety/flood,Sun Jul 28 2024 06:15:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.2b248dbb3ec97b3efbf03624bb78cf71222e6207.001.1.cap
-National Weather Service,...The Flood Warning continues for the following rivers in Texas...
-
-Menard Creek near Rye affecting Liberty, Polk and Hardin Counties.
-
-East Fork San Jacinto near New Caney affecting Liberty,
-Montgomery and Harris Counties.
-
-Trinity River near Moss Bluff affecting Chambers and Liberty
-Counties.
-
-Trinity River at Liberty affecting Liberty County.
-
-...The Flood Warning is extended for the following rivers in Texas...
-
-San Bernard River near Boling affecting Brazoria, Wharton and
-Fort Bend Counties.
-
-Tres Palacios River near Midfield affecting Matagorda and Wharton
-Counties.
-
-For the Trinity River...including Liberty, Moss Bluff...Moderate
-flooding is forecast.
-For the Menard Creek...including Rye...Minor flooding is forecast.
-For the East Fork San Jacinto River...including New Caney...Moderate
-flooding is forecast.
-For the San Bernard River...including Sweeny, Boling...Moderate
-flooding is forecast.
-
-* WHAT...Minor flooding is occurring and minor flooding is forecast.
-
-* WHERE...San Bernard River near Boling.
-
-* WHEN...Until tomorrow evening.
-
-* IMPACTS...At 18.0 feet, Minor lowland flooding begins upstream
-from gage. Minor backwater flooding up Peach Creek in Wharton
-County threatens low lying areas.
-
-* ADDITIONAL DETAILS...
-- At 6:15 AM CDT Sunday the stage was 19.7 feet.
-- Bankfull stage is 14.0 feet.
-- Recent Activity...The maximum river stage in the 24 hours
-ending at 6:15 AM CDT Sunday was 19.7 feet.
-- Forecast...The river is expected to fall below flood stage
-tomorrow morning and continue falling to 10.3 feet Friday
-morning.
-- Flood stage is 18.0 feet.
-- Flood History...This crest compares to a previous crest of
-19.7 feet on 03/06/2017.
-- http://www.weather.gov/safety/flood,Sun Jul 28 2024 06:15:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.2b248dbb3ec97b3efbf03624bb78cf71222e6207.002.1.cap
-National Weather Service,...The Flood Warning continues for the following rivers in Texas...
-
-Menard Creek near Rye affecting Liberty, Polk and Hardin Counties.
-
-East Fork San Jacinto near New Caney affecting Liberty,
-Montgomery and Harris Counties.
-
-Trinity River near Moss Bluff affecting Chambers and Liberty
-Counties.
-
-Trinity River at Liberty affecting Liberty County.
-
-...The Flood Warning is extended for the following rivers in Texas...
-
-San Bernard River near Boling affecting Brazoria, Wharton and
-Fort Bend Counties.
-
-Tres Palacios River near Midfield affecting Matagorda and Wharton
-Counties.
-
-For the Trinity River...including Liberty, Moss Bluff...Moderate
-flooding is forecast.
-For the Menard Creek...including Rye...Minor flooding is forecast.
-For the East Fork San Jacinto River...including New Caney...Moderate
-flooding is forecast.
-For the San Bernard River...including Sweeny, Boling...Moderate
-flooding is forecast.
-
-* WHAT...Moderate flooding is occurring and moderate flooding is
-forecast.
-
-* WHERE...Tres Palacios River near Midfield.
-
-* WHEN...Until late Tuesday morning.
-
-* IMPACTS...At 26.0 feet, Moderate lowland flooding begins with
-water well into the flood plain on the right upstream bank and
-within inches of spilling over the east approach to the bridge at
-FM 456.  The river will be almost one quarter mile wide in the
-vicinity of the gage.
-At 28.0 feet, Water is over the road on FM 1468 near Clemville, FM
-2431 east of Midfield, and FM 2853 southeast of Blessing all in
-Matagorda County with homes in the subdivisions of El Dorado
-Country upstream and Oak Grove and Tres Palacios Oaks downstream
-threatened.
-
-* ADDITIONAL DETAILS...
-- At 7:30 AM CDT Sunday the stage was 27.3 feet.
-- Bankfull stage is 15.0 feet.
-- Recent Activity...The maximum river stage in the 24 hours
-ending at 7:30 AM CDT Sunday was 27.5 feet.
-- Forecast...The river is expected to rise to a crest of 27.5
-feet this afternoon. It will then fall below flood stage late
-tomorrow evening.
-- Flood stage is 24.0 feet.
-- Flood History...This crest compares to a previous crest of
-27.5 feet on 09/21/1983.
-- http://www.weather.gov/safety/flood,Sun Jul 28 2024 06:15:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.2b248dbb3ec97b3efbf03624bb78cf71222e6207.003.1.cap
-National Weather Service,...Forecast flooding changed from Minor to Moderate severity and
-increased in duration for the following rivers in Texas...
-
-San Bernard River near Sweeny affecting Brazoria County.
-
-For the San Bernard River...including Sweeny, Boling...Moderate
-flooding is forecast.
-
-* WHAT...Minor flooding is occurring and moderate flooding is
-forecast.
-
-* WHERE...San Bernard River near Sweeny.
-
-* WHEN...Until early Tuesday afternoon.
-
-* IMPACTS...At 10.0 feet, Water begins spilling into the left
-floodplain. Water is over the mid level walkway at the Phillips
-Terminal near Sweeny.
-At 11.0 feet, Lazy G RV Park becomes threatened.
-
-* ADDITIONAL DETAILS...
-- At 8:00 AM CDT Sunday the stage was 10.0 feet.
-- Bankfull stage is 5.0 feet.
-- Recent Activity...The maximum river stage in the 24 hours
-ending at 8:00 AM CDT Sunday was 10.5 feet.
-- Forecast...The river is expected to rise to a crest of 11.8
-feet this evening. It will then fall below flood stage early
-Tuesday morning.
-- Flood stage is 7.0 feet.
-- Flood History...This crest compares to a previous crest of
-10.7 feet on 12/09/2018.
-- http://www.weather.gov/safety/flood,Sun Jul 28 2024 06:15:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.81dea3ae8adb8a2328174818cf59c84497f578fd.001.1.cap
-National Weather Service,...The Flood Warning continues for the following rivers in Texas...
-
-Menard Creek near Rye affecting Liberty, Polk and Hardin Counties.
-
-East Fork San Jacinto near New Caney affecting Liberty,
-Montgomery and Harris Counties.
-
-Trinity River near Moss Bluff affecting Chambers and Liberty
-Counties.
-
-Trinity River at Liberty affecting Liberty County.
-
-...The Flood Warning is extended for the following rivers in Texas...
-
-San Bernard River near Boling affecting Brazoria, Wharton and
-Fort Bend Counties.
-
-Tres Palacios River near Midfield affecting Matagorda and Wharton
-Counties.
-
-For the Trinity River...including Liberty, Moss Bluff...Moderate
-flooding is forecast.
-For the Menard Creek...including Rye...Minor flooding is forecast.
-For the East Fork San Jacinto River...including New Caney...Moderate
-flooding is forecast.
-For the San Bernard River...including Sweeny, Boling...Moderate
-flooding is forecast.
-
-* WHAT...Minor flooding is occurring and moderate flooding is
-forecast.
-
-* WHERE...East Fork San Jacinto near New Caney.
-
-* WHEN...Until early Thursday morning.
-
-* IMPACTS...At 62.0 feet, Moderate lowland flooding begins with
-secondary roads near the river inundated, including FM 1485 west
-of the river.
-
-* ADDITIONAL DETAILS...
-- At 8:00 AM CDT Sunday the stage was 61.7 feet.
-- Bankfull stage is 54.5 feet.
-- Recent Activity...The maximum river stage in the 24 hours
-ending at 8:00 AM CDT Sunday was 64.8 feet.
-- Forecast...The river is expected to rise to a crest of 63.0
-feet just after midnight tonight. It will then fall below
-flood stage early Wednesday afternoon.
-- Flood stage is 58.0 feet.
-- Flood History...This crest compares to a previous crest of
-63.1 feet on 06/12/1987.
-- http://www.weather.gov/safety/flood,Sun Jul 28 2024 06:15:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.2b248dbb3ec97b3efbf03624bb78cf71222e6207.004.1.cap
-National Weather Service,...The Flood Warning continues for the following rivers in Texas...
-
-Menard Creek near Rye affecting Liberty, Polk and Hardin Counties.
-
-East Fork San Jacinto near New Caney affecting Liberty,
-Montgomery and Harris Counties.
-
-Trinity River near Moss Bluff affecting Chambers and Liberty
-Counties.
-
-Trinity River at Liberty affecting Liberty County.
-
-...The Flood Warning is extended for the following rivers in Texas...
-
-San Bernard River near Boling affecting Brazoria, Wharton and
-Fort Bend Counties.
-
-Tres Palacios River near Midfield affecting Matagorda and Wharton
-Counties.
-
-For the Trinity River...including Liberty, Moss Bluff...Moderate
-flooding is forecast.
-For the Menard Creek...including Rye...Minor flooding is forecast.
-For the East Fork San Jacinto River...including New Caney...Moderate
-flooding is forecast.
-For the San Bernard River...including Sweeny, Boling...Moderate
-flooding is forecast.
-
-* WHAT...Minor flooding is occurring and moderate flooding is
-forecast.
-
-* WHERE...Trinity River at Liberty.
-
-* WHEN...Until further notice.
-
-* IMPACTS...At 27.0 feet, Moderate lowland flooding begins as roads
-into several outlying communities above Liberty are closed with
-residents in 5 or 6 subdivisions cut off if not evacuated.
-
-* ADDITIONAL DETAILS...
-- At 7:15 AM CDT Sunday the stage was 27.0 feet.
-- Bankfull stage is 21.0 feet.
-- Recent Activity...The maximum river stage in the 24 hours
-ending at 7:15 AM CDT Sunday was 27.0 feet.
-- Forecast...The river is expected to rise to a crest of 27.5
-feet tomorrow morning.
-- Flood stage is 26.0 feet.
-- Flood History...This crest compares to a previous crest of
-27.5 feet on 05/17/2004.
-- http://www.weather.gov/safety/flood,Sun Jul 28 2024 06:15:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.2b248dbb3ec97b3efbf03624bb78cf71222e6207.006.1.cap
-National Weather Service,...The Flood Warning continues for the following rivers in Texas...
-
-Menard Creek near Rye affecting Liberty, Polk and Hardin Counties.
-
-East Fork San Jacinto near New Caney affecting Liberty,
-Montgomery and Harris Counties.
-
-Trinity River near Moss Bluff affecting Chambers and Liberty
-Counties.
-
-Trinity River at Liberty affecting Liberty County.
-
-...The Flood Warning is extended for the following rivers in Texas...
-
-San Bernard River near Boling affecting Brazoria, Wharton and
-Fort Bend Counties.
-
-Tres Palacios River near Midfield affecting Matagorda and Wharton
-Counties.
-
-For the Trinity River...including Liberty, Moss Bluff...Moderate
-flooding is forecast.
-For the Menard Creek...including Rye...Minor flooding is forecast.
-For the East Fork San Jacinto River...including New Caney...Moderate
-flooding is forecast.
-For the San Bernard River...including Sweeny, Boling...Moderate
-flooding is forecast.
-
-* WHAT...Minor flooding is occurring and minor flooding is forecast.
-
-* WHERE...Trinity River near Moss Bluff.
-
-* WHEN...Until further notice.
-
-* IMPACTS...At 12.2 feet, Minor lowland flooding begins in the
-vicinity of the gage.
-
-* ADDITIONAL DETAILS...
-- At 7:30 AM CDT Sunday the stage was 12.6 feet.
-- Bankfull stage is 9.2 feet.
-- Recent Activity...The maximum river stage in the 24 hours
-ending at 7:30 AM CDT Sunday was 12.6 feet.
-- Forecast...The river is expected to rise to a crest of 14.0
-feet early Tuesday afternoon.
-- Flood stage is 12.2 feet.
-- Flood History...This crest compares to a previous crest of
-14.0 feet on 02/13/2005.
-- http://www.weather.gov/safety/flood,Sun Jul 28 2024 06:15:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.2b248dbb3ec97b3efbf03624bb78cf71222e6207.005.1.cap
 National Weather Service,...The National Weather Service in Houston/Galveston TX has issued a
 Flood Warning for the following rivers in Texas...
 
