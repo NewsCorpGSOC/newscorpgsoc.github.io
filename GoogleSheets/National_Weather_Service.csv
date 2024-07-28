@@ -1,11 +1,130 @@
 Sheet Name,Summary,Published (Pacific Time),Link
-National Weather Service,#ERROR!,Sun Jul 28 2024 14:14:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.d299468e580d1b4bdb3164c41877f8262ff5a857.001.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 14:13:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.dc4ec8163565a2932531fed1fa6810fde16505f8.001.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 14:12:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.f5002d8f8b601e394caa655e7f6a858c6ba898af.001.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 14:10:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.3af135d5e3f4d3a6f9c9cdb0a6fd000f294eca1a.001.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 14:09:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.24010a23eb49a103a10a96f35e9a8e2e024d33a5.001.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 14:08:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.c8abdc1e81a2db3f8fc29ab3b06aae1f0eee1cb7.001.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 14:03:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.cf98809b0f838cf532985fe812dad59dfc45d23f.001.1.cap
+National Weather Service,At 324 PM MDT, a severe thunderstorm was located over Rockerville, or
+8 miles southwest of Rapid City, moving east at 20 mph.
+
+HAZARD...Tennis ball size hail.
+
+SOURCE...Radar indicated.
+
+IMPACT...People and animals outdoors will be injured. Expect damage
+to roofs, siding, windows, and vehicles.
+
+This severe storm will be near...
+Southwestern Rapid City, Bear Country, Black Gap, Reptile Gardens,
+and Hart Ranch around 330 PM MDT.
+
+Other locations in the path of this severe thunderstorm include
+Caputa and Thompson Butte.,Sun Jul 28 2024 14:24:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.f7735f703f4001a48a2ce54a25c3299727c1a878.001.1.cap
+National Weather Service,At 314 PM MDT, a severe thunderstorm was located 5 miles southeast of
+Hulett, or 16 miles northwest of Sundance, moving east at 20 mph.
+
+HAZARD...60 mph wind gusts and quarter size hail.
+
+SOURCE...Radar indicated.
+
+IMPACT...Hail damage to vehicles is expected. Expect wind damage to
+roofs, siding, and trees.
+
+Locations impacted include...
+Cook Lake and Bear Lodge Campground.,Sun Jul 28 2024 14:14:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.d299468e580d1b4bdb3164c41877f8262ff5a857.001.1.cap
+National Weather Service,SVRUNR
+
+The National Weather Service in Rapid City has issued a
+
+* Severe Thunderstorm Warning for...
+Southwestern Meade County in west central South Dakota...
+Eastern Lawrence County in west central South Dakota...
+
+* Until 415 PM MDT.
+
+* At 313 PM MDT, a severe thunderstorm was located over Dalton Lake,
+or 11 miles south of Sturgis, moving northeast at 15 mph.
+
+HAZARD...Half dollar size hail.
+
+SOURCE...Radar indicated.
+
+IMPACT...Damage to vehicles is expected.
+
+* This severe thunderstorm will be near...
+Summerset, Piedmont, and Tilford around 320 PM MDT.
+
+This includes Interstate 90 in South Dakota between Mile Markers 39
+and 47.,Sun Jul 28 2024 14:13:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.dc4ec8163565a2932531fed1fa6810fde16505f8.001.1.cap
+National Weather Service,FFWABQ
+
+The National Weather Service in Albuquerque has issued a
+
+* Flash Flood Warning for...
+The Blue 2 burn scar in...
+South Central Lincoln County in central New Mexico...
+
+* Until 615 PM MDT.
+
+* At 310 PM MDT, Doppler radar indicated thunderstorms producing
+moderate to heavy rain over the Blue 2 Burn Scar. Between 0.25 and
+0.75 inches of rain have fallen. Additional rainfall amounts of
+0.25 to 0.75 inches are possible in the warned area. Flash
+flooding is expected to begin shortly.
+
+Excessive rainfall over the burn scar will impact the Rio Bonito and
+Upper Eagle Creek. This includes but is not limited to all
+properties and structures along Forest Service Road 107, the Bonito
+Lake area, the Rio Bonito bridges on Highways 37 and 48, and areas
+downstream of Highway 48 along the Rio Bonito. Additional impacts
+are also possible along upper Eagle Creek Road to Ski Run Road. The
+debris flow can consist of rock, mud, vegetation and other loose
+materials.
+
+HAZARD...Thunderstorms producing flash flooding in and around
+the Blue 2 Burn Scar.
+
+SOURCE...Radar indicated.
+
+IMPACT...Life threatening flash flooding of areas in and around
+the Blue 2 Burn Scar.
+
+* Some locations that will experience flash flooding include...
+Bonito Lake.,Sun Jul 28 2024 14:10:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.3af135d5e3f4d3a6f9c9cdb0a6fd000f294eca1a.001.1.cap
+National Weather Service,SVRMEG
+
+The National Weather Service in Memphis has issued a
+
+* Severe Thunderstorm Warning for...
+Southwestern Lafayette County in northwestern Mississippi...
+Southeastern Panola County in northwestern Mississippi...
+
+* Until 500 PM CDT.
+
+* At 409 PM CDT, a severe thunderstorm was located near Batesville,
+moving east at 25 mph.
+
+HAZARD...60 mph wind gusts.
+
+SOURCE...Radar indicated.
+
+IMPACT...Expect damage to roofs, siding, and trees.
+
+* Locations impacted include...
+Oxford, Batesville, Water Valley, Holly Springs National Forest,
+Springdale, Burgess, Paris, Taylor, College Hill Station, Shuford,
+Eureka Springs, and Yocona.,Sun Jul 28 2024 14:09:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.24010a23eb49a103a10a96f35e9a8e2e024d33a5.001.1.cap
+National Weather Service,At 403 PM CDT, The public reported thunderstorms producing heavy
+rain across the warned area. Between 1.5 and 2.5 inches of rain have
+fallen. Additional rainfall amounts up to 1 inch are possible in the
+warned area. Flash flooding is already occurring.
+
+HAZARD...Flash flooding caused by thunderstorms.
+
+SOURCE...Public reported several flooded roadways across the
+Sioux City metro.
+
+IMPACT...Flash flooding of small creeks and streams, urban areas,
+highways, streets and underpasses as well as other poor
+drainage and low-lying areas.
+
+Some locations that will experience flash flooding include...
+Sioux City, South Sioux City, Sergeant Bluff and Dakota City.,Sun Jul 28 2024 14:03:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.cf98809b0f838cf532985fe812dad59dfc45d23f.001.1.cap
 National Weather Service,At 154 PM MST, Doppler radar indicated thunderstorms producing heavy
 rain across the warned area. Between 1.5 and 2.5 inches of rain have
 fallen. Flash flooding is ongoing or expected to begin shortly.
@@ -1080,24 +1199,28 @@ Additional information is available at www.weather.gov.
 
 The next statement will be issued this afternoon at 300 PM CDT.
 
-* WHAT...Minor flooding is occurring and moderate flooding is
-forecast.
+* WHAT...Minor flooding is occurring and minor flooding is forecast.
 
-* WHERE...Neches River at Neches River Saltwater Barrier.
+* WHERE...Sabine River near Deweyville.
 
 * WHEN...Until further notice.
 
-* IMPACTS...At 6.0 feet, Colliers Ferry Park is under water, and
-flooding of secondary roads near the river can be expected.
+* IMPACTS...At 25.0 feet, Lowest roads beside the river flood around
+Deweyville and subject to being closed. In addition, low-lying
+roads in Southwest Beauregard Parish are flooded including Robert
+Clark Road. Flooding occurs on the south side of Niblett Bluff
+Park with access roads to camp houses cut off around the park.
+Access roads to the river in Northeastern Orange County become
+flooded.
 
 * ADDITIONAL DETAILS...
-- At 1:15 PM CDT Sunday the stage was 5.7 feet.
+- At 12:45 PM CDT Sunday the stage was 24.9 feet.
 - Recent Activity...The maximum river stage in the 24 hours
-ending at 1:15 PM CDT Sunday was 5.7 feet.
-- Forecast...The river is expected to rise to a crest of 6.3
-feet early Wednesday afternoon.
-- Flood stage is 4.0 feet.
-- http://www.weather.gov/safety/flood,Sun Jul 28 2024 11:56:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.1f1e5ab7c13fca60ffa685dccbfe435a2b3bbb55.004.1.cap
+ending at 12:45 PM CDT Sunday was 24.9 feet.
+- Forecast...The river is expected to rise to a crest of 25.1
+feet tomorrow evening.
+- Flood stage is 24.0 feet.
+- http://www.weather.gov/safety/flood,Sun Jul 28 2024 11:56:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.1f1e5ab7c13fca60ffa685dccbfe435a2b3bbb55.006.1.cap
 National Weather Service,...The Flood Warning is extended for the following rivers in Texas...
 
 Village Creek Near Kountze
@@ -1122,28 +1245,24 @@ Additional information is available at www.weather.gov.
 
 The next statement will be issued this afternoon at 300 PM CDT.
 
-* WHAT...Minor flooding is occurring and minor flooding is forecast.
+* WHAT...Minor flooding is occurring and moderate flooding is
+forecast.
 
-* WHERE...Sabine River near Deweyville.
+* WHERE...Neches River at Neches River Saltwater Barrier.
 
 * WHEN...Until further notice.
 
-* IMPACTS...At 25.0 feet, Lowest roads beside the river flood around
-Deweyville and subject to being closed. In addition, low-lying
-roads in Southwest Beauregard Parish are flooded including Robert
-Clark Road. Flooding occurs on the south side of Niblett Bluff
-Park with access roads to camp houses cut off around the park.
-Access roads to the river in Northeastern Orange County become
-flooded.
+* IMPACTS...At 6.0 feet, Colliers Ferry Park is under water, and
+flooding of secondary roads near the river can be expected.
 
 * ADDITIONAL DETAILS...
-- At 12:45 PM CDT Sunday the stage was 24.9 feet.
+- At 1:15 PM CDT Sunday the stage was 5.7 feet.
 - Recent Activity...The maximum river stage in the 24 hours
-ending at 12:45 PM CDT Sunday was 24.9 feet.
-- Forecast...The river is expected to rise to a crest of 25.1
-feet tomorrow evening.
-- Flood stage is 24.0 feet.
-- http://www.weather.gov/safety/flood,Sun Jul 28 2024 11:56:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.1f1e5ab7c13fca60ffa685dccbfe435a2b3bbb55.006.1.cap
+ending at 1:15 PM CDT Sunday was 5.7 feet.
+- Forecast...The river is expected to rise to a crest of 6.3
+feet early Wednesday afternoon.
+- Flood stage is 4.0 feet.
+- http://www.weather.gov/safety/flood,Sun Jul 28 2024 11:56:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.1f1e5ab7c13fca60ffa685dccbfe435a2b3bbb55.004.1.cap
 National Weather Service,* WHAT...Dangerously hot conditions with heat index values up to 111
 expected.
 
