@@ -1,4 +1,72 @@
 Sheet Name,Summary,Published (Pacific Time),Link
+National Weather Service,FFWBMX
+
+The National Weather Service in Birmingham has issued a
+
+* Flash Flood Warning for...
+Southeastern Jefferson County in central Alabama...
+Northwestern Shelby County in central Alabama...
+
+* Until 745 PM CDT.
+
+* At 444 PM CDT, Doppler radar and automated rain gauges indicated
+thunderstorms producing heavy rain across the warned area. Between
+2 and 3 inches of rain have fallen. Additional rainfall amounts of
+1 to 3 inches are possible in the warned area. Flash flooding is
+ongoing or expected to begin shortly.
+
+HAZARD...Flash flooding caused by thunderstorms.
+
+SOURCE...Radar and automated gauges.
+
+IMPACT...Flash flooding of small creeks and streams, urban
+areas, highways, streets and underpasses as well as
+other poor drainage and low-lying areas.
+
+* Some locations that will experience flash flooding include...
+Birmingham, Hoover, Vestavia Hills, Bessemer, Homewood, Pelham,
+Mountain Brook, Trussville, Helena, Hueytown, Irondale, Leeds,
+Moody, Fairfield, Pleasant Grove, Tarrant, Midfield, Brighton,
+Indian Springs Village and Lipscomb.,Sun Jul 28 2024 14:44:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.dc26f3f96a11fb8b360ead71d285b63840830d8b.001.1.cap
+National Weather Service,FFWTWC
+
+The National Weather Service in Tucson has issued a
+
+* Flash Flood Warning for...
+South Central Pima County in southeastern Arizona...
+Northwestern Santa Cruz County in southeastern Arizona...
+
+* Until 545 PM MST.
+
+* At 240 PM MST, Doppler radar indicated thunderstorms producing
+heavy rain across the warned area. Between 1 and 2 inches of rain
+have fallen. Flash flooding is ongoing or expected to begin
+shortly.
+
+HAZARD...Life threatening flash flooding. Thunderstorms
+producing flash flooding.
+
+SOURCE...Radar.
+
+IMPACT...Life threatening flash flooding of creeks and streams,
+urban areas, highways, streets and underpasses.
+
+* Some locations that will experience flash flooding include...
+Arivaca and Arivaca Lake.
+
+This includes the following Flash Flood Prone Locations...
+Arivaca Rd from Arivaca Junction & HWY 286.
+
+This includes Route 286 between mile markers 11 and 24...and
+between mile markers 26 and 28.
+
+This includes the following streams and drainages...
+Cerro Prieto Wash, San Luis Wash, Sopori Wash, Puertocito Wash,
+Thomas Canyon Wash, Little Thomas Wash, Altar Wash, Cedar Creek,
+Guijas Wash, Las, Yellow Jacket Wash, Champurrado Wash, Lopez
+Wash, Peitas Wash, Fraguita Wash, Moras Wash, Las, Seco, Arroyo,
+Santa Margarita Wash, Arivaca Creek, Bolas Blancas Wash, Papalote
+Wash, Saucito Wash and Brown Wash.,Sun Jul 28 2024 14:40:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.a0387c842da37a8b7a627fa8d386a96006e38c5d.001.1.cap
 National Weather Service,At 338 PM MDT, a severe thunderstorm was located near Bear Country,
 or 9 miles south of Rapid City, moving southeast at 15 mph.
 
@@ -48,12 +116,114 @@ roofs, siding, and trees.
 
 Locations impacted include...
 Bear Lodge Campground and Cook Lake.,Sun Jul 28 2024 14:33:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.93e26b19506c0df337c2ed4eb9a3ec113f000248.001.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 14:33:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.6c0fbc4c4133b08566897d34db6e045cc1bf1fc1.001.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 14:29:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.c016624dc47af10847842f49b418af3fecc2dbb6.002.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 14:29:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.ad55412d98cecee0d58ab1ea3c8083df3cfb4b0f.001.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 14:26:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.dfebc8d327de73afa661fc4f6c417df2b2bb0438.002.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 14:10:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.3af135d5e3f4d3a6f9c9cdb0a6fd000f294eca1a.001.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 14:03:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.cf98809b0f838cf532985fe812dad59dfc45d23f.001.1.cap
+National Weather Service,SVRTWC
+
+The National Weather Service in Tucson has issued a
+
+* Severe Thunderstorm Warning for...
+North central Cochise County in southeastern Arizona...
+
+* Until 315 PM MST.
+
+* At 233 PM MST, a severe thunderstorm was located near Willcox, and
+is nearly stationary.
+
+HAZARD...60 mph wind gusts and quarter size hail.
+
+SOURCE...Radar indicated.
+
+IMPACT...Hail damage to vehicles is expected. Expect wind damage
+to roofs, siding, and trees.
+
+* Locations impacted include...
+Willcox.
+
+This includes the following highways...
+Interstate 10 between mile markers 337 and 349.
+Route 186 between mile markers 327 and 334.,Sun Jul 28 2024 14:33:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.6c0fbc4c4133b08566897d34db6e045cc1bf1fc1.001.1.cap
+National Weather Service,FFWTWC
+
+The National Weather Service in Tucson has issued a
+
+* Flash Flood Warning for...
+West Central Cochise County in southeastern Arizona...
+
+* Until 530 PM MST.
+
+* At 229 PM MST, Doppler radar indicated thunderstorms producing
+heavy rain across the warned area. Between 1 and 2 inches of rain
+have fallen. Flash flooding is ongoing or expected to begin
+shortly.
+
+HAZARD...Life threatening flash flooding. Thunderstorms
+producing flash flooding.
+
+SOURCE...Radar.
+
+IMPACT...Life threatening flash flooding of creeks and streams,
+urban areas, highways, streets and underpasses.
+
+* Some locations that will experience flash flooding include...
+Tombstone.
+
+This includes the following highways...
+Route 80 between mile markers 313 and 323.
+Route 82 between mile markers 65 and 67.
+
+This includes the following streams and drainages...
+San Pedro River, Willow Wash, Walnut Gulch, Reeves Creek, Gadwell
+Canyon, Henderson Wash and Haberstock Wash.,Sun Jul 28 2024 14:29:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.ad55412d98cecee0d58ab1ea3c8083df3cfb4b0f.001.1.cap
+National Weather Service,FFWABQ
+
+The National Weather Service in Albuquerque has issued a
+
+* Flash Flood Warning for...
+The Blue 2 burn scar in...
+South Central Lincoln County in central New Mexico...
+
+* Until 615 PM MDT.
+
+* At 310 PM MDT, Doppler radar indicated thunderstorms producing
+moderate to heavy rain over the Blue 2 Burn Scar. Between 0.25 and
+0.75 inches of rain have fallen. Additional rainfall amounts of
+0.25 to 0.75 inches are possible in the warned area. Flash
+flooding is expected to begin shortly.
+
+Excessive rainfall over the burn scar will impact the Rio Bonito and
+Upper Eagle Creek. This includes but is not limited to all
+properties and structures along Forest Service Road 107, the Bonito
+Lake area, the Rio Bonito bridges on Highways 37 and 48, and areas
+downstream of Highway 48 along the Rio Bonito. Additional impacts
+are also possible along upper Eagle Creek Road to Ski Run Road. The
+debris flow can consist of rock, mud, vegetation and other loose
+materials.
+
+HAZARD...Thunderstorms producing flash flooding in and around
+the Blue 2 Burn Scar.
+
+SOURCE...Radar indicated.
+
+IMPACT...Life threatening flash flooding of areas in and around
+the Blue 2 Burn Scar.
+
+* Some locations that will experience flash flooding include...
+Bonito Lake.,Sun Jul 28 2024 14:10:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.3af135d5e3f4d3a6f9c9cdb0a6fd000f294eca1a.001.1.cap
+National Weather Service,At 403 PM CDT, The public reported thunderstorms producing heavy
+rain across the warned area. Between 1.5 and 2.5 inches of rain have
+fallen. Additional rainfall amounts up to 1 inch are possible in the
+warned area. Flash flooding is already occurring.
+
+HAZARD...Flash flooding caused by thunderstorms.
+
+SOURCE...Public reported several flooded roadways across the
+Sioux City metro.
+
+IMPACT...Flash flooding of small creeks and streams, urban areas,
+highways, streets and underpasses as well as other poor
+drainage and low-lying areas.
+
+Some locations that will experience flash flooding include...
+Sioux City, South Sioux City, Sergeant Bluff and Dakota City.,Sun Jul 28 2024 14:03:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.cf98809b0f838cf532985fe812dad59dfc45d23f.001.1.cap
 National Weather Service,At 154 PM MST, Doppler radar indicated thunderstorms producing heavy
 rain across the warned area. Between 1.5 and 2.5 inches of rain have
 fallen. Flash flooding is ongoing or expected to begin shortly.
@@ -417,19 +587,6 @@ National Weather Service,The National Weather Service in Salt Lake City has issu
 Flag Warning for wind and low relative humidity, which is in
 effect from 11 AM to 10 PM MDT Tuesday.
 
-* AFFECTED AREA...Fire Weather Zone 480 Uinta Mountains and Fire
-Weather Zone 481 Western Ashley National Forest.
-
-* WINDS...Southwest 10 to 20 mph with gusts around 30 mph.
-
-* RELATIVE HUMIDITY...As low as 10 percent.
-
-* IMPACTS...Critical fire weather conditions are expected. Any
-new fire starts or existing fires may spread rapidly.,Sun Jul 28 2024 12:44:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.15f2b42f4e9c1f57e80f08f0021efb86ebdbf63b.002.1.cap
-National Weather Service,The National Weather Service in Salt Lake City has issued a Red
-Flag Warning for wind and low relative humidity, which is in
-effect from 11 AM to 10 PM MDT Tuesday.
-
 * AFFECTED AREA...Fire Weather Zone 482 Western Uintah Basin,
 Fire Weather Zone 483 Southern Ashley National Forest and Fire
 Weather Zone 488 Manti National Forest.
@@ -442,6 +599,19 @@ gusts around 30 mph.
 
 * IMPACTS...Critical fire weather conditions are expected. Any
 new fire starts or existing fires may spread rapidly.,Sun Jul 28 2024 12:44:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.15f2b42f4e9c1f57e80f08f0021efb86ebdbf63b.001.1.cap
+National Weather Service,The National Weather Service in Salt Lake City has issued a Red
+Flag Warning for wind and low relative humidity, which is in
+effect from 11 AM to 10 PM MDT Tuesday.
+
+* AFFECTED AREA...Fire Weather Zone 480 Uinta Mountains and Fire
+Weather Zone 481 Western Ashley National Forest.
+
+* WINDS...Southwest 10 to 20 mph with gusts around 30 mph.
+
+* RELATIVE HUMIDITY...As low as 10 percent.
+
+* IMPACTS...Critical fire weather conditions are expected. Any
+new fire starts or existing fires may spread rapidly.,Sun Jul 28 2024 12:44:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.15f2b42f4e9c1f57e80f08f0021efb86ebdbf63b.002.1.cap
 National Weather Service,* AFFECTED AREA...Fire Weather Zone 492 Central Utah West
 Desert, Fire Weather Zone 493 Central Utah Mountains, Fire
 Weather Zone 495 Color Country West Desert, Fire Weather Zone
