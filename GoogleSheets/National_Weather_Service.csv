@@ -1,20 +1,7 @@
 Sheet Name,Summary,Published (Pacific Time),Link
-National Weather Service,At 324 PM MDT, a severe thunderstorm was located over Rockerville, or
-8 miles southwest of Rapid City, moving east at 20 mph.
-
-HAZARD...Tennis ball size hail.
-
-SOURCE...Radar indicated.
-
-IMPACT...People and animals outdoors will be injured. Expect damage
-to roofs, siding, windows, and vehicles.
-
-This severe storm will be near...
-Southwestern Rapid City, Bear Country, Black Gap, Reptile Gardens,
-and Hart Ranch around 330 PM MDT.
-
-Other locations in the path of this severe thunderstorm include
-Caputa and Thompson Butte.,Sun Jul 28 2024 14:24:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.f7735f703f4001a48a2ce54a25c3299727c1a878.001.1.cap
+National Weather Service,#ERROR!,Sun Jul 28 2024 14:29:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.ad55412d98cecee0d58ab1ea3c8083df3cfb4b0f.001.1.cap
+National Weather Service,#ERROR!,Sun Jul 28 2024 14:26:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.dfebc8d327de73afa661fc4f6c417df2b2bb0438.002.1.cap
+National Weather Service,#ERROR!,Sun Jul 28 2024 14:24:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.f7735f703f4001a48a2ce54a25c3299727c1a878.001.1.cap
 National Weather Service,At 314 PM MDT, a severe thunderstorm was located 5 miles southeast of
 Hulett, or 16 miles northwest of Sundance, moving east at 20 mph.
 
@@ -27,30 +14,6 @@ roofs, siding, and trees.
 
 Locations impacted include...
 Cook Lake and Bear Lodge Campground.,Sun Jul 28 2024 14:14:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.d299468e580d1b4bdb3164c41877f8262ff5a857.001.1.cap
-National Weather Service,SVRUNR
-
-The National Weather Service in Rapid City has issued a
-
-* Severe Thunderstorm Warning for...
-Southwestern Meade County in west central South Dakota...
-Eastern Lawrence County in west central South Dakota...
-
-* Until 415 PM MDT.
-
-* At 313 PM MDT, a severe thunderstorm was located over Dalton Lake,
-or 11 miles south of Sturgis, moving northeast at 15 mph.
-
-HAZARD...Half dollar size hail.
-
-SOURCE...Radar indicated.
-
-IMPACT...Damage to vehicles is expected.
-
-* This severe thunderstorm will be near...
-Summerset, Piedmont, and Tilford around 320 PM MDT.
-
-This includes Interstate 90 in South Dakota between Mile Markers 39
-and 47.,Sun Jul 28 2024 14:13:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.dc4ec8163565a2932531fed1fa6810fde16505f8.001.1.cap
 National Weather Service,FFWABQ
 
 The National Weather Service in Albuquerque has issued a
@@ -507,6 +470,19 @@ National Weather Service,The National Weather Service in Salt Lake City has issu
 Flag Warning for wind and low relative humidity, which is in
 effect from 11 AM to 10 PM MDT Tuesday.
 
+* AFFECTED AREA...Fire Weather Zone 480 Uinta Mountains and Fire
+Weather Zone 481 Western Ashley National Forest.
+
+* WINDS...Southwest 10 to 20 mph with gusts around 30 mph.
+
+* RELATIVE HUMIDITY...As low as 10 percent.
+
+* IMPACTS...Critical fire weather conditions are expected. Any
+new fire starts or existing fires may spread rapidly.,Sun Jul 28 2024 12:44:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.15f2b42f4e9c1f57e80f08f0021efb86ebdbf63b.002.1.cap
+National Weather Service,The National Weather Service in Salt Lake City has issued a Red
+Flag Warning for wind and low relative humidity, which is in
+effect from 11 AM to 10 PM MDT Tuesday.
+
 * AFFECTED AREA...Fire Weather Zone 482 Western Uintah Basin,
 Fire Weather Zone 483 Southern Ashley National Forest and Fire
 Weather Zone 488 Manti National Forest.
@@ -519,19 +495,6 @@ gusts around 30 mph.
 
 * IMPACTS...Critical fire weather conditions are expected. Any
 new fire starts or existing fires may spread rapidly.,Sun Jul 28 2024 12:44:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.15f2b42f4e9c1f57e80f08f0021efb86ebdbf63b.001.1.cap
-National Weather Service,The National Weather Service in Salt Lake City has issued a Red
-Flag Warning for wind and low relative humidity, which is in
-effect from 11 AM to 10 PM MDT Tuesday.
-
-* AFFECTED AREA...Fire Weather Zone 480 Uinta Mountains and Fire
-Weather Zone 481 Western Ashley National Forest.
-
-* WINDS...Southwest 10 to 20 mph with gusts around 30 mph.
-
-* RELATIVE HUMIDITY...As low as 10 percent.
-
-* IMPACTS...Critical fire weather conditions are expected. Any
-new fire starts or existing fires may spread rapidly.,Sun Jul 28 2024 12:44:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.15f2b42f4e9c1f57e80f08f0021efb86ebdbf63b.002.1.cap
 National Weather Service,* AFFECTED AREA...Fire Weather Zone 492 Central Utah West
 Desert, Fire Weather Zone 493 Central Utah Mountains, Fire
 Weather Zone 495 Color Country West Desert, Fire Weather Zone
