@@ -873,7 +873,7 @@ const rssFeeds = [
     url: 'https://api.weather.gov/alerts/active.atom?certainty=Likely%2CObserved&severity=Extreme%2CSevere&urgency=Future%2CExpected%2CImmediate',
     source: 'National Weather Service',
     priorityLevel: 'Very Low',
-    requiredTerms: [],
+    requiredTerms: ['Federal Way', 'Seattle', 'San Francisco', 'Los Angeles', 'San Jose', 'Santa Clara', ' Westlake Village', 'Minneapolis', 'Phoenix', 'Scottsdale', 'Plano', 'Spokane', 'LaGrange', 'White Oak', 'Silver Springs', 'Boston', 'Chicago', 'Chicopee', 'Detroit', 'Princeton', 'Washington', 'Seacaucua', 'New York City', 'Grand Rapids', 'LaPorte', 'Morgantown', 'New York', 'Nashville', 'Depew', 'Miami'],
     ignoreTerms: ['Flood Warning'],
     backups: [
       'https://corsproxy.io/?https%3A%2F%2Fapi.weather.gov%2Falerts%2Factive.atom%3Fcertainty%3DLikely%252CObserved%26severity%3DExtreme%252CSevere%26urgency%3DFuture%252CExpected%252CImmediate',
