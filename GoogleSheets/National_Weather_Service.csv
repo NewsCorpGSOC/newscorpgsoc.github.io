@@ -1,4 +1,5 @@
 Sheet Name,Summary,Published (Pacific Time),Link
+National Weather Service,#ERROR!,Sun Jul 28 2024 06:34:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.89530675724ddc615d8ec22a14269a4fe55a7b4d.001.1.cap
 National Weather Service,...The Flood Warning continues for the following rivers in Texas...
 
 Menard Creek near Rye affecting Liberty, Polk and Hardin Counties.
@@ -239,36 +240,130 @@ flood stage early Wednesday afternoon.
 - Flood History...This crest compares to a previous crest of
 63.1 feet on 06/12/1987.
 - http://www.weather.gov/safety/flood,Sun Jul 28 2024 06:15:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.2b248dbb3ec97b3efbf03624bb78cf71222e6207.004.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 06:15:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.2b248dbb3ec97b3efbf03624bb78cf71222e6207.006.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 06:15:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.2b248dbb3ec97b3efbf03624bb78cf71222e6207.005.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 05:45:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.14073629ec0acd97bfc7023ea7fc7c2767868275.001.1.cap
-National Weather Service,SMWTAE
+National Weather Service,...The Flood Warning continues for the following rivers in Texas...
 
-The National Weather Service in Tallahassee has issued a
+Menard Creek near Rye affecting Liberty, Polk and Hardin Counties.
 
-* Special Marine Warning for...
-Coastal waters from Okaloosa-Walton County Line to Mexico Beach out
-20 NM...
+East Fork San Jacinto near New Caney affecting Liberty,
+Montgomery and Harris Counties.
 
-* Until 830 AM CDT.
+Trinity River near Moss Bluff affecting Chambers and Liberty
+Counties.
 
-* At 703 AM CDT, severe thunderstorms capable of producing
-waterspouts were located along a line extending from 10 nm
-southeast of Santa Rosa Beach to 16 nm southwest of Mexico Beach,
-moving north at 10 knots.
+Trinity River at Liberty affecting Liberty County.
 
-HAZARD...Waterspouts.
+...The Flood Warning is extended for the following rivers in Texas...
 
-SOURCE...Radar indicated.
+San Bernard River near Boling affecting Brazoria, Wharton and
+Fort Bend Counties.
 
-IMPACT...Waterspouts can quickly form and capsize boats...damage
-vessels...and create suddenly higher waves. Make sure all
-on board are in a secure location and wearing life
-jackets.
+Tres Palacios River near Midfield affecting Matagorda and Wharton
+Counties.
 
-* Locations impacted include...
-Laguna Beach, Santa Rosa Beach, Mexico Beach, Sandestin, Miramar
-Beach, and Panama City Beach.,Sun Jul 28 2024 05:04:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.74be8cfcc0e4e33e203c3db968a17e03ff21fba7.001.1.cap
+For the Trinity River...including Liberty, Moss Bluff...Moderate
+flooding is forecast.
+For the Menard Creek...including Rye...Minor flooding is forecast.
+For the East Fork San Jacinto River...including New Caney...Moderate
+flooding is forecast.
+For the San Bernard River...including Sweeny, Boling...Moderate
+flooding is forecast.
+
+* WHAT...Minor flooding is occurring and moderate flooding is
+forecast.
+
+* WHERE...Trinity River at Liberty.
+
+* WHEN...Until further notice.
+
+* IMPACTS...At 27.0 feet, Moderate lowland flooding begins as roads
+into several outlying communities above Liberty are closed with
+residents in 5 or 6 subdivisions cut off if not evacuated.
+
+* ADDITIONAL DETAILS...
+- At 7:15 AM CDT Sunday the stage was 27.0 feet.
+- Bankfull stage is 21.0 feet.
+- Recent Activity...The maximum river stage in the 24 hours
+ending at 7:15 AM CDT Sunday was 27.0 feet.
+- Forecast...The river is expected to rise to a crest of 27.5
+feet tomorrow morning.
+- Flood stage is 26.0 feet.
+- Flood History...This crest compares to a previous crest of
+27.5 feet on 05/17/2004.
+- http://www.weather.gov/safety/flood,Sun Jul 28 2024 06:15:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.2b248dbb3ec97b3efbf03624bb78cf71222e6207.006.1.cap
+National Weather Service,...The Flood Warning continues for the following rivers in Texas...
+
+Menard Creek near Rye affecting Liberty, Polk and Hardin Counties.
+
+East Fork San Jacinto near New Caney affecting Liberty,
+Montgomery and Harris Counties.
+
+Trinity River near Moss Bluff affecting Chambers and Liberty
+Counties.
+
+Trinity River at Liberty affecting Liberty County.
+
+...The Flood Warning is extended for the following rivers in Texas...
+
+San Bernard River near Boling affecting Brazoria, Wharton and
+Fort Bend Counties.
+
+Tres Palacios River near Midfield affecting Matagorda and Wharton
+Counties.
+
+For the Trinity River...including Liberty, Moss Bluff...Moderate
+flooding is forecast.
+For the Menard Creek...including Rye...Minor flooding is forecast.
+For the East Fork San Jacinto River...including New Caney...Moderate
+flooding is forecast.
+For the San Bernard River...including Sweeny, Boling...Moderate
+flooding is forecast.
+
+* WHAT...Minor flooding is occurring and minor flooding is forecast.
+
+* WHERE...Trinity River near Moss Bluff.
+
+* WHEN...Until further notice.
+
+* IMPACTS...At 12.2 feet, Minor lowland flooding begins in the
+vicinity of the gage.
+
+* ADDITIONAL DETAILS...
+- At 7:30 AM CDT Sunday the stage was 12.6 feet.
+- Bankfull stage is 9.2 feet.
+- Recent Activity...The maximum river stage in the 24 hours
+ending at 7:30 AM CDT Sunday was 12.6 feet.
+- Forecast...The river is expected to rise to a crest of 14.0
+feet early Tuesday afternoon.
+- Flood stage is 12.2 feet.
+- Flood History...This crest compares to a previous crest of
+14.0 feet on 02/13/2005.
+- http://www.weather.gov/safety/flood,Sun Jul 28 2024 06:15:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.2b248dbb3ec97b3efbf03624bb78cf71222e6207.005.1.cap
+National Weather Service,...The National Weather Service in Houston/Galveston TX has issued a
+Flood Warning for the following rivers in Texas...
+
+Cypress Creek Near Sharp Road affecting Fort Bend and Harris
+Counties.
+
+For the Cypress Creek...including Sharp Road...Minor flooding is
+forecast.
+
+* WHAT...Minor flooding is occurring and minor flooding is forecast.
+
+* WHERE...Cypress Creek near Sharp Road.
+
+* WHEN...From this morning to this evening.
+
+* ADDITIONAL DETAILS...
+- At 7:35 AM CDT Sunday the stage was 164.3 feet.
+- Bankfull stage is 164.2 feet.
+- Recent Activity...The maximum river stage in the 24 hours
+ending at 7:35 AM CDT Sunday was 164.3 feet.
+- Forecast...The river is expected to rise to 165.0 feet this
+morning. Additional rises are possible thereafter.
+- Flood stage is 164.2 feet.
+- Flood History...This crest compares to a previous crest of
+164.9 feet on 06/09/2001.
+- http://www.weather.gov/safety/flood,Sun Jul 28 2024 05:45:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.14073629ec0acd97bfc7023ea7fc7c2767868275.001.1.cap
 National Weather Service,..Red Flag Warnings in Effect for Zones 420, 421, 423, 425, 427,
 428 and 429 from Noon to 8pm MDT Sunday...
 
@@ -298,17 +393,6 @@ Outdoor burning is not recommended.
 
 * HIGHEST THREAT...dry fuels, low relative humidity, and
 elevated winds are favorable conditions for rapid fire spread.,Sun Jul 28 2024 02:25:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.182f39efcb0be2eb7d52672b8bf8af42057bc54d.001.1.cap
-National Weather Service,* AFFECTED AREA...In Colorado, Fire Weather Zone 203 Lower
-Colorado River and Fire Weather Zone 205 Colorado River
-Headwaters below 7000 feet.
-
-* WINDS...Southwest 10 to 15 mph with gusts up to 30 mph.
-
-* RELATIVE HUMIDITY...6 to 11 percent.
-
-* IMPACTS...Conditions may become favorable for the easy
-ignition and rapid spread of fires due to low relative
-humidity and strong gusty winds.,Sun Jul 28 2024 02:24:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4e99060219e0fcc29970539cb6fd16be7d1c2252.003.1.cap
 National Weather Service,* AFFECTED AREA...In Colorado, Fire Weather Zone 290 Paradox
 Valley Forecast Area, Fire Weather Zone 292 North Fork
 Forecast Area and Fire Weather Zone 293 Gunnison Basin
@@ -323,6 +407,17 @@ Basin, Fire Weather Zone 487 Book Cliffs and Fire Weather Zone
 * IMPACTS...Conditions may become favorable for the easy
 ignition and rapid spread of fires due to low relative
 humidity and strong gusty winds.,Sun Jul 28 2024 02:24:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4e99060219e0fcc29970539cb6fd16be7d1c2252.002.1.cap
+National Weather Service,* AFFECTED AREA...In Colorado, Fire Weather Zone 203 Lower
+Colorado River and Fire Weather Zone 205 Colorado River
+Headwaters below 7000 feet.
+
+* WINDS...Southwest 10 to 15 mph with gusts up to 30 mph.
+
+* RELATIVE HUMIDITY...6 to 11 percent.
+
+* IMPACTS...Conditions may become favorable for the easy
+ignition and rapid spread of fires due to low relative
+humidity and strong gusty winds.,Sun Jul 28 2024 02:24:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4e99060219e0fcc29970539cb6fd16be7d1c2252.003.1.cap
 National Weather Service,...FIRE WEATHER WATCH IN EFFECT FROM MONDAY AFTERNOON THROUGH
 MONDAY EVENING FOR GUSTY WINDS, LOW RELATIVE HUMIDITY AND DRY
 FUELS FOR FIRE WEATHER ZONES 200 AND 202...
