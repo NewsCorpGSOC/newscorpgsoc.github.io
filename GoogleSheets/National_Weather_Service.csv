@@ -1,10 +1,116 @@
 Sheet Name,Summary,Published (Pacific Time),Link
-National Weather Service,#ERROR!,Sun Jul 28 2024 05:04:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.74be8cfcc0e4e33e203c3db968a17e03ff21fba7.001.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 03:51:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.58d89e1e0fcf2aece0873c2d2ca74950bc3f4b6e.001.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 02:34:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.8724b4d7077eb135daab34a4c715d23e4c289c43.002.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 02:25:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.182f39efcb0be2eb7d52672b8bf8af42057bc54d.001.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 02:24:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4e99060219e0fcc29970539cb6fd16be7d1c2252.003.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 02:24:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4e99060219e0fcc29970539cb6fd16be7d1c2252.002.1.cap
+National Weather Service,SMWTAE
+
+The National Weather Service in Tallahassee has issued a
+
+* Special Marine Warning for...
+Coastal waters from Okaloosa-Walton County Line to Mexico Beach out
+20 NM...
+
+* Until 830 AM CDT.
+
+* At 703 AM CDT, severe thunderstorms capable of producing
+waterspouts were located along a line extending from 10 nm
+southeast of Santa Rosa Beach to 16 nm southwest of Mexico Beach,
+moving north at 10 knots.
+
+HAZARD...Waterspouts.
+
+SOURCE...Radar indicated.
+
+IMPACT...Waterspouts can quickly form and capsize boats...damage
+vessels...and create suddenly higher waves. Make sure all
+on board are in a secure location and wearing life
+jackets.
+
+* Locations impacted include...
+Laguna Beach, Santa Rosa Beach, Mexico Beach, Sandestin, Miramar
+Beach, and Panama City Beach.,Sun Jul 28 2024 05:04:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.74be8cfcc0e4e33e203c3db968a17e03ff21fba7.001.1.cap
+National Weather Service,SMWTAE
+
+The National Weather Service in Tallahassee has issued a
+
+* Special Marine Warning for...
+Coastal Waters From  Ochlockonee River to Apalachicola FL out to 20
+Nm...
+Coastal Waters from Mexico Beach to Apalachicola out 20 NM...
+
+* Until 815 AM EDT/715 AM CDT/.
+
+* At 651 AM EDT/551 AM CDT/, severe thunderstorms capable of
+producing waterspouts were located along a line extending from 12
+nm southwest of Port St. Joe to near St George Island, moving north
+at 5 knots.
+
+HAZARD...Waterspouts and wind gusts 34 knots or greater.
+
+SOURCE...Radar indicated.
+
+IMPACT...Waterspouts can quickly form and capsize boats...damage
+vessels...and create suddenly higher waves. Make sure all
+on board are in a secure location and wearing life
+jackets. Expect wind gusts in excess of 34
+knots...suddenly higher waves...frequent lightning...and
+heavy downpours. Make sure all on board are wearing life
+jackets.
+
+* Locations impacted include...
+Apalachicola, C Tower, Cape San Blas, St George Island, and Port
+St. Joe.,Sun Jul 28 2024 03:51:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.58d89e1e0fcf2aece0873c2d2ca74950bc3f4b6e.001.1.cap
+National Weather Service,..Red Flag Warnings in Effect for Zones 420, 421, 423, 425, 427,
+428 and 429 from Noon to 8pm MDT Sunday...
+
+* WIND...West to southwest winds at 20 to 30 mph with gusts to
+35 mph.
+
+* HUMIDITY...12 to 15 percent
+
+* HAINES...5 to 6.
+
+* THUNDERSTORMS...There is potential for isolated thunderstorms,
+some of which may produce gusty and erratic surface winds with
+sudden wind gusts in excess of 50 MPH possible.
+
+* IMPACTS...Any fires that develop will likely spread rapidly.
+Outdoor burning is not recommended.,Sun Jul 28 2024 02:34:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.8724b4d7077eb135daab34a4c715d23e4c289c43.002.1.cap
+National Weather Service,* AFFECTED AREA...Fire weather zone 595.
+
+* WIND...West/upsloping winds with maximum gusts 25-35 mph.
+
+* HUMIDITY...Minimum daytime humidity levels 15-20% or less.
+
+* THUNDERSTORMS...None.
+
+* IMPACTS...any fires that develop will likely spread rapidly.
+Outdoor burning is not recommended.
+
+* HIGHEST THREAT...dry fuels, low relative humidity, and
+elevated winds are favorable conditions for rapid fire spread.,Sun Jul 28 2024 02:25:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.182f39efcb0be2eb7d52672b8bf8af42057bc54d.001.1.cap
+National Weather Service,* AFFECTED AREA...In Colorado, Fire Weather Zone 290 Paradox
+Valley Forecast Area, Fire Weather Zone 292 North Fork
+Forecast Area and Fire Weather Zone 293 Gunnison Basin
+Forecast Area. In Utah, Fire Weather Zone 486 Eastern Uinta
+Basin, Fire Weather Zone 487 Book Cliffs and Fire Weather Zone
+490 Colorado River Basin.
+
+* WINDS...Southwest 10 to 20 mph with gusts up to 30 mph.
+
+* RELATIVE HUMIDITY...7 to 12 percent.
+
+* IMPACTS...Conditions may become favorable for the easy
+ignition and rapid spread of fires due to low relative
+humidity and strong gusty winds.,Sun Jul 28 2024 02:24:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4e99060219e0fcc29970539cb6fd16be7d1c2252.002.1.cap
+National Weather Service,* AFFECTED AREA...In Colorado, Fire Weather Zone 203 Lower
+Colorado River and Fire Weather Zone 205 Colorado River
+Headwaters below 7000 feet.
+
+* WINDS...Southwest 10 to 15 mph with gusts up to 30 mph.
+
+* RELATIVE HUMIDITY...6 to 11 percent.
+
+* IMPACTS...Conditions may become favorable for the easy
+ignition and rapid spread of fires due to low relative
+humidity and strong gusty winds.,Sun Jul 28 2024 02:24:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4e99060219e0fcc29970539cb6fd16be7d1c2252.003.1.cap
 National Weather Service,...FIRE WEATHER WATCH IN EFFECT FROM MONDAY AFTERNOON THROUGH
 MONDAY EVENING FOR GUSTY WINDS, LOW RELATIVE HUMIDITY AND DRY
 FUELS FOR FIRE WEATHER ZONES 200 AND 202...
