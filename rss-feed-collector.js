@@ -117,6 +117,50 @@ document.addEventListener('DOMContentLoaded', () => {
     return [];
   };
 
+  async function fetchCSVFiles() {
+    const csvFiles = ['file1.csv', 'file2.csv']; // List all CSV files here
+    let csvFeedItems = [];
+
+    for (const csvFile of csvFiles) {
+      try {
+        const response = await fetch(`GoogleSheets/${csvFile}`);
+        const csvText = await response.text();
+        const parsedCSV = parseCSV(csvText);
+        csvFeedItems = csvFeedItems.concat(parsedCSV);
+      } catch (error) {
+        console.error(`Error fetching CSV file ${csvFile}:`, error);
+      }
+    }
+    return csvFeedItems;
+  }
+
+  function parseCSV(csvText) {
+    const lines = csvText.split('\n');
+    const headers = lines[0].split(',');
+
+    const sheetNameIndex = headers.indexOf('Sheet Name');
+    const summaryIndex = headers.indexOf('Summary');
+    const publishedIndex = headers.indexOf('Published (Pacific Time)');
+    const linkIndex = headers.indexOf('Link');
+
+    return lines.slice(1).map(line => {
+      const cells = line.split(',');
+
+      const title = cells[sheetNameIndex] || 'No title';
+      const link = cells[linkIndex] || '#';
+      const description = cells[summaryIndex] || 'No description';
+      const pubDate = parseDate(cells[publishedIndex]);
+
+      return {
+        title,
+        link,
+        description: decodeHTMLEntities(description),
+        pubDate: convertToPacificTime(pubDate),
+        source: title // Assuming source is the sheet name
+      };
+    });
+  }
+
   function filterFeedItems(items, requiredTerms, ignoreTerms) {
     return items.filter(item => {
       const content = `${item.title} ${item.description}`.toLowerCase();
@@ -399,8 +443,16 @@ document.addEventListener('DOMContentLoaded', () => {
         fetchFeedAndUpdate(feed);
       }, fetchInterval);
     });
-  }
 
+    // Fetch CSV files periodically
+    setInterval(async () => {
+      const csvFeedItems = await fetchCSVFiles();
+      feedItems = [...feedItems.filter(item => !csvFeedItems.find(csvItem => csvItem.title === item.title)), ...csvFeedItems];
+      feedItems.sort((a, b) => b.pubDate - a.pubDate); // Sort by date, newest first
+      displayFeeds();
+    }, 180000); // Fetch CSV files every 3 minutes
+  }
+  
   async function fetchFeedAndUpdate(feed) {
     console.log(`Fetching feed from ${feed.source}`);
     const data = await fetchFeed(feed);
