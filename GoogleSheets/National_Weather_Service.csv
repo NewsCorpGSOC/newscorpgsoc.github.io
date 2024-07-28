@@ -1,4 +1,7 @@
 Sheet Name,Summary,Published (Pacific Time),Link
+National Weather Service,#ERROR!,Sun Jul 28 2024 14:49:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.c7519e587bfe36d82710aa43f152cea9ed4abe22.001.1.cap
+National Weather Service,#ERROR!,Sun Jul 28 2024 14:48:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.f62fa7f5cfb92a1261a7b5c63d3ca54362e999dc.001.1.cap
+National Weather Service,#ERROR!,Sun Jul 28 2024 14:48:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.655821cb5d2b93b360cca5ba46050e638582b54d.001.1.cap
 National Weather Service,FFWBMX
 
 The National Weather Service in Birmingham has issued a
@@ -116,31 +119,6 @@ roofs, siding, and trees.
 
 Locations impacted include...
 Bear Lodge Campground and Cook Lake.,Sun Jul 28 2024 14:33:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.93e26b19506c0df337c2ed4eb9a3ec113f000248.001.1.cap
-National Weather Service,SVRTWC
-
-The National Weather Service in Tucson has issued a
-
-* Severe Thunderstorm Warning for...
-North central Cochise County in southeastern Arizona...
-
-* Until 315 PM MST.
-
-* At 233 PM MST, a severe thunderstorm was located near Willcox, and
-is nearly stationary.
-
-HAZARD...60 mph wind gusts and quarter size hail.
-
-SOURCE...Radar indicated.
-
-IMPACT...Hail damage to vehicles is expected. Expect wind damage
-to roofs, siding, and trees.
-
-* Locations impacted include...
-Willcox.
-
-This includes the following highways...
-Interstate 10 between mile markers 337 and 349.
-Route 186 between mile markers 327 and 334.,Sun Jul 28 2024 14:33:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.6c0fbc4c4133b08566897d34db6e045cc1bf1fc1.001.1.cap
 National Weather Service,FFWTWC
 
 The National Weather Service in Tucson has issued a
@@ -587,6 +565,19 @@ National Weather Service,The National Weather Service in Salt Lake City has issu
 Flag Warning for wind and low relative humidity, which is in
 effect from 11 AM to 10 PM MDT Tuesday.
 
+* AFFECTED AREA...Fire Weather Zone 480 Uinta Mountains and Fire
+Weather Zone 481 Western Ashley National Forest.
+
+* WINDS...Southwest 10 to 20 mph with gusts around 30 mph.
+
+* RELATIVE HUMIDITY...As low as 10 percent.
+
+* IMPACTS...Critical fire weather conditions are expected. Any
+new fire starts or existing fires may spread rapidly.,Sun Jul 28 2024 12:44:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.15f2b42f4e9c1f57e80f08f0021efb86ebdbf63b.002.1.cap
+National Weather Service,The National Weather Service in Salt Lake City has issued a Red
+Flag Warning for wind and low relative humidity, which is in
+effect from 11 AM to 10 PM MDT Tuesday.
+
 * AFFECTED AREA...Fire Weather Zone 482 Western Uintah Basin,
 Fire Weather Zone 483 Southern Ashley National Forest and Fire
 Weather Zone 488 Manti National Forest.
@@ -599,19 +590,6 @@ gusts around 30 mph.
 
 * IMPACTS...Critical fire weather conditions are expected. Any
 new fire starts or existing fires may spread rapidly.,Sun Jul 28 2024 12:44:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.15f2b42f4e9c1f57e80f08f0021efb86ebdbf63b.001.1.cap
-National Weather Service,The National Weather Service in Salt Lake City has issued a Red
-Flag Warning for wind and low relative humidity, which is in
-effect from 11 AM to 10 PM MDT Tuesday.
-
-* AFFECTED AREA...Fire Weather Zone 480 Uinta Mountains and Fire
-Weather Zone 481 Western Ashley National Forest.
-
-* WINDS...Southwest 10 to 20 mph with gusts around 30 mph.
-
-* RELATIVE HUMIDITY...As low as 10 percent.
-
-* IMPACTS...Critical fire weather conditions are expected. Any
-new fire starts or existing fires may spread rapidly.,Sun Jul 28 2024 12:44:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.15f2b42f4e9c1f57e80f08f0021efb86ebdbf63b.002.1.cap
 National Weather Service,* AFFECTED AREA...Fire Weather Zone 492 Central Utah West
 Desert, Fire Weather Zone 493 Central Utah Mountains, Fire
 Weather Zone 495 Color Country West Desert, Fire Weather Zone
