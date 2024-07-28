@@ -132,9 +132,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const response = await fetch(`GoogleSheets/${csvFile}`);
         const csvText = await response.text();
         console.log(`Fetched CSV: ${csvFile}`);
-        console.log(csvText);
+        console.log(csvText); // Log fetched CSV text for debugging
         const parsedCSV = parseCSV(csvText);
-        console.log(parsedCSV);
+        console.log(parsedCSV); // Log parsed CSV data for debugging
         csvFeedItems = csvFeedItems.concat(parsedCSV);
       } catch (error) {
         console.error(`Error fetching CSV file ${csvFile}:`, error);
@@ -144,7 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function parseCSV(csvText) {
-    const lines = csvText.split('\n');
+    const lines = csvText.split('\n').filter(line => line.trim() !== ''); // Remove empty lines
     const headers = lines[0].split(',');
   
     const sheetNameIndex = headers.indexOf('Sheet Name');
@@ -155,10 +155,10 @@ document.addEventListener('DOMContentLoaded', () => {
     return lines.slice(1).map(line => {
       const cells = line.split(',');
   
-      const title = cells[sheetNameIndex] || 'No title';
-      const link = cells[linkIndex] || '#';
-      const description = decodeHTMLEntities(cells[summaryIndex] || 'No description');
-      const pubDate = parseDate(cells[publishedIndex]);
+      const title = cells[sheetNameIndex]?.trim() || 'No title';
+      const link = cells[linkIndex]?.trim() || '#';
+      const description = decodeHTMLEntities(cells[summaryIndex]?.trim() || 'No description');
+      const pubDate = parseDate(cells[publishedIndex]?.trim());
   
       return {
         title,
@@ -167,7 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
         pubDate: convertToPacificTime(pubDate),
         source: title // Assuming source is the sheet name
       };
-    });
+    }).filter(item => item.title && item.link && item.description && item.pubDate); // Filter out incomplete items
   }
 
   function filterFeedItems(items, requiredTerms, ignoreTerms) {
@@ -458,7 +458,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const csvFeedItems = await fetchCSVFiles();
       feedItems = [...feedItems.filter(item => !csvFeedItems.find(csvItem => csvItem.title === item.title)), ...csvFeedItems];
       feedItems.sort((a, b) => b.pubDate - a.pubDate); // Sort by date, newest first
-      console.log('Combined Feed Items:', feedItems);
+      console.log('Combined Feed Items:', feedItems); // Log combined feed items for debugging
       displayFeeds();
     }, 180000); // Fetch CSV files every 3 minutes
   }
@@ -492,19 +492,19 @@ document.addEventListener('DOMContentLoaded', () => {
   function displayFeeds() {
     feedsContainer.innerHTML = '';
     feedItems = removeDuplicateTitles(feedItems);
-
+  
     const now = new Date();
     const oneYearAgo = new Date(now.setFullYear(now.getFullYear() - 1));
-
+  
     const filteredFeeds = applyFilter();
     console.log(`Filtered Feeds Count: ${filteredFeeds.length}`);
-
+  
     const searchTerm = searchInput.value.trim().toLowerCase();
     const searchTerms = parseSearchTerm(searchTerm);
-
+  
     const recentFeeds = filteredFeeds.filter(item => item.pubDate > oneYearAgo);
     console.log(`Recent Feeds Count: ${recentFeeds.length}`);
-
+  
     const searchFilteredFeeds = recentFeeds.filter(item =>
       searchTerms.every(termGroup =>
         termGroup.some(term =>
@@ -515,12 +515,12 @@ document.addEventListener('DOMContentLoaded', () => {
       )
     );
     console.log(`Search Filtered Feeds Count: ${searchFilteredFeeds.length}`);
-  
+    
     const fragment = document.createDocumentFragment();
     searchFilteredFeeds.forEach(item => {
       const feedElement = document.createElement('div');
       feedElement.classList.add('feed');
-
+  
       let imageHtml = '';
       const parser = new DOMParser();
       const doc = parser.parseFromString(item.description, 'text/html');
@@ -528,9 +528,9 @@ document.addEventListener('DOMContentLoaded', () => {
       if (img) {
         imageHtml = `<img src="${img.src}" alt="Feed image" onerror="this.onerror=null;this.src='https://i.imgur.com/GQPN5Q9.jpeg';" />`;
       }
-
+  
       const cleanedDescription = removeDuplicateImages(item.description);
-
+  
       feedElement.innerHTML = 
         `<h2><a href="${item.link}" target="_blank">${item.title}</a></h2>
         ${imageHtml}
