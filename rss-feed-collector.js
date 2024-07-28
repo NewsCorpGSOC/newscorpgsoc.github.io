@@ -120,7 +120,6 @@ document.addEventListener('DOMContentLoaded', () => {
   async function fetchCSVFiles() {
     const csvFiles = [
       'Israel_Security_Cabinet_News.csv',
-      'National_Weather_Service.csv',
       'Stand_With_Us_Breaking_News.csv',
       'Ukraine_Air_Defense.csv',
       'WOLPalestine.csv'
