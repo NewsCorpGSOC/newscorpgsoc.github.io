@@ -1,61 +1,10 @@
 Sheet Name,Summary,Published (Pacific Time),Link
-National Weather Service,SVRTWC
-
-The National Weather Service in Tucson has issued a
-
-* Severe Thunderstorm Warning for...
-South central Cochise County in southeastern Arizona...
-
-* Until 115 PM MST.
-
-* At 1226 PM MST, two severe thunderstorma were located near Bisbee
-and Tombstone, moving north at 5 mph.
-
-HAZARD...60 mph wind gusts.
-
-SOURCE...Radar indicated.
-
-IMPACT...Expect damage to roofs, siding, and trees.
-
-* Locations impacted include...
-Bisbee, Tombstone, Elfrida, and Sunizona.
-
-This includes the following highways...
-Route 80 between mile markers 314 and 350.
-Route 90 between mile markers 335 and 336.
-Route 92 between mile markers 352 and 355.
-Route 191 between mile markers 22 and 37.,Sun Jul 28 2024 12:27:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.f4f0510227955bc2494639c3721d6a5aa36acc4a.001.1.cap
-National Weather Service,* WHAT...Dangerously hot conditions with heat index values up to 112
-possible.
-
-* WHERE...Gage and Jefferson Counties.
-
-* WHEN...From Tuesday afternoon through Wednesday evening.
-
-* IMPACTS...Heat related illnesses increase significantly during
-extreme heat and high humidity events.,Sun Jul 28 2024 12:21:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.05c20d5a62cf07c8e038aae3f0463a870c9ae14d.002.1.cap
-National Weather Service,* WHAT...For the Heat Advisory, heat index values up to 104
-expected. For the Excessive Heat Watch, dangerously hot conditions
-with heat index values up to 115 possible.
-
-* WHERE...Portions of southwest Iowa and east central and southeast
-Nebraska.
-
-* WHEN...For the Heat Advisory, from 1 PM to 8 PM CDT Monday. For
-the Excessive Heat Watch, from Tuesday afternoon through Wednesday
-evening.
-
-* IMPACTS...Heat related illnesses increase significantly during
-extreme heat and high humidity events.,Sun Jul 28 2024 12:21:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.05c20d5a62cf07c8e038aae3f0463a870c9ae14d.001.1.cap
-National Weather Service,* WHAT...Dangerously hot conditions with heat index values of 110 to
-115 expected.
-
-* WHERE...Portions of Central, South Central, and Southeast Kansas.
-
-* WHEN...From noon Monday to 8 PM CDT Thursday.
-
-* IMPACTS...Heat related illnesses increase significantly during
-extreme heat and high humidity events.,Sun Jul 28 2024 12:21:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.344858f3015fe79848b123e2b599680af660e9a8.001.2.cap
+National Weather Service,#ERROR!,Sun Jul 28 2024 12:33:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.a6458097652f58f8eeab00a399af097f768ee09e.002.1.cap
+National Weather Service,#ERROR!,Sun Jul 28 2024 12:33:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.a6458097652f58f8eeab00a399af097f768ee09e.001.1.cap
+National Weather Service,#ERROR!,Sun Jul 28 2024 12:27:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.f4f0510227955bc2494639c3721d6a5aa36acc4a.001.1.cap
+National Weather Service,#ERROR!,Sun Jul 28 2024 12:21:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.05c20d5a62cf07c8e038aae3f0463a870c9ae14d.002.1.cap
+National Weather Service,#ERROR!,Sun Jul 28 2024 12:21:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.05c20d5a62cf07c8e038aae3f0463a870c9ae14d.001.1.cap
+National Weather Service,#ERROR!,Sun Jul 28 2024 12:21:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.344858f3015fe79848b123e2b599680af660e9a8.001.2.cap
 National Weather Service,The National Weather Service in Riverton has issued a Fire Weather
 Watch, which is in effect from Monday afternoon through Tuesday
 evening.
@@ -1280,6 +1229,17 @@ sudden wind gusts in excess of 50 MPH possible.
 
 * IMPACTS...Any fires that develop will likely spread rapidly.
 Outdoor burning is not recommended.,Sun Jul 28 2024 02:34:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.8724b4d7077eb135daab34a4c715d23e4c289c43.002.1.cap
+National Weather Service,* AFFECTED AREA...In Colorado, Fire Weather Zone 203 Lower
+Colorado River and Fire Weather Zone 205 Colorado River
+Headwaters below 7000 feet.
+
+* WINDS...Southwest 10 to 15 mph with gusts up to 30 mph.
+
+* RELATIVE HUMIDITY...6 to 11 percent.
+
+* IMPACTS...Conditions may become favorable for the easy
+ignition and rapid spread of fires due to low relative
+humidity and strong gusty winds.,Sun Jul 28 2024 02:24:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4e99060219e0fcc29970539cb6fd16be7d1c2252.003.1.cap
 National Weather Service,* AFFECTED AREA...In Colorado, Fire Weather Zone 290 Paradox
 Valley Forecast Area, Fire Weather Zone 292 North Fork
 Forecast Area and Fire Weather Zone 293 Gunnison Basin
@@ -1294,17 +1254,6 @@ Basin, Fire Weather Zone 487 Book Cliffs and Fire Weather Zone
 * IMPACTS...Conditions may become favorable for the easy
 ignition and rapid spread of fires due to low relative
 humidity and strong gusty winds.,Sun Jul 28 2024 02:24:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4e99060219e0fcc29970539cb6fd16be7d1c2252.002.1.cap
-National Weather Service,* AFFECTED AREA...In Colorado, Fire Weather Zone 203 Lower
-Colorado River and Fire Weather Zone 205 Colorado River
-Headwaters below 7000 feet.
-
-* WINDS...Southwest 10 to 15 mph with gusts up to 30 mph.
-
-* RELATIVE HUMIDITY...6 to 11 percent.
-
-* IMPACTS...Conditions may become favorable for the easy
-ignition and rapid spread of fires due to low relative
-humidity and strong gusty winds.,Sun Jul 28 2024 02:24:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4e99060219e0fcc29970539cb6fd16be7d1c2252.003.1.cap
 National Weather Service,...FIRE WEATHER WATCH IN EFFECT FROM MONDAY AFTERNOON THROUGH
 MONDAY EVENING FOR GUSTY WINDS, LOW RELATIVE HUMIDITY AND DRY
 FUELS FOR FIRE WEATHER ZONES 200 AND 202...
@@ -1359,25 +1308,6 @@ Staircase.
 
 * IMPACTS...Critical fire weather conditions are expected. Any
 new fire starts or existing fires may spread rapidly.,Sun Jul 28 2024 01:31:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.6eb8fcde8905696b8ae1e40120fd77ea0ab7ccb9.002.1.cap
-National Weather Service,* WHAT...Dangerously hot conditions with heat index values up to 112
-expected.
-
-* WHERE...Jefferson MO, Saint Charles MO, Saint Louis City MO, and
-Saint Louis MO Counties.
-
-* WHEN...From 1 PM Monday to 7 PM CDT Thursday.
-
-* IMPACTS...Heat related illnesses increase significantly during
-extreme heat and high humidity events.,Sun Jul 28 2024 01:27:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.8f694df13b3f87290856aad3a8da036d73f1c2f7.001.1.cap
-National Weather Service,* WHAT...Dangerously hot conditions with heat index values up to 112
-expected.
-
-* WHERE...Madison IL, Monroe IL, and Saint Clair IL Counties.
-
-* WHEN...From 1 PM Tuesday to 7 PM CDT Thursday.
-
-* IMPACTS...Heat related illnesses increase significantly during
-extreme heat and high humidity events.,Sun Jul 28 2024 01:27:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.8f694df13b3f87290856aad3a8da036d73f1c2f7.002.1.cap
 National Weather Service,* WHAT...Dangerously hot conditions with heat index values up to 110
 possible.
 
