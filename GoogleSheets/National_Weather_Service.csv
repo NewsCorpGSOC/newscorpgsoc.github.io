@@ -1,4 +1,24 @@
 Sheet Name,Summary,Published (Pacific Time),Link
+National Weather Service,* WHAT...Dangerously hot conditions with heat index values up to 105
+on Monday with heat index values up to 114 possible on Tuesday and
+Wednesday, then heat index values up to 105 possible on Thursday.
+
+* WHERE...Portions of east central and northeast Kansas and central,
+north central, northeast, northwest, and west central Missouri.
+
+* WHEN...From Monday afternoon through Thursday evening.
+
+* IMPACTS...Heat related illnesses increase significantly during
+extreme heat and high humidity events.,Sun Jul 28 2024 01:11:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.caa47725a2b8e1716dc285ac10cb852135248aa3.001.1.cap
+National Weather Service,* WHAT...Dangerously hot conditions with heat index values up to 111
+possible.
+
+* WHERE...Portions of Central, South Central, and Southeast Kansas.
+
+* WHEN...From Monday afternoon through Thursday evening.
+
+* IMPACTS...Heat related illnesses increase significantly during
+extreme heat and high humidity events.,Sun Jul 28 2024 01:09:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.19d1fbf98e0271aa8820a8c5880bd6cd7315e4db.001.1.cap
 National Weather Service,* WHAT...Dangerously hot conditions with heat index values up to 110
 possible.
 
@@ -1396,15 +1416,6 @@ Thursday afternoon.
 - Flood History...This crest compares to a previous crest of
 133.7 feet on 03/10/2018.
 - http://www.weather.gov/safety/flood,Sat Jul 27 2024 11:51:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.5d9f47dd04d90b759fb81ae849a188c59c6d60da.004.1.cap
-National Weather Service,* WHAT...Dangerously hot conditions with heat index values around
-110 possible.
-
-* WHERE...Portions of Central, South Central, and Southeast Kansas.
-
-* WHEN...From Monday afternoon through Thursday evening.
-
-* IMPACTS...Heat related illnesses increase significantly during
-extreme heat and high humidity events.,Sat Jul 27 2024 11:44:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.d39e4f088c3e370def83b1667fb4a914d61a1d4f.001.1.cap
 National Weather Service,...The Flood Warning is extended for the following rivers in Texas...
 
 Ayish Bayou Near San Augustine affecting San Augustine and Sabine
