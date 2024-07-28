@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   async function fetchCSVFiles() {
-    const csvFiles = ['file1.csv', 'file2.csv']; // List all CSV files here
+    const csvFiles = ['Israel_Security_Cabinet_News.csv', 'Stand_With_Us_Breaking_News.csv', 'Ukraine_Air_Defense.csv' ,'WOLPalestine.csv']; // List all CSV files here
     let csvFeedItems = [];
 
     for (const csvFile of csvFiles) {
