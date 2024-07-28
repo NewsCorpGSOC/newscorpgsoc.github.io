@@ -76,14 +76,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const items = isAtom ? xmlDoc.getElementsByTagName('entry') : xmlDoc.getElementsByTagName('item');
         const feedItemsArray = Array.from(items);
         let feedItems = [];
-  
+
         feedItemsArray.forEach(item => {
           const title = item.querySelector('title')?.textContent || 'No title';
           const link = isAtom ? item.querySelector('link[rel="alternate"]')?.getAttribute('href') : item.querySelector('link')?.textContent || '#';
           const description = isAtom ? item.querySelector('summary')?.textContent || item.querySelector('content')?.textContent || 'No description' : item.querySelector('description')?.textContent || 'No description';
           const pubDateText = isAtom ? item.querySelector('published')?.textContent : item.querySelector('pubDate')?.textContent;
           const pubDate = pubDateText ? parseDate(pubDateText) : new Date();
-  
+
           const pacificDate = convertToPacificTime(pubDate, feed.source);
   
           if (title && link && description && pacificDate) {
@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Apply filtering based on required and ignore terms
         feedItems = filterFeedItems(feedItems, feed.requiredTerms, feed.ignoreTerms);
-  
+
         updateStatus(feed.source, feed.url, true);
         console.log(`Fetched ${feedItems.length} items from ${feed.source}`);
         return feedItems;
@@ -164,17 +164,17 @@ document.addEventListener('DOMContentLoaded', () => {
   function filterFeedItems(items, requiredTerms, ignoreTerms) {
     return items.filter(item => {
       const content = `${item.title} ${item.description}`.toLowerCase();
-      
+
       // If requiredTerms is not empty, ensure at least one required term is found
       if (requiredTerms.length > 0 && !requiredTerms.some(term => content.includes(term.toLowerCase()))) {
         return false;
       }
-      
+
       // If ignoreTerms is not empty, ensure no ignore term is found
       if (ignoreTerms.length > 0 && ignoreTerms.some(term => content.includes(term.toLowerCase()))) {
         return false;
       }
-      
+
       return true;
     });
   }
@@ -482,19 +482,19 @@ document.addEventListener('DOMContentLoaded', () => {
   function displayFeeds() {
     feedsContainer.innerHTML = '';
     feedItems = removeDuplicateTitles(feedItems);
-  
+
     const now = new Date();
     const oneYearAgo = new Date(now.setFullYear(now.getFullYear() - 1));
-  
+
     const filteredFeeds = applyFilter();
     console.log(`Filtered Feeds Count: ${filteredFeeds.length}`);
-  
+
     const searchTerm = searchInput.value.trim().toLowerCase();
     const searchTerms = parseSearchTerm(searchTerm);
-  
+
     const recentFeeds = filteredFeeds.filter(item => item.pubDate > oneYearAgo);
     console.log(`Recent Feeds Count: ${recentFeeds.length}`);
-  
+
     const searchFilteredFeeds = recentFeeds.filter(item =>
       searchTerms.every(termGroup =>
         termGroup.some(term =>
@@ -510,7 +510,7 @@ document.addEventListener('DOMContentLoaded', () => {
     searchFilteredFeeds.forEach(item => {
       const feedElement = document.createElement('div');
       feedElement.classList.add('feed');
-  
+
       let imageHtml = '';
       const parser = new DOMParser();
       const doc = parser.parseFromString(item.description, 'text/html');
@@ -520,14 +520,13 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       const cleanedDescription = removeDuplicateImages(item.description);
-  
-      feedElement.innerHTML = `
-        <h2><a href="${item.link}" target="_blank">${item.title}</a></h2>
+
+      feedElement.innerHTML = 
+        `<h2><a href="${item.link}" target="_blank">${item.title}</a></h2>
         ${imageHtml}
-        <div>${doc.body.innerHTML}</div>
+        <div>${cleanedDescription}</div>
         <p><small>Published on: ${format(item.pubDate, 'PPpp')} (PST/PDT)</small></p>
-        <p><strong>Source:</strong> ${item.source}</p>
-      `;
+        <p><strong>Source:</strong> ${item.source}</p>`;
       fragment.appendChild(feedElement);
     });
     feedsContainer.appendChild(fragment);
@@ -577,7 +576,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (checkedSources.length > 0 && !checkedSources.includes('all')) {
       filteredFeeds = filteredFeeds.filter(item => checkedSources.includes(item.source));
     }
-  
+
     console.log(`Filtered Feeds After ApplyFilter: ${filteredFeeds.length}`);
     return filteredFeeds;
   }
