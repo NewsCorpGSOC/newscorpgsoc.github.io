@@ -6,8 +6,50 @@ National Weather Service,#ERROR!,Sun Jul 28 2024 14:10:00 GMT-0700 (Pacific Dayl
 National Weather Service,#ERROR!,Sun Jul 28 2024 14:09:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.24010a23eb49a103a10a96f35e9a8e2e024d33a5.001.1.cap
 National Weather Service,#ERROR!,Sun Jul 28 2024 14:08:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.c8abdc1e81a2db3f8fc29ab3b06aae1f0eee1cb7.001.1.cap
 National Weather Service,#ERROR!,Sun Jul 28 2024 14:03:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.cf98809b0f838cf532985fe812dad59dfc45d23f.001.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 13:54:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.3ec59095902a9b7246660dfda684f941b97367da.001.1.cap
-National Weather Service,#ERROR!,Sun Jul 28 2024 13:48:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.899b55f0b31427145a3548cdda26290a3e2dab62.001.1.cap
+National Weather Service,At 154 PM MST, Doppler radar indicated thunderstorms producing heavy
+rain across the warned area. Between 1.5 and 2.5 inches of rain have
+fallen. Flash flooding is ongoing or expected to begin shortly.
+
+HAZARD...Life threatening flash flooding. Thunderstorms producing
+flash flooding.
+
+SOURCE...Radar.
+
+IMPACT...Life threatening flash flooding of creeks and streams,
+urban areas, highways, streets and underpasses.
+
+Some locations that will experience flash flooding include...
+Parker Canyon Lake.
+
+This includes Route 83 between mile markers 3 and 7.
+
+This includes the following streams and drainages...
+Santa Cruz River.,Sun Jul 28 2024 13:54:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.3ec59095902a9b7246660dfda684f941b97367da.001.1.cap
+National Weather Service,At 248 PM MDT, emergency management reported road closures due to
+flash flooding in the community of Ruidoso. Earlier showers and
+thunderstorms produced moderate to heavy rain over the South Fork
+Burn Scar. Between 0.50 and 1 inch of rainfall has already fallen
+and additional half an inch is possible in the warned area.
+
+Excessive rainfall over the burn scar will impact the Eagle Creek,
+Cedar Creek, and Rio Ruidoso drainages. Impacts will include but are
+not limited to all nearby reservoirs, bridges, culverts and roadways
+such as Highways 48 and 70, Main Road, Paradise Canyon Road and
+Gavilan Canyon Road. Impacts to areas along the Rio Ruidoso,
+including RV parks and mobile homes, may extend at least to Picacho,
+New Mexico. The debris flow can consist of rock, mud, vegetation and
+other loose materials.
+
+HAZARD...Thunderstorms producing flash flooding in and around the
+South Fork Burn Scar.
+
+SOURCE...Emergency management reported.
+
+IMPACT...Life threatening flash flooding of areas in and around
+the South Fork Burn Scar.
+
+Some locations that will experience flash flooding include...
+Ruidoso, Ruidoso Downs, Alto, Glencoe and Hollywood.,Sun Jul 28 2024 13:48:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.899b55f0b31427145a3548cdda26290a3e2dab62.001.1.cap
 National Weather Service,..Red Flag Warnings in Effect until 8pm MDT Sunday with Fire
 Weather Watches in effect for Monday...
 
@@ -1038,28 +1080,24 @@ Additional information is available at www.weather.gov.
 
 The next statement will be issued this afternoon at 300 PM CDT.
 
-* WHAT...Minor flooding is occurring and minor flooding is forecast.
+* WHAT...Minor flooding is occurring and moderate flooding is
+forecast.
 
-* WHERE...Sabine River near Deweyville.
+* WHERE...Neches River at Neches River Saltwater Barrier.
 
 * WHEN...Until further notice.
 
-* IMPACTS...At 25.0 feet, Lowest roads beside the river flood around
-Deweyville and subject to being closed. In addition, low-lying
-roads in Southwest Beauregard Parish are flooded including Robert
-Clark Road. Flooding occurs on the south side of Niblett Bluff
-Park with access roads to camp houses cut off around the park.
-Access roads to the river in Northeastern Orange County become
-flooded.
+* IMPACTS...At 6.0 feet, Colliers Ferry Park is under water, and
+flooding of secondary roads near the river can be expected.
 
 * ADDITIONAL DETAILS...
-- At 12:45 PM CDT Sunday the stage was 24.9 feet.
+- At 1:15 PM CDT Sunday the stage was 5.7 feet.
 - Recent Activity...The maximum river stage in the 24 hours
-ending at 12:45 PM CDT Sunday was 24.9 feet.
-- Forecast...The river is expected to rise to a crest of 25.1
-feet tomorrow evening.
-- Flood stage is 24.0 feet.
-- http://www.weather.gov/safety/flood,Sun Jul 28 2024 11:56:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.1f1e5ab7c13fca60ffa685dccbfe435a2b3bbb55.006.1.cap
+ending at 1:15 PM CDT Sunday was 5.7 feet.
+- Forecast...The river is expected to rise to a crest of 6.3
+feet early Wednesday afternoon.
+- Flood stage is 4.0 feet.
+- http://www.weather.gov/safety/flood,Sun Jul 28 2024 11:56:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.1f1e5ab7c13fca60ffa685dccbfe435a2b3bbb55.004.1.cap
 National Weather Service,...The Flood Warning is extended for the following rivers in Texas...
 
 Village Creek Near Kountze
@@ -1084,24 +1122,28 @@ Additional information is available at www.weather.gov.
 
 The next statement will be issued this afternoon at 300 PM CDT.
 
-* WHAT...Minor flooding is occurring and moderate flooding is
-forecast.
+* WHAT...Minor flooding is occurring and minor flooding is forecast.
 
-* WHERE...Neches River at Neches River Saltwater Barrier.
+* WHERE...Sabine River near Deweyville.
 
 * WHEN...Until further notice.
 
-* IMPACTS...At 6.0 feet, Colliers Ferry Park is under water, and
-flooding of secondary roads near the river can be expected.
+* IMPACTS...At 25.0 feet, Lowest roads beside the river flood around
+Deweyville and subject to being closed. In addition, low-lying
+roads in Southwest Beauregard Parish are flooded including Robert
+Clark Road. Flooding occurs on the south side of Niblett Bluff
+Park with access roads to camp houses cut off around the park.
+Access roads to the river in Northeastern Orange County become
+flooded.
 
 * ADDITIONAL DETAILS...
-- At 1:15 PM CDT Sunday the stage was 5.7 feet.
+- At 12:45 PM CDT Sunday the stage was 24.9 feet.
 - Recent Activity...The maximum river stage in the 24 hours
-ending at 1:15 PM CDT Sunday was 5.7 feet.
-- Forecast...The river is expected to rise to a crest of 6.3
-feet early Wednesday afternoon.
-- Flood stage is 4.0 feet.
-- http://www.weather.gov/safety/flood,Sun Jul 28 2024 11:56:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.1f1e5ab7c13fca60ffa685dccbfe435a2b3bbb55.004.1.cap
+ending at 12:45 PM CDT Sunday was 24.9 feet.
+- Forecast...The river is expected to rise to a crest of 25.1
+feet tomorrow evening.
+- Flood stage is 24.0 feet.
+- http://www.weather.gov/safety/flood,Sun Jul 28 2024 11:56:00 GMT-0700 (Pacific Daylight Time),https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.1f1e5ab7c13fca60ffa685dccbfe435a2b3bbb55.006.1.cap
 National Weather Service,* WHAT...Dangerously hot conditions with heat index values up to 111
 expected.
 
