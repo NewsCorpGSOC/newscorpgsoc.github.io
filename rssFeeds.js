@@ -933,6 +933,22 @@ const rssFeeds = [
       'https://corsproxy.io/?https%3A%2F%2Fglobal.shakemovie.princeton.edu%2Fshakemovie%2Frss',
     ]
   },
+  {
+    url: 'https://rss.weather.gov.hk/rss/QuickEarthquakeMessage.xml',
+    source: 'Hong Kong Observatory - Earthquake',
+    priorityLevel: 'High',
+    requiredTerms: [],
+    ignoreTerms: [],
+    backups: [],
+  },
+  {
+    url: 'https://rss.weather.gov.hk/rss/WeatherWarningSummaryv2.xml',
+    source: 'Hong Kong Observatory - Weather Warning',
+    priorityLevel: 'High',
+    requiredTerms: [],
+    ignoreTerms: [],
+    backups: [],
+  },
 ];
 
 export default rssFeeds;
