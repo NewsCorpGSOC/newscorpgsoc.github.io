@@ -76,16 +76,21 @@ document.addEventListener('DOMContentLoaded', () => {
         const items = isAtom ? xmlDoc.getElementsByTagName('entry') : xmlDoc.getElementsByTagName('item');
         const feedItemsArray = Array.from(items);
         let feedItems = [];
-
+  
         feedItemsArray.forEach(item => {
           const title = item.querySelector('title')?.textContent || 'No title';
-          const link = isAtom ? item.querySelector('link[rel="alternate"]')?.getAttribute('href') : item.querySelector('link')?.textContent || '#';
-          const description = isAtom ? item.querySelector('summary')?.textContent || item.querySelector('content')?.textContent || 'No description' : item.querySelector('description')?.textContent || 'No description';
-          const pubDateText = isAtom ? item.querySelector('published')?.textContent : item.querySelector('pubDate')?.textContent;
+          const link = isAtom 
+            ? item.querySelector('link[rel="alternate"]')?.getAttribute('href') 
+            : item.querySelector('link')?.textContent || item.querySelector('link')?.getAttribute('href') || '#';
+          const description = isAtom 
+            ? item.querySelector('summary')?.textContent || item.querySelector('content')?.textContent || 'No description' 
+            : item.querySelector('description')?.textContent || 'No description';
+          const pubDateText = isAtom 
+            ? item.querySelector('published')?.textContent 
+            : item.querySelector('pubDate')?.textContent;
           const pubDate = pubDateText ? parseDate(pubDateText) : new Date();
-
           const pacificDate = convertToPacificTime(pubDate, feed.source);
-
+  
           if (title && link && description && pacificDate) {
             feedItems.push({
               title,
@@ -98,10 +103,10 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log('Incomplete item:', { title, link, description, pacificDate });
           }
         });
-
+  
         // Apply filtering based on required and ignore terms
         feedItems = filterFeedItems(feedItems, feed.requiredTerms, feed.ignoreTerms);
-
+  
         updateStatus(feed.source, feed.url, true);
         console.log(`Fetched ${feedItems.length} items from ${feed.source}`);
         return feedItems;
@@ -119,11 +124,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Define the csvFiles array with source information
   const csvFiles = [
-    { file: 'Israel_Security_Cabinet_News.csv', source: 'Israel Security Cabinet News' },
-    { file: 'National_Weather_Service.csv', source: 'National Weather Service' },
-    { file: 'Stand_With_Us_Breaking_News.csv', source: 'Stand With Us Breaking News' },
-    { file: 'Ukraine_Air_Defense.csv', source: 'Ukraine Air Defense' },
-    { file: 'WOLPalestine.csv', source: 'WOLPalestine' }
+    { file: 'Israel_Security_Cabinet_News.csv', source: 'CSV Israel Security Cabinet News' },
+    { file: 'National_Weather_Service.csv', source: 'CSV National Weather Service' },
+    { file: 'Stand_With_Us_Breaking_News.csv', source: 'CSV Stand With Us Breaking News' },
+    { file: 'Ukraine_Air_Defense.csv', source: 'CSV Ukraine Air Defense' },
+    { file: 'WOLPalestine.csv', source: 'CSV WOLPalestine' }
   ];
 
   async function fetchCSVFiles() {
