@@ -457,6 +457,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Fetch all feeds initially
     await Promise.all(rssFeeds.map(feed => fetchFeedAndUpdate(feed)));
+    const csvFeedItems = await fetchCSVFiles();
+    feedItems = [...feedItems, ...csvFeedItems];
+    displayFeeds();
 
     rssFeeds.forEach((feed) => {
       const fetchInterval = priorityIntervals[feed.priorityLevel] || 180000; // Default to 3 minutes if not specified
