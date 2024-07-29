@@ -433,6 +433,10 @@ document.addEventListener('DOMContentLoaded', () => {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else if (source === 'CSV Epoch Times') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
+    } else if (source === 'Hong Kong Observatory - Earthquake') {
+      adjustedDate.setHours(adjustedDate.getHours() + 0);
+    } else if (source === 'Hong Kong Observatory - Weather Warning') {
+      adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else {
       console.warn(`No specific time adjustment found for source: ${source}`);
     }
