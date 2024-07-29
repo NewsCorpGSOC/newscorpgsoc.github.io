@@ -556,22 +556,19 @@ document.addEventListener('DOMContentLoaded', () => {
       const feedElement = document.createElement('div');
       feedElement.classList.add('feed');
   
-      let imageHtml = '';
       const parser = new DOMParser();
       const doc = parser.parseFromString(item.description, 'text/html');
-      const img = doc.querySelector('img');
-      if (img) {
-        imageHtml = `<img src="${img.src}" alt="Feed image" height="300" onerror="this.onerror=null;this.src='https://i.imgur.com/GQPN5Q9.jpeg';" />`;
-      }
+      const firstImg = doc.querySelector('img');
   
-      // Remove all other images in the description
-      doc.querySelectorAll('img').forEach((image, index) => {
-        if (index > 0) {
-          image.remove();
-        }
-      });
-  
+      // Remove all images from the description
+      doc.querySelectorAll('img').forEach(img => img.remove());
       const cleanedDescription = doc.body.innerHTML;
+  
+      // Add the first image back to the feedElement if it exists
+      let imageHtml = '';
+      if (firstImg) {
+        imageHtml = `<img src="${firstImg.src}" alt="Feed image" height="300" onerror="this.onerror=null;this.src='https://i.imgur.com/GQPN5Q9.jpeg';" />`;
+      }
   
       feedElement.innerHTML = 
         `<h2><a href="${item.link}" target="_blank">${item.title}</a></h2>
