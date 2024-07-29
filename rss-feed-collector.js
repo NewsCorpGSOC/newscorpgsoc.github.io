@@ -392,7 +392,7 @@ document.addEventListener('DOMContentLoaded', () => {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'National Weather Service') {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
-    } else if (source === 'Israel Security Cabinet News') {
+    } else if (source === 'Israel Security Cabinet News Telegram') {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'Saba Agency Telegram') {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
