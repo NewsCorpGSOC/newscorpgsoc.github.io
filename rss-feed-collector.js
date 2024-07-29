@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
           const pacificDate = convertToPacificTime(pubDate, feed.source);
 
-          if (title, link, description, pacificDate) {
+          if (title && link && description && pacificDate) {
             feedItems.push({
               title,
               link,
@@ -117,13 +117,17 @@ document.addEventListener('DOMContentLoaded', () => {
     return [];
   };
 
+  // Define the csvFiles array with source information
+  const csvFiles = [
+    { file: 'Israel_Security_Cabinet_News.csv', source: 'Israel Security Cabinet News' },
+    { file: 'National_Weather_Service.csv', source: 'National Weather Service' },
+    { file: 'Stand_With_Us_Breaking_News.csv', source: 'Stand With Us Breaking News' },
+    { file: 'Ukraine_Air_Defense.csv', source: 'Ukraine Air Defense' },
+    { file: 'WOLPalestine.csv', source: 'WOLPalestine' }
+  ];
+
   async function fetchCSVFiles() {
-    let csvFeedItems = [
-      { file: 'Israel_Security_Cabinet_News.csv', source: 'CSV Israel Security Cabinet News' },
-      { file: 'Stand_With_Us_Breaking_News.csv', source: 'CSV Stand With Us Breaking News' },
-      { file: 'Ukraine_Air_Defense.csv', source: 'CSV Ukraine Air Defense' },
-      { file: 'WOLPalestine.csv', source: 'CSV WOLPalestine' }
-    ];
+    let csvFeedItems = [];
 
     for (const { file, source } of csvFiles) {
       try {
@@ -387,8 +391,8 @@ document.addEventListener('DOMContentLoaded', () => {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'Naharnet - Middle East') {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
-    } else if (source === 'WolPalestine Telegram') {
-      adjustedDate.setHours(adjustedDate.getHours() - 7);
+    } else if (source === 'WOLPalestine Telegram') {
+      adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'Air Force of the Armed Forces of Ukraine Telegram') {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'National Weather Service') {
