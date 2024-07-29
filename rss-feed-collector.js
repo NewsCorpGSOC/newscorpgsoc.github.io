@@ -391,13 +391,13 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (source === 'The Federalist') {
       adjustedDate.setHours(adjustedDate.getHours() - 7);
     } else if (source === 'Breaking News Subreddit') {
-      adjustedDate.setHours(adjustedDate.getHours() - 7);
+      adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'Yemeni Crisis Subreddit') {
-      adjustedDate.setHours(adjustedDate.getHours() - 7);
+      adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'World News Subreddit') {
-      adjustedDate.setHours(adjustedDate.getHours() - 7);
+      adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'International News Subreddit') {
-      adjustedDate.setHours(adjustedDate.getHours() - 7);
+      adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'Naharnet - Lebanon') {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'Naharnet - Middle East') {
@@ -443,21 +443,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
     return Array.from(uniqueItems.values());
-  }
-
-  function removeDuplicateImages(description) {
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(description, 'text/html');
-    const imgElements = doc.querySelectorAll('img');
-    const uniqueImages = new Set();
-    imgElements.forEach(img => {
-      if (uniqueImages.has(img.src)) {
-        img.remove();
-      } else {
-        uniqueImages.add(img.src);
-      }
-    });
-    return doc.body.innerHTML;
   }
 
   async function fetchFeedsSequentially() {
