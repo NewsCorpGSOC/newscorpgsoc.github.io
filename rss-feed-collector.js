@@ -90,7 +90,10 @@ document.addEventListener('DOMContentLoaded', () => {
             : item.querySelector('pubDate')?.textContent;
           const pubDate = pubDateText ? parseDate(pubDateText) : new Date();
           const pacificDate = convertToPacificTime(pubDate, feed.source);
-  
+
+          // Apply the retainFirstImage function to the description
+          description = retainFirstImage(description);
+          
           // Fallback: Extract link from description HTML if link is still undefined
           if (!link || link === '#') {
             const tempDiv = document.createElement('div');
@@ -445,26 +448,23 @@ document.addEventListener('DOMContentLoaded', () => {
     return Array.from(uniqueItems.values());
   }
 
-  function removeDuplicateImages(description) {
+  function retainFirstImage(description) {
     const parser = new DOMParser();
     const doc = parser.parseFromString(description, 'text/html');
     const imgElements = doc.querySelectorAll('img');
-    const uniqueImages = new Set();
   
+    // Retain the first image and remove all subsequent images
+    let firstImageFound = false;
     imgElements.forEach(img => {
-      // Check if the image is inside a blockquote or tbody
-      const isInBlockquote = img.closest('blockquote');
-      const isInTbody = img.closest('tbody');
-      if (uniqueImages.has(img.src) || isInBlockquote || isInTbody) {
-        img.remove();
+      if (!firstImageFound) {
+        firstImageFound = true;
       } else {
-        uniqueImages.add(img.src);
+        img.remove();
       }
     });
   
     return doc.body.innerHTML;
   }
-
 
   async function fetchFeedsSequentially() {
     const interval = 3000; // 3 seconds interval
@@ -569,8 +569,6 @@ document.addEventListener('DOMContentLoaded', () => {
       if (img) {
         imageHtml = `<img src="${img.src}" alt="Feed image" onerror="this.onerror=null;this.src='https://i.imgur.com/GQPN5Q9.jpeg';" />`;
       }
-  
-      const cleanedDescription = removeDuplicateImages(item.description);
   
       feedElement.innerHTML = 
         `<h2><a href="${item.link}" target="_blank">${item.title}</a></h2>
