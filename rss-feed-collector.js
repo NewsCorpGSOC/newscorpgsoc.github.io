@@ -131,6 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
   // Define the csvFiles array with source information
   const csvFiles = [
+    { file: 'Epoch_Times.csv', source: 'CSV Epoch Times' },
     { file: 'Israel_Security_Cabinet_News.csv', source: 'CSV Israel Security Cabinet News' },
     { file: 'Stand_With_Us_Breaking_News.csv', source: 'CSV Stand With Us Breaking News' },
     { file: 'Ukraine_Air_Defense.csv', source: 'CSV Ukraine Air Defense' },
@@ -160,20 +161,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function parseCSV(csvText, source) {
     const lines = csvText.split('\n').filter(line => line.trim() !== ''); // Remove empty lines
-    const headers = lines[0].split(',');
+    const headers = lines[0].split('\t'); // Split by tab character for TSV data
 
-    const sheetNameIndex = headers.indexOf('Sheet Name');
-    const summaryIndex = headers.indexOf('Summary');
-    const publishedIndex = headers.indexOf('Published (Pacific Time)');
+    const titleIndex = headers.indexOf('Title');
+    const descriptionIndex = headers.indexOf('Description');
     const linkIndex = headers.indexOf('Link');
+    const pubDateIndex = headers.indexOf('pubDate');
 
     return lines.slice(1).map((line, index) => {
-      const cells = line.split(',');
+      const cells = line.split('\t'); // Split by tab character for TSV data
 
-      const title = cells[sheetNameIndex]?.trim() || 'No title';
+      const title = cells[titleIndex]?.trim() || 'No title';
       const link = cells[linkIndex]?.trim() || '#';
-      const description = decodeHTMLEntities(cells[summaryIndex]?.trim() || 'No description');
-      const pubDate = parseDate(cells[publishedIndex]?.trim());
+      const description = decodeHTMLEntities(cells[descriptionIndex]?.trim() || 'No description');
+      const pubDate = parseDate(cells[pubDateIndex]?.trim());
 
       if (!pubDate) {
         console.warn(`Skipping row ${index + 2} due to invalid date: ${line}`);
@@ -427,6 +428,8 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (source === 'CSV Ukraine Air Defense') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else if (source === 'CSV WOLPalestine') {
+      adjustedDate.setHours(adjustedDate.getHours() + 0);
+    } else if (source === 'CSV Epoch Times') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else {
       console.warn(`No specific time adjustment found for source: ${source}`);
