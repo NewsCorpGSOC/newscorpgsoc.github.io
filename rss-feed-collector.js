@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
         feedItemsArray.forEach(item => {
           const title = item.querySelector('title')?.textContent || 'No title';
-          const link = isAtom 
+          let link = isAtom 
             ? item.querySelector('link[rel="alternate"]')?.getAttribute('href') 
             : item.querySelector('link')?.textContent || item.querySelector('link')?.getAttribute('href') || '#';
           const description = isAtom 
@@ -90,6 +90,14 @@ document.addEventListener('DOMContentLoaded', () => {
             : item.querySelector('pubDate')?.textContent;
           const pubDate = pubDateText ? parseDate(pubDateText) : new Date();
           const pacificDate = convertToPacificTime(pubDate, feed.source);
+  
+          // Fallback: Extract link from description HTML if link is still undefined
+          if (!link || link === '#') {
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = description;
+            const anchor = tempDiv.querySelector('a');
+            link = anchor ? anchor.href : '#';
+          }
   
           if (title && link && description && pacificDate) {
             feedItems.push({
@@ -121,7 +129,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     return [];
   };
-
   // Define the csvFiles array with source information
   const csvFiles = [
     { file: 'Israel_Security_Cabinet_News.csv', source: 'CSV Israel Security Cabinet News' },
