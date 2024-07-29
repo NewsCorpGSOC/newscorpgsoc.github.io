@@ -70,7 +70,6 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log(`Fetching URL: ${url}`);
         const response = await fetch(url);
         const data = await response.text();
-        console.log('Fetched data:', data);
         const parser = new DOMParser();
         const xmlDoc = parser.parseFromString(data, 'application/xml');
         const isAtom = xmlDoc.documentElement.nodeName === 'feed';
@@ -83,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
           let link = isAtom 
             ? item.querySelector('link[rel="alternate"]')?.getAttribute('href') 
             : item.querySelector('link')?.textContent || item.querySelector('link')?.getAttribute('href') || '#';
-          let description = isAtom 
+          const description = isAtom 
             ? item.querySelector('summary')?.textContent || item.querySelector('content')?.textContent || 'No description' 
             : item.querySelector('description')?.textContent || 'No description';
           const pubDateText = isAtom 
@@ -92,9 +91,6 @@ document.addEventListener('DOMContentLoaded', () => {
           const pubDate = pubDateText ? parseDate(pubDateText) : new Date();
           const pacificDate = convertToPacificTime(pubDate, feed.source);
   
-          // Apply the retainFirstImage function to the description
-          description = retainFirstImage(description);
-          
           // Fallback: Extract link from description HTML if link is still undefined
           if (!link || link === '#') {
             const tempDiv = document.createElement('div');
@@ -133,7 +129,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     return [];
   };
-
   // Define the csvFiles array with source information
   const csvFiles = [
     { file: 'Israel_Security_Cabinet_News.csv', source: 'CSV Israel Security Cabinet News' },
@@ -450,28 +445,21 @@ document.addEventListener('DOMContentLoaded', () => {
     return Array.from(uniqueItems.values());
   }
 
-  function retainFirstImage(description) {
+  function removeDuplicateImages(description) {
     const parser = new DOMParser();
     const doc = parser.parseFromString(description, 'text/html');
     const imgElements = doc.querySelectorAll('img');
-    console.log('Images before processing:', imgElements.length);
-  
-    // Retain the first image and remove all subsequent images
-    let firstImageFound = false;
+    const uniqueImages = new Set();
     imgElements.forEach(img => {
-      if (!firstImageFound) {
-        firstImageFound = true;
-      } else {
+      if (uniqueImages.has(img.src)) {
         img.remove();
+      } else {
+        uniqueImages.add(img.src);
       }
     });
-  
-    const processedImages = doc.querySelectorAll('img');
-    console.log('Images after processing:', processedImages.length);
-  
     return doc.body.innerHTML;
   }
-  
+
   async function fetchFeedsSequentially() {
     const interval = 3000; // 3 seconds interval
   
@@ -573,11 +561,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const doc = parser.parseFromString(item.description, 'text/html');
       const img = doc.querySelector('img');
       if (img) {
-        console.log('Image found in description:', img.src);
         imageHtml = `<img src="${img.src}" alt="Feed image" onerror="this.onerror=null;this.src='https://i.imgur.com/GQPN5Q9.jpeg';" />`;
-      } else {
-        console.log('No image found in description.');
       }
+  
+      const cleanedDescription = removeDuplicateImages(item.description);
   
       feedElement.innerHTML = 
         `<h2><a href="${item.link}" target="_blank">${item.title}</a></h2>
