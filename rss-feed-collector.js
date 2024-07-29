@@ -70,6 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log(`Fetching URL: ${url}`);
         const response = await fetch(url);
         const data = await response.text();
+        console.log('Fetched data:', data);
         const parser = new DOMParser();
         const xmlDoc = parser.parseFromString(data, 'application/xml');
         const isAtom = xmlDoc.documentElement.nodeName === 'feed';
@@ -82,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
           let link = isAtom 
             ? item.querySelector('link[rel="alternate"]')?.getAttribute('href') 
             : item.querySelector('link')?.textContent || item.querySelector('link')?.getAttribute('href') || '#';
-          const description = isAtom 
+          let description = isAtom 
             ? item.querySelector('summary')?.textContent || item.querySelector('content')?.textContent || 'No description' 
             : item.querySelector('description')?.textContent || 'No description';
           const pubDateText = isAtom 
@@ -90,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
             : item.querySelector('pubDate')?.textContent;
           const pubDate = pubDateText ? parseDate(pubDateText) : new Date();
           const pacificDate = convertToPacificTime(pubDate, feed.source);
-
+  
           // Apply the retainFirstImage function to the description
           description = retainFirstImage(description);
           
@@ -132,6 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     return [];
   };
+
   // Define the csvFiles array with source information
   const csvFiles = [
     { file: 'Israel_Security_Cabinet_News.csv', source: 'CSV Israel Security Cabinet News' },
