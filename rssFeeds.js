@@ -949,6 +949,14 @@ const rssFeeds = [
     ignoreTerms: [],
     backups: [],
   },
+  {
+    url: 'https://www.metoffice.gov.uk/public/data/PWSCache/WarningsRSS/Region/UK',
+    source: 'United Kingdom Weather Warnings',
+    priorityLevel: 'High',
+    requiredTerms: [],
+    ignoreTerms: [],
+    backups: [],
+  },
 ];
 
 export default rssFeeds;
