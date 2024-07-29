@@ -882,7 +882,7 @@ const rssFeeds = [
   },
   {
     url: 'https://rss-bridge.org/bridge01/?action=display&username=News_cabinet_news&bridge=TelegramBridge&format=Atom',
-    source: 'Israel Security Cabinet News',
+    source: 'Israel Security Cabinet News Telegram',
     priorityLevel: 'High',
     requiredTerms: [],
     ignoreTerms: [],
@@ -894,8 +894,8 @@ const rssFeeds = [
   },
   {
     url: 'https://rsshub.viki.moe/telegram/channel/Saba_Newsye',
-    source: 'High',
-    priorityLevel: 'Very Low',
+    source: 'Saba Agency Telegram',
+    priorityLevel: 'High',
     requiredTerms: [],
     ignoreTerms: [],
     backups: [
