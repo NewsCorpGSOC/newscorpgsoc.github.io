@@ -267,7 +267,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (source === 'The Hindu Business Line') {
       adjustedDate.setHours(adjustedDate.getHours() + 0.5);
     } else if (source === 'Zee News India') {
-      adjustedDate.setHours(adjustedDate.getHours() - 12.5);
+      adjustedDate.setHours(adjustedDate.getHours() - 0.5);
     } else if (source === 'Live Mint India') {
       adjustedDate.setHours(adjustedDate.getHours() - 6.5);
     } else if (source === 'Financial Times') {
