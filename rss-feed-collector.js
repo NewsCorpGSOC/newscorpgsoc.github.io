@@ -437,6 +437,8 @@ document.addEventListener('DOMContentLoaded', () => {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else if (source === 'Hong Kong Observatory - Weather Warning') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
+    } else if (source === 'United Kingdom Weather Warnings') {
+      adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else {
       console.warn(`No specific time adjustment found for source: ${source}`);
     }
