@@ -452,6 +452,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const parser = new DOMParser();
     const doc = parser.parseFromString(description, 'text/html');
     const imgElements = doc.querySelectorAll('img');
+    console.log('Images before processing:', imgElements.length);
   
     // Retain the first image and remove all subsequent images
     let firstImageFound = false;
@@ -463,9 +464,12 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   
+    const processedImages = doc.querySelectorAll('img');
+    console.log('Images after processing:', processedImages.length);
+  
     return doc.body.innerHTML;
   }
-
+  
   async function fetchFeedsSequentially() {
     const interval = 3000; // 3 seconds interval
   
@@ -567,7 +571,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const doc = parser.parseFromString(item.description, 'text/html');
       const img = doc.querySelector('img');
       if (img) {
+        console.log('Image found in description:', img.src);
         imageHtml = `<img src="${img.src}" alt="Feed image" onerror="this.onerror=null;this.src='https://i.imgur.com/GQPN5Q9.jpeg';" />`;
+      } else {
+        console.log('No image found in description.');
       }
   
       feedElement.innerHTML = 
