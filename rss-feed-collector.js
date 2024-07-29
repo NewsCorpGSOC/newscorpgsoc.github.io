@@ -564,7 +564,14 @@ document.addEventListener('DOMContentLoaded', () => {
         imageHtml = `<img src="${img.src}" alt="Feed image" height="100" onerror="this.onerror=null;this.src='https://i.imgur.com/GQPN5Q9.jpeg';" />`;
       }
   
-      const cleanedDescription = removeDuplicateImages(item.description);
+      // Remove all other images in the description
+      doc.querySelectorAll('img').forEach((image, index) => {
+        if (index > 0) {
+          image.remove();
+        }
+      });
+  
+      const cleanedDescription = doc.body.innerHTML;
   
       feedElement.innerHTML = 
         `<h2><a href="${item.link}" target="_blank">${item.title}</a></h2>
