@@ -132,7 +132,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // Define the csvFiles array with source information
   const csvFiles = [
     { file: 'Israel_Security_Cabinet_News.csv', source: 'CSV Israel Security Cabinet News' },
-    { file: 'National_Weather_Service.csv', source: 'CSV National Weather Service' },
     { file: 'Stand_With_Us_Breaking_News.csv', source: 'CSV Stand With Us Breaking News' },
     { file: 'Ukraine_Air_Defense.csv', source: 'CSV Ukraine Air Defense' },
     { file: 'WOLPalestine.csv', source: 'CSV WOLPalestine' }
