@@ -561,7 +561,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const doc = parser.parseFromString(item.description, 'text/html');
       const img = doc.querySelector('img');
       if (img) {
-        imageHtml = `<img src="${img.src}" alt="Feed image" onerror="this.onerror=null;this.src='https://i.imgur.com/GQPN5Q9.jpeg';" />`;
+        imageHtml = `<img src="${img.src}" alt="Feed image" height="100" onerror="this.onerror=null;this.src='https://i.imgur.com/GQPN5Q9.jpeg';" />`;
       }
   
       const cleanedDescription = removeDuplicateImages(item.description);
