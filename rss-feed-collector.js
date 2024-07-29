@@ -168,6 +168,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const linkIndex = headers.indexOf('Link');
     const pubDateIndex = headers.indexOf('pubDate');
 
+    if (titleIndex === -1 || descriptionIndex === -1 || linkIndex === -1 || pubDateIndex === -1) {
+      console.error("CSV headers do not match the expected format.");
+      return [];
+    }
+
     return lines.slice(1).map((line, index) => {
       const cells = line.split('\t'); // Split by tab character for TSV data
 
