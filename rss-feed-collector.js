@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const volumeSlider = document.getElementById('volumeSlider');
   let feedItems = [];
   let latestFeedDate = new Date(0);
-  let pingVolume = 0.45;
+  let pingVolume = 0.5;
   const statusItems = new Map();
 
   console.log("DOM fully loaded and parsed");
@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
           const pacificDate = convertToPacificTime(pubDate, feed.source);
 
-          if (title && link && description && pacificDate) {
+          if (title, link, description, pacificDate) {
             feedItems.push({
               title,
               link,
@@ -118,17 +118,18 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   async function fetchCSVFiles() {
-    const csvFiles = [
+    let csvFeedItems = [
       { file: 'Israel_Security_Cabinet_News.csv', source: 'CSV Israel Security Cabinet News' },
       { file: 'Stand_With_Us_Breaking_News.csv', source: 'CSV Stand With Us Breaking News' },
       { file: 'Ukraine_Air_Defense.csv', source: 'CSV Ukraine Air Defense' },
       { file: 'WOLPalestine.csv', source: 'CSV WOLPalestine' }
     ];
-    let csvFeedItems = [];
 
     for (const { file, source } of csvFiles) {
       try {
-        const response = await fetch(`GoogleSheets/${file}`);
+        // Adding a cache-busting query parameter
+        const cacheBuster = new Date().getTime();
+        const response = await fetch(`GoogleSheets/${file}?cb=${cacheBuster}`);
         const csvText = await response.text();
         console.log(`Fetched CSV: ${file}`);
         console.log(csvText); // Log fetched CSV text for debugging
@@ -145,25 +146,25 @@ document.addEventListener('DOMContentLoaded', () => {
   function parseCSV(csvText, source) {
     const lines = csvText.split('\n').filter(line => line.trim() !== ''); // Remove empty lines
     const headers = lines[0].split(',');
-  
+
     const sheetNameIndex = headers.indexOf('Sheet Name');
     const summaryIndex = headers.indexOf('Summary');
     const publishedIndex = headers.indexOf('Published (Pacific Time)');
     const linkIndex = headers.indexOf('Link');
-  
+
     return lines.slice(1).map((line, index) => {
       const cells = line.split(',');
-  
+
       const title = cells[sheetNameIndex]?.trim() || 'No title';
       const link = cells[linkIndex]?.trim() || '#';
       const description = decodeHTMLEntities(cells[summaryIndex]?.trim() || 'No description');
       const pubDate = parseDate(cells[publishedIndex]?.trim());
-  
+
       if (!pubDate) {
         console.warn(`Skipping row ${index + 2} due to invalid date: ${line}`);
         return null; // Skip rows with invalid dates
       }
-  
+
       return {
         title,
         link,
@@ -446,7 +447,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   async function fetchFeedsSequentially() {
     const interval = 3000; // 3 seconds interval
-
+  
     const priorityIntervals = {
       'Very High': 30000, // 30 seconds
       'High': 60000, // 1 minute
@@ -454,23 +455,24 @@ document.addEventListener('DOMContentLoaded', () => {
       'Low': 300000, // 5 minutes
       'Very Low': 600000 // 10 minutes
     };
-
+  
     // Fetch all feeds initially
     await Promise.all(rssFeeds.map(feed => fetchFeedAndUpdate(feed)));
     const csvFeedItems = await fetchCSVFiles();
     feedItems = [...feedItems, ...csvFeedItems];
+    feedItems.sort((a, b) => b.pubDate - a.pubDate); // Sort by date, newest first
     displayFeeds();
-
+  
     rssFeeds.forEach((feed) => {
       const fetchInterval = priorityIntervals[feed.priorityLevel] || 180000; // Default to 3 minutes if not specified
       console.log(`Scheduling fetch for ${feed.source} with interval of ${fetchInterval} ms`);
-
+  
       setInterval(() => {
         console.log(`Periodic fetch for ${feed.source}`);
         fetchFeedAndUpdate(feed);
       }, fetchInterval);
     });
-
+  
     // Fetch CSV files periodically
     setInterval(async () => {
       const csvFeedItems = await fetchCSVFiles();
@@ -510,19 +512,19 @@ document.addEventListener('DOMContentLoaded', () => {
   function displayFeeds() {
     feedsContainer.innerHTML = '';
     feedItems = removeDuplicateTitles(feedItems);
-
+  
     const now = new Date();
     const oneYearAgo = new Date(now.setFullYear(now.getFullYear() - 1));
-
+  
     const filteredFeeds = applyFilter();
     console.log(`Filtered Feeds Count: ${filteredFeeds.length}`);
-
+  
     const searchTerm = searchInput.value.trim().toLowerCase();
     const searchTerms = parseSearchTerm(searchTerm);
-
+  
     const recentFeeds = filteredFeeds.filter(item => item.pubDate > oneYearAgo);
     console.log(`Recent Feeds Count: ${recentFeeds.length}`);
-
+  
     const searchFilteredFeeds = recentFeeds.filter(item =>
       searchTerms.every(termGroup =>
         termGroup.some(term =>
@@ -533,12 +535,12 @@ document.addEventListener('DOMContentLoaded', () => {
       )
     );
     console.log(`Search Filtered Feeds Count: ${searchFilteredFeeds.length}`);
-
+  
     const fragment = document.createDocumentFragment();
     searchFilteredFeeds.forEach(item => {
       const feedElement = document.createElement('div');
       feedElement.classList.add('feed');
-
+  
       let imageHtml = '';
       const parser = new DOMParser();
       const doc = parser.parseFromString(item.description, 'text/html');
@@ -546,9 +548,9 @@ document.addEventListener('DOMContentLoaded', () => {
       if (img) {
         imageHtml = `<img src="${img.src}" alt="Feed image" onerror="this.onerror=null;this.src='https://i.imgur.com/GQPN5Q9.jpeg';" />`;
       }
-
+  
       const cleanedDescription = removeDuplicateImages(item.description);
-
+  
       feedElement.innerHTML = 
         `<h2><a href="${item.link}" target="_blank">${item.title}</a></h2>
         ${imageHtml}
