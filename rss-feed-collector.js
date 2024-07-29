@@ -160,29 +160,26 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function parseCSV(csvText, source) {
-    const lines = csvText.split('\n').filter(line => line.trim() !== ''); // Remove empty lines
-    const headers = lines[0].split('\t'); // Split by tab character for TSV data
+    const parsedData = Papa.parse(csvText, {
+      header: true,
+      skipEmptyLines: true
+    });
 
-    const titleIndex = headers.indexOf('Title');
-    const descriptionIndex = headers.indexOf('Description');
-    const linkIndex = headers.indexOf('Link');
-    const pubDateIndex = headers.indexOf('pubDate');
-
-    if (titleIndex === -1 || descriptionIndex === -1 || linkIndex === -1 || pubDateIndex === -1) {
-      console.error("CSV headers do not match the expected format.");
+    if (parsedData.errors.length) {
+      console.error("Errors parsing CSV:", parsedData.errors);
       return [];
     }
 
-    return lines.slice(1).map((line, index) => {
-      const cells = line.split('\t'); // Split by tab character for TSV data
+    const items = parsedData.data;
 
-      const title = cells[titleIndex]?.trim() || 'No title';
-      const link = cells[linkIndex]?.trim() || '#';
-      const description = decodeHTMLEntities(cells[descriptionIndex]?.trim() || 'No description');
-      const pubDate = parseDate(cells[pubDateIndex]?.trim());
+    return items.map((item, index) => {
+      const title = item.Title?.trim() || 'No title';
+      const link = item.Link?.trim() || '#';
+      const description = decodeHTMLEntities(item.Description?.trim() || 'No description');
+      const pubDate = parseDate(item.pubDate?.trim());
 
       if (!pubDate) {
-        console.warn(`Skipping row ${index + 2} due to invalid date: ${line}`);
+        console.warn(`Skipping row ${index + 2} due to invalid date: ${JSON.stringify(item)}`);
         return null; // Skip rows with invalid dates
       }
 
