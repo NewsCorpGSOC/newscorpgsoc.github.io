@@ -445,24 +445,26 @@ document.addEventListener('DOMContentLoaded', () => {
     return Array.from(uniqueItems.values());
   }
 
-function removeDuplicateImages(description) {
-  const parser = new DOMParser();
-  const doc = parser.parseFromString(description, 'text/html');
-  const imgElements = doc.querySelectorAll('img');
-  const uniqueImages = new Set();
+  function removeDuplicateImages(description) {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(description, 'text/html');
+    const imgElements = doc.querySelectorAll('img');
+    const uniqueImages = new Set();
+  
+    imgElements.forEach(img => {
+      // Check if the image is inside a blockquote or tbody
+      const isInBlockquote = img.closest('blockquote');
+      const isInTbody = img.closest('tbody');
+      if (uniqueImages.has(img.src) || isInBlockquote || isInTbody) {
+        img.remove();
+      } else {
+        uniqueImages.add(img.src);
+      }
+    });
+  
+    return doc.body.innerHTML;
+  }
 
-  imgElements.forEach(img => {
-    // Check if the image is inside a blockquote
-    const isInBlockquote = img.closest('blockquote');
-    if (uniqueImages.has(img.src) || isInBlockquote) {
-      img.remove();
-    } else {
-      uniqueImages.add(img.src);
-    }
-  });
-
-  return doc.body.innerHTML;
-}
 
   async function fetchFeedsSequentially() {
     const interval = 3000; // 3 seconds interval
