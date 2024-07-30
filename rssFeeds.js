@@ -1070,7 +1070,7 @@ const rssFeeds = [
     priorityLevel: 'High',
     requiredTerms: [],
     ignoreTerms: [],
-    reliability: 'Credible',
+    reliability: 'Dubious',
     background: '#203050',
     backups: [
       'https://corsproxy.io/?https%3A%2F%2Frsshub.app%2Ftelegram%2Fchannel%2Fepochtimes',
@@ -1120,18 +1120,6 @@ const rssFeeds = [
     reliability: 'Credible',
     background: '#203050',
     backups: [],
-  },
-  {
-    url: 'https://www.metoffice.gov.uk/public/data/PWSCache/WarningsRSS/Region/UK',
-    source: 'United Kingdom Weather Warnings',
-    priorityLevel: 'High',
-    requiredTerms: [],
-    ignoreTerms: [],
-    reliability: 'Credible',
-    background: '#203050',
-    backups: [
-      'https://corsproxy.io/?https%3A%2F%2Fwww.metoffice.gov.uk%2Fpublic%2Fdata%2FPWSCache%2FWarningsRSS%2FRegion%2FUK',
-    ],
   },
   {
     url: 'http://www.bom.gov.au/rss/?ref=ftr',
