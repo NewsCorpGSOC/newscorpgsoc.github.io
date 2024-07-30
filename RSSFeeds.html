@@ -376,6 +376,34 @@
         .connection-container a {
             color: #fff;
         }
+        /* Background Colors */
+        .bg-credible {
+          background-color: #E0F7FA; /* Light Blue */
+        }
+        
+        .bg-dubious {
+          background-color: #FFF9C4; /* Light Yellow */
+        }
+        
+        .bg-requires-verification {
+          background-color: #FFCDD2; /* Light Red */
+        }
+        
+        /* Reliability Symbols */
+        .credible::before {
+          content: "✅"; /* Checkmark */
+          margin-right: 5px;
+        }
+        
+        .dubious::before {
+          content: "⚠️"; /* Caution Sign */
+          margin-right: 5px;
+        }
+        
+        .requires-verification::before {
+          content: "🛑"; /* Stop Sign */
+          margin-right: 5px;
+        }
 
         /*---------------------------------- SIDEBAR ----------------------------------*/      
         #sidebar {
