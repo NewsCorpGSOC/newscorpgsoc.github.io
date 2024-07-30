@@ -439,13 +439,23 @@ document.addEventListener('DOMContentLoaded', () => {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else if (source === 'Hong Kong Observatory - Weather Warning') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'United Kingdom Weather Warnings') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'Australia Bureau of Meteorology') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else if (source === 'Meteorological Service Singapore') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else if (source === 'Brazil Weather Alerts') {
+      adjustedDate.setHours(adjustedDate.getHours() + 0);
+    } else if (source === 'Australia Bureau of Meteorology - Tasmania') {
+      adjustedDate.setHours(adjustedDate.getHours() + 0);
+    } else if (source === 'Australia Bureau of Meteorology - News South Wales and ACT') {
+      adjustedDate.setHours(adjustedDate.getHours() + 0);
+    } else if (source === 'Australia Bureau of Meteorology - Victoria') {
+      adjustedDate.setHours(adjustedDate.getHours() + 0);
+    } else if (source === 'Australia Bureau of Meteorology - Queensland') {
+      adjustedDate.setHours(adjustedDate.getHours() + 0);
+    } else if (source === 'Australia Bureau of Meteorology - West Australia') {
+      adjustedDate.setHours(adjustedDate.getHours() + 0);
+    } else if (source === 'Australia Bureau of Meteorology - South Australia') {
+      adjustedDate.setHours(adjustedDate.getHours() + 0);
+    } else if (source === 'Australia Bureau of Meteorology - Northern Territory') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else {
       console.warn(`No specific time adjustment found for source: ${source}`);
