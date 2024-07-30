@@ -500,7 +500,9 @@ document.addEventListener('DOMContentLoaded', () => {
   
     await Promise.all(rssFeeds.map(feed => fetchFeedAndUpdate(feed)));
     const tsvFeedItems = await fetchTSVFiles();
+    console.log(`TSV Feed Items: ${JSON.stringify(tsvFeedItems, null, 2)}`); // Debugging statement
     feedItems = [...feedItems, ...tsvFeedItems];
+    console.log(`Combined Feed Items: ${JSON.stringify(feedItems, null, 2)}`); // Debugging statement
     feedItems.sort((a, b) => b.pubDate - a.pubDate); // Sort by date, newest first
     displayFeeds();
   
