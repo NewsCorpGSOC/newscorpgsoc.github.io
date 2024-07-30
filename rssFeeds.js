@@ -5,6 +5,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Frss.nytimes.com%2Fservices%2Fxml%2Frss%2Fnyt%2FWorld.xml',
       'https://corsproxy.io/?https%3A%2F%2Frss.nytimes.com%2Fservices%2Fxml%2Frss%2Fnyt%2FHomePage.xml',
@@ -18,6 +20,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Ffeeds.bbci.co.uk%2Fnews%2Fworld%2Frss.xml',
       'https://corsproxy.io/?https%3A%2F%2Ffeeds.bbci.co.uk%2Fnews%2Fworld%2Frss.xml',
@@ -31,6 +35,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.theguardian.com%2Fworld%2Frss',
       'https://corsproxy.io/?https%3A%2F%2Fwww.theguardian.com%2Fworld%2Frss',
@@ -44,6 +50,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.aljazeera.com%2Fxml%2Frss%2Fall.xml',
       'https://corsproxy.io/?https%3A%2F%2Fwww.aljazeera.com%2Fxml%2Frss%2Fall.xml',
@@ -55,6 +63,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Fwol.com%2Ffeed%2F',
       'https://corsproxy.io/?https%3A%2F%2Fwol.com%2Ffeed%2F',
@@ -66,6 +76,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Frss-bridge.org%2Fbridge01%2F%3Faction%3Ddisplay%26topic%3Dworld-news%26context%3DCustom%2BTopic%26bridge%3DAssociatedPressNewsBridge%26format%3DAtom',
       'https://corsproxy.io/?https%3A%2F%2Frss-bridge.org%2Fbridge01%2F%3Faction%3Ddisplay%26topic%3Dworld-news%26context%3DCustom%2BTopic%26bridge%3DAssociatedPressNewsBridge%26format%3DAtom',
@@ -77,6 +89,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Fmoxie.foxnews.com%2Fgoogle-publisher%2Fworld.xml',
       'https://corsproxy.io/?https%3A%2F%2Fmoxie.foxnews.com%2Fgoogle-publisher%2Fworld.xml',
@@ -88,6 +102,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Fmoxie.foxnews.com%2Fgoogle-publisher%2Flatest.xml',
       'https://corsproxy.io/?https%3A%2F%2Fmoxie.foxnews.com%2Fgoogle-publisher%2Flatest.xml',
@@ -99,6 +115,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Ffeeds.npr.org%2F1001%2Frss.xml',
       'https://corsproxy.io/?https%3A%2F%2Ffeeds.npr.org%2F1001%2Frss.xml',
@@ -110,6 +128,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Fnews.un.org%2Ffeed%2Fsubscribe%2Fen%2Fnews%2Fall%2Frss.xml',
       'https://corsproxy.io/?https%3A%2F%2Fnews.un.org%2Ffeed%2Fsubscribe%2Fen%2Fnews%2Fall%2Frss.xml',
@@ -121,6 +141,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Fnews.yahoo.com%2Frss%2Fworld',
       'https://corsproxy.io/?https%3A%2F%2Fnews.yahoo.com%2Frss%2Fworld',
@@ -132,6 +154,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.politico.eu%2Ffeed%2F',
       'https://corsproxy.io/?https%3A%2F%2Fwww.politico.eu%2Ffeed%2F',
@@ -143,6 +167,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.thestar.com%2Fsearch%2F%3Ff%3Drss%26t%3Darticle%26c%3Dnews%2Fworld*%26l%3D50%26s%3Dstart_time%26sd%3Ddesc',
       'https://corsproxy.io/?https%3A%2F%2Fwww.thestar.com%2Fsearch%2F%3Ff%3Drss%26t%3Darticle%26c%3Dnews%2Fworld*%26l%3D50%26s%3Dstart_time%26sd%3Ddesc',
@@ -154,6 +180,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.brandonsun.com%2Ffeed%3Fpath%3D%252Fnational%252Fbreaking-news',
       'https://corsproxy.io/?https%3A%2F%2Fwww.brandonsun.com%2Ffeed%3Fpath%3D%252Fnational%252Fbreaking-news',
@@ -165,6 +193,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.thehindubusinessline.com%2Fnews%2F%3Fservice%3Drss',
       'https://corsproxy.io/?https%3A%2F%2Fwww.thehindubusinessline.com%2Fnews%2F%3Fservice%3Drss',
@@ -176,6 +206,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Fzeenews.india.com%2Frss%2Fworld-news.xml',
       'https://corsproxy.io/?https%3A%2F%2Fzeenews.india.com%2Frss%2Fworld-news.xml',
@@ -187,6 +219,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.livemint.com%2Frss%2Fpolitics',
       'https://corsproxy.io/?https%3A%2F%2Fwww.livemint.com%2Frss%2Fpolitics',
@@ -198,6 +232,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.ft.com%2Fworld-uk%3Fformat%3Drss',
       'https://corsproxy.io/?https%3A%2F%2Fwww.ft.com%2Fworld-uk%3Fformat%3Drss',
@@ -209,6 +245,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Ffeeds.skynews.com%2Ffeeds%2Frss%2Fpolitics.xml',
       'https://corsproxy.io/?https%3A%2F%2Ffeeds.skynews.com%2Ffeeds%2Frss%2Fpolitics.xml',
@@ -221,6 +259,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.economist.com%2Feurope%2Frss.xml',
       'https://corsproxy.io/?https%3A%2F%2Fwww.economist.com%2Feurope%2Frss.xml',
@@ -232,6 +272,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.economist.com%2Fthe-americas%2Frss.xml',
       'https://corsproxy.io/?https%3A%2F%2Fwww.economist.com%2Fthe-americas%2Frss.xml',
@@ -243,6 +285,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.economist.com%2Fmiddle-east-and-africa%2Frss.xml',
       'https://corsproxy.io/?https%3A%2F%2Fwww.economist.com%2Fmiddle-east-and-africa%2Frss.xml',
@@ -254,6 +298,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.nzherald.co.nz%2Farc%2Foutboundfeeds%2Frss%2Fsection%2Fworld%2F%3FoutputType%3Dxml%26_website%3Dnzh',
       'https://corsproxy.io/?https%3A%2F%2Fwww.nzherald.co.nz%2Farc%2Foutboundfeeds%2Frss%2Fsection%2Fworld%2F%3FoutputType%3Dxml%26_website%3Dnzh',
@@ -265,6 +311,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Ffeeds.a.dj.com%2Frss%2FRSSWorldNews.xml',
       'https://corsproxy.io/?https%3A%2F%2Ffeeds.a.dj.com%2Frss%2FRSSWorldNews.xml',
@@ -276,6 +324,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Frss.jpost.com%2Frss%2Frssfeedsarabisraeliconflict.aspx',
       'https://corsproxy.io/?https%3A%2F%2Frss.jpost.com%2Frss%2Frssfeedsarabisraeliconflict.aspx',
@@ -287,6 +337,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Frss.jpost.com%2Frss%2Frssfeedsheadlines.aspx',
       'https://corsproxy.io/?https%3A%2F%2Frss.jpost.com%2Frss%2Frssfeedsheadlines.aspx',
@@ -298,6 +350,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Frss.jpost.com%2Frss%2Frssfeedsinternational',
       'https://corsproxy.io/?https%3A%2F%2Frss.jpost.com%2Frss%2Frssfeedsinternational',
@@ -309,6 +363,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Frss.jpost.com%2Frss%2Fisrael-hamas-war',
       'https://corsproxy.io/?https%3A%2F%2Frss.jpost.com%2Frss%2Fisrael-hamas-war',
@@ -320,6 +376,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Frss.jpost.com%2Frss%2Frssfeedsmiddleeastnews.aspx',
       'https://corsproxy.io/?https%3A%2F%2Frss.jpost.com%2Frss%2Frssfeedsmiddleeastnews.aspx',
@@ -332,6 +390,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Frss.jpost.com%2Frss%2Frssukrainerussiawar',
       'https://corsproxy.io/?https%3A%2F%2Frss.jpost.com%2Frss%2Frssukrainerussiawar',
@@ -343,6 +403,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Frss.jpost.com%2Frss%2Frssfeedsgaza.aspx',
       'https://corsproxy.io/?https%3A%2F%2Frss.jpost.com%2Frss%2Frssfeedsgaza.aspx',
@@ -354,6 +416,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Fthehill.com%2Ffeed%2F%3Ffeed%3Dpartnerfeed-news-feed%26format%3Drss',
       'https://corsproxy.io/?https%3A%2F%2Fthehill.com%2Ffeed%2F%3Ffeed%3Dpartnerfeed-news-feed%26format%3Drss',
@@ -365,6 +429,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Fnypost.com%2Ffeed%2F',
       'https://corsproxy.io/?https%3A%2F%2Fnypost.com%2Ffeed%2F',
@@ -376,6 +442,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Fnews.usni.org%2Ffeed',
       'https://corsproxy.io/?https%3A%2F%2Fnews.usni.org%2Ffeed',
@@ -387,6 +455,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.israelhayom.com%2Ffeed%2F',
       'https://corsproxy.io/?https%3A%2F%2Fwww.israelhayom.com%2Ffeed%2F',
@@ -398,6 +468,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Fkyivindependent.com%2Fnews-archive%2Frss%2F',
       'https://corsproxy.io/?https%3A%2F%2Fkyivindependent.com%2Fnews-archive%2Frss%2F',
@@ -409,6 +481,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.voanews.com%2Fapi%2Fzobo_egviy',
       'https://corsproxy.io/?https%3A%2F%2Fwww.voanews.com%2Fapi%2Fzobo_egviy',
@@ -420,6 +494,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.voanews.com%2Fapi%2Fz-botevtiq',
       'https://corsproxy.io/?https%3A%2F%2Fwww.voanews.com%2Fapi%2Fz-botevtiq',
@@ -431,6 +507,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.voanews.com%2Fapi%2Fzmjuqteb_kqo',
       'https://corsproxy.io/?https%3A%2F%2Fwww.voanews.com%2Fapi%2Fzmjuqteb_kqo',
@@ -442,6 +520,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.voanews.com%2Fapi%2Fz_-mqyerv_qv',
       'https://corsproxy.io/?https%3A%2F%2Fwww.voanews.com%2Fapi%2Fz_-mqyerv_qv',
@@ -453,6 +533,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.voanews.com%2Fapi%2Fzrbopeuvim',
       'https://corsproxy.io/?https%3A%2F%2Fwww.voanews.com%2Fapi%2Fzrbopeuvim',
@@ -465,6 +547,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.voanews.com%2Fapi%2Fzjboveytit',
       'https://corsproxy.io/?https%3A%2F%2Fwww.voanews.com%2Fapi%2Fzjboveytit',
@@ -476,6 +560,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.voanews.com%2Fapi%2Fzt_rqyeirqqy',
       'https://corsproxy.io/?https%3A%2F%2Fwww.voanews.com%2Fapi%2Fzt_rqyeirqqy',
@@ -487,6 +573,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.voanews.com%2Fapi%2Fzoripegtim',
       'https://corsproxy.io/?https%3A%2F%2Fwww.voanews.com%2Fapi%2Fzoripegtim',
@@ -498,6 +586,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.voanews.com%2Fapi%2Fzbuiqyetppqv',
       'https://corsproxy.io/?https%3A%2F%2Fwww.voanews.com%2Fapi%2Fzbuiqyetppqv',
@@ -509,6 +599,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.voanews.com%2Fapi%2Fziu-qoejibqo',
       'https://corsproxy.io/?https%3A%2F%2Fwww.voanews.com%2Fapi%2Fziu-qoejibqo',
@@ -520,6 +612,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.voanews.com%2Fapi%2Fz-ukqqevpgqi',
       'https://corsproxy.io/?https%3A%2F%2Fwww.voanews.com%2Fapi%2Fz-ukqqevpgqi',
@@ -531,6 +625,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.voanews.com%2Fapi%2Fzumgqoepbgqp',
       'https://corsproxy.io/?https%3A%2F%2Fwww.voanews.com%2Fapi%2Fzumgqoepbgqp',
@@ -542,6 +638,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.voanews.com%2Fapi%2Fzvq-qveok-qv',
       'https://corsproxy.io/?https%3A%2F%2Fwww.voanews.com%2Fapi%2Fzvq-qveok-qv',
@@ -553,6 +651,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.voanews.com%2Fapi%2Fzmbjqvebv-qr',
       'https://corsproxy.io/?https%3A%2F%2Fwww.voanews.com%2Fapi%2Fzmbjqvebv-qr',
@@ -564,6 +664,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Fblog.4president.us%2F2024%2Fatom.xml',
       'https://corsproxy.io/?https%3A%2F%2Fblog.4president.us%2F2024%2Fatom.xml',
@@ -577,6 +679,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.spaceforce.mil%2FDesktopModules%2FArticleCS%2FRSS.ashx%3FContentType%3D1%26Site%3D1060%26isdashboardselected%3D0%26max%3D20%26Category%3D23812',
       'https://corsproxy.io/?https%3A%2F%2Fwww.spaceforce.mil%2FDesktopModules%2FArticleCS%2FRSS.ashx%3FContentType%3D1%26Site%3D1060%26isdashboardselected%3D0%26max%3D20%26Category%3D23812',
@@ -588,6 +692,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.smh.com.au%2Frss%2Fworld.xml',
       'https://corsproxy.io/?https%3A%2F%2Fwww.smh.com.au%2Frss%2Fworld.xml',
@@ -599,6 +705,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://corsproxy.io/?https%3A%2F%2Fwww.state.gov%2Frss-feed%2Fafrica%2Ffeed%2F',
       'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.state.gov%2Frss-feed%2Fafrica%2Ffeed%2F',
@@ -610,6 +718,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://corsproxy.io/?https%3A%2F%2Fwww.state.gov%2Frss-feed%2Feast-asia-and-the-pacific%2Ffeed%2F',
       'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.state.gov%2Frss-feed%2Feast-asia-and-the-pacific%2Ffeed%2F',
@@ -621,6 +731,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://corsproxy.io/?https%3A%2F%2Fwww.state.gov%2Frss-feed%2Feurope-and-eurasia%2Ffeed%2F',
       'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.state.gov%2Frss-feed%2Feurope-and-eurasia%2Ffeed%2F',
@@ -632,6 +744,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://corsproxy.io/?https%3A%2F%2Fwww.state.gov%2Frss-feed%2Fnear-east%2Ffeed%2F',
       'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.state.gov%2Frss-feed%2Fnear-east%2Ffeed%2F',
@@ -643,6 +757,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://corsproxy.io/?https%3A%2F%2Fwww.state.gov%2Frss-feed%2Fsouth-and-central-asia%2Ffeed%2F',
       'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.state.gov%2Frss-feed%2Fsouth-and-central-asia%2Ffeed%2F',
@@ -654,6 +770,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.defense.gov%2FDesktopModules%2FArticleCS%2FRSS.ashx%3FContentType%3D9%26Site%3D945%26max%3D10',
       'https://corsproxy.io/?https%3A%2F%2Fwww.defense.gov%2FDesktopModules%2FArticleCS%2FRSS.ashx%3FContentType%3D9%26Site%3D945%26max%3D10',
@@ -665,6 +783,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Fsearch.cnbc.com%2Frs%2Fsearch%2Fcombinedcms%2Fview.xml%3FpartnerId%3Dwrss01%26id%3D100727362',
       'https://corsproxy.io/?https%3A%2F%2Fsearch.cnbc.com%2Frs%2Fsearch%2Fcombinedcms%2Fview.xml%3FpartnerId%3Dwrss01%26id%3D100727362',
@@ -676,6 +796,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.understandingwar.org%2Frss.xml',
       'https://corsproxy.io/?https%3A%2F%2Fwww.understandingwar.org%2Frss.xml',
@@ -688,6 +810,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.cbc.ca%2Fwebfeed%2Frss%2Frss-world',
       'https://corsproxy.io/?https%3A%2F%2Fwww.cbc.ca%2Fwebfeed%2Frss%2Frss-world',
@@ -699,6 +823,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.thecipherbrief.com%2Ffeed',
       'https://corsproxy.io/?https%3A%2F%2Fwww.thecipherbrief.com%2Ffeed',
@@ -710,6 +836,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.ctvnews.ca%2Frss%2Fworld%2Fctvnews-ca-world-public-rss-1.822289',
       'https://corsproxy.io/?https%3A%2F%2Fwww.ctvnews.ca%2Frss%2Fworld%2Fctvnews-ca-world-public-rss-1.822289',
@@ -721,6 +849,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.channelnewsasia.com%2Fapi%2Fv1%2Frss-outbound-feed%3F_format%3Dxml%26category%3D6511',
       'https://corsproxy.io/?https%3A%2F%2Fwww.channelnewsasia.com%2Fapi%2Fv1%2Frss-outbound-feed%3F_format%3Dxml%26category%3D6511',
@@ -732,6 +862,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Ffeeds.buzzsprout.com%2F1759080.rss',
       'https://corsproxy.io/?https%3A%2F%2Ffeeds.buzzsprout.com%2F1759080.rss',
@@ -743,6 +875,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Fworldnewsera.com%2Ffeed%2F',
       'https://corsproxy.io/?https%3A%2F%2Fworldnewsera.com%2Ffeed%2F',
@@ -754,6 +888,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.scmp.com%2Frss%2F91%2Ffeed',
       'https://corsproxy.io/?https%3A%2F%2Fwww.scmp.com%2Frss%2F91%2Ffeed',
@@ -765,6 +901,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.euronews.com%2Frss%3Flevel%3Dvertical%26name%3Dnews',
       'https://corsproxy.io/?https%3A%2F%2Fwww.euronews.com%2Frss%3Flevel%3Dvertical%26name%3Dnews',
@@ -776,6 +914,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Fthefederalist.com%2Ffeed%2F',
       'https://corsproxy.io/?https%3A%2F%2Fthefederalist.com%2Ffeed%2F',
@@ -787,6 +927,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://corsproxy.io/?https%3A%2F%2Fwww.reddit.com%2Fr%2Fbreakingnews.rss',
       'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.reddit.com%2Fr%2Fbreakingnews.rss',
@@ -798,6 +940,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://corsproxy.io/?https%3A%2F%2Fwww.reddit.com%2Fr%2FYemeniCrisis%2Fnew.rss',
       'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.reddit.com%2Fr%2FYemeniCrisis%2Fnew.rss',
@@ -809,6 +953,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://corsproxy.io/?https%3A%2F%2Fwww.reddit.com%2Fr%2Fworldnews%2Frising.rss',
       'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.reddit.com%2Fr%2Fworldnews%2Frising.rss',
@@ -820,6 +966,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://corsproxy.io/?https%3A%2F%2Fwww.reddit.com%2Fr%2FInternationalNews.rss',
       'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.reddit.com%2Fr%2FInternationalNews.rss',
@@ -831,6 +979,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://corsproxy.io/?https%3A%2F%2Fwww.naharnet.com%2Ftags%2Flebanon%2Fen%2Ffeed.atom',
       'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.naharnet.com%2Ftags%2Flebanon%2Fen%2Ffeed.atom',
@@ -842,6 +992,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://corsproxy.io/?https%3A%2F%2Fwww.naharnet.com%2Ftags%2Fmiddle-east%2Fen%2Ffeed.atom',
       'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.naharnet.com%2Ftags%2Fmiddle-east%2Fen%2Ffeed.atom',
@@ -853,6 +1005,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://corsproxy.io/?https%3A%2F%2Frsshub.app%2Ftelegram%2Fchannel%2FWOLPalestine',
       'https://api.allorigins.win/get?url=https%3A%2F%2Frsshub.app%2Ftelegram%2Fchannel%2FWOLPalestine',
@@ -864,6 +1018,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://rsshub.app/telegram/channel/kpszsu',
       'https://api.allorigins.win/get?url=https%3A%2F%2Frsshub.app%2Ftelegram%2Fchannel%2Fkpszsu',
@@ -875,6 +1031,8 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: ['Federal Way', 'Seattle', 'San Francisco', 'Los Angeles', 'San Jose', 'Santa Clara', ' Westlake Village', 'Minneapolis', 'Phoenix', 'Scottsdale', 'Plano', 'Spokane', 'LaGrange', 'White Oak', 'Silver Springs', 'Boston', 'Chicago', 'Chicopee', 'Detroit', 'Princeton', 'Washington', 'Seacaucua', 'New York City', 'Grand Rapids', 'LaPorte', 'Morgantown', 'New York', 'Nashville', 'Depew', 'Miami', 'Houston', 'Dallas'],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://corsproxy.io/?https%3A%2F%2Fapi.weather.gov%2Falerts%2Factive.atom%3Fcertainty%3DLikely%252CObserved%26severity%3DExtreme%252CSevere%26urgency%3DFuture%252CExpected%252CImmediate',
       'https://api.allorigins.win/get?url=https%3A%2F%2Fapi.weather.gov%2Falerts%2Factive.atom%3Fcertainty%3DLikely%252CObserved%26severity%3DExtreme%252CSevere%26urgency%3DFuture%252CExpected%252CImmediate',
@@ -886,6 +1044,8 @@ const rssFeeds = [
     priorityLevel: 'High',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://rsshub.woodland.cafe/telegram/channel/News_cabinet_news',
       'https://api.allorigins.win/get?url=https%3A%2F%2Frsshub.app%2Ftelegram%2Fchannel%2FNews_cabinet_news',
@@ -898,6 +1058,8 @@ const rssFeeds = [
     priorityLevel: 'High',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://corsproxy.io/?https%3A%2F%2Frsshub.app%2Ftelegram%2Fchannel%2FSaba_Newsye',
     ]
@@ -908,6 +1070,8 @@ const rssFeeds = [
     priorityLevel: 'High',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://corsproxy.io/?https%3A%2F%2Frsshub.app%2Ftelegram%2Fchannel%2Fepochtimes',
     ]
@@ -918,6 +1082,8 @@ const rssFeeds = [
     priorityLevel: 'High',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Frsshub.speednet.icu%2Ftelegram%2Fchannel%2FStandWithUsBreakingNews',
       'https://corsproxy.io/?https%3A%2F%2Frsshub.app%2Ftelegram%2Fchannel%2FStandWithUsBreakingNews',
@@ -929,6 +1095,8 @@ const rssFeeds = [
     priorityLevel: 'Low',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [
       'https://corsproxy.io/?https%3A%2F%2Fglobal.shakemovie.princeton.edu%2Fshakemovie%2Frss',
     ]
@@ -939,6 +1107,8 @@ const rssFeeds = [
     priorityLevel: 'High',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [],
   },
   {
@@ -947,6 +1117,8 @@ const rssFeeds = [
     priorityLevel: 'High',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [],
   },
   {
@@ -955,6 +1127,8 @@ const rssFeeds = [
     priorityLevel: 'High',
     requiredTerms: [],
     ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#E0F7FA',
     backups: [],
   },
 ];
