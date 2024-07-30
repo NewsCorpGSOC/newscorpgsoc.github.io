@@ -1135,7 +1135,7 @@ const rssFeeds = [
   },
   {
     url: 'http://www.bom.gov.au/rss/?ref=ftr',
-    source: 'Australia Bureau of Meteology',
+    source: 'Australia Bureau of Meteorology',
     priorityLevel: 'High',
     requiredTerms: [],
     ignoreTerms: [],
