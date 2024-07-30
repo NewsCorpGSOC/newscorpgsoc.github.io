@@ -691,7 +691,7 @@ const rssFeeds = [
     source: 'Sydney Morning Herald',
     priorityLevel: 'Very Low',
     requiredTerms: [],
-    ignoreTerms: [],
+    ignoreTerms: ['World of photos'],
     reliability: 'Credible',
     background: '#203050',
     backups: [
