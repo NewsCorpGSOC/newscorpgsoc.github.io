@@ -184,6 +184,7 @@
           padding: 20px;
           box-sizing: border-box;
         }
+        
         .feed-container {
           flex: 4;
           margin-right: 20px;
@@ -195,49 +196,73 @@
           padding: 35px 20px 20px 20px;
           position: relative;
         }
-        .feed {
+        
+        .feed-item {
+          display: flex;
           margin-bottom: 20px;
           border: 2px solid #00d3e6; /* Border color */
           border-radius: 10px; /* Smooth corners */
-          padding: 10px; /* Padding inside the container */
         }
+        
+        .credibility-container {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 50px;
+          background-color: inherit; /* Inherit the background color based on reliability */
+          border-top-left-radius: 10px;
+          border-bottom-left-radius: 10px;
+          color: #000; /* Change text color to black for better readability */
+          font-size: 24px; /* Adjust font size for better visibility */
+        }
+        
+        .feed-content {
+          flex-grow: 1;
+          padding: 10px;
+          border-top-right-radius: 10px;
+          border-bottom-right-radius: 10px;
+        }
+        
         .feed-container h1 {
           text-align: center;
           color: white;
           text-decoration: underline;
         }
-        .feed title {
+        
+        .feed-item h2 {
           margin: 0 0 10px;
           font-size: 24px;
         }
-        .feed h2 {
-          margin: 0 0 10px;
-          font-size: 24px;
-        }
-        .feed a {
+        
+        .feed-item a {
           text-decoration: none;
           color: #00D6E3;
           font-size: 14px;
         }
-        .feed h2 a {
+        
+        .feed-item h2 a {
           margin: 0 0 10px;
           text-decoration: none;
           color: #00D6E3;
           font-size: 24px;
         }
-        .feed p {
+        
+        .feed-item p {
           color: #fff;
           font-size: 14px;
           margin-bottom: 8px;
         }
-        .feed div {
+        
+        .feed-item div {
           color: #fff;
           font-size: 14px;
           margin-bottom: 8px;
         }
-        .feed ul li a {
+        
+        .feed-item ul li a {
           font-size: 14px;
         }
+        
         .connection-container {
           flex: 0.35;
           display: flex;
@@ -249,16 +274,16 @@
           padding: 20px;
           box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-
+        
         .connection-container h2 {
-            font-weight: bold;
-            text-align: center;
-            text-decoration: underline;
-            margin-top: -4px;
-            margin-bottom: -8px;
-            padding-bottom: -5px;
+          font-weight: bold;
+          text-align: center;
+          text-decoration: underline;
+          margin-top: -4px;
+          margin-bottom: -8px;
+          padding-bottom: -5px;
         }
-
+        
         .filter-container {
           flex: 1;
           display: flex;
@@ -269,13 +294,15 @@
           padding: 20px;
           box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
+        
         .filter-bar {
-        	display: flex;
+          display: flex;
           flex-direction: column;
           gap: 10px;
         }
-  
-        .filter-bar select, .filter-bar input {
+        
+        .filter-bar select,
+        .filter-bar input {
           background-color: #EDF2F2;
           color: #404040;
           border: none;
@@ -300,14 +327,17 @@
         .filter-bar button.active {
           background-color: #0056b3;
         }
+        
         /* CSS specifically for drop-down options */
         .filter-bar option {
           background-color: #00D6E3;
           color: white;
         }
+        
         .filter-bar label {
           color: white;
         }
+        
         .loading-overlay {
           position: absolute;
           top: 0;
@@ -323,15 +353,18 @@
           z-index: 10;
           display: none; /* Hidden by default */
         }
+        
         .btn {
           margin: 5px 0;
         }
+        
         #sourceFilterContainer {
           padding: 10px;
           border: 1px solid #ccc;
           background-color: #002060;
           color: #00D6E3;
         }
+        
         .volume-slider-container {
           margin-top: -13px;
           margin-bottom: -12px;
@@ -347,7 +380,7 @@
           margin-top: -15px;
           width: 100%;
         }
-
+        
         .tooltip {
           position: relative;
           display: inline-block;
@@ -376,9 +409,11 @@
           visibility: visible;
           opacity: 1;
         }
+        
         .connection-container a {
-            color: #fff;
+          color: #fff;
         }
+        
         /* Background Colors */
         .bg-credible {
           background-color: #E0F7FA; /* Light Blue */
@@ -390,23 +425,6 @@
         
         .bg-requires-verification {
           background-color: #FFCDD2; /* Light Red */
-        }
-
-        .credibility-container {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          width: 50px;
-          background-color: inherit; /* Inherit the background color based on reliability */
-          border-top-left-radius: 10px;
-          border-bottom-left-radius: 10px;
-        }
-        
-        .feed-content {
-          flex-grow: 1;
-          padding: 10px;
-          border-top-right-radius: 10px;
-          border-bottom-right-radius: 10px;
         }
         
         /* Reliability Symbols */
