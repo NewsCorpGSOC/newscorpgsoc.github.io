@@ -105,7 +105,9 @@ document.addEventListener('DOMContentLoaded', () => {
               link,
               description: decodeHTMLEntities(description),
               pubDate: pacificDate,
-              source: feed.source
+              source: feed.source,
+              reliability: feed.reliability, // New field
+              background: feed.background // New field
             });
           } else {
             console.log('Incomplete item:', { title, link, description, pacificDate });
@@ -131,14 +133,14 @@ document.addEventListener('DOMContentLoaded', () => {
   };
   // Define the csvFiles array with source information
   const csvFiles = [
-    { file: 'Epoch_Times.csv', source: 'CSV Epoch Times' },
-    { file: 'Israel_Security_Cabinet_News.csv', source: 'CSV Israel Security Cabinet News' },
-    { file: 'Stand_With_Us_Breaking_News.csv', source: 'CSV Stand With Us Breaking News' },
-    { file: 'Ukraine_Air_Defense.csv', source: 'CSV Ukraine Air Defense' },
-    { file: 'WOLPalestine.csv', source: 'CSV WOLPalestine' }
+    { file: 'Epoch_Times.tsv', source: 'CSV Epoch Times' },
+    { file: 'Israel_Security_Cabinet_News.tsv', source: 'CSV Israel Security Cabinet News' },
+    { file: 'Stand_With_Us_Breaking_News.tsv', source: 'CSV Stand With Us Breaking News' },
+    { file: 'Ukraine_Air_Defense.tsv', source: 'CSV Ukraine Air Defense' },
+    { file: 'WOLPalestine.tsv', source: 'CSV WOLPalestine' }
   ];
 
-  async function fetchCSVFiles() {
+ async function fetchCSVFiles() {
     let csvFeedItems = [];
 
     for (const { file, source } of csvFiles) {
@@ -551,6 +553,24 @@ document.addEventListener('DOMContentLoaded', () => {
     searchFilteredFeeds.forEach(item => {
       const feedElement = document.createElement('div');
       feedElement.classList.add('feed');
+  
+      // Add background color class based on reliability
+      if (item.reliability === 'Credible') {
+        feedElement.classList.add('bg-credible');
+      } else if (item.reliability === 'Dubious') {
+        feedElement.classList.add('bg-dubious');
+      } else if (item.reliability === 'Requires Verification') {
+        feedElement.classList.add('bg-requires-verification');
+      }
+  
+      // Add reliability class based on reliability
+      if (item.reliability === 'Credible') {
+        feedElement.classList.add('credible');
+      } else if (item.reliability === 'Dubious') {
+        feedElement.classList.add('dubious');
+      } else if (item.reliability === 'Requires Verification') {
+        feedElement.classList.add('requires-verification');
+      }
   
       const parser = new DOMParser();
       const doc = parser.parseFromString(item.description, 'text/html');
