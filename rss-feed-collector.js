@@ -43,16 +43,38 @@ document.addEventListener('DOMContentLoaded', () => {
       checkbox.name = 'sourceFilter';
       checkbox.value = source;
       checkbox.checked = true;
-
+  
       const label = document.createElement('label');
       label.htmlFor = source;
       label.textContent = source;
-
+  
       const container = document.createElement('div');
       container.appendChild(checkbox);
       container.appendChild(label);
-
+  
       sourceFilterContainer.appendChild(container);
+    });
+  
+    // Ensure TSV sources are added
+    tsvFiles.forEach(({ source }) => {
+      if (!uniqueSources.includes(source)) {
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.id = source;
+        checkbox.name = 'sourceFilter';
+        checkbox.value = source;
+        checkbox.checked = true;
+  
+        const label = document.createElement('label');
+        label.htmlFor = source;
+        label.textContent = source;
+  
+        const container = document.createElement('div');
+        container.appendChild(checkbox);
+        container.appendChild(label);
+  
+        sourceFilterContainer.appendChild(container);
+      }
     });
   }
 
@@ -681,6 +703,10 @@ function applyFilter() {
 
   const checkedSources = Array.from(document.querySelectorAll('input[name="sourceFilter"]:checked')).map(cb => cb.value);
   console.log(`Checked sources: ${checkedSources.join(', ')}`);
+
+  // Debugging: Log sources from feedItems
+  const feedItemSources = [...new Set(feedItems.map(item => item.source))];
+  console.log(`Sources in feedItems: ${feedItemSources.join(', ')}`);
 
   if (checkedSources.length > 0 && !checkedSources.includes('all')) {
     filteredFeeds = filteredFeeds.filter(item => checkedSources.includes(item.source));
