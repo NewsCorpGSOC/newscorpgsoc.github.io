@@ -131,8 +131,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     return [];
   };
-  // Define the csvFiles array with source information
-  const csvFiles = [
+
+  const tsvFiles = [
     { file: 'Venezuela_News_Network.tsv', source: 'TSV Venezuela News Network' },
     { file: 'Epoch_Times.tsv', source: 'TSV Epoch Times' },
     { file: 'Israel_Security_Cabinet_News.tsv', source: 'TSV Israel Security Cabinet News' },
@@ -141,35 +141,26 @@ document.addEventListener('DOMContentLoaded', () => {
     { file: 'WOLPalestine.tsv', source: 'TSV WOLPalestine' }
   ];
 
-  async function fetchCSVFiles() {
-    let csvFeedItems = [];
-
-    for (const { file, source } of csvFiles) {
-      try {
-        // Adding a cache-busting query parameter
-        const cacheBuster = new Date().getTime();
-        const response = await fetch(`GoogleSheets/${file}?cb=${cacheBuster}`);
-        const csvText = await response.text();
-        console.log(`Fetched CSV: ${file}`);
-        console.log(csvText); // Log fetched CSV text for debugging
-        const parsedCSV = parseCSV(csvText, source);
-        console.log(parsedCSV); // Log parsed CSV data for debugging
-        csvFeedItems = csvFeedItems.concat(parsedCSV);
-      } catch (error) {
-        console.error(`Error fetching CSV file ${file}:`, error);
-      }
+  async function fetchTSVFile(url) {
+    try {
+      const response = await fetch(url);
+      const tsvText = await response.text();
+      return tsvText;
+    } catch (error) {
+      console.error('Error fetching TSV file:', error);
+      return null;
     }
-    return csvFeedItems;
   }
 
-  function parseCSV(csvText, source) {
-    const parsedData = Papa.parse(csvText, {
+  function parseTSV(tsvText, source) {
+    const parsedData = Papa.parse(tsvText, {
+      delimiter: '\t',
       header: true,
       skipEmptyLines: true
     });
 
     if (parsedData.errors.length) {
-      console.error("Errors parsing CSV:", parsedData.errors);
+      console.error("Errors parsing TSV:", parsedData.errors);
       return [];
     }
 
@@ -191,9 +182,28 @@ document.addEventListener('DOMContentLoaded', () => {
         link,
         description,
         pubDate: convertToPacificTime(pubDate, source),
-        source // Use the source passed to the function
+        source
       };
     }).filter(item => item); // Filter out null values
+  }
+
+  async function fetchTSVFiles() {
+    let tsvFeedItems = [];
+
+    for (const { file, source } of tsvFiles) {
+      try {
+        const cacheBuster = new Date().getTime();
+        const tsvText = await fetchTSVFile(`GoogleSheets/${file}?cb=${cacheBuster}`);
+        console.log(`Fetched TSV: ${file}`);
+        console.log(tsvText); // Log fetched TSV text for debugging
+        const parsedTSV = parseTSV(tsvText, source);
+        console.log(parsedTSV); // Log parsed TSV data for debugging
+        tsvFeedItems = tsvFeedItems.concat(parsedTSV);
+      } catch (error) {
+        console.error(`Error fetching TSV file ${file}:`, error);
+      }
+    }
+    return tsvFeedItems;
   }
 
   function filterFeedItems(items, requiredTerms, ignoreTerms) {
@@ -488,10 +498,9 @@ document.addEventListener('DOMContentLoaded', () => {
       'Very Low': 600000 // 10 minutes
     };
   
-    // Fetch all feeds initially
     await Promise.all(rssFeeds.map(feed => fetchFeedAndUpdate(feed)));
-    const csvFeedItems = await fetchCSVFiles();
-    feedItems = [...feedItems, ...csvFeedItems];
+    const tsvFeedItems = await fetchTSVFiles();
+    feedItems = [...feedItems, ...tsvFeedItems];
     feedItems.sort((a, b) => b.pubDate - a.pubDate); // Sort by date, newest first
     displayFeeds();
   
@@ -505,14 +514,14 @@ document.addEventListener('DOMContentLoaded', () => {
       }, fetchInterval);
     });
   
-    // Fetch CSV files periodically
+    // Fetch TSV files periodically
     setInterval(async () => {
-      const csvFeedItems = await fetchCSVFiles();
-      feedItems = [...feedItems.filter(item => !csvFeedItems.find(csvItem => csvItem.title === item.title)), ...csvFeedItems];
+      const tsvFeedItems = await fetchTSVFiles();
+      feedItems = [...feedItems.filter(item => !tsvFeedItems.find(tsvItem => tsvItem.title === item.title)), ...tsvFeedItems];
       feedItems.sort((a, b) => b.pubDate - a.pubDate); // Sort by date, newest first
       console.log('Combined Feed Items:', feedItems); // Log combined feed items for debugging
       displayFeeds();
-    }, 180000); // Fetch CSV files every 3 minutes
+    }, 180000); // Fetch TSV files every 3 minutes
   }
 
   async function fetchFeedAndUpdate(feed) {
@@ -645,7 +654,6 @@ document.addEventListener('DOMContentLoaded', () => {
       'Weather': ['climate', 'environment', 'storm', 'tornado', 'hurricane', 'heatwave', 'earthquake', 'tsunami'],
       'China & APAC Tensions': ['South China Sea', 'SCS', 'Nine-Dash Line', 'Spratly Islands', 'Paracel Islands', 'Scarborough Shoal', 'ASEAN', 'Philippines and South China Sea', 'Vietnam and South China Sea', 'Malaysia and South China Sea', 'Brunei and South China Sea', 'Chinas artificial islands', 'US-China relations', 'Sino-American relations'],
       'North Korea': ['North Korea', 'DPRK', 'Pyongyang', 'Kim Jong-un', 'North Korean government', 'North Korean military', 'North Korean regime', 'North Korean sanctions', 'North Korean economy', 'North Korean diplomacy', 'North Korean missile test', 'North Korean missile launch', 'North Korean missile test', 'North Korean missile launch', 'South Korea', 'ROK', 'Seoul', 'South Korean government', 'South Korean military', 'Moon Jae-in', 'Yoon Suk-yeol', 'Kaesong Industrial Complex', 'Cheonan sinking', 'Yeonpyeong Island shelling', 'North Korean artillery fire', 'North Korean missile tests', 'North Korean nuclear tests', 'North Korean espionage', 'South Korean sanctions', 'South Korean defense strategy', 'North Korean provocations', 'North Korean threats', 'Pyongyang', 'Hamhung', 'Chongjin', 'Nampo', 'Wonsan', 'Sinuiju', 'Tanchon', 'Kaesong', 'Sariwon', 'Haeju', 'Kimchaek', 'Hyesan', 'Songnim', 'Rason', 'Kanggye', 'Seoul', 'Busan', 'Incheon', 'Daegu', 'Daejeon', 'Gwangju', 'Suwon', 'Ulsan', 'Changwon', 'Seongnam', 'Goyang', 'Yongin', 'Bucheon', 'Cheongju', 'Jeonju', 'Cheonan', 'Ansan', 'Sejong', 'Anyang', 'Uijeongbu', 'Gimhae', 'Pyeongtaek', 'Jinju', 'Pohang', 'Mokpo', 'Jeju', 'Gwangmyeong'],
-      // Add more topics and their corresponding keywords here
     };
 
     const topicValue = topicFilter.value;
