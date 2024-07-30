@@ -35,7 +35,7 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
-    reliability: 'Credible',
+    reliability: 'Dubious',
     background: '#203050',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.theguardian.com%2Fworld%2Frss',
@@ -50,7 +50,7 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
-    reliability: 'Credible',
+    reliability: 'Dubious',
     background: '#203050',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.aljazeera.com%2Fxml%2Frss%2Fall.xml',
@@ -63,7 +63,7 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
-    reliability: 'Credible',
+    reliability: 'Dubious',
     background: '#203050',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Fwol.com%2Ffeed%2F',
@@ -89,7 +89,7 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
-    reliability: 'Credible',
+    reliability: 'Dubious',
     background: '#203050',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Fmoxie.foxnews.com%2Fgoogle-publisher%2Fworld.xml',
@@ -102,7 +102,7 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
-    reliability: 'Credible',
+    reliability: 'Dubious',
     background: '#203050',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Fmoxie.foxnews.com%2Fgoogle-publisher%2Flatest.xml',
@@ -180,7 +180,7 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
-    reliability: 'Credible',
+    reliability: 'Dubious',
     background: '#203050',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.brandonsun.com%2Ffeed%3Fpath%3D%252Fnational%252Fbreaking-news',
@@ -190,7 +190,7 @@ const rssFeeds = [
   {
     url: 'https://www.thehindubusinessline.com/news/?service=rss',
     source: 'The Hindu Business Line',
-    priorityLevel: 'Very Low',
+    priorityLevel: 'Dubious',
     requiredTerms: [],
     ignoreTerms: [],
     reliability: 'Credible',
@@ -206,7 +206,7 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
-    reliability: 'Credible',
+    reliability: 'Dubious',
     background: '#203050',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Fzeenews.india.com%2Frss%2Fworld-news.xml',
@@ -219,7 +219,7 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
-    reliability: 'Credible',
+    reliability: 'Dubious',
     background: '#203050',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.livemint.com%2Frss%2Fpolitics',
@@ -416,7 +416,7 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
-    reliability: 'Credible',
+    reliability: 'Dubious',
     background: '#203050',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Fthehill.com%2Ffeed%2F%3Ffeed%3Dpartnerfeed-news-feed%26format%3Drss',
@@ -429,7 +429,7 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
-    reliability: 'Credible',
+    reliability: 'Dubious',
     background: '#203050',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Fnypost.com%2Ffeed%2F',
@@ -455,7 +455,7 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
-    reliability: 'Credible',
+    reliability: 'Dubious',
     background: '#203050',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.israelhayom.com%2Ffeed%2F',
@@ -783,7 +783,7 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
-    reliability: 'Credible',
+    reliability: 'Dubious',
     background: '#203050',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Fsearch.cnbc.com%2Frs%2Fsearch%2Fcombinedcms%2Fview.xml%3FpartnerId%3Dwrss01%26id%3D100727362',
@@ -875,7 +875,7 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
-    reliability: 'Credible',
+    reliability: 'Dubious',
     background: '#203050',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Fworldnewsera.com%2Ffeed%2F',
@@ -888,7 +888,7 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
-    reliability: 'Credible',
+    reliability: 'Dubious',
     background: '#203050',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.scmp.com%2Frss%2F91%2Ffeed',
@@ -901,7 +901,7 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
-    reliability: 'Credible',
+    reliability: 'Dubious',
     background: '#203050',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.euronews.com%2Frss%3Flevel%3Dvertical%26name%3Dnews',
@@ -914,7 +914,7 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
-    reliability: 'Credible',
+    reliability: 'Requires Verification',
     background: '#203050',
     backups: [
       'https://api.allorigins.win/get?url=https%3A%2F%2Fthefederalist.com%2Ffeed%2F',
@@ -927,7 +927,7 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
-    reliability: 'Credible',
+    reliability: 'Dubious',
     background: '#203050',
     backups: [
       'https://corsproxy.io/?https%3A%2F%2Fwww.reddit.com%2Fr%2Fbreakingnews.rss',
@@ -953,7 +953,7 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
-    reliability: 'Credible',
+    reliability: 'Dubious',
     background: '#203050',
     backups: [
       'https://corsproxy.io/?https%3A%2F%2Fwww.reddit.com%2Fr%2Fworldnews%2Frising.rss',
@@ -966,7 +966,7 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
-    reliability: 'Credible',
+    reliability: 'Dubious',
     background: '#203050',
     backups: [
       'https://corsproxy.io/?https%3A%2F%2Fwww.reddit.com%2Fr%2FInternationalNews.rss',
@@ -979,7 +979,7 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
-    reliability: 'Credible',
+    reliability: 'Dubious',
     background: '#203050',
     backups: [
       'https://corsproxy.io/?https%3A%2F%2Fwww.naharnet.com%2Ftags%2Flebanon%2Fen%2Ffeed.atom',
@@ -992,7 +992,7 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
-    reliability: 'Credible',
+    reliability: 'Dubious',
     background: '#203050',
     backups: [
       'https://corsproxy.io/?https%3A%2F%2Fwww.naharnet.com%2Ftags%2Fmiddle-east%2Fen%2Ffeed.atom',
@@ -1058,7 +1058,7 @@ const rssFeeds = [
     priorityLevel: 'High',
     requiredTerms: [],
     ignoreTerms: [],
-    reliability: 'Credible',
+    reliability: 'Requires Verification',
     background: '#203050',
     backups: [
       'https://corsproxy.io/?https%3A%2F%2Frsshub.app%2Ftelegram%2Fchannel%2FSaba_Newsye',
