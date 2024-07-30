@@ -441,6 +441,12 @@ document.addEventListener('DOMContentLoaded', () => {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else if (source === 'United Kingdom Weather Warnings') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
+    } else if (source === 'Australia Bureau of Meteorology') {
+      adjustedDate.setHours(adjustedDate.getHours() + 0);
+    } else if (source === 'Meteorological Service Singapore') {
+      adjustedDate.setHours(adjustedDate.getHours() + 0);
+    } else if (source === 'Brazil Weather Alerts') {
+      adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else {
       console.warn(`No specific time adjustment found for source: ${source}`);
     }
