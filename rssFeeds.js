@@ -1129,7 +1129,9 @@ const rssFeeds = [
     ignoreTerms: [],
     reliability: 'Credible',
     background: '#203050',
-    backups: [],
+    backups: [
+      'https://corsproxy.io/?http%3A%2F%2Fwww.bom.gov.au%2Ffwo%2FIDZ00058.warnings_tas.xml',
+    ],
   },
   {
     url: 'http://www.bom.gov.au/fwo/IDZ00054.warnings_nsw.xml',
@@ -1139,7 +1141,9 @@ const rssFeeds = [
     ignoreTerms: [],
     reliability: 'Credible',
     background: '#203050',
-    backups: [],
+    backups: [
+      'https://corsproxy.io/?http%3A%2F%2Fwww.bom.gov.au%2Ffwo%2FIDZ00054.warnings_nsw.xml',
+    ],
   },
   {
     url: 'http://www.bom.gov.au/fwo/IDZ00059.warnings_vic.xml',
@@ -1149,7 +1153,9 @@ const rssFeeds = [
     ignoreTerms: [],
     reliability: 'Credible',
     background: '#203050',
-    backups: [],
+    backups: [
+      'https://corsproxy.io/?http%3A%2F%2Fwww.bom.gov.au%2Ffwo%2FIDZ00059.warnings_vic.xml',
+    ],
   },
   {
     url: 'http://www.bom.gov.au/fwo/IDZ00056.warnings_qld.xml',
@@ -1159,7 +1165,9 @@ const rssFeeds = [
     ignoreTerms: [],
     reliability: 'Credible',
     background: '#203050',
-    backups: [],
+    backups: [
+      'https://corsproxy.io/?http%3A%2F%2Fwww.bom.gov.au%2Ffwo%2FIDZ00056.warnings_qld.xml',
+    ],
   },
   {
     url: 'http://www.bom.gov.au/fwo/IDZ00060.warnings_wa.xml',
@@ -1169,7 +1177,9 @@ const rssFeeds = [
     ignoreTerms: [],
     reliability: 'Credible',
     background: '#203050',
-    backups: [],
+    backups: [
+      'https://corsproxy.io/?http%3A%2F%2Fwww.bom.gov.au%2Ffwo%2FIDZ00060.warnings_wa.xml',
+    ],
   },
   {
     url: 'http://www.bom.gov.au/fwo/IDZ00057.warnings_sa.xml',
@@ -1179,7 +1189,9 @@ const rssFeeds = [
     ignoreTerms: [],
     reliability: 'Credible',
     background: '#203050',
-    backups: [],
+    backups: [
+      'https://corsproxy.io/?http%3A%2F%2Fwww.bom.gov.au%2Ffwo%2FIDZ00057.warnings_sa.xml',
+    ],
   },
   {
     url: 'http://www.bom.gov.au/fwo/IDZ00055.warnings_nt.xml',
@@ -1189,7 +1201,9 @@ const rssFeeds = [
     ignoreTerms: [],
     reliability: 'Credible',
     background: '#203050',
-    backups: [],
+    backups: [
+      'https://corsproxy.io/?http%3A%2F%2Fwww.bom.gov.au%2Ffwo%2FIDZ00055.warnings_nt.xml',
+    ],
   },
   {
     url: 'https://www.weather.gov.sg/files/rss/rssHeavyRain_new.xml',
@@ -1199,7 +1213,9 @@ const rssFeeds = [
     ignoreTerms: [],
     reliability: 'Credible',
     background: '#203050',
-    backups: [],
+    backups: [
+      'https://corsproxy.io/?https%3A%2F%2Fwww.weather.gov.sg%2Ffiles%2Frss%2FrssHeavyRain_new.xml',
+    ],
   },
     {
     url: 'https://apiprevmet3.inmet.gov.br/avisos/rss',
