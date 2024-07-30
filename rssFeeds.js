@@ -1206,18 +1206,6 @@ const rssFeeds = [
     ],
   },
   {
-    url: 'https://www.weather.gov.sg/files/rss/rssHeavyRain_new.xml',
-    source: 'Meteorological Service Singapore',
-    priorityLevel: 'High',
-    requiredTerms: [],
-    ignoreTerms: [],
-    reliability: 'Credible',
-    background: '#203050',
-    backups: [
-      'https://corsproxy.io/?https%3A%2F%2Fwww.weather.gov.sg%2Ffiles%2Frss%2FrssHeavyRain_new.xml',
-    ],
-  },
-    {
     url: 'https://apiprevmet3.inmet.gov.br/avisos/rss',
     source: 'Brazil Weather Alerts',
     priorityLevel: 'High',
