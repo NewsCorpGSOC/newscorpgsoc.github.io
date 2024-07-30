@@ -134,11 +134,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // Define the csvFiles array with source information
   const csvFiles = [
     { file: 'Venezuela_News_Network.tsv', source: 'TSV Venezuela News Network' },
-    { file: 'Epoch_Times.tsv', source: 'CSV Epoch Times' },
-    { file: 'Israel_Security_Cabinet_News.tsv', source: 'CSV Israel Security Cabinet News' },
-    { file: 'Stand_With_Us_Breaking_News.tsv', source: 'CSV Stand With Us Breaking News' },
-    { file: 'Ukraine_Air_Defense.tsv', source: 'CSV Ukraine Air Defense' },
-    { file: 'WOLPalestine.tsv', source: 'CSV WOLPalestine' }
+    { file: 'Epoch_Times.tsv', source: 'TSV Epoch Times' },
+    { file: 'Israel_Security_Cabinet_News.tsv', source: 'TSV Israel Security Cabinet News' },
+    { file: 'Stand_With_Us_Breaking_News.tsv', source: 'TSV Stand With Us Breaking News' },
+    { file: 'Ukraine_Air_Defense.tsv', source: 'TSV Ukraine Air Defense' },
+    { file: 'WOLPalestine.tsv', source: 'TSV WOLPalestine' }
   ];
 
   async function fetchCSVFiles() {
@@ -426,15 +426,15 @@ document.addEventListener('DOMContentLoaded', () => {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'Euro News') {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
-    } else if (source === 'CSV Israel Security Cabinet News') {
+    } else if (source === 'TSV Israel Security Cabinet News') {
       adjustedDate.setHours(adjustedDate.getHours() + 0); // Adjust according to specific source timezone if needed
-    } else if (source === 'CSV Stand With Us Breaking News') {
+    } else if (source === 'TSV Stand With Us Breaking News') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'CSV Ukraine Air Defense') {
+    } else if (source === 'TSV Ukraine Air Defense') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'CSV WOLPalestine') {
+    } else if (source === 'TSV WOLPalestine') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'CSV Epoch Times') {
+    } else if (source === 'TSV Epoch Times') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else if (source === 'Hong Kong Observatory - Earthquake') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
