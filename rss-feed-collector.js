@@ -553,20 +553,24 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function displayFeeds() {
+    console.log("Displaying feeds...");
+  
     feedsContainer.innerHTML = '';
     feedItems = removeDuplicateTitles(feedItems);
+    console.log(`Feed items after removing duplicates: ${JSON.stringify(feedItems, null, 2)}`);
   
     const now = new Date();
     const oneYearAgo = new Date(now.setFullYear(now.getFullYear() - 1));
   
     const filteredFeeds = applyFilter();
-    console.log(`Filtered Feeds Count: ${filteredFeeds.length}`);
+    console.log(`Filtered feeds count: ${filteredFeeds.length}`);
+    console.log(`Filtered feeds: ${JSON.stringify(filteredFeeds, null, 2)}`);
   
     const searchTerm = searchInput.value.trim().toLowerCase();
     const searchTerms = parseSearchTerm(searchTerm);
   
     const recentFeeds = filteredFeeds.filter(item => item.pubDate > oneYearAgo);
-    console.log(`Recent Feeds Count: ${recentFeeds.length}`);
+    console.log(`Recent feeds count: ${recentFeeds.length}`);
   
     const searchFilteredFeeds = recentFeeds.filter(item =>
       searchTerms.every(termGroup =>
@@ -577,7 +581,8 @@ document.addEventListener('DOMContentLoaded', () => {
         )
       )
     );
-    console.log(`Search Filtered Feeds Count: ${searchFilteredFeeds.length}`);
+    console.log(`Search filtered feeds count: ${searchFilteredFeeds.length}`);
+    console.log(`Search filtered feeds: ${JSON.stringify(searchFilteredFeeds, null, 2)}`);
   
     const fragment = document.createDocumentFragment();
     searchFilteredFeeds.forEach(item => {
@@ -594,11 +599,11 @@ document.addEventListener('DOMContentLoaded', () => {
       } else if (item.reliability === 'Requires Verification') {
         credibilityContainer.classList.add('requires-verification', 'bg-requires-verification');
       }
-
+  
       const feedContent = document.createElement('div');
       feedContent.classList.add('feed-content');
       feedContent.style.backgroundColor = item.background;
-
+  
       const parser = new DOMParser();
       const doc = parser.parseFromString(item.description, 'text/html');
       const firstImg = doc.querySelector('img');
@@ -619,12 +624,14 @@ document.addEventListener('DOMContentLoaded', () => {
         <div>${cleanedDescription}</div>
         <p><small>Published on: ${format(item.pubDate, 'PPpp')} (PST/PDT)</small></p>
         <p><strong>Source:</strong> ${item.source}</p>`;
-
+  
       feedItem.appendChild(credibilityContainer);
       feedItem.appendChild(feedContent);
       fragment.appendChild(feedItem);
     });
+  
     feedsContainer.appendChild(fragment);
+    console.log("Feeds displayed.");
   }
 
   function parseSearchTerm(searchTerm) {
