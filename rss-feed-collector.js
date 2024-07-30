@@ -140,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
     { file: 'WOLPalestine.tsv', source: 'CSV WOLPalestine' }
   ];
 
- async function fetchCSVFiles() {
+  async function fetchCSVFiles() {
     let csvFeedItems = [];
 
     for (const { file, source } of csvFiles) {
@@ -551,8 +551,8 @@ document.addEventListener('DOMContentLoaded', () => {
   
     const fragment = document.createDocumentFragment();
     searchFilteredFeeds.forEach(item => {
-      const feedContainer = document.createElement('div');
-      feedContainer.classList.add('feed-container');
+      const feedItem = document.createElement('div');
+      feedItem.classList.add('feed-item');
       
       const credibilityContainer = document.createElement('div');
       credibilityContainer.classList.add('credibility-container');
@@ -590,9 +590,9 @@ document.addEventListener('DOMContentLoaded', () => {
         <p><small>Published on: ${format(item.pubDate, 'PPpp')} (PST/PDT)</small></p>
         <p><strong>Source:</strong> ${item.source}</p>`;
 
-      feedContainer.appendChild(credibilityContainer);
-      feedContainer.appendChild(feedContent);
-      fragment.appendChild(feedContainer);
+      feedItem.appendChild(credibilityContainer);
+      feedItem.appendChild(feedContent);
+      fragment.appendChild(feedItem);
     });
     feedsContainer.appendChild(fragment);
   }
