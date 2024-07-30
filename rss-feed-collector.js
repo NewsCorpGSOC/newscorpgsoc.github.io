@@ -551,27 +551,24 @@ document.addEventListener('DOMContentLoaded', () => {
   
     const fragment = document.createDocumentFragment();
     searchFilteredFeeds.forEach(item => {
-      const feedElement = document.createElement('div');
-      feedElement.classList.add('feed');
-  
-      // Add background color class based on reliability
+      const feedContainer = document.createElement('div');
+      feedContainer.classList.add('feed-container');
+      
+      const credibilityContainer = document.createElement('div');
+      credibilityContainer.classList.add('credibility-container');
+      
       if (item.reliability === 'Credible') {
-        feedElement.classList.add('bg-credible');
+        credibilityContainer.classList.add('credible', 'bg-credible');
       } else if (item.reliability === 'Dubious') {
-        feedElement.classList.add('bg-dubious');
+        credibilityContainer.classList.add('dubious', 'bg-dubious');
       } else if (item.reliability === 'Requires Verification') {
-        feedElement.classList.add('bg-requires-verification');
+        credibilityContainer.classList.add('requires-verification', 'bg-requires-verification');
       }
-  
-      // Add reliability class based on reliability
-      if (item.reliability === 'Credible') {
-        feedElement.classList.add('credible');
-      } else if (item.reliability === 'Dubious') {
-        feedElement.classList.add('dubious');
-      } else if (item.reliability === 'Requires Verification') {
-        feedElement.classList.add('requires-verification');
-      }
-  
+
+      const feedContent = document.createElement('div');
+      feedContent.classList.add('feed-content');
+      feedContent.style.backgroundColor = item.background;
+
       const parser = new DOMParser();
       const doc = parser.parseFromString(item.description, 'text/html');
       const firstImg = doc.querySelector('img');
@@ -586,13 +583,16 @@ document.addEventListener('DOMContentLoaded', () => {
         imageHtml = `<img src="${firstImg.src}" alt="Feed image" height="300" onerror="this.onerror=null;this.src='https://i.imgur.com/GQPN5Q9.jpeg';" />`;
       }
   
-      feedElement.innerHTML = 
+      feedContent.innerHTML = 
         `<h2><a href="${item.link}" target="_blank">${item.title}</a></h2>
         ${imageHtml}
         <div>${cleanedDescription}</div>
         <p><small>Published on: ${format(item.pubDate, 'PPpp')} (PST/PDT)</small></p>
         <p><strong>Source:</strong> ${item.source}</p>`;
-      fragment.appendChild(feedElement);
+
+      feedContainer.appendChild(credibilityContainer);
+      feedContainer.appendChild(feedContent);
+      fragment.appendChild(feedContainer);
     });
     feedsContainer.appendChild(fragment);
   }
