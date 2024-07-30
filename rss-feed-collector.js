@@ -133,6 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
   // Define the csvFiles array with source information
   const csvFiles = [
+    { file: 'Venezuela_News_Network.tsv', source: 'TSV Venezuela News Network' },
     { file: 'Epoch_Times.tsv', source: 'CSV Epoch Times' },
     { file: 'Israel_Security_Cabinet_News.tsv', source: 'CSV Israel Security Cabinet News' },
     { file: 'Stand_With_Us_Breaking_News.tsv', source: 'CSV Stand With Us Breaking News' },
@@ -456,6 +457,8 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (source === 'Australia Bureau of Meteorology - South Australia') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else if (source === 'Australia Bureau of Meteorology - Northern Territory') {
+      adjustedDate.setHours(adjustedDate.getHours() + 0);
+    } else if (source === 'TSV Venezuela News Network') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else {
       console.warn(`No specific time adjustment found for source: ${source}`);
