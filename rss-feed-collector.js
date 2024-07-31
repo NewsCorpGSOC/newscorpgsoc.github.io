@@ -155,12 +155,12 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const tsvFiles = [
-    { file: 'Venezuela_News_Network.tsv', source: 'TSV Venezuela News Network', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] },
-    { file: 'Epoch_Times.tsv', source: 'TSV Epoch Times', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] },
-    { file: 'Israel_Security_Cabinet_News.tsv', source: 'TSV Israel Security Cabinet News', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
-    { file: 'Stand_With_Us_Breaking_News.tsv', source: 'TSV Stand With Us Breaking News', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] },
-    { file: 'Ukraine_Air_Defense.tsv', source: 'TSV Ukraine Air Defense', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
-    { file: 'WOLPalestine.tsv', source: 'TSV WOLPalestine', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] }
+    { file: 'Venezuela_News_Network.tsv', source: 'TSV Venezuela News Network', reliability: 'Dubious', background: '#563070', requiredTerms: [], ignoreTerms: [] },
+    { file: 'Epoch_Times.tsv', source: 'TSV Epoch Times', reliability: 'Dubious', background: '#563070', requiredTerms: [], ignoreTerms: [] },
+    { file: 'Israel_Security_Cabinet_News.tsv', source: 'TSV Israel Security Cabinet News', reliability: 'Credible', background: '#563070', requiredTerms: [], ignoreTerms: [] },
+    { file: 'Stand_With_Us_Breaking_News.tsv', source: 'TSV Stand With Us Breaking News', reliability: 'Dubious', background: '#563070', requiredTerms: [], ignoreTerms: [] },
+    { file: 'Ukraine_Air_Defense.tsv', source: 'TSV Ukraine Air Defense', reliability: 'Credible', background: '#563070', requiredTerms: [], ignoreTerms: [] },
+    { file: 'WOLPalestine.tsv', source: 'TSV WOLPalestine', reliability: 'Dubious', background: '#563070', requiredTerms: [], ignoreTerms: [] }
   ];
 
   async function fetchTSVFile(url) {
