@@ -195,27 +195,33 @@ document.addEventListener('DOMContentLoaded', () => {
       const description = decodeHTMLEntities(item.Description?.trim() || 'No description');
       const pubDate = parseDate(item.pubDate?.trim());
       const locationLink = item.Location?.trim();
+      const magnitude = parseFloat(item.Magnitude?.trim());
   
       if (!pubDate) {
         console.warn(`Skipping row ${index + 2} due to invalid date: ${JSON.stringify(item)}`);
         return null; // Skip rows with invalid dates
       }
   
+      let magnitudeImage = '';
+      if (magnitude >= 8.0) {
+        magnitudeImage = 'icons/EarthquakeExtreme.png';
+      } else if (magnitude >= 7.0) {
+        magnitudeImage = 'icons/EarthquakeHigh.png';
+      } else if (magnitude >= 6.1) {
+        magnitudeImage = 'icons/EarthquakeModerate.png';
+      } else if (magnitude >= 5.0) {
+        magnitudeImage = 'icons/EarthquakeLow.png';
+      }
+  
       let locationImage = '';
       if (locationLink) {
-        const matches = locationLink.match(/query=([-\d.]+),([-\d.]+)/);
-        if (matches) {
-          const lat = matches[1];
-          const lng = matches[2];
-          const staticMapUrl = `https://maps.googleapis.com/maps/api/staticmap?center=${lat},${lng}&zoom=10&size=300x300&maptype=roadmap&markers=color:red%7C${lat},${lng}&key=YOUR_GOOGLE_MAPS_API_KEY`;
-          locationImage = `<a href="${locationLink}" target="_blank"><img src="${staticMapUrl}" alt="Location Map" width="300" height="300" style="border:0;" /></a>`;
-        }
+        locationImage = `<a href="${locationLink}" target="_blank"><img src="${magnitudeImage}" alt="Earthquake Severity" width="50" height="50" style="border:0;" /></a>`;
       }
   
       return {
         title,
         link,
-        description: description + locationImage, // Append the static map image to the description
+        description: description + locationImage, // Append the earthquake image to the description
         pubDate: convertToPacificTime(pubDate, source),
         source,
         reliability,
