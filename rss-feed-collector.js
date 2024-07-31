@@ -155,12 +155,12 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const tsvFiles = [
-    { file: 'Venezuela_News_Network.tsv', source: 'TSV Venezuela News Network' },
-    { file: 'Epoch_Times.tsv', source: 'TSV Epoch Times' },
-    { file: 'Israel_Security_Cabinet_News.tsv', source: 'TSV Israel Security Cabinet News' },
-    { file: 'Stand_With_Us_Breaking_News.tsv', source: 'TSV Stand With Us Breaking News' },
-    { file: 'Ukraine_Air_Defense.tsv', source: 'TSV Ukraine Air Defense' },
-    { file: 'WOLPalestine.tsv', source: 'TSV WOLPalestine' }
+    { file: 'Venezuela_News_Network.tsv', source: 'TSV Venezuela News Network', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'Epoch_Times.tsv', source: 'TSV Epoch Times', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'Israel_Security_Cabinet_News.tsv', source: 'TSV Israel Security Cabinet News', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'Stand_With_Us_Breaking_News.tsv', source: 'TSV Stand With Us Breaking News', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'Ukraine_Air_Defense.tsv', source: 'TSV Ukraine Air Defense', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'WOLPalestine.tsv', source: 'TSV WOLPalestine', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] }
   ];
 
   async function fetchTSVFile(url) {
@@ -174,51 +174,55 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  function parseTSV(tsvText, source) {
+  function parseTSV(tsvText, source, reliability, background, requiredTerms, ignoreTerms) {
     const parsedData = Papa.parse(tsvText, {
       delimiter: '\t',
       header: true,
       skipEmptyLines: true
     });
-
+  
     if (parsedData.errors.length) {
       console.error("Errors parsing TSV:", parsedData.errors);
       return [];
     }
-
+  
     const items = parsedData.data;
-
+  
     return items.map((item, index) => {
       const title = item.Title?.trim() || 'No title';
       const link = item.Link?.trim() || '#';
       const description = decodeHTMLEntities(item.Description?.trim() || 'No description');
       const pubDate = parseDate(item.pubDate?.trim());
-
+  
       if (!pubDate) {
         console.warn(`Skipping row ${index + 2} due to invalid date: ${JSON.stringify(item)}`);
         return null; // Skip rows with invalid dates
       }
-
+  
       return {
         title,
         link,
         description,
         pubDate: convertToPacificTime(pubDate, source),
-        source
+        source,
+        reliability,
+        background,
+        requiredTerms,
+        ignoreTerms
       };
     }).filter(item => item); // Filter out null values
   }
 
   async function fetchTSVFiles() {
     let tsvFeedItems = [];
-
-    for (const { file, source } of tsvFiles) {
+  
+    for (const { file, source, reliability, background, requiredTerms, ignoreTerms } of tsvFiles) {
       try {
         const cacheBuster = new Date().getTime();
         const tsvText = await fetchTSVFile(`GoogleSheets/${file}?cb=${cacheBuster}`);
         console.log(`Fetched TSV: ${file}`);
         console.log(tsvText); // Log fetched TSV text for debugging
-        const parsedTSV = parseTSV(tsvText, source);
+        const parsedTSV = parseTSV(tsvText, source, reliability, background, requiredTerms, ignoreTerms);
         console.log(parsedTSV); // Log parsed TSV data for debugging
         tsvFeedItems = tsvFeedItems.concat(parsedTSV);
       } catch (error) {
