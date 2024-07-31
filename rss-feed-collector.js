@@ -213,6 +213,8 @@ document.addEventListener('DOMContentLoaded', () => {
         magnitudeImage = 'icons/EarthquakeLow.png';
       }
   
+      console.log(`Magnitude: ${magnitude}, Image: ${magnitudeImage}`);
+  
       let locationImage = '';
       if (locationLink) {
         locationImage = `<a href="${locationLink}" target="_blank"><img src="${magnitudeImage}" alt="Earthquake Severity" width="50" height="50" style="border:0;" /></a>`;
