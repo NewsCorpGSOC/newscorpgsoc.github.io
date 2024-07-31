@@ -128,8 +128,8 @@ document.addEventListener('DOMContentLoaded', () => {
               description: decodeHTMLEntities(description),
               pubDate: pacificDate,
               source: feed.source,
-              reliability: feed.reliability, // New field
-              background: feed.background // New field
+              reliability: feed.reliability,
+              background: feed.background
             });
           } else {
             console.log('Incomplete item:', { title, link, description, pacificDate });
