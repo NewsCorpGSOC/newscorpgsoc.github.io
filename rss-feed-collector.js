@@ -155,12 +155,12 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const tsvFiles = [
-    { file: 'Venezuela_News_Network.tsv', source: 'TSV Venezuela News Network', reliability: 'Dubious', background: '#563070', requiredTerms: [], ignoreTerms: [] },
-    { file: 'Epoch_Times.tsv', source: 'TSV Epoch Times', reliability: 'Dubious', background: '#563070', requiredTerms: [], ignoreTerms: [] },
-    { file: 'Israel_Security_Cabinet_News.tsv', source: 'TSV Israel Security Cabinet News', reliability: 'Credible', background: '#563070', requiredTerms: [], ignoreTerms: [] },
-    { file: 'Stand_With_Us_Breaking_News.tsv', source: 'TSV Stand With Us Breaking News', reliability: 'Dubious', background: '#563070', requiredTerms: [], ignoreTerms: [] },
-    { file: 'Ukraine_Air_Defense.tsv', source: 'TSV Ukraine Air Defense', reliability: 'Credible', background: '#563070', requiredTerms: [], ignoreTerms: [] },
-    { file: 'WOLPalestine.tsv', source: 'TSV WOLPalestine', reliability: 'Dubious', background: '#563070', requiredTerms: [], ignoreTerms: [] }
+    { file: 'Venezuela_News_Network.tsv', source: 'TSV Venezuela News Network', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
+    { file: 'Epoch_Times.tsv', source: 'TSV Epoch Times', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
+    { file: 'Israel_Security_Cabinet_News.tsv', source: 'TSV Israel Security Cabinet News', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
+    { file: 'Stand_With_Us_Breaking_News.tsv', source: 'TSV Stand With Us Breaking News', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
+    { file: 'Ukraine_Air_Defense.tsv', source: 'TSV Ukraine Air Defense', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
+    { file: 'WOLPalestine.tsv', source: 'TSV WOLPalestine', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] }
   ];
 
   async function fetchTSVFile(url) {
@@ -215,6 +215,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   async function fetchTSVFiles() {
     let tsvFeedItems = [];
+    let newFeedItems = false; // Flag to check if there are new items
   
     for (const { file, source, reliability, background, requiredTerms, ignoreTerms } of tsvFiles) {
       try {
@@ -224,11 +225,26 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log(tsvText); // Log fetched TSV text for debugging
         const parsedTSV = parseTSV(tsvText, source, reliability, background, requiredTerms, ignoreTerms);
         console.log(parsedTSV); // Log parsed TSV data for debugging
+  
+        if (parsedTSV.length > 0) {
+          // Check if any new items are newer than the latest feed date
+          const maxPubDate = new Date(Math.max(...parsedTSV.map(item => item.pubDate)));
+          if (maxPubDate > latestFeedDate) {
+            newFeedItems = true;
+            latestFeedDate = maxPubDate; // Update the latest feed date
+          }
+        }
+  
         tsvFeedItems = tsvFeedItems.concat(parsedTSV);
       } catch (error) {
         console.error(`Error fetching TSV file ${file}:`, error);
       }
     }
+  
+    if (newFeedItems) {
+      playSound(); // Play the sound if there are new items
+    }
+  
     return tsvFeedItems;
   }
 
