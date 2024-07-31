@@ -160,7 +160,8 @@ document.addEventListener('DOMContentLoaded', () => {
     { file: 'Israel_Security_Cabinet_News.tsv', source: 'TSV Israel Security Cabinet News', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
     { file: 'Stand_With_Us_Breaking_News.tsv', source: 'TSV Stand With Us Breaking News', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
     { file: 'Ukraine_Air_Defense.tsv', source: 'TSV Ukraine Air Defense', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'WOLPalestine.tsv', source: 'TSV WOLPalestine', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] }
+    { file: 'WOLPalestine.tsv', source: 'TSV WOLPalestine', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
+    { file: 'USGS_Earthquakes.tsv', source: 'TSV USGS Earthquakes', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] }
   ];
 
   async function fetchTSVFile(url) {
@@ -193,16 +194,28 @@ document.addEventListener('DOMContentLoaded', () => {
       const link = item.Link?.trim() || '#';
       const description = decodeHTMLEntities(item.Description?.trim() || 'No description');
       const pubDate = parseDate(item.pubDate?.trim());
+      const locationLink = item.Location?.trim();
   
       if (!pubDate) {
         console.warn(`Skipping row ${index + 2} due to invalid date: ${JSON.stringify(item)}`);
         return null; // Skip rows with invalid dates
       }
   
+      let locationImage = '';
+      if (locationLink) {
+        const matches = locationLink.match(/query=([-\d.]+),([-\d.]+)/);
+        if (matches) {
+          const lat = matches[1];
+          const lng = matches[2];
+          const staticMapUrl = `https://maps.googleapis.com/maps/api/staticmap?center=${lat},${lng}&zoom=10&size=300x300&maptype=roadmap&markers=color:red%7C${lat},${lng}&key=YOUR_GOOGLE_MAPS_API_KEY`;
+          locationImage = `<a href="${locationLink}" target="_blank"><img src="${staticMapUrl}" alt="Location Map" width="300" height="300" style="border:0;" /></a>`;
+        }
+      }
+  
       return {
         title,
         link,
-        description,
+        description: description + locationImage, // Append the static map image to the description
         pubDate: convertToPacificTime(pubDate, source),
         source,
         reliability,
@@ -511,6 +524,8 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (source === 'Australia Bureau of Meteorology - Northern Territory') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else if (source === 'TSV Venezuela News Network') {
+      adjustedDate.setHours(adjustedDate.getHours() + 0);
+    } else if (source === 'TSV USGS Earthquakes') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else {
       console.warn(`No specific time adjustment found for source: ${source}`);
