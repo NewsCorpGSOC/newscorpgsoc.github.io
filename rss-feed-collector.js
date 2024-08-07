@@ -11,10 +11,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const statusContainer = document.getElementById('statusContainer');
   const refreshTimerDisplay = document.getElementById('refresh-timer');
   const volumeSlider = document.getElementById('volumeSlider');
+  const timezoneSelector = document.getElementById('timezoneSelector'); // Timezone selector
   let feedItems = [];
   let latestFeedDate = new Date(0);
   let pingVolume = 0.5;
   const statusItems = new Map();
+  let currentTimezoneOffset = 0; // Default to PST/PDT
 
   console.log("DOM fully loaded and parsed");
 
@@ -84,6 +86,25 @@ document.addEventListener('DOMContentLoaded', () => {
     toggleSourceFilterButton.textContent = isHidden ? 'Hide Source Filter' : 'Show Source Filter';
   });
 
+  timezoneSelector.addEventListener('change', () => {
+    const selectedTimezone = timezoneSelector.value;
+    switch (selectedTimezone) {
+      case 'PST':
+        currentTimezoneOffset = 0;
+        break;
+      case 'MST':
+        currentTimezoneOffset = 1;
+        break;
+      case 'CST':
+        currentTimezoneOffset = 2;
+        break;
+      case 'EST':
+        currentTimezoneOffset = 3;
+        break;
+    }
+    displayFeeds();
+  });
+  
   const RETRIES = 1;
 
   const fetchFeed = async (feed, retries = RETRIES) => {
@@ -111,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ? item.querySelector('published')?.textContent 
             : item.querySelector('pubDate')?.textContent;
           const pubDate = pubDateText ? parseDate(pubDateText) : new Date();
-          const pacificDate = convertToPacificTime(pubDate, feed.source);
+          const pacificDate = convertToTimezone(pubDate, feed.source);
   
           // Fallback: Extract link from description HTML if link is still undefined
           if (!link || link === '#') {
@@ -225,7 +246,7 @@ document.addEventListener('DOMContentLoaded', () => {
         title,
         link,
         description: description + locationImage, // Append the earthquake image to the description
-        pubDate: convertToPacificTime(pubDate, source),
+        pubDate: convertToTimezone(pubDate, source),
         source,
         reliability,
         background,
@@ -320,7 +341,7 @@ document.addEventListener('DOMContentLoaded', () => {
     return parsedDate;
   }
 
-  function convertToPacificTime(date, source) {
+  function convertToTimezone(date, source) {
     let adjustedDate = new Date(date);
 
     // Prioritize source-specific adjustments
@@ -338,7 +359,7 @@ document.addEventListener('DOMContentLoaded', () => {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'Al Jazeera - World') {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
-    } else if (source === 'World Online') {                                                                                                                       
+    } else if (source === 'World Online') {
       adjustedDate.setHours(adjustedDate.getHours() - 7);
     } else if (source === 'Associated Press') {
       adjustedDate.setHours(adjustedDate.getHours() - 10);
@@ -542,6 +563,7 @@ document.addEventListener('DOMContentLoaded', () => {
       console.warn(`No specific time adjustment found for source: ${source}`);
     }
 
+    adjustedDate.setHours(adjustedDate.getHours() + currentTimezoneOffset);
     return adjustedDate;
   }
 
@@ -690,7 +712,7 @@ document.addEventListener('DOMContentLoaded', () => {
         `<h2><a href="${item.link}" target="_blank">${item.title}</a></h2>
         ${imageHtml}
         <div>${cleanedDescription}</div>
-        <p><small>Published on: ${format(item.pubDate, 'PPpp')} (PST/PDT)</small></p>
+        <p><small>Published on: ${format(item.pubDate, 'PPpp')} (${timezoneSelector.value})</small></p>
         <p><strong>Source:</strong> ${item.source}</p>`;
   
       feedItem.appendChild(credibilityContainer);
