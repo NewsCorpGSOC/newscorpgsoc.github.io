@@ -89,16 +89,16 @@ document.addEventListener('DOMContentLoaded', () => {
   timezoneSelector.addEventListener('change', () => {
     const selectedTimezone = timezoneSelector.value;
     switch (selectedTimezone) {
-      case 'PST':
+      case 'Pacific Time':
         currentTimezoneOffset = 0;
         break;
-      case 'MST':
+      case 'Mountain Time':
         currentTimezoneOffset = 1;
         break;
-      case 'CST':
+      case 'Central Time':
         currentTimezoneOffset = 2;
         break;
-      case 'EST':
+      case 'Eastern Time':
         currentTimezoneOffset = 3;
         break;
     }
