@@ -591,7 +591,7 @@ document.addEventListener('DOMContentLoaded', () => {
       feedItems.sort((a, b) => b.pubDate - a.pubDate); // Sort by date, newest first
       console.log('Combined Feed Items:', feedItems); // Log combined feed items for debugging
       displayFeeds();
-    }, 180000); // Fetch TSV files every 3 minutes
+    }, 60000); // Fetch TSV files every 3 minutes
   }
 
   async function fetchFeedAndUpdate(feed) {
