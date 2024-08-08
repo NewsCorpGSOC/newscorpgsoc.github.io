@@ -183,7 +183,8 @@ document.addEventListener('DOMContentLoaded', () => {
     { file: 'Ukraine_Air_Defense.tsv', source: 'TSV Ukraine Air Defense', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
     { file: 'WOLPalestine.tsv', source: 'TSV WOLPalestine', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
     { file: 'USGS_Earthquakes.tsv', source: 'TSV USGS Earthquakes', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'Jewish_Breaking_News.tsv', source: 'TSV Jewish Breaking News', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] }
+    { file: 'Jewish_Breaking_News.tsv', source: 'TSV Jewish Breaking News', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
+    { file: 'Mannies_War_Room.tsv', source: 'TSV Mannies War Room - Times of Israel', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] }
   ];
 
   async function fetchTSVFile(url) {
@@ -558,6 +559,8 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (source === 'TSV USGS Earthquakes') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else if (source === 'TSV Jewish Breaking News') {
+      adjustedDate.setHours(adjustedDate.getHours() + 0);
+    } else if (source === 'TSV Mannies War Room - Times of Israel') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else {
       console.warn(`No specific time adjustment found for source: ${source}`);
