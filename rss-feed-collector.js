@@ -141,6 +141,9 @@ document.addEventListener('DOMContentLoaded', () => {
             link = anchor ? anchor.href : '#';
           }
 
+          // Determine the topic and apply background color
+          const { background } = determineTopic({ title, description });
+
           if (title && link && description && pacificDate) {
             feedItems.push({
               title,
@@ -149,7 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
               pubDate: pacificDate,
               source: feed.source,
               reliability: feed.reliability,
-              background: background || feed.background || '#203050'
+              background: background // Set the background color based on the topic
             });
           } else {
             console.log('Incomplete item:', { title, link, description, pacificDate });
@@ -248,7 +251,7 @@ document.addEventListener('DOMContentLoaded', () => {
         pubDate: convertToTimezone(pubDate, source),
         source,
         reliability,
-        background: topicBackground || background || '#203050', // Default background
+        background: topicBackground || background, // Set the background color based on the topic or use default
         requiredTerms,
         ignoreTerms
       };
@@ -631,7 +634,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function playSound(item) {
-    const { topic } = determineTopic(item);
+    const { topic, background } = determineTopic(item);
     let soundFile = 'sounds/news-alert-notification.mp3'; // Default sound
 
     if (topic === 'Weather') {
@@ -648,6 +651,8 @@ document.addEventListener('DOMContentLoaded', () => {
     audio.play().catch(error => {
       console.error('Error playing sound:', error);
     });
+
+    item.background = background; // Override background color based on topic
   }
 
   function determineTopic(item) {
