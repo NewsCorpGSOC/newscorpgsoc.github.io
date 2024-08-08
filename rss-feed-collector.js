@@ -533,8 +533,8 @@ document.addEventListener('DOMContentLoaded', () => {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else if (source === 'Meteorological Service Singapore') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'Brazil Weather Alerts') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
+//    } else if (source === 'Brazil Weather Alerts') {
+//      adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else if (source === 'Australia Bureau of Meteorology - Tasmania') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else if (source === 'Australia Bureau of Meteorology - News South Wales and ACT') {
