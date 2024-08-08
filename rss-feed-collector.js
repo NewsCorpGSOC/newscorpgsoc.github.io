@@ -591,9 +591,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
     await Promise.all(rssFeeds.map(feed => fetchFeedAndUpdate(feed)));
     const tsvFeedItems = await fetchTSVFiles();
-    console.log(`TSV Feed Items: ${JSON.stringify(tsvFeedItems, null, 2)}`);
     feedItems = [...feedItems, ...tsvFeedItems];
-    console.log(`Combined Feed Items: ${JSON.stringify(feedItems, null, 2)}`);
     feedItems.sort((a, b) => b.pubDate - a.pubDate);
     displayFeeds();
   
@@ -702,14 +700,12 @@ document.addEventListener('DOMContentLoaded', () => {
   
     feedsContainer.innerHTML = '';
     feedItems = removeDuplicateTitles(feedItems);
-    console.log(`Feed items after removing duplicates: ${JSON.stringify(feedItems, null, 2)}`);
   
     const now = new Date();
     const oneYearAgo = new Date(now.setFullYear(now.getFullYear() - 1));
   
     const filteredFeeds = applyFilter();
     console.log(`Filtered feeds count: ${filteredFeeds.length}`);
-    console.log(`Filtered feeds: ${JSON.stringify(filteredFeeds, null, 2)}`);
   
     const searchTerm = searchInput.value.trim().toLowerCase();
     const searchTerms = parseSearchTerm(searchTerm);
