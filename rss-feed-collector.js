@@ -844,10 +844,8 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log(`Filtered feeds after topic filter: ${filteredFeeds.length}`);
 
     const checkedSources = Array.from(document.querySelectorAll('input[name="sourceFilter"]:checked')).map(cb => cb.value);
-    console.log(`Checked sources: ${checkedSources.join(', ')}`);
 
     const feedItemSources = [...new Set(feedItems.map(item => item.source))];
-    console.log(`Sources in feedItems: ${feedItemSources.join(', ')}`);
 
     if (checkedSources.length > 0 && !checkedSources.includes('all')) {
       filteredFeeds = filteredFeeds.filter(item => checkedSources.includes(item.source));
