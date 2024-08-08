@@ -728,11 +728,9 @@ document.addEventListener('DOMContentLoaded', () => {
   
     const fragment = document.createDocumentFragment();
     searchFilteredFeeds.forEach(item => {
-      const { background } = determineTopic(item);  // Determine the topic and get the background color
       const feedItem = document.createElement('div');
       feedItem.classList.add('feed-item');
-      feedItem.style.backgroundColor = background;  // Set the background color of the feed item
-
+      
       const credibilityContainer = document.createElement('div');
       credibilityContainer.classList.add('credibility-container');
       
@@ -746,7 +744,10 @@ document.addEventListener('DOMContentLoaded', () => {
   
       const feedContent = document.createElement('div');
       feedContent.classList.add('feed-content');
-      feedContent.style.backgroundColor = item.background;
+  
+      // Determine the topic and apply background color
+      const { background } = determineTopic(item);
+      feedContent.style.backgroundColor = background;
   
       const parser = new DOMParser();
       const doc = parser.parseFromString(item.description, 'text/html');
