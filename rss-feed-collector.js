@@ -140,7 +140,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const anchor = tempDiv.querySelector('a');
             link = anchor ? anchor.href : '#';
           }
-  
+
+          // Determine the topic and apply background color
+          const { background } = determineTopic({ title, description });
+
           if (title && link && description && pacificDate) {
             feedItems.push({
               title,
@@ -149,7 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
               pubDate: pacificDate,
               source: feed.source,
               reliability: feed.reliability,
-              background: feed.background
+              background: background // Set the background color based on the topic
             });
           } else {
             console.log('Incomplete item:', { title, link, description, pacificDate });
@@ -244,11 +247,11 @@ document.addEventListener('DOMContentLoaded', () => {
       return {
         title,
         link,
-        description: description + locationImage, // Append the earthquake image to the description
+        description: description + locationImage,
         pubDate: convertToTimezone(pubDate, source),
         source,
         reliability,
-        background,
+        background: topicBackground || background, // Set the background color based on the topic or use default
         requiredTerms,
         ignoreTerms
       };
@@ -744,10 +747,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
       const feedContent = document.createElement('div');
       feedContent.classList.add('feed-content');
-  
-      // Determine the topic and apply background color
-      const { background } = determineTopic(item);
-      feedContent.style.backgroundColor = background;
+      feedContent.style.backgroundColor = item.background;
   
       const parser = new DOMParser();
       const doc = parser.parseFromString(item.description, 'text/html');
