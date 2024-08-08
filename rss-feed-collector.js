@@ -727,7 +727,6 @@ document.addEventListener('DOMContentLoaded', () => {
       )
     );
     console.log(`Search filtered feeds count: ${searchFilteredFeeds.length}`);
-    console.log(`Search filtered feeds: ${JSON.stringify(searchFilteredFeeds, null, 2)}`);
   
     const fragment = document.createDocumentFragment();
     searchFilteredFeeds.forEach(item => {
