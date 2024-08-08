@@ -1028,7 +1028,7 @@ const rssFeeds = [
   {
     url: 'https://api.weather.gov/alerts/active.atom?certainty=Likely%2CObserved&severity=Extreme%2CSevere&urgency=Future%2CExpected%2CImmediate',
     source: 'National Weather Service',
-    priorityLevel: 'Very Low',
+    priorityLevel: 'High',
     requiredTerms: ['Federal Way', 'Seattle', 'San Francisco', 'Los Angeles', 'San Jose', 'Santa Clara', ' Westlake Village', 'Minneapolis', 'Phoenix', 'Scottsdale', 'Plano', 'Spokane', 'LaGrange', 'White Oak', 'Silver Springs', 'Boston', 'Chicago', 'Chicopee', 'Detroit', 'Princeton', 'Washington', 'Seacaucua', 'New York City', 'Grand Rapids', 'LaPorte', 'Morgantown', 'New York', 'Nashville', 'Depew', 'Miami', 'Houston', 'Dallas'],
     ignoreTerms: [],
     reliability: 'Credible',
@@ -1205,16 +1205,16 @@ const rssFeeds = [
       'https://corsproxy.io/?http%3A%2F%2Fwww.bom.gov.au%2Ffwo%2FIDZ00055.warnings_nt.xml',
     ],
   },
-  {
-    url: 'https://apiprevmet3.inmet.gov.br/avisos/rss',
-    source: 'Brazil Weather Alerts',
-    priorityLevel: 'High',
-    requiredTerms: ['o Paulo', 'Rio de Janeiro'],
-    ignoreTerms: [],
-    reliability: 'Credible',
-    background: '#203050',
-    backups: [],
-  },
+//  {
+//    url: 'https://apiprevmet3.inmet.gov.br/avisos/rss',
+//    source: 'Brazil Weather Alerts',
+//    priorityLevel: 'High',
+//    requiredTerms: ['o Paulo', 'Rio de Janeiro'],
+//    ignoreTerms: [],
+//    reliability: 'Credible',
+//    background: '#203050',
+//    backups: [],
+//  },
 ];
 
 export default rssFeeds;
