@@ -728,9 +728,11 @@ document.addEventListener('DOMContentLoaded', () => {
   
     const fragment = document.createDocumentFragment();
     searchFilteredFeeds.forEach(item => {
+      const { background } = determineTopic(item);  // Determine the topic and get the background color
       const feedItem = document.createElement('div');
       feedItem.classList.add('feed-item');
-      
+      feedItem.style.backgroundColor = background;  // Set the background color of the feed item
+
       const credibilityContainer = document.createElement('div');
       credibilityContainer.classList.add('credibility-container');
       
