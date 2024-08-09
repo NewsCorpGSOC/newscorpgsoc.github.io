@@ -23,7 +23,7 @@ const topicKeywords = {
   },
   'Weather': {
     keywords: ['climate', 'environment', 'storm', 'tornado', 'hurricane', 'heatwave', 'earthquake', 'tsunami'],
-    background: '#79792d',
+    background: '#83835f',
     soundFile: 'sounds/weather-alert-notification.mp3'
   },
   'China & APAC Tensions': {
