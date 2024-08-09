@@ -675,6 +675,7 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log("Applying topic styling for item:", item.title);
 
     let isNewItem = false;
+    let selectedSoundFile = 'sounds/news-alert-notification.mp3'; // Default sound
 
     for (const topic in topicKeywords) {
       if (topicKeywords.hasOwnProperty(topic)) {
@@ -682,27 +683,29 @@ document.addEventListener('DOMContentLoaded', () => {
         if (keywords.some(keyword => item.description.toLowerCase().includes(keyword.toLowerCase()) ||
                                       item.title.toLowerCase().includes(keyword.toLowerCase()))) {
           console.log(`Matched topic: ${topic} for item: ${item.title}`);
-
+          
           item.background = background;
-
+          selectedSoundFile = soundFile; // Set the sound file to the one for the matched topic
+          
           if (item.pubDate > latestFeedDate) {
-            console.log(`New item detected. Playing sound: ${soundFile}`);
+            console.log(`New item detected. Playing sound: ${selectedSoundFile}`);
             isNewItem = true;
             latestFeedDate = item.pubDate;
-            playSound(soundFile);
+            playSound(selectedSoundFile); // Play the topic-specific sound
           }
           break; // Stop checking after the first match
         }
       }
     }
 
-    if (!isNewItem && !item.background) {
-      item.background = '#203050'; // Default background color from rssFeeds
+    if (!isNewItem) {
+      item.background = item.background || '#203050'; // Default background color from rssFeeds
+      console.log(`Default sound selected for item: ${item.title}`);
     }
   }
 
   function playSound(soundFile) {
-    console.log(`Playing sound for: ${soundFile}`);
+    console.log(`Playing sound file: ${soundFile}`);
     const audio = new Audio(soundFile);
     audio.volume = pingVolume;
     audio.play().catch(error => {
