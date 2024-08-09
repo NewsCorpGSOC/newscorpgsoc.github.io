@@ -674,6 +674,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function applyTopicStyling(item) {
     console.log("Applying topic styling for item:", item.title);
     console.log(`Current latestFeedDate: ${latestFeedDate}`);
+    console.log(`Item publication date: ${item.pubDate}`);
 
     let isNewItem = false;
     let selectedSoundFile = 'sounds/news-alert-notification.mp3'; // Default sound
@@ -694,6 +695,8 @@ document.addEventListener('DOMContentLoaded', () => {
             latestFeedDate = item.pubDate;
             console.log(`Updated latestFeedDate: ${latestFeedDate}`);
             playSound(selectedSoundFile); // Play the topic-specific sound
+          } else {
+            console.log('Item is not newer than latestFeedDate, no sound will be played.');
           }
           break; // Stop checking after the first match
         }
@@ -708,10 +711,12 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function playSound(soundFile) {
-    console.log(`Playing sound file: ${soundFile}`);
+    console.log(`Attempting to play sound file: ${soundFile}`);
     const audio = new Audio(soundFile);
     audio.volume = pingVolume;
-    audio.play().catch(error => {
+    audio.play().then(() => {
+      console.log(`Sound file ${soundFile} played successfully.`);
+    }).catch(error => {
       console.error('Error playing sound:', error);
     });
   }
