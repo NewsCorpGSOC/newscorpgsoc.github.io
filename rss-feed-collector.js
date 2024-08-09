@@ -726,14 +726,12 @@ document.addEventListener('DOMContentLoaded', () => {
   
     feedsContainer.innerHTML = '';
     feedItems = removeDuplicateTitles(feedItems);
-    console.log(`Feed items after removing duplicates: ${JSON.stringify(feedItems, null, 2)}`);
   
     const now = new Date();
     const oneYearAgo = new Date(now.setFullYear(now.getFullYear() - 1));
   
     const filteredFeeds = applyFilter();
     console.log(`Filtered feeds count: ${filteredFeeds.length}`);
-    console.log(`Filtered feeds: ${JSON.stringify(filteredFeeds, null, 2)}`);
   
     const searchTerm = searchInput.value.trim().toLowerCase();
     const searchTerms = parseSearchTerm(searchTerm);
