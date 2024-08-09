@@ -678,8 +678,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (keywords.some(keyword => item.description.toLowerCase().includes(keyword.toLowerCase()) ||
                                       item.title.toLowerCase().includes(keyword.toLowerCase()))) {
           item.background = background;
-          playSound(soundFile);
-          return; // Apply the first matched topic and stop further checks
+
+          // Only play sound if the item is newer than the current latest feed item
+          if (item.pubDate > latestFeedDate) {
+            playSound(soundFile);
+            latestFeedDate = item.pubDate; // Update the latest feed date
+          }
+          return; // Stop after the first matched topic
         }
       }
     }
@@ -729,7 +734,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
     const fragment = document.createDocumentFragment();
     searchFilteredFeeds.forEach(item => {
-      applyTopicStyling(item); // Apply styling for each item
+      applyTopicStyling(item); // Apply styling and sound logic for each item
       
       const feedItem = document.createElement('div');
       feedItem.classList.add('feed-item');
