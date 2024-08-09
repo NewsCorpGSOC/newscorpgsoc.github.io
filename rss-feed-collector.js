@@ -215,7 +215,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const tsvFiles = [
     { file: 'Venezuela_News_Network.tsv', source: 'TSV Venezuela News Network', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'Epoch_Times.tsv', source: 'TSV Epoch Times', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
     { file: 'Israel_Security_Cabinet_News.tsv', source: 'TSV Israel Security Cabinet News', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
     { file: 'Stand_With_Us_Breaking_News.tsv', source: 'TSV Stand With Us Breaking News', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
     { file: 'Ukraine_Air_Defense.tsv', source: 'TSV Ukraine Air Defense', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
@@ -567,8 +566,6 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (source === 'TSV Ukraine Air Defense') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else if (source === 'TSV WOLPalestine') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'TSV Epoch Times') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else if (source === 'Hong Kong Observatory - Earthquake') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
