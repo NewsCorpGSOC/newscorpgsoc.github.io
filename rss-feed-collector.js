@@ -700,9 +700,10 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
+    console.log(`Sound selected for item: ${item.title} is ${selectedSoundFile}`);
+
     if (!isNewItem) {
       item.background = item.background || '#203050'; // Default background color from rssFeeds
-      console.log(`Default sound selected for item: ${item.title}`);
     }
   }
 
