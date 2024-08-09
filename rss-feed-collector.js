@@ -678,18 +678,19 @@ document.addEventListener('DOMContentLoaded', () => {
     for (const topic in topicKeywords) {
       if (topicKeywords.hasOwnProperty(topic)) {
         const { keywords, background, soundFile } = topicKeywords[topic];
-        if (keywords.some(keyword => item.description.toLowerCase().includes(keyword.toLowerCase()))) {
+        if (keywords.some(keyword => item.description.toLowerCase().includes(keyword.toLowerCase()) ||
+                                      item.title.toLowerCase().includes(keyword.toLowerCase()))) {
           item.background = background;
           playSound(soundFile);
-          return; // Stop after the first match
+          return; // Apply the first matched topic and stop further checks
         }
       }
     }
-    item.background = '#203050'; // default background color
+    // Default settings if no keywords match
+    item.background = '#203050'; // the original default background color from rssFeeds
   }
 
   function playSound(soundFile) {
-    console.log('Playing sound at volume:', pingVolume);
     const audio = new Audio(soundFile);
     audio.volume = pingVolume;
     audio.play().catch(error => {
@@ -731,9 +732,12 @@ document.addEventListener('DOMContentLoaded', () => {
   
     const fragment = document.createDocumentFragment();
     searchFilteredFeeds.forEach(item => {
+      applyTopicStyling(item); // Apply styling for each item
+      
       const feedItem = document.createElement('div');
       feedItem.classList.add('feed-item');
-      
+      feedItem.style.backgroundColor = item.background;
+
       const credibilityContainer = document.createElement('div');
       credibilityContainer.classList.add('credibility-container');
       
@@ -747,7 +751,6 @@ document.addEventListener('DOMContentLoaded', () => {
   
       const feedContent = document.createElement('div');
       feedContent.classList.add('feed-content');
-      feedContent.style.backgroundColor = item.background;
   
       const parser = new DOMParser();
       const doc = parser.parseFromString(item.description, 'text/html');
@@ -816,10 +819,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const checkedSources = Array.from(document.querySelectorAll('input[name="sourceFilter"]:checked')).map(cb => cb.value);
     console.log(`Checked sources: ${checkedSources.join(', ')}`);
-
-    // Debugging: Log sources from feedItems
-    const feedItemSources = [...new Set(feedItems.map(item => item.source))];
-    console.log(`Sources in feedItems: ${feedItemSources.join(', ')}`);
 
     if (checkedSources.length > 0 && !checkedSources.includes('all')) {
       filteredFeeds = filteredFeeds.filter(item => checkedSources.includes(item.source));
