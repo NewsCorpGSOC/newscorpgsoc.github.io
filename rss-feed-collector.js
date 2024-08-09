@@ -672,6 +672,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function applyTopicStyling(item) {
+    console.log("Applying topic styling for item:", item.title);
+
     let isNewItem = false;
 
     for (const topic in topicKeywords) {
@@ -679,22 +681,23 @@ document.addEventListener('DOMContentLoaded', () => {
         const { keywords, background, soundFile } = topicKeywords[topic];
         if (keywords.some(keyword => item.description.toLowerCase().includes(keyword.toLowerCase()) ||
                                       item.title.toLowerCase().includes(keyword.toLowerCase()))) {
+          console.log(`Matched topic: ${topic} for item: ${item.title}`);
+
           item.background = background;
 
-          // Check if this item is newer than the current latest feed item
           if (item.pubDate > latestFeedDate) {
+            console.log(`New item detected. Playing sound: ${soundFile}`);
             isNewItem = true;
-            latestFeedDate = item.pubDate; // Update the latest feed date
+            latestFeedDate = item.pubDate;
             playSound(soundFile);
           }
-          break; // Stop after the first matched topic
+          break; // Stop checking after the first match
         }
       }
     }
 
-    // Default settings if no keywords match
-    if (!isNewItem) {
-      item.background = '#203050'; // the original default background color from rssFeeds
+    if (!isNewItem && !item.background) {
+      item.background = '#203050'; // Default background color from rssFeeds
     }
   }
 
