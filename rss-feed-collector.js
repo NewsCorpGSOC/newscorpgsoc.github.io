@@ -1,5 +1,43 @@
 import rssFeeds from './rssFeeds.js';
 
+const topicKeywords = {
+  'Russia': {
+    keywords: ['Russia', 'Ukraine', 'Belarus', 'Donbas', 'Crimea', 'Kyiv', 'Kharkiv', 'Odesa', 'Dnipro', 'Donetsk', 'Zaporizhzhia', 'Lviv', 'Kryvyi Rih', 'Mykolaiv', 'Mariupol', 'Luhansk', 'Vinnytsia', 'Simferopol', 'Kherson', 'Poltava', 'Chernihiv', 'Cherkasy', 'Sumy', 'Zhytomyr', 'Khmelnytskyi', 'Chernivtsi', 'Rivne', 'Ivano-Frankivsk', 'Ternopil', 'Kropyvnytskyi', 'Lutsk', 'Uzhhorod', 'Moscow', 'Saint Petersburg', 'Nizhny Novgorod', 'Kazan', 'Voronezh', 'Saratov', 'Krasnodar', 'Tolyatti', 'Izhevsk', 'Ulyanovsk', 'Yaroslavl', 'Tyumen', 'Barnaul', 'Vladivostok', 'Irkutsk', 'Khabarovsk', 'Kurgan', 'Kaliningrad', 'Belgorod', 'Ivanovo', 'Kostroma', 'Kursk', 'Lipetsk', 'Orel', 'Ryazan', 'Smolensk', 'Tula', 'Tver', 'Vladimir', 'Bryansk', 'Pskov', 'Novgorod', 'Kaluga', 'Tambov'],
+    background: '#2d5b5b',
+    soundFile: 'sounds/ukraine-notification-alert.mp3'
+  },
+  'Israel': {
+    keywords: ['Israel', 'Hamas', 'Palestine', 'Palestinian Authority', 'Gaza', 'West Bank', 'Jerusalem', 'Tel Aviv', 'Haifa', 'Rishon LeZion', 'Petah Tikva', 'Ashdod', 'Netanya', 'Beer Sheva', 'Bnei Brak', 'Holon', 'Ramat Gan', 'Ashkelon', 'Rehovot', 'Bat Yam', 'Kfar Saba', 'Herzliya', 'Modiin-Maccabim-Reut', 'Raanana', 'Beit Shemesh', 'Kiryat Ata', 'Lod', 'Nazareth', 'Ramla', 'Hadera', 'Betar Illit', 'Tiberias', 'Eilat', 'Acre', 'Hod Hasharon', 'Givatayim', 'Umm al-Fahm', 'Tayibe', 'Sakhnin', 'Karmiel', 'Tira', 'Sderot', 'Kiryat Gat', 'Kiryat Bialik', 'Kiryat Motzkin', 'Rosh HaAyin', 'Nahariya', 'Or Yehuda', 'Yavne', 'Ramat HaSharon', 'Maale Adumim', 'Dimona', 'Migdal HaEmek', 'Arad', 'Ofakim', 'Yokneam Illit', 'Kiryat Yam', 'Qalansawe', 'Kiryat Malakhi', 'Gaza', 'Ramallah', 'Hebron', 'Nablus', 'Bethlehem', 'Jenin', 'Jericho', 'Khan Yunis', 'Rafah'],
+    background: '#3e555d',
+    soundFile: 'sounds/israel-notification-alert.mp3'
+  },
+  'MENA': {
+    keywords: ['Lebanon', 'Syria', 'Iraq', 'Iran', 'Islamic Resistance', 'Houthi', 'Yemen', 'Saudi Arabia', 'UAE', 'United Arab Emirates', 'Turkey', 'Israel', 'Hamas', 'Palestine', 'Palestinian Authority', 'Gaza', 'West Bank', 'Jordan', 'IRGC', 'Hezbollah', 'Istanbul', 'Ankara', 'Izmir', 'Bursa', 'Adana', 'Gaziantep', 'Konya', 'Antalya', 'Aleppo', 'Damascus', 'Homs', 'Latakia', 'Beirut', 'Amman', 'Baghdad', 'Basra', 'Mosul', 'Erbil', 'Kuwait City', 'Manama', 'Doha', 'Riyadh', 'Jeddah', 'Mecca', 'Medina', 'Dammam', 'Muscat', 'Dubai', 'Abu Dhabi', 'Sharjah', 'Tehran', 'Mashhad', 'Isfahan', 'Karaj', 'Tabriz', 'Shiraz', 'Cairo', 'Alexandria', 'Giza', 'Shubra El-Kheima', 'Port Said', 'Suez', 'Luxor', 'Asyut', 'Fes', 'Casablanca', 'Rabat', 'Marrakesh', 'Tangier', 'Agadir', 'Tunis', 'Sfax', 'Sousse', 'Tripoli', 'Benghazi', 'Misrata', 'Algiers', 'Oran', 'Constantine', 'Annaba'],
+    background: '#5d4d36',
+    soundFile: 'sounds/news-alert-notification.mp3'
+  },
+  'Protests': {
+    keywords: ['protest', 'march', 'rally', 'demonstration', 'strike', 'riot', 'vigil'],
+    background: '#463655',
+    soundFile: 'sounds/news-alert-notification.mp3'
+  },
+  'Weather': {
+    keywords: ['climate', 'environment', 'storm', 'tornado', 'hurricane', 'heatwave', 'earthquake', 'tsunami'],
+    background: '#79792d',
+    soundFile: 'sounds/weather-alert-notification.mp3'
+  },
+  'China & APAC Tensions': {
+    keywords: ['South China Sea', 'SCS', 'Nine-Dash Line', 'Spratly Islands', 'Paracel Islands', 'Scarborough Shoal', 'ASEAN', 'Philippines and South China Sea', 'Vietnam and South China Sea', 'Malaysia and South China Sea', 'Brunei and South China Sea', 'Chinas artificial islands', 'US-China relations', 'Sino-American relations'],
+    background: '#633d30',
+    soundFile: 'sounds/news-alert-notification.mp3'
+  },
+  'North Korea': {
+    keywords: ['North Korea', 'DPRK', 'Pyongyang', 'Kim Jong-un', 'North Korean government', 'North Korean military', 'North Korean regime', 'North Korean sanctions', 'North Korean economy', 'North Korean diplomacy', 'North Korean missile test', 'North Korean missile launch', 'North Korean missile test', 'North Korean missile launch', 'South Korea', 'ROK', 'Seoul', 'South Korean government', 'South Korean military', 'Moon Jae-in', 'Yoon Suk-yeol', 'Kaesong Industrial Complex', 'Cheonan sinking', 'Yeonpyeong Island shelling', 'North Korean artillery fire', 'North Korean missile tests', 'North Korean nuclear tests', 'North Korean espionage', 'South Korean sanctions', 'South Korean defense strategy', 'North Korean provocations', 'North Korean threats', 'Pyongyang', 'Hamhung', 'Chongjin', 'Nampo', 'Wonsan', 'Sinuiju', 'Tanchon', 'Kaesong', 'Sariwon', 'Haeju', 'Kimchaek', 'Hyesan', 'Songnim', 'Rason', 'Kanggye', 'Seoul', 'Busan', 'Incheon', 'Daegu', 'Daejeon', 'Gwangju', 'Suwon', 'Ulsan', 'Changwon', 'Seongnam', 'Goyang', 'Yongin', 'Bucheon', 'Cheongju', 'Jeonju', 'Cheonan', 'Ansan', 'Sejong', 'Anyang', 'Uijeongbu', 'Gimhae', 'Pyeongtaek', 'Jinju', 'Pohang', 'Mokpo', 'Jeju', 'Gwangmyeong'],
+    background: '#503030',
+    soundFile: 'sounds/news-alert-notification.mp3'
+  },
+};
+
 document.addEventListener('DOMContentLoaded', () => {
   const feedsContainer = document.getElementById('feeds');
   const loadingOverlay = document.getElementById('loading-overlay');
@@ -286,7 +324,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   
     if (newFeedItems) {
-      playSound(); // Play the sound if there are new items
+      playSound('sounds/news-alert-notification.mp3'); // Play the sound if there are new items
     }
   
     return tsvFeedItems;
@@ -630,15 +668,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (data.length > 0 && data[0].pubDate > latestFeedDate) {
       latestFeedDate = data[0].pubDate;
-      playSound();
+      applyTopicStyling(data[0]);
     }
 
     displayFeeds();
   }
 
-  function playSound() {
+  function applyTopicStyling(item) {
+    for (const topic in topicKeywords) {
+      if (topicKeywords.hasOwnProperty(topic)) {
+        const { keywords, background, soundFile } = topicKeywords[topic];
+        if (keywords.some(keyword => item.description.toLowerCase().includes(keyword.toLowerCase()))) {
+          item.background = background;
+          playSound(soundFile);
+          return; // Stop after the first match
+        }
+      }
+    }
+    item.background = '#203050'; // default background color
+  }
+
+  function playSound(soundFile) {
     console.log('Playing sound at volume:', pingVolume);
-    const audio = new Audio('sounds/news-alert-notification.mp3');
+    const audio = new Audio(soundFile);
     audio.volume = pingVolume;
     audio.play().catch(error => {
       console.error('Error playing sound:', error);
@@ -734,58 +786,48 @@ document.addEventListener('DOMContentLoaded', () => {
     return termGroups;
   }
 
-function applyFilter() {
-  const now = new Date();
-  let filteredFeeds = [...feedItems];
-  console.log(`Total feed items: ${feedItems.length}`);
+  function applyFilter() {
+    const now = new Date();
+    let filteredFeeds = [...feedItems];
+    console.log(`Total feed items: ${feedItems.length}`);
 
-  const timelineValue = timelineFilter.value;
-  console.log(`Timeline filter value: ${timelineValue}`);
+    const timelineValue = timelineFilter.value;
+    console.log(`Timeline filter value: ${timelineValue}`);
 
-  if (timelineValue === 'lastHour') {
-    filteredFeeds = filteredFeeds.filter(item => now - item.pubDate <= 3600000);
-  } else if (timelineValue === 'last12Hours') {
-    filteredFeeds = filteredFeeds.filter(item => now - item.pubDate <= 43200000);
-  } else if (timelineValue === 'lastDay') {
-    filteredFeeds = filteredFeeds.filter(item => now - item.pubDate <= 86400000);
+    if (timelineValue === 'lastHour') {
+      filteredFeeds = filteredFeeds.filter(item => now - item.pubDate <= 3600000);
+    } else if (timelineValue === 'last12Hours') {
+      filteredFeeds = filteredFeeds.filter(item => now - item.pubDate <= 43200000);
+    } else if (timelineValue === 'lastDay') {
+      filteredFeeds = filteredFeeds.filter(item => now - item.pubDate <= 86400000);
+    }
+    console.log(`Filtered feeds after timeline filter: ${filteredFeeds.length}`);
+
+    const topicValue = topicFilter.value;
+    console.log(`Topic filter value: ${topicValue}`);
+
+    if (topicValue !== 'all' && topicKeywords[topicValue]) {
+      const keywords = topicKeywords[topicValue].keywords.map(keyword => keyword.toLowerCase());
+      filteredFeeds = filteredFeeds.filter(item =>
+        keywords.some(keyword => item.description.toLowerCase().includes(keyword))
+      );
+    }
+    console.log(`Filtered feeds after topic filter: ${filteredFeeds.length}`);
+
+    const checkedSources = Array.from(document.querySelectorAll('input[name="sourceFilter"]:checked')).map(cb => cb.value);
+    console.log(`Checked sources: ${checkedSources.join(', ')}`);
+
+    // Debugging: Log sources from feedItems
+    const feedItemSources = [...new Set(feedItems.map(item => item.source))];
+    console.log(`Sources in feedItems: ${feedItemSources.join(', ')}`);
+
+    if (checkedSources.length > 0 && !checkedSources.includes('all')) {
+      filteredFeeds = filteredFeeds.filter(item => checkedSources.includes(item.source));
+    }
+    console.log(`Filtered feeds after source filter: ${filteredFeeds.length}`);
+
+    return filteredFeeds;
   }
-  console.log(`Filtered feeds after timeline filter: ${filteredFeeds.length}`);
-
-  const topicKeywords = {
-      'Russia': ['Russia', 'Ukraine', 'Belarus', 'Donbas', 'Crimea', 'Kyiv', 'Kharkiv', 'Odesa', 'Dnipro', 'Donetsk', 'Zaporizhzhia', 'Lviv', 'Kryvyi Rih', 'Mykolaiv', 'Mariupol', 'Luhansk', 'Vinnytsia', 'Simferopol', 'Kherson', 'Poltava', 'Chernihiv', 'Cherkasy', 'Sumy', 'Zhytomyr', 'Khmelnytskyi', 'Chernivtsi', 'Rivne', 'Ivano-Frankivsk', 'Ternopil', 'Kropyvnytskyi', 'Lutsk', 'Uzhhorod', 'Moscow', 'Saint Petersburg', 'Nizhny Novgorod', 'Kazan', 'Voronezh', 'Saratov', 'Krasnodar', 'Tolyatti', 'Izhevsk', 'Ulyanovsk', 'Yaroslavl', 'Tyumen', 'Barnaul', 'Vladivostok', 'Irkutsk', 'Khabarovsk', 'Kurgan', 'Kaliningrad', 'Belgorod', 'Ivanovo', 'Kostroma', 'Kursk', 'Lipetsk', 'Orel', 'Ryazan', 'Smolensk', 'Tula', 'Tver', 'Vladimir', 'Bryansk', 'Pskov', 'Novgorod', 'Kaluga', 'Tambov'],
-      'Israel': ['Israel', 'Hamas', 'Palestine', 'Palestinian Authority', 'Gaza', 'West Bank', 'Jerusalem', 'Tel Aviv', 'Haifa', 'Rishon LeZion', 'Petah Tikva', 'Ashdod', 'Netanya', 'Beer Sheva', 'Bnei Brak', 'Holon', 'Ramat Gan', 'Ashkelon', 'Rehovot', 'Bat Yam', 'Kfar Saba', 'Herzliya', 'Modiin-Maccabim-Reut', 'Raanana', 'Beit Shemesh', 'Kiryat Ata', 'Lod', 'Nazareth', 'Ramla', 'Hadera', 'Betar Illit', 'Tiberias', 'Eilat', 'Acre', 'Hod Hasharon', 'Givatayim', 'Umm al-Fahm', 'Tayibe', 'Sakhnin', 'Karmiel', 'Tira', 'Sderot', 'Kiryat Gat', 'Kiryat Bialik', 'Kiryat Motzkin', 'Rosh HaAyin', 'Nahariya', 'Or Yehuda', 'Yavne', 'Ramat HaSharon', 'Maale Adumim', 'Dimona', 'Migdal HaEmek', 'Arad', 'Ofakim', 'Yokneam Illit', 'Kiryat Yam', 'Qalansawe', 'Kiryat Malakhi', 'Gaza', 'Ramallah', 'Hebron', 'Nablus', 'Bethlehem', 'Jenin', 'Jericho', 'Khan Yunis', 'Rafah'],
-      'MENA': ['Lebanon', 'Syria', 'Iraq', 'Iran', 'Islamic Resistance', 'Houthi', 'Yemen', 'Saudi Arabia', 'UAE', 'United Arab Emirates', 'Turkey', 'Israel', 'Hamas', 'Palestine', 'Palestinian Authority', 'Gaza', 'West Bank', 'Jordan', 'IRGC', 'Hezbollah', 'Istanbul', 'Ankara', 'Izmir', 'Bursa', 'Adana', 'Gaziantep', 'Konya', 'Antalya', 'Aleppo', 'Damascus', 'Homs', 'Latakia', 'Beirut', 'Amman', 'Baghdad', 'Basra', 'Mosul', 'Erbil', 'Kuwait City', 'Manama', 'Doha', 'Riyadh', 'Jeddah', 'Mecca', 'Medina', 'Dammam', 'Muscat', 'Dubai', 'Abu Dhabi', 'Sharjah', 'Tehran', 'Mashhad', 'Isfahan', 'Karaj', 'Tabriz', 'Shiraz', 'Cairo', 'Alexandria', 'Giza', 'Shubra El-Kheima', 'Port Said', 'Suez', 'Luxor', 'Asyut', 'Fes', 'Casablanca', 'Rabat', 'Marrakesh', 'Tangier', 'Agadir', 'Tunis', 'Sfax', 'Sousse', 'Tripoli', 'Benghazi', 'Misrata', 'Algiers', 'Oran', 'Constantine', 'Annaba'],
-      'Protests': ['protest', 'march', 'rally', 'demonstration', 'strike', 'riot', 'vigil'],
-      'Weather': ['climate', 'environment', 'storm', 'tornado', 'hurricane', 'heatwave', 'earthquake', 'tsunami'],
-      'China & APAC Tensions': ['South China Sea', 'SCS', 'Nine-Dash Line', 'Spratly Islands', 'Paracel Islands', 'Scarborough Shoal', 'ASEAN', 'Philippines and South China Sea', 'Vietnam and South China Sea', 'Malaysia and South China Sea', 'Brunei and South China Sea', 'Chinas artificial islands', 'US-China relations', 'Sino-American relations'],
-      'North Korea': ['North Korea', 'DPRK', 'Pyongyang', 'Kim Jong-un', 'North Korean government', 'North Korean military', 'North Korean regime', 'North Korean sanctions', 'North Korean economy', 'North Korean diplomacy', 'North Korean missile test', 'North Korean missile launch', 'North Korean missile test', 'North Korean missile launch', 'South Korea', 'ROK', 'Seoul', 'South Korean government', 'South Korean military', 'Moon Jae-in', 'Yoon Suk-yeol', 'Kaesong Industrial Complex', 'Cheonan sinking', 'Yeonpyeong Island shelling', 'North Korean artillery fire', 'North Korean missile tests', 'North Korean nuclear tests', 'North Korean espionage', 'South Korean sanctions', 'South Korean defense strategy', 'North Korean provocations', 'North Korean threats', 'Pyongyang', 'Hamhung', 'Chongjin', 'Nampo', 'Wonsan', 'Sinuiju', 'Tanchon', 'Kaesong', 'Sariwon', 'Haeju', 'Kimchaek', 'Hyesan', 'Songnim', 'Rason', 'Kanggye', 'Seoul', 'Busan', 'Incheon', 'Daegu', 'Daejeon', 'Gwangju', 'Suwon', 'Ulsan', 'Changwon', 'Seongnam', 'Goyang', 'Yongin', 'Bucheon', 'Cheongju', 'Jeonju', 'Cheonan', 'Ansan', 'Sejong', 'Anyang', 'Uijeongbu', 'Gimhae', 'Pyeongtaek', 'Jinju', 'Pohang', 'Mokpo', 'Jeju', 'Gwangmyeong'],
-    };
-
-  const topicValue = topicFilter.value;
-  console.log(`Topic filter value: ${topicValue}`);
-
-  if (topicValue !== 'all' && topicKeywords[topicValue]) {
-    const keywords = topicKeywords[topicValue].map(keyword => keyword.toLowerCase());
-    filteredFeeds = filteredFeeds.filter(item =>
-      keywords.some(keyword => item.description.toLowerCase().includes(keyword))
-    );
-  }
-  console.log(`Filtered feeds after topic filter: ${filteredFeeds.length}`);
-
-  const checkedSources = Array.from(document.querySelectorAll('input[name="sourceFilter"]:checked')).map(cb => cb.value);
-  console.log(`Checked sources: ${checkedSources.join(', ')}`);
-
-  // Debugging: Log sources from feedItems
-  const feedItemSources = [...new Set(feedItems.map(item => item.source))];
-  console.log(`Sources in feedItems: ${feedItemSources.join(', ')}`);
-
-  if (checkedSources.length > 0 && !checkedSources.includes('all')) {
-    filteredFeeds = filteredFeeds.filter(item => checkedSources.includes(item.source));
-  }
-  console.log(`Filtered feeds after source filter: ${filteredFeeds.length}`);
-
-  return filteredFeeds;
-}
 
   timelineFilter.addEventListener('change', debounce(displayFeeds, 300));
   topicFilter.addEventListener('change', debounce(displayFeeds, 300));
