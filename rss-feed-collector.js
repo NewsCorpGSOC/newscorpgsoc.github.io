@@ -689,14 +689,14 @@ document.addEventListener('DOMContentLoaded', () => {
           item.background = background;
           selectedSoundFile = soundFile; // Set the sound file to the one for the matched topic
           
-          if (item.pubDate > latestFeedDate) {
-            console.log(`New item detected. Previous latestFeedDate: ${latestFeedDate}, New item date: ${item.pubDate}`);
+          if (item.pubDate >= latestFeedDate) {
+            console.log(`New or equal item detected. Previous latestFeedDate: ${latestFeedDate}, New item date: ${item.pubDate}`);
             isNewItem = true;
             latestFeedDate = item.pubDate;
             console.log(`Updated latestFeedDate: ${latestFeedDate}`);
             playSound(selectedSoundFile); // Play the topic-specific sound
           } else {
-            console.log('Item is not newer than latestFeedDate, no sound will be played.');
+            console.log('Item is not newer than or equal to latestFeedDate, no sound will be played.');
           }
           break; // Stop checking after the first match
         }
