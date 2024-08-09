@@ -677,7 +677,7 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log(`Item publication date: ${item.pubDate}`);
   
     let isNewItem = false;
-    let selectedSoundFile = 'sounds/default-sound.mp3'; // Default sound
+    let selectedSoundFile = 'sounds/news-alert-notification.mp3'; // Default sound
   
     for (const topic in topicKeywords) {
       if (topicKeywords.hasOwnProperty(topic)) {
