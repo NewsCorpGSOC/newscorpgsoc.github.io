@@ -673,6 +673,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function applyTopicStyling(item) {
     console.log("Applying topic styling for item:", item.title);
+    console.log(`Current latestFeedDate: ${latestFeedDate}`);
 
     let isNewItem = false;
     let selectedSoundFile = 'sounds/news-alert-notification.mp3'; // Default sound
@@ -688,9 +689,10 @@ document.addEventListener('DOMContentLoaded', () => {
           selectedSoundFile = soundFile; // Set the sound file to the one for the matched topic
           
           if (item.pubDate > latestFeedDate) {
-            console.log(`New item detected. Playing sound: ${selectedSoundFile}`);
+            console.log(`New item detected. Previous latestFeedDate: ${latestFeedDate}, New item date: ${item.pubDate}`);
             isNewItem = true;
             latestFeedDate = item.pubDate;
+            console.log(`Updated latestFeedDate: ${latestFeedDate}`);
             playSound(selectedSoundFile); // Play the topic-specific sound
           }
           break; // Stop checking after the first match
