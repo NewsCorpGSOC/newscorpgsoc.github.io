@@ -672,6 +672,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function applyTopicStyling(item) {
+    let isNewItem = false;
+
     for (const topic in topicKeywords) {
       if (topicKeywords.hasOwnProperty(topic)) {
         const { keywords, background, soundFile } = topicKeywords[topic];
@@ -679,20 +681,25 @@ document.addEventListener('DOMContentLoaded', () => {
                                       item.title.toLowerCase().includes(keyword.toLowerCase()))) {
           item.background = background;
 
-          // Only play sound if the item is newer than the current latest feed item
+          // Check if this item is newer than the current latest feed item
           if (item.pubDate > latestFeedDate) {
-            playSound(soundFile);
+            isNewItem = true;
             latestFeedDate = item.pubDate; // Update the latest feed date
+            playSound(soundFile);
           }
-          return; // Stop after the first matched topic
+          break; // Stop after the first matched topic
         }
       }
     }
+
     // Default settings if no keywords match
-    item.background = '#203050'; // the original default background color from rssFeeds
+    if (!isNewItem) {
+      item.background = '#203050'; // the original default background color from rssFeeds
+    }
   }
 
   function playSound(soundFile) {
+    console.log(`Playing sound for: ${soundFile}`);
     const audio = new Audio(soundFile);
     audio.volume = pingVolume;
     audio.play().catch(error => {
