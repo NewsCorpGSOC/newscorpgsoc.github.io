@@ -254,6 +254,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const link = item.Link?.trim() || '#';
       const description = decodeHTMLEntities(item.Description?.trim() || 'No description');
       const pubDate = parseDate(item.pubDate?.trim());
+      const imageUrl = item.image?.trim(); // Handle the new "image" column
       const locationLink = item.Location?.trim();
       const magnitude = parseFloat(item.Magnitude?.trim());
   
@@ -278,6 +279,11 @@ document.addEventListener('DOMContentLoaded', () => {
       let locationImage = '';
       if (locationLink) {
         locationImage = `<a href="${locationLink}" target="_blank"><img src="${magnitudeImage}" alt="Earthquake Severity" width="50" height="50" style="border:0;" /></a>`;
+      }
+  
+      let imageHtml = '';
+      if (imageUrl) {
+        imageHtml = `<img src="${imageUrl}" alt="Article image" height="300" onerror="this.onerror=null;this.src='https://i.imgur.com/GQPN5Q9.jpeg';" />`;
       }
   
       return {
