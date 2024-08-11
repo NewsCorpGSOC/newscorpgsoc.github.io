@@ -2,12 +2,12 @@ import rssFeeds from './rssFeeds.js';
 
 const topicKeywords = {
   'Weather': {
-    keywords: ['climate', 'environment', 'storm', 'tornado', 'hurricane', 'heatwave', 'earthquake', 'tsunami'],
+    keywords: ['weather', 'flood', 'climate', 'environment', 'storm', 'tornado', 'hurricane', 'heatwave', 'earthquake', 'tsunami'],
     background: '#83835f',
     soundFile: 'sounds/weather-alert-notification.mp3'
   },
   'Protests': {
-    keywords: ['protest', 'march', 'rally', 'demonstration', 'riot', 'vigil'],
+    keywords: ['protest'', 'rally', 'demonstration', 'riot', 'vigil'],
     background: '#463655',
     soundFile: 'sounds/news-alert-notification.mp3'
   },
