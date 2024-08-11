@@ -221,7 +221,11 @@ document.addEventListener('DOMContentLoaded', () => {
     { file: 'WOLPalestine.tsv', source: 'TSV WOLPalestine', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
     { file: 'USGS_Earthquakes.tsv', source: 'TSV USGS Earthquakes', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
     { file: 'Jewish_Breaking_News.tsv', source: 'TSV Jewish Breaking News', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'Mannies_War_Room.tsv', source: 'TSV Mannies War Room - Times of Israel', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] }
+    { file: 'Mannies_War_Room.tsv', source: 'TSV Mannies War Room - Times of Israel', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
+    { file: 'Ukraine_Air_Defense.tsv', source: 'TSV Ukraine Air Defense', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
+    { file: 'PoliticsGR.tsv', source: 'TSV PoliticsGR', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
+    { file: 'RerumNovarumIntel.tsv', source: 'TSV Rerum Novarum Intel', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
+    { file: 'IDFOfficial.tsv', source: 'TSV Israel Defense Forces', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] }
   ];
 
   async function fetchTSVFile(url) {
@@ -602,6 +606,14 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (source === 'TSV Jewish Breaking News') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else if (source === 'TSV Mannies War Room - Times of Israel') {
+      adjustedDate.setHours(adjustedDate.getHours() + 0);
+    } else if (source === 'TSV Ukraine Air Defense') {
+      adjustedDate.setHours(adjustedDate.getHours() + 0);
+    } else if (source === 'TSV PoliticsGR') {
+      adjustedDate.setHours(adjustedDate.getHours() + 0);
+    } else if (source === 'TSV Rerum Novarum Intel') {
+      adjustedDate.setHours(adjustedDate.getHours() + 0);
+    } else if (source === 'TSV Israel Defense Forces') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else {
       console.warn(`No specific time adjustment found for source: ${source}`);
