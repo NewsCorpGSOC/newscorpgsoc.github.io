@@ -1000,32 +1000,6 @@ const rssFeeds = [
     ]
   },
   {
-    url: 'https://rsshub.app/telegram/channel/WOLPalestine',
-    source: 'WOLPalestine Telegram',
-    priorityLevel: 'Very Low',
-    requiredTerms: [],
-    ignoreTerms: [],
-    reliability: 'Credible',
-    background: '#203050',
-    backups: [
-      'https://corsproxy.io/?https%3A%2F%2Frsshub.app%2Ftelegram%2Fchannel%2FWOLPalestine',
-      'https://api.allorigins.win/get?url=https%3A%2F%2Frsshub.app%2Ftelegram%2Fchannel%2FWOLPalestine',
-    ]
-  },
-  {
-    url: 'https://corsproxy.io/?https%3A%2F%2Frsshub.app%2Ftelegram%2Fchannel%2Fkpszsu',
-    source: 'Air Force of the Armed Forces of Ukraine Telegram',
-    priorityLevel: 'Very Low',
-    requiredTerms: [],
-    ignoreTerms: [],
-    reliability: 'Credible',
-    background: '#203050',
-    backups: [
-      'https://rsshub.app/telegram/channel/kpszsu',
-      'https://api.allorigins.win/get?url=https%3A%2F%2Frsshub.app%2Ftelegram%2Fchannel%2Fkpszsu',
-    ]
-  },
-  {
     url: 'https://api.weather.gov/alerts/active.atom?certainty=Likely%2CObserved&severity=Extreme%2CSevere&urgency=Future%2CExpected%2CImmediate',
     source: 'National Weather Service',
     priorityLevel: 'High',
@@ -1036,20 +1010,6 @@ const rssFeeds = [
     backups: [
       'https://corsproxy.io/?https%3A%2F%2Fapi.weather.gov%2Falerts%2Factive.atom%3Fcertainty%3DLikely%252CObserved%26severity%3DExtreme%252CSevere%26urgency%3DFuture%252CExpected%252CImmediate',
       'https://api.allorigins.win/get?url=https%3A%2F%2Fapi.weather.gov%2Falerts%2Factive.atom%3Fcertainty%3DLikely%252CObserved%26severity%3DExtreme%252CSevere%26urgency%3DFuture%252CExpected%252CImmediate',
-    ]
-  },
-  {
-    url: 'https://rss-bridge.org/bridge01/?action=display&username=News_cabinet_news&bridge=TelegramBridge&format=Atom',
-    source: 'Israel Security Cabinet News Telegram',
-    priorityLevel: 'High',
-    requiredTerms: [],
-    ignoreTerms: [],
-    reliability: 'Credible',
-    background: '#203050',
-    backups: [
-      'https://rsshub.woodland.cafe/telegram/channel/News_cabinet_news',
-      'https://api.allorigins.win/get?url=https%3A%2F%2Frsshub.app%2Ftelegram%2Fchannel%2FNews_cabinet_news',
-      'https://corsproxy.io/?https%3A%2F%2Frsshub.app%2Ftelegram%2Fchannel%2FNews_cabinet_news',
     ]
   },
   {
@@ -1074,19 +1034,6 @@ const rssFeeds = [
     background: '#203050',
     backups: [
       'https://corsproxy.io/?https%3A%2F%2Frsshub.app%2Ftelegram%2Fchannel%2Fepochtimes',
-    ]
-  },
-  {
-    url: 'https://rss-bridge.org/bridge01/?action=display&username=StandWithUsBreakingNews&bridge=TelegramBridge&format=Atom',
-    source: 'Stand With Us Breaking News Telegram',
-    priorityLevel: 'High',
-    requiredTerms: [],
-    ignoreTerms: [],
-    reliability: 'Credible',
-    background: '#203050',
-    backups: [
-      'https://api.allorigins.win/get?url=https%3A%2F%2Frsshub.speednet.icu%2Ftelegram%2Fchannel%2FStandWithUsBreakingNews',
-      'https://corsproxy.io/?https%3A%2F%2Frsshub.app%2Ftelegram%2Fchannel%2FStandWithUsBreakingNews',
     ]
   },
   {
