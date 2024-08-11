@@ -284,19 +284,10 @@ document.addEventListener('DOMContentLoaded', () => {
         locationImage = `<a href="${locationLink}" target="_blank"><img src="${magnitudeImage}" alt="Earthquake Severity" width="50" height="50" style="border:0;" /></a>`;
       }
   
-      // Handle the image column if present
-      let imageHtml = '';
-      if (item.Image) {
-        const imageUrl = item.Image.trim();
-        if (imageUrl) {
-          imageHtml = `<img src="${imageUrl}" alt="Feed image" width="300" height="200" style="border:0;" />`;
-        }
-      }
-  
       return {
         title,
         link,
-        description: description + imageHtml + locationImage, // Append the image and location image to the description
+        description: description + locationImage, // Append the earthquake image to the description
         pubDate: convertToTimezone(pubDate, source),
         source,
         reliability,
