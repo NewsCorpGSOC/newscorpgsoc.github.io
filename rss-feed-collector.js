@@ -38,7 +38,7 @@ const topicKeywords = {
   },
 };
 
-document.addEventListener('DOMContentLoaded', async () => {
+document.addEventListener('DOMContentLoaded', () => {
   const feedsContainer = document.getElementById('feeds');
   const loadingOverlay = document.getElementById('loading-overlay');
   const timelineFilter = document.getElementById('timelineFilter');
