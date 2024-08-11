@@ -7,7 +7,7 @@ const topicKeywords = {
     soundFile: 'sounds/weather-alert-notification.mp3'
   },
   'Protests': {
-    keywords: ['protest'', 'rally', 'demonstration', 'riot', 'vigil'],
+    keywords: ['protest', 'rally', 'demonstration', 'riot', 'vigil'],
     background: '#463655',
     soundFile: 'sounds/news-alert-notification.mp3'
   },
@@ -38,7 +38,7 @@ const topicKeywords = {
   },
 };
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
   const feedsContainer = document.getElementById('feeds');
   const loadingOverlay = document.getElementById('loading-overlay');
   const timelineFilter = document.getElementById('timelineFilter');
