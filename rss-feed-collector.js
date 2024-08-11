@@ -545,19 +545,11 @@ document.addEventListener('DOMContentLoaded', async () => {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'Naharnet - Middle East') {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
-    } else if (source === 'WOLPalestine Telegram') {
-      adjustedDate.setHours(adjustedDate.getHours() - 0);
-    } else if (source === 'Air Force of the Armed Forces of Ukraine Telegram') {
-      adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'National Weather Service') {
-      adjustedDate.setHours(adjustedDate.getHours() - 0);
-    } else if (source === 'Israel Security Cabinet News Telegram') {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'Saba Agency Telegram') {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'Epoch Times Telegram') {
-      adjustedDate.setHours(adjustedDate.getHours() - 0);
-    } else if (source === 'Stand With Us Breaking News Telegram') {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'Global Shake Princeton') {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
