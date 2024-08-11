@@ -38,7 +38,7 @@ const topicKeywords = {
   },
 };
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
   const feedsContainer = document.getElementById('feeds');
   const loadingOverlay = document.getElementById('loading-overlay');
   const timelineFilter = document.getElementById('timelineFilter');
@@ -638,14 +638,19 @@ document.addEventListener('DOMContentLoaded', () => {
       'Very Low': 600000 // 10 minutes
     };
   
-    await Promise.all(rssFeeds.map(feed => fetchFeedAndUpdate(feed)));
+    // Fetch TSV files first
     const tsvFeedItems = await fetchTSVFiles();
     console.log(`TSV Feed Items: ${JSON.stringify(tsvFeedItems, null, 2)}`); // Debugging statement
     feedItems = [...feedItems, ...tsvFeedItems];
-    console.log(`Combined Feed Items: ${JSON.stringify(feedItems, null, 2)}`); // Debugging statement
-    feedItems.sort((a, b) => b.pubDate - a.pubDate); // Sort by date, newest first
+    
+    // Fetch RSS feeds after TSV feeds
+    await Promise.all(rssFeeds.map(feed => fetchFeedAndUpdate(feed)));
+  
+    // Sort by date, newest first
+    feedItems.sort((a, b) => b.pubDate - a.pubDate);
     displayFeeds();
   
+    // Schedule periodic fetching of RSS feeds
     rssFeeds.forEach((feed) => {
       const fetchInterval = priorityIntervals[feed.priorityLevel] || 180000; // Default to 3 minutes if not specified
       console.log(`Scheduling fetch for ${feed.source} with interval of ${fetchInterval} ms`);
