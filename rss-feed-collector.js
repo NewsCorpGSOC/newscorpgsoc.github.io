@@ -230,6 +230,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     { file: 'RerumNovarumIntel.tsv', source: 'TSV Rerum Novarum Intel', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
     { file: 'IDFOfficial.tsv', source: 'TSV Israel Defense Forces', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
     { file: 'OurWarsToday.tsv', source: 'TSV Our Wars, Today', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
+    { file: 'Rybar.tsv', source: 'TSV Rybar - Russian News', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
     { file: 'IranInternational.tsv', source: 'TSV Iran International', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] }
   ];
 
@@ -607,6 +608,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     } else if (source === 'TSV Israel Defense Forces') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else if (source === 'TSV Our Wars, Today') {
+      adjustedDate.setHours(adjustedDate.getHours() + 0);
+    } else if (source === 'TSV Rybar - Russian News') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else if (source === 'TSV Iran International') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
