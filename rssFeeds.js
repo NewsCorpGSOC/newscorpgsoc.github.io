@@ -999,7 +999,7 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
-    reliability: 'Dubious',
+    reliability: 'Requires Verification',
     background: '#203050',
     backups: [
       '${PROXY_URL}https://www.reddit.com/r/breakingnews/new.rss',
@@ -1013,7 +1013,7 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
-    reliability: 'Credible',
+    reliability: 'Requires Verification',
     background: '#203050',
     backups: [
       '${PROXY_URL}https://www.reddit.com/r/YemeniCrisis/new.rss',
@@ -1027,7 +1027,7 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
-    reliability: 'Dubious',
+    reliability: 'Requires Verification',
     background: '#203050',
     backups: [
       '${PROXY_URL}https://www.reddit.com/r/worldnews/rising.rss',
@@ -1041,7 +1041,7 @@ const rssFeeds = [
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
-    reliability: 'Dubious',
+    reliability: 'Requires Verification',
     background: '#203050',
     backups: [
       '${PROXY_URL}https://www.reddit.com/r/InternationalNews.rss',
