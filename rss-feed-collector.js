@@ -148,8 +148,11 @@ document.addEventListener('DOMContentLoaded', async () => {
   const fetchFeed = async (feed, retries = RETRIES) => {
     for (const url of [feed.url, ...(feed.backups || [])]) {
       try {
-        console.log(`Fetching URL: ${url}`);
-        const response = await fetch(url);
+        const cacheBuster = new Date().getTime();
+        const cacheBustedUrl = `${url}${url.includes('?') ? '&' : '?'}cache-bust=${cacheBuster}`;
+        
+        console.log(`Fetching URL: ${cacheBustedUrl}`);
+        const response = await fetch(cacheBustedUrl);
         const data = await response.text();
         const parser = new DOMParser();
         const xmlDoc = parser.parseFromString(data, 'application/xml');
