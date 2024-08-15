@@ -1,7 +1,7 @@
 // loginDNC.js
-import config from './configdnc.js';
+import configdnc from './configdnc.js';
 
-function checkLogin(event) {
+function checkLoginDNC(event) {
   event.preventDefault();
   const users = configdnc.users;
 
@@ -11,10 +11,10 @@ function checkLogin(event) {
   if (users[username] && users[username] === password) {
     sessionStorage.setItem('loggedInDNC', 'true');
     sessionStorage.setItem('username', username);
-    window.location.href = 'index.html';
+    window.location.href = 'DNC.html';
   } else {
     alert('Incorrect username or password. Please try again.');
   }
 }
 
-export { checkLogin };
+export { checkLoginDNC };
