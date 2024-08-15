@@ -330,9 +330,9 @@
     }
   </style>
   <script type="module">
-    import { checkLogin } from './loginDNC.js';
+    import { checkLoginDNC } from './loginDNC.js';
 
-    window.checkLogin = checkLogin;
+    window.checkLoginDNC = checkLoginDNC;
   </script>
 </head>
 <body>
@@ -345,7 +345,7 @@
     </div>
     <div class="login-container">
       <h1>🌐 DNC Security Map Password 🌐</h1>
-      <form onsubmit="checkLogin(event)">
+      <form onsubmit="checkLoginDNC(event)">
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required>
         <label for="password">Password:</label>
