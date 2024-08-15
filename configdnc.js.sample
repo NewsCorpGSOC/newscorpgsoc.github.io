@@ -1,0 +1,8 @@
+// config.js.sample
+const configdnc = {
+  users: {
+    'sample.user@example.com': 'samplePassword'
+  }
+};
+
+export default configdnc;
