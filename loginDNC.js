@@ -9,7 +9,7 @@ function checkLogin(event) {
   const password = document.getElementById('password').value;
 
   if (users[username] && users[username] === password) {
-    sessionStorage.setItem('loggedIn', 'true');
+    sessionStorage.setItem('loggedInDNC', 'true');
     sessionStorage.setItem('username', username);
     window.location.href = 'index.html';
   } else {
