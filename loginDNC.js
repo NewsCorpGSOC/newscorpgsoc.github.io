@@ -1,4 +1,4 @@
-// login.js
+// loginDNC.js
 import config from './configdnc.js';
 
 function checkLogin(event) {
