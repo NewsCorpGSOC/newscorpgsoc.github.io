@@ -1,9 +1,9 @@
 // login.js
-import config from './configDNC.js';
+import config from './configdnc.js';
 
 function checkLogin(event) {
   event.preventDefault();
-  const users = config.users;
+  const users = configdnc.users;
 
   const username = document.getElementById('username').value;
   const password = document.getElementById('password').value;
