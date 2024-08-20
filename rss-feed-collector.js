@@ -805,9 +805,13 @@ document.addEventListener('DOMContentLoaded', async () => {
       // Add the first image back to the feedElement if it exists
       let imageHtml = '';
       if (firstImg) {
-        imageHtml = `<img src="${firstImg.src}" alt="Feed image" height="300" onerror="this.onerror=null;this.src='https://i.imgur.com/GQPN5Q9.jpeg';" />`;
+        if (item.source === 'TSV USGS Earthquakes') {
+          imageHtml = `<img src="${firstImg.src}" alt="Earthquake Severity" width="50" height="50" style="border:0;" />`;
+        } else {
+          imageHtml = `<img src="${firstImg.src}" alt="Feed image" height="300" onerror="this.onerror=null;this.src='https://i.imgur.com/GQPN5Q9.jpeg';" />`;
+        }
       }
-  
+
       feedContent.innerHTML = 
         `<h2><a href="${item.link}" target="_blank">${item.title}</a></h2>
         ${imageHtml}
