@@ -1,0 +1,29 @@
+name: Prune Routine Deployments
+
+# Define when the workflow should run
+on:
+  schedule:
+    - cron: '0 0 * * *'  # This will run daily at midnight UTC
+  workflow_dispatch:  # Allows you to manually trigger the workflow from the GitHub interface
+
+# Define the jobs that run as part of this workflow
+jobs:
+  prune-deployments:
+    runs-on: ubuntu-latest  # Use the latest version of Ubuntu as the runner environment
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3  # Check out your repository's code
+
+      - name: Set up Python
+        uses: actions/setup-python@v4  # Set up a Python environment
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: pip install requests  # Install the requests library
+
+      - name: Run Prune Deployments Script
+        env:
+          GITHUB_TOKEN: ${{ secrets.ACTIONS_PAT }}  # Pass the GitHub token securely
+        run: python path/to/your/prune_deployments.py  # Run your Python script
