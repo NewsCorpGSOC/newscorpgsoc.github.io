@@ -2,7 +2,7 @@ import os
 import requests
 
 # GitHub API token with repo access from environment variable
-GITHUB_TOKEN = os.getenv('ACTIONS_PAT')
+GITHUB_TOKEN = os.getenv('DEPLOYMENTSCLEANER')
 REPO_OWNER = 'NewsCorpGSOC'
 REPO_NAME = 'newscorpgsoc.github.io'
 
