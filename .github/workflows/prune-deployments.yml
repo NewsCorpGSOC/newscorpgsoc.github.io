@@ -26,4 +26,5 @@ jobs:
       - name: Run Prune Deployments Script
         env:
           GITHUB_TOKEN: ${{ secrets.ACTIONS_PAT }}  # Pass the GitHub token securely
-        run: python path/to/your/prune_deployments.py  # Run your Python script
+        run: python .github/workflows/prune_deployments.py
+
