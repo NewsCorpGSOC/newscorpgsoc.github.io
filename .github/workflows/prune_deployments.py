@@ -31,7 +31,8 @@ def delete_deployment(deployment_id):
 def prune_deployments():
     deployments = get_deployments()
     for deployment in deployments:
-        if "Routine update" in deployment.get('description', ''):
+        # Ensure deployment is a dictionary before accessing 'description'
+        if isinstance(deployment, dict) and "Routine update" in deployment.get('description', ''):
             delete_deployment(deployment['id'])
 
 if __name__ == "__main__":
