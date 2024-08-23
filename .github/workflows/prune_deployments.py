@@ -16,6 +16,7 @@ headers = {
 def get_deployments():
     url = f'https://api.github.com/repos/{REPO_OWNER}/{REPO_NAME}/deployments'
     response = requests.get(url, headers=headers)
+    response.raise_for_status()  # Raise an error for bad status codes
     return response.json()
 
 # Function to delete a deployment
@@ -32,8 +33,10 @@ def prune_deployments():
     deployments = get_deployments()
     for deployment in deployments:
         # Ensure deployment is a dictionary before accessing 'description'
-        if isinstance(deployment, dict) and "Routine update" in deployment.get('description', ''):
-            delete_deployment(deployment['id'])
+        if isinstance(deployment, dict):
+            description = deployment.get('description', '')
+            if "Routine update" in description:
+                delete_deployment(deployment['id'])
 
 if __name__ == "__main__":
     prune_deployments()
