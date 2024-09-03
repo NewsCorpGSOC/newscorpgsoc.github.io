@@ -231,7 +231,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     { file: 'IDFOfficial.tsv', source: 'TSV Israel Defense Forces', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
     { file: 'OurWarsToday.tsv', source: 'TSV Our Wars, Today', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
     { file: 'Rybar.tsv', source: 'TSV Rybar - Russian News', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'IranInternational.tsv', source: 'TSV Irn Intl', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] }
+    { file: 'IranInternational.tsv', source: 'TSV Irn Intl', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
+    { file: 'dtek_ua.tsv', source: 'TSV DTEK Ukraine', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] }
   ];
 
   async function fetchTSVFile(url) {
@@ -612,6 +613,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     } else if (source === 'TSV Rybar - Russian News') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else if (source === 'TSV Irn Intl') {
+      adjustedDate.setHours(adjustedDate.getHours() + 0);
+    } else if (source === 'TSV DTEK Ukraine') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else {
       console.warn(`No specific time adjustment found for source: ${source}`);
