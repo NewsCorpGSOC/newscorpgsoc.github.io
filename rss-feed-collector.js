@@ -237,7 +237,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     { file: 'ArmyInformUA.tsv', source: 'TSV Army Inform UA', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
     { file: '38north.tsv', source: 'TSV 38 North', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
     { file: 'NKNews.tsv', source: 'TSV NK News', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'EastAsiaForum.tsv', source: 'TSV East Asia Forum', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] }
+    { file: 'EastAsiaForum.tsv', source: 'TSV East Asia Forum', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
+    { file: 'ROCMOFA.tsv', source: 'TSV ROC Ministry of Defense', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
+    { file: 'TaiwanToday.tsv', source: 'TSV Taiwan Today', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
+    { file: 'ROCNews.tsv', source: 'TSV ROC News', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] }
   ];
 
   async function fetchTSVFile(url) {
@@ -630,6 +633,12 @@ document.addEventListener('DOMContentLoaded', async () => {
     } else if (source === 'TSV NK News') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else if (source === 'TSV East Asia Forum') {
+      adjustedDate.setHours(adjustedDate.getHours() + 0);
+    } else if (source === 'TSV ROC News') {
+      adjustedDate.setHours(adjustedDate.getHours() + 0);
+    } else if (source === 'TSV ROC Ministry of Defense') {
+      adjustedDate.setHours(adjustedDate.getHours() + 0);
+    } else if (source === 'TSV Taiwan Today') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else {
       console.warn(`No specific time adjustment found for source: ${source}`);
