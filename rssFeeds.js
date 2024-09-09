@@ -1249,7 +1249,7 @@ const rssFeeds = [
     url: 'https://armyinform.com.ua/feed/',
     source: 'Army Inform UA',
     priorityLevel: 'Low',
-    requiredTerms: ['Darwin', 'Alice Springs'],
+    requiredTerms: [],
     ignoreTerms: [],
     reliability: 'Credible',
     background: '#203050',
