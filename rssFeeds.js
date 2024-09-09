@@ -1247,7 +1247,7 @@ const rssFeeds = [
   },
   {
     url: 'https://armyinform.com.ua/feed/',
-    source: 'Army Inform UA',
+    source: 'Army Inform Ukraine',
     priorityLevel: 'Low',
     requiredTerms: [],
     ignoreTerms: [],
