@@ -1245,6 +1245,19 @@ const rssFeeds = [
       'https://corsproxy.io/?http%3A%2F%2Fwww.bom.gov.au%2Ffwo%2FIDZ00055.warnings_nt.xml',
     ]
   },
+  {
+    url: 'https://armyinform.com.ua/feed/',
+    source: 'Army Inform UA',
+    priorityLevel: 'Low',
+    requiredTerms: ['Darwin', 'Alice Springs'],
+    ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#203050',
+    backups: [
+      '${PROXY_URL}https://armyinform.com.ua/feed/',
+      'https://api.allorigins.win/raw?url=https://armyinform.com.ua/feed/',
+    ]
+  },
 //  {
 //    url: 'https://apiprevmet3.inmet.gov.br/avisos/rss',
 //    source: 'Brazil Weather Alerts',
