@@ -217,30 +217,30 @@ document.addEventListener('DOMContentLoaded', async () => {
   };
 
   const tsvFiles = [
-    { file: 'Venezuela_News_Network.tsv', source: 'TSV Venezuela News Network', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'Israel_Security_Cabinet_News.tsv', source: 'TSV Israel Security Cabinet News', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'Stand_With_Us_Breaking_News.tsv', source: 'TSV Stand With Us Breaking News', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'Ukraine_Air_Defense.tsv', source: 'TSV Ukraine Air Defense', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'WOLPalestine.tsv', source: 'TSV WOLPalestine', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'USGS_Earthquakes.tsv', source: 'TSV USGS Earthquakes', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'Jewish_Breaking_News.tsv', source: 'TSV Jewish Breaking News', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'Mannies_War_Room.tsv', source: 'TSV Mannies War Room - Times of Israel', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'Ukraine_Air_Defense.tsv', source: 'TSV Ukraine Air Defense', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'PoliticsGR.tsv', source: 'TSV PoliticsGR', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'RerumNovarumIntel.tsv', source: 'TSV Rerum Novarum Intel', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'IDFOfficial.tsv', source: 'TSV Israel Defense Forces', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'OurWarsToday.tsv', source: 'TSV Our Wars, Today', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'Rybar.tsv', source: 'TSV Rybar - Russian News', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'IranInternational.tsv', source: 'TSV Irn Intl', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'dtek_ua.tsv', source: 'TSV DTEK Ukraine', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'astrapress.tsv', source: 'TSV Astra', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'ArmyInformUA.tsv', source: 'TSV Army Inform UA', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: '38north.tsv', source: 'TSV 38 North', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'NKNews.tsv', source: 'TSV NK News', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'EastAsiaForum.tsv', source: 'TSV East Asia Forum', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'ROCMOFA.tsv', source: 'TSV ROC Ministry of Defense', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'TaiwanToday.tsv', source: 'TSV Taiwan Today', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'ROCNews.tsv', source: 'TSV ROC News', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] }
+    { file: 'Venezuela_News_Network.tsv', source: 'Venezuela News Network', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
+    { file: 'Israel_Security_Cabinet_News.tsv', source: 'Israel Security Cabinet News', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
+    { file: 'Stand_With_Us_Breaking_News.tsv', source: 'Stand With Us Breaking News', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
+    { file: 'Ukraine_Air_Defense.tsv', source: 'Ukraine Air Defense', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
+    { file: 'WOLPalestine.tsv', source: 'WOLPalestine', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
+    { file: 'USGS_Earthquakes.tsv', source: 'USGS Earthquakes', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
+    { file: 'Jewish_Breaking_News.tsv', source: 'Jewish Breaking News', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
+    { file: 'Mannies_War_Room.tsv', source: 'Mannies War Room - Times of Israel', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
+    { file: 'Ukraine_Air_Defense.tsv', source: 'Ukraine Air Defense', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
+    { file: 'PoliticsGR.tsv', source: 'PoliticsGR', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
+    { file: 'RerumNovarumIntel.tsv', source: 'Rerum Novarum Intel', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
+    { file: 'IDFOfficial.tsv', source: 'Israel Defense Forces', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
+    { file: 'OurWarsToday.tsv', source: 'Our Wars, Today', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
+    { file: 'Rybar.tsv', source: 'Rybar - Russian News', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
+    { file: 'IranInternational.tsv', source: 'Irn Intl', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
+    { file: 'dtek_ua.tsv', source: 'DTEK Ukraine', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
+    { file: 'astrapress.tsv', source: 'Astra', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
+    { file: 'ArmyInformUA.tsv', source: 'Army Inform UA', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
+    { file: '38north.tsv', source: '38 North', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
+    { file: 'NKNews.tsv', source: 'NK News', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
+    { file: 'EastAsiaForum.tsv', source: 'East Asia Forum', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
+    { file: 'ROCMOFA.tsv', source: 'ROC Ministry of Defense', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
+    { file: 'TaiwanToday.tsv', source: 'Taiwan Today', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
+    { file: 'ROCNews.tsv', source: 'ROC News', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] }
   ];
 
   async function fetchTSVFile(url) {
@@ -600,45 +600,45 @@ document.addEventListener('DOMContentLoaded', async () => {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else if (source === 'Australia Bureau of Meteorology - Northern Territory') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'TSV Venezuela News Network') {
+    } else if (source === 'Venezuela News Network') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'TSV USGS Earthquakes') {
+    } else if (source === 'USGS Earthquakes') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'TSV Jewish Breaking News') {
+    } else if (source === 'Jewish Breaking News') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'TSV Mannies War Room - Times of Israel') {
+    } else if (source === 'Mannies War Room - Times of Israel') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'TSV Ukraine Air Defense') {
+    } else if (source === 'Ukraine Air Defense') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'TSV PoliticsGR') {
+    } else if (source === 'PoliticsGR') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'TSV Rerum Novarum Intel') {
+    } else if (source === 'Rerum Novarum Intel') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'TSV Israel Defense Forces') {
+    } else if (source === 'Israel Defense Forces') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'TSV Our Wars, Today') {
+    } else if (source === 'Our Wars, Today') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'TSV Rybar - Russian News') {
+    } else if (source === 'Rybar - Russian News') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'TSV Irn Intl') {
+    } else if (source === 'Irn Intl') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'TSV DTEK Ukraine') {
+    } else if (source === 'DTEK Ukraine') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'TSV Army Inform UA') {
+    } else if (source === 'Army Inform UA') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'TSV Astra') {
+    } else if (source === 'Astra') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'TSV 38 North') {
+    } else if (source === '38 North') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'TSV NK News') {
+    } else if (source === 'NK News') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'TSV East Asia Forum') {
+    } else if (source === 'East Asia Forum') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'TSV ROC News') {
+    } else if (source === 'ROC News') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'TSV ROC Ministry of Defense') {
+    } else if (source === 'ROC Ministry of Defense') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'TSV Taiwan Today') {
+    } else if (source === 'Taiwan Today') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else {
       console.warn(`No specific time adjustment found for source: ${source}`);
