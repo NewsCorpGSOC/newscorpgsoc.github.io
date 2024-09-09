@@ -616,7 +616,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else if (source === 'TSV DTEK Ukraine') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'Army Inform UA') {
+    } else if (source === 'Army Inform Ukraine') {
       adjustedDate.setHours(adjustedDate.getHours() - 7);
     } else {
       console.warn(`No specific time adjustment found for source: ${source}`);
