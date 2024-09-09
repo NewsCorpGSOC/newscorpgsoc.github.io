@@ -27,7 +27,7 @@ const topicKeywords = {
     soundFile: 'sounds/news-alert-notification.mp3'
   },
   'China & APAC Tensions': {
-    keywords: ['South China Sea', 'SCS', 'Nine-Dash Line', 'Spratly Islands', 'Paracel Islands', 'Scarborough Shoal', 'ASEAN', 'Philippines and South China Sea', 'Vietnam and South China Sea', 'Malaysia and South China Sea', 'Brunei and South China Sea', 'Chinas artificial islands', 'US-China relations', 'Sino-American relations'],
+    keywords: ['South China Sea', 'SCS', 'Nine-Dash Line', 'Spratly Islands', 'Paracel Islands', 'Scarborough Shoal', 'ASEAN', 'Philippines and South China Sea', 'Vietnam and South China Sea', 'Malaysia and South China Sea', 'Brunei and South China Sea', 'Chinas artificial islands', 'US-China relations', 'Sino-American relations', 'Taiwan', 'Taipei'],
     background: '#633d30',
     soundFile: 'sounds/news-alert-notification.mp3'
   },
