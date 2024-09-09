@@ -234,7 +234,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     { file: 'IranInternational.tsv', source: 'TSV Irn Intl', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
     { file: 'dtek_ua.tsv', source: 'TSV DTEK Ukraine', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
     { file: 'astrapress.tsv', source: 'TSV Astra', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'ArmyInformUA.tsv', source: 'TSV Army Inform UA', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] }
+    { file: 'ArmyInformUA.tsv', source: 'TSV Army Inform UA', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
+    { file: '38north.tsv', source: 'TSV 38 North', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
   ];
 
   async function fetchTSVFile(url) {
@@ -621,6 +622,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     } else if (source === 'TSV Army Inform UA') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else if (source === 'TSV Astra') {
+      adjustedDate.setHours(adjustedDate.getHours() + 0);
+    } else if (source === 'TSV 38 North') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else {
       console.warn(`No specific time adjustment found for source: ${source}`);
