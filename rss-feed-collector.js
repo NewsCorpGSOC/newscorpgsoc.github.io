@@ -242,7 +242,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     { file: 'TaiwanToday.tsv', source: 'Taiwan Today', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
     { file: 'AsiaNews.tsv', source: 'Asia News', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
     { file: 'HongKongFreePress.tsv', source: 'Hong Kong Free Press', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'PeoplesDaily.tsv', source: 'The Peoples Daily Edition - China State News & Propaganda', reliability: 'Requires Verification', background: '#493a53', requiredTerms: [], ignoreTerms: [] }
+    { file: 'PeoplesDaily.tsv', source: 'The Peoples Daily Edition - China State News & Propaganda', reliability: 'Requires Verification', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
+    { file: 'TheDiplomat.tsv', source: 'The Diplomat', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] }
   ];
 
   async function fetchTSVFile(url) {
@@ -645,6 +646,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     } else if (source === 'Hong Kong Free Press') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else if (source === 'The Peoples Daily Edition - China State News & Propaganda') {
+      adjustedDate.setHours(adjustedDate.getHours() + 0);
+    } else if (source === 'The Diplomat') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else {
       console.warn(`No specific time adjustment found for source: ${source}`);
