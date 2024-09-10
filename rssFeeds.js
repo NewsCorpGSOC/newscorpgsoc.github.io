@@ -34,36 +34,6 @@ const rssFeeds = [
     ]
   },
   {
-    url: 'https://www.theguardian.com/world/rss',
-    source: 'The Guardian',
-    priorityLevel: 'Very Low',
-    requiredTerms: [],
-    ignoreTerms: [],
-    reliability: 'Dubious',
-    background: '#203050',
-    backups: [
-      '${PROXY_URL}https://www.theguardian.com/world/rss',
-      'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.theguardian.com%2Fworld%2Frss',
-      'https://corsproxy.io/?https%3A%2F%2Fwww.theguardian.com%2Fworld%2Frss',
-      'https://corsproxy.io/?https%3A%2F%2Fwww.theguardian.com%2Fworld%2Frss',
-      'https://corsproxy.io/?https%3A%2F%2Fwww.theguardian.com%2Fus%2Frss'
-    ]
-  },
-  {
-    url: 'https://www.aljazeera.com/xml/rss/all.xml',
-    source: 'Al Jazeera - Latest',
-    priorityLevel: 'Very Low',
-    requiredTerms: [],
-    ignoreTerms: [],
-    reliability: 'Dubious',
-    background: '#203050',
-    backups: [
-      '${PROXY_URL}https://www.aljazeera.com/xml/rss/all.xml',
-      'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.aljazeera.com%2Fxml%2Frss%2Fall.xml',
-      'https://corsproxy.io/?https%3A%2F%2Fwww.aljazeera.com%2Fxml%2Frss%2Fall.xml',
-    ]
-  },
-  {
     url: 'https://wol.com/feed/',
     source: 'World Online',
     priorityLevel: 'Very Low',
