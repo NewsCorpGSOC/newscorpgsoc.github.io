@@ -245,7 +245,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     { file: 'PeoplesDaily.tsv', source: 'The Peoples Daily Edition - China State News & Propaganda', reliability: 'Requires Verification', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
     { file: 'TheDiplomat.tsv', source: 'The Diplomat', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
     { file: 'Haartz.tsv', source: 'Haartz', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'AlJazeera.tsv', source: 'Al Jazeera', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] }
+    { file: 'AlJazeera.tsv', source: 'Al Jazeera', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
+    { file: 'TheGuardian.tsv', source: 'The Guardian', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] }
   ];
 
   async function fetchTSVFile(url) {
@@ -416,10 +417,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     } else if (source === 'BBC News') {                                 
       adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'The Guardian') {
-      adjustedDate.setHours(adjustedDate.getHours() - 0);
-    } else if (source === 'Al Jazeera - Latest') {
-      adjustedDate.setHours(adjustedDate.getHours() - 0);
-    } else if (source === 'Al Jazeera - World') {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'World Online') {
       adjustedDate.setHours(adjustedDate.getHours() - 7);
