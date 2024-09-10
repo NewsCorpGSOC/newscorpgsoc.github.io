@@ -838,6 +838,15 @@ document.addEventListener('DOMContentLoaded', async () => {
       doc.querySelectorAll('img').forEach(img => img.remove());
       const cleanedDescription = doc.body.innerHTML;
   
+      // Truncate long descriptions
+      const maxLength = 500;
+      let truncatedDescription = cleanedDescription;
+      let showMoreLink = '';
+      if (cleanedDescription.length > maxLength) {
+          truncatedDescription = cleanedDescription.substring(0, maxLength) + '...';
+          showMoreLink = `<a href="#" class="see-more" data-full-description="${encodeURIComponent(cleanedDescription)}">See More</a>`;
+      }
+      
       // Add the first image back to the feedElement if it exists
       let imageHtml = '';
       if (firstImg) {
@@ -862,6 +871,14 @@ document.addEventListener('DOMContentLoaded', async () => {
   
     feedsContainer.appendChild(fragment);
     console.log("Feeds displayed.");
+    // Add event listeners for "See More" links
+    document.querySelectorAll('.see-more').forEach(link => {
+      link.addEventListener('click', function(event) {
+        event.preventDefault();
+        const fullDescription = decodeURIComponent(this.getAttribute('data-full-description'));
+        this.parentNode.innerHTML = fullDescription;
+      });
+    });
   }
 
   function parseSearchTerm(searchTerm) {
