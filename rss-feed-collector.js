@@ -779,106 +779,108 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
   function displayFeeds() {
-    console.log("Displaying feeds...");
+      console.log("Displaying feeds...");
   
-    feedsContainer.innerHTML = '';
-    feedItems = removeDuplicateTitles(feedItems);
+      feedsContainer.innerHTML = '';
+      feedItems = removeDuplicateTitles(feedItems);
   
-    const now = new Date();
-    const oneYearAgo = new Date(now.setFullYear(now.getFullYear() - 1));
+      const now = new Date();
+      const oneYearAgo = new Date(now.setFullYear(now.getFullYear() - 1));
   
-    const filteredFeeds = applyFilter();
-    console.log(`Filtered feeds count: ${filteredFeeds.length}`);
+      const filteredFeeds = applyFilter();
+      console.log(`Filtered feeds count: ${filteredFeeds.length}`);
   
-    const searchTerm = searchInput.value.trim().toLowerCase();
-    const searchTerms = parseSearchTerm(searchTerm);
+      const searchTerm = searchInput.value.trim().toLowerCase();
+      const searchTerms = parseSearchTerm(searchTerm);
   
-    const recentFeeds = filteredFeeds.filter(item => item.pubDate > oneYearAgo);
-    console.log(`Recent feeds count: ${recentFeeds.length}`);
+      const recentFeeds = filteredFeeds.filter(item => item.pubDate > oneYearAgo);
+      console.log(`Recent feeds count: ${recentFeeds.length}`);
   
-    const searchFilteredFeeds = recentFeeds.filter(item =>
-      searchTerms.every(termGroup =>
-        termGroup.some(term =>
-          item.title.toLowerCase().includes(term) ||
-          item.description.toLowerCase().includes(term) ||
-          item.source.toLowerCase().includes(term)
-        )
-      )
-    );
-    console.log(`Search filtered feeds count: ${searchFilteredFeeds.length}`);
-    console.log(`Search filtered feeds: ${JSON.stringify(searchFilteredFeeds, null, 2)}`);
+      const searchFilteredFeeds = recentFeeds.filter(item =>
+          searchTerms.every(termGroup =>
+              termGroup.some(term =>
+                  item.title.toLowerCase().includes(term) ||
+                  item.description.toLowerCase().includes(term) ||
+                  item.source.toLowerCase().includes(term)
+              )
+          )
+      );
+      console.log(`Search filtered feeds count: ${searchFilteredFeeds.length}`);
+      console.log(`Search filtered feeds: ${JSON.stringify(searchFilteredFeeds, null, 2)}`);
   
-    const fragment = document.createDocumentFragment();
-    searchFilteredFeeds.forEach(item => {
-      applyTopicStyling(item); // Apply styling and sound logic for each item
-      
-      const feedItem = document.createElement('div');
-      feedItem.classList.add('feed-item');
-      feedItem.style.backgroundColor = item.background;
-
-      const credibilityContainer = document.createElement('div');
-      credibilityContainer.classList.add('credibility-container');
-      
-      if (item.reliability === 'Credible') {
-        credibilityContainer.classList.add('credible', 'bg-credible');
-      } else if (item.reliability === 'Dubious') {
-        credibilityContainer.classList.add('dubious', 'bg-dubious');
-      } else if (item.reliability === 'Requires Verification') {
-        credibilityContainer.classList.add('requires-verification', 'bg-requires-verification');
-      }
+      const fragment = document.createDocumentFragment();
+      searchFilteredFeeds.forEach(item => {
+          applyTopicStyling(item); // Apply styling and sound logic for each item
   
-      const feedContent = document.createElement('div');
-      feedContent.classList.add('feed-content');
+          const feedItem = document.createElement('div');
+          feedItem.classList.add('feed-item');
+          feedItem.style.backgroundColor = item.background;
   
-      const parser = new DOMParser();
-      const doc = parser.parseFromString(item.description, 'text/html');
-      const firstImg = doc.querySelector('img');
+          const credibilityContainer = document.createElement('div');
+          credibilityContainer.classList.add('credibility-container');
   
-      // Remove all images from the description
-      doc.querySelectorAll('img').forEach(img => img.remove());
-      const cleanedDescription = doc.body.innerHTML;
+          if (item.reliability === 'Credible') {
+              credibilityContainer.classList.add('credible', 'bg-credible');
+          } else if (item.reliability === 'Dubious') {
+              credibilityContainer.classList.add('dubious', 'bg-dubious');
+          } else if (item.reliability === 'Requires Verification') {
+              credibilityContainer.classList.add('requires-verification', 'bg-requires-verification');
+          }
   
-      // Truncate long descriptions
-      const maxLength = 500;
-      let truncatedDescription = cleanedDescription;
-      let showMoreLink = '';
-      if (cleanedDescription.length > maxLength) {
-          truncatedDescription = cleanedDescription.substring(0, maxLength) + '...';
-          showMoreLink = `<a href="#" class="see-more" data-full-description="${encodeURIComponent(cleanedDescription)}">See More</a>`;
-      }
-      
-      // Add the first image back to the feedElement if it exists
-      let imageHtml = '';
-      if (firstImg) {
-        if (item.source === 'TSV USGS Earthquakes') {
-          imageHtml = `<img src="${firstImg.src}" alt="Earthquake Severity" width="50" height="50" style="border:0;" />`;
-        } else {
-          imageHtml = `<img src="${firstImg.src}" alt="Feed image" height="300" onerror="this.onerror=null;this.src='https://i.imgur.com/GQPN5Q9.jpeg';" />`;
-        }
-      }
-
-      feedContent.innerHTML = 
-        `<h2><a href="${item.link}" target="_blank">${item.title}</a></h2>
-        ${imageHtml}
-        <div>${cleanedDescription}</div>
-        <p><small>Published on: ${format(item.pubDate, 'PPpp')} (${timezoneSelector.value})</small></p>
-        <p><strong>Source:</strong> ${item.source}</p>`;
+          const feedContent = document.createElement('div');
+          feedContent.classList.add('feed-content');
   
-      feedItem.appendChild(credibilityContainer);
-      feedItem.appendChild(feedContent);
-      fragment.appendChild(feedItem);
-    });
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(item.description, 'text/html');
+          const firstImg = doc.querySelector('img');
   
-    feedsContainer.appendChild(fragment);
-    console.log("Feeds displayed.");
-    // Add event listeners for "See More" links
-    document.querySelectorAll('.see-more').forEach(link => {
-      link.addEventListener('click', function(event) {
-        event.preventDefault();
-        const fullDescription = decodeURIComponent(this.getAttribute('data-full-description'));
-        this.parentNode.innerHTML = fullDescription;
+          // Remove all images from the description
+          doc.querySelectorAll('img').forEach(img => img.remove());
+          const cleanedDescription = doc.body.innerHTML;
+  
+          // Truncate long descriptions
+          const maxLength = 500;
+          let truncatedDescription = cleanedDescription;
+          let showMoreLink = '';
+          if (cleanedDescription.length > maxLength) {
+              truncatedDescription = cleanedDescription.substring(0, maxLength) + '...';
+              showMoreLink = `<a href="#" class="see-more" data-full-description="${encodeURIComponent(cleanedDescription)}">See More</a>`;
+          }
+  
+          // Add the first image back to the feedElement if it exists
+          let imageHtml = '';
+          if (firstImg) {
+              if (item.source === 'TSV USGS Earthquakes') {
+                  imageHtml = `<img src="${firstImg.src}" alt="Earthquake Severity" width="50" height="50" style="border:0;" />`;
+              } else {
+                  imageHtml = `<img src="${firstImg.src}" alt="Feed image" height="300" onerror="this.onerror=null;this.src='https://i.imgur.com/GQPN5Q9.jpeg';" />`;
+              }
+          }
+  
+          // Corrected to use truncated description and showMoreLink
+          feedContent.innerHTML = 
+              `<h2><a href="${item.link}" target="_blank">${item.title}</a></h2>
+              ${imageHtml}
+              <div>${truncatedDescription} ${showMoreLink}</div>
+              <p><small>Published on: ${format(item.pubDate, 'PPpp')} (${timezoneSelector.value})</small></p>
+              <p><strong>Source:</strong> ${item.source}</p>`;
+  
+          feedItem.appendChild(credibilityContainer);
+          feedItem.appendChild(feedContent);
+          fragment.appendChild(feedItem);
       });
-    });
+  
+      feedsContainer.appendChild(fragment);
+      console.log("Feeds displayed.");
+  
+      // Add event listeners for "See More" links
+      document.querySelectorAll('.see-more').forEach(link => {
+          link.addEventListener('click', function(event) {
+              event.preventDefault();
+              const fullDescription = decodeURIComponent(this.getAttribute('data-full-description'));
+              this.parentNode.innerHTML = fullDescription;
+          });
+      });
   }
 
   function parseSearchTerm(searchTerm) {
