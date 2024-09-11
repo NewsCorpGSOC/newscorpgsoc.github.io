@@ -247,12 +247,12 @@ document.addEventListener('DOMContentLoaded', async () => {
     { file: 'Haartz.tsv', source: 'Haartz', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
     { file: 'AlJazeera.tsv', source: 'Al Jazeera', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
     { file: 'TheGuardian.tsv', source: 'The Guardian', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'TASSAgency.tsv', source: 'TASS Agency - RU State Media', reliability: 'Requires-Verification', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
+    { file: 'TASSAgency.tsv', source: 'TASS Agency - RU State Media', reliability: 'Requires Verification', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
     { file: 'IranWire.tsv', source: 'Iran Wire', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
     { file: 'ArabNews.tsv', source: 'Arab News', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
     { file: 'NewArab.tsv', source: 'New Arab', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'SputnikGlobe.tsv', source: 'Sputnik Globe - RU State Media', reliability: 'Requires-Verification', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'AnadoluAjansi.tsv', source: 'Anadolu Ajansi - Turkey State Media', reliability: 'Requires-Verification', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
+    { file: 'SputnikGlobe.tsv', source: 'Sputnik Globe - RU State Media', reliability: 'Requires Verification', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
+    { file: 'AnadoluAjansi.tsv', source: 'Anadolu Ajansi - Turkey State Media', reliability: 'Requires Verification', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
     { file: 'FirstPostNews.tsv', source: 'First Post News', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
     { file: 'VOANews.tsv', source: 'VOA News', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] }
   ];
