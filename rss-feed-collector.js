@@ -242,11 +242,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     { file: 'TaiwanToday.tsv', source: 'Taiwan Today', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
     { file: 'AsiaNews.tsv', source: 'Asia News', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
     { file: 'HongKongFreePress.tsv', source: 'Hong Kong Free Press', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'PeoplesDaily.tsv', source: 'The Peoples Daily Edition - China State News & Propaganda', reliability: 'Requires Verification', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
+    { file: 'PeoplesDaily.tsv', source: 'The Peoples Daily Edition - PRC State Media & Propaganda', reliability: 'Requires Verification', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
     { file: 'TheDiplomat.tsv', source: 'The Diplomat', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
     { file: 'Haartz.tsv', source: 'Haartz', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
     { file: 'AlJazeera.tsv', source: 'Al Jazeera', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'TheGuardian.tsv', source: 'The Guardian', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] }
+    { file: 'TheGuardian.tsv', source: 'The Guardian', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
+    { file: 'TASSAgency.tsv', source: 'TASS Agency - RU State Media', reliability: 'Requires-Verification', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
+    { file: 'IranWire.tsv', source: 'Iran Wire', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
+    { file: 'ArabNews.tsv', source: 'Arab News', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] }
   ];
 
   async function fetchTSVFile(url) {
@@ -651,6 +654,12 @@ document.addEventListener('DOMContentLoaded', async () => {
     } else if (source === 'Haartz') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else if (source === 'Al Jazeera') {
+      adjustedDate.setHours(adjustedDate.getHours() + 0);
+    } else if (source === 'TASS Agency - RU State Media') {
+      adjustedDate.setHours(adjustedDate.getHours() + 0);
+    } else if (source === 'Iran Wire') {
+      adjustedDate.setHours(adjustedDate.getHours() + 0);
+    } else if (source === 'Arab News') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else {
       console.warn(`No specific time adjustment found for source: ${source}`);
