@@ -249,7 +249,12 @@ document.addEventListener('DOMContentLoaded', async () => {
     { file: 'TheGuardian.tsv', source: 'The Guardian', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
     { file: 'TASSAgency.tsv', source: 'TASS Agency - RU State Media', reliability: 'Requires-Verification', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
     { file: 'IranWire.tsv', source: 'Iran Wire', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'ArabNews.tsv', source: 'Arab News', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] }
+    { file: 'ArabNews.tsv', source: 'Arab News', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
+    { file: 'NewArab.tsv', source: 'New Arab', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
+    { file: 'SputnikGlobe.tsv', source: 'Sputnik Globe - RU State Media', reliability: 'Requires-Verification', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
+    { file: 'AnadoluAjansi.tsv', source: 'Anadolu Ajansi - Turkey State Media', reliability: 'Requires-Verification', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
+    { file: 'FirstPostNews.tsv', source: 'First Post News', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
+    { file: 'VOANews.tsv', source: 'VOA News', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] }
   ];
 
   async function fetchTSVFile(url) {
@@ -660,6 +665,16 @@ document.addEventListener('DOMContentLoaded', async () => {
     } else if (source === 'Iran Wire') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else if (source === 'Arab News') {
+      adjustedDate.setHours(adjustedDate.getHours() + 0);
+    } else if (source === 'New Arab') {
+      adjustedDate.setHours(adjustedDate.getHours() + 0);
+    } else if (source === 'Sputnik Globe - RU State Media') {
+      adjustedDate.setHours(adjustedDate.getHours() + 0);
+    } else if (source === 'Anadolu Ajansi - Turkey State Media') {
+      adjustedDate.setHours(adjustedDate.getHours() + 0);
+    } else if (source === 'First Post News') {
+      adjustedDate.setHours(adjustedDate.getHours() + 0);
+    } else if (source === 'VOA News') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else {
       console.warn(`No specific time adjustment found for source: ${source}`);
