@@ -174,6 +174,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             : item.querySelector('pubDate')?.textContent;
           const pubDate = pubDateText ? parseDate(pubDateText) : new Date();
           const pacificDate = convertToTimezone(pubDate, feed.source);
+          const imageUrl = item.querySelector('media\\:content, content')?.getAttribute('url') || '';
   
           // Fallback: Extract link from description HTML if link is still undefined
           if (!link || link === '#') {
@@ -191,7 +192,8 @@ document.addEventListener('DOMContentLoaded', async () => {
               pubDate: pacificDate,
               source: feed.source,
               reliability: feed.reliability,
-              background: feed.background
+              background: feed.background,
+              imageUrl,
             });
           } else {
             console.log('Incomplete item:', { title, link, description, pacificDate });
@@ -269,10 +271,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
   function parseTSV(tsvText, source, reliability, background, requiredTerms, ignoreTerms) {
-    const lines = tsvText.trim().split('\n');
-    const headers = lines.shift().split('\t');
-    const imageIndex = headers.indexOf('image');
-    
     const parsedData = Papa.parse(tsvText, {
       delimiter: '\t',
       header: true,
@@ -287,13 +285,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     const items = parsedData.data;
   
     return items.map((item, index) => {
-      const columns = line.split('\t');
-      const title = columns[headers.indexOf('title')] || 'No title';
-      const link = columns[headers.indexOf('link')] || '#';
-      const description = columns[headers.indexOf('description')] || 'No description';
-      const pubDateText = columns[headers.indexOf('pubDate')];
-      const pubDate = parseDate(pubDateText);
-      const imageUrl = columns[imageIndex] || ''; // Fetch the image URL
+      const title = item.Title?.trim() || 'No title';
+      const link = item.Link?.trim() || '#';
+      const description = decodeHTMLEntities(item.Description?.trim() || 'No description');
+      const pubDate = parseDate(item.pubDate?.trim());
+      const locationLink = item.Location?.trim();
+      const magnitude = parseFloat(item.Magnitude?.trim());
+      const imageUrl = columns[imageIndex] || '';
   
       if (!pubDate) {
         console.warn(`Skipping row ${index + 2} due to invalid date: ${JSON.stringify(item)}`);
@@ -323,48 +321,48 @@ document.addEventListener('DOMContentLoaded', async () => {
         link,
         description: description + locationImage, // Append the earthquake image to the description
         pubDate: convertToTimezone(pubDate, source),
+        imageUrl,
         source,
         reliability,
         background,
         requiredTerms,
-        ignoreTerms,
-        imageUrl,
+        ignoreTerms
       };
     }).filter(item => item); // Filter out null values
   }
 
   async function fetchTSVFiles() {
     let tsvFeedItems = [];
-    let newFeedItems = false;
-
+    let newFeedItems = false; // Flag to check if there are new items
+  
     for (const { file, source, reliability, background, requiredTerms, ignoreTerms } of tsvFiles) {
       try {
         const cacheBuster = new Date().getTime();
-        const tsvText = await fetch(`GoogleSheets/${file}?cb=${cacheBuster}`).then(res => res.text());
+        const tsvText = await fetchTSVFile(`GoogleSheets/${file}?cb=${cacheBuster}`);
         console.log(`Fetched TSV: ${file}`);
         console.log(tsvText); // Log fetched TSV text for debugging
-
         const parsedTSV = parseTSV(tsvText, source, reliability, background, requiredTerms, ignoreTerms);
         console.log(parsedTSV); // Log parsed TSV data for debugging
-
+  
         if (parsedTSV.length > 0) {
+          // Check if any new items are newer than the latest feed date
           const maxPubDate = new Date(Math.max(...parsedTSV.map(item => item.pubDate)));
           if (maxPubDate > latestFeedDate) {
             newFeedItems = true;
             latestFeedDate = maxPubDate; // Update the latest feed date
           }
         }
-
+  
         tsvFeedItems = tsvFeedItems.concat(parsedTSV);
       } catch (error) {
         console.error(`Error fetching TSV file ${file}:`, error);
       }
     }
-
+  
     if (newFeedItems) {
-      playSound('sounds/news-alert-notification.mp3'); // Play sound if there are new items
+      playSound('sounds/news-alert-notification.mp3'); // Play the sound if there are new items
     }
-
+  
     return tsvFeedItems;
   }
 
