@@ -190,10 +190,10 @@ document.addEventListener('DOMContentLoaded', async () => {
               link,
               description: decodeHTMLEntities(description),
               pubDate: pacificDate,
+              imageUrl,
               source: feed.source,
               reliability: feed.reliability,
-              background: feed.background,
-              imageUrl,
+              background: feed.background
             });
           } else {
             console.log('Incomplete item:', { title, link, description, pacificDate });
