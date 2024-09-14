@@ -269,6 +269,10 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
   function parseTSV(tsvText, source, reliability, background, requiredTerms, ignoreTerms) {
+    const lines = tsvText.trim().split('\n');
+    const headers = lines.shift().split('\t');
+    const imageIndex = headers.indexOf('image');
+    
     const parsedData = Papa.parse(tsvText, {
       delimiter: '\t',
       header: true,
@@ -283,12 +287,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     const items = parsedData.data;
   
     return items.map((item, index) => {
-      const title = item.Title?.trim() || 'No title';
-      const link = item.Link?.trim() || '#';
-      const description = decodeHTMLEntities(item.Description?.trim() || 'No description');
-      const pubDate = parseDate(item.pubDate?.trim());
-      const locationLink = item.Location?.trim();
-      const magnitude = parseFloat(item.Magnitude?.trim());
+      const columns = line.split('\t');
+      const title = columns[headers.indexOf('title')] || 'No title';
+      const link = columns[headers.indexOf('link')] || '#';
+      const description = columns[headers.indexOf('description')] || 'No description';
+      const pubDateText = columns[headers.indexOf('pubDate')];
+      const pubDate = parseDate(pubDateText);
+      const imageUrl = columns[imageIndex] || ''; // Fetch the image URL
   
       if (!pubDate) {
         console.warn(`Skipping row ${index + 2} due to invalid date: ${JSON.stringify(item)}`);
@@ -322,43 +327,44 @@ document.addEventListener('DOMContentLoaded', async () => {
         reliability,
         background,
         requiredTerms,
-        ignoreTerms
+        ignoreTerms,
+        imageUrl,
       };
     }).filter(item => item); // Filter out null values
   }
 
   async function fetchTSVFiles() {
     let tsvFeedItems = [];
-    let newFeedItems = false; // Flag to check if there are new items
-  
+    let newFeedItems = false;
+
     for (const { file, source, reliability, background, requiredTerms, ignoreTerms } of tsvFiles) {
       try {
         const cacheBuster = new Date().getTime();
-        const tsvText = await fetchTSVFile(`GoogleSheets/${file}?cb=${cacheBuster}`);
+        const tsvText = await fetch(`GoogleSheets/${file}?cb=${cacheBuster}`).then(res => res.text());
         console.log(`Fetched TSV: ${file}`);
         console.log(tsvText); // Log fetched TSV text for debugging
+
         const parsedTSV = parseTSV(tsvText, source, reliability, background, requiredTerms, ignoreTerms);
         console.log(parsedTSV); // Log parsed TSV data for debugging
-  
+
         if (parsedTSV.length > 0) {
-          // Check if any new items are newer than the latest feed date
           const maxPubDate = new Date(Math.max(...parsedTSV.map(item => item.pubDate)));
           if (maxPubDate > latestFeedDate) {
             newFeedItems = true;
             latestFeedDate = maxPubDate; // Update the latest feed date
           }
         }
-  
+
         tsvFeedItems = tsvFeedItems.concat(parsedTSV);
       } catch (error) {
         console.error(`Error fetching TSV file ${file}:`, error);
       }
     }
-  
+
     if (newFeedItems) {
-      playSound('sounds/news-alert-notification.mp3'); // Play the sound if there are new items
+      playSound('sounds/news-alert-notification.mp3'); // Play sound if there are new items
     }
-  
+
     return tsvFeedItems;
   }
 
@@ -875,14 +881,9 @@ document.addEventListener('DOMContentLoaded', async () => {
           }
   
           // Add the first image back to the feedElement if it exists
-          let imageHtml = '';
-          if (firstImg) {
-              if (item.source === 'TSV USGS Earthquakes') {
-                  imageHtml = `<img src="${firstImg.src}" alt="Earthquake Severity" width="50" height="50" style="border:0;" />`;
-              } else {
-                  imageHtml = `<img src="${firstImg.src}" alt="Feed image" height="300" onerror="this.onerror=null;this.src='https://i.imgur.com/GQPN5Q9.jpeg';" />`;
-              }
-          }
+          const imageHtml = item.imageUrl 
+            ? `<img src="${item.imageUrl}" alt="Feed image" height="300" onerror="this.onerror=null;this.src='https://i.imgur.com/GQPN5Q9.jpeg';" />`
+            : ''; // Display the image if available
   
           // Corrected to use truncated description and showMoreLink
           feedContent.innerHTML = 
