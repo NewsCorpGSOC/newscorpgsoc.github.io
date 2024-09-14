@@ -173,6 +173,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             ? item.querySelector('published')?.textContent 
             : item.querySelector('pubDate')?.textContent;
           const pubDate = pubDateText ? parseDate(pubDateText) : new Date();
+          const imageUrl = item.querySelector('media\\:content, content')?.getAttribute('url') || '';
           const pacificDate = convertToTimezone(pubDate, feed.source);
   
           // Fallback: Extract link from description HTML if link is still undefined
@@ -189,6 +190,7 @@ document.addEventListener('DOMContentLoaded', async () => {
               link,
               description: decodeHTMLEntities(description),
               pubDate: pacificDate,
+              ImageUrl,
               source: feed.source,
               reliability: feed.reliability,
               background: feed.background
@@ -875,14 +877,9 @@ document.addEventListener('DOMContentLoaded', async () => {
           }
   
           // Add the first image back to the feedElement if it exists
-          let imageHtml = '';
-          if (firstImg) {
-              if (item.source === 'TSV USGS Earthquakes') {
-                  imageHtml = `<img src="${firstImg.src}" alt="Earthquake Severity" width="50" height="50" style="border:0;" />`;
-              } else {
-                  imageHtml = `<img src="${firstImg.src}" alt="Feed image" height="300" onerror="this.onerror=null;this.src='https://i.imgur.com/GQPN5Q9.jpeg';" />`;
-              }
-          }
+          const imageHtml = item.imageUrl 
+            ? `<img src="${item.imageUrl}" alt="Feed image" height="150" onerror="this.onerror=null;this.src='https://i.imgur.com/GQPN5Q9.jpeg';" />`
+            : ''; // Display the image if available
   
           // Corrected to use truncated description and showMoreLink
           feedContent.innerHTML = 
