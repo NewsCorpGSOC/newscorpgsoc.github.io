@@ -289,6 +289,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       const link = item.Link?.trim() || '#';
       const description = decodeHTMLEntities(item.Description?.trim() || 'No description');
       const pubDate = parseDate(item.pubDate?.trim());
+      const imageURL = item.Image?.trim() || '#';
       const locationLink = item.Location?.trim();
       const magnitude = parseFloat(item.Magnitude?.trim());
   
@@ -320,6 +321,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         link,
         description: description + locationImage, // Append the earthquake image to the description
         pubDate: convertToTimezone(pubDate, source),
+        imageUrl,
         source,
         reliability,
         background,
@@ -878,7 +880,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   
           // Add the first image back to the feedElement if it exists
           const imageHtml = item.imageUrl 
-            ? `<img src="${item.imageUrl}" alt="Feed image" height="150" onerror="this.onerror=null;this.src='https://i.imgur.com/GQPN5Q9.jpeg';" />`
+            ? `<img src="${item.imageUrl}" alt="Feed image" height="300" onerror="this.onerror=null;this.src='https://i.imgur.com/GQPN5Q9.jpeg';" />`
             : ''; // Display the image if available
   
           // Corrected to use truncated description and showMoreLink
