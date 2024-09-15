@@ -764,44 +764,59 @@ document.addEventListener('DOMContentLoaded', async () => {
     displayFeeds();
   }
 
-  function applyTopicStyling(item) {
-    console.log("Applying topic styling for item:", item.title);
-    console.log(`Current latestFeedDate: ${latestFeedDate}`);
-    console.log(`Item publication date: ${item.pubDate}`);
-  
-    let isNewItem = false;
-    let selectedSoundFile = 'sounds/news-alert-notification.mp3'; // Default sound
-  
-    for (const topic in topicKeywords) {
-      if (topicKeywords.hasOwnProperty(topic)) {
-        const { keywords, background, soundFile } = topicKeywords[topic];
-        if (keywords.some(keyword => item.description.toLowerCase().includes(keyword.toLowerCase()) ||
-                                      item.title.toLowerCase().includes(keyword.toLowerCase()))) {
-          console.log(`Matched topic: ${topic} for item: ${item.title}`);
-          
-          item.background = background;
-          selectedSoundFile = soundFile; // Set the sound file to the one for the matched topic
-          
-          // The condition now only checks if the item date is strictly greater.
-          if (item.pubDate > latestFeedDate) {
-            console.log(`New item detected. Previous latestFeedDate: ${latestFeedDate}, New item date: ${item.pubDate}`);
-            isNewItem = true;
-            latestFeedDate = item.pubDate; // Update after processing
-            console.log(`Updated latestFeedDate: ${latestFeedDate}`);
-            playSound(selectedSoundFile, item.title); // Play the topic-specific sound and pass the item title for logging
-          } else {
-            console.log('Item is not newer than latestFeedDate, no sound will be played.');
-          }
-          break; // Stop checking after the first match
+function applyTopicStyling(item) {
+  console.log("Applying topic styling for item:", item.title);
+  console.log(`Current latestFeedDate: ${latestFeedDate}`);
+  console.log(`Item publication date: ${item.pubDate}`);
+
+  let isNewItem = false;
+  let selectedSoundFile = 'sounds/news-alert-notification.mp3'; // Default sound
+  let matchedTopics = [];
+
+  // Loop through topics to find matches
+  for (const topic in topicKeywords) {
+    if (topicKeywords.hasOwnProperty(topic)) {
+      const { keywords, background, soundFile } = topicKeywords[topic];
+      if (
+        keywords.some(
+          (keyword) =>
+            item.description.toLowerCase().includes(keyword.toLowerCase()) ||
+            item.title.toLowerCase().includes(keyword.toLowerCase())
+        )
+      ) {
+        matchedTopics.push({ topic, background, soundFile });
+
+        // Stop checking after the first match if it's a new item
+        if (item.pubDate > latestFeedDate) {
+          console.log(
+            `New item detected. Previous latestFeedDate: ${latestFeedDate}, New item date: ${item.pubDate}`
+          );
+          isNewItem = true;
+          latestFeedDate = item.pubDate;
+          console.log(`Updated latestFeedDate: ${latestFeedDate}`);
         }
       }
     }
-  
-    console.log(`Sound selected for item: ${item.title} is ${selectedSoundFile}`);
-    if (!isNewItem) {
-      item.background = item.background || '#203050'; // Default background color from rssFeeds
-    }
   }
+
+  // Determine how to apply background based on matches
+  if (matchedTopics.length > 0) {
+    if (matchedTopics.length === 1) {
+      // Single topic match
+      item.background = matchedTopics[0].background;
+      selectedSoundFile = matchedTopics[0].soundFile;
+    } else {
+      // Multiple topic match, use gradient
+      const topTopics = matchedTopics.slice(0, 2); // Get the top two matched topics
+      const gradient = `linear-gradient(to right, ${topTopics[0].background}, ${topTopics[1].background})`;
+      item.background = gradient; // Apply gradient
+      selectedSoundFile = topTopics[0].soundFile; // Use sound file of the highest priority topic
+    }
+    playSound(selectedSoundFile, item.title);
+  } else {
+    console.log('No topics matched for this item.');
+  }
+}
   
   function playSound(soundFile, itemTitle) {
     console.log(`Attempting to play sound file: ${soundFile} for item: ${itemTitle}`);
