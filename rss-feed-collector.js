@@ -1,16 +1,6 @@
 import rssFeeds from './rssFeeds.js';
 
 const topicKeywords = {
-  'Weather': {
-    keywords: ['weather', 'flood', 'climate', 'environment', 'storm', 'tornado', 'hurricane', 'heatwave', 'earthquake', 'tsunami'],
-    background: '#545f38',
-    soundFile: 'sounds/weather-alert-notification.mp3'
-  },
-  'Protests': {
-    keywords: ['protest', 'rally', 'demonstration', 'riot', 'vigil'],
-    background: '#4a1f7b',
-    soundFile: 'sounds/news-alert-notification.mp3'
-  },
   'Russia': {
     keywords: ['Russia', 'Ukraine', 'Belarus', 'Donbas', 'Crimea', 'Kyiv', 'Kharkiv', 'Odesa', 'Dnipro', 'Donetsk', 'Zaporizhzhia', 'Lviv', 'Kryvyi Rih', 'Mykolaiv', 'Mariupol', 'Luhansk', 'Vinnytsia', 'Simferopol', 'Kherson', 'Poltava', 'Chernihiv', 'Cherkasy', 'Sumy', 'Zhytomyr', 'Khmelnytskyi', 'Chernivtsi', 'Rivne', 'Ivano-Frankivsk', 'Ternopil', 'Kropyvnytskyi', 'Lutsk', 'Uzhhorod', 'Moscow', 'Saint Petersburg', 'Nizhny Novgorod', 'Kazan', 'Voronezh', 'Saratov', 'Krasnodar', 'Tolyatti', 'Izhevsk', 'Ulyanovsk', 'Yaroslavl', 'Tyumen', 'Barnaul', 'Vladivostok', 'Irkutsk', 'Khabarovsk', 'Kurgan', 'Kaliningrad', 'Belgorod', 'Ivanovo', 'Kostroma', 'Kursk', 'Lipetsk', 'Orel', 'Ryazan', 'Smolensk', 'Tula', 'Tver', 'Vladimir', 'Bryansk', 'Pskov', 'Novgorod', 'Kaluga', 'Tambov'],
     background: '#205028',
@@ -34,6 +24,16 @@ const topicKeywords = {
   'North Korea': {
     keywords: ['North Korea', 'DPRK', 'Pyongyang', 'Kim Jong-un', 'North Korean government', 'North Korean military', 'North Korean regime', 'North Korean sanctions', 'North Korean economy', 'North Korean diplomacy', 'North Korean missile test', 'North Korean missile launch', 'North Korean missile test', 'North Korean missile launch', 'South Korea', 'ROK', 'Seoul', 'South Korean government', 'South Korean military', 'Moon Jae-in', 'Yoon Suk-yeol', 'Kaesong Industrial Complex', 'Cheonan sinking', 'Yeonpyeong Island shelling', 'North Korean artillery fire', 'North Korean missile tests', 'North Korean nuclear tests', 'North Korean espionage', 'South Korean sanctions', 'South Korean defense strategy', 'North Korean provocations', 'North Korean threats', 'Pyongyang', 'Hamhung', 'Chongjin', 'Nampo', 'Wonsan', 'Sinuiju', 'Tanchon', 'Kaesong', 'Sariwon', 'Haeju', 'Kimchaek', 'Hyesan', 'Songnim', 'Rason', 'Kanggye', 'Seoul', 'Busan', 'Incheon', 'Daegu', 'Daejeon', 'Gwangju', 'Suwon', 'Ulsan', 'Changwon', 'Seongnam', 'Goyang', 'Yongin', 'Bucheon', 'Cheongju', 'Jeonju', 'Cheonan', 'Ansan', 'Sejong', 'Anyang', 'Uijeongbu', 'Gimhae', 'Pyeongtaek', 'Jinju', 'Pohang', 'Mokpo', 'Jeju', 'Gwangmyeong'],
     background: '#502020',
+    soundFile: 'sounds/news-alert-notification.mp3'
+  },
+  'Weather': {
+    keywords: ['weather', 'flood', 'climate', 'environment', 'storm', 'tornado', 'hurricane', 'heatwave', 'earthquake', 'tsunami'],
+    background: '#545f38',
+    soundFile: 'sounds/weather-alert-notification.mp3'
+  },
+  'Protests': {
+    keywords: ['protest', 'rally', 'demonstration', 'riot', 'vigil'],
+    background: '#4a1f7b',
     soundFile: 'sounds/news-alert-notification.mp3'
   },
 };
@@ -257,7 +257,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     { file: 'VOANews.tsv', source: 'VOA News', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
     { file: 'noel_reports.tsv', source: 'Noel Reports', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
     { file: 'KyivIndependent.tsv', source: 'Kyiv Independent', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
-    { file: 'ArmyRecognition.tsv', source: 'Army Recognition', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] }
+    { file: 'ArmyRecognition.tsv', source: 'Army Recognition', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'BreakingDefense.tsv', source: 'Breaking Defense', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] }
   ];
 
   async function fetchTSVFile(url) {
@@ -684,6 +685,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     } else if (source === 'Kyib Independent') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else if (source === 'Army Recognition') {
+      adjustedDate.setHours(adjustedDate.getHours() + 0);
+    } else if (source === 'Breaking Defense') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else {
       console.warn(`No specific time adjustment found for source: ${source}`);
