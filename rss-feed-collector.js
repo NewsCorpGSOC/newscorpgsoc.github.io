@@ -875,7 +875,7 @@ document.addEventListener('DOMContentLoaded', async () => {
           const cleanedDescription = doc.body.innerHTML;
   
           // Truncate long descriptions
-          const maxLength = 500;
+          const maxLength = 400;
           let truncatedDescription = cleanedDescription;
           let showMoreLink = '';
           if (cleanedDescription.length > maxLength) {
