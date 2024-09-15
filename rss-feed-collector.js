@@ -27,7 +27,7 @@ const topicKeywords = {
     soundFile: 'sounds/news-alert-notification.mp3'
   },
   'Weather': {
-    keywords: ['weather', 'flood', 'climate', 'environment', 'storm', 'tornado', 'hurricane', 'heatwave', 'earthquake', 'tsunami'],
+    keywords: ['weather', 'flood', 'climate', 'environment', 'storm', 'tornado', 'hurricane', 'heatwave', 'earthquake', 'tsunami', 'typhoon', 'blizzard', 'drought', 'cold wave', 'snowstorm', 'cyclone', 'thunderstorm', 'lightning', 'wildfire', 'avalanche', 'mudslide', 'hailstorm', 'gale', 'waterspout', 'microburst', 'heat index', 'wind chill', 'rainstorm', 'monsoon', 'dust storm', 'volcano', 'landslide'],
     background: '#545f38',
     soundFile: 'sounds/weather-alert-notification.mp3'
   },
@@ -258,7 +258,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     { file: 'noel_reports.tsv', source: 'Noel Reports', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
     { file: 'KyivIndependent.tsv', source: 'Kyiv Independent', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
     { file: 'ArmyRecognition.tsv', source: 'Army Recognition', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
-    { file: 'BreakingDefense.tsv', source: 'Breaking Defense', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] }
+    { file: 'BreakingDefense.tsv', source: 'Breaking Defense', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'AssociatedPress.tsv', source: 'Associated Press', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] }
   ];
 
   async function fetchTSVFile(url) {
@@ -687,6 +688,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     } else if (source === 'Army Recognition') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else if (source === 'Breaking Defense') {
+      adjustedDate.setHours(adjustedDate.getHours() + 0);
+    } else if (source === 'Associated Press') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else {
       console.warn(`No specific time adjustment found for source: ${source}`);
