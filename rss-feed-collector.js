@@ -764,7 +764,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     displayFeeds();
   }
 
-  function applyTopicStyling(item) {
+  function applyTopicStyling(item, element) {
     console.log("Applying topic styling for item:", item.title);
     console.log(`Current latestFeedDate: ${latestFeedDate}`);
     console.log(`Item publication date: ${item.pubDate}`);
@@ -787,13 +787,13 @@ document.addEventListener('DOMContentLoaded', async () => {
           console.log(`Matched topic: ${topic} for item: ${item.title}`);
           matchedTopics.push({ topic, background, soundFile });
   
-          // Stop after the first match if needed (like the original code)
+          // Set the background and sound for the first match
           if (matchedTopics.length === 1) {
             item.background = background;
             selectedSoundFile = soundFile;
           }
   
-          // Check if item is new
+          // Check if the item is new
           if (item.pubDate > latestFeedDate) {
             console.log(
               `New item detected. Previous latestFeedDate: ${latestFeedDate}, New item date: ${item.pubDate}`
@@ -806,7 +806,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             console.log('Item is not newer than latestFeedDate, no sound will be played.');
           }
   
-          break; // Stop checking after the first match like the original code
+          break; // Stop checking after the first match if you want to maintain performance
         }
       }
     }
@@ -824,10 +824,9 @@ document.addEventListener('DOMContentLoaded', async () => {
   
     console.log(`Sound selected for item: ${item.title} is ${selectedSoundFile}`);
   
-    // Apply the background to the existing feed item
-    const feedItemElement = document.querySelector(`[data-id="${item.id}"]`); // Assuming each feed item has a unique data-id
-    if (feedItemElement) {
-      feedItemElement.style.background = item.background; // Apply dynamic background
+    // Apply the background directly to the passed element
+    if (element) {
+      element.style.background = item.background; // Apply dynamic background
     }
   }
   
@@ -874,11 +873,11 @@ document.addEventListener('DOMContentLoaded', async () => {
   
       const fragment = document.createDocumentFragment();
       searchFilteredFeeds.forEach(item => {
-          applyTopicStyling(item); // Apply styling and sound logic for each item
-  
           const feedItem = document.createElement('div');
           feedItem.classList.add('feed-item');
-          feedItem.style.backgroundColor = item.background;
+  
+          // Apply topic styling directly to the feed item element
+          applyTopicStyling(item, feedItem); // Pass the item and the created element
   
           const credibilityContainer = document.createElement('div');
           credibilityContainer.classList.add('credibility-container');
@@ -911,7 +910,7 @@ document.addEventListener('DOMContentLoaded', async () => {
               showMoreLink = `<a href="#" class="see-more" data-full-description="${encodeURIComponent(cleanedDescription)}">See More</a>`;
           }
   
-          // Add the first image back to the feedElement if it exists
+          // Add the first image back to the feed element if it exists
           let imageHtml = '';
           if (firstImg) {
               if (item.source === 'TSV USGS Earthquakes') {
@@ -921,7 +920,7 @@ document.addEventListener('DOMContentLoaded', async () => {
               }
           }
   
-          // Corrected to use truncated description and showMoreLink
+          // Use truncated description and showMoreLink
           feedContent.innerHTML = 
               `<h2><a href="${item.link}" target="_blank">${item.title}</a></h2>
               ${imageHtml}
@@ -946,6 +945,7 @@ document.addEventListener('DOMContentLoaded', async () => {
           });
       });
   }
+
 
   function parseSearchTerm(searchTerm) {
     const termGroups = searchTerm.split(/\s+OR\s+/i).map(group => {
