@@ -784,42 +784,50 @@ document.addEventListener('DOMContentLoaded', async () => {
               item.title.toLowerCase().includes(keyword.toLowerCase())
           )
         ) {
+          console.log(`Matched topic: ${topic} for item: ${item.title}`);
           matchedTopics.push({ topic, background, soundFile });
   
+          // Stop after the first match if needed (like the original code)
+          if (matchedTopics.length === 1) {
+            item.background = background;
+            selectedSoundFile = soundFile;
+          }
+  
+          // Check if item is new
           if (item.pubDate > latestFeedDate) {
             console.log(
               `New item detected. Previous latestFeedDate: ${latestFeedDate}, New item date: ${item.pubDate}`
             );
             isNewItem = true;
-            latestFeedDate = item.pubDate;
+            latestFeedDate = item.pubDate; // Update after processing
             console.log(`Updated latestFeedDate: ${latestFeedDate}`);
+            playSound(selectedSoundFile, item.title); // Play the topic-specific sound
+          } else {
+            console.log('Item is not newer than latestFeedDate, no sound will be played.');
           }
+  
+          break; // Stop checking after the first match like the original code
         }
       }
     }
   
-    // Determine how to apply background based on matches
-    let backgroundStyle;
-    if (matchedTopics.length > 0) {
-      if (matchedTopics.length === 1) {
-        // Single topic match
-        backgroundStyle = matchedTopics[0].background;
-        selectedSoundFile = matchedTopics[0].soundFile;
-      } else {
-        // Multiple topic match, use gradient
-        const topTopics = matchedTopics.slice(0, 2); // Get the top two matched topics
-        backgroundStyle = `linear-gradient(to right, ${topTopics[0].background}, ${topTopics[1].background})`;
-        selectedSoundFile = topTopics[0].soundFile; // Use sound file of the highest priority topic
-      }
-      playSound(selectedSoundFile, item.title);
-    } else {
-      console.log('No topics matched for this item.');
+    // Apply gradient background if multiple topics match
+    if (matchedTopics.length > 1) {
+      const topTopics = matchedTopics.slice(0, 2); // Get the top two matched topics
+      item.background = `linear-gradient(to right, ${topTopics[0].background}, ${topTopics[1].background})`;
     }
+  
+    // Set default background if no match found
+    if (!isNewItem) {
+      item.background = item.background || '#203050'; // Default background color
+    }
+  
+    console.log(`Sound selected for item: ${item.title} is ${selectedSoundFile}`);
   
     // Apply the background to the existing feed item
     const feedItemElement = document.querySelector(`[data-id="${item.id}"]`); // Assuming each feed item has a unique data-id
     if (feedItemElement) {
-      feedItemElement.style.background = backgroundStyle; // Apply dynamic background
+      feedItemElement.style.background = item.background; // Apply dynamic background
     }
   }
   
