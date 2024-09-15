@@ -806,7 +806,10 @@ document.addEventListener('DOMContentLoaded', async () => {
             console.log('Item is not newer than latestFeedDate, no sound will be played.');
           }
   
-          break; // Stop checking after the first match if you want to maintain performance
+          // Break after finding two matches
+          if (matchedTopics.length === 2) {
+            break; // Stop checking after finding the first two matches
+          }
         }
       }
     }
