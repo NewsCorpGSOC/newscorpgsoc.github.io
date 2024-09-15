@@ -799,16 +799,16 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
   
     // Determine how to apply background based on matches
+    let backgroundStyle;
     if (matchedTopics.length > 0) {
       if (matchedTopics.length === 1) {
         // Single topic match
-        item.background = matchedTopics[0].background;
+        backgroundStyle = matchedTopics[0].background;
         selectedSoundFile = matchedTopics[0].soundFile;
       } else {
         // Multiple topic match, use gradient
         const topTopics = matchedTopics.slice(0, 2); // Get the top two matched topics
-        const gradient = `linear-gradient(to right, ${topTopics[0].background}, ${topTopics[1].background})`;
-        item.background = gradient; // Apply gradient
+        backgroundStyle = `linear-gradient(to right, ${topTopics[0].background}, ${topTopics[1].background})`;
         selectedSoundFile = topTopics[0].soundFile; // Use sound file of the highest priority topic
       }
       playSound(selectedSoundFile, item.title);
@@ -816,21 +816,11 @@ document.addEventListener('DOMContentLoaded', async () => {
       console.log('No topics matched for this item.');
     }
   
-    // Apply the background to the feed item
-    const feedItemElement = document.createElement('div');
-    feedItemElement.className = 'feed-item';
-    feedItemElement.style.background = item.background; // Apply the dynamic background
-  
-    // Add the content to the feed item
-    feedItemElement.innerHTML = `
-      <div class="feed-content">
-        <h2>${item.title}</h2>
-        <p>${item.description}</p>
-      </div>
-    `;
-  
-    // Append the feed item to the feeds container
-    document.getElementById('feeds').appendChild(feedItemElement);
+    // Apply the background to the existing feed item
+    const feedItemElement = document.querySelector(`[data-id="${item.id}"]`); // Assuming each feed item has a unique data-id
+    if (feedItemElement) {
+      feedItemElement.style.background = backgroundStyle; // Apply dynamic background
+    }
   }
   
   function playSound(soundFile, itemTitle) {
