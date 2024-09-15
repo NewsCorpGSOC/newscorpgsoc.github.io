@@ -764,59 +764,74 @@ document.addEventListener('DOMContentLoaded', async () => {
     displayFeeds();
   }
 
-function applyTopicStyling(item) {
-  console.log("Applying topic styling for item:", item.title);
-  console.log(`Current latestFeedDate: ${latestFeedDate}`);
-  console.log(`Item publication date: ${item.pubDate}`);
-
-  let isNewItem = false;
-  let selectedSoundFile = 'sounds/news-alert-notification.mp3'; // Default sound
-  let matchedTopics = [];
-
-  // Loop through topics to find matches
-  for (const topic in topicKeywords) {
-    if (topicKeywords.hasOwnProperty(topic)) {
-      const { keywords, background, soundFile } = topicKeywords[topic];
-      if (
-        keywords.some(
-          (keyword) =>
-            item.description.toLowerCase().includes(keyword.toLowerCase()) ||
-            item.title.toLowerCase().includes(keyword.toLowerCase())
-        )
-      ) {
-        matchedTopics.push({ topic, background, soundFile });
-
-        // Stop checking after the first match if it's a new item
-        if (item.pubDate > latestFeedDate) {
-          console.log(
-            `New item detected. Previous latestFeedDate: ${latestFeedDate}, New item date: ${item.pubDate}`
-          );
-          isNewItem = true;
-          latestFeedDate = item.pubDate;
-          console.log(`Updated latestFeedDate: ${latestFeedDate}`);
+  function applyTopicStyling(item) {
+    console.log("Applying topic styling for item:", item.title);
+    console.log(`Current latestFeedDate: ${latestFeedDate}`);
+    console.log(`Item publication date: ${item.pubDate}`);
+  
+    let isNewItem = false;
+    let selectedSoundFile = 'sounds/news-alert-notification.mp3'; // Default sound
+    let matchedTopics = [];
+  
+    // Loop through topics to find matches
+    for (const topic in topicKeywords) {
+      if (topicKeywords.hasOwnProperty(topic)) {
+        const { keywords, background, soundFile } = topicKeywords[topic];
+        if (
+          keywords.some(
+            (keyword) =>
+              item.description.toLowerCase().includes(keyword.toLowerCase()) ||
+              item.title.toLowerCase().includes(keyword.toLowerCase())
+          )
+        ) {
+          matchedTopics.push({ topic, background, soundFile });
+  
+          if (item.pubDate > latestFeedDate) {
+            console.log(
+              `New item detected. Previous latestFeedDate: ${latestFeedDate}, New item date: ${item.pubDate}`
+            );
+            isNewItem = true;
+            latestFeedDate = item.pubDate;
+            console.log(`Updated latestFeedDate: ${latestFeedDate}`);
+          }
         }
       }
     }
-  }
-
-  // Determine how to apply background based on matches
-  if (matchedTopics.length > 0) {
-    if (matchedTopics.length === 1) {
-      // Single topic match
-      item.background = matchedTopics[0].background;
-      selectedSoundFile = matchedTopics[0].soundFile;
+  
+    // Determine how to apply background based on matches
+    if (matchedTopics.length > 0) {
+      if (matchedTopics.length === 1) {
+        // Single topic match
+        item.background = matchedTopics[0].background;
+        selectedSoundFile = matchedTopics[0].soundFile;
+      } else {
+        // Multiple topic match, use gradient
+        const topTopics = matchedTopics.slice(0, 2); // Get the top two matched topics
+        const gradient = `linear-gradient(to right, ${topTopics[0].background}, ${topTopics[1].background})`;
+        item.background = gradient; // Apply gradient
+        selectedSoundFile = topTopics[0].soundFile; // Use sound file of the highest priority topic
+      }
+      playSound(selectedSoundFile, item.title);
     } else {
-      // Multiple topic match, use gradient
-      const topTopics = matchedTopics.slice(0, 2); // Get the top two matched topics
-      const gradient = `linear-gradient(to right, ${topTopics[0].background}, ${topTopics[1].background})`;
-      item.background = gradient; // Apply gradient
-      selectedSoundFile = topTopics[0].soundFile; // Use sound file of the highest priority topic
+      console.log('No topics matched for this item.');
     }
-    playSound(selectedSoundFile, item.title);
-  } else {
-    console.log('No topics matched for this item.');
+  
+    // Apply the background to the feed item
+    const feedItemElement = document.createElement('div');
+    feedItemElement.className = 'feed-item';
+    feedItemElement.style.background = item.background; // Apply the dynamic background
+  
+    // Add the content to the feed item
+    feedItemElement.innerHTML = `
+      <div class="feed-content">
+        <h2>${item.title}</h2>
+        <p>${item.description}</p>
+      </div>
+    `;
+  
+    // Append the feed item to the feeds container
+    document.getElementById('feeds').appendChild(feedItemElement);
   }
-}
   
   function playSound(soundFile, itemTitle) {
     console.log(`Attempting to play sound file: ${soundFile} for item: ${itemTitle}`);
