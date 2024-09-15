@@ -3,37 +3,37 @@ import rssFeeds from './rssFeeds.js';
 const topicKeywords = {
   'Weather': {
     keywords: ['weather', 'flood', 'climate', 'environment', 'storm', 'tornado', 'hurricane', 'heatwave', 'earthquake', 'tsunami'],
-    background: '#5d5d55',
+    background: '#545f38',
     soundFile: 'sounds/weather-alert-notification.mp3'
   },
   'Protests': {
     keywords: ['protest', 'rally', 'demonstration', 'riot', 'vigil'],
-    background: '#5d555d',
+    background: '#4a1f7b',
     soundFile: 'sounds/news-alert-notification.mp3'
   },
   'Russia': {
     keywords: ['Russia', 'Ukraine', 'Belarus', 'Donbas', 'Crimea', 'Kyiv', 'Kharkiv', 'Odesa', 'Dnipro', 'Donetsk', 'Zaporizhzhia', 'Lviv', 'Kryvyi Rih', 'Mykolaiv', 'Mariupol', 'Luhansk', 'Vinnytsia', 'Simferopol', 'Kherson', 'Poltava', 'Chernihiv', 'Cherkasy', 'Sumy', 'Zhytomyr', 'Khmelnytskyi', 'Chernivtsi', 'Rivne', 'Ivano-Frankivsk', 'Ternopil', 'Kropyvnytskyi', 'Lutsk', 'Uzhhorod', 'Moscow', 'Saint Petersburg', 'Nizhny Novgorod', 'Kazan', 'Voronezh', 'Saratov', 'Krasnodar', 'Tolyatti', 'Izhevsk', 'Ulyanovsk', 'Yaroslavl', 'Tyumen', 'Barnaul', 'Vladivostok', 'Irkutsk', 'Khabarovsk', 'Kurgan', 'Kaliningrad', 'Belgorod', 'Ivanovo', 'Kostroma', 'Kursk', 'Lipetsk', 'Orel', 'Ryazan', 'Smolensk', 'Tula', 'Tver', 'Vladimir', 'Bryansk', 'Pskov', 'Novgorod', 'Kaluga', 'Tambov'],
-    background: '#30563d',
+    background: '#205028',
     soundFile: 'sounds/ukraine-notification-alert.mp3'
   },
   'Israel': {
     keywords: ['Israel', 'Hamas', 'Palestine', 'Palestinian Authority', 'Gaza', 'West Bank', 'Jerusalem', 'Tel Aviv', 'Haifa', 'Rishon LeZion', 'Petah Tikva', 'Ashdod', 'Netanya', 'Beer Sheva', 'Bnei Brak', 'Holon', 'Ramat Gan', 'Ashkelon', 'Rehovot', 'Bat Yam', 'Kfar Saba', 'Herzliya', 'Modiin-Maccabim-Reut', 'Raanana', 'Beit Shemesh', 'Kiryat Ata', 'Lod', 'Nazareth', 'Ramla', 'Hadera', 'Betar Illit', 'Tiberias', 'Eilat', 'Acre', 'Hod Hasharon', 'Givatayim', 'Umm al-Fahm', 'Tayibe', 'Sakhnin', 'Karmiel', 'Tira', 'Sderot', 'Kiryat Gat', 'Kiryat Bialik', 'Kiryat Motzkin', 'Rosh HaAyin', 'Nahariya', 'Or Yehuda', 'Yavne', 'Ramat HaSharon', 'Maale Adumim', 'Dimona', 'Migdal HaEmek', 'Arad', 'Ofakim', 'Yokneam Illit', 'Kiryat Yam', 'Qalansawe', 'Kiryat Malakhi', 'Gaza', 'Ramallah', 'Hebron', 'Nablus', 'Bethlehem', 'Jenin', 'Jericho', 'Khan Yunis', 'Rafah'],
-    background: '#334866',
+    background: '#166e84',
     soundFile: 'sounds/israel-notification-alert.mp3'
   },
   'MENA': {
     keywords: ['Lebanon', 'Syria', 'Iraq', 'Iran', 'Islamic Resistance', 'Houthi', 'Yemen', 'Saudi Arabia', 'UAE', 'United Arab Emirates', 'Turkey', 'Israel', 'Hamas', 'Palestine', 'Palestinian Authority', 'Gaza', 'West Bank', 'Jordan', 'IRGC', 'Hezbollah', 'Istanbul', 'Ankara', 'Izmir', 'Bursa', 'Adana', 'Gaziantep', 'Konya', 'Antalya', 'Aleppo', 'Damascus', 'Homs', 'Latakia', 'Beirut', 'Amman', 'Baghdad', 'Basra', 'Mosul', 'Erbil', 'Kuwait City', 'Manama', 'Doha', 'Riyadh', 'Jeddah', 'Mecca', 'Medina', 'Dammam', 'Muscat', 'Dubai', 'Abu Dhabi', 'Sharjah', 'Tehran', 'Mashhad', 'Isfahan', 'Karaj', 'Tabriz', 'Shiraz', 'Cairo', 'Alexandria', 'Giza', 'Shubra El-Kheima', 'Port Said', 'Suez', 'Luxor', 'Asyut', 'Fes', 'Casablanca', 'Rabat', 'Marrakesh', 'Tangier', 'Agadir', 'Tunis', 'Sfax', 'Sousse', 'Tripoli', 'Benghazi', 'Misrata', 'Algiers', 'Oran', 'Constantine', 'Annaba'],
-    background: '#5d4d36',
+    background: '#6e4334',
     soundFile: 'sounds/news-alert-notification.mp3'
   },
   'China & APAC Tensions': {
     keywords: ['South China Sea', 'SCS', 'Nine-Dash Line', 'Spratly Islands', 'Paracel Islands', 'Scarborough Shoal', 'ASEAN', 'Philippines and South China Sea', 'Vietnam and South China Sea', 'Malaysia and South China Sea', 'Brunei and South China Sea', 'Chinas artificial islands', 'US-China relations', 'Sino-American relations', 'Taiwan', 'Taipei'],
-    background: '#633d30',
+    background: '#632238',
     soundFile: 'sounds/news-alert-notification.mp3'
   },
   'North Korea': {
     keywords: ['North Korea', 'DPRK', 'Pyongyang', 'Kim Jong-un', 'North Korean government', 'North Korean military', 'North Korean regime', 'North Korean sanctions', 'North Korean economy', 'North Korean diplomacy', 'North Korean missile test', 'North Korean missile launch', 'North Korean missile test', 'North Korean missile launch', 'South Korea', 'ROK', 'Seoul', 'South Korean government', 'South Korean military', 'Moon Jae-in', 'Yoon Suk-yeol', 'Kaesong Industrial Complex', 'Cheonan sinking', 'Yeonpyeong Island shelling', 'North Korean artillery fire', 'North Korean missile tests', 'North Korean nuclear tests', 'North Korean espionage', 'South Korean sanctions', 'South Korean defense strategy', 'North Korean provocations', 'North Korean threats', 'Pyongyang', 'Hamhung', 'Chongjin', 'Nampo', 'Wonsan', 'Sinuiju', 'Tanchon', 'Kaesong', 'Sariwon', 'Haeju', 'Kimchaek', 'Hyesan', 'Songnim', 'Rason', 'Kanggye', 'Seoul', 'Busan', 'Incheon', 'Daegu', 'Daejeon', 'Gwangju', 'Suwon', 'Ulsan', 'Changwon', 'Seongnam', 'Goyang', 'Yongin', 'Bucheon', 'Cheongju', 'Jeonju', 'Cheonan', 'Ansan', 'Sejong', 'Anyang', 'Uijeongbu', 'Gimhae', 'Pyeongtaek', 'Jinju', 'Pohang', 'Mokpo', 'Jeju', 'Gwangmyeong'],
-    background: '#503030',
+    background: '#502020',
     soundFile: 'sounds/news-alert-notification.mp3'
   },
 };
@@ -217,47 +217,47 @@ document.addEventListener('DOMContentLoaded', async () => {
   };
 
   const tsvFiles = [
-    { file: 'Venezuela_News_Network.tsv', source: 'Venezuela News Network', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'Israel_Security_Cabinet_News.tsv', source: 'Israel Security Cabinet News', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'Stand_With_Us_Breaking_News.tsv', source: 'Stand With Us Breaking News', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'Ukraine_Air_Defense.tsv', source: 'Ukraine Air Defense', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'WOLPalestine.tsv', source: 'WOLPalestine', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'USGS_Earthquakes.tsv', source: 'USGS Earthquakes', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'Jewish_Breaking_News.tsv', source: 'Jewish Breaking News', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'Mannies_War_Room.tsv', source: 'Mannies War Room - Times of Israel', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'Ukraine_Air_Defense.tsv', source: 'Ukraine Air Defense', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'PoliticsGR.tsv', source: 'PoliticsGR', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'RerumNovarumIntel.tsv', source: 'Rerum Novarum Intel', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'IDFOfficial.tsv', source: 'Israel Defense Forces', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'OurWarsToday.tsv', source: 'Our Wars, Today', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'Rybar.tsv', source: 'Rybar - Russian News', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'IranInternational.tsv', source: 'Irn Intl', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'dtek_ua.tsv', source: 'DTEK Ukraine', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'astrapress.tsv', source: 'Astra', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'ArmyInformUA.tsv', source: 'Army Inform UA', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: '38north.tsv', source: '38 North', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'NKNews.tsv', source: 'NK News', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'EastAsiaForum.tsv', source: 'East Asia Forum', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'ROCMOFA.tsv', source: 'ROC Ministry of Defense', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'TaiwanToday.tsv', source: 'Taiwan Today', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'AsiaNews.tsv', source: 'Asia News', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'HongKongFreePress.tsv', source: 'Hong Kong Free Press', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'PeoplesDaily.tsv', source: 'The Peoples Daily Edition - PRC State Media & Propaganda', reliability: 'Requires Verification', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'TheDiplomat.tsv', source: 'The Diplomat', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'Haartz.tsv', source: 'Haartz', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'AlJazeera.tsv', source: 'Al Jazeera', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'TheGuardian.tsv', source: 'The Guardian', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'TASSAgency.tsv', source: 'TASS Agency - RU State Media', reliability: 'Requires Verification', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'IranWire.tsv', source: 'Iran Wire', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'ArabNews.tsv', source: 'Arab News', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'NewArab.tsv', source: 'New Arab', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'SputnikGlobe.tsv', source: 'Sputnik Globe - RU State Media', reliability: 'Requires Verification', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'AnadoluAjansi.tsv', source: 'Anadolu Ajansi - Turkey State Media', reliability: 'Requires Verification', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'FirstPostNews.tsv', source: 'First Post News', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'VOANews.tsv', source: 'VOA News', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'noel_reports.tsv', source: 'Noel Reports', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'KyivIndependent.tsv', source: 'Kyiv Independent', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'ArmyRecognition.tsv', source: 'Army Recognition', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] }
+    { file: 'Venezuela_News_Network.tsv', source: 'Venezuela News Network', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'Israel_Security_Cabinet_News.tsv', source: 'Israel Security Cabinet News', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'Stand_With_Us_Breaking_News.tsv', source: 'Stand With Us Breaking News', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'Ukraine_Air_Defense.tsv', source: 'Ukraine Air Defense', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'WOLPalestine.tsv', source: 'WOLPalestine', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'USGS_Earthquakes.tsv', source: 'USGS Earthquakes', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'Jewish_Breaking_News.tsv', source: 'Jewish Breaking News', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'Mannies_War_Room.tsv', source: 'Mannies War Room - Times of Israel', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'Ukraine_Air_Defense.tsv', source: 'Ukraine Air Defense', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'PoliticsGR.tsv', source: 'PoliticsGR', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'RerumNovarumIntel.tsv', source: 'Rerum Novarum Intel', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'IDFOfficial.tsv', source: 'Israel Defense Forces', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'OurWarsToday.tsv', source: 'Our Wars, Today', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'Rybar.tsv', source: 'Rybar - Russian News', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'IranInternational.tsv', source: 'Irn Intl', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'dtek_ua.tsv', source: 'DTEK Ukraine', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'astrapress.tsv', source: 'Astra', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'ArmyInformUA.tsv', source: 'Army Inform UA', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: '38north.tsv', source: '38 North', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'NKNews.tsv', source: 'NK News', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'EastAsiaForum.tsv', source: 'East Asia Forum', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'ROCMOFA.tsv', source: 'ROC Ministry of Defense', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'TaiwanToday.tsv', source: 'Taiwan Today', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'AsiaNews.tsv', source: 'Asia News', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'HongKongFreePress.tsv', source: 'Hong Kong Free Press', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'PeoplesDaily.tsv', source: 'The Peoples Daily Edition - PRC State Media & Propaganda', reliability: 'Requires Verification', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'TheDiplomat.tsv', source: 'The Diplomat', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'Haartz.tsv', source: 'Haartz', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'AlJazeera.tsv', source: 'Al Jazeera', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'TheGuardian.tsv', source: 'The Guardian', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'TASSAgency.tsv', source: 'TASS Agency - RU State Media', reliability: 'Requires Verification', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'IranWire.tsv', source: 'Iran Wire', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'ArabNews.tsv', source: 'Arab News', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'NewArab.tsv', source: 'New Arab', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'SputnikGlobe.tsv', source: 'Sputnik Globe - RU State Media', reliability: 'Requires Verification', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'AnadoluAjansi.tsv', source: 'Anadolu Ajansi - Turkey State Media', reliability: 'Requires Verification', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'FirstPostNews.tsv', source: 'First Post News', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'VOANews.tsv', source: 'VOA News', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'noel_reports.tsv', source: 'Noel Reports', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'KyivIndependent.tsv', source: 'Kyiv Independent', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'ArmyRecognition.tsv', source: 'Army Recognition', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] }
   ];
 
   async function fetchTSVFile(url) {
