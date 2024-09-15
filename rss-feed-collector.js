@@ -255,7 +255,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     { file: 'AnadoluAjansi.tsv', source: 'Anadolu Ajansi - Turkey State Media', reliability: 'Requires Verification', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
     { file: 'FirstPostNews.tsv', source: 'First Post News', reliability: 'Dubious', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
     { file: 'VOANews.tsv', source: 'VOA News', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
-    { file: 'NoelReports.tsv', source: 'Noel Reports', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
+    { file: 'noel_reports.tsv', source: 'Noel Reports', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
     { file: 'KyivIndependent.tsv', source: 'Kyiv Independent', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] },
     { file: 'ArmyRecognition.tsv', source: 'Army Recognition', reliability: 'Credible', background: '#493a53', requiredTerms: [], ignoreTerms: [] }
   ];
