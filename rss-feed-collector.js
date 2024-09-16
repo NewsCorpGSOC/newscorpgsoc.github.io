@@ -967,6 +967,7 @@ document.addEventListener('DOMContentLoaded', async () => {
               <p><small>Published on: ${format(item.pubDate, 'PPpp')} (${timezoneSelector.value})</small></p>
               <p><strong>Source:</strong> ${item.source}</p>`;
   
+          feedItem.appendChild(dateBox); // Add date box to the feed item  
           feedItem.appendChild(credibilityContainer);
           feedItem.appendChild(feedContent);
           fragment.appendChild(feedItem);
