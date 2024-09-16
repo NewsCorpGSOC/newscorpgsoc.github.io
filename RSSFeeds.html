@@ -486,7 +486,16 @@
           margin-right: 5px;
           border: 1px solid #ffffff;
         }
-
+        .credibility-filter {
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+          margin-top: 10px;
+        }
+        
+        .credibility-filter label {
+          color: white;
+        }
 
         /*---------------------------------- SIDEBAR ----------------------------------*/      
         #sidebar {
@@ -1181,6 +1190,14 @@
                         
               	        <div class="filter-bar">
 
+
+                            <label>Credibility Filter:</label>
+                            <div class="credibility-filter">
+                                <label><input type="checkbox" id="credibleFilter" checked> Credible</label>
+                                <label><input type="checkbox" id="dubiousFilter" checked> Dubious</label>
+                                <label><input type="checkbox" id="requiresVerificationFilter" checked> Requires Verification</label>
+                            </div>
+                          
                             <label for="timezoneSelector">Select Timezone:</label>
                             <select id="timezoneSelector">
                               <option value="Pacific Time">Pacific Time</option>
