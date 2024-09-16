@@ -490,7 +490,10 @@
           display: flex;
           flex-direction: column;
           gap: 5px;
-          margin-top: 10px;
+          margin-bottom: 10px;
+          background-color: #404040;
+          border-radius: 8px;
+          border: 2mm ridge rgba(64, 64, 64, .6);
         }
         
         .credibility-filter label {
@@ -1193,9 +1196,9 @@
 
                             <label>Credibility Filter:</label>
                             <div class="credibility-filter">
-                                <label><input type="checkbox" id="credibleFilter" checked> Credible</label>
-                                <label><input type="checkbox" id="dubiousFilter" checked> Dubious</label>
-                                <label><input type="checkbox" id="requiresVerificationFilter" checked> Requires Verification</label>
+                                <label><input type="checkbox" id="credibleFilter" checked> ✅ Credible</label>
+                                <label><input type="checkbox" id="dubiousFilter" checked> ⚠️ Dubious</label>
+                                <label><input type="checkbox" id="requiresVerificationFilter" checked> 🛑 Requires Verification</label>
                             </div>
                           
                             <label for="timezoneSelector">Select Timezone:</label>
