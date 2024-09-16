@@ -868,7 +868,22 @@ document.addEventListener('DOMContentLoaded', async () => {
       const recentFeeds = filteredFeeds.filter(item => item.pubDate > oneYearAgo);
       console.log(`Recent feeds count: ${recentFeeds.length}`);
   
-      const searchFilteredFeeds = recentFeeds.filter(item =>
+      // Retrieve checkbox states
+      const showCredible = document.getElementById('credibleFilter').checked;
+      const showDubious = document.getElementById('dubiousFilter').checked;
+      const showRequiresVerification = document.getElementById('requiresVerificationFilter').checked;
+    
+      // Filter feeds based on credibility checkboxes
+      const credibilityFilteredFeeds = recentFeeds.filter(item => {
+        if (item.reliability === 'Credible' && showCredible) return true;
+        if (item.reliability === 'Dubious' && showDubious) return true;
+        if (item.reliability === 'Requires Verification' && showRequiresVerification) return true;
+        return false; // Exclude the item if it doesn't match any selected filters
+      });
+    
+      console.log(`Credibility filtered feeds count: ${credibilityFilteredFeeds.length}`);
+    
+      const searchFilteredFeeds = credibilityFilteredFeeds.filter(item =>
           searchTerms.every(termGroup =>
               termGroup.some(term =>
                   item.title.toLowerCase().includes(term) ||
@@ -999,9 +1014,27 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
     console.log(`Filtered feeds after source filter: ${filteredFeeds.length}`);
 
+    // Apply credibility filter
+    const showCredible = document.getElementById('credibleFilter').checked;
+    const showDubious = document.getElementById('dubiousFilter').checked;
+    const showRequiresVerification = document.getElementById('requiresVerificationFilter').checked;
+    console.log(`Credibility filters - Credible: ${showCredible}, Dubious: ${showDubious}, Requires Verification: ${showRequiresVerification}`);
+  
+    filteredFeeds = filteredFeeds.filter(item => {
+      if (item.reliability === 'Credible' && showCredible) return true;
+      if (item.reliability === 'Dubious' && showDubious) return true;
+      if (item.reliability === 'Requires Verification' && showRequiresVerification) return true;
+      return false; // Exclude the item if it doesn't match any selected filters
+    });
+    console.log(`Filtered feeds after credibility filter: ${filteredFeeds.length}`);
+  
     return filteredFeeds;
   }
 
+  document.getElementById('credibleFilter').addEventListener('change', debounce(displayFeeds, 300));
+  document.getElementById('dubiousFilter').addEventListener('change', debounce(displayFeeds, 300));
+  document.getElementById('requiresVerificationFilter').addEventListener('change', debounce(displayFeeds, 300));
+  
   timelineFilter.addEventListener('change', debounce(displayFeeds, 300));
   topicFilter.addEventListener('change', debounce(displayFeeds, 300));
   sourceFilterContainer.addEventListener('change', debounce(displayFeeds, 300));
