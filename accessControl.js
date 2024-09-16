@@ -1,9 +1,15 @@
-(function() {
+document.addEventListener('DOMContentLoaded', function() {
     const loggedIn = sessionStorage.getItem('loggedIn');
     const username = sessionStorage.getItem('username'); // Retrieve username
     const role = sessionStorage.getItem('role');
     const currentPage = window.location.pathname.split('/').pop(); // Get the current page name
     
+    console.log('Logged in:', loggedIn); // Debugging
+    console.log('Username:', username); // Debugging
+    console.log('Role:', role); // Debugging
+    console.log('Current page:', currentPage); // Debugging
+
+    // If not logged in, redirect to login page
     if (!loggedIn) {
         window.location.href = 'login.html';
     } else {
@@ -28,6 +34,8 @@
     // Function to display the logged-in username in the top right corner
     function displayLoggedInUser(username) {
         if (username) {
+            console.log('Displaying username:', username); // Debugging
+
             // Create a div element for displaying user information
             const userInfoDiv = document.createElement('div');
             userInfoDiv.id = 'user-info';
@@ -48,6 +56,8 @@
             userInfoDiv.style.fontFamily = '"EB Garamond", serif'; // Use EB Garamond font
             userInfoDiv.style.zIndex = '1000';
             userInfoDiv.style.color = '#333';
+        } else {
+            console.log('No username found in session storage.'); // Debugging
         }
     }
-})();
+});
