@@ -507,12 +507,23 @@
           font-weight: bold;
           text-align: center;
           text-decoration: underline;
-          font-size: 14px;
+          font-size: 18px;
         }
       
         .filter-container p {
           text-align: center;
-          font-size: 8px;
+          font-size: 12px;
+        }
+        .feed-count-overlay {
+          position: absolute;
+          top: 10px;
+          left: 20px;
+          background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+          color: #ffffff;
+          padding: 5px 10px;
+          border-radius: 5px;
+          font-size: 12px;
+          z-index: 100; /* Ensures the counter is on top */
         }
 
         /*---------------------------------- SIDEBAR ----------------------------------*/      
@@ -1168,6 +1179,7 @@
                     
                 <div class="container">
               	    <div class="feed-container" id="feeds-container">
+                        <div id="feed-count-overlay" class="feed-count-overlay">Total Feed Items Displayed: 0</div>
               	        <div class="loading-overlay" id="loading-overlay">Loading...</div>
               	            <h1>RSS Feed Collector</h1>
               	        <div id="feeds"></div>
