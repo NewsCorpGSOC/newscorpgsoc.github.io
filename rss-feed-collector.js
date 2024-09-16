@@ -902,21 +902,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   
           // Apply topic styling directly to the feed item element
           applyTopicStyling(item, feedItem); // Pass the item and the created element
-  
-          // Create date box for feed item
-          const dateBox = document.createElement('div');
-          dateBox.classList.add('date-box');
-      
-          // Format the date
-          const pubDate = new Date(item.pubDate);
-          const day = pubDate.getDate();
-          const month = pubDate.toLocaleString('default', { month: 'short' });
-          const year = pubDate.getFullYear();
-          const time = pubDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true });
-      
-          dateBox.innerHTML = `<div class="date-day">${day}</div>
-                               <div class="date-month-year">${month} ${year}</div>
-                               <div class="date-time">${time}</div>`;
       
           const credibilityContainer = document.createElement('div');
           credibilityContainer.classList.add('credibility-container');
@@ -966,8 +951,7 @@ document.addEventListener('DOMContentLoaded', async () => {
               <div>${truncatedDescription} ${showMoreLink}</div>
               <p><small>Published on: ${format(item.pubDate, 'PPpp')} (${timezoneSelector.value})</small></p>
               <p><strong>Source:</strong> ${item.source}</p>`;
-  
-          feedItem.appendChild(dateBox); // Add date box to the feed item  
+    
           feedItem.appendChild(credibilityContainer);
           feedItem.appendChild(feedContent);
           fragment.appendChild(feedItem);
