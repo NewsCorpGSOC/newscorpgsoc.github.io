@@ -1,10 +1,9 @@
-function() {
+(function() {
     const loggedIn = sessionStorage.getItem('loggedIn');
     const username = sessionStorage.getItem('username'); // Retrieve username
     const role = sessionStorage.getItem('role');
     const currentPage = window.location.pathname.split('/').pop(); // Get the current page name
-
-    // If not logged in, redirect to login page
+    
     if (!loggedIn) {
         window.location.href = 'login.html';
     } else {
