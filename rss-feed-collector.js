@@ -960,6 +960,10 @@ document.addEventListener('DOMContentLoaded', async () => {
       feedsContainer.appendChild(fragment);
       console.log("Feeds displayed.");
   
+      // Update the feed count overlay
+      const feedCountOverlay = document.getElementById('feed-count-overlay');
+      feedCountOverlay.textContent = `Total Feed Items Displayed: ${searchFilteredFeeds.length}`;
+    
       // Add event listeners for "See More" links
       document.querySelectorAll('.see-more').forEach(link => {
           link.addEventListener('click', function(event) {
