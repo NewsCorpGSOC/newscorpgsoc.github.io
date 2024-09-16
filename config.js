@@ -15,7 +15,8 @@ const config = {
     'nwu.consultant@newscorp.com': { password: 'kvDcHW94993s', role: 'operations' },
     'sarana.consultant@newscorp.com': { password: 'd33kBto2oFO0', role: 'operations' },
     'ygastelum.consultant@newscorp.com': { password: '96a07QR7X2vw', role: 'operations' },
-    'jmagallanes.consultant@newscorp.com': { password: 'highschoolmusical3', role: 'operations' }
+    'jmagallanes.consultant@newscorp.com': { password: 'highschoolmusical3', role: 'operations' },
+    'guest': { password: 'guest1234', role: 'guest' }
   },
   roles: {
     siteadmin: ['DNC.html', 'DNCMap.html', 'NYCWebCams.html', 'RNCMap.html', 'RSSFeeds.html', 'emergency-response-los-angeles.html', 'global-map.html', 'google-earth-assets-map.html', 'gsoc-osint-toolbox.html', 'index.html', 'mena-map.html', 'onboarding.html', 'page1.html', 'ukraine-conflict-map.html'], // Full access
