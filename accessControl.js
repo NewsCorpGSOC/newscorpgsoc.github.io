@@ -46,6 +46,23 @@ document.addEventListener('DOMContentLoaded', function() {
             const signOutButton = document.createElement('button');
             signOutButton.textContent = 'Sign out';
             signOutButton.style.marginLeft = '10px'; // Add some space between the text and the button
+            signOutButton.style.backgroundColor = 'rgba(0, 214, 227, 0.8)';
+            signOutButton.style.fontWeight = 'bold'; // Bold the text
+            signOutButton.style.border = 'none'; // Remove default border
+            signOutButton.style.padding = '5px 10px'; // Add padding
+            signOutButton.style.borderRadius = '5px'; // Rounded corners
+            signOutButton.style.cursor = 'pointer'; // Change cursor to pointer on hover
+            signOutButton.style.transition = 'background-color 0.3s'; // Smooth transition for hover effect
+
+            // Change background color on hover
+            signOutButton.onmouseover = function() {
+                signOutButton.style.backgroundColor = 'rgba(0, 184, 197, 0.8)'; // Darker shade on hover
+            };
+            signOutButton.onmouseout = function() {
+                signOutButton.style.backgroundColor = 'rgba(0, 214, 227, 0.8)'; // Original shade
+            };
+
+            // Sign out functionality
             signOutButton.onclick = function() {
                 signOut();
             };
