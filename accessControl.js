@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const username = sessionStorage.getItem('username'); // Retrieve username
     const role = sessionStorage.getItem('role');
     const currentPage = window.location.pathname.split('/').pop(); // Get the current page name
-    
+
     console.log('Logged in:', loggedIn); // Debugging
     console.log('Username:', username); // Debugging
     console.log('Role:', role); // Debugging
@@ -27,11 +27,11 @@ document.addEventListener('DOMContentLoaded', function() {
             window.location.href = 'access-denied.html';
         }
 
-        // Display the logged-in username
+        // Display the logged-in username and "Sign out" button
         displayLoggedInUser(username);
     }
 
-    // Function to display the logged-in username in the top right corner
+    // Function to display the logged-in username and "Sign out" button in the top right corner
     function displayLoggedInUser(username) {
         if (username) {
             console.log('Displaying username:', username); // Debugging
@@ -40,7 +40,18 @@ document.addEventListener('DOMContentLoaded', function() {
             const userInfoDiv = document.createElement('div');
             userInfoDiv.id = 'user-info';
             userInfoDiv.className = 'user-info';
-            userInfoDiv.textContent = `Logged in as: ${username}`;
+            userInfoDiv.textContent = `Logged in as: ${username} `;
+
+            // Create "Sign out" button
+            const signOutButton = document.createElement('button');
+            signOutButton.textContent = 'Sign out';
+            signOutButton.style.marginLeft = '10px'; // Add some space between the text and the button
+            signOutButton.onclick = function() {
+                signOut();
+            };
+
+            // Append button to the user info div
+            userInfoDiv.appendChild(signOutButton);
             
             // Append the div to the body
             document.body.appendChild(userInfoDiv);
@@ -56,8 +67,17 @@ document.addEventListener('DOMContentLoaded', function() {
             userInfoDiv.style.fontFamily = '"EB Garamond", serif'; // Use EB Garamond font
             userInfoDiv.style.zIndex = '1000';
             userInfoDiv.style.color = '#333';
+
         } else {
             console.log('No username found in session storage.'); // Debugging
         }
+    }
+
+    // Function to handle sign out
+    function signOut() {
+        // Clear session storage
+        sessionStorage.clear();
+        // Redirect to the login page
+        window.location.href = 'login.html';
     }
 });
