@@ -78,6 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
             userInfoDiv.style.top = '10px';
             userInfoDiv.style.right = '10px';
             userInfoDiv.style.backgroundColor = 'rgba(255, 255, 255, 0.8)';
+            userInfoDiv.style.fontWeight = 'bold'; // Bold the text
             userInfoDiv.style.padding = '5px 10px';
             userInfoDiv.style.borderRadius = '5px';
             userInfoDiv.style.fontSize = '14px';
