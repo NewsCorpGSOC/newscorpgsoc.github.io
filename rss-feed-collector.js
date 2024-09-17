@@ -266,7 +266,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     { file: 'Politico.tsv', source: 'Politico', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
     { file: 'SkyNews.tsv', source: 'Sky News', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
     { file: 'Economist.tsv', source: 'The Economist', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
-    { file: 'Naharnet.tsv', source: 'Naharnet', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] }
+    { file: 'Naharnet.tsv', source: 'Naharnet', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'SkyNewsArabia.tsv', source: 'Sky News Arabia', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] }
   ];
 
   async function fetchTSVFile(url) {
@@ -649,6 +650,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     } else if (source === 'The Jerusalem Post') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else if (source === 'Wall Street Journal') {
+      adjustedDate.setHours(adjustedDate.getHours() + 0);
+    } else if (source === 'Sky News Arabia') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else {
       console.warn(`No specific time adjustment found for source: ${source}`);
