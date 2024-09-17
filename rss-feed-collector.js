@@ -417,8 +417,16 @@ document.addEventListener('DOMContentLoaded', async () => {
       statusItem.innerHTML = html;
       statusContainer.appendChild(statusItem);
     });
+    // Update the total sources count
+    updateSourceCount();
   }
-
+  
+  function updateSourceCount() {
+    const sourceCount = statusItems.size; // Total number of sources currently tracked
+    const sourceCountElement = document.getElementById('source-count');
+    sourceCountElement.textContent = `Total Sources Displayed: ${sourceCount}`;
+  }
+  
   function parseDate(dateString) {
     const parsedDate = new Date(dateString);
     if (isNaN(parsedDate)) {
