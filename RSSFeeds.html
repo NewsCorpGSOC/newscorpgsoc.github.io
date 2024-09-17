@@ -520,6 +520,18 @@
           font-size: 12px;
           z-index: 100; /* Ensures the counter is on top */
         }
+        .source-count {
+          position: absolute;
+          top: 10px;
+          left: 20px;
+          background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+          color: #ffffff;
+          padding: 5px 10px;
+          margin-left: -10px;
+          border-radius: 5px;
+          font-size: 12px;
+          z-index: 100; /* Ensures the counter is on top */
+        }
         /*---------------------------------- SIDEBAR ----------------------------------*/      
         #sidebar {
             display: flex;
@@ -1168,6 +1180,7 @@
 
               	<div class="connection-container">
                     <h2>Source Connectivity</h2>
+                    <div id="source-count" style="font-weight: bold; margin-bottom: 10px;">Total Sources Displayed: 0</div> <!-- Tally for sources -->
                     <div id="statusContainer"></div>
                 </div>
                     
