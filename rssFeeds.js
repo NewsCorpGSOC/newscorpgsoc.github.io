@@ -56,22 +56,6 @@ const rssFeeds = [
     ]
   },
   {
-    url: 'https://feeds.bbci.co.uk/news/world/rss.xml',
-    source: 'BBC News',
-    priorityLevel: 'Very Low',
-    requiredTerms: [],
-    ignoreTerms: [],
-    reliability: 'Credible',
-    background: '#203050',
-    backups: [
-      '${PROXY_URL}https://feeds.bbci.co.uk/news/world/rss.xml',
-      'https://api.allorigins.win/get?url=https%3A%2F%2Ffeeds.bbci.co.uk%2Fnews%2Fworld%2Frss.xml',
-      'https://corsproxy.io/?https%3A%2F%2Ffeeds.bbci.co.uk%2Fnews%2Fworld%2Frss.xml',
-      'https://corsproxy.io/?https%3A%2F%2Ffeeds.bbci.co.uk%2Fnews%2Frss.xml',
-      'http://feeds.bbci.co.uk/news/uk/rss.xml'
-    ]
-  },
-  {
     url: 'https://wol.com/feed/',
     source: 'World Online',
     priorityLevel: 'Very Low',
@@ -83,20 +67,6 @@ const rssFeeds = [
       '${PROXY_URL}https://wol.com/feed/',
       'https://api.allorigins.win/get?url=https%3A%2F%2Fwol.com%2Ffeed%2F',
       'https://corsproxy.io/?https%3A%2F%2Fwol.com%2Ffeed%2F',
-    ]
-  },
-  {
-    url: 'https://rss-bridge.org/bridge01/?action=display&topic=world-news&context=Custom+Topic&bridge=AssociatedPressNewsBridge&format=Atom',
-    source: 'Associated Press',
-    priorityLevel: 'Very Low',
-    requiredTerms: [],
-    ignoreTerms: [],
-    reliability: 'Credible',
-    background: '#203050',
-    backups: [
-      '${PROXY_URL}https://rss-bridge.org/bridge01/?action=display&topic=world-news&context=Custom+Topic&bridge=AssociatedPressNewsBridge&format=Atom',
-      'https://api.allorigins.win/get?url=https%3A%2F%2Frss-bridge.org%2Fbridge01%2F%3Faction%3Ddisplay%26topic%3Dworld-news%26context%3DCustom%2BTopic%26bridge%3DAssociatedPressNewsBridge%26format%3DAtom',
-      'https://corsproxy.io/?https%3A%2F%2Frss-bridge.org%2Fbridge01%2F%3Faction%3Ddisplay%26topic%3Dworld-news%26context%3DCustom%2BTopic%26bridge%3DAssociatedPressNewsBridge%26format%3DAtom',
     ]
   },
   {
@@ -167,20 +137,6 @@ const rssFeeds = [
       '${PROXY_URL}https://news.yahoo.com/rss/world',
       'https://api.allorigins.win/get?url=https%3A%2F%2Fnews.yahoo.com%2Frss%2Fworld',
       'https://corsproxy.io/?https%3A%2F%2Fnews.yahoo.com%2Frss%2Fworld',
-    ]
-  },
-  {
-    url: 'https://www.politico.eu/feed/',
-    source: 'Politico EU',
-    priorityLevel: 'Very Low',
-    requiredTerms: [],
-    ignoreTerms: [],
-    reliability: 'Credible',
-    background: '#203050',
-    backups: [
-      '${PROXY_URL}https://www.politico.eu/feed/',
-      'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.politico.eu%2Ffeed%2F',
-      'https://corsproxy.io/?https%3A%2F%2Fwww.politico.eu%2Ffeed%2F',
     ]
   },
   {
@@ -268,63 +224,6 @@ const rssFeeds = [
     ]
   },
   {
-    url: 'https://feeds.skynews.com/feeds/rss/politics.xml',
-    source: 'Sky News Politics',
-    priorityLevel: 'Very Low',
-    requiredTerms: [],
-    ignoreTerms: [],
-    reliability: 'Credible',
-    background: '#203050',
-    backups: [
-      '${PROXY_URL}https://feeds.skynews.com/feeds/rss/politics.xml',
-      'https://api.allorigins.win/get?url=https%3A%2F%2Ffeeds.skynews.com%2Ffeeds%2Frss%2Fpolitics.xml',
-      'https://corsproxy.io/?https%3A%2F%2Ffeeds.skynews.com%2Ffeeds%2Frss%2Fpolitics.xml',
-      'https://corsproxy.io/?https%3A%2F%2Ffeeds.skynews.com%2Ffeeds%2Frss%2Fworld.xml',
-    ]
-  },
-  {
-    url: 'https://www.economist.com/europe/rss.xml',
-    source: 'The Economist - Europe',
-    priorityLevel: 'Very Low',
-    requiredTerms: [],
-    ignoreTerms: [],
-    reliability: 'Credible',
-    background: '#203050',
-    backups: [
-      '${PROXY_URL}https://www.economist.com/europe/rss.xml',
-      'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.economist.com%2Feurope%2Frss.xml',
-      'https://corsproxy.io/?https%3A%2F%2Fwww.economist.com%2Feurope%2Frss.xml',
-    ]
-  },
-  {
-    url: 'https://www.economist.com/the-americas/rss.xml',
-    source: 'The Economist - Americas',
-    priorityLevel: 'Very Low',
-    requiredTerms: [],
-    ignoreTerms: [],
-    reliability: 'Credible',
-    background: '#203050',
-    backups: [
-      '${PROXY_URL}https://www.economist.com/the-americas/rss.xml',
-      'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.economist.com%2Fthe-americas%2Frss.xml',
-      'https://corsproxy.io/?https%3A%2F%2Fwww.economist.com%2Fthe-americas%2Frss.xml',
-    ]
-  },
-  {
-    url: 'https://www.economist.com/middle-east-and-africa/rss.xml',
-    source: 'The Economist - MENA',
-    priorityLevel: 'Very Low',
-    requiredTerms: [],
-    ignoreTerms: [],
-    reliability: 'Credible',
-    background: '#203050',
-    backups: [
-      '${PROXY_URL}https://www.economist.com/middle-east-and-africa/rss.xml',
-      'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.economist.com%2Fmiddle-east-and-africa%2Frss.xml',
-      'https://corsproxy.io/?https%3A%2F%2Fwww.economist.com%2Fmiddle-east-and-africa%2Frss.xml',
-    ]
-  },
-  {
     url: 'https://www.nzherald.co.nz/arc/outboundfeeds/rss/section/world/?outputType=xml&_website=nzh',
     source: 'The New Zealand Herald',
     priorityLevel: 'Very Low',
@@ -336,119 +235,6 @@ const rssFeeds = [
       '${PROXY_URL}https://www.nzherald.co.nz/arc/outboundfeeds/rss/section/world/?outputType=xml&_website=nzh',
       'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.nzherald.co.nz%2Farc%2Foutboundfeeds%2Frss%2Fsection%2Fworld%2F%3FoutputType%3Dxml%26_website%3Dnzh',
       'https://corsproxy.io/?https%3A%2F%2Fwww.nzherald.co.nz%2Farc%2Foutboundfeeds%2Frss%2Fsection%2Fworld%2F%3FoutputType%3Dxml%26_website%3Dnzh',
-    ]
-  },
-  {
-    url: 'https://feeds.a.dj.com/rss/RSSWorldNews.xml',
-    source: 'Wall Street Journal',
-    priorityLevel: 'Very Low',
-    requiredTerms: [],
-    ignoreTerms: [],
-    reliability: 'Credible',
-    background: '#203050',
-    backups: [
-      '${PROXY_URL}https://feeds.a.dj.com/rss/RSSWorldNews.xml',
-      'https://api.allorigins.win/get?url=https%3A%2F%2Ffeeds.a.dj.com%2Frss%2FRSSWorldNews.xml',
-      'https://corsproxy.io/?https%3A%2F%2Ffeeds.a.dj.com%2Frss%2FRSSWorldNews.xml',
-    ]
-  },
-  {
-    url: 'https://rss.jpost.com/rss/rssfeedsarabisraeliconflict.aspx',
-    source: 'The Jerusalem Post - Arab-Israeli Conflict',
-    priorityLevel: 'Very Low',
-    requiredTerms: [],
-    ignoreTerms: [],
-    reliability: 'Credible',
-    background: '#203050',
-    backups: [
-      '${PROXY_URL}https://rss.jpost.com/rss/rssfeedsarabisraeliconflict.aspx',
-      'https://api.allorigins.win/get?url=https%3A%2F%2Frss.jpost.com%2Frss%2Frssfeedsarabisraeliconflict.aspx',
-      'https://corsproxy.io/?https%3A%2F%2Frss.jpost.com%2Frss%2Frssfeedsarabisraeliconflict.aspx',
-    ]
-  },
-  {
-    url: 'https://rss.jpost.com/rss/rssfeedsheadlines.aspx',
-    source: 'The Jerusalem Post - Breaking News',
-    priorityLevel: 'Very Low',
-    requiredTerms: [],
-    ignoreTerms: [],
-    reliability: 'Credible',
-    background: '#203050',
-    backups: [
-      '${PROXY_URL}https://rss.jpost.com/rss/rssfeedsheadlines.aspx',
-      'https://api.allorigins.win/get?url=https%3A%2F%2Frss.jpost.com%2Frss%2Frssfeedsheadlines.aspx',
-      'https://corsproxy.io/?https%3A%2F%2Frss.jpost.com%2Frss%2Frssfeedsheadlines.aspx',
-    ]
-  },
-  {
-    url: 'https://rss.jpost.com/rss/rssfeedsinternational',
-    source: 'The Jerusalem Post - World News',
-    priorityLevel: 'Very Low',
-    requiredTerms: [],
-    ignoreTerms: [],
-    reliability: 'Credible',
-    background: '#203050',
-    backups: [
-      '${PROXY_URL}https://rss.jpost.com/rss/rssfeedsinternational',
-      'https://api.allorigins.win/get?url=https%3A%2F%2Frss.jpost.com%2Frss%2Frssfeedsinternational',
-      'https://corsproxy.io/?https%3A%2F%2Frss.jpost.com%2Frss%2Frssfeedsinternational',
-    ]
-  },
-  {
-    url: 'https://rss.jpost.com/rss/israel-hamas-war',
-    source: 'The Jerusalem Post - Israel-Hamas War',
-    priorityLevel: 'Very Low',
-    requiredTerms: [],
-    ignoreTerms: [],
-    reliability: 'Credible',
-    background: '#203050',
-    backups: [
-      '${PROXY_URL}https://rss.jpost.com/rss/israel-hamas-war',
-      'https://api.allorigins.win/get?url=https%3A%2F%2Frss.jpost.com%2Frss%2Fisrael-hamas-war',
-      'https://corsproxy.io/?https%3A%2F%2Frss.jpost.com%2Frss%2Fisrael-hamas-war',
-    ]
-  },
-  {
-    url: 'https://rss.jpost.com/rss/rssfeedsmiddleeastnews.aspx',
-    source: 'The Jerusalem Post - Middle East News',
-    priorityLevel: 'Very Low',
-    requiredTerms: [],
-    ignoreTerms: [],
-    reliability: 'Credible',
-    background: '#203050',
-    backups: [
-      '${PROXY_URL}https://rss.jpost.com/rss/rssfeedsmiddleeastnews.aspx',
-      'https://api.allorigins.win/get?url=https%3A%2F%2Frss.jpost.com%2Frss%2Frssfeedsmiddleeastnews.aspx',
-      'https://corsproxy.io/?https%3A%2F%2Frss.jpost.com%2Frss%2Frssfeedsmiddleeastnews.aspx',
-      'https://corsproxy.io/?https%3A%2F%2Frss.jpost.com%2Frss%2Frssfeedsiran',
-    ]
-  },
-  {
-    url: 'https://rss.jpost.com/rss/rssukrainerussiawar',
-    source: 'The Jerusalem Post - Ukraine-Russia War',
-    priorityLevel: 'Very Low',
-    requiredTerms: [],
-    ignoreTerms: [],
-    reliability: 'Credible',
-    background: '#203050',
-    backups: [
-      '${PROXY_URL}https://rss.jpost.com/rss/rssukrainerussiawar',
-      'https://api.allorigins.win/get?url=https%3A%2F%2Frss.jpost.com%2Frss%2Frssukrainerussiawar',
-      'https://corsproxy.io/?https%3A%2F%2Frss.jpost.com%2Frss%2Frssukrainerussiawar',
-    ]
-  },
-  {
-    url: 'https://rss.jpost.com/rss/rssfeedsgaza.aspx',
-    source: 'The Jerusalem Post - Gaza',
-    priorityLevel: 'Very Low',
-    requiredTerms: [],
-    ignoreTerms: [],
-    reliability: 'Credible',
-    background: '#203050',
-    backups: [
-      '${PROXY_URL}https://rss.jpost.com/rss/rssfeedsgaza.aspx',
-      'https://api.allorigins.win/get?url=https%3A%2F%2Frss.jpost.com%2Frss%2Frssfeedsgaza.aspx',
-      'https://corsproxy.io/?https%3A%2F%2Frss.jpost.com%2Frss%2Frssfeedsgaza.aspx',
     ]
   },
   {
@@ -861,34 +647,6 @@ const rssFeeds = [
     ]
   },
   {
-    url: 'https://www.naharnet.com/tags/lebanon/en/feed.atom',
-    source: 'Naharnet - Lebanon',
-    priorityLevel: 'Very Low',
-    requiredTerms: [],
-    ignoreTerms: [],
-    reliability: 'Dubious',
-    background: '#203050',
-    backups: [
-      '${PROXY_URL}https://www.naharnet.com/tags/lebanon/en/feed.atom',
-      'https://corsproxy.io/?https%3A%2F%2Fwww.naharnet.com%2Ftags%2Flebanon%2Fen%2Ffeed.atom',
-      'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.naharnet.com%2Ftags%2Flebanon%2Fen%2Ffeed.atom',
-    ]
-  },
-  {
-    url: 'https://www.naharnet.com/tags/middle-east/en/feed.atom',
-    source: 'Naharnet - Middle East',
-    priorityLevel: 'Very Low',
-    requiredTerms: [],
-    ignoreTerms: [],
-    reliability: 'Dubious',
-    background: '#203050',
-    backups: [
-      '${PROXY_URL}https://www.naharnet.com/tags/middle-east/en/feed.atom',
-      'https://corsproxy.io/?https%3A%2F%2Fwww.naharnet.com%2Ftags%2Fmiddle-east%2Fen%2Ffeed.atom',
-      'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.naharnet.com%2Ftags%2Fmiddle-east%2Fen%2Ffeed.atom',
-    ]
-  },
-  {
     url: 'https://api.weather.gov/alerts/active.atom?certainty=Likely%2CObserved&severity=Extreme%2CSevere&urgency=Future%2CExpected%2CImmediate',
     source: 'National Weather Service',
     priorityLevel: 'High',
@@ -1054,19 +812,6 @@ const rssFeeds = [
     backups: [
       '${PROXY_URL}http://www.bom.gov.au/fwo/IDZ00055.warnings_nt.xml',
       'https://corsproxy.io/?http%3A%2F%2Fwww.bom.gov.au%2Ffwo%2FIDZ00055.warnings_nt.xml',
-    ]
-  },
-  {
-    url: 'https://armyinform.com.ua/feed/',
-    source: 'Army Inform Ukraine',
-    priorityLevel: 'Low',
-    requiredTerms: [],
-    ignoreTerms: [],
-    reliability: 'Credible',
-    background: '#203050',
-    backups: [
-      '${PROXY_URL}https://armyinform.com.ua/feed/',
-      'https://api.allorigins.win/raw?url=https://armyinform.com.ua/feed/',
     ]
   },
 //  {
