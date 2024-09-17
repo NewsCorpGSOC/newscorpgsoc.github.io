@@ -224,7 +224,12 @@ document.addEventListener('DOMContentLoaded', async () => {
     { file: 'BreakingDefense.tsv', source: 'Breaking Defense', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
     { file: 'AssociatedPress.tsv', source: 'Associated Press', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
     { file: 'WallStreetJournal.tsv', source: 'Wall Street Journal', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
-    { file: 'JerusalemPost.tsv', source: 'The Jerusalem Post', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] }
+    { file: 'JerusalemPost.tsv', source: 'The Jerusalem Post', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'BBCNews.tsv', source: 'BBC News', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'Politico.tsv', source: 'Politico', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'SkyNews.tsv', source: 'Sky News', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'Economist.tsv', source: 'The Economist', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'Naharnet.tsv', source: 'Naharnet', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] }
   ];
 
   async function fetchTSVFile(url) {
@@ -411,7 +416,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     } else if (source === 'Politico EU') {
       adjustedDate.setHours(adjustedDate.getHours() - 7);
     } else if (source === 'Politico') {
-      adjustedDate.setHours(adjustedDate.getHours() - 7);
+      adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'The Star') {
       adjustedDate.setHours(adjustedDate.getHours() - 3);
     } else if (source === 'Brandon Sun') {
@@ -426,13 +431,9 @@ document.addEventListener('DOMContentLoaded', async () => {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'Channel 4 News') {
       adjustedDate.setHours(adjustedDate.getHours() - 7);
-    } else if (source === 'Sky News Politics') {
-      adjustedDate.setHours(adjustedDate.getHours() - 8);
-    } else if (source === 'The Economist - Europe') {
+    } else if (source === 'Sky News') {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
-    } else if (source === 'The Economist - Americas') {
-      adjustedDate.setHours(adjustedDate.getHours() - 0);
-    } else if (source === 'The Economist - MENA') {
+    } else if (source === 'The Economist') {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'The New Zealand Herald') {
       adjustedDate.setHours(adjustedDate.getHours() - 3);
@@ -490,9 +491,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'International News Subreddit') {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
-    } else if (source === 'Naharnet - Lebanon') {
-      adjustedDate.setHours(adjustedDate.getHours() - 0);
-    } else if (source === 'Naharnet - Middle East') {
+    } else if (source === 'Naharnet') {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'National Weather Service') {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
