@@ -362,6 +362,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             latestFeedDate = maxPubDate; // Update the latest feed date
           }
         }
+        // Call updateStatus for TSV sources
+        updateStatus(source, `GoogleSheets/${file}`, parsedTSV.length > 0); // Use true if parsedTSV has items
   
         tsvFeedItems = tsvFeedItems.concat(parsedTSV);
       } catch (error) {
