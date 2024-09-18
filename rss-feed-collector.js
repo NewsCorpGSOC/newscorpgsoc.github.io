@@ -274,7 +274,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     { file: 'WashingtonPost.tsv', source: 'Washington Post', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
     { file: 'IAEA.tsv', source: 'International Atomic Energy Agency', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
     { file: 'TWZ.tsv', source: 'The War Zone', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
-    { file: 'HongKongObervatory.tsv', source: 'Hong Kong Obervatory', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'HongKongObservatory.tsv', source: 'Hong Kong Observatory', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
     { file: 'GlobalShakePrinceton.tsv', source: 'Global Shake Princeton', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] }
   ];
 
