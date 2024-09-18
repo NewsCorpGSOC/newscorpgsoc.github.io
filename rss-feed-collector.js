@@ -956,7 +956,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         } else {
           const isSpoilerSource = spoilerSources.includes(item.source);
           const imageClass = isSpoilerSource ? 'spoiler-image' : '';
-          const revealButton = isSpoilerSource ? `<button class="reveal-button">Reveal Spoiler</button>` : '';
+          const revealButton = isSpoilerSource ? `<button class="reveal-button">Reveal Potentially Sensitive Image</button>` : '';
   
           imageHtml = `
             <div class="image-container">
