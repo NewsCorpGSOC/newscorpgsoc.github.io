@@ -271,7 +271,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     { file: 'Algemeiner.tsv', source: 'The Algemeiner', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
     { file: 'DefensePost.tsv', source: 'Defense Post', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
     { file: 'KyivPost.tsv', source: 'Kyiv Post', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
-    { file: 'WashingtonPost.tsv', source: 'Washington Post', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] }
+    { file: 'WashingtonPost.tsv', source: 'Washington Post', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'IAEA.tsv', source: 'International Atomic Energy Agency', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'TWZ.tsv', source: 'The War Zone', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] }
   ];
 
   async function fetchTSVFile(url) {
@@ -674,6 +676,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     } else if (source === 'Kyiv Post') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else if (source === 'Washington Post') {
+      adjustedDate.setHours(adjustedDate.getHours() + 0);
+    } else if (source === 'International Atomic Energy Agency') {
+      adjustedDate.setHours(adjustedDate.getHours() + 0);
+    } else if (source === 'The War Zone') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else {
       console.warn(`No specific time adjustment found for source: ${source}`);
