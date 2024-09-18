@@ -932,7 +932,7 @@ document.addEventListener('DOMContentLoaded', async () => {
               if (item.source === 'USGS Earthquakes' || item.source === 'Global Shake Princeton') {
                   imageHtml = `<img src="${firstImg.src}" alt="Earthquake Severity" width="50" height="50" style="border:0;" />`;
               } else {
-                  imageHtml = `<img src="${firstImg.src}" alt="Feed image" height="150" style="border:5;" onerror="this.onerror=null;this.src='https://i.imgur.com/GQPN5Q9.jpeg';" />`;
+                  imageHtml = `<img src="${firstImg.src}" alt="Feed image" height="250" style="border: 2px solid #191919; border-radius: 8px; onerror="this.onerror=null;this.src='https://i.imgur.com/GQPN5Q9.jpeg';" />`;
               }
           }
   
