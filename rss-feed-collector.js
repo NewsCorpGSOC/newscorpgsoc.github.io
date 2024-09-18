@@ -280,9 +280,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   // List of sources with spoiler images
   const spoilerSources = [
-    'Sensitive Source 1',
-    'Sensitive Source 2',
-    'Sensitive Source 3'
+    'The Guardian',
+    'Kyiv Independent'
   ];
 
 
