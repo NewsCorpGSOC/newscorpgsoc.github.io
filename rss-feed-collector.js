@@ -224,7 +224,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     { file: 'WOLPalestine.tsv', source: 'WOLPalestine', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] },
     { file: 'USGS_Earthquakes.tsv', source: 'USGS Earthquakes', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
     { file: 'Jewish_Breaking_News.tsv', source: 'Jewish Breaking News', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
-    { file: 'Mannies_War_Room.tsv', source: 'Mannies War Room - Times of Israel', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'ManniesWarRoom.tsv', source: 'Mannies War Room - Times of Israel', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
     { file: 'Ukraine_Air_Defense.tsv', source: 'Ukraine Air Defense', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
     { file: 'PoliticsGR.tsv', source: 'PoliticsGR', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] },
     { file: 'RerumNovarumIntel.tsv', source: 'Rerum Novarum Intel', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] },
@@ -244,7 +244,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     { file: 'HongKongFreePress.tsv', source: 'Hong Kong Free Press', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] },
     { file: 'PeoplesDaily.tsv', source: 'The Peoples Daily Edition - PRC State Media & Propaganda', reliability: 'Requires Verification', background: '#203050', requiredTerms: [], ignoreTerms: [] },
     { file: 'TheDiplomat.tsv', source: 'The Diplomat', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
-    { file: 'Haartz.tsv', source: 'Haartz', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'Haaretz.tsv', source: 'Haaretz', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] },
     { file: 'AlJazeera.tsv', source: 'Al Jazeera', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] },
     { file: 'TheGuardian.tsv', source: 'The Guardian', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] },
     { file: 'TASSAgency.tsv', source: 'TASS Agency - RU State Media', reliability: 'Requires Verification', background: '#203050', requiredTerms: [], ignoreTerms: [] },
@@ -567,9 +567,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else if (source === 'WOLPalestine') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'Hong Kong Observatory - Earthquake') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'Hong Kong Observatory - Weather Warning') {
+    } else if (source === 'Hong Kong Observatory') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else if (source === 'Meteorological Service Singapore') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
@@ -635,7 +633,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else if (source === 'The Diplomat') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'Haartz') {
+    } else if (source === 'Haaretz') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else if (source === 'Al Jazeera') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
