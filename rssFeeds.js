@@ -314,6 +314,76 @@ const rssFeeds = [
     ]
   },
   {
+    url: 'https://www.state.gov/rss-feed/africa/feed/',
+    source: 'U.S. State Department - Africa',
+    priorityLevel: 'Very Low',
+    requiredTerms: [],
+    ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#203050',
+    backups: [
+      '${PROXY_URL}https://www.state.gov/rss-feed/africa/feed/',
+      'https://corsproxy.io/?https%3A%2F%2Fwww.state.gov%2Frss-feed%2Fafrica%2Ffeed%2F',
+      'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.state.gov%2Frss-feed%2Fafrica%2Ffeed%2F',
+    ]
+  },
+  {
+    url: 'https://www.state.gov/rss-feed/east-asia-and-the-pacific/feed/',
+    source: 'U.S. State Department - East Asia and the Pacific',
+    priorityLevel: 'Very Low',
+    requiredTerms: [],
+    ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#203050',
+    backups: [
+      '${PROXY_URL}https://www.state.gov/rss-feed/east-asia-and-the-pacific/feed/',
+      'https://corsproxy.io/?https%3A%2F%2Fwww.state.gov%2Frss-feed%2Feast-asia-and-the-pacific%2Ffeed%2F',
+      'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.state.gov%2Frss-feed%2Feast-asia-and-the-pacific%2Ffeed%2F',
+    ]
+  },
+  {
+    url: 'https://www.state.gov/rss-feed/europe-and-eurasia/feed/',
+    source: 'U.S. State Department - Europe and Eurasia',
+    priorityLevel: 'Very Low',
+    requiredTerms: [],
+    ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#203050',
+    backups: [
+      '${PROXY_URL}https://www.state.gov/rss-feed/europe-and-eurasia/feed/',
+      'https://corsproxy.io/?https%3A%2F%2Fwww.state.gov%2Frss-feed%2Feurope-and-eurasia%2Ffeed%2F',
+      'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.state.gov%2Frss-feed%2Feurope-and-eurasia%2Ffeed%2F',
+    ]
+  },
+  {
+    url: 'https://www.state.gov/rss-feed/near-east/feed/',
+    source: 'U.S. State Department - Near East',
+    priorityLevel: 'Very Low',
+    requiredTerms: [],
+    ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#203050',
+    backups: [
+      '${PROXY_URL}https://www.state.gov/rss-feed/near-east/feed/',
+      'https://corsproxy.io/?https%3A%2F%2Fwww.state.gov%2Frss-feed%2Fnear-east%2Ffeed%2F',
+      'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.state.gov%2Frss-feed%2Fnear-east%2Ffeed%2F',
+    ]
+  },
+  {
+    url: 'https://www.state.gov/rss-feed/south-and-central-asia/feed/',
+    source: 'U.S. State Department - South and Central Asia',
+    priorityLevel: 'Very Low',
+    requiredTerms: [],
+    ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#203050',
+    backups: [
+      '${PROXY_URL}https://www.state.gov/rss-feed/south-and-central-asia/feed/',
+      'https://corsproxy.io/?https%3A%2F%2Fwww.state.gov%2Frss-feed%2Fsouth-and-central-asia%2Ffeed%2F',
+      'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.state.gov%2Frss-feed%2Fsouth-and-central-asia%2Ffeed%2F',
+    ]
+  },
+  {
     url: 'https://www.defense.gov/DesktopModules/ArticleCS/RSS.ashx?ContentType=9&Site=945&max=10',
     source: 'U.S. Department of Defense',
     priorityLevel: 'Very Low',
@@ -576,43 +646,6 @@ const rssFeeds = [
     backups: [
       '${PROXY_URL}https://rss.peachyjoy.top/telegram/channel/epochtimes',
       'https://corsproxy.io/?https%3A%2F%2Frsshub.app%2Ftelegram%2Fchannel%2Fepochtimes',
-    ]
-  },
-  {
-    url: 'https://global.shakemovie.princeton.edu/shakemovie/rss',
-    source: 'Global Shake Princeton',
-    priorityLevel: 'Low',
-    requiredTerms: [],
-    ignoreTerms: [],
-    reliability: 'Credible',
-    background: '#203050',
-    backups: [
-      '${PROXY_URL}https://global.shakemovie.princeton.edu/shakemovie/rss',
-      'https://corsproxy.io/?https%3A%2F%2Fglobal.shakemovie.princeton.edu%2Fshakemovie%2Frss',
-    ]
-  },
-  {
-    url: 'https://rss.weather.gov.hk/rss/QuickEarthquakeMessage.xml',
-    source: 'Hong Kong Observatory - Earthquake',
-    priorityLevel: 'High',
-    requiredTerms: [],
-    ignoreTerms: [],
-    reliability: 'Credible',
-    background: '#203050',
-    backups: [
-      '${PROXY_URL}https://rss.weather.gov.hk/rss/QuickEarthquakeMessage.xml',
-    ]
-  },
-  {
-    url: 'https://rss.weather.gov.hk/rss/WeatherWarningSummaryv2.xml',
-    source: 'Hong Kong Observatory - Weather Warning',
-    priorityLevel: 'High',
-    requiredTerms: [],
-    ignoreTerms: [],
-    reliability: 'Credible',
-    background: '#203050',
-    backups: [
-      '${PROXY_URL}https://rss.weather.gov.hk/rss/WeatherWarningSummaryv2.xml',
     ]
   },
   {
