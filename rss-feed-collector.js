@@ -857,101 +857,134 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
   }
 
-  function displayFeeds() {
-    console.log("Displaying feeds...");
-  
-    feedsContainer.innerHTML = '';
-    feedItems = removeDuplicateTitles(feedItems);
-  
-    const now = new Date();
-    const oneYearAgo = new Date(now.setFullYear(now.getFullYear() - 1));
-  
-    const filteredFeeds = applyFilter();
-    console.log(`Filtered feeds count: ${filteredFeeds.length}`);
-  
-    const searchTerm = searchInput.value.trim().toLowerCase();
-    const searchTerms = parseSearchTerm(searchTerm);
-  
-    const recentFeeds = filteredFeeds.filter(item => item.pubDate > oneYearAgo);
-    console.log(`Recent feeds count: ${recentFeeds.length}`);
-  
-    // Retrieve checkbox states
-    const showCredible = document.getElementById('credibleFilter').checked;
-    const showDubious = document.getElementById('dubiousFilter').checked;
-    const showRequiresVerification = document.getElementById('requiresVerificationFilter').checked;
-  
-    // Filter feeds based on credibility checkboxes
-    const credibilityFilteredFeeds = recentFeeds.filter(item => {
-      if (item.reliability === 'Credible' && showCredible) return true;
-      if (item.reliability === 'Dubious' && showDubious) return true;
-      if (item.reliability === 'Requires Verification' && showRequiresVerification) return true;
-      return false; // Exclude the item if it doesn't match any selected filters
+function displayFeeds() {
+  console.log("Displaying feeds...");
+
+  feedsContainer.innerHTML = '';
+  feedItems = removeDuplicateTitles(feedItems);
+
+  const now = new Date();
+  const oneYearAgo = new Date(now.setFullYear(now.getFullYear() - 1));
+
+  const filteredFeeds = applyFilter();
+  console.log(`Filtered feeds count: ${filteredFeeds.length}`);
+
+  const searchTerm = searchInput.value.trim().toLowerCase();
+  const searchTerms = parseSearchTerm(searchTerm);
+
+  const recentFeeds = filteredFeeds.filter(item => item.pubDate > oneYearAgo);
+  console.log(`Recent feeds count: ${recentFeeds.length}`);
+
+  // Retrieve checkbox states
+  const showCredible = document.getElementById('credibleFilter').checked;
+  const showDubious = document.getElementById('dubiousFilter').checked;
+  const showRequiresVerification = document.getElementById('requiresVerificationFilter').checked;
+
+  // Filter feeds based on credibility checkboxes
+  const credibilityFilteredFeeds = recentFeeds.filter(item => {
+    if (item.reliability === 'Credible' && showCredible) return true;
+    if (item.reliability === 'Dubious' && showDubious) return true;
+    if (item.reliability === 'Requires Verification' && showRequiresVerification) return true;
+    return false; // Exclude the item if it doesn't match any selected filters
+  });
+
+  console.log(`Credibility filtered feeds count: ${credibilityFilteredFeeds.length}`);
+
+  const searchFilteredFeeds = credibilityFilteredFeeds.filter(item =>
+    searchTerms.every(termGroup =>
+      termGroup.some(term =>
+        item.title.toLowerCase().includes(term) ||
+        item.description.toLowerCase().includes(term) ||
+        item.source.toLowerCase().includes(term)
+      )
+    )
+  );
+  console.log(`Search filtered feeds count: ${searchFilteredFeeds.length}`);
+  console.log(`Search filtered feeds: ${JSON.stringify(searchFilteredFeeds, null, 2)}`);
+
+  const fragment = document.createDocumentFragment();
+  searchFilteredFeeds.forEach(item => {
+    const feedItem = document.createElement('div');
+    feedItem.classList.add('feed-item');
+
+    // Apply topic styling directly to the feed item element
+    applyTopicStyling(item, feedItem); // Pass the item and the created element
+
+    const credibilityContainer = document.createElement('div');
+    credibilityContainer.classList.add('credibility-container');
+
+    if (item.reliability === 'Credible') {
+      credibilityContainer.classList.add('credible', 'bg-credible');
+    } else if (item.reliability === 'Dubious') {
+      credibilityContainer.classList.add('dubious', 'bg-dubious');
+    } else if (item.reliability === 'Requires Verification') {
+      credibilityContainer.classList.add('requires-verification', 'bg-requires-verification');
+    }
+
+    const feedContent = document.createElement('div');
+    feedContent.classList.add('feed-content');
+
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(item.description, 'text/html');
+    const firstImg = doc.querySelector('img');
+
+    // Remove all images from the description
+    doc.querySelectorAll('img').forEach(img => img.remove());
+    const cleanedDescription = doc.body.innerHTML;
+
+    // Truncate long descriptions
+    const maxLength = 400;
+    let truncatedDescription = cleanedDescription;
+    let showMoreLink = '';
+    if (cleanedDescription.length > maxLength) {
+      truncatedDescription = cleanedDescription.substring(0, maxLength) + '...';
+      showMoreLink = `<a href="#" class="see-more" data-full-description="${encodeURIComponent(cleanedDescription)}">See More</a>`;
+    }
+
+    // Add the first image back to the feed element if it exists
+    let imageHtml = '';
+    if (firstImg) {
+      if (item.source === 'USGS Earthquakes' || item.source === 'Global Shake Princeton') {
+        imageHtml = `<img src="${firstImg.src}" alt="Earthquake Severity" width="50" height="50" style="border:0;" />`;
+      } else {
+        imageHtml = `<img src="${firstImg.src}" alt="Feed image" height="225" style="border: 4px solid #191919; border-radius: 24px;" onerror="this.onerror=null;this.src='https://i.imgur.com/GQPN5Q9.jpeg';" />`;
+      }
+    }
+
+    // Add image from TSV file if provided
+    if (!firstImg && item.image) {
+      imageHtml = `<img src="${item.image}" alt="Feed image" height="225" style="border: 4px solid #191919; border-radius: 24px;" onerror="this.onerror=null;this.src='https://i.imgur.com/GQPN5Q9.jpeg';" />`;
+    }
+
+    // Use truncated description and showMoreLink
+    feedContent.innerHTML =
+      `<h2><a href="${item.link}" target="_blank">${item.title}</a></h2>
+      ${imageHtml}
+      <div>${truncatedDescription} ${showMoreLink}</div>
+      <p><small>Published on: ${format(item.pubDate, 'PPpp')} (${timezoneSelector.value})</small></p>
+      <p><strong>Source:</strong> ${item.source}</p>`;
+
+    feedItem.appendChild(credibilityContainer);
+    feedItem.appendChild(feedContent);
+    fragment.appendChild(feedItem);
+  });
+
+  feedsContainer.appendChild(fragment);
+  console.log("Feeds displayed.");
+
+  // Update the feed count overlay
+  const feedCountOverlay = document.getElementById('feed-count-overlay');
+  feedCountOverlay.textContent = `Total Feed Items Displayed: ${searchFilteredFeeds.length}`;
+
+  // Add event listeners for "See More" links
+  document.querySelectorAll('.see-more').forEach(link => {
+    link.addEventListener('click', function (event) {
+      event.preventDefault();
+      const fullDescription = decodeURIComponent(this.getAttribute('data-full-description'));
+      this.parentNode.innerHTML = fullDescription;
     });
-  
-    console.log(`Credibility filtered feeds count: ${credibilityFilteredFeeds.length}`);
-  
-    const searchFilteredFeeds = credibilityFilteredFeeds.filter(item =>
-        searchTerms.every(termGroup =>
-            termGroup.some(term =>
-                item.title.toLowerCase().includes(term) ||
-                item.description.toLowerCase().includes(term) ||
-                item.source.toLowerCase().includes(term)
-            )
-        )
-    );
-    console.log(`Search filtered feeds count: ${searchFilteredFeeds.length}`);
-    console.log(`Search filtered feeds: ${JSON.stringify(searchFilteredFeeds, null, 2)}`);
-  
-    const fragment = document.createDocumentFragment();
-    searchFilteredFeeds.forEach(item => {
-        const feedItem = document.createElement('div');
-        feedItem.classList.add('feed-item');
-  
-        // Apply topic styling directly to the feed item element
-        applyTopicStyling(item, feedItem); // Pass the item and the created element
-    
-        const credibilityContainer = document.createElement('div');
-        credibilityContainer.classList.add('credibility-container');
-  
-        if (item.reliability === 'Credible') {
-            credibilityContainer.classList.add('credible', 'bg-credible');
-        } else if (item.reliability === 'Dubious') {
-            credibilityContainer.classList.add('dubious', 'bg-dubious');
-        } else if (item.reliability === 'Requires Verification') {
-            credibilityContainer.classList.add('requires-verification', 'bg-requires-verification');
-        }
-  
-        const feedContent = document.createElement('div');
-        feedContent.classList.add('feed-content');
-  
-        // Directly use item.description which now includes all images
-        feedContent.innerHTML = 
-            `<h2><a href="${item.link}" target="_blank">${item.title}</a></h2>
-            <div>${item.description}</div>
-            <p><small>Published on: ${format(item.pubDate, 'PPpp')} (${timezoneSelector.value})</small></p>
-            <p><strong>Source:</strong> ${item.source}</p>`;
-  
-        feedItem.appendChild(credibilityContainer);
-        feedItem.appendChild(feedContent);
-        fragment.appendChild(feedItem);
-    });
-  
-    feedsContainer.appendChild(fragment);
-    console.log("Feeds displayed.");
-  
-    // Update the feed count overlay
-    const feedCountOverlay = document.getElementById('feed-count-overlay');
-    feedCountOverlay.textContent = `Total Feed Items Displayed: ${searchFilteredFeeds.length}`;
-  
-    // Add event listeners for "See More" links
-    document.querySelectorAll('.see-more').forEach(link => {
-        link.addEventListener('click', function(event) {
-            event.preventDefault();
-            const fullDescription = decodeURIComponent(this.getAttribute('data-full-description'));
-            this.parentNode.innerHTML = fullDescription;
-        });
-    });
-  }
+  });
+}
 
   function parseSearchTerm(searchTerm) {
     const termGroups = searchTerm.split(/\s+OR\s+/i).map(group => {
