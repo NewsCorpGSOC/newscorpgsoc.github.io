@@ -532,6 +532,31 @@
           font-size: 12px;
           z-index: 100; /* Ensures the counter is on top */
         }
+        /* CSS for blurring images and reveal button */
+        .spoiler-image {
+          filter: blur(15px); /* Apply blur effect */
+          transition: filter 0.3s ease; /* Smooth transition when revealed */
+          cursor: pointer;
+        }
+        
+        .reveal-button {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background-color: rgba(0, 0, 0, 0.7);
+          color: #fff;
+          border: none;
+          padding: 5px 10px;
+          border-radius: 5px;
+          cursor: pointer;
+        }
+        
+        .image-container {
+          position: relative; /* Position container relative to position reveal button correctly */
+          display: inline-block; /* Make sure the button is over the image */
+        }
+
         /*---------------------------------- SIDEBAR ----------------------------------*/      
         #sidebar {
             display: flex;
