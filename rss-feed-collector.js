@@ -308,14 +308,22 @@ document.addEventListener('DOMContentLoaded', async () => {
       const link = item.Link?.trim() || '#';
       const description = decodeHTMLEntities(item.Description?.trim() || 'No description');
       const pubDate = parseDate(item.pubDate?.trim());
-      const locationLink = item.Location?.trim();
       const magnitude = parseFloat(item.Magnitude?.trim());
+  
+      // Debug logs to check for missing data
+      console.log(`Processing TSV item #${index + 1}:`, item);
+      if (!title) console.warn(`Missing title for row ${index + 2}`);
+      if (!link) console.warn(`Missing link for row ${index + 2}`);
+      if (!description) console.warn(`Missing description for row ${index + 2}`);
+      if (!pubDate) console.warn(`Invalid or missing pubDate for row ${index + 2}`);
+      if (isNaN(magnitude)) console.warn(`Invalid or missing magnitude for row ${index + 2}`);
   
       if (!pubDate) {
         console.warn(`Skipping row ${index + 2} due to invalid date: ${JSON.stringify(item)}`);
         return null; // Skip rows with invalid dates
       }
   
+      // Determine the appropriate earthquake severity image based on the magnitude
       let magnitudeImage = '';
       if (magnitude >= 8.0) {
         magnitudeImage = 'icons/EarthquakeExtreme.png';
@@ -329,15 +337,15 @@ document.addEventListener('DOMContentLoaded', async () => {
   
       console.log(`Magnitude: ${magnitude}, Image: ${magnitudeImage}`);
   
-      let locationImage = '';
-      if (locationLink) {
-        locationImage = `<a href="${locationLink}" target="_blank"><img src="${magnitudeImage}" alt="Earthquake Severity" width="50" height="50" style="border:0;" /></a>`;
-      }
+      // Include the image directly in the description without checking for the location link
+      const earthquakeImage = magnitudeImage
+        ? `<img src="${magnitudeImage}" alt="Earthquake Severity" width="50" height="50" style="border:0;" />`
+        : '';
   
       return {
         title,
         link,
-        description: description + locationImage, // Append the earthquake image to the description
+        description: description + earthquakeImage, // Append the earthquake image to the description
         pubDate: convertToTimezone(pubDate, source),
         source,
         reliability,
