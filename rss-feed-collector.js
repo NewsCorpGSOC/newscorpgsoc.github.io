@@ -275,7 +275,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     { file: 'IAEA.tsv', source: 'International Atomic Energy Agency', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
     { file: 'TWZ.tsv', source: 'The War Zone', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
     { file: 'HongKongObservatory.tsv', source: 'Hong Kong Observatory', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
-    { file: 'GlobalShakePrinceton.tsv', source: 'Global Shake Princeton', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] }
+    { file: 'GlobalShakePrinceton.tsv', source: 'Global Shake Princeton', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'NewsNation.tsv', source: 'News Nation Now', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] }
   ];
 
   // List of sources with spoiler images
@@ -648,7 +649,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     } else if (source === 'ROC Ministry of Defense') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else if (source === 'Taiwan Today') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
+      adjustedDate.setHours(adjustedDate.getHours() - 3);
     } else if (source === 'Asia News') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else if (source === 'Hong Kong Free Press') {
@@ -704,6 +705,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     } else if (source === 'International Atomic Energy Agency') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else if (source === 'The War Zone') {
+      adjustedDate.setHours(adjustedDate.getHours() + 0);
+    } else if (source === 'News Nation Now') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else {
       console.warn(`No specific time adjustment found for source: ${source}`);
