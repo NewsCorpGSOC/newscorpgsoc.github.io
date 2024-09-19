@@ -923,7 +923,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   
       const uniqueId = item.link || item.title;
       const isExpanded = expandedFeedItems.has(uniqueId);
-      
+  
       // Apply topic styling directly to the feed item element
       applyTopicStyling(item, feedItem); // Pass the item and the created element
   
@@ -953,10 +953,9 @@ document.addEventListener('DOMContentLoaded', async () => {
       const maxLength = 400;
       let truncatedDescription = cleanedDescription;
       let toggleLink = '';
-      
-      let showMoreLink = '';
+  
       if (!isExpanded && cleanedDescription.length > maxLength) {
-        descriptionHtml = cleanedDescription.substring(0, maxLength) + '...';
+        truncatedDescription = cleanedDescription.substring(0, maxLength) + '...';
         toggleLink = `<a href="#" class="see-more" data-id="${uniqueId}">See More</a>`;
       } else if (isExpanded && cleanedDescription.length > maxLength) {
         toggleLink = `<a href="#" class="see-less" data-id="${uniqueId}">See Less</a>`;
@@ -980,11 +979,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
       }
   
-      // Use truncated description and showMoreLink
+      // Use truncated description and toggleLink
       feedContent.innerHTML =
         `<h2><a href="${item.link}" target="_blank">${item.title}</a></h2>
         ${imageHtml}
-        <div>${truncatedDescription} ${showMoreLink}</div>
+        <div>${truncatedDescription} ${toggleLink}</div>
         <p><small>Published on: ${format(item.pubDate, 'PPpp')} (${timezoneSelector.value})</small></p>
         <p><strong>Source:</strong> ${item.source}</p>`;
   
@@ -1004,7 +1003,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.querySelectorAll('.see-more').forEach(link => {
       link.addEventListener('click', function (event) {
         event.preventDefault();
-        const fullDescription = decodeURIComponent(this.getAttribute('data-id'));
+        const fullDescription = this.getAttribute('data-id');
         expandedFeedItems.add(fullDescription); // Mark the item as expanded
         displayFeeds(); // Refresh the feed display to show the expanded content
       });
@@ -1013,7 +1012,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.querySelectorAll('.see-less').forEach(link => {
       link.addEventListener('click', function (event) {
         event.preventDefault();
-        const fullDescription = decodeURIComponent(this.getAttribute('data-id'));
+        const fullDescription = this.getAttribute('data-id');
         expandedFeedItems.delete(fullDescription); // Mark the item as collapsed
         displayFeeds(); // Refresh the feed display to show the collapsed content
       });
