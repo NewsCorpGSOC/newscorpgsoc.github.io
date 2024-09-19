@@ -284,13 +284,15 @@ document.addEventListener('DOMContentLoaded', async () => {
     { file: 'AlAyyam.tsv', source: 'Al-Ayyam', reliability: 'Requires Verification', background: '#203050', requiredTerms: [], ignoreTerms: [] },
     { file: 'DailyStar.tsv', source: 'Daily Star LBN', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] },
     { file: 'AlRai.tsv', source: 'Al-Rai', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] },
-    { file: 'AlManar.tsv', source: 'Al-Manar', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] }
+    { file: 'AlManar.tsv', source: 'Al-Manar', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'Pravda.tsv', source: 'Ukrayinska Pravda', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] }
   ];
 
   // List of sources with spoiler images
   const spoilerSources = [
-    'The Guardian',
-    'Kyiv Independent'
+    'Al-Ayyam',
+    'Al-Rai',
+    'Al-Manar'
   ];
 
 
@@ -729,6 +731,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     } else if (source === 'Al-Rai') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else if (source === 'Al-Manar') {
+      adjustedDate.setHours(adjustedDate.getHours() + 0);
+    } else if (source === 'Ukrayinska Pravda') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else {
       console.warn(`No specific time adjustment found for source: ${source}`);
