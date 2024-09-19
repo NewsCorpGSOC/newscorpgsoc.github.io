@@ -278,7 +278,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     { file: 'HongKongObservatory.tsv', source: 'Hong Kong Observatory', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
     { file: 'GlobalShakePrinceton.tsv', source: 'Global Shake Princeton', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
     { file: 'NewsNation.tsv', source: 'News Nation Now', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
-    { file: 'DefenseOne.tsv', source: 'Defense One', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] }
+    { file: 'DefenseOne.tsv', source: 'Defense One', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'Aurora.tsv', source: 'Aurora', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'YNet.tsv', source: 'YNet', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] }
   ];
 
   // List of sources with spoiler images
@@ -711,6 +713,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     } else if (source === 'News Nation Now') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else if (source === 'Defense One') {
+      adjustedDate.setHours(adjustedDate.getHours() + 0);
+    } else if (source === 'Aurora') {
+      adjustedDate.setHours(adjustedDate.getHours() + 0);
+    } else if (source === 'YNet') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else {
       console.warn(`No specific time adjustment found for source: ${source}`);
