@@ -280,7 +280,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     { file: 'NewsNation.tsv', source: 'News Nation Now', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
     { file: 'DefenseOne.tsv', source: 'Defense One', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
     { file: 'Aurora.tsv', source: 'Aurora', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
-    { file: 'YNet.tsv', source: 'YNet', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] }
+    { file: 'YNet.tsv', source: 'YNet', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'AlAyyam.tsv', source: 'Al-Ayyam', reliability: 'Requires Verification', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'DailyStar.tsv', source: 'Daily Star LBN', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'AlRai.tsv', source: 'Al-Rai', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'AlManar.tsv', source: 'Al-Manar', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] }
   ];
 
   // List of sources with spoiler images
@@ -717,6 +721,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     } else if (source === 'Aurora') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else if (source === 'YNet') {
+      adjustedDate.setHours(adjustedDate.getHours() + 0);
+    } else if (source === 'Al-Ayyam') {
+      adjustedDate.setHours(adjustedDate.getHours() + 0);
+    } else if (source === 'Daily Star LBN') {
+      adjustedDate.setHours(adjustedDate.getHours() + 0);
+    } else if (source === 'Al-Rai') {
+      adjustedDate.setHours(adjustedDate.getHours() + 0);
+    } else if (source === 'Al-Manar') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else {
       console.warn(`No specific time adjustment found for source: ${source}`);
