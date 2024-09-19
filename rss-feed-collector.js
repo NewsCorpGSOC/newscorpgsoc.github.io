@@ -50,6 +50,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   const refreshTimerDisplay = document.getElementById('refresh-timer');
   const volumeSlider = document.getElementById('volumeSlider');
   const timezoneSelector = document.getElementById('timezoneSelector'); // Timezone selector
+  const expandedFeedItems = new Set();
   let feedItems = [];
   let latestFeedDate = new Date(0);
   let pingVolume = 0.5;
@@ -920,6 +921,9 @@ document.addEventListener('DOMContentLoaded', async () => {
       const feedItem = document.createElement('div');
       feedItem.classList.add('feed-item');
   
+      const uniqueId = item.link || item.title;
+      const isExpanded = expandedFeedItems.has(uniqueId);
+      
       // Apply topic styling directly to the feed item element
       applyTopicStyling(item, feedItem); // Pass the item and the created element
   
@@ -948,10 +952,14 @@ document.addEventListener('DOMContentLoaded', async () => {
       // Truncate long descriptions
       const maxLength = 400;
       let truncatedDescription = cleanedDescription;
+      let toggleLink = '';
+      
       let showMoreLink = '';
-      if (cleanedDescription.length > maxLength) {
-        truncatedDescription = cleanedDescription.substring(0, maxLength) + '...';
-        showMoreLink = `<a href="#" class="see-more" data-full-description="${encodeURIComponent(cleanedDescription)}">See More</a>`;
+      if (!isExpanded && cleanedDescription.length > maxLength) {
+        descriptionHtml = cleanedDescription.substring(0, maxLength) + '...';
+        toggleLink = `<a href="#" class="see-more" data-id="${uniqueId}">See More</a>`;
+      } else if (isExpanded && cleanedDescription.length > maxLength) {
+        toggleLink = `<a href="#" class="see-less" data-id="${uniqueId}">See Less</a>`;
       }
   
       // Add the first image back to the feed element if it exists
@@ -992,12 +1000,22 @@ document.addEventListener('DOMContentLoaded', async () => {
     const feedCountOverlay = document.getElementById('feed-count-overlay');
     feedCountOverlay.textContent = `Total Feed Items Displayed: ${searchFilteredFeeds.length}`;
   
-    // Add event listeners for "See More" links
+    // Add event listeners for "See More" and "See Less" links
     document.querySelectorAll('.see-more').forEach(link => {
       link.addEventListener('click', function (event) {
         event.preventDefault();
-        const fullDescription = decodeURIComponent(this.getAttribute('data-full-description'));
-        this.parentNode.innerHTML = fullDescription;
+        const fullDescription = decodeURIComponent(this.getAttribute('data-id'));
+        expandedFeedItems.add(fullDescription); // Mark the item as expanded
+        displayFeeds(); // Refresh the feed display to show the expanded content
+      });
+    });
+  
+    document.querySelectorAll('.see-less').forEach(link => {
+      link.addEventListener('click', function (event) {
+        event.preventDefault();
+        const fullDescription = decodeURIComponent(this.getAttribute('data-id'));
+        expandedFeedItems.delete(fullDescription); // Mark the item as collapsed
+        displayFeeds(); // Refresh the feed display to show the collapsed content
       });
     });
   
