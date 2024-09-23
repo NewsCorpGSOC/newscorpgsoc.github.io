@@ -242,20 +242,6 @@ const rssFeeds = [
     ]
   },
   {
-    url: 'https://www.israelhayom.com/feed/',
-    source: 'Israel Hayom',
-    priorityLevel: 'Very Low',
-    requiredTerms: [],
-    ignoreTerms: [],
-    reliability: 'Dubious',
-    background: '#203050',
-    backups: [
-      '${PROXY_URL}https://www.israelhayom.com/feed/',
-      'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.israelhayom.com%2Ffeed%2F',
-      'https://corsproxy.io/?https%3A%2F%2Fwww.israelhayom.com%2Ffeed%2F',
-    ]
-  },
-  {
     url: 'https://kyivindependent.com/news-archive/rss/',
     source: 'The Kyiv Independent',
     priorityLevel: 'Very Low',
