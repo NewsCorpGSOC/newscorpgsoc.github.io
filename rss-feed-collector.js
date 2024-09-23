@@ -286,7 +286,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     { file: 'AlRai.tsv', source: 'Al-Rai', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] },
     { file: 'AlManar.tsv', source: 'Al-Manar', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] },
     { file: 'Pravda.tsv', source: 'Ukrayinska Pravda', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] },
-    { file: 'WorldIsraelNews.tsv', source: 'World ISR News', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] }
+    { file: 'WorldIsraelNews.tsv', source: 'World ISR News', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'IsraelHayom.tsv', source: 'Israel Hayom', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] }
   ];
 
   // List of sources with spoiler images
