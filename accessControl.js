@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const userInfoDiv = document.createElement('div');
             userInfoDiv.id = 'user-info';
             userInfoDiv.className = 'user-info';
-            userInfoDiv.textContent = `Logged in as: ${username} `;
+            userInfoDiv.textContent = `Logged in as: ${username} | ${role}`;
 
             // Create "Sign out" button
             const signOutButton = document.createElement('button');
