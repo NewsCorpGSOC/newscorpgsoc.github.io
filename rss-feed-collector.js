@@ -287,7 +287,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     { file: 'AlManar.tsv', source: 'Al-Manar', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] },
     { file: 'Pravda.tsv', source: 'Ukrayinska Pravda', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] },
     { file: 'WorldIsraelNews.tsv', source: 'World ISR News', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] },
-    { file: 'IsraelHayom.tsv', source: 'Israel Hayom', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] }
+    { file: 'IsraelHayom.tsv', source: 'Israel Hayom', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'EuroNews.tsv', source: 'Euro News', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] }
   ];
 
   // List of sources with spoiler images
@@ -594,8 +595,6 @@ document.addEventListener('DOMContentLoaded', async () => {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'Global Shake Princeton') {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
-    } else if (source === 'Euro News') {
-      adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'Israel Security Cabinet News') {
       adjustedDate.setHours(adjustedDate.getHours() + 0); // Adjust according to specific source timezone if needed
     } else if (source === 'Stand With Us Breaking News') {
@@ -737,6 +736,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     } else if (source === 'Ukrayinska Pravda') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else if (source === 'World ISR News') {
+      adjustedDate.setHours(adjustedDate.getHours() + 0);
+    } else if (source === 'Euro News') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else {
       console.warn(`No specific time adjustment found for source: ${source}`);
