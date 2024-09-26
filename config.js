@@ -5,7 +5,7 @@ const config = {
     'lagsoc@newscorp.com': { password: 'GSOCIntranet2024', role: 'operations' },
     'acron.consultant@newscorp.com': { password: '4X70KSQrSuZp', role: 'manager' },
     'jormand.consultant@newscorp.com': { password: 'i7M2fLz72p6i', role: 'manager' },
-    'okay@newscorp.com': { password: 'D6kQj96EY94l', role: 'manager' },
+    'okay@newscorp.com': { password: 'D6kQj96EY94l', role: 'director' },
     'dgalindo.consultant@newscorp.com': { password: '5Zq2l51U5Lf9', role: 'intelops' },
     'blagman.consultant@newscorp.com': { password: 'w8xcv4DXf8o3', role: 'operations' },
     'cpulido.consultant@newscorp.com': { password: 'kGx3iPzRh85z', role: 'operations' },
@@ -19,11 +19,30 @@ const config = {
     'guest': { password: 'guest1234', role: 'guest' }
   },
   roles: {
-    siteadmin: ['DNC.html', 'DNCMap.html', 'NYCWebCams.html', 'RNCMap.html', 'RSSFeeds.html', 'emergency-response-los-angeles.html', 'global-map.html', 'google-earth-assets-map.html', 'gsoc-osint-toolbox.html', 'index.html', 'mena-map.html', 'onboarding.html', 'page1.html', 'ukraine-conflict-map.html'], // Full access
-    manager: ['DNC.html', 'DNCMap.html', 'NYCWebCams.html', 'RNCMap.html', 'RSSFeeds.html', 'emergency-response-los-angeles.html', 'global-map.html', 'google-earth-assets-map.html', 'gsoc-osint-toolbox.html', 'index.html', 'mena-map.html', 'onboarding.html', 'page1.html', 'ukraine-conflict-map.html'], // Full access
-    operations: ['DNC.html', 'DNCMap.html', 'NYCWebCams.html', 'RNCMap.html', 'RSSFeeds.html', 'emergency-response-los-angeles.html', 'global-map.html', 'google-earth-assets-map.html', 'gsoc-osint-toolbox.html', 'index.html', 'mena-map.html', 'onboarding.html', 'page1.html', 'ukraine-conflict-map.html'], // Can edit content
-    intelops: ['DNC.html', 'DNCMap.html', 'NYCWebCams.html', 'RNCMap.html', 'RSSFeeds.html', 'emergency-response-los-angeles.html', 'global-map.html', 'google-earth-assets-map.html', 'gsoc-osint-toolbox.html', 'index.html', 'mena-map.html', 'onboarding.html', 'page1.html', 'ukraine-conflict-map.html'], // Read-only access
-    guest: ['index.html'] // Read-only access
+    siteadmin: {
+      pages: ['DNC.html', 'DNCMap.html', 'NYCWebCams.html', 'RNCMap.html', 'RSSFeeds.html', 'emergency-response-los-angeles.html', 'global-map.html', 'google-earth-assets-map.html', 'gsoc-osint-toolbox.html', 'index.html', 'mena-map.html', 'onboarding.html', 'page1.html', 'ukraine-conflict-map.html'],
+      displayName: 'Site Administrator' // Display Name for siteadmin
+    },
+    manager: {
+      pages: ['DNC.html', 'DNCMap.html', 'NYCWebCams.html', 'RNCMap.html', 'RSSFeeds.html', 'emergency-response-los-angeles.html', 'global-map.html', 'google-earth-assets-map.html', 'gsoc-osint-toolbox.html', 'index.html', 'mena-map.html', 'onboarding.html', 'page1.html', 'ukraine-conflict-map.html'],
+      displayName: 'Manager'
+    },
+    director: {
+      pages: ['DNC.html', 'DNCMap.html', 'NYCWebCams.html', 'RNCMap.html', 'RSSFeeds.html', 'emergency-response-los-angeles.html', 'global-map.html', 'google-earth-assets-map.html', 'gsoc-osint-toolbox.html', 'index.html', 'mena-map.html', 'onboarding.html', 'page1.html', 'ukraine-conflict-map.html'],
+      displayName: 'Director'
+    },
+    operations: {
+      pages: ['DNC.html', 'DNCMap.html', 'NYCWebCams.html', 'RNCMap.html', 'RSSFeeds.html', 'emergency-response-los-angeles.html', 'global-map.html', 'google-earth-assets-map.html', 'gsoc-osint-toolbox.html', 'index.html', 'mena-map.html', 'onboarding.html', 'page1.html', 'ukraine-conflict-map.html'],
+      displayName: 'Operations'
+    },
+    intelops: {
+      pages: ['DNC.html', 'DNCMap.html', 'NYCWebCams.html', 'RNCMap.html', 'RSSFeeds.html', 'emergency-response-los-angeles.html', 'global-map.html', 'google-earth-assets-map.html', 'gsoc-osint-toolbox.html', 'index.html', 'mena-map.html', 'onboarding.html', 'page1.html', 'ukraine-conflict-map.html'],
+      displayName: 'Intelligence Operations'
+    },
+    guest: {
+      pages: ['index.html'],
+      displayName: 'Guest'
+    }
   }
 };
 
