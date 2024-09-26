@@ -4,10 +4,24 @@ document.addEventListener('DOMContentLoaded', function() {
     const role = sessionStorage.getItem('role'); // Retrieve role
     const currentPage = window.location.pathname.split('/').pop(); // Get the current page name
 
+    // Define role display names
+    const roleDisplayNames = {
+        'siteadmin': 'Site Administrator',
+        'manager': 'Manager',
+        'director': 'Director',
+        'operations': 'Operations',
+        'intelops': 'Intelligence Operations',
+        'guest': 'Guest'
+    };
+
+    // Get the display name for the role
+    const displayName = roleDisplayNames[role] || role; // Fallback to role ID if no display name is found
+
     console.log('Logged in:', loggedIn); // Debugging
     console.log('Username:', username); // Debugging
     console.log('Role:', role); // Debugging
     console.log('Current page:', currentPage); // Debugging
+    
 
     // If not logged in, redirect to login page
     if (!loggedIn) {
@@ -29,11 +43,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         // Display the logged-in username and "Sign out" button with role
-        displayLoggedInUser(username, role); // Pass both username and role
+        displayLoggedInUser(username, displayName); // Pass both username and role
     }
 
     // Function to display the logged-in username and "Sign out" button in the top right corner
-    function displayLoggedInUser(username, role) {
+    function displayLoggedInUser(username, displayName) {
         if (username) {
             console.log('Displaying username:', username); // Debugging
 
@@ -41,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const userInfoDiv = document.createElement('div');
             userInfoDiv.id = 'user-info';
             userInfoDiv.className = 'user-info';
-            userInfoDiv.textContent = `Logged in as: ${username} | Role: ${role}`; // Display both username and role
+            userInfoDiv.textContent = `Logged in as: ${username} | Role: ${displayName}`; // Display both username and display name
 
             // Create "Sign out" button
             const signOutButton = document.createElement('button');
