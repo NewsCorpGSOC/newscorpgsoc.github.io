@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const loggedIn = sessionStorage.getItem('loggedIn');
     const username = sessionStorage.getItem('username'); // Retrieve username
-    const role = sessionStorage.getItem('role');
+    const role = sessionStorage.getItem('role'); // Retrieve role
     const currentPage = window.location.pathname.split('/').pop(); // Get the current page name
 
     console.log('Logged in:', loggedIn); // Debugging
@@ -28,12 +28,12 @@ document.addEventListener('DOMContentLoaded', function() {
             window.location.href = 'access-denied.html';
         }
 
-        // Display the logged-in username and "Sign out" button
-        displayLoggedInUser(username);
+        // Display the logged-in username and "Sign out" button with role
+        displayLoggedInUser(username, role); // Pass both username and role
     }
 
     // Function to display the logged-in username and "Sign out" button in the top right corner
-    function displayLoggedInUser(username) {
+    function displayLoggedInUser(username, role) {
         if (username) {
             console.log('Displaying username:', username); // Debugging
 
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const userInfoDiv = document.createElement('div');
             userInfoDiv.id = 'user-info';
             userInfoDiv.className = 'user-info';
-            userInfoDiv.textContent = Logged in as: ${username} | ${role};
+            userInfoDiv.textContent = `Logged in as: ${username} | Role: ${role}`; // Display both username and role
 
             // Create "Sign out" button
             const signOutButton = document.createElement('button');
