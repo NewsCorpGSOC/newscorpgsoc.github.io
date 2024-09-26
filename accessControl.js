@@ -1,3 +1,5 @@
+import config from './config.js'; // Import the config file
+
 document.addEventListener('DOMContentLoaded', function() {
     const loggedIn = sessionStorage.getItem('loggedIn');
     const username = sessionStorage.getItem('username'); // Retrieve username
@@ -13,26 +15,23 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!loggedIn) {
         window.location.href = 'login.html';
     } else {
+        // Get the display name for the user's role
+        const displayName = config.roles[role]?.displayName || role;
+
         // Define allowed pages per role
-        const allowedPages = {
-            'siteadmin': ['DNC.html', 'DNCMap.html', 'NYCWebCams.html', 'RNCMap.html', 'RSSFeeds.html', 'emergency-response-los-angeles.html', 'global-map.html', 'google-earth-assets-map.html', 'gsoc-osint-toolbox.html', 'index.html', 'mena-map.html', 'onboarding.html', 'page1.html', 'ukraine-conflict-map.html'], // Full access
-            'manager': ['DNC.html', 'DNCMap.html', 'NYCWebCams.html', 'RNCMap.html', 'RSSFeeds.html', 'emergency-response-los-angeles.html', 'global-map.html', 'google-earth-assets-map.html', 'gsoc-osint-toolbox.html', 'index.html', 'mena-map.html', 'onboarding.html', 'page1.html', 'ukraine-conflict-map.html'], // Full access
-            'operations': ['DNC.html', 'DNCMap.html', 'NYCWebCams.html', 'RNCMap.html', 'RSSFeeds.html', 'emergency-response-los-angeles.html', 'global-map.html', 'google-earth-assets-map.html', 'gsoc-osint-toolbox.html', 'index.html', 'mena-map.html', 'onboarding.html', 'page1.html', 'ukraine-conflict-map.html'], // Can edit content
-            'intelops': ['DNC.html', 'DNCMap.html', 'NYCWebCams.html', 'RNCMap.html', 'RSSFeeds.html', 'emergency-response-los-angeles.html', 'global-map.html', 'google-earth-assets-map.html', 'gsoc-osint-toolbox.html', 'index.html', 'mena-map.html', 'onboarding.html', 'page1.html', 'ukraine-conflict-map.html'], // Read-only access
-            'guest': ['index.html'] // Read-only access
-        };
+        const allowedPages = config.roles[role]?.pages || [];
 
         // Redirect to access denied page if role is not allowed to access the page
-        if (!allowedPages[role] || !allowedPages[role].includes(currentPage)) {
+        if (!allowedPages.includes(currentPage)) {
             window.location.href = 'access-denied.html';
         }
 
         // Display the logged-in username and "Sign out" button
-        displayLoggedInUser(username);
+        displayLoggedInUser(username, displayName);
     }
 
     // Function to display the logged-in username and "Sign out" button in the top right corner
-    function displayLoggedInUser(username) {
+    function displayLoggedInUser(username, displayName) {
         if (username) {
             console.log('Displaying username:', username); // Debugging
 
@@ -40,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const userInfoDiv = document.createElement('div');
             userInfoDiv.id = 'user-info';
             userInfoDiv.className = 'user-info';
-            userInfoDiv.textContent = `Logged in as: ${username} | ${role}`;
+            userInfoDiv.textContent = `Logged in as: ${username} (${displayName})`;
 
             // Create "Sign out" button
             const signOutButton = document.createElement('button');
