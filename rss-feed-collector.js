@@ -739,6 +739,8 @@ document.addEventListener('DOMContentLoaded', async () => {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else if (source === 'Euro News') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
+    } else if (source === 'US News') {
+      adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else {
       console.warn(`No specific time adjustment found for source: ${source}`);
     }
