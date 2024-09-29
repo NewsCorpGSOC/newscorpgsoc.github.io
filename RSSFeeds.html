@@ -286,6 +286,7 @@
         
         .filter-container {
           flex: 1;
+          min-width: 250px;
           display: flex;
           flex-direction: column;
           gap: 20px;
@@ -471,6 +472,11 @@
           align-items: center;
           margin-right: 20px;
           margin-bottom: 5px;
+        }
+
+        .topic-filter {
+          display: flex;
+          flex-direction: column;
         }
         
         .color-box {
@@ -1278,7 +1284,6 @@
                       	        <option value="all">All</option>
                     	      </select>
                             
-                            <label for="topicFilter">Topic Filter:</label>
                             <div class="topic-filter">
                                 <label>Topic Filter:</label>
                                 <label><input type="checkbox" id="topicRussia" value="Russia"> Russia-Ukraine Conflict</label>
