@@ -1068,10 +1068,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     const now = new Date();
     let filteredFeeds = [...feedItems];
     console.log(`Total feed items: ${feedItems.length}`);
-
+  
+    // Timeline filter
     const timelineValue = timelineFilter.value;
     console.log(`Timeline filter value: ${timelineValue}`);
-
+  
     if (timelineValue === 'lastHour') {
       filteredFeeds = filteredFeeds.filter(item => now - item.pubDate <= 3600000);
     } else if (timelineValue === 'last12Hours') {
@@ -1080,27 +1081,38 @@ document.addEventListener('DOMContentLoaded', async () => {
       filteredFeeds = filteredFeeds.filter(item => now - item.pubDate <= 86400000);
     }
     console.log(`Filtered feeds after timeline filter: ${filteredFeeds.length}`);
-
-    const topicValue = topicFilter.value;
-    console.log(`Topic filter value: ${topicValue}`);
-
-    if (topicValue !== 'all' && topicKeywords[topicValue]) {
-      const keywords = topicKeywords[topicValue].keywords.map(keyword => keyword.toLowerCase());
-      filteredFeeds = filteredFeeds.filter(item =>
-        keywords.some(keyword => item.description.toLowerCase().includes(keyword))
-      );
+  
+    // Get selected topics from the checkboxes
+    const selectedTopics = [];
+    document.querySelectorAll('.topic-filter input[type="checkbox"]:checked').forEach(checkbox => {
+      selectedTopics.push(checkbox.value);
+    });
+    console.log(`Selected topics: ${selectedTopics.join(', ')}`);
+  
+    // Apply the topic filter if any topics are selected
+    if (selectedTopics.length > 0) {
+      filteredFeeds = filteredFeeds.filter(item => {
+        return selectedTopics.some(topic => {
+          if (topicKeywords[topic]) {
+            const keywords = topicKeywords[topic].keywords.map(keyword => keyword.toLowerCase());
+            return keywords.some(keyword => item.description.toLowerCase().includes(keyword));
+          }
+          return false;
+        });
+      });
     }
     console.log(`Filtered feeds after topic filter: ${filteredFeeds.length}`);
-
+  
+    // Source filter
     const checkedSources = Array.from(document.querySelectorAll('input[name="sourceFilter"]:checked')).map(cb => cb.value);
     console.log(`Checked sources: ${checkedSources.join(', ')}`);
-
+  
     if (checkedSources.length > 0 && !checkedSources.includes('all')) {
       filteredFeeds = filteredFeeds.filter(item => checkedSources.includes(item.source));
     }
     console.log(`Filtered feeds after source filter: ${filteredFeeds.length}`);
-
-    // Apply credibility filter
+  
+    // Credibility filter
     const showCredible = document.getElementById('credibleFilter').checked;
     const showDubious = document.getElementById('dubiousFilter').checked;
     const showRequiresVerification = document.getElementById('requiresVerificationFilter').checked;
@@ -1116,6 +1128,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   
     return filteredFeeds;
   }
+
 
   document.getElementById('credibleFilter').addEventListener('change', debounce(displayFeeds, 300));
   document.getElementById('dubiousFilter').addEventListener('change', debounce(displayFeeds, 300));
