@@ -42,7 +42,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   const feedsContainer = document.getElementById('feeds');
   const loadingOverlay = document.getElementById('loading-overlay');
   const timelineFilter = document.getElementById('timelineFilter');
-  const topicFilter = document.getElementById('topicFilter');
   const sourceFilterContainer = document.getElementById('sourceFilterContainer');
   const toggleSourceFilterButton = document.getElementById('toggleSourceFilter');
   const searchInput = document.getElementById('searchInput');
@@ -1082,14 +1081,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
     console.log(`Filtered feeds after timeline filter: ${filteredFeeds.length}`);
   
-    // Get selected topics from the checkboxes
+      // Topic filter: collect checked topics and apply filter
     const selectedTopics = [];
     document.querySelectorAll('.topic-filter input[type="checkbox"]:checked').forEach(checkbox => {
       selectedTopics.push(checkbox.value);
     });
-    console.log(`Selected topics: ${selectedTopics.join(', ')}`);
+
   
-    // Apply the topic filter if any topics are selected
     if (selectedTopics.length > 0) {
       filteredFeeds = filteredFeeds.filter(item => {
         return selectedTopics.some(topic => {
@@ -1101,7 +1099,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
       });
     }
-    console.log(`Filtered feeds after topic filter: ${filteredFeeds.length}`);
+
   
     // Source filter
     const checkedSources = Array.from(document.querySelectorAll('input[name="sourceFilter"]:checked')).map(cb => cb.value);
@@ -1135,16 +1133,23 @@ document.addEventListener('DOMContentLoaded', async () => {
   document.getElementById('requiresVerificationFilter').addEventListener('change', debounce(displayFeeds, 300));
   
   timelineFilter.addEventListener('change', debounce(displayFeeds, 300));
-  topicFilter.addEventListener('change', debounce(displayFeeds, 300));
+  // Remove this line since you're no longer using a single dropdown for topic filter
+  // topicFilter.addEventListener('change', debounce(displayFeeds, 300)); 
+  
   sourceFilterContainer.addEventListener('change', debounce(displayFeeds, 300));
   searchInput.addEventListener('input', debounce(displayFeeds, 300));
   volumeSlider.addEventListener('input', (event) => {
     pingVolume = event.target.value;
     console.log('Volume slider value:', pingVolume);
   });
-
+  
+  // Add event listeners to all topic filter checkboxes
+  document.querySelectorAll('.topic-filter input[type="checkbox"]').forEach(checkbox => {
+    checkbox.addEventListener('change', debounce(displayFeeds, 300));
+  });
+  
   volumeSlider.value = pingVolume;
-
+  
   populateSourceFilter();
   fetchFeedsSequentially();
 });
