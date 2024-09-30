@@ -287,7 +287,15 @@ document.addEventListener('DOMContentLoaded', async () => {
     { file: 'Pravda.tsv', source: 'Ukrayinska Pravda', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] },
     { file: 'WorldIsraelNews.tsv', source: 'World ISR News', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] },
     { file: 'IsraelHayom.tsv', source: 'Israel Hayom', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] },
-    { file: 'EuroNews.tsv', source: 'Euro News', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] }
+    { file: 'EuroNews.tsv', source: 'Euro News', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'WGNTV.tsv', source: 'WGNTV', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'AzerbaijanNews.tsv', source: 'Azerbaijan News', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'IsraelNationalNews.tsv', source: 'ISR National News', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'UKRInform.tsv', source: 'UKR Inform', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'EuroMaidanPress.tsv', source: 'Euro Maidan Press', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'InterfaxUkraine.tsv', source: 'Interfax-Ukr', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'UkrNationalNews.tsv', source: 'UKR National News', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'MakoNews.tsv', source: 'Mako', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] }
   ];
 
   // List of sources with spoiler images
@@ -739,6 +747,22 @@ document.addEventListener('DOMContentLoaded', async () => {
     } else if (source === 'Euro News') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else if (source === 'US News') {
+      adjustedDate.setHours(adjustedDate.getHours() + 0);
+    } else if (source === 'WGNTV') {
+      adjustedDate.setHours(adjustedDate.getHours() + 0);
+    } else if (source === 'Azerbaijan News') {
+      adjustedDate.setHours(adjustedDate.getHours() + 0);
+    } else if (source === 'ISR National News') {
+      adjustedDate.setHours(adjustedDate.getHours() + 0);
+    } else if (source === 'UKR Inform') {
+      adjustedDate.setHours(adjustedDate.getHours() + 0);
+    } else if (source === 'Euro Maidan Press') {
+      adjustedDate.setHours(adjustedDate.getHours() + 0);
+    } else if (source === 'Interfax-UKR') {
+      adjustedDate.setHours(adjustedDate.getHours() + 0);
+    } else if (source === 'UKR National News') {
+      adjustedDate.setHours(adjustedDate.getHours() + 0);
+    } else if (source === 'Mako') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else {
       console.warn(`No specific time adjustment found for source: ${source}`);
