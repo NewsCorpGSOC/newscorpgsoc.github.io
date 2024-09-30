@@ -11,8 +11,28 @@ const topicKeywords = {
     background: '#166e84',
     soundFile: 'sounds/israel-notification-alert.mp3'
   },
+  'Hezbollah': {
+    keywords: [
+      // Original Keywords
+      'Hezbollah', 'Hizbullah', 'Lebanon', 'Lebanese', 'Beirut', 'Southern Lebanon', 'Northern Israel', 
+      'Tyre', 'Sidon', 'Bekaa Valley', 'Shebaa Farms', 'Israel-Lebanon border', 'Blue Line', 'Golan Heights', 
+      'Metula', 'Kiryat Shmona', 'Nahariya', 'Galilee', 'Upper Galilee', 'Haifa', 
+      'Hassan Nasrallah', 'Imad Mughniyeh', 'Naim Qassem', 'Mustafa Badreddine', 'Mohammad Raad', 
+      'Mohammed Fneish', 'Ibrahim Amin al-Sayyid', 'Talal Hamiyah', 'Islamic Resistance', 'Hezbollah brigades', 
+      'Al-Manar', 'Radwan Force', 'Katyusha rockets', 'Quneitra', 'Dahiya doctrine',
+      
+      // Additional Cities/Towns/Regions
+      'Tripoli', 'Zahle', 'Baalbek', 'Hermel', 'Ras Baalbek', 'Arsal', 'Brital', 'Majdal Anjar', 'Bodai', 
+      'Maroun al-Ras', 'Bint Jbeil', 'Qana', 'Nabatieh', 'Khiam', 'Aitaroun', 'Rmeish', 'Yaroun', 'Ain Ebel', 
+      'Hasbaya', 'Jezzine', 'Ibl al-Saqi', 'Qlayaa', 'Tebnine', 'Kfar Kila', 'Srifa', 'Deir Mimas', 'Markaba', 
+      'Yater', 'Jounieh', 'Bikfaya', 'Broummana', 'Chouf', 'Baabda', 'Aley', 'Akkar', 'Minieh-Danniyeh', 
+      'Zgharta', 'Batroun', 'Shebaa Farms', 'Rmeileh', 'Mays al-Jabal', 'Dahiyeh'
+    ],
+    background: '#6e4334',
+    soundFile: 'sounds/news-alert-notification.mp3'
+  },
   'MENA': {
-    keywords: ['Lebanon', 'Syria', 'Iraq', 'Iran', 'Islamic Resistance', 'Houthi', 'Yemen', 'Saudi Arabia', 'UAE', 'United Arab Emirates', 'Turkey', 'Israel', 'Hamas', 'Palestine', 'Palestinian Authority', 'Gaza', 'West Bank', 'Jordan', 'IRGC', 'Hezbollah', 'Istanbul', 'Ankara', 'Izmir', 'Bursa', 'Adana', 'Gaziantep', 'Konya', 'Antalya', 'Aleppo', 'Damascus', 'Homs', 'Latakia', 'Beirut', 'Amman', 'Baghdad', 'Basra', 'Mosul', 'Erbil', 'Kuwait City', 'Manama', 'Doha', 'Riyadh', 'Jeddah', 'Mecca', 'Medina', 'Dammam', 'Muscat', 'Dubai', 'Abu Dhabi', 'Sharjah', 'Tehran', 'Mashhad', 'Isfahan', 'Karaj', 'Tabriz', 'Shiraz', 'Cairo', 'Alexandria', 'Giza', 'Shubra El-Kheima', 'Port Said', 'Suez', 'Luxor', 'Asyut', 'Fes', 'Casablanca', 'Rabat', 'Marrakesh', 'Tangier', 'Agadir', 'Tunis', 'Sfax', 'Sousse', 'Tripoli', 'Benghazi', 'Misrata', 'Algiers', 'Oran', 'Constantine', 'Annaba'],
+    keywords: ['Syria', 'Iraq', 'Iran', 'Islamic Resistance', 'Houthi', 'Yemen', 'Saudi Arabia', 'UAE', 'United Arab Emirates', 'Turkey', 'Israel', 'Hamas', 'Palestine', 'Palestinian Authority', 'Gaza', 'West Bank', 'Jordan', 'IRGC', 'Hezbollah', 'Istanbul', 'Ankara', 'Izmir', 'Bursa', 'Adana', 'Gaziantep', 'Konya', 'Antalya', 'Aleppo', 'Damascus', 'Homs', 'Latakia', 'Beirut', 'Amman', 'Baghdad', 'Basra', 'Mosul', 'Erbil', 'Kuwait City', 'Manama', 'Doha', 'Riyadh', 'Jeddah', 'Mecca', 'Medina', 'Dammam', 'Muscat', 'Dubai', 'Abu Dhabi', 'Sharjah', 'Tehran', 'Mashhad', 'Isfahan', 'Karaj', 'Tabriz', 'Shiraz', 'Cairo', 'Alexandria', 'Giza', 'Shubra El-Kheima', 'Port Said', 'Suez', 'Luxor', 'Asyut', 'Fes', 'Casablanca', 'Rabat', 'Marrakesh', 'Tangier', 'Agadir', 'Tunis', 'Sfax', 'Sousse', 'Tripoli', 'Benghazi', 'Misrata', 'Algiers', 'Oran', 'Constantine', 'Annaba'],
     background: '#6e4334',
     soundFile: 'sounds/news-alert-notification.mp3'
   },
