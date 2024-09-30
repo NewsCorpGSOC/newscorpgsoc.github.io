@@ -37,7 +37,16 @@ const topicKeywords = {
     soundFile: 'sounds/news-alert-notification.mp3'
   },
   'China & APAC Tensions': {
-    keywords: ['South China Sea', 'SCS', 'Nine-Dash Line', 'Spratly Islands', 'Paracel Islands', 'Scarborough Shoal', 'ASEAN', 'Philippines and South China Sea', 'Vietnam and South China Sea', 'Malaysia and South China Sea', 'Brunei and South China Sea', 'Chinas artificial islands', 'US-China relations', 'Sino-American relations', 'Taiwan', 'Taipei'],
+    keywords: [
+      // Original Keywords
+      'South China Sea', 'Chinese', 'China', 'SCS', 'Nine-Dash Line', 'Spratly Islands', 'Paracel Islands', 
+      'Scarborough Shoal', 'ASEAN', 'Philippines and South China Sea', 'Vietnam and South China Sea', 
+      'Malaysia and South China Sea', 'Brunei and South China Sea', 'Chinas artificial islands', 
+      'US-China relations', 'Sino-American relations', 'Taiwan', 'Taipei',
+  
+      // Additional Keywords
+      'East China Sea', 'Diaoyu Islands', 'Senkaku Islands', 'Belt and Road Initiative', 'BRI', 'Indo-Pacific', 'Quad', 'QUAD alliance', 'US Indo-Pacific Command', 'Beijing', 'Xi Jinping', 'PLA', 'People’s Liberation Army', 'Chinese Communist Party', 'CCP', 'Hong Kong protests', 'Uyghurs', 'Xinjiang', 'Tibet', 'East China Sea', 'Huawei', 'PLA Navy', 'PLAN', 'Taiwanese', 'Chinese fighter jets', 'Hong Kong', 'One Country Two Systems', 'Asia-Pacific tensions'
+    ],
     background: '#632238',
     soundFile: 'sounds/news-alert-notification.mp3'
   },
