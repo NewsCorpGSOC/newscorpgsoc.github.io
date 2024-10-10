@@ -540,7 +540,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     } else if (source === 'NPR News') {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'UN News') {
-      adjustedDate.setHours(adjustedDate.getHours() - 0);
+      adjustedDate.setHours(adjustedDate.getHours() - 4);
     } else if (source === 'Yahoo News') {
       adjustedDate.setHours(adjustedDate.getHours() - 0);
     } else if (source === 'Politico EU') {
