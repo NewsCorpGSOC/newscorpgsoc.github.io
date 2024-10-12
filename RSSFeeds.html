@@ -163,16 +163,6 @@
             text-decoration: underline; /* Optional: Add underline on hover */
         }
         
-        @media (max-width: 1400px) {
-            .container .connection-container, .container .filter-container {
-              display: none !important;
-            }
-        }
-        @media (max-width: 1400px) {
-          .sidebar {
-            display: none;
-          }
-        }
 /*---------------------------------- RSS Feeds ----------------------------------*/      
         .container {
           display: flex;
@@ -878,6 +868,17 @@
         .fade.fade-out {
             opacity: 0;
             transition: opacity 1s ease-in-out;
+        }
+        /*---------------------------------- MEDIA EFFECTS - HIGHEST PRIORITY ----------------------------------*/
+        @media (max-width: 1400px) {
+            .container .connection-container, .container .filter-container {
+              display: none !important;
+            }
+        }
+        @media (max-width: 1400px) {
+          .sidebar {
+            display: none;
+          }
         }
     </style>
     <script>
