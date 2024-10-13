@@ -554,7 +554,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       'Taiwan Today': -3,
       'South China Morning Post (Alt)': -9,
       'The Federalist': -7,
-      // Add other sources as needed...
+      'Walla': -1,
     };
   
     // Set default time adjustment if no specific entry is found (0 hours adjustment).
