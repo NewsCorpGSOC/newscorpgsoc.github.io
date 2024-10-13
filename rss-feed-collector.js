@@ -324,7 +324,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     { file: 'EuroMaidanPress.tsv', source: 'Euro Maidan Press', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
     { file: 'InterfaxUkraine.tsv', source: 'Interfax-Ukr', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] },
     { file: 'UkrNationalNews.tsv', source: 'UKR National News', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] },
-    { file: 'MakoNews.tsv', source: 'Mako', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] }
+    { file: 'MakoNews.tsv', source: 'Mako', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'NewVoiceofUkraine.tsv', source: 'New Voice of UKR', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] }
   ];
 
   // List of sources with spoiler images
@@ -792,6 +793,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     } else if (source === 'UKR National News') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else if (source === 'Mako') {
+      adjustedDate.setHours(adjustedDate.getHours() + 0);
+    } else if (source === 'New Voice of UKR') {
       adjustedDate.setHours(adjustedDate.getHours() + 0);
     } else {
       console.warn(`No specific time adjustment found for source: ${source}`);
