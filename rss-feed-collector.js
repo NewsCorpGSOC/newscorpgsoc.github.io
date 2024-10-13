@@ -325,7 +325,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     { file: 'InterfaxUkraine.tsv', source: 'Interfax-Ukr', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] },
     { file: 'UkrNationalNews.tsv', source: 'UKR National News', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] },
     { file: 'MakoNews.tsv', source: 'Mako', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] },
-    { file: 'NewVoiceofUkraine.tsv', source: 'New Voice of UKR', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] }
+    { file: 'NewVoiceofUkraine.tsv', source: 'New Voice of UKR', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'UNIAN.tsv', source: 'New Voice of UKR', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'Yonhap.tsv', source: 'New Voice of UKR', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] }
   ];
 
   // List of sources with spoiler images
