@@ -519,288 +519,52 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
   function convertToTimezone(date, source) {
+    const sourceTimeAdjustments = {
+      'The Hill': -7,
+      'World Online': -7,
+      'UN News': -4,
+      'The Star': -3,
+      'Brandon Sun': -7,
+      'The Hindu Business Line': 0.5,
+      'Zee News India': -0.5,
+      'Live Mint India': -6.5,
+      'Channel 4 News': -7,
+      'The New Zealand Herald': -3,
+      'New York Post': -7,
+      'USNI News': -7,
+      'Israel Hayom': -7,
+      'Blog4President': -2,
+      'U.S. State Department - Africa': -7,
+      'U.S. State Department - East Asia and the Pacific': -7,
+      'U.S. State Department - Europe and Eurasia': -7,
+      'U.S. State Department - Near East': -7,
+      'U.S. State Department - South and Central Asia': -7,
+      'U.S. Department of Defense': -2,
+      'ISW': -7,
+      'CBC': -3,
+      'Cipher Brief': -7,
+      'Factal Forecast': -3,
+      'World News Era': -7,
+      'South China Morning Post': -15, // Note: duplicate source entry removed
+      'Taiwan Today': -3,
+      'South China Morning Post (Alt)': -9,
+      'The Federalist': -7,
+      // Add other sources as needed...
+    };
+  
+    // Set default time adjustment if no specific entry is found (0 hours adjustment).
+    const defaultAdjustment = 0;
+  
+    // Calculate the adjusted time based on the source
     let adjustedDate = new Date(date);
-
-    // Prioritize source-specific adjustments
-    if (source === 'The Kyiv Independent') {
-      adjustedDate.setHours(adjustedDate.getHours() - 0);
-    } else if (source === 'The Hill') {
-      adjustedDate.setHours(adjustedDate.getHours() - 7);
-    } else if (source === 'The New York Times') {
-      adjustedDate.setHours(adjustedDate.getHours() - 0);
-    } else if (source === 'BBC News') {                                 
-      adjustedDate.setHours(adjustedDate.getHours() - 0);
-    } else if (source === 'The Guardian') {
-      adjustedDate.setHours(adjustedDate.getHours() - 0);
-    } else if (source === 'World Online') {
-      adjustedDate.setHours(adjustedDate.getHours() - 7);
-    } else if (source === 'Fox News - World') {
-      adjustedDate.setHours(adjustedDate.getHours() - 0);
-    } else if (source === 'Fox News Top Stories') {
-      adjustedDate.setHours(adjustedDate.getHours() - 0);
-    } else if (source === 'NPR News') {
-      adjustedDate.setHours(adjustedDate.getHours() - 0);
-    } else if (source === 'UN News') {
-      adjustedDate.setHours(adjustedDate.getHours() - 4);
-    } else if (source === 'Yahoo News') {
-      adjustedDate.setHours(adjustedDate.getHours() - 0);
-    } else if (source === 'Politico EU') {
-      adjustedDate.setHours(adjustedDate.getHours() - 7);
-    } else if (source === 'Politico') {
-      adjustedDate.setHours(adjustedDate.getHours() - 0);
-    } else if (source === 'The Star') {
-      adjustedDate.setHours(adjustedDate.getHours() - 3);
-    } else if (source === 'Brandon Sun') {
-      adjustedDate.setHours(adjustedDate.getHours() - 7);
-    } else if (source === 'The Hindu Business Line') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0.5);
-    } else if (source === 'Zee News India') {
-      adjustedDate.setHours(adjustedDate.getHours() - 0.5);
-    } else if (source === 'Live Mint India') {
-      adjustedDate.setHours(adjustedDate.getHours() - 6.5);
-    } else if (source === 'Financial Times') {
-      adjustedDate.setHours(adjustedDate.getHours() - 0);
-    } else if (source === 'Channel 4 News') {
-      adjustedDate.setHours(adjustedDate.getHours() - 7);
-    } else if (source === 'Sky News') {
-      adjustedDate.setHours(adjustedDate.getHours() - 0);
-    } else if (source === 'The Economist') {
-      adjustedDate.setHours(adjustedDate.getHours() - 0);
-    } else if (source === 'The New Zealand Herald') {
-      adjustedDate.setHours(adjustedDate.getHours() - 3);
-    } else if (source === 'New York Post') {
-      adjustedDate.setHours(adjustedDate.getHours() - 7);
-    } else if (source === 'USNI News') {
-      adjustedDate.setHours(adjustedDate.getHours() - 7);
-    } else if (source === 'Israel Hayom') {
-      adjustedDate.setHours(adjustedDate.getHours() - 7);
-    } else if (source === 'Blog4President') {
-      adjustedDate.setHours(adjustedDate.getHours() - 2);
-    } else if (source === 'Space Force News') {
-      adjustedDate.setHours(adjustedDate.getHours() - 0);
-    } else if (source === 'Sydney Morning Herald') {
-      adjustedDate.setHours(adjustedDate.getHours() - 0);
-    } else if (source === 'U.S. State Department - Africa') {
-      adjustedDate.setHours(adjustedDate.getHours() - 7);
-    } else if (source === 'U.S. State Department - East Asia and the Pacific') {
-      adjustedDate.setHours(adjustedDate.getHours() - 7);
-    } else if (source === 'U.S. State Department - Europe and Eurasia') {
-      adjustedDate.setHours(adjustedDate.getHours() - 7);
-    } else if (source === 'U.S. State Department - Near East') {
-      adjustedDate.setHours(adjustedDate.getHours() - 7);
-    } else if (source === 'U.S. State Department - South and Central Asia') {
-      adjustedDate.setHours(adjustedDate.getHours() - 7);
-    } else if (source === 'U.S. Department of Defense') {
-      adjustedDate.setHours(adjustedDate.getHours() - 2);
-    } else if (source === 'CNBC') {
-      adjustedDate.setHours(adjustedDate.getHours() - 0);
-    } else if (source === 'ISW') {
-      adjustedDate.setHours(adjustedDate.getHours() - 7);
-    } else if (source === 'CBC') {
-      adjustedDate.setHours(adjustedDate.getHours() - 3);
-    } else if (source === 'Cipher Brief') {
-      adjustedDate.setHours(adjustedDate.getHours() - 7);
-    } else if (source === 'CTV News') {
-      adjustedDate.setHours(adjustedDate.getHours() - 0);
-    } else if (source === 'Channel News Asia') {
-      adjustedDate.setHours(adjustedDate.getHours() - 0);
-    } else if (source === 'Factal Forecast') {
-      adjustedDate.setHours(adjustedDate.getHours() - 3);
-    } else if (source === 'World News Era') {
-      adjustedDate.setHours(adjustedDate.getHours() - 7);
-    } else if (source === 'South China Morning Post') {
-      adjustedDate.setHours(adjustedDate.getHours() - 15);
-    } else if (source === 'South China Morning Post') {
-      adjustedDate.setHours(adjustedDate.getHours() - 9);
-    } else if (source === 'The Federalist') {
-      adjustedDate.setHours(adjustedDate.getHours() - 7);
-    } else if (source === 'Breaking News Subreddit') {
-      adjustedDate.setHours(adjustedDate.getHours() - 0);
-    } else if (source === 'Yemeni Crisis Subreddit') {
-      adjustedDate.setHours(adjustedDate.getHours() - 0);
-    } else if (source === 'World News Subreddit') {
-      adjustedDate.setHours(adjustedDate.getHours() - 0);
-    } else if (source === 'International News Subreddit') {
-      adjustedDate.setHours(adjustedDate.getHours() - 0);
-    } else if (source === 'Naharnet') {
-      adjustedDate.setHours(adjustedDate.getHours() - 0);
-    } else if (source === 'National Weather Service') {
-      adjustedDate.setHours(adjustedDate.getHours() - 0);
-    } else if (source === 'Saba Agency Telegram') {
-      adjustedDate.setHours(adjustedDate.getHours() - 0);
-    } else if (source === 'Epoch Times Telegram') {
-      adjustedDate.setHours(adjustedDate.getHours() - 0);
-    } else if (source === 'Global Shake Princeton') {
-      adjustedDate.setHours(adjustedDate.getHours() - 0);
-    } else if (source === 'Israel Security Cabinet News') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0); // Adjust according to specific source timezone if needed
-    } else if (source === 'Stand With Us Breaking News') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'Ukraine Air Defense') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'WOLPalestine') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'Hong Kong Observatory') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'Meteorological Service Singapore') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'Brazil Weather Alerts') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'Australia Bureau of Meteorology - Tasmania') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'Australia Bureau of Meteorology - News South Wales and ACT') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'Australia Bureau of Meteorology - Victoria') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'Australia Bureau of Meteorology - Queensland') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'Australia Bureau of Meteorology - West Australia') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'Australia Bureau of Meteorology - South Australia') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'Australia Bureau of Meteorology - Northern Territory') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'Venezuela News Network') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'USGS Earthquakes') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'Jewish Breaking News') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'Mannies War Room - Times of Israel') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'Ukraine Air Defense') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'PoliticsGR') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'Rerum Novarum Intel') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'Israel Defense Forces') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'Our Wars, Today') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'Rybar - Russian News') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'Irn Intl') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'DTEK Ukraine') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'Army Inform UA') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'Astra') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === '38 North') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'NK News') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'East Asia Forum') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'ROC Ministry of Defense') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'Taiwan Today') {
-      adjustedDate.setHours(adjustedDate.getHours() - 3);
-    } else if (source === 'Asia News') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'Hong Kong Free Press') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'The Peoples Daily Edition - China State News & Propaganda') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'The Diplomat') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'Haaretz') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'Al Jazeera') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'TASS Agency - RU State Media') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'Iran Wire') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'Arab News') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'New Arab') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'Sputnik Globe - RU State Media') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'Anadolu Ajansi - Turkey State Media') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'First Post News') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'VOA News') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'Noel Reports') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'Kyib Independent') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'Army Recognition') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'Breaking Defense') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'Associated Press') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'The Jerusalem Post') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'Wall Street Journal') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'Sky News Arabia') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'The Algemeiner') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'Defense Post') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'Kyiv Post') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'Washington Post') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'International Atomic Energy Agency') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'The War Zone') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'News Nation Now') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'Defense One') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'Aurora') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'YNet') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'Al-Ayyam') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'Daily Star LBN') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'Al-Rai') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'Al-Manar') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'Ukrayinska Pravda') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'World ISR News') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'Euro News') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'US News') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'WGNTV') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'Azerbaijan News') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'ISR National News') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'UKR Inform') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'Euro Maidan Press') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'Interfax-UKR') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'UKR National News') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'Mako') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else if (source === 'New Voice of UKR') {
-      adjustedDate.setHours(adjustedDate.getHours() + 0);
-    } else {
-      console.warn(`No specific time adjustment found for source: ${source}`);
-    }
-
+    const adjustment = sourceTimeAdjustments[source] || defaultAdjustment;
+  
+    // Apply the time adjustment
+    adjustedDate.setHours(adjustedDate.getHours() + adjustment);
+  
+    // Apply the current timezone offset (assuming currentTimezoneOffset is available globally)
     adjustedDate.setHours(adjustedDate.getHours() + currentTimezoneOffset);
+  
     return adjustedDate;
   }
 
