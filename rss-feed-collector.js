@@ -848,6 +848,9 @@ document.addEventListener('DOMContentLoaded', async () => {
       exportIcon.style.right = '10px';
       exportIcon.style.cursor = 'pointer';
 
+      exportIcon.style.width = '30px';
+      exportIcon.style.height = '30px';
+
       // Hover behavior for the export icon
       exportIcon.addEventListener('mouseover', () => {
           exportIcon.src = 'icons/ExportPDFClick.png';  // Updated to your GitHub path
