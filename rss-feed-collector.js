@@ -839,35 +839,36 @@ document.addEventListener('DOMContentLoaded', async () => {
         <p><small>Published on: ${format(item.pubDate, 'PPpp')} (${timezoneSelector.value})</small></p>
         <p><strong>Source:</strong> ${item.source}</p>`;
       
-      // Add the export icon
-      const exportIcon = document.createElement('img');
-      exportIcon.src = 'icons/ExportPDFUnclick.png';  // Updated to your GitHub path
-      exportIcon.classList.add('export-icon');
-      exportIcon.style.position = 'absolute';
-      exportIcon.style.bottom = '10px';
-      exportIcon.style.right = '10px';
-      exportIcon.style.cursor = 'pointer';
-
-      exportIcon.style.width = '30px';
-      exportIcon.style.height = '30px';
-
-      // Hover behavior for the export icon
-      exportIcon.addEventListener('mouseover', () => {
-          exportIcon.src = 'icons/ExportPDFClick.png';  // Updated to your GitHub path
-      });
-      exportIcon.addEventListener('mouseout', () => {
-          exportIcon.src = 'icons/ExportPDFUnclick.png';  // Revert to default
-      });
-
-      // Click event for PDF generation
-      exportIcon.addEventListener('click', () => {
-        generatePDF(item);  // Call function to generate PDF with the feed item's content
-      });
+        // Inside the displayFeeds function, where we define the export icon
+        const exportIcon = document.createElement('img');
+        exportIcon.src = 'icons/ExportPDFUnClick.png';  // Default unclick icon
+        exportIcon.classList.add('export-icon');
+        exportIcon.style.position = 'absolute';  // Use absolute positioning within each feed item
+        exportIcon.style.bottom = '10px';  // Bottom-right corner of each feed item
+        exportIcon.style.right = '10px';  // Bottom-right corner of each feed item
+        exportIcon.style.width = '30px';  // Size the icon
+        exportIcon.style.height = '30px';  // Size the icon
+        exportIcon.style.cursor = 'pointer';
+        
+        // Hover behavior for export icon
+        exportIcon.addEventListener('mouseover', () => {
+            exportIcon.src = 'icons/ExportPDFClick.png';  // Change to click icon on hover
+        });
+        exportIcon.addEventListener('mouseout', () => {
+            exportIcon.src = 'icons/ExportPDFUnClick.png';  // Revert to default icon on hover out
+        });
+        
+        // Click event to generate PDF
+        exportIcon.addEventListener('click', () => {
+            generatePDF(item);  // Call function to generate PDF with the feed item's content
+        });
 
   
       feedItem.appendChild(credibilityContainer);
       feedItem.appendChild(feedContent);
-      feedItem.appendChild(exportIcon);  // Add the export icon to the feed item
+      // Ensure the icon is added to each individual feed item, not the entire container
+      feedItem.style.position = 'relative';  // Ensure feed item has relative positioning
+      feedItem.appendChild(exportIcon);  // Append the icon directly to the feed item
       fragment.appendChild(feedItem);
     });
   
