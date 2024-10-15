@@ -838,9 +838,33 @@ document.addEventListener('DOMContentLoaded', async () => {
         <div>${truncatedDescription} ${toggleLink}</div>
         <p><small>Published on: ${format(item.pubDate, 'PPpp')} (${timezoneSelector.value})</small></p>
         <p><strong>Source:</strong> ${item.source}</p>`;
+      
+      // Add the export icon
+      const exportIcon = document.createElement('img');
+      exportIcon.src = 'ExportPDFUnclick.png';  // Default unclick icon
+      exportIcon.classList.add('export-icon');
+      exportIcon.style.position = 'absolute';
+      exportIcon.style.bottom = '10px';
+      exportIcon.style.right = '10px';
+      exportIcon.style.cursor = 'pointer';
+
+      // Hover behavior for the export icon
+      exportIcon.addEventListener('mouseover', () => {
+        exportIcon.src = 'ExportPDFClick.png';  // Change to click icon on hover
+      });
+      exportIcon.addEventListener('mouseout', () => {
+        exportIcon.src = 'ExportPDFUnclick.png';  // Revert to default icon on hover out
+      });
+
+      // Click event for PDF generation
+      exportIcon.addEventListener('click', () => {
+        generatePDF(item);  // Call function to generate PDF with the feed item's content
+      });
+
   
       feedItem.appendChild(credibilityContainer);
       feedItem.appendChild(feedContent);
+      feedItem.appendChild(exportIcon);  // Add the export icon to the feed item
       fragment.appendChild(feedItem);
     });
   
@@ -880,6 +904,39 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
   }
   
+  function generatePDF(feedItem) {
+      const { jsPDF } = window.jspdf;  // Make sure jsPDF is loaded
+      const doc = new jsPDF();
+  
+      // Title
+      doc.setFontSize(18);
+      doc.text(feedItem.title, 10, 10);
+  
+      // Source and Date
+      doc.setFontSize(12);
+      doc.text(`Source: ${feedItem.source}`, 10, 20);
+      doc.text(`Published on: ${feedItem.pubDate}`, 10, 30);
+  
+      // Credibility Info
+      doc.text(`Reliability: ${feedItem.reliability}`, 10, 40);
+  
+      // Description
+      doc.text(feedItem.description, 10, 50, { maxWidth: 180 });
+  
+      // Check for an image
+      const img = feedItem.image || '';  // Assuming image is part of the feed item
+      if (img) {
+          const imgElement = new Image();
+          imgElement.src = img;
+          imgElement.onload = () => {
+              doc.addImage(imgElement, 'JPEG', 10, 60, 180, 100);
+              doc.save(`${feedItem.title}.pdf`);  // Save PDF with image
+          };
+      } else {
+          doc.save(`${feedItem.title}.pdf`);  // Save PDF without image
+      }
+  }
+    
   function parseSearchTerm(searchTerm) {
     const termGroups = searchTerm.split(/\s+OR\s+/i).map(group => {
       return group.split(/\s+AND\s+/i).map(term => term.replace(/"/g, '').trim());
