@@ -5,6 +5,7 @@ const config = {
     'lagsoc@newscorp.com': { password: 'GSOCIntranet2024', role: 'operations' },
     'acron.consultant@newscorp.com': { password: '4X70KSQrSuZp', role: 'manager' },
     'jormand.consultant@newscorp.com': { password: 'i7M2fLz72p6i', role: 'manager' },
+    'ejany@newscorp.com': { password: 'Wekplarhosh23!', role: 'admin' },
     'okay@newscorp.com': { password: 'D6kQj96EY94l', role: 'director' },
     'dgalindo.consultant@newscorp.com': { password: '5Zq2l51U5Lf9', role: 'intelops' },
     'blagman.consultant@newscorp.com': { password: 'w8xcv4DXf8o3', role: 'operations' },
@@ -30,6 +31,10 @@ const config = {
     director: {
       pages: ['DNC.html', 'DNCMap.html', 'NYCWebCams.html', 'RNCMap.html', 'RSSFeeds.html', 'emergency-response-los-angeles.html', 'global-map.html', 'google-earth-assets-map.html', 'gsoc-osint-toolbox.html', 'index.html', 'mena-map.html', 'onboarding.html', 'page1.html', 'ukraine-conflict-map.html'],
       displayName: 'Director'
+    },
+    admin: {
+      pages: ['DNC.html', 'DNCMap.html', 'NYCWebCams.html', 'RNCMap.html', 'RSSFeeds.html', 'emergency-response-los-angeles.html', 'global-map.html', 'google-earth-assets-map.html', 'gsoc-osint-toolbox.html', 'index.html', 'mena-map.html', 'onboarding.html', 'page1.html', 'ukraine-conflict-map.html'],
+      displayName: 'Admin'
     },
     operations: {
       pages: ['DNC.html', 'DNCMap.html', 'NYCWebCams.html', 'RNCMap.html', 'RSSFeeds.html', 'emergency-response-los-angeles.html', 'global-map.html', 'google-earth-assets-map.html', 'gsoc-osint-toolbox.html', 'index.html', 'mena-map.html', 'onboarding.html', 'page1.html', 'ukraine-conflict-map.html'],
