@@ -841,7 +841,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       
       // Add the export icon
       const exportIcon = document.createElement('img');
-      exportIcon.src = 'ExportPDFUnclick.png';  // Default unclick icon
+      exportIcon.src = 'icons/ExportPDFUnclick.png';  // Updated to your GitHub path
       exportIcon.classList.add('export-icon');
       exportIcon.style.position = 'absolute';
       exportIcon.style.bottom = '10px';
@@ -850,10 +850,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 
       // Hover behavior for the export icon
       exportIcon.addEventListener('mouseover', () => {
-        exportIcon.src = 'ExportPDFClick.png';  // Change to click icon on hover
+          exportIcon.src = 'icons/ExportPDFClick.png';  // Updated to your GitHub path
       });
       exportIcon.addEventListener('mouseout', () => {
-        exportIcon.src = 'ExportPDFUnclick.png';  // Revert to default icon on hover out
+          exportIcon.src = 'icons/ExportPDFUnclick.png';  // Revert to default
       });
 
       // Click event for PDF generation
