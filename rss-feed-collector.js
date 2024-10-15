@@ -909,38 +909,67 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
   
   function generatePDF(feedItem) {
-      const { jsPDF } = window.jspdf;  // Make sure jsPDF is loaded
-      const doc = new jsPDF();
-  
-      // Title
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();  // Create a new jsPDF instance
+    
+      // Load custom Heebo font
+      doc.addFileToVFS("Heebo-Regular.ttf", "AAEAAAAUAQAABABAR0RFRvHkCZcAABGkAAAGRUdQT1MmWmOxAABAaAAAQ5ZHU1VCOW1b5QAAHuAAAAhySFZBUhAzoDwAABfsAAAG8U9TLzJ7A0KsAAACCAAAAGBTVEFUgyx9+QAAAtQAAACeYXZhcjyjQAEAAAGgAAAALmNtYXBxqbMjAAAMgAAABSRmdmFyl81plAAAAmgAAABsZ2FzcAAAABAAAAFUAAAACGdseWaA43MZAACEAAAAgmZndmFySVKZogABBmgAAMSaaGVhZCX2fYIAAAHQAAAANmhoZWEMUgEAAAABfAAAACRobXR42C/W8AAAJ1QAAAjkbG9jYduE+80AAAN0AAAEdG1heHACSQC6AAABXAAAACBuYW1lfJu5ogAAB+gAAASYcG9zdK9jEgIAADA4AAAQL3ByZXBoBoyFAAABTAAAAAe4Af+FsASNAAABAAH//wAPAAEAAAI5AGEABgBXAAYAAQAAAAAAAAAAAAAA");
+      doc.addFont("Heebo-Regular.ttf", "Heebo", "normal");
+    
+      // Load header and credibility images
+      const headerImage = 'icons/ExportedEventHeader.png';  // Path to the header image
+      let credibilityImage = '';  // Placeholder for credibility image
+    
+      // Assign the correct credibility image
+      switch (feedItem.reliability) {
+          case 'Credible':
+              credibilityImage = 'icons/ExportedEventCredibilityCredible.png';
+              break;
+          case 'Dubious':
+              credibilityImage = 'icons/ExportedEventCredibilityDubious.png';
+              break;
+          case 'Requires Verification':
+              credibilityImage = 'icons/ExportedEventCredibilityRequiresVerification.png';
+              break;
+      }
+    
+      // Add the header image
+      doc.addImage(headerImage, 'PNG', 10, 10, 190, 30);  // Adjust position and size
+    
+      // Add the title in Heebo font
+      doc.setFont("Heebo");
       doc.setFontSize(18);
-      doc.text(feedItem.title, 10, 10);
-  
-      // Source and Date
-      doc.setFontSize(12);
-      doc.text(`Source: ${feedItem.source}`, 10, 20);
-      doc.text(`Published on: ${feedItem.pubDate}`, 10, 30);
-  
-      // Credibility Info
-      doc.text(`Reliability: ${feedItem.reliability}`, 10, 40);
-  
-      // Description
-      doc.text(feedItem.description, 10, 50, { maxWidth: 180 });
-  
+      doc.text(feedItem.title, 10, 50);
+    
+      // Add the source with a clickable link
+      const sourceLink = feedItem.link || '#';  // Fallback if no link is provided
+      doc.textWithLink(`Source: ${feedItem.source}`, 10, 65, { url: sourceLink });
+    
+      // Add published date
+      doc.text(`Published on: ${feedItem.pubDate}`, 10, 75);
+    
+      // Add the credibility image below the header
+      if (credibilityImage) {
+          doc.addImage(credibilityImage, 'PNG', 10, 80, 190, 30);  // Adjust size and positioning
+      }
+    
+      // Add description in Heebo font
+      doc.text(feedItem.description, 10, 120, { maxWidth: 180 });  // Adjust starting position
+    
       // Check for an image
       const img = feedItem.image || '';  // Assuming image is part of the feed item
       if (img) {
           const imgElement = new Image();
           imgElement.src = img;
           imgElement.onload = () => {
-              doc.addImage(imgElement, 'JPEG', 10, 60, 180, 100);
+              doc.addImage(imgElement, 'JPEG', 10, 150, 180, 100);  // Add image in the PDF
               doc.save(`${feedItem.title}.pdf`);  // Save PDF with image
           };
       } else {
           doc.save(`${feedItem.title}.pdf`);  // Save PDF without image
       }
   }
-    
+
   function parseSearchTerm(searchTerm) {
     const termGroups = searchTerm.split(/\s+OR\s+/i).map(group => {
       return group.split(/\s+AND\s+/i).map(term => term.replace(/"/g, '').trim());
