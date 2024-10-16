@@ -914,6 +914,11 @@ document.addEventListener('DOMContentLoaded', async () => {
   
       // Get the page width (210mm for A4)
       const pageWidth = doc.internal.pageSize.getWidth();
+
+      // Define the left and right padding (e.g., 10mm on both sides)
+      const leftPadding = 10;
+      const rightPadding = 10;
+      const availableWidth = pageWidth - leftPadding - rightPadding;  // Calculate available width
   
       // Calculate the heights based on the original image ratios
       const headerHeight = pageWidth * 0.12588;  // Header image height is 12.588% of the page width
@@ -950,21 +955,28 @@ document.addEventListener('DOMContentLoaded', async () => {
   
       if (imgMatch) {
           imgElement.src = imgMatch[1];  // Get the URL from the matched regex
+  
           imgElement.onload = () => {
-              // Force image height to 50mm and calculate proportional width
-              const imgHeight = 50;
-              const imgWidth = imgElement.width * (imgHeight / imgElement.height);
+              // Force image height to a maximum of 50mm and calculate proportional width
+              let imgHeight = 50;  // Default max height
+              let imgWidth = imgElement.width * (imgHeight / imgElement.height);
+  
+              // Ensure image doesn't exceed page width
+              if (imgWidth > availableWidth) {
+                  imgWidth = availableWidth;
+                  imgHeight = imgElement.height * (imgWidth / imgElement.width);
+              }
   
               // Calculate the X position to center the image
               const imgXPosition = (pageWidth - imgWidth) / 2;
   
-              // Draw the black border with rounded corners around the image
-              const borderRadius = 10;  // Rounded corner radius for the "cropped" effect
+              // Draw the black rectangular border around the image
+              const borderThickness = 2;  // Set the thickness of the border
               doc.setDrawColor(0, 0, 0);  // Black border color
-              doc.setLineWidth(2);  // Set border thickness
-              doc.roundedRect(imgXPosition, imageYPosition, imgWidth, imgHeight, borderRadius, borderRadius);
+              doc.setLineWidth(borderThickness);  // Set border thickness
+              doc.rect(imgXPosition, imageYPosition, imgWidth, imgHeight);  // Draw the rectangle border
   
-              // Now, add the image inside the rounded rectangle to simulate cropping
+              // Now, add the image inside the rectangular border
               doc.addImage(imgElement, 'JPEG', imgXPosition, imageYPosition, imgWidth, imgHeight);
   
               imageYPosition += imgHeight + 10;  // Adjust Y position after placing image
