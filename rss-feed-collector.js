@@ -911,20 +911,20 @@ document.addEventListener('DOMContentLoaded', async () => {
   async function generatePDF(feedItem) {
       const { jsPDF } = window.jspdf;
       const doc = new jsPDF();
-    
-      // Get the page width
+  
+      // Get the page width (210mm for A4)
       const pageWidth = doc.internal.pageSize.getWidth();
-    
+  
       // Calculate the heights based on the original image ratios
       const headerHeight = pageWidth * 0.12588;  // Header image height is 12.588% of the page width
-      const credibilityHeight = pageWidth * 0.04156;  // Credibility image height is 4.156% of the page width
-    
+      const credibilityHeight = pageWidth * 0.06235;  // Credibility image height is 6.235% of the page width
+  
       // Add the full-width header image (directly at the top of the page)
       const headerImage = 'icons/ExportedEventHeader.png';  // Path to the header image
-      doc.addImage(headerImage, 'PNG', 0, 0, pageWidth, headerHeight);  // Full width, height based on ratio, Y=0
+      doc.addImage(headerImage, 'PNG', 0, 0, pageWidth, headerHeight);  // Full width, height based on ratio
   
-      // Add the credibility image immediately below the header (no white space)
-      let credibilityImage = '';  // Placeholder for credibility image
+      // Add the credibility image immediately below the header
+      let credibilityImage = '';
       switch (feedItem.reliability) {
           case 'Credible':
               credibilityImage = 'icons/ExportedEventCredibilityCredible.png';
@@ -937,12 +937,12 @@ document.addEventListener('DOMContentLoaded', async () => {
               break;
       }
   
-      // Add credibility image if available, directly below header (no white space)
+      // Add credibility image if available, directly below the header
       if (credibilityImage) {
-          doc.addImage(credibilityImage, 'PNG', 0, headerHeight, pageWidth, credibilityHeight);  // Y is now exactly headerHeight, no gap
+          doc.addImage(credibilityImage, 'PNG', 0, headerHeight, pageWidth, credibilityHeight);
       }
   
-      // Extract the image URL from the feed item (if available) and add it below the credibility image
+      // Extract the image URL from the feed item and add it below the credibility image
       const imgElement = new Image();
       const regex = /<img.*?src=["'](.*?)["']/;  // Regex to extract image src from HTML
       const imgMatch = regex.exec(feedItem.description);
@@ -951,56 +951,66 @@ document.addEventListener('DOMContentLoaded', async () => {
       if (imgMatch) {
           imgElement.src = imgMatch[1];  // Get the URL from the matched regex
           imgElement.onload = () => {
-              // Set the image size and position (let's say the image is 180mm wide with proportional height)
-              const imgWidth = pageWidth;
-              const imgHeight = imgWidth * (imgElement.height / imgElement.width);  // Preserve aspect ratio
-              doc.addImage(imgElement, 'JPEG', 0, imageYPosition, imgWidth, imgHeight);
-              imageYPosition += imgHeight + 5;  // Adjust Y position after placing image (reduced spacing)
+              // Force image height to 50mm and calculate proportional width
+              const imgHeight = 50;
+              const imgWidth = imgElement.width * (imgHeight / imgElement.height);
   
-              // Now that the image is loaded, we continue rendering the rest of the PDF
+              // Calculate the X position to center the image
+              const imgXPosition = (pageWidth - imgWidth) / 2;
+  
+              // Add the image with border
+              const borderPadding = 5;
+              const borderRadius = 10;
+              doc.setDrawColor(0, 0, 0);
+              doc.roundedRect(imgXPosition - borderPadding, imageYPosition - borderPadding, imgWidth + 2 * borderPadding, imgHeight + 2 * borderPadding, borderRadius, borderRadius);
+              doc.addImage(imgElement, 'JPEG', imgXPosition, imageYPosition, imgWidth, imgHeight);
+  
+              // Adjust the Y position after placing the image
+              imageYPosition += imgHeight + 10;
+  
+              // Render the rest of the PDF content
               renderRestOfPDF();
           };
       } else {
-          // No image found, directly render the rest of the PDF
+          // No image found, render the rest of the PDF content
           renderRestOfPDF();
       }
   
-      // Function to render the rest of the PDF content
       function renderRestOfPDF() {
-          // Reduce the space before the title
-          imageYPosition += 5;  // Reduced space between image and title
-  
-          // Add the title, centered and bold, below the credibility image or image
+          // Add the title, centered and bold, below the image or credibility image
           doc.setFont("times", "bold");
           doc.setFontSize(14);
           doc.text(feedItem.title, pageWidth / 2, imageYPosition, { align: 'center' });
   
-          // Reduce space between the title and the description
-          imageYPosition += 10;  // Less spacing between title and description
+          // Adjust Y position for description
+          imageYPosition += 10;
   
-          // Add the description below the title, in Helvetica
+          // Wrap the description and calculate the height
+          const descriptionMaxWidth = 180;  // Width of the description text
+          const descriptionLines = doc.splitTextToSize(feedItem.description.replace(/<[^>]+>/g, ''), descriptionMaxWidth);
           doc.setFont("helvetica", "normal");
           doc.setFontSize(12);
-          doc.text(feedItem.description.replace(/<[^>]+>/g, ''), 10, imageYPosition, { maxWidth: 180 });
+          doc.text(descriptionLines, 10, imageYPosition);
   
-          // Reduce space between the description and the published date
-          imageYPosition += 15;  // Slightly less spacing between description and published date
+          // Adjust the Y position after the description
+          const descriptionHeight = descriptionLines.length * 6;  // Estimate height based on number of lines and font size
+          imageYPosition += descriptionHeight + 5;
   
           // Add the published date below the description
           doc.setFontSize(10);
           doc.text(`Published on: ${feedItem.pubDate}`, 10, imageYPosition);
   
-          // Reduce space before the source link
+          // Adjust Y position after the published date
           imageYPosition += 10;
   
-          // Add the source as a hyperlink, styled to look like a clickable link
-          const sourceLink = feedItem.link || '#';  // Fallback if no link is provided
+          // Add the source as a hyperlink, styled as a clickable link
+          const sourceLink = feedItem.link || '#';
           doc.setTextColor(0, 0, 255);  // Set text color to blue for hyperlink
           doc.textWithLink(`Source: ${feedItem.source}`, 10, imageYPosition, { url: sourceLink });
   
-          // Add underline effect for hyperlink (manual)
+          // Add underline effect for hyperlink
           const sourceTextWidth = doc.getTextWidth(`Source: ${feedItem.source}`);
-          doc.line(10, imageYPosition + 1, 10 + sourceTextWidth, imageYPosition + 1);  // Draw an underline under the text
+          doc.line(10, imageYPosition + 1, 10 + sourceTextWidth, imageYPosition + 1);
   
           // Save the PDF
           doc.save(`${feedItem.title}.pdf`);
