@@ -912,16 +912,23 @@ document.addEventListener('DOMContentLoaded', async () => {
       const { jsPDF } = window.jspdf;
       const doc = new jsPDF();
   
-      // Calculate dimensions for full-width header and credibility images
+      // Convert the image dimensions to fit in the PDF (you may need to adjust the ratio)
       const pageWidth = doc.internal.pageSize.getWidth();
-      const headerHeight = pageWidth * 0.21; // 21% of the page width
-      const credibilityHeight = pageWidth * 0.12; // 12% of the page width
+      const headerWidth = 850 / 2.835;  // Convert pixels to mm (~850px)
+      const headerHeight = 68 / 2.835;  // Convert pixels to mm (~68px)
+      const credibilityWidth = 850 / 2.835;  // Convert pixels to mm (~850px)
+      const credibilityHeight = 40 / 2.835;  // Convert pixels to mm (~40px)
   
-      // Load header and credibility images
+      // Calculate positions to center the images
+      const headerX = (pageWidth - headerWidth) / 2;  // Center the header image
+      const credibilityX = (pageWidth - credibilityWidth) / 2;  // Center the credibility image
+  
+      // Add the header image (centered)
       const headerImage = 'icons/ExportedEventHeader.png';  // Path to the header image
-      let credibilityImage = '';  // Placeholder for credibility image
+      doc.addImage(headerImage, 'PNG', headerX, 10, headerWidth, headerHeight);  // Header image size 850x68 pixels
   
-      // Assign the correct credibility image
+      // Add the credibility image (centered) immediately below the header
+      let credibilityImage = '';  // Placeholder for credibility image
       switch (feedItem.reliability) {
           case 'Credible':
               credibilityImage = 'icons/ExportedEventCredibilityCredible.png';
@@ -933,45 +940,30 @@ document.addEventListener('DOMContentLoaded', async () => {
               credibilityImage = 'icons/ExportedEventCredibilityRequiresVerification.png';
               break;
       }
-  
-      // Add the full-width header image (compressed)
-      doc.addImage(headerImage, 'PNG', 0, 10, pageWidth, headerHeight, '', 'FAST');  // Full width, 21% height, with compression
-  
-      // Add the credibility image immediately below the header (compressed)
       if (credibilityImage) {
-          doc.addImage(credibilityImage, 'PNG', 0, 10 + headerHeight + 5, pageWidth, credibilityHeight, '', 'FAST');  // Full width, 12% height, with 5px margin
+          doc.addImage(credibilityImage, 'PNG', credibilityX, 10 + headerHeight + 5, credibilityWidth, credibilityHeight);  // Credibility image size 850x40 pixels
       }
   
-      // Add the title in Times font, bold and centered
-      doc.setFont("times", "bold");  // Times bold for the title
+      // Add the title, centered and bold, below the credibility image
+      doc.setFont("times", "bold");
       doc.setFontSize(14);
       doc.text(feedItem.title, pageWidth / 2, 10 + headerHeight + credibilityHeight + 20, { align: 'center' });
   
-      // Add the description in Helvetica, normal font
-      doc.setFont("helvetica", "normal");  // Switch to Helvetica for the rest of the text
+      // Add the description below the title, in Helvetica
+      doc.setFont("helvetica", "normal");
       doc.setFontSize(12);
       doc.text(feedItem.description, 10, 10 + headerHeight + credibilityHeight + 35, { maxWidth: 180 });
   
-      // Add the published date below the description, font size 10
+      // Add the published date below the description
       doc.setFontSize(10);
       doc.text(`Published on: ${feedItem.pubDate}`, 10, 10 + headerHeight + credibilityHeight + 50);
   
-      // Add the source with a clickable link below the published date, font size 10
-      const sourceLink = feedItem.link || '#';  // Fallback if no link is provided
+      // Add the source with a clickable link below the published date
+      const sourceLink = feedItem.link || '#';
       doc.textWithLink(`Source: ${feedItem.source}`, 10, 10 + headerHeight + credibilityHeight + 60, { url: sourceLink });
   
-      // Check for an image
-      const img = feedItem.image || '';  // Assuming image is part of the feed item
-      if (img) {
-          const imgElement = new Image();
-          imgElement.src = img;
-          imgElement.onload = () => {
-              doc.addImage(imgElement, 'JPEG', 10, 10 + headerHeight + credibilityHeight + 70, 180, 100);  // Add image in the PDF
-              doc.save(`${feedItem.title}.pdf`);  // Save PDF with image
-          };
-      } else {
-          doc.save(`${feedItem.title}.pdf`);  // Save PDF without image
-      }
+      // Save the PDF
+      doc.save(`${feedItem.title}.pdf`);
   }
 
   function parseSearchTerm(searchTerm) {
