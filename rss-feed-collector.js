@@ -908,20 +908,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
   }
   
-  async function fetchFontBase64(filePath) {
-      const response = await fetch(filePath);
-      if (!response.ok) {
-          throw new Error(`Unable to fetch font file: ${response.statusText}`);
-      }
-      return response.text();  // Return base64 string
-  }
-
   async function generatePDF(feedItem) {
       const { jsPDF } = window.jspdf;
       const doc = new jsPDF();
-  
-      // Set the font to "Times" as an alternative to Garamond
-      doc.setFont("times");
   
       // Calculate dimensions for full-width header and credibility images
       const pageWidth = doc.internal.pageSize.getWidth();
@@ -953,14 +942,14 @@ document.addEventListener('DOMContentLoaded', async () => {
           doc.addImage(credibilityImage, 'PNG', 0, 10 + headerHeight + 5, pageWidth, credibilityHeight, '', 'FAST');  // Full width, 12% height, with 5px margin
       }
   
-      // Add the title below the credibility banner, center it, and make it bold
+      // Add the title in Times font, bold and centered
+      doc.setFont("times", "bold");  // Times bold for the title
       doc.setFontSize(14);
-      doc.setFontStyle('bold');  // Make it bold
-      doc.text(feedItem.title, pageWidth / 2, 10 + headerHeight + credibilityHeight + 20, { align: 'center' });  // Center the title
+      doc.text(feedItem.title, pageWidth / 2, 10 + headerHeight + credibilityHeight + 20, { align: 'center' });
   
-      // Add the description below the title, font size 12
+      // Add the description in Helvetica, normal font
+      doc.setFont("helvetica", "normal");  // Switch to Helvetica for the rest of the text
       doc.setFontSize(12);
-      doc.setFontStyle('normal');  // Reset to normal for the description
       doc.text(feedItem.description, 10, 10 + headerHeight + credibilityHeight + 35, { maxWidth: 180 });
   
       // Add the published date below the description, font size 10
