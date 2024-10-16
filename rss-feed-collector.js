@@ -911,14 +911,14 @@ document.addEventListener('DOMContentLoaded', async () => {
   async function generatePDF(feedItem) {
       const { jsPDF } = window.jspdf;
       const doc = new jsPDF();
-  
+    
       // Get the page width
       const pageWidth = doc.internal.pageSize.getWidth();
-  
+    
       // Calculate the heights based on the original image ratios
       const headerHeight = pageWidth * 0.12588;  // Header image height is 12.588% of the page width
       const credibilityHeight = pageWidth * 0.04156;  // Credibility image height is 4.156% of the page width
-  
+    
       // Add the full-width header image (directly at the top of the page)
       const headerImage = 'icons/ExportedEventHeader.png';  // Path to the header image
       doc.addImage(headerImage, 'PNG', 0, 0, pageWidth, headerHeight);  // Full width, height based on ratio, Y=0
@@ -942,31 +942,69 @@ document.addEventListener('DOMContentLoaded', async () => {
           doc.addImage(credibilityImage, 'PNG', 0, headerHeight, pageWidth, credibilityHeight);  // Y is now exactly headerHeight, no gap
       }
   
-      // Add the title, centered and bold, below the credibility image
-      doc.setFont("times", "bold");
-      doc.setFontSize(14);
-      doc.text(feedItem.title, pageWidth / 2, headerHeight + credibilityHeight + 20, { align: 'center' });
+      // Extract the image URL from the feed item (if available) and add it below the credibility image
+      const imgElement = new Image();
+      const regex = /<img.*?src=["'](.*?)["']/;  // Regex to extract image src from HTML
+      const imgMatch = regex.exec(feedItem.description);
+      let imageYPosition = headerHeight + credibilityHeight + 5;
   
-      // Add the description below the title, in Helvetica
-      doc.setFont("helvetica", "normal");
-      doc.setFontSize(12);
-      doc.text(feedItem.description, 10, headerHeight + credibilityHeight + 35, { maxWidth: 180 });
+      if (imgMatch) {
+          imgElement.src = imgMatch[1];  // Get the URL from the matched regex
+          imgElement.onload = () => {
+              // Set the image size and position (let's say the image is 180mm wide with proportional height)
+              const imgWidth = pageWidth;
+              const imgHeight = imgWidth * (imgElement.height / imgElement.width);  // Preserve aspect ratio
+              doc.addImage(imgElement, 'JPEG', 0, imageYPosition, imgWidth, imgHeight);
+              imageYPosition += imgHeight + 5;  // Adjust Y position after placing image (reduced spacing)
   
-      // Add the published date below the description
-      doc.setFontSize(10);
-      doc.text(`Published on: ${feedItem.pubDate}`, 10, headerHeight + credibilityHeight + 50);
+              // Now that the image is loaded, we continue rendering the rest of the PDF
+              renderRestOfPDF();
+          };
+      } else {
+          // No image found, directly render the rest of the PDF
+          renderRestOfPDF();
+      }
   
-      // Add the source as a hyperlink, styled to look like a clickable link
-      const sourceLink = feedItem.link || '#';  // Fallback if no link is provided
-      doc.setTextColor(0, 0, 255);  // Set text color to blue for hyperlink
-      doc.textWithLink(`Source: ${feedItem.source}`, 10, headerHeight + credibilityHeight + 60, { url: sourceLink });
+      // Function to render the rest of the PDF content
+      function renderRestOfPDF() {
+          // Reduce the space before the title
+          imageYPosition += 5;  // Reduced space between image and title
   
-      // Add underline effect for hyperlink (manual)
-      const sourceTextWidth = doc.getTextWidth(`Source: ${feedItem.source}`);
-      doc.line(10, headerHeight + credibilityHeight + 61, 10 + sourceTextWidth, headerHeight + credibilityHeight + 61);  // Draw an underline under the text
+          // Add the title, centered and bold, below the credibility image or image
+          doc.setFont("times", "bold");
+          doc.setFontSize(14);
+          doc.text(feedItem.title, pageWidth / 2, imageYPosition, { align: 'center' });
   
-      // Save the PDF
-      doc.save(`${feedItem.title}.pdf`);
+          // Reduce space between the title and the description
+          imageYPosition += 10;  // Less spacing between title and description
+  
+          // Add the description below the title, in Helvetica
+          doc.setFont("helvetica", "normal");
+          doc.setFontSize(12);
+          doc.text(feedItem.description.replace(/<[^>]+>/g, ''), 10, imageYPosition, { maxWidth: 180 });
+  
+          // Reduce space between the description and the published date
+          imageYPosition += 15;  // Slightly less spacing between description and published date
+  
+          // Add the published date below the description
+          doc.setFontSize(10);
+          doc.text(`Published on: ${feedItem.pubDate}`, 10, imageYPosition);
+  
+          // Reduce space before the source link
+          imageYPosition += 10;
+  
+          // Add the source as a hyperlink, styled to look like a clickable link
+          const sourceLink = feedItem.link || '#';  // Fallback if no link is provided
+          doc.setTextColor(0, 0, 255);  // Set text color to blue for hyperlink
+          doc.textWithLink(`Source: ${feedItem.source}`, 10, imageYPosition, { url: sourceLink });
+  
+          // Add underline effect for hyperlink (manual)
+          const sourceTextWidth = doc.getTextWidth(`Source: ${feedItem.source}`);
+          doc.line(10, imageYPosition + 1, 10 + sourceTextWidth, imageYPosition + 1);  // Draw an underline under the text
+  
+          // Save the PDF
+          doc.save(`${feedItem.title}.pdf`);
+      }
   }
 
 
