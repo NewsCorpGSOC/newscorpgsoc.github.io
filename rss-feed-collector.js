@@ -917,7 +917,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   
       // Calculate the heights based on the original image ratios
       const headerHeight = pageWidth * 0.12588;  // Header image height is 12.588% of the page width
-      const credibilityHeight = pageWidth * 0.06235;  // Credibility image height is 6.235% of the page width
+      const credibilityHeight = pageWidth * 0.04156;  // Credibility image height is 6.235% of the page width
   
       // Add the full-width header image (directly at the top of the page)
       const headerImage = 'icons/ExportedEventHeader.png';  // Path to the header image
@@ -949,7 +949,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       let imageYPosition = headerHeight + credibilityHeight + 5;
   
       if (imgMatch) {
-          imgElement.src = imgMatch[1];  // Get the URL from the matched regex
+          imgElement.src = imgMatch[1];
           imgElement.onload = () => {
               // Force image height to 50mm and calculate proportional width
               const imgHeight = 50;
@@ -958,15 +958,16 @@ document.addEventListener('DOMContentLoaded', async () => {
               // Calculate the X position to center the image
               const imgXPosition = (pageWidth - imgWidth) / 2;
   
-              // Add the image with border
-              const borderPadding = 5;
-              const borderRadius = 10;
-              doc.setDrawColor(0, 0, 0);
-              doc.roundedRect(imgXPosition - borderPadding, imageYPosition - borderPadding, imgWidth + 2 * borderPadding, imgHeight + 2 * borderPadding, borderRadius, borderRadius);
+              // Draw the black border with rounded corners around the image
+              const borderRadius = 10;  // Rounded corner radius for the "cropped" effect
+              doc.setDrawColor(0, 0, 0);  // Black border color
+              doc.setLineWidth(2);  // Set border thickness
+              doc.roundedRect(imgXPosition, imageYPosition, imgWidth, imgHeight, borderRadius, borderRadius);
+  
+              // Now, add the image inside the rounded rectangle to simulate cropping
               doc.addImage(imgElement, 'JPEG', imgXPosition, imageYPosition, imgWidth, imgHeight);
   
-              // Adjust the Y position after placing the image
-              imageYPosition += imgHeight + 10;
+              imageYPosition += imgHeight + 10;  // Adjust Y position after placing image
   
               // Render the rest of the PDF content
               renderRestOfPDF();
