@@ -918,11 +918,16 @@ document.addEventListener('DOMContentLoaded', async () => {
       // Define the left and right padding (e.g., 10mm on both sides)
       const leftPadding = 10;
       const rightPadding = 10;
+      const topPadding = 10;
       const availableWidth = pageWidth - leftPadding - rightPadding;  // Calculate available width
-  
+
       // Calculate the heights based on the original image ratios
       const headerHeight = pageWidth * 0.12588;  // Header image height is 12.588% of the page width
       const credibilityHeight = pageWidth * 0.04156;  // Credibility image height is 6.235% of the page width
+  
+      // Add the full-width header image (directly at the top of the page)
+      const headerImage = 'icons/ExportedEventHeader.png';  // Path to the header image
+      doc.addImage(headerImage, 'PNG', 0, 0, pageWidth, headerHeight);  // Full width, height based on ratio
   
       // Add the full-width header image (directly at the top of the page)
       const headerImage = 'icons/ExportedEventHeader.png';  // Path to the header image
@@ -947,11 +952,22 @@ document.addEventListener('DOMContentLoaded', async () => {
           doc.addImage(credibilityImage, 'PNG', 0, headerHeight, pageWidth, credibilityHeight);
       }
   
-      // Extract the image URL from the feed item and add it below the credibility image
+      // Calculate the starting Y position after the header and credibility image
+      let contentYPosition = headerHeight + credibilityHeight + 5;
+  
+      // Title Wrapping (split the title if it's too long)
+      doc.setFont("times", "bold");
+      doc.setFontSize(14);
+      const titleLines = doc.splitTextToSize(feedItem.title, availableWidth);  // Split title if it's too long
+      doc.text(titleLines, leftPadding, contentYPosition);  // Add the title
+  
+      // Adjust Y position after the title
+      contentYPosition += titleLines.length * 7;  // Roughly calculate height based on number of lines
+  
+      // Check for an image
       const imgElement = new Image();
       const regex = /<img.*?src=["'](.*?)["']/;  // Regex to extract image src from HTML
       const imgMatch = regex.exec(feedItem.description);
-      let imageYPosition = headerHeight + credibilityHeight + 5;
   
       if (imgMatch) {
           imgElement.src = imgMatch[1];  // Get the URL from the matched regex
@@ -974,12 +990,12 @@ document.addEventListener('DOMContentLoaded', async () => {
               const borderThickness = 2;  // Set the thickness of the border
               doc.setDrawColor(0, 0, 0);  // Black border color
               doc.setLineWidth(borderThickness);  // Set border thickness
-              doc.rect(imgXPosition, imageYPosition, imgWidth, imgHeight);  // Draw the rectangle border
+              doc.rect(imgXPosition, contentYPosition, imgWidth, imgHeight);  // Draw the rectangle border
   
               // Now, add the image inside the rectangular border
-              doc.addImage(imgElement, 'JPEG', imgXPosition, imageYPosition, imgWidth, imgHeight);
+              doc.addImage(imgElement, 'JPEG', imgXPosition, contentYPosition, imgWidth, imgHeight);
   
-              imageYPosition += imgHeight + 10;  // Adjust Y position after placing image
+              contentYPosition += imgHeight + 10;  // Adjust Y position after placing image
   
               // Render the rest of the PDF content
               renderRestOfPDF();
@@ -990,40 +1006,35 @@ document.addEventListener('DOMContentLoaded', async () => {
       }
   
       function renderRestOfPDF() {
-          // Add the title, centered and bold, below the image or credibility image
-          doc.setFont("times", "bold");
-          doc.setFontSize(14);
-          doc.text(feedItem.title, pageWidth / 2, imageYPosition, { align: 'center' });
-  
-          // Adjust Y position for description
-          imageYPosition += 10;
-  
-          // Wrap the description and calculate the height, setting maxWidth to fill more horizontal space
-          const descriptionMaxWidth = availableWidth;  // Use the calculated available width
-          const descriptionLines = doc.splitTextToSize(feedItem.description.replace(/<[^>]+>/g, ''), descriptionMaxWidth);
+          // Wrap the description text and handle multi-page content
           doc.setFont("helvetica", "normal");
           doc.setFontSize(12);
-          doc.text(descriptionLines, leftPadding, imageYPosition);  // Start at the left padding
+          const descriptionLines = doc.splitTextToSize(feedItem.description.replace(/<[^>]+>/g, ''), availableWidth);
+          let linesHeight = descriptionLines.length * 5;  // Estimate height based on number of lines
   
-          // Adjust the Y position after the description
-          const descriptionHeight = descriptionLines.length * 6;  // Estimate height based on number of lines and font size
-          imageYPosition += descriptionHeight + 5;
+          // If content overflows to the next page
+          if (contentYPosition + linesHeight > pageHeight - topPadding) {
+              doc.addPage();  // Add a new page
+              contentYPosition = topPadding;  // Reset Y position at the top of the new page
+          }
+  
+          // Add description text
+          doc.text(descriptionLines, leftPadding, contentYPosition);
+          contentYPosition += linesHeight + 10;
   
           // Add the published date below the description
           doc.setFontSize(10);
-          doc.text(`Published on: ${feedItem.pubDate}`, leftPadding, imageYPosition);
-  
-          // Adjust Y position after the published date
-          imageYPosition += 10;
+          doc.text(`Published on: ${feedItem.pubDate}`, leftPadding, contentYPosition);
+          contentYPosition += 10;
   
           // Add the source as a hyperlink, styled as a clickable link
           const sourceLink = feedItem.link || '#';
           doc.setTextColor(0, 0, 255);  // Set text color to blue for hyperlink
-          doc.textWithLink(`Source: ${feedItem.source}`, leftPadding, imageYPosition, { url: sourceLink });
+          doc.textWithLink(`Source: ${feedItem.source}`, leftPadding, contentYPosition, { url: sourceLink });
   
           // Add underline effect for hyperlink
           const sourceTextWidth = doc.getTextWidth(`Source: ${feedItem.source}`);
-          doc.line(leftPadding, imageYPosition + 1, leftPadding + sourceTextWidth, imageYPosition + 1);
+          doc.line(leftPadding, contentYPosition + 1, leftPadding + sourceTextWidth, contentYPosition + 1);
   
           // Save the PDF
           doc.save(`${feedItem.title}.pdf`);
