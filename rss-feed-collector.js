@@ -907,7 +907,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       });
     });
   }
-  
+    
   async function generatePDF(feedItem) {
       const { jsPDF } = window.jspdf;
       const doc = new jsPDF();
@@ -946,18 +946,10 @@ document.addEventListener('DOMContentLoaded', async () => {
           doc.addImage(credibilityImage, 'PNG', 0, headerHeight, pageWidth, credibilityHeight);
       }
   
-      // Set the position for the content below images
-      let contentYPosition = headerHeight + credibilityHeight + 5;
+      // Set the position for the content below images and add a margin between credibility and title
+      let contentYPosition = headerHeight + credibilityHeight + 10; // Added 10 units of margin below credibility image
   
-      // Title Wrapping (split the title if it's too long)
-      doc.setFont("times", "bold");
-      doc.setFontSize(14);
-      const titleLines = doc.splitTextToSize(feedItem.title, availableWidth);
-      doc.text(titleLines, leftPadding, contentYPosition);
-  
-      contentYPosition += titleLines.length * 7; // Adjust Y position after title
-  
-      // Handle image extraction from description
+      // Handle image extraction from the description, placing it before the title if present
       const imgElement = new Image();
       const regex = /<img.*?src=["'](.*?)["']/; // Extract image src from HTML
       const imgMatch = regex.exec(feedItem.description);
@@ -986,15 +978,23 @@ document.addEventListener('DOMContentLoaded', async () => {
               // Add image inside the border
               doc.addImage(imgElement, 'JPEG', imgXPosition, contentYPosition, imgWidth, imgHeight);
   
-              contentYPosition += imgHeight + 10; // Adjust Y position after image
-              renderRestOfPDF(); // Render remaining content after image
+              contentYPosition += imgHeight + 10; // Adjust Y position after image and add margin after image
+              renderRestOfPDF(); // Render the title and remaining content after the image
           };
       } else {
-          // No image, render the rest of the content
+          // No image, render the rest of the content directly
           renderRestOfPDF();
       }
   
       function renderRestOfPDF() {
+          // Title Wrapping (split the title if it's too long)
+          doc.setFont("times", "bold");
+          doc.setFontSize(14);
+          const titleLines = doc.splitTextToSize(feedItem.title, availableWidth);  // Split title if it's too long
+          doc.text(titleLines, leftPadding, contentYPosition);  // Add the title
+  
+          contentYPosition += titleLines.length * 7; // Adjust Y position after title
+  
           // Wrap and render description text, handling page overflow
           doc.setFont("helvetica", "normal");
           doc.setFontSize(12);
