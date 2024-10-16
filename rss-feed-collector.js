@@ -908,62 +908,91 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
   }
   
-function generatePDF(feedItem) {
-    const { jsPDF } = window.jspdf;
-    const doc = new jsPDF();  // Create a new jsPDF instance
+  async function fetchFontBase64(filePath) {
+      const response = await fetch(filePath);
+      if (!response.ok) {
+          throw new Error(`Unable to fetch font file: ${response.statusText}`);
+      }
+      return response.text();  // Return base64 string
+  }
+
+  async function generatePDF(feedItem) {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
   
-    // Load header and credibility images
-    const headerImage = 'icons/ExportedEventHeader.png';  // Path to the header image
-    let credibilityImage = '';  // Placeholder for credibility image
+      try {
+          // Fetch the base64-encoded Heebo font from an external .txt file
+          const base64Heebo = await fetchFontBase64('fonts/HeeboBase64.txt');
   
-    // Assign the correct credibility image
-    switch (feedItem.reliability) {
-        case 'Credible':
-            credibilityImage = 'icons/ExportedEventCredibilityCredible.png';
-            break;
-        case 'Dubious':
-            credibilityImage = 'icons/ExportedEventCredibilityDubious.png';
-            break;
-        case 'Requires Verification':
-            credibilityImage = 'icons/ExportedEventCredibilityRequiresVerification.png';
-            break;
-    }
+          // Add Heebo font to jsPDF
+          doc.addFileToVFS("Heebo-Regular.ttf", base64Heebo);
+          doc.addFont("Heebo-Regular.ttf", "Heebo", "normal");
+          doc.setFont("Heebo");
+      } catch (error) {
+          console.error("Error loading Heebo font:", error);
+          // Fallback to default font if fetching the base64 string fails
+          doc.setFont("times");
+      }
   
-    // Add the header image
-    doc.addImage(headerImage, 'PNG', 10, 10, 190, 30);  // Adjust position and size
+      // Calculate dimensions for full-width header and credibility images
+      const pageWidth = doc.internal.pageSize.getWidth();
+      const headerHeight = pageWidth * 0.21; // 21% of the page width
+      const credibilityHeight = pageWidth * 0.12; // 12% of the page width
   
-    // Add the title (browser font)
-    doc.setFontSize(18);
-    doc.text(feedItem.title, 10, 50);
+      // Load header and credibility images
+      const headerImage = 'icons/ExportedEventHeader.png';  // Path to the header image
+      let credibilityImage = '';  // Placeholder for credibility image
   
-    // Add the source with a clickable link
-    const sourceLink = feedItem.link || '#';  // Fallback if no link is provided
-    doc.textWithLink(`Source: ${feedItem.source}`, 10, 65, { url: sourceLink });
+      // Assign the correct credibility image
+      switch (feedItem.reliability) {
+          case 'Credible':
+              credibilityImage = 'icons/ExportedEventCredibilityCredible.png';
+              break;
+          case 'Dubious':
+              credibilityImage = 'icons/ExportedEventCredibilityDubious.png';
+              break;
+          case 'Requires Verification':
+              credibilityImage = 'icons/ExportedEventCredibilityRequiresVerification.png';
+              break;
+      }
   
-    // Add published date
-    doc.text(`Published on: ${feedItem.pubDate}`, 10, 75);
+      // Add the full-width header image
+      doc.addImage(headerImage, 'PNG', 0, 10, pageWidth, headerHeight);  // Full width, 21% height
   
-    // Add the credibility image below the header
-    if (credibilityImage) {
-        doc.addImage(credibilityImage, 'PNG', 10, 80, 190, 30);  // Adjust size and positioning
-    }
+      // Add the credibility image immediately below the header
+      if (credibilityImage) {
+          doc.addImage(credibilityImage, 'PNG', 0, 10 + headerHeight + 5, pageWidth, credibilityHeight);  // Full width, 12% height, with 5px margin
+      }
   
-    // Add description (browser font)
-    doc.text(feedItem.description, 10, 120, { maxWidth: 180 });  // Adjust starting position
+      // Add the title below the credibility banner in Heebo font, size 14
+      doc.setFontSize(14);
+      doc.text(feedItem.title, 10, 10 + headerHeight + credibilityHeight + 20);  // Adjust y-position accordingly
   
-    // Check for an image
-    const img = feedItem.image || '';  // Assuming image is part of the feed item
-    if (img) {
-        const imgElement = new Image();
-        imgElement.src = img;
-        imgElement.onload = () => {
-            doc.addImage(imgElement, 'JPEG', 10, 150, 180, 100);  // Add image in the PDF
-            doc.save(`${feedItem.title}.pdf`);  // Save PDF with image
-        };
-    } else {
-        doc.save(`${feedItem.title}.pdf`);  // Save PDF without image
-    }
-}
+      // Add the description below the title, font size 12
+      doc.setFontSize(12);
+      doc.text(feedItem.description, 10, 10 + headerHeight + credibilityHeight + 35, { maxWidth: 180 });
+  
+      // Add the published date below the description, font size 10
+      doc.setFontSize(10);
+      doc.text(`Published on: ${feedItem.pubDate}`, 10, 10 + headerHeight + credibilityHeight + 50);
+  
+      // Add the source with a clickable link below the published date, font size 10
+      const sourceLink = feedItem.link || '#';  // Fallback if no link is provided
+      doc.textWithLink(`Source: ${feedItem.source}`, 10, 10 + headerHeight + credibilityHeight + 60, { url: sourceLink });
+  
+      // Check for an image
+      const img = feedItem.image || '';  // Assuming image is part of the feed item
+      if (img) {
+          const imgElement = new Image();
+          imgElement.src = img;
+          imgElement.onload = () => {
+              doc.addImage(imgElement, 'JPEG', 10, 10 + headerHeight + credibilityHeight + 70, 180, 100);  // Add image in the PDF
+              doc.save(`${feedItem.title}.pdf`);  // Save PDF with image
+          };
+      } else {
+          doc.save(`${feedItem.title}.pdf`);  // Save PDF without image
+      }
+  }
 
   function parseSearchTerm(searchTerm) {
     const termGroups = searchTerm.split(/\s+OR\s+/i).map(group => {
