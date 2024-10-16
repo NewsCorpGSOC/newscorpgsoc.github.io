@@ -912,22 +912,18 @@ document.addEventListener('DOMContentLoaded', async () => {
       const { jsPDF } = window.jspdf;
       const doc = new jsPDF();
   
-      // Convert the image dimensions to fit in the PDF (you may need to adjust the ratio)
+      // Get the page width
       const pageWidth = doc.internal.pageSize.getWidth();
-      const headerWidth = 850 / 2.835;  // Convert pixels to mm (~850px)
-      const headerHeight = 68 / 2.835;  // Convert pixels to mm (~68px)
-      const credibilityWidth = 850 / 2.835;  // Convert pixels to mm (~850px)
-      const credibilityHeight = 40 / 2.835;  // Convert pixels to mm (~40px)
   
-      // Calculate positions to center the images
-      const headerX = (pageWidth - headerWidth) / 2;  // Center the header image
-      const credibilityX = (pageWidth - credibilityWidth) / 2;  // Center the credibility image
+      // Calculate dimensions for the images based on the page width
+      const headerHeight = pageWidth * 0.21;  // Header image height is 21% of the page width
+      const credibilityHeight = pageWidth * 0.14;  // Credibility image height is 14% of the page width
   
-      // Add the header image (centered)
+      // Add the full-width header image
       const headerImage = 'icons/ExportedEventHeader.png';  // Path to the header image
-      doc.addImage(headerImage, 'PNG', headerX, 10, headerWidth, headerHeight);  // Header image size 850x68 pixels
+      doc.addImage(headerImage, 'PNG', 0, 10, pageWidth, headerHeight);  // Full width, 21% height
   
-      // Add the credibility image (centered) immediately below the header
+      // Add the credibility image immediately below the header
       let credibilityImage = '';  // Placeholder for credibility image
       switch (feedItem.reliability) {
           case 'Credible':
@@ -940,8 +936,10 @@ document.addEventListener('DOMContentLoaded', async () => {
               credibilityImage = 'icons/ExportedEventCredibilityRequiresVerification.png';
               break;
       }
+  
+      // Add credibility image if available
       if (credibilityImage) {
-          doc.addImage(credibilityImage, 'PNG', credibilityX, 10 + headerHeight + 5, credibilityWidth, credibilityHeight);  // Credibility image size 850x40 pixels
+          doc.addImage(credibilityImage, 'PNG', 0, 10 + headerHeight + 5, pageWidth, credibilityHeight);  // Full width, 14% height, with 5px margin
       }
   
       // Add the title, centered and bold, below the credibility image
