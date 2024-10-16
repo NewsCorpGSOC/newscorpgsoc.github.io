@@ -920,19 +920,8 @@ document.addEventListener('DOMContentLoaded', async () => {
       const { jsPDF } = window.jspdf;
       const doc = new jsPDF();
   
-      try {
-          // Fetch the base64-encoded Heebo font from an external .txt file
-          const base64Heebo = await fetchFontBase64('fonts/HeeboBase64.txt');
-  
-          // Add Heebo font to jsPDF
-          doc.addFileToVFS("Heebo-Regular.ttf", base64Heebo);
-          doc.addFont("Heebo-Regular.ttf", "Heebo", "normal");
-          doc.setFont("Heebo");
-      } catch (error) {
-          console.error("Error loading Heebo font:", error);
-          // Fallback to default font if fetching the base64 string fails
-          doc.setFont("times");
-      }
+      // Set the font to "Times" as an alternative to Garamond
+      doc.setFont("times");
   
       // Calculate dimensions for full-width header and credibility images
       const pageWidth = doc.internal.pageSize.getWidth();
@@ -956,20 +945,22 @@ document.addEventListener('DOMContentLoaded', async () => {
               break;
       }
   
-      // Add the full-width header image
-      doc.addImage(headerImage, 'PNG', 0, 10, pageWidth, headerHeight);  // Full width, 21% height
+      // Add the full-width header image (compressed)
+      doc.addImage(headerImage, 'PNG', 0, 10, pageWidth, headerHeight, '', 'FAST');  // Full width, 21% height, with compression
   
-      // Add the credibility image immediately below the header
+      // Add the credibility image immediately below the header (compressed)
       if (credibilityImage) {
-          doc.addImage(credibilityImage, 'PNG', 0, 10 + headerHeight + 5, pageWidth, credibilityHeight);  // Full width, 12% height, with 5px margin
+          doc.addImage(credibilityImage, 'PNG', 0, 10 + headerHeight + 5, pageWidth, credibilityHeight, '', 'FAST');  // Full width, 12% height, with 5px margin
       }
   
-      // Add the title below the credibility banner in Heebo font, size 14
+      // Add the title below the credibility banner, center it, and make it bold
       doc.setFontSize(14);
-      doc.text(feedItem.title, 10, 10 + headerHeight + credibilityHeight + 20);  // Adjust y-position accordingly
+      doc.setFontStyle('bold');  // Make it bold
+      doc.text(feedItem.title, pageWidth / 2, 10 + headerHeight + credibilityHeight + 20, { align: 'center' });  // Center the title
   
       // Add the description below the title, font size 12
       doc.setFontSize(12);
+      doc.setFontStyle('normal');  // Reset to normal for the description
       doc.text(feedItem.description, 10, 10 + headerHeight + credibilityHeight + 35, { maxWidth: 180 });
   
       // Add the published date below the description, font size 10
