@@ -917,13 +917,13 @@ document.addEventListener('DOMContentLoaded', async () => {
   
       // Calculate the heights based on the original image ratios
       const headerHeight = pageWidth * 0.12588;  // Header image height is 12.588% of the page width
-      const credibilityHeight = pageWidth * 0.06235;  // Credibility image height is 6.235% of the page width
+      const credibilityHeight = pageWidth * 0.04156;  // Credibility image height is 4.156% of the page width
   
-      // Add the full-width header image
+      // Add the full-width header image (directly at the top of the page)
       const headerImage = 'icons/ExportedEventHeader.png';  // Path to the header image
-      doc.addImage(headerImage, 'PNG', 0, 10, pageWidth, headerHeight);  // Full width, height based on ratio
+      doc.addImage(headerImage, 'PNG', 0, 0, pageWidth, headerHeight);  // Full width, height based on ratio, Y=0
   
-      // Add the credibility image immediately below the header
+      // Add the credibility image immediately below the header (no white space)
       let credibilityImage = '';  // Placeholder for credibility image
       switch (feedItem.reliability) {
           case 'Credible':
@@ -937,35 +937,33 @@ document.addEventListener('DOMContentLoaded', async () => {
               break;
       }
   
-      // Add credibility image if available
+      // Add credibility image if available, directly below header (no white space)
       if (credibilityImage) {
-          doc.addImage(credibilityImage, 'PNG', 0, 10 + headerHeight + 5, pageWidth, credibilityHeight);  // Full width, height based on ratio, with 5px margin
+          doc.addImage(credibilityImage, 'PNG', 0, headerHeight, pageWidth, credibilityHeight);  // Y is now exactly headerHeight, no gap
       }
   
       // Add the title, centered and bold, below the credibility image
       doc.setFont("times", "bold");
       doc.setFontSize(14);
-      doc.text(feedItem.title, pageWidth / 2, 10 + headerHeight + credibilityHeight + 20, { align: 'center' });
+      doc.text(feedItem.title, pageWidth / 2, headerHeight + credibilityHeight + 20, { align: 'center' });
   
       // Add the description below the title, in Helvetica
       doc.setFont("helvetica", "normal");
       doc.setFontSize(12);
-      doc.text(feedItem.description, 10, 10 + headerHeight + credibilityHeight + 35, { maxWidth: 180 });
+      doc.text(feedItem.description, 10, headerHeight + credibilityHeight + 35, { maxWidth: 180 });
   
       // Add the published date below the description
       doc.setFontSize(10);
-      doc.text(`Published on: ${feedItem.pubDate}`, 10, 10 + headerHeight + credibilityHeight + 50);
+      doc.text(`Published on: ${feedItem.pubDate}`, 10, headerHeight + credibilityHeight + 50);
   
       // Add the source as a hyperlink, styled to look like a clickable link
       const sourceLink = feedItem.link || '#';  // Fallback if no link is provided
-      doc.setTextColor(0, 0, 255);  // Set text color to blue
-      doc.setFont("helvetica", "normal");
-      doc.setFontSize(10);
-      doc.textWithLink(`Source: ${feedItem.source}`, 10, 10 + headerHeight + credibilityHeight + 60, { url: sourceLink });
+      doc.setTextColor(0, 0, 255);  // Set text color to blue for hyperlink
+      doc.textWithLink(`Source: ${feedItem.source}`, 10, headerHeight + credibilityHeight + 60, { url: sourceLink });
   
       // Add underline effect for hyperlink (manual)
       const sourceTextWidth = doc.getTextWidth(`Source: ${feedItem.source}`);
-      doc.line(10, 10 + headerHeight + credibilityHeight + 61, 10 + sourceTextWidth, 10 + headerHeight + credibilityHeight + 61);  // Draw an underline under the text
+      doc.line(10, headerHeight + credibilityHeight + 61, 10 + sourceTextWidth, headerHeight + credibilityHeight + 61);  // Draw an underline under the text
   
       // Save the PDF
       doc.save(`${feedItem.title}.pdf`);
