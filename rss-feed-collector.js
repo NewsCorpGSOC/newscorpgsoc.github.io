@@ -949,7 +949,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       let imageYPosition = headerHeight + credibilityHeight + 5;
   
       if (imgMatch) {
-          imgElement.src = imgMatch[1];
+          imgElement.src = imgMatch[1];  // Get the URL from the matched regex
           imgElement.onload = () => {
               // Force image height to 50mm and calculate proportional width
               const imgHeight = 50;
@@ -986,12 +986,12 @@ document.addEventListener('DOMContentLoaded', async () => {
           // Adjust Y position for description
           imageYPosition += 10;
   
-          // Wrap the description and calculate the height
-          const descriptionMaxWidth = 180;  // Width of the description text
+          // Wrap the description and calculate the height, setting maxWidth to fill more horizontal space
+          const descriptionMaxWidth = availableWidth;  // Use the calculated available width
           const descriptionLines = doc.splitTextToSize(feedItem.description.replace(/<[^>]+>/g, ''), descriptionMaxWidth);
           doc.setFont("helvetica", "normal");
           doc.setFontSize(12);
-          doc.text(descriptionLines, 10, imageYPosition);
+          doc.text(descriptionLines, leftPadding, imageYPosition);  // Start at the left padding
   
           // Adjust the Y position after the description
           const descriptionHeight = descriptionLines.length * 6;  // Estimate height based on number of lines and font size
@@ -999,7 +999,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   
           // Add the published date below the description
           doc.setFontSize(10);
-          doc.text(`Published on: ${feedItem.pubDate}`, 10, imageYPosition);
+          doc.text(`Published on: ${feedItem.pubDate}`, leftPadding, imageYPosition);
   
           // Adjust Y position after the published date
           imageYPosition += 10;
@@ -1007,11 +1007,11 @@ document.addEventListener('DOMContentLoaded', async () => {
           // Add the source as a hyperlink, styled as a clickable link
           const sourceLink = feedItem.link || '#';
           doc.setTextColor(0, 0, 255);  // Set text color to blue for hyperlink
-          doc.textWithLink(`Source: ${feedItem.source}`, 10, imageYPosition, { url: sourceLink });
+          doc.textWithLink(`Source: ${feedItem.source}`, leftPadding, imageYPosition, { url: sourceLink });
   
           // Add underline effect for hyperlink
           const sourceTextWidth = doc.getTextWidth(`Source: ${feedItem.source}`);
-          doc.line(10, imageYPosition + 1, 10 + sourceTextWidth, imageYPosition + 1);
+          doc.line(leftPadding, imageYPosition + 1, leftPadding + sourceTextWidth, imageYPosition + 1);
   
           // Save the PDF
           doc.save(`${feedItem.title}.pdf`);
