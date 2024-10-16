@@ -986,47 +986,47 @@ document.addEventListener('DOMContentLoaded', async () => {
           renderRestOfPDF();
       }
   
-  function renderRestOfPDF() {
-      // Title Wrapping (split the title if it's too long)
-      doc.setFont("times", "bold");
-      doc.setFontSize(14);
-      const titleLines = doc.splitTextToSize(feedItem.title, availableWidth);  // Split title if it's too long
-      doc.text(titleLines, leftPadding, contentYPosition);  // Add the title
+      function renderRestOfPDF() {
+          // Title Wrapping (split the title if it's too long)
+          doc.setFont("times", "bold");
+          doc.setFontSize(14);
+          const titleLines = doc.splitTextToSize(feedItem.title, availableWidth);  // Split title if it's too long
+          doc.text(titleLines, leftPadding, contentYPosition);  // Add the title
   
-      contentYPosition += titleLines.length * 7; // Adjust Y position after title
+          contentYPosition += titleLines.length * 7; // Adjust Y position after title
   
-      // Wrap and render description text, handling page overflow
-      doc.setFont("helvetica", "normal");
-      doc.setFontSize(12);
-      const descriptionLines = doc.splitTextToSize(feedItem.description.replace(/<[^>]+>/g, ''), availableWidth);
-      const linesHeight = descriptionLines.length * 5;
+          // Wrap and render description text, handling page overflow
+          doc.setFont("helvetica", "normal");
+          doc.setFontSize(12);
+          const descriptionLines = doc.splitTextToSize(feedItem.description.replace(/<[^>]+>/g, ''), availableWidth);
+          const linesHeight = descriptionLines.length * 5;
   
-      // Check if description overflows and add a new page if necessary
-      if (contentYPosition + linesHeight > pageHeight - topPadding) {
-          doc.addPage(); // New page
-          contentYPosition = topPadding; // Reset Y position for new page
+          // Check if description overflows and add a new page if necessary
+          if (contentYPosition + linesHeight > pageHeight - topPadding) {
+              doc.addPage(); // New page
+              contentYPosition = topPadding; // Reset Y position for new page
+          }
+  
+          doc.text(descriptionLines, leftPadding, contentYPosition);
+          contentYPosition += linesHeight + 10;
+  
+          // Add publish date below description
+          doc.setFontSize(10);
+          doc.text(`Published on: ${feedItem.pubDate}`, leftPadding, contentYPosition);
+          contentYPosition += 10;
+  
+          // Add source with a hyperlink
+          const sourceLink = feedItem.link || '#';
+          doc.setTextColor(0, 0, 255); // Blue color for the link
+          doc.textWithLink(`Source: ${feedItem.source}`, leftPadding, contentYPosition, { url: sourceLink });
+  
+          // Underline the hyperlink text
+          const sourceTextWidth = doc.getTextWidth(`Source: ${feedItem.source}`);
+          doc.line(leftPadding, contentYPosition + 1, leftPadding + sourceTextWidth, contentYPosition + 1);
+  
+          // Save the PDF after everything is rendered
+          doc.save(`${feedItem.title}.pdf`);
       }
-  
-      doc.text(descriptionLines, leftPadding, contentYPosition);
-      contentYPosition += linesHeight + 10;
-  
-      // Add publish date below description
-      doc.setFontSize(10);
-      doc.text(`Published on: ${feedItem.pubDate}`, leftPadding, contentYPosition);
-      contentYPosition += 10;
-  
-      // Add source with a hyperlink
-      const sourceLink = feedItem.link || '#';
-      doc.setTextColor(0, 0, 255); // Blue color for the link
-      doc.textWithLink(`Source: ${feedItem.source}`, leftPadding, contentYPosition, { url: sourceLink });
-  
-      // Reset the line width for the hyperlink underline to make it thinner
-      doc.setLineWidth(0.5);  // Set line width to a thinner value
-      const sourceTextWidth = doc.getTextWidth(`Source: ${feedItem.source}`);
-      doc.line(leftPadding, contentYPosition + 1, leftPadding + sourceTextWidth, contentYPosition + 1);
-  
-      // Save the PDF after everything is rendered
-      doc.save(`${feedItem.title}.pdf`);
   }
 
 
