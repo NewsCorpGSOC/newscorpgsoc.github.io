@@ -82,6 +82,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   let pingVolume = 0.5;
   const statusItems = new Map();
   let currentTimezoneOffset = 0; // Default to PST/PDT
+  let feedOffset = 0;
+  const feedBatchSize = 10; // Number of feeds to load at a time
 
   console.log("DOM fully loaded and parsed");
 
@@ -733,28 +735,21 @@ document.addEventListener('DOMContentLoaded', async () => {
     const oneYearAgo = new Date(now.setFullYear(now.getFullYear() - 1));
   
     const filteredFeeds = applyFilter();
-    console.log(`Filtered feeds count: ${filteredFeeds.length}`);
-  
-    const searchTerm = searchInput.value.trim().toLowerCase();
-    const searchTerms = parseSearchTerm(searchTerm);
-  
     const recentFeeds = filteredFeeds.filter(item => item.pubDate > oneYearAgo);
-    console.log(`Recent feeds count: ${recentFeeds.length}`);
   
-    // Retrieve checkbox states
     const showCredible = document.getElementById('credibleFilter').checked;
     const showDubious = document.getElementById('dubiousFilter').checked;
     const showRequiresVerification = document.getElementById('requiresVerificationFilter').checked;
   
-    // Filter feeds based on credibility checkboxes
     const credibilityFilteredFeeds = recentFeeds.filter(item => {
       if (item.reliability === 'Credible' && showCredible) return true;
       if (item.reliability === 'Dubious' && showDubious) return true;
       if (item.reliability === 'Requires Verification' && showRequiresVerification) return true;
-      return false; // Exclude the item if it doesn't match any selected filters
+      return false;
     });
-  
-    console.log(`Credibility filtered feeds count: ${credibilityFilteredFeeds.length}`);
+
+    const searchTerm = searchInput.value.trim().toLowerCase();
+    const searchTerms = parseSearchTerm(searchTerm);
   
     const searchFilteredFeeds = credibilityFilteredFeeds.filter(item =>
       searchTerms.every(termGroup =>
@@ -765,23 +760,21 @@ document.addEventListener('DOMContentLoaded', async () => {
         )
       )
     );
-    console.log(`Search filtered feeds count: ${searchFilteredFeeds.length}`);
-    console.log(`Search filtered feeds: ${JSON.stringify(searchFilteredFeeds, null, 2)}`);
-  
+    
+    const feedsToDisplay = searchFilteredFeeds.slice(feedOffset, feedOffset + feedBatchSize);
     const fragment = document.createDocumentFragment();
-    searchFilteredFeeds.forEach(item => {
+    
+    feedsToDisplay.forEach(item => {
       const feedItem = document.createElement('div');
       feedItem.classList.add('feed-item');
   
       const uniqueId = item.link || item.title;
       const isExpanded = expandedFeedItems.has(uniqueId);
   
-      // Apply topic styling directly to the feed item element
-      applyTopicStyling(item, feedItem); // Pass the item and the created element
+      applyTopicStyling(item, feedItem); 
   
       const credibilityContainer = document.createElement('div');
       credibilityContainer.classList.add('credibility-container');
-  
       if (item.reliability === 'Credible') {
         credibilityContainer.classList.add('credible', 'bg-credible');
       } else if (item.reliability === 'Dubious') {
@@ -797,7 +790,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       const doc = parser.parseFromString(item.description, 'text/html');
       const firstImg = doc.querySelector('img');
   
-      // Remove all images from the description
+      // Clean description by removing images
       doc.querySelectorAll('img').forEach(img => img.remove());
       const cleanedDescription = doc.body.innerHTML;
   
@@ -813,7 +806,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         toggleLink = `<a href="#" class="see-less" data-id="${uniqueId}">See Less</a>`;
       }
   
-      // Add the first image back to the feed element if it exists
+      // Add image if exists
       let imageHtml = '';
       if (firstImg) {
         if (item.source === 'USGS Earthquakes' || item.source === 'Global Shake Princeton') {
@@ -831,26 +824,25 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
       }
   
-      // Use truncated description and toggleLink
-      feedContent.innerHTML =
-        `<h2><a href="${item.link}" target="_blank">${item.title}</a></h2>
+      feedContent.innerHTML = `
+        <h2><a href="${item.link}" target="_blank">${item.title}</a></h2>
         ${imageHtml}
         <div>${truncatedDescription} ${toggleLink}</div>
         <p><small>Published on: ${format(item.pubDate, 'PPpp')} (${timezoneSelector.value})</small></p>
         <p><strong>Source:</strong> ${item.source}</p>`;
-      
-        // Inside the displayFeeds function, where we define the export icon
-        const exportIcon = document.createElement('img');
-        exportIcon.src = 'icons/ExportPDFUnClick.png';  // Default unclick icon
-        exportIcon.classList.add('export-icon');
-        exportIcon.style.position = 'absolute';  // Use absolute positioning within each feed item
-        exportIcon.style.bottom = '10px';  // Bottom-right corner of each feed item
-        exportIcon.style.right = '10px';  // Bottom-right corner of each feed item
-        exportIcon.style.width = '30px';  // Size the icon
-        exportIcon.style.height = '30px';  // Size the icon
-        exportIcon.style.cursor = 'pointer';
-        
-        // Hover behavior for export icon
+  
+      // Include Export Icon
+      const exportIcon = document.createElement('img');
+      exportIcon.src = 'icons/ExportPDFUnClick.png';  
+      exportIcon.classList.add('export-icon');
+      exportIcon.style.position = 'absolute';
+      exportIcon.style.bottom = '10px';
+      exportIcon.style.right = '10px';
+      exportIcon.style.width = '30px';
+      exportIcon.style.height = '30px';
+      exportIcon.style.cursor = 'pointer';
+  
+      // Hover behavior for export icon
         exportIcon.addEventListener('mouseover', () => {
             exportIcon.src = 'icons/ExportPDFClick.png';  // Change to click icon on hover
         });
@@ -874,6 +866,12 @@ document.addEventListener('DOMContentLoaded', async () => {
   
     feedsContainer.appendChild(fragment);
     console.log("Feeds displayed.");
+    
+    feedOffset += feedBatchSize;
+
+    if (feedOffset < searchFilteredFeeds.length) {
+      setupIntersectionObserver();
+    }
   
     // Update the feed count overlay
     const feedCountOverlay = document.getElementById('feed-count-overlay');
@@ -906,6 +904,19 @@ document.addEventListener('DOMContentLoaded', async () => {
         this.remove(); // Remove the "Reveal Spoiler" button
       });
     });
+  }
+
+  function setupIntersectionObserver() {
+    const lastFeedItem = document.querySelector('.feed-item:last-child');
+    if (lastFeedItem) {
+      const observer = new IntersectionObserver(entries => {
+        if (entries[0].isIntersecting) {
+          observer.disconnect(); // Stop observing
+          displayFeeds(); // Load the next batch of feeds
+        }
+      });
+      observer.observe(lastFeedItem);
+    }
   }
     
   async function generatePDF(feedItem) {
@@ -1028,7 +1039,6 @@ document.addEventListener('DOMContentLoaded', async () => {
           doc.save(`${feedItem.title}.pdf`);
       }
   }
-
 
   function parseSearchTerm(searchTerm) {
     const termGroups = searchTerm.split(/\s+OR\s+/i).map(group => {
