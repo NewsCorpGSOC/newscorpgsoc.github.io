@@ -86,6 +86,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   let currentlyDisplayedFeeds = 0; // Number of feeds currently displayed
   let feedsObserver; // Intersection observer to handle lazy loading
   let searchFilteredFeeds = []; // Global variable to store filtered feeds
+  let isFetchingFeeds = false; // Debounce flag
 
   console.log("DOM fully loaded and parsed");
 
@@ -774,19 +775,23 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Reset batch display
     currentlyDisplayedFeeds = 0;
     loadFeedsInBatches(searchFilteredFeeds);
-    
+  
     // Initialize observer for lazy loading if not initialized already
     if (!feedsObserver) {
       feedsObserver = new IntersectionObserver(handleFeedIntersection, {
-        root: feedsContainer, // Setting the scrollable container as the root
-        rootMargin: '0px 0px 100px 0px', // Adjust to load earlier as you approach the bottom
-        threshold: 0.1 // Trigger when 10% of the last feed item is visible
+        root: document.querySelector('.feed-container'), // Set the scrollable container as the root
+        rootMargin: '0px 0px 200px 0px', // Load more feeds when the last feed is near the bottom (200px before the bottom)
+        threshold: 0 // Trigger when any part of the last feed item is visible
       });
     }
   }
   
   function loadFeedsInBatches(feeds) {
-    const fragment = document.createDocumentFragment();
+    if (isFetchingFeeds) return; // Prevent fetching if another fetch is in progress
+    isFetchingFeeds = true; // Set fetching flag
+    console.log(`Loading feeds... Batch size: ${feedsBatchSize}`);
+  
+    const fragment = document.createDocumentFragment(); // Fragment to improve performance
     const feedsToLoad = feeds.slice(currentlyDisplayedFeeds, currentlyDisplayedFeeds + feedsBatchSize);
   
     feedsToLoad.forEach(item => {
@@ -891,16 +896,20 @@ document.addEventListener('DOMContentLoaded', async () => {
       fragment.appendChild(feedItem);
     });
   
-    feedsContainer.appendChild(fragment);
+    feedsContainer.appendChild(fragment); // Append the fragment to the correct container
     currentlyDisplayedFeeds += feedsToLoad.length;
   
     // Update the feed count overlay
     const feedCountOverlay = document.getElementById('feed-count-overlay');
     feedCountOverlay.textContent = `Total Feed Items Displayed: ${currentlyDisplayedFeeds}`;
   
+    isFetchingFeeds = false; // Reset fetching flag
+  
     // Re-attach the observer only if more feeds are available to load
     if (currentlyDisplayedFeeds < feeds.length) {
-      observeLastFeedItem(); 
+      observeLastFeedItem();
+    } else {
+      console.log('All feeds loaded.');
     }
   
     // Add event listeners for "See More" and "See Less" links
@@ -935,6 +944,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   function handleFeedIntersection(entries, observer) {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
+        console.log("Intersection observed. Loading more feeds.");
         observer.unobserve(entry.target); // Stop observing the current target
         loadFeedsInBatches(searchFilteredFeeds); // Load more feeds
       }
@@ -945,7 +955,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   function observeLastFeedItem() {
     const lastFeed = document.querySelector('.feed-item:last-child');
     if (lastFeed && feedsObserver) {
-      feedsObserver.observe(lastFeed);
+      console.log("Observing last feed item.");
+      feedsObserver.observe(lastFeed); // Observe the last feed item to load more on scroll
     }
   }
     
