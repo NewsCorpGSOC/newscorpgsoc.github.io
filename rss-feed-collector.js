@@ -728,9 +728,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   function displayFeeds() {
     console.log("Displaying feeds...");
   
-    if (feedOffset === 0) {
-      feedsContainer.innerHTML = '';  // Only clear on the first load
-    }
+    feedsContainer.innerHTML = ''; // Clears old items
     feedItems = removeDuplicateTitles(feedItems);
   
     const now = new Date();
@@ -871,9 +869,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     
     feedOffset += feedBatchSize;
 
-    if (feedOffset < searchFilteredFeeds.length) {
-      setupIntersectionObserver();
-    }
+//    if (feedOffset < searchFilteredFeeds.length) {
+//      setupIntersectionObserver();
+//    }
   
     // Update the feed count overlay
     const feedCountOverlay = document.getElementById('feed-count-overlay');
@@ -908,18 +906,18 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
   }
 
-  function setupIntersectionObserver() {
-    const lastFeedItem = document.querySelector('.feed-item:last-child');
-    if (lastFeedItem) {
-      const observer = new IntersectionObserver(entries => {
-        if (entries[0].isIntersecting) {
-          observer.disconnect(); // Stop observing
-          displayFeeds(); // Load the next batch of feeds
-        }
-      });
-      observer.observe(lastFeedItem);
-    }
-  }
+//  function setupIntersectionObserver() {
+//    const lastFeedItem = document.querySelector('.feed-item:last-child');
+//    if (lastFeedItem) {
+//      const observer = new IntersectionObserver(entries => {
+//        if (entries[0].isIntersecting) {
+//          observer.disconnect(); // Stop observing
+//          displayFeeds(); // Load the next batch of feeds
+//        }
+//      });
+//      observer.observe(lastFeedItem);
+//    }
+//  }
     
   async function generatePDF(feedItem) {
       const { jsPDF } = window.jspdf;
@@ -1119,8 +1117,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   document.getElementById('requiresVerificationFilter').addEventListener('change', debounce(displayFeeds, 300));
   
   timelineFilter.addEventListener('change', debounce(displayFeeds, 300));
-  // Remove this line since you're no longer using a single dropdown for topic filter
-  // topicFilter.addEventListener('change', debounce(displayFeeds, 300)); 
   
   sourceFilterContainer.addEventListener('change', debounce(displayFeeds, 300));
   searchInput.addEventListener('input', debounce(displayFeeds, 300));
