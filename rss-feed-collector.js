@@ -791,152 +791,155 @@ document.addEventListener('DOMContentLoaded', async () => {
     isFetchingFeeds = true; // Set fetching flag
     console.log(`Loading feeds... Batch size: ${feedsBatchSize}`);
   
-    const fragment = document.createDocumentFragment(); // Fragment to improve performance
-    const feedsToLoad = feeds.slice(currentlyDisplayedFeeds, currentlyDisplayedFeeds + feedsBatchSize);
+    requestAnimationFrame(() => {
+      const fragment = document.createDocumentFragment(); // Fragment to improve performance
+      const feedsToLoad = feeds.slice(currentlyDisplayedFeeds, currentlyDisplayedFeeds + feedsBatchSize);
   
-    feedsToLoad.forEach(item => {
-      const feedItem = document.createElement('div');
-      feedItem.classList.add('feed-item');
-  
-      const uniqueId = item.link || item.title;
-      const isExpanded = expandedFeedItems.has(uniqueId);
-  
-      // Apply topic styling directly to the feed item element
-      applyTopicStyling(item, feedItem);
-  
-      const credibilityContainer = document.createElement('div');
-      credibilityContainer.classList.add('credibility-container');
-  
-      if (item.reliability === 'Credible') {
-        credibilityContainer.classList.add('credible', 'bg-credible');
-      } else if (item.reliability === 'Dubious') {
-        credibilityContainer.classList.add('dubious', 'bg-dubious');
-      } else if (item.reliability === 'Requires Verification') {
-        credibilityContainer.classList.add('requires-verification', 'bg-requires-verification');
-      }
-
-      const feedContent = document.createElement('div');
-      feedContent.classList.add('feed-content');
-  
-      const parser = new DOMParser();
-      const doc = parser.parseFromString(item.description, 'text/html');
-      const firstImg = doc.querySelector('img');
-  
-      doc.querySelectorAll('img').forEach(img => img.remove());
-      const cleanedDescription = doc.body.innerHTML;
-  
-      // Truncate long descriptions
-      const maxLength = 400;
-      let truncatedDescription = cleanedDescription;
-      let toggleLink = '';
-  
-      if (!isExpanded && cleanedDescription.length > maxLength) {
-        truncatedDescription = cleanedDescription.substring(0, maxLength) + '...';
-        toggleLink = `<a href="#" class="see-more" data-id="${uniqueId}">See More</a>`;
-      } else if (isExpanded && cleanedDescription.length > maxLength) {
-        toggleLink = `<a href="#" class="see-less" data-id="${uniqueId}">See Less</a>`;
-      }
-  
-      // Add the first image back to the feed element if it exists
-      let imageHtml = '';
-      if (firstImg) {
-        if (item.source === 'USGS Earthquakes' || item.source === 'Global Shake Princeton') {
-          imageHtml = `<img src="${firstImg.src}" alt="Earthquake Severity" width="50" height="50" style="border:0;" />`;
-        } else {
-          const isSpoilerSource = spoilerSources.includes(item.source);
-          const imageClass = isSpoilerSource ? 'spoiler-image' : '';
-          const revealButton = isSpoilerSource ? `<button class="reveal-button">Reveal Potentially Sensitive Image</button>` : '';
-  
-          imageHtml = `
-            <div class="image-container">
-              <img src="${firstImg.src}" class="${imageClass}" alt="Feed image" height="225" style="border: 4px solid #191919; border-radius: 24px;" onerror="this.onerror=null;this.src='https://i.imgur.com/GQPN5Q9.jpeg';" />
-              ${revealButton}
-            </div>`;
+      feedsToLoad.forEach(item => {
+        const feedItem = document.createElement('div');
+        feedItem.classList.add('feed-item');
+    
+        const uniqueId = item.link || item.title;
+        const isExpanded = expandedFeedItems.has(uniqueId);
+    
+        // Apply topic styling directly to the feed item element
+        applyTopicStyling(item, feedItem);
+    
+        const credibilityContainer = document.createElement('div');
+        credibilityContainer.classList.add('credibility-container');
+    
+        if (item.reliability === 'Credible') {
+          credibilityContainer.classList.add('credible', 'bg-credible');
+        } else if (item.reliability === 'Dubious') {
+          credibilityContainer.classList.add('dubious', 'bg-dubious');
+        } else if (item.reliability === 'Requires Verification') {
+          credibilityContainer.classList.add('requires-verification', 'bg-requires-verification');
         }
+  
+        const feedContent = document.createElement('div');
+        feedContent.classList.add('feed-content');
+  
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(item.description, 'text/html');
+        const firstImg = doc.querySelector('img');
+    
+        doc.querySelectorAll('img').forEach(img => img.remove());
+        const cleanedDescription = doc.body.innerHTML;
+    
+        // Truncate long descriptions
+        const maxLength = 400;
+        let truncatedDescription = cleanedDescription;
+        let toggleLink = '';
+    
+        if (!isExpanded && cleanedDescription.length > maxLength) {
+          truncatedDescription = cleanedDescription.substring(0, maxLength) + '...';
+          toggleLink = `<a href="#" class="see-more" data-id="${uniqueId}">See More</a>`;
+        } else if (isExpanded && cleanedDescription.length > maxLength) {
+          toggleLink = `<a href="#" class="see-less" data-id="${uniqueId}">See Less</a>`;
+        }
+  
+        // Add the first image back to the feed element if it exists
+        let imageHtml = '';
+        if (firstImg) {
+          if (item.source === 'USGS Earthquakes' || item.source === 'Global Shake Princeton') {
+            imageHtml = `<img src="${firstImg.src}" alt="Earthquake Severity" width="50" height="50" style="border:0;" />`;
+          } else {
+            const isSpoilerSource = spoilerSources.includes(item.source);
+            const imageClass = isSpoilerSource ? 'spoiler-image' : '';
+            const revealButton = isSpoilerSource ? `<button class="reveal-button">Reveal Potentially Sensitive Image</button>` : '';
+    
+            imageHtml = `
+              <div class="image-container">
+                <img src="${firstImg.src}" class="${imageClass}" alt="Feed image" height="225" style="border: 4px solid #191919; border-radius: 24px;" onerror="this.onerror=null;this.src='https://i.imgur.com/GQPN5Q9.jpeg';" />
+                ${revealButton}
+              </div>`;
+          }
+        }
+  
+        // Use truncated description and toggleLink
+        feedContent.innerHTML =
+          `<h2><a href="${item.link}" target="_blank">${item.title}</a></h2>
+          ${imageHtml}
+          <div>${truncatedDescription} ${toggleLink}</div>
+          <p><small>Published on: ${format(item.pubDate, 'PPpp')} (${timezoneSelector.value})</small></p>
+          <p><strong>Source:</strong> ${item.source}</p>`;
+        
+          // Inside the displayFeeds function, where we define the export icon
+          const exportIcon = document.createElement('img');
+          exportIcon.src = 'icons/ExportPDFUnClick.png';  // Default unclick icon
+          exportIcon.classList.add('export-icon');
+          exportIcon.style.position = 'absolute';  // Use absolute positioning within each feed item
+          exportIcon.style.bottom = '10px';  // Bottom-right corner of each feed item
+          exportIcon.style.right = '10px';  // Bottom-right corner of each feed item
+          exportIcon.style.width = '30px';  // Size the icon
+          exportIcon.style.height = '30px';  // Size the icon
+          exportIcon.style.cursor = 'pointer';
+          
+          // Hover behavior for export icon
+          exportIcon.addEventListener('mouseover', () => {
+              exportIcon.src = 'icons/ExportPDFClick.png';  // Change to click icon on hover
+          });
+          exportIcon.addEventListener('mouseout', () => {
+              exportIcon.src = 'icons/ExportPDFUnClick.png';  // Revert to default icon on hover out
+          });
+          
+          // Click event to generate PDF
+          exportIcon.addEventListener('click', () => {
+              generatePDF(item);  // Call function to generate PDF with the feed item's content
+          });
+  
+    
+        feedItem.appendChild(credibilityContainer);
+        feedItem.appendChild(feedContent);
+        // Ensure the icon is added to each individual feed item, not the entire container
+        feedItem.style.position = 'relative';  // Ensure feed item has relative positioning
+        feedItem.appendChild(exportIcon);  // Append the icon directly to the feed item
+        feedItem.classList.add('fade-in');
+        fragment.appendChild(feedItem);
+      });
+  
+      feedsContainer.appendChild(fragment); // Append the fragment to the correct container
+      currentlyDisplayedFeeds += feedsToLoad.length;
+    
+      // Update the feed count overlay
+      const feedCountOverlay = document.getElementById('feed-count-overlay');
+      feedCountOverlay.textContent = `Total Feed Items Displayed: ${currentlyDisplayedFeeds}`;
+    
+      isFetchingFeeds = false; // Reset fetching flag
+    
+      // Re-attach the observer only if more feeds are available to load
+      if (currentlyDisplayedFeeds < feeds.length) {
+        observeLastFeedItem();
+      } else {
+        console.log('All feeds loaded.');
       }
-  
-      // Use truncated description and toggleLink
-      feedContent.innerHTML =
-        `<h2><a href="${item.link}" target="_blank">${item.title}</a></h2>
-        ${imageHtml}
-        <div>${truncatedDescription} ${toggleLink}</div>
-        <p><small>Published on: ${format(item.pubDate, 'PPpp')} (${timezoneSelector.value})</small></p>
-        <p><strong>Source:</strong> ${item.source}</p>`;
-      
-        // Inside the displayFeeds function, where we define the export icon
-        const exportIcon = document.createElement('img');
-        exportIcon.src = 'icons/ExportPDFUnClick.png';  // Default unclick icon
-        exportIcon.classList.add('export-icon');
-        exportIcon.style.position = 'absolute';  // Use absolute positioning within each feed item
-        exportIcon.style.bottom = '10px';  // Bottom-right corner of each feed item
-        exportIcon.style.right = '10px';  // Bottom-right corner of each feed item
-        exportIcon.style.width = '30px';  // Size the icon
-        exportIcon.style.height = '30px';  // Size the icon
-        exportIcon.style.cursor = 'pointer';
-        
-        // Hover behavior for export icon
-        exportIcon.addEventListener('mouseover', () => {
-            exportIcon.src = 'icons/ExportPDFClick.png';  // Change to click icon on hover
+    
+      // Add event listeners for "See More" and "See Less" links
+      document.querySelectorAll('.see-more').forEach(link => {
+        link.addEventListener('click', function (event) {
+          event.preventDefault();
+          const fullDescription = this.getAttribute('data-id');
+          expandedFeedItems.add(fullDescription); // Mark the item as expanded
+          displayFeeds(); // Refresh the feed display to show the expanded content
         });
-        exportIcon.addEventListener('mouseout', () => {
-            exportIcon.src = 'icons/ExportPDFUnClick.png';  // Revert to default icon on hover out
-        });
-        
-        // Click event to generate PDF
-        exportIcon.addEventListener('click', () => {
-            generatePDF(item);  // Call function to generate PDF with the feed item's content
-        });
-
-  
-      feedItem.appendChild(credibilityContainer);
-      feedItem.appendChild(feedContent);
-      // Ensure the icon is added to each individual feed item, not the entire container
-      feedItem.style.position = 'relative';  // Ensure feed item has relative positioning
-      feedItem.appendChild(exportIcon);  // Append the icon directly to the feed item
-      fragment.appendChild(feedItem);
-    });
-  
-    feedsContainer.appendChild(fragment); // Append the fragment to the correct container
-    currentlyDisplayedFeeds += feedsToLoad.length;
-  
-    // Update the feed count overlay
-    const feedCountOverlay = document.getElementById('feed-count-overlay');
-    feedCountOverlay.textContent = `Total Feed Items Displayed: ${currentlyDisplayedFeeds}`;
-  
-    isFetchingFeeds = false; // Reset fetching flag
-  
-    // Re-attach the observer only if more feeds are available to load
-    if (currentlyDisplayedFeeds < feeds.length) {
-      observeLastFeedItem();
-    } else {
-      console.log('All feeds loaded.');
-    }
-  
-    // Add event listeners for "See More" and "See Less" links
-    document.querySelectorAll('.see-more').forEach(link => {
-      link.addEventListener('click', function (event) {
-        event.preventDefault();
-        const fullDescription = this.getAttribute('data-id');
-        expandedFeedItems.add(fullDescription); // Mark the item as expanded
-        displayFeeds(); // Refresh the feed display to show the expanded content
       });
-    });
-  
-    document.querySelectorAll('.see-less').forEach(link => {
-      link.addEventListener('click', function (event) {
-        event.preventDefault();
-        const fullDescription = this.getAttribute('data-id');
-        expandedFeedItems.delete(fullDescription); // Mark the item as collapsed
-        displayFeeds(); // Refresh the feed display to show the collapsed content
+    
+      document.querySelectorAll('.see-less').forEach(link => {
+        link.addEventListener('click', function (event) {
+          event.preventDefault();
+          const fullDescription = this.getAttribute('data-id');
+          expandedFeedItems.delete(fullDescription); // Mark the item as collapsed
+          displayFeeds(); // Refresh the feed display to show the collapsed content
+        });
       });
-    });
-  
-    // Add event listeners for "Reveal Spoiler" buttons
-    document.querySelectorAll('.reveal-button').forEach(button => {
-      button.addEventListener('click', function () {
-        const image = this.previousElementSibling;
-        image.classList.remove('spoiler-image'); // Remove the blur effect
-        this.remove(); // Remove the "Reveal Spoiler" button
+    
+      // Add event listeners for "Reveal Spoiler" buttons
+      document.querySelectorAll('.reveal-button').forEach(button => {
+        button.addEventListener('click', function () {
+          const image = this.previousElementSibling;
+          image.classList.remove('spoiler-image'); // Remove the blur effect
+          this.remove(); // Remove the "Reveal Spoiler" button
+        });
       });
     });
   }
