@@ -728,7 +728,9 @@ document.addEventListener('DOMContentLoaded', async () => {
   function displayFeeds() {
     console.log("Displaying feeds...");
   
-    feedsContainer.innerHTML = '';
+    if (feedOffset === 0) {
+      feedsContainer.innerHTML = '';  // Only clear on the first load
+    }
     feedItems = removeDuplicateTitles(feedItems);
   
     const now = new Date();
