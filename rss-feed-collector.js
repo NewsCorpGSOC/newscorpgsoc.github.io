@@ -845,11 +845,12 @@ document.addEventListener('DOMContentLoaded', async () => {
           const imageClass = isSpoilerSource ? 'spoiler-image' : '';
           const revealButton = isSpoilerSource ? `<button class="reveal-button">Reveal Potentially Sensitive Image</button>` : '';
   
-        imageHtml = `
-          <div class="image-container">
-            <img src="${firstImg.src}" class="${imageClass}" alt="Feed image" height="225" style="border: 4px solid #191919; border-radius: 24px;" onerror="this.onerror=null;this.src='https://i.imgur.com/GQPN5Q9.jpeg';" />
-            ${revealButton}
-          </div>`;
+          imageHtml = `
+            <div class="image-container">
+              <img src="${firstImg.src}" class="${imageClass}" alt="Feed image" height="225" style="border: 4px solid #191919; border-radius: 24px;" onerror="this.onerror=null;this.src='https://i.imgur.com/GQPN5Q9.jpeg';" />
+              ${revealButton}
+            </div>`;
+        }
       }
   
       // Use truncated description and toggleLink
