@@ -85,6 +85,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   let feedsBatchSize = 10; // Number of feeds to display initially
   let currentlyDisplayedFeeds = 0; // Number of feeds currently displayed
   let feedsObserver; // Intersection observer to handle lazy loading
+  let searchFilteredFeeds = []; // Global variable to store filtered feeds
 
   console.log("DOM fully loaded and parsed");
 
@@ -759,7 +760,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   
     console.log(`Credibility filtered feeds count: ${credibilityFilteredFeeds.length}`);
   
-    const searchFilteredFeeds = credibilityFilteredFeeds.filter(item =>
+    // Store the filtered feeds globally for use in other functions
+    searchFilteredFeeds = credibilityFilteredFeeds.filter(item =>
       searchTerms.every(termGroup =>
         termGroup.some(term =>
           item.title.toLowerCase().includes(term) ||
@@ -782,9 +784,8 @@ document.addEventListener('DOMContentLoaded', async () => {
       threshold: 0.1
     });
   
-    // Observe the last feed item to detect when more feeds should load
-    const lastFeed = document.querySelector('.feed-item:last-child');
-    if (lastFeed) feedsObserver.observe(lastFeed);
+    // Attach the observer to the last feed item
+    observeLastFeedItem();
   }
   
   function loadFeedsInBatches(feeds) {
@@ -897,7 +898,9 @@ document.addEventListener('DOMContentLoaded', async () => {
   
     // Update the feed count overlay
     const feedCountOverlay = document.getElementById('feed-count-overlay');
-    feedCountOverlay.textContent = `Total Feed Items Displayed: ${searchFilteredFeeds.length}`;
+    feedCountOverlay.textContent = `Total Feed Items Displayed: ${currentlyDisplayedFeeds}`;
+  
+    observeLastFeedItem(); // Ensure that the observer is re-attached after adding new items
   
     // Add event listeners for "See More" and "See Less" links
     document.querySelectorAll('.see-more').forEach(link => {
@@ -927,7 +930,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       });
     });
   }
-
+  
   // Handle loading more feeds when the user scrolls to the bottom
   function handleFeedIntersection(entries, observer) {
     entries.forEach(entry => {
