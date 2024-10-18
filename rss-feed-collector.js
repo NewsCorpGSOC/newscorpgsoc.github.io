@@ -755,12 +755,11 @@ document.addEventListener('DOMContentLoaded', async () => {
       if (item.reliability === 'Credible' && showCredible) return true;
       if (item.reliability === 'Dubious' && showDubious) return true;
       if (item.reliability === 'Requires Verification' && showRequiresVerification) return true;
-      return false; // Exclude the item if it doesn't match any selected filters
+      return false;
     });
-  
+    
     console.log(`Credibility filtered feeds count: ${credibilityFilteredFeeds.length}`);
   
-    // Store the filtered feeds globally for use in other functions
     searchFilteredFeeds = credibilityFilteredFeeds.filter(item =>
       searchTerms.every(termGroup =>
         termGroup.some(term =>
@@ -776,16 +775,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     currentlyDisplayedFeeds = 0;
     loadFeedsInBatches(searchFilteredFeeds);
   
-    // Initialize observer for lazy loading
-    if (feedsObserver) feedsObserver.disconnect();
-    feedsObserver = new IntersectionObserver(handleFeedIntersection, {
-      root: feedsContainer,
-      rootMargin: '0px',
-      threshold: 0.1
-    });
-  
-    // Attach the observer to the last feed item
-    observeLastFeedItem();
+    // Initialize observer for lazy loading if not initialized already
+    if (!feedsObserver) {
+      feedsObserver = new IntersectionObserver(handleFeedIntersection, {
+        root: feedsContainer,
+        rootMargin: '0px',
+        threshold: 0.1
+      });
+    }
   }
   
   function loadFeedsInBatches(feeds) {
@@ -901,7 +898,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     const feedCountOverlay = document.getElementById('feed-count-overlay');
     feedCountOverlay.textContent = `Total Feed Items Displayed: ${currentlyDisplayedFeeds}`;
   
-    observeLastFeedItem(); // Ensure that the observer is re-attached after adding new items
+    // Re-attach the observer only if more feeds are available to load
+    if (currentlyDisplayedFeeds < feeds.length) {
+      observeLastFeedItem(); 
+    }
   
     // Add event listeners for "See More" and "See Less" links
     document.querySelectorAll('.see-more').forEach(link => {
@@ -945,7 +945,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Attach the observer to the last feed item
   function observeLastFeedItem() {
     const lastFeed = document.querySelector('.feed-item:last-child');
-    if (lastFeed) {
+    if (lastFeed && feedsObserver) {
       feedsObserver.observe(lastFeed);
     }
   }
