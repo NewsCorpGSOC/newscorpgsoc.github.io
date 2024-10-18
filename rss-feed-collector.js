@@ -728,10 +728,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
   }
 
-  function displayFeeds() {
+  function displayFeeds(isReset = false) {
     console.log("Displaying feeds...");
   
-    feedsContainer.innerHTML = '';
+    // Only clear feeds and reset the number of items when necessary (e.g., for new search or filter change)
+    if (isReset) {
+        currentlyDisplayedFeeds = 0; // Reset the number of displayed feeds only when necessary
+        feedsContainer.innerHTML = ''; // Clear the container for a fresh start
+    }
     feedItems = removeDuplicateTitles(feedItems);
   
     const now = new Date();
@@ -753,43 +757,45 @@ document.addEventListener('DOMContentLoaded', async () => {
   
     // Filter feeds based on credibility checkboxes
     const credibilityFilteredFeeds = recentFeeds.filter(item => {
-      if (item.reliability === 'Credible' && showCredible) return true;
-      if (item.reliability === 'Dubious' && showDubious) return true;
-      if (item.reliability === 'Requires Verification' && showRequiresVerification) return true;
-      return false;
+        if (item.reliability === 'Credible' && showCredible) return true;
+        if (item.reliability === 'Dubious' && showDubious) return true;
+        if (item.reliability === 'Requires Verification' && showRequiresVerification) return true;
+        return false;
     });
     
     console.log(`Credibility filtered feeds count: ${credibilityFilteredFeeds.length}`);
   
     searchFilteredFeeds = credibilityFilteredFeeds.filter(item =>
-      searchTerms.every(termGroup =>
-        termGroup.some(term =>
-          item.title.toLowerCase().includes(term) ||
-          item.description.toLowerCase().includes(term) ||
-          item.source.toLowerCase().includes(term)
+        searchTerms.every(termGroup =>
+            termGroup.some(term =>
+                item.title.toLowerCase().includes(term) ||
+                item.description.toLowerCase().includes(term) ||
+                item.source.toLowerCase().includes(term)
+            )
         )
-      )
     );
     console.log(`Search filtered feeds count: ${searchFilteredFeeds.length}`);
   
-    // Reset batch display
-    currentlyDisplayedFeeds = 0;
+    // Load feeds in batches
     loadFeedsInBatches(searchFilteredFeeds);
   
-    // Initialize observer for lazy loading if not initialized already
-    if (!feedsObserver) {
-      feedsObserver = new IntersectionObserver(handleFeedIntersection, {
-        root: document.querySelector('.feed-container'), // Set the scrollable container as the root
-        rootMargin: '0px 0px 200px 0px', // Load more feeds when the last feed is near the bottom (200px before the bottom)
-        threshold: 0 // Trigger when any part of the last feed item is visible
-      });
-    }
+      // Initialize observer for lazy loading if not initialized already
+      if (!feedsObserver) {
+          feedsObserver = new IntersectionObserver(handleFeedIntersection, {
+              root: document.querySelector('.feed-container'), // Set the scrollable container as the root
+              rootMargin: '0px 0px 200px 0px', // Load more feeds when the last feed is near the bottom (200px before the bottom)
+              threshold: 0 // Trigger when any part of the last feed item is visible
+          });
+      }
   }
   
   function loadFeedsInBatches(feeds) {
     if (isFetchingFeeds) return; // Prevent fetching if another fetch is in progress
     isFetchingFeeds = true; // Set fetching flag
     console.log(`Loading feeds... Batch size: ${feedsBatchSize}`);
+
+    // Save scroll position before modifying the DOM
+    const scrollTopBefore = feedsContainer.scrollTop;
   
     requestAnimationFrame(() => {
       const fragment = document.createDocumentFragment(); // Fragment to improve performance
@@ -900,6 +906,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   
       feedsContainer.appendChild(fragment); // Append the fragment to the correct container
       currentlyDisplayedFeeds += feedsToLoad.length;
+
+      feedsContainer.scrollTop = scrollTopBefore;
     
       // Update the feed count overlay
       const feedCountOverlay = document.getElementById('feed-count-overlay');
