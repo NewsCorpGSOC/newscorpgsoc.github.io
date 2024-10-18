@@ -727,101 +727,105 @@ document.addEventListener('DOMContentLoaded', async () => {
   function displayFeeds() {
     console.log("Displaying feeds...");
   
-    feedsContainer.innerHTML = ''; // Clears old items
+    // Only clear the container when starting fresh (e.g., on initial load or after filters change)
+    if (feedOffset === 0) {
+        feedsContainer.innerHTML = '';  // Only clear on the first batch load
+    }
+
     feedItems = removeDuplicateTitles(feedItems);
   
     const now = new Date();
     const oneYearAgo = new Date(now.setFullYear(now.getFullYear() - 1));
-  
+
     const filteredFeeds = applyFilter();
     const recentFeeds = filteredFeeds.filter(item => item.pubDate > oneYearAgo);
   
     const showCredible = document.getElementById('credibleFilter').checked;
     const showDubious = document.getElementById('dubiousFilter').checked;
     const showRequiresVerification = document.getElementById('requiresVerificationFilter').checked;
-  
+
     const credibilityFilteredFeeds = recentFeeds.filter(item => {
-      if (item.reliability === 'Credible' && showCredible) return true;
-      if (item.reliability === 'Dubious' && showDubious) return true;
-      if (item.reliability === 'Requires Verification' && showRequiresVerification) return true;
-      return false;
+        if (item.reliability === 'Credible' && showCredible) return true;
+        if (item.reliability === 'Dubious' && showDubious) return true;
+        if (item.reliability === 'Requires Verification' && showRequiresVerification) return true;
+        return false;
     });
 
     const searchTerm = searchInput.value.trim().toLowerCase();
     const searchTerms = parseSearchTerm(searchTerm);
-  
+
     const searchFilteredFeeds = credibilityFilteredFeeds.filter(item =>
-      searchTerms.every(termGroup =>
-        termGroup.some(term =>
-          item.title.toLowerCase().includes(term) ||
-          item.description.toLowerCase().includes(term) ||
-          item.source.toLowerCase().includes(term)
+        searchTerms.every(termGroup =>
+            termGroup.some(term =>
+                item.title.toLowerCase().includes(term) ||
+                item.description.toLowerCase().includes(term) ||
+                item.source.toLowerCase().includes(term)
+            )
         )
-      )
     );
     
+    // Lazy loading: Only load a batch at a time, then append to the container
     const feedsToDisplay = searchFilteredFeeds.slice(feedOffset, feedOffset + feedBatchSize);
     const fragment = document.createDocumentFragment();
-    
+
     feedsToDisplay.forEach(item => {
-      const feedItem = document.createElement('div');
-      feedItem.classList.add('feed-item');
+        const feedItem = document.createElement('div');
+        feedItem.classList.add('feed-item');
+
+        const uniqueId = item.link || item.title;
+        const isExpanded = expandedFeedItems.has(uniqueId);
+
+        applyTopicStyling(item, feedItem);
   
-      const uniqueId = item.link || item.title;
-      const isExpanded = expandedFeedItems.has(uniqueId);
-  
-      applyTopicStyling(item, feedItem); 
-  
-      const credibilityContainer = document.createElement('div');
-      credibilityContainer.classList.add('credibility-container');
-      if (item.reliability === 'Credible') {
-        credibilityContainer.classList.add('credible', 'bg-credible');
-      } else if (item.reliability === 'Dubious') {
-        credibilityContainer.classList.add('dubious', 'bg-dubious');
-      } else if (item.reliability === 'Requires Verification') {
-        credibilityContainer.classList.add('requires-verification', 'bg-requires-verification');
-      }
-  
-      const feedContent = document.createElement('div');
-      feedContent.classList.add('feed-content');
-  
-      const parser = new DOMParser();
-      const doc = parser.parseFromString(item.description, 'text/html');
-      const firstImg = doc.querySelector('img');
-  
-      // Clean description by removing images
-      doc.querySelectorAll('img').forEach(img => img.remove());
-      const cleanedDescription = doc.body.innerHTML;
-  
-      // Truncate long descriptions
-      const maxLength = 400;
-      let truncatedDescription = cleanedDescription;
-      let toggleLink = '';
-  
-      if (!isExpanded && cleanedDescription.length > maxLength) {
-        truncatedDescription = cleanedDescription.substring(0, maxLength) + '...';
-        toggleLink = `<a href="#" class="see-more" data-id="${uniqueId}">See More</a>`;
-      } else if (isExpanded && cleanedDescription.length > maxLength) {
-        toggleLink = `<a href="#" class="see-less" data-id="${uniqueId}">See Less</a>`;
-      }
-  
-      // Add image if exists
-      let imageHtml = '';
-      if (firstImg) {
-        if (item.source === 'USGS Earthquakes' || item.source === 'Global Shake Princeton') {
-          imageHtml = `<img src="${firstImg.src}" alt="Earthquake Severity" width="50" height="50" style="border:0;" />`;
-        } else {
-          const isSpoilerSource = spoilerSources.includes(item.source);
-          const imageClass = isSpoilerSource ? 'spoiler-image' : '';
-          const revealButton = isSpoilerSource ? `<button class="reveal-button">Reveal Potentially Sensitive Image</button>` : '';
-  
-          imageHtml = `
-            <div class="image-container">
-              <img src="${firstImg.src}" class="${imageClass}" alt="Feed image" height="225" style="border: 4px solid #191919; border-radius: 24px;" onerror="this.onerror=null;this.src='https://i.imgur.com/GQPN5Q9.jpeg';" />
-              ${revealButton}
-            </div>`;
+        const credibilityContainer = document.createElement('div');
+        credibilityContainer.classList.add('credibility-container');
+        if (item.reliability === 'Credible') {
+            credibilityContainer.classList.add('credible', 'bg-credible');
+        } else if (item.reliability === 'Dubious') {
+            credibilityContainer.classList.add('dubious', 'bg-dubious');
+        } else if (item.reliability === 'Requires Verification') {
+            credibilityContainer.classList.add('requires-verification', 'bg-requires-verification');
         }
-      }
+
+        const feedContent = document.createElement('div');
+        feedContent.classList.add('feed-content');
+  
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(item.description, 'text/html');
+        const firstImg = doc.querySelector('img');
+
+        // Clean description by removing images
+        doc.querySelectorAll('img').forEach(img => img.remove());
+        const cleanedDescription = doc.body.innerHTML;
+
+        // Truncate long descriptions
+        const maxLength = 400;
+        let truncatedDescription = cleanedDescription;
+        let toggleLink = '';
+
+        if (!isExpanded && cleanedDescription.length > maxLength) {
+            truncatedDescription = cleanedDescription.substring(0, maxLength) + '...';
+            toggleLink = `<a href="#" class="see-more" data-id="${uniqueId}">See More</a>`;
+        } else if (isExpanded && cleanedDescription.length > maxLength) {
+            toggleLink = `<a href="#" class="see-less" data-id="${uniqueId}">See Less</a>`;
+        }
+  
+        let imageHtml = '';
+        if (firstImg) {
+            if (item.source === 'USGS Earthquakes' || item.source === 'Global Shake Princeton') {
+                imageHtml = `<img src="${firstImg.src}" alt="Earthquake Severity" width="50" height="50" style="border:0;" />`;
+            } else {
+                const isSpoilerSource = spoilerSources.includes(item.source);
+                const imageClass = isSpoilerSource ? 'spoiler-image' : '';
+                const revealButton = isSpoilerSource ? `<button class="reveal-button">Reveal Potentially Sensitive Image</button>` : '';
+
+                imageHtml = `
+                    <div class="image-container">
+                        <img src="${firstImg.src}" class="${imageClass}" alt="Feed image" height="225" style="border: 4px solid #191919; border-radius: 24px;" onerror="this.onerror=null;this.src='https://i.imgur.com/GQPN5Q9.jpeg';" />
+                        ${revealButton}
+                    </div>`;
+            }
+        }
   
       feedContent.innerHTML = `
         <h2><a href="${item.link}" target="_blank">${item.title}</a></h2>
@@ -863,47 +867,44 @@ document.addEventListener('DOMContentLoaded', async () => {
       fragment.appendChild(feedItem);
     });
   
+    // Append the new items to the container
     feedsContainer.appendChild(fragment);
     console.log("Feeds displayed.");
-    
-    feedOffset += feedBatchSize;
 
-//    if (feedOffset < searchFilteredFeeds.length) {
-//      setupIntersectionObserver();
-//    }
-  
+    feedOffset += feedBatchSize;  // Update the offset to load the next batch of feeds
+
     // Update the feed count overlay
     const feedCountOverlay = document.getElementById('feed-count-overlay');
-    feedCountOverlay.textContent = `Total Feed Items Displayed: ${searchFilteredFeeds.length}`;
+    feedCountOverlay.textContent = `Total Feed Items Displayed: ${feedOffset}`;
   
     // Add event listeners for "See More" and "See Less" links
     document.querySelectorAll('.see-more').forEach(link => {
-      link.addEventListener('click', function (event) {
-        event.preventDefault();
-        const fullDescription = this.getAttribute('data-id');
-        expandedFeedItems.add(fullDescription); // Mark the item as expanded
-        displayFeeds(); // Refresh the feed display to show the expanded content
-      });
+        link.addEventListener('click', function (event) {
+            event.preventDefault();
+            const fullDescription = this.getAttribute('data-id');
+            expandedFeedItems.add(fullDescription);
+            displayFeeds();  // Refresh the feed display to show the expanded content
+        });
     });
   
     document.querySelectorAll('.see-less').forEach(link => {
-      link.addEventListener('click', function (event) {
-        event.preventDefault();
-        const fullDescription = this.getAttribute('data-id');
-        expandedFeedItems.delete(fullDescription); // Mark the item as collapsed
-        displayFeeds(); // Refresh the feed display to show the collapsed content
-      });
+        link.addEventListener('click', function (event) {
+            event.preventDefault();
+            const fullDescription = this.getAttribute('data-id');
+            expandedFeedItems.delete(fullDescription);
+            displayFeeds();  // Refresh the feed display to show the collapsed content
+        });
     });
-  
+
     // Add event listeners for "Reveal Spoiler" buttons
     document.querySelectorAll('.reveal-button').forEach(button => {
-      button.addEventListener('click', function () {
-        const image = this.previousElementSibling;
-        image.classList.remove('spoiler-image'); // Remove the blur effect
-        this.remove(); // Remove the "Reveal Spoiler" button
-      });
+        button.addEventListener('click', function () {
+            const image = this.previousElementSibling;
+            image.classList.remove('spoiler-image');
+            this.remove();  // Remove the "Reveal Spoiler" button
+        });
     });
-  }
+}
 
 //  function setupIntersectionObserver() {
 //    const lastFeedItem = document.querySelector('.feed-item:last-child');
