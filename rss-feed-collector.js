@@ -774,13 +774,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Reset batch display
     currentlyDisplayedFeeds = 0;
     loadFeedsInBatches(searchFilteredFeeds);
-  
+    
     // Initialize observer for lazy loading if not initialized already
     if (!feedsObserver) {
       feedsObserver = new IntersectionObserver(handleFeedIntersection, {
-        root: feedsContainer,
-        rootMargin: '0px',
-        threshold: 0.1
+        root: feedsContainer, // Setting the scrollable container as the root
+        rootMargin: '0px 0px 100px 0px', // Adjust to load earlier as you approach the bottom
+        threshold: 0.1 // Trigger when 10% of the last feed item is visible
       });
     }
   }
@@ -932,7 +932,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
   }
   
-  // Handle loading more feeds when the user scrolls to the bottom
   function handleFeedIntersection(entries, observer) {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
