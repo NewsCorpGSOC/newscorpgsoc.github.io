@@ -609,8 +609,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   
     // Schedule periodic fetching of RSS feeds
     rssFeeds.forEach((feed) => {
-      const fetchInterval = priorityIntervals[feed.priorityLevel] || 180000; // Default to 3 minutes if not specified
-      console.log(`Scheduling fetch for ${feed.source} with interval of ${fetchInterval} ms`);
+      const fetchInterval = priorityIntervals[feed.priorityLevel] || 180000;
   
       setInterval(() => {
         console.log(`Periodic fetch for ${feed.source}`);
