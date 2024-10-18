@@ -874,8 +874,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     feedOffset += feedBatchSize;  // Update the offset to load the next batch of feeds
 
     // Update the feed count overlay
+    const displayedFeedCount = feedsToDisplay.length;  // This reflects how many feeds are being displayed in this batch
     const feedCountOverlay = document.getElementById('feed-count-overlay');
-    feedCountOverlay.textContent = `Total Feed Items Displayed: ${feedOffset}`;
+    feedCountOverlay.textContent = `Total Feed Items Displayed: ${displayedFeedCount}`;
+    console.log('Feeds to Display:', feedsToDisplay);      // Log the feeds being rendered
   
     // Add event listeners for "See More" and "See Less" links
     document.querySelectorAll('.see-more').forEach(link => {
