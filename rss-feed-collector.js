@@ -929,11 +929,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         feedItem.style.position = 'relative';  // Ensure feed item has relative positioning
         feedItem.appendChild(exportIcon);  // Append the icon directly to the feed item
         feedItem.classList.add('fade-in');
-        fragment.prepend(feedItem);
+        fragment.append(feedItem);
       });
   
-      // Prepend the new feeds to the top of the feed container
-      feedsContainer.prepend(fragment); // Prepend the fragment to the top of the feed container
+      feedsContainer.append(fragment);
       currentlyDisplayedFeeds += feedsToLoad.length;
 
       const containerHeightAfter = feedsContainer.scrollHeight; // Total height after adding new feeds
