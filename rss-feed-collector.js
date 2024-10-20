@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   let searchFilteredFeeds = []; // Global variable to store filtered feeds
   let isFetchingFeeds = false; // Debounce flag
   let isLiveMode = true; // Start in live mode
-  const toggleLiveModeButton = document.getElementById('toggleLiveMode');
+  const toggleLiveModeButton = document.querySelector('.live-toggle-button'); // Select the button by its class
 
   console.log("DOM fully loaded and parsed");
 
@@ -589,20 +589,23 @@ document.addEventListener('DOMContentLoaded', async () => {
     return Array.from(uniqueItems.values());
   }
 
-  // Function to toggle between live mode and static mode
-  function toggleLiveMode() {
-    isLiveMode = !isLiveMode;
-    if (isLiveMode) {
-      toggleLiveModeButton.textContent = 'Switch to Static Mode';
-      fetchFeedsSequentially(); // Restart fetching if switched back to live mode
-    } else {
-      toggleLiveModeButton.textContent = 'Switch to Live Mode';
+  if (toggleLiveModeButton) {
+    function toggleLiveMode() {
+      isLiveMode = !isLiveMode;
+      if (isLiveMode) {
+        toggleLiveModeButton.textContent = 'Switch to Static Mode';
+        fetchFeedsSequentially(); // Restart fetching if switched back to live mode
+      } else {
+        toggleLiveModeButton.textContent = 'Switch to Live Mode';
+      }
+      console.log(`Live Mode: ${isLiveMode}`);
     }
-    console.log(`Live Mode: ${isLiveMode}`);
-  }
 
-  // Add event listener to toggle live/static mode when button is clicked
-  toggleLiveModeButton.addEventListener('click', toggleLiveMode);
+    // Add event listener to toggle live/static mode when button is clicked
+    toggleLiveModeButton.addEventListener('click', toggleLiveMode);
+  } else {
+    console.error("Toggle Live Mode button not found in the DOM.");
+  }
 
   async function fetchFeedsSequentially() {
     if (!isLiveMode) {
