@@ -754,7 +754,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const showCredible = document.getElementById('credibleFilter').checked;
     const showDubious = document.getElementById('dubiousFilter').checked;
     const showRequiresVerification = document.getElementById('requiresVerificationFilter').checked;
-  
+
     // Filter feeds based on credibility checkboxes
     const credibilityFilteredFeeds = recentFeeds.filter(item => {
         if (item.reliability === 'Credible' && showCredible) return true;
@@ -776,17 +776,20 @@ document.addEventListener('DOMContentLoaded', async () => {
     );
     console.log(`Search filtered feeds count: ${searchFilteredFeeds.length}`);
   
+    // **Sort the feeds by pubDate in descending order (newest first)**
+    searchFilteredFeeds.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
+
     // Load feeds in batches
     loadFeedsInBatches(searchFilteredFeeds);
   
-      // Initialize observer for lazy loading if not initialized already
-      if (!feedsObserver) {
-          feedsObserver = new IntersectionObserver(handleFeedIntersection, {
-              root: document.querySelector('.feed-container'), // Set the scrollable container as the root
-              rootMargin: '0px 0px 200px 0px', // Load more feeds when the last feed is near the bottom (200px before the bottom)
-              threshold: 0 // Trigger when any part of the last feed item is visible
-          });
-      }
+    // Initialize observer for lazy loading if not initialized already
+    if (!feedsObserver) {
+        feedsObserver = new IntersectionObserver(handleFeedIntersection, {
+            root: document.querySelector('.feed-container'), // Set the scrollable container as the root
+            rootMargin: '0px 0px 200px 0px', // Load more feeds when the last feed is near the bottom (200px before the bottom)
+            threshold: 0 // Trigger when any part of the last feed item is visible
+        });
+    }
   }
   
   function loadFeedsInBatches(feeds) {
@@ -794,9 +797,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     isFetchingFeeds = true; // Set fetching flag
     console.log(`Loading feeds... Batch size: ${feedsBatchSize}`);
 
-    // Save scroll position before modifying the DOM
+    // Save the current scroll position and container height before adding new items
     const scrollTopBefore = feedsContainer.scrollTop;
-    let contentHeightBefore = feedsContainer.scrollHeight; // Get the height before adding new items
+    const containerHeightBefore = feedsContainer.scrollHeight; // Total height before adding new feeds
 
     requestAnimationFrame(() => {
       const fragment = document.createDocumentFragment(); // Fragment to improve performance
@@ -909,9 +912,9 @@ document.addEventListener('DOMContentLoaded', async () => {
       feedsContainer.prepend(fragment); // Prepend the fragment to the top of the feed container
       currentlyDisplayedFeeds += feedsToLoad.length;
 
-      // Adjust scroll position to prevent jumping
-      const contentHeightAfter = feedsContainer.scrollHeight;
-      feedsContainer.scrollTop = scrollTopBefore + (contentHeightAfter - contentHeightBefore); // Adjust for new items added at the top
+      const containerHeightAfter = feedsContainer.scrollHeight; // Total height after adding new feeds
+      const heightDifference = containerHeightAfter - containerHeightBefore; // Height difference added by new feeds
+      feedsContainer.scrollTop = scrollTopBefore + heightDifference; // Adjust scroll to maintain user position
     
       // Update the feed count overlay
       const feedCountOverlay = document.getElementById('feed-count-overlay');
