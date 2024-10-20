@@ -90,6 +90,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   let isLiveMode = true; // Start in live mode
   const toggleLiveModeButton = document.querySelector('.live-toggle-button'); // Select the button by its class
   const toggleLiveModeText = toggleLiveModeButton.querySelector('span:first-child'); // Select the first span for text
+  let hasFetchedOnLiveToggle = false; // Track if `fetchNewFeeds` has been triggered on live mode toggle
 
   console.log("DOM fully loaded and parsed");
 
@@ -598,15 +599,30 @@ document.addEventListener('DOMContentLoaded', async () => {
               toggleLiveModeText.textContent = 'Switch to Static Mode';  // Update the text in the first span
               toggleLiveModeButton.classList.add('live-mode');  // Add live-mode class for the gradient animation
               toggleLiveModeButton.classList.remove('static-mode');  // Remove static-mode class
-              fetchFeedsSequentially(); // Restart fetching if switched back to live mode
-              fetchNewFeeds();  // Fetch new feeds immediately
+
+              // Fetch feeds immediately when switching to live mode (only once)
+              if (!hasFetchedOnLiveToggle) {
+                  fetchNewFeeds();  // Fetch new feeds once immediately
+                  hasFetchedOnLiveToggle = true;  // Set flag to true so this only runs once per live toggle
+              }
+
+              fetchFeedsSequentially(); // Restart regular fetching if switched back to live mode
           } else {
               toggleLiveModeText.textContent = 'Switch to Live Mode';  // Update the text in the first span
               toggleLiveModeButton.classList.remove('live-mode');  // Remove live-mode class
               toggleLiveModeButton.classList.add('static-mode');  // Add static-mode class
+
+              // Reset the flag so that `fetchNewFeeds` will trigger again next time live mode is enabled
+              hasFetchedOnLiveToggle = false;
           }
 
           console.log(`Live Mode: ${isLiveMode}`);
+      }
+
+      // Add initial live-mode class when the page loads if it's in live mode
+      if (isLiveMode) {
+          toggleLiveModeButton.classList.add('live-mode');
+          toggleLiveModeText.textContent = 'Switch to Static Mode';
       }
 
       // Add event listener to toggle live/static mode when button is clicked
@@ -664,6 +680,20 @@ document.addEventListener('DOMContentLoaded', async () => {
         displayFeeds();
       }
     }, 60000); // Fetch TSV files every 3 minutes
+  }
+
+  async function fetchNewFeeds() {
+      console.log("Fetching new feeds immediately upon switching to live mode...");
+      
+      // Fetch the feeds as you would in your sequential fetching logic
+      const tsvFeedItems = await fetchTSVFiles();
+      feedItems = [...feedItems, ...tsvFeedItems];
+      
+      await Promise.all(rssFeeds.map(feed => fetchFeedAndUpdate(feed)));
+      
+      // Sort by date, newest first
+      feedItems.sort((a, b) => b.pubDate - a.pubDate);
+      displayFeeds(true);  // Reset and display the newly fetched feeds
   }
 
   async function fetchFeedAndUpdate(feed) {
