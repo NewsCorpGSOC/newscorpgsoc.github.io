@@ -583,7 +583,7 @@
             position: relative;
             display: inline-block;
             padding: 10px 20px;
-            background-color: #00D6E3;
+            background-color: #b0b0b0; /* Default color for static mode */
             color: #ffffff;
             font-size: 14px;
             font-weight: bold;
@@ -595,6 +595,21 @@
             transition: all 0.3s ease;
         }
         
+        /* Animated gradient for live mode */
+        .live-toggle-button.live-mode {
+            background: linear-gradient(270deg, #00D6E3, #007b83, #00a2af, #00D6E3);
+            background-size: 400% 400%;
+            animation: gradientAnimation 3s ease infinite; /* Infinite gradient animation */
+        }
+        
+        /* Keyframes for the gradient animation */
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* Styles for the live-mode text */
         .live-toggle-button span:last-child {
             position: absolute;
             top: 50%;
@@ -613,6 +628,7 @@
             z-index: 1;
         }
         
+        /* On hover effects */
         .live-toggle-button:hover {
             box-shadow: 0 0 0 3px #00D6E360;  /* Slightly smaller shadow */
             background-color: #007b83;  /* Darken on hover */
@@ -623,19 +639,14 @@
             transform: scale(0.95);  /* Scale effect on active */
         }
         
-        .live-toggle-button:hover span:last-child {
-            width: 100px;  /* Smaller expansion */
-            height: 100px;  /* Smaller expansion */
-            opacity: 1;
+        /* Static mode (default state) */
+        .live-toggle-button.static-mode {
+            background-color: #b0b0b0; /* Gray color for static mode */
         }
         
-        /* Optional: Style the "live" or "static" state of the button */
-        .live-toggle-button.active {
-            background-color: #00a2af;  /* Different color for "live mode" */
-        }
-        
+        /* Optional: If you want the button to show a static state with different styling */
         .live-toggle-button.inactive {
-            background-color: #b0b0b0;  /* Different color for "static mode" */
+            background-color: #b0b0b0;  /* Different color for static mode */
         }
 
         /*---------------------------------- SIDEBAR ----------------------------------*/      
