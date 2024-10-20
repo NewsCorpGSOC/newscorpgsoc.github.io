@@ -796,7 +796,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // Save scroll position before modifying the DOM
     const scrollTopBefore = feedsContainer.scrollTop;
-  
+    let contentHeightBefore = feedsContainer.scrollHeight; // Get the height before adding new items
+
     requestAnimationFrame(() => {
       const fragment = document.createDocumentFragment(); // Fragment to improve performance
       const feedsToLoad = feeds.slice(currentlyDisplayedFeeds, currentlyDisplayedFeeds + feedsBatchSize);
@@ -901,13 +902,16 @@ document.addEventListener('DOMContentLoaded', async () => {
         feedItem.style.position = 'relative';  // Ensure feed item has relative positioning
         feedItem.appendChild(exportIcon);  // Append the icon directly to the feed item
         feedItem.classList.add('fade-in');
-        fragment.appendChild(feedItem);
+        fragment.prepend(feedItem);
       });
   
-      feedsContainer.appendChild(fragment); // Append the fragment to the correct container
+      // Prepend the new feeds to the top of the feed container
+      feedsContainer.prepend(fragment); // Prepend the fragment to the top of the feed container
       currentlyDisplayedFeeds += feedsToLoad.length;
 
-      feedsContainer.scrollTop = scrollTopBefore;
+      // Adjust scroll position to prevent jumping
+      const contentHeightAfter = feedsContainer.scrollHeight;
+      feedsContainer.scrollTop = scrollTopBefore + (contentHeightAfter - contentHeightBefore); // Adjust for new items added at the top
     
       // Update the feed count overlay
       const feedCountOverlay = document.getElementById('feed-count-overlay');
