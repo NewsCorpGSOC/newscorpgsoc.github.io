@@ -91,6 +91,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   const toggleLiveModeButton = document.querySelector('.live-toggle-button'); // Select the button by its class
   const toggleLiveModeText = toggleLiveModeButton.querySelector('span:first-child'); // Select the first span for text
   let hasFetchedOnLiveToggle = false; // Track if `fetchNewFeeds` has been triggered on live mode toggle
+  let fetchIntervalID; // Store the interval ID to avoid setting multiple intervals
 
   console.log("DOM fully loaded and parsed");
 
@@ -606,7 +607,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                   hasFetchedOnLiveToggle = true;  // Set flag to true so this only runs once per live toggle
               }
 
-              fetchFeedsSequentially(); // Restart regular fetching if switched back to live mode
+              if (!fetchIntervalID) {
+                  fetchFeedsSequentially(); // Restart regular fetching if switched back to live mode
+              }
           } else {
               toggleLiveModeText.textContent = 'Switch to Live Mode';  // Update the text in the first span
               toggleLiveModeButton.classList.remove('live-mode');  // Remove live-mode class
@@ -623,6 +626,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       if (isLiveMode) {
           toggleLiveModeButton.classList.add('live-mode');
           toggleLiveModeText.textContent = 'Switch to Static Mode';
+          fetchFeedsSequentially(); // Start fetching immediately when the page loads in live mode
       }
 
       // Add event listener to toggle live/static mode when button is clicked
@@ -632,10 +636,15 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
   async function fetchFeedsSequentially() {
+    if (fetchIntervalID) {
+      clearInterval(fetchIntervalID);  // Clear any existing interval to avoid duplicate intervals
+    }
+
     if (!isLiveMode) {
       console.log('Static Mode: Fetching paused');
       return; // Don't fetch feeds if in static mode
     }
+
     const interval = 3000; // 3 seconds interval
   
     const priorityIntervals = {
@@ -658,20 +667,19 @@ document.addEventListener('DOMContentLoaded', async () => {
     feedItems.sort((a, b) => b.pubDate - a.pubDate);
     displayFeeds();
   
-    // Schedule periodic fetching of RSS feeds
-    rssFeeds.forEach((feed) => {
-      const fetchInterval = priorityIntervals[feed.priorityLevel] || 180000; // Default to 3 minutes if not specified
-  
-      setInterval(() => {
-        if (isLiveMode) {
+    // Schedule periodic fetching of RSS feeds (Only set interval once)
+    fetchIntervalID = setInterval(() => {
+      if (isLiveMode) {
+        rssFeeds.forEach(feed => {
+          const fetchInterval = priorityIntervals[feed.priorityLevel] || 180000; // Default to 3 minutes if not specified
           console.log(`Periodic fetch for ${feed.source}`);
           fetchFeedAndUpdate(feed);
-        }
-      }, fetchInterval);
-    });
-  
+        });
+      }
+    }, interval);
+
     // Fetch TSV files periodically
-    setInterval(async () => {
+    fetchIntervalID = setInterval(async () => {
       if (isLiveMode) {
         const tsvFeedItems = await fetchTSVFiles();
         feedItems = [...feedItems.filter(item => !tsvFeedItems.find(tsvItem => tsvItem.title === item.title)), ...tsvFeedItems];
@@ -679,7 +687,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         console.log('Combined Feed Items:', feedItems); // Log combined feed items for debugging
         displayFeeds();
       }
-    }, 60000); // Fetch TSV files every 3 minutes
+    }, 60000); // Fetch TSV files every 1 minute
   }
 
   async function fetchNewFeeds() {
