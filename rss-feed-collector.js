@@ -89,6 +89,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   let isFetchingFeeds = false; // Debounce flag
   let isLiveMode = true; // Start in live mode
   const toggleLiveModeButton = document.querySelector('.live-toggle-button'); // Select the button by its class
+  const toggleLiveModeText = toggleLiveModeButton.querySelector('span:first-child'); // Select the first span for text
 
   console.log("DOM fully loaded and parsed");
 
@@ -592,22 +593,22 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (toggleLiveModeButton) {
       function toggleLiveMode() {
           isLiveMode = !isLiveMode;
-  
+
           if (isLiveMode) {
-              toggleLiveModeButton.textContent = 'Switch to Static Mode';
+              toggleLiveModeText.textContent = 'Switch to Static Mode';  // Update the text in the first span
               toggleLiveModeButton.classList.add('live-mode');  // Add live-mode class for the gradient animation
               toggleLiveModeButton.classList.remove('static-mode');  // Remove static-mode class
               fetchFeedsSequentially(); // Restart fetching if switched back to live mode
               fetchNewFeeds();  // Fetch new feeds immediately
           } else {
-              toggleLiveModeButton.textContent = 'Switch to Live Mode';
+              toggleLiveModeText.textContent = 'Switch to Live Mode';  // Update the text in the first span
               toggleLiveModeButton.classList.remove('live-mode');  // Remove live-mode class
               toggleLiveModeButton.classList.add('static-mode');  // Add static-mode class
           }
-  
+
           console.log(`Live Mode: ${isLiveMode}`);
       }
-  
+
       // Add event listener to toggle live/static mode when button is clicked
       toggleLiveModeButton.addEventListener('click', toggleLiveMode);
   } else {
