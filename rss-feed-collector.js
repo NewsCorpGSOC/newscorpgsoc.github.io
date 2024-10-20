@@ -87,6 +87,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   let feedsObserver; // Intersection observer to handle lazy loading
   let searchFilteredFeeds = []; // Global variable to store filtered feeds
   let isFetchingFeeds = false; // Debounce flag
+  let isLiveMode = true; // Start in live mode
+  const toggleLiveModeButton = document.getElementById('toggleLiveMode');
 
   console.log("DOM fully loaded and parsed");
 
@@ -587,7 +589,26 @@ document.addEventListener('DOMContentLoaded', async () => {
     return Array.from(uniqueItems.values());
   }
 
+  // Function to toggle between live mode and static mode
+  function toggleLiveMode() {
+    isLiveMode = !isLiveMode;
+    if (isLiveMode) {
+      toggleLiveModeButton.textContent = 'Switch to Static Mode';
+      fetchFeedsSequentially(); // Restart fetching if switched back to live mode
+    } else {
+      toggleLiveModeButton.textContent = 'Switch to Live Mode';
+    }
+    console.log(`Live Mode: ${isLiveMode}`);
+  }
+
+  // Add event listener to toggle live/static mode when button is clicked
+  toggleLiveModeButton.addEventListener('click', toggleLiveMode);
+
   async function fetchFeedsSequentially() {
+    if (!isLiveMode) {
+      console.log('Static Mode: Fetching paused');
+      return; // Don't fetch feeds if in static mode
+    }
     const interval = 3000; // 3 seconds interval
   
     const priorityIntervals = {
@@ -613,21 +634,24 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Schedule periodic fetching of RSS feeds
     rssFeeds.forEach((feed) => {
       const fetchInterval = priorityIntervals[feed.priorityLevel] || 180000; // Default to 3 minutes if not specified
-      console.log(`Scheduling fetch for ${feed.source} with interval of ${fetchInterval} ms`);
   
       setInterval(() => {
-        console.log(`Periodic fetch for ${feed.source}`);
-        fetchFeedAndUpdate(feed);
+        if (isLiveMode) {
+          console.log(`Periodic fetch for ${feed.source}`);
+          fetchFeedAndUpdate(feed);
+        }
       }, fetchInterval);
     });
   
     // Fetch TSV files periodically
     setInterval(async () => {
-      const tsvFeedItems = await fetchTSVFiles();
-      feedItems = [...feedItems.filter(item => !tsvFeedItems.find(tsvItem => tsvItem.title === item.title)), ...tsvFeedItems];
-      feedItems.sort((a, b) => b.pubDate - a.pubDate); // Sort by date, newest first
-      console.log('Combined Feed Items:', feedItems); // Log combined feed items for debugging
-      displayFeeds();
+      if (isLiveMode) {
+        const tsvFeedItems = await fetchTSVFiles();
+        feedItems = [...feedItems.filter(item => !tsvFeedItems.find(tsvItem => tsvItem.title === item.title)), ...tsvFeedItems];
+        feedItems.sort((a, b) => b.pubDate - a.pubDate); // Sort by date, newest first
+        console.log('Combined Feed Items:', feedItems); // Log combined feed items for debugging
+        displayFeeds();
+      }
     }, 60000); // Fetch TSV files every 3 minutes
   }
 
