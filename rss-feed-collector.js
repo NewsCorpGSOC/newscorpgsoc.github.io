@@ -590,21 +590,28 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
   if (toggleLiveModeButton) {
-    function toggleLiveMode() {
-      isLiveMode = !isLiveMode;
-      if (isLiveMode) {
-        toggleLiveModeButton.textContent = 'Switch to Static Mode';
-        fetchFeedsSequentially(); // Restart fetching if switched back to live mode
-      } else {
-        toggleLiveModeButton.textContent = 'Switch to Live Mode';
+      function toggleLiveMode() {
+          isLiveMode = !isLiveMode;
+  
+          if (isLiveMode) {
+              toggleLiveModeButton.textContent = 'Switch to Static Mode';
+              toggleLiveModeButton.classList.add('live-mode');  // Add live-mode class for the gradient animation
+              toggleLiveModeButton.classList.remove('static-mode');  // Remove static-mode class
+              fetchFeedsSequentially(); // Restart fetching if switched back to live mode
+              fetchNewFeeds();  // Fetch new feeds immediately
+          } else {
+              toggleLiveModeButton.textContent = 'Switch to Live Mode';
+              toggleLiveModeButton.classList.remove('live-mode');  // Remove live-mode class
+              toggleLiveModeButton.classList.add('static-mode');  // Add static-mode class
+          }
+  
+          console.log(`Live Mode: ${isLiveMode}`);
       }
-      console.log(`Live Mode: ${isLiveMode}`);
-    }
-
-    // Add event listener to toggle live/static mode when button is clicked
-    toggleLiveModeButton.addEventListener('click', toggleLiveMode);
+  
+      // Add event listener to toggle live/static mode when button is clicked
+      toggleLiveModeButton.addEventListener('click', toggleLiveMode);
   } else {
-    console.error("Toggle Live Mode button not found in the DOM.");
+      console.error("Toggle Live Mode button not found in the DOM.");
   }
 
   async function fetchFeedsSequentially() {
