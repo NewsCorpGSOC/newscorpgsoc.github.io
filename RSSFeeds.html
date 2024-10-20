@@ -578,6 +578,66 @@
           display: inline-block; /* Make sure the button is over the image */
         }
 
+        /* Thinner style for the Live Mode toggle button */
+        .live-toggle-button {
+            position: relative;
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #00D6E3;
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: bold;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            outline: none;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .live-toggle-button span:last-child {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 10px;  /* Thinner circle */
+            height: 10px;  /* Thinner circle */
+            background-color: #ffffff;
+            border-radius: 50%;
+            opacity: 0;
+            transition: all 0.8s cubic-bezier(0.23, 1, 0.320, 1);
+        }
+        
+        .live-toggle-button span:first-child {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .live-toggle-button:hover {
+            box-shadow: 0 0 0 3px #00D6E360;  /* Slightly smaller shadow */
+            background-color: #007b83;  /* Darken on hover */
+            color: #ffffff;
+        }
+        
+        .live-toggle-button:active {
+            transform: scale(0.95);  /* Scale effect on active */
+        }
+        
+        .live-toggle-button:hover span:last-child {
+            width: 100px;  /* Smaller expansion */
+            height: 100px;  /* Smaller expansion */
+            opacity: 1;
+        }
+        
+        /* Optional: Style the "live" or "static" state of the button */
+        .live-toggle-button.active {
+            background-color: #00a2af;  /* Different color for "live mode" */
+        }
+        
+        .live-toggle-button.inactive {
+            background-color: #b0b0b0;  /* Different color for "static mode" */
+        }
+
         /*---------------------------------- SIDEBAR ----------------------------------*/      
         #sidebar {
             display: flex;
@@ -1250,7 +1310,10 @@
               	    </div>
               	  
               	    <div class="filter-container">
-                        <button id="toggleLiveMode">Switch to Static Mode</button>
+                        <button class="live-toggle-button inactive">
+                            <span>Static Mode</span>
+                            <span></span>
+                        </button>
                         <div class="volume-slider-container">
                             <label for="volumeSlider">Ping Volume:</label>
                             <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="1">
