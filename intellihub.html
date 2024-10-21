@@ -27,54 +27,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/date-fns@3.6.0/cdn.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // Dropdown hover handling
-            const handleDropdownHover = function() {
-                if (window.innerWidth > 768) {
-                    $(this).find('.dropdown-menu').first().stop(true, true).slideDown();
-                }
-            };
-        
-            const handleDropdownHoverOut = function() {
-                if (window.innerWidth > 768) {
-                    $(this).find('.dropdown-menu').first().stop(true, true).slideUp();
-                }
-            };
-        
-            $('.nav-item.dropdown').hover(handleDropdownHover, handleDropdownHoverOut);
-            $('.dropdown-submenu').hover(handleDropdownHover, handleDropdownHoverOut);
-        
-            // Prevent dropdown from closing on click inside
-            $('.dropdown-menu').click(function(e) {
-                e.stopPropagation();
-            });
-        
-            // Fade effect on page load and link click
-            const elementsToFade = document.querySelectorAll('.fade');
-        
-            // Apply fade-in on page load
-            setTimeout(function() {
-                elementsToFade.forEach(el => el.classList.add('visible'));
-            }, 10);
-        
-            // Handle fade-out on link click
-            $("a").click(function(event) {
-                if (this.target === "_blank") {
-                    return;
-                }
-        
-                event.preventDefault();
-                var linkLocation = this.href;
-                elementsToFade.forEach(el => el.classList.remove('visible'));
-                elementsToFade.forEach(el => el.classList.add('fade-out'));
-        
-                setTimeout(function() {
-                    window.location = linkLocation;
-                }, 1000); // Adjust the delay to match the fade-out duration
-            });
-        });
-    </script>
+    <script src="background.js"></script>
     <script>
         async function fetchTSV() {
             const response = await fetch('NewsCorpGSOCIntellifeed/updates.tsv');
