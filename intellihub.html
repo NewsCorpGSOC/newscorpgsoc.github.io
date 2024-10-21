@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Corp Intellihub</title>
+    
+    <script src="accessControl.js"></script>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+    <link rel="manifest" href="icons/site.webmanifest">
+    <link rel="mask-icon" href="icons/safari-pinned-tab.svg" color="#00d6e3">
+    <link rel="shortcut icon" href="icons/favicon.ico">
+    <meta name="msapplication-TileColor" content="#00d6e3">
+    <meta name="msapplication-config" content="icons/browserconfig.xml">
+    <meta name="theme-color" content="#00d6e3">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="intellihubstyles.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/date-fns@3.6.0/cdn.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Dropdown hover handling
+            const handleDropdownHover = function() {
+                if (window.innerWidth > 768) {
+                    $(this).find('.dropdown-menu').first().stop(true, true).slideDown();
+                }
+            };
+        
+            const handleDropdownHoverOut = function() {
+                if (window.innerWidth > 768) {
+                    $(this).find('.dropdown-menu').first().stop(true, true).slideUp();
+                }
+            };
+        
+            $('.nav-item.dropdown').hover(handleDropdownHover, handleDropdownHoverOut);
+            $('.dropdown-submenu').hover(handleDropdownHover, handleDropdownHoverOut);
+        
+            // Prevent dropdown from closing on click inside
+            $('.dropdown-menu').click(function(e) {
+                e.stopPropagation();
+            });
+        
+            // Fade effect on page load and link click
+            const elementsToFade = document.querySelectorAll('.fade');
+        
+            // Apply fade-in on page load
+            setTimeout(function() {
+                elementsToFade.forEach(el => el.classList.add('visible'));
+            }, 10);
+        
+            // Handle fade-out on link click
+            $("a").click(function(event) {
+                if (this.target === "_blank") {
+                    return;
+                }
+        
+                event.preventDefault();
+                var linkLocation = this.href;
+                elementsToFade.forEach(el => el.classList.remove('visible'));
+                elementsToFade.forEach(el => el.classList.add('fade-out'));
+        
+                setTimeout(function() {
+                    window.location = linkLocation;
+                }, 1000); // Adjust the delay to match the fade-out duration
+            });
+        });
+    </script>
+    <script>
+        async function fetchTSV() {
+            const response = await fetch('NewsCorpGSOCIntellifeed/updates.tsv');
+            const tsvData = await response.text();
+
+            const rows = tsvData.split('\n').map(row => row.split('\t'));
+            displayFeeds(rows);
+        }
+
+        function displayFeeds(feeds) {
+            const feedsContainer = document.getElementById('feeds');
+            feedsContainer.innerHTML = ''; // Clear existing content
+
+            feeds.forEach(feed => {
+                if (feed.length < 10) return; // Skip incomplete rows
+                const [timestamp, topic, description, imageLink, sourceReliability, infoReliability, topics, sources, analyst, profileImage] = feed;
+
+                const feedItem = document.createElement('div');
+                feedItem.className = 'feed-item';
+                feedItem.innerHTML = `
+                    <div class="credibility-container">${sourceReliability}</div>
+                    <div class="feed-content">
+                        <h2>${topic}</h2>
+                        <p>${description}</p>
+                        ${imageLink ? `<img src="${imageLink}" alt="Image" style="max-width:100%">` : ''}
+                        <p>Source Reliability: ${sourceReliability}</p>
+                        <p>Info Reliability: ${infoReliability}</p>
+                        <p>Topics: ${topics}</p>
+                        <p>Reporting Analyst: <a href="about-${analyst}.html"><img src="${profileImage}" style="border-radius: 50%; width: 50px;"> ${analyst}</a></p>
+                    </div>
+                `;
+                feedsContainer.appendChild(feedItem);
+            });
+        }
+
+        setInterval(fetchTSV, 30000); // Fetch updates every 30 seconds
+        window.onload = fetchTSV; // Fetch updates on page load
+    </script>
+</head>
+<body>
+    <div class="world-map-background"></div>
+    <div class="day-and-night-background"></div>
+    <div class="nightlights_background"></div>
+    <div id="content">
+        <!-- Navbar -->
+        <div class="header">
+            <!-- Logo -->
+            <div class="logo">
+                <a class="navbar-brand" href="index.html">
+                    <img src="icons/NewGSOCLogoBordered_White.png" alt="Your Logo" width="125" class="d-inline-block align-top">
+                </a>
+            </div>
+            <!-- Title -->
+            <h1 class="header-title">News Corp Intellihub</h1>
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <div class="navbar-buttons">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a href="intellihubinputs.html" class="animated-button">Intellihub Inputs<span></span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="intellihub.html" class="animated-button">Intellihub<span></span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="RSSFeeds.html" class="animated-button">News Corp GSOC Intelifeed<span></span></a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="animated-button dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" aria-haspopup="true" aria-expanded="false">
+                                    GSOC SOPs
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="https://docs.google.com/document/d/1QgCk9qFH2U3x0BN3e3YF7tlcey5eNPQIk4SZGAWJLLQ/edit" target="_blank">GPM 01.01</a>
+                                    <a class="dropdown-item" href="GPM_02_01.html" target="_blank">GPM 02.01</a>
+                                    <a class="dropdown-item" href="GPM_02_02.html" target="_blank">GPM 02.02</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                <!-- Sidebar -->
+                <div class="sidebar" id="sidebar">
+                    <!-- Sidebar content -->
+                    <nav class="d-flex flex-column">
+                        <ul class="nav flex-column">
+                            <li class="sidebar-nav-item">
+                                <a href="#" class="sidebar-button">
+                                    <span class="sidebar-text">Conflict & Security Maps</span>
+                                    <svg class="sidebar-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#282828" d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM281 385c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l71-71L136 280c-13.3 0-24-10.7-24-24s10.7-24 24-24l182.1 0-71-71c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L393 239c9.4 9.4 9.4 24.6 0 33.9L281 385z"/></svg>
+                                </a>
+                                <div class="sidebar-dropdown">
+                                    <a href="mena-map.html">MENA Map</a>
+                                    <a href="global-map.html">Global Map</a>
+                                    <a href="RNCMap.html">RNC Map</a>
+                                    <a href="google-earth-assets-map.html">Google Earth Assets Map</a>
+                                    <a href="NYCWebCams.html">NYC Streetcams</a>
+                                </div>
+                            </li>
+                            <li class="sidebar-nav-item">
+                                <div class="sidebar-button">
+                                    <span class="sidebar-text">Daily Operations</span>
+                                    <svg class="sidebar-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#282828" d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM281 385c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l71-71L136 280c-13.3 0-24-10.7-24-24s10.7-24 24-24l182.1 0-71-71c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L393 239c9.4 9.4 9.4 24.6 0 33.9L281 385z"/></svg>
+                                </div>
+                                <div class="sidebar-dropdown">
+                                    <a href="https://docs.google.com/spreadsheets/d/1szW9dkl5YuBmwLu2U21dl-GTlbVVepuDX58WWhsvMDA/edit#gid=0" target="_blank">UKR NC Personnel (Vismo)</a>
+                                    <a href="https://docs.google.com/spreadsheets/d/1u8ybGZnVho6Q_C1a7tSNJUaKTn9gRTbK5PnZfABWV1o/edit?gid=1687500248#gid=1687500248" target="_blank">UKR High-Risk Operations Order</a>
+                                    <a href="https://docs.google.com/spreadsheets/d/1rw3_CVfQ1J9jG9-wP5Uk3n1C-eyIiyOEDhMDohJBgJU/edit?gid=1687500248#gid=1687500248" target="_blank">ISR High-Risk Operations Order</a>
+                                    <a href="https://docs.google.com/spreadsheets/d/13lyyUAzWv-A19vxsyx-IooVMdlW4oqR1Jz3mSUOh7ig/edit?gid=526051594#gid=526051594" target="_blank">Daily High Risk Check-in Sheets</a>
+                                    <a href="https://docs.google.com/spreadsheets/d/1fUKN-duu2alxozyCUNMCS6Xoqtcl9qASSQ5EkhXZ9aQ/edit?gid=373092647#gid=373092647" target="_blank">CIS TASKS: Daily Check Ins (Generative)</a>
+                                </div>
+                            </li>
+                            <li class="sidebar-nav-item">
+                                <a href="onboarding.html" class="sidebar-button">
+                                    <span class="sidebar-text">Onboarding</span>
+                                    <svg class="sidebar-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#282828" d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM281 385c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l71-71L136 280c-13.3 0-24-10.7-24-24s10.7-24 24-24l182.1 0-71-71c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L393 239c9.4 9.4 9.4 24.6 0 33.9L281 385z"/></svg>
+                                </a>
+                            </li>
+                            <li class="sidebar-nav-item">
+                                <a href="emergency-response-los-angeles.html" class="sidebar-button">
+                                    <span class="sidebar-text">Emergency Response L.A.</span>
+                                    <svg class="sidebar-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#282828" d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM281 385c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l71-71L136 280c-13.3 0-24-10.7-24-24s10.7-24 24-24l182.1 0-71-71c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L393 239c9.4 9.4 9.4 24.6 0 33.9L281 385z"/></svg>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+              	<div class="connection-container">
+                    <h2>Source Connectivity</h2>
+                    <div id="source-count">Total Sources Displayed: 0</div> <!-- Tally for sources -->
+                    <div id="statusContainer"></div>
+                </div>
+                    
+                <div class="container">
+              	    <div class="feed-container" id="feeds-container">
+                        <div id="feed-count-overlay" class="feed-count-overlay">Total Feed Items Displayed: 0</div>
+              	        <div class="loading-overlay" id="loading-overlay">Loading...</div>
+              	            <h1>News Corp GSOC Intelifeed</h1>
+              	        <div id="feeds"></div>
+              	    </div>
+              	  
+              	    <div class="filter-container">
+                        <button id="toggleLiveMode" class="live-toggle-button inactive">
+                            <span>Switch to Static Mode</span>
+                            <span></span>
+                        </button>
+                        <div class="volume-slider-container">
+                            <label for="volumeSlider">Ping Volume:</label>
+                            <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="1">
+                        </div>
+                        
+                        <div class="legend-container">
+                          <h2>Feed Background Legend</h2>
+                          <div class="legend-item">
+                            <span class="color-box" style="background-color: #203050;"></span> Default
+                          </div>
+                          <div class="legend-item">
+                            <span class="color-box" style="background-color: #545f38;"></span> Weather
+                          </div>
+                          <div class="legend-item">
+                            <span class="color-box" style="background-color: #4a1f7b;"></span> Protests
+                          </div>
+                          <div class="legend-item">
+                            <span class="color-box" style="background-color: #205028;"></span> Russia-Ukraine Conflict
+                          </div>
+                          <div class="legend-item">
+                            <span class="color-box" style="background-color: #166e84;"></span> Israel-Hamas Conflict
+                          </div>
+                          <div class="legend-item">
+                            <span class="color-box" style="background-color: #6bae97;"></span> Israel-Hezbollah Conflict
+                          </div>
+                          <div class="legend-item">
+                            <span class="color-box" style="background-color: #6e4334;"></span> MENA Regional Tensions
+                          </div>
+                          <div class="legend-item">
+                            <span class="color-box" style="background-color: #632238;"></span> China & APAC Tensions
+                          </div>
+                          <div class="legend-item">
+                            <span class="color-box" style="background-color: #502020;"></span> DPRK & Korean Peninsula
+                          </div>
+                        </div>
+                        
+              	        <div class="filter-bar">
+                            <div class="credibility-filter">
+                                <label>Credibility Filter:</label>
+                                <label><input type="checkbox" id="credibleFilter" checked> ✅ Credible</label>
+                                <label><input type="checkbox" id="dubiousFilter" checked> ⚠️ Dubious</label>
+                                <label><input type="checkbox" id="requiresVerificationFilter" checked> 🛑 Requires Verification</label>
+                            </div>
+                          
+                            <label for="timezoneSelector">Select Timezone:</label>
+                            <select id="timezoneSelector">
+                              <option value="Pacific Time">Pacific Time</option>
+                              <option value="Mountain Time">Mountain Time</option>
+                              <option value="Central Time">Central Time</option>
+                              <option value="Eastern Time">Eastern Time</option>
+                            </select>
+                            
+                            <label for="timelineFilter">Timeline Filter:</label>
+              	            <select id="timelineFilter">
+              	                <option value="lastHour">Last Hour</option>
+                      	        <option value="last12Hours">Last 12 Hours</option>
+                      	        <option value="lastDay">Last Day</option>
+                      	        <option value="all">All</option>
+                    	      </select>
+                            
+                            <div class="topic-filter">
+                                <label>Topic Filter:</label>
+                                <label><input type="checkbox" id="topicRussia" value="Russia"> Russia-Ukraine Conflict</label>
+                                <label><input type="checkbox" id="topicIsrael" value="Israel"> Israel-Hamas Conflict</label>
+                                <label><input type="checkbox" id="topicHezbollah" value="Hezbollah"> Israel-Hezbollah Conflict</label>
+                                <label><input type="checkbox" id="topicMENA" value="MENA"> MENA Regional Tensions</label>
+                                <label><input type="checkbox" id="topicProtests" value="Protests"> Protests</label>
+                                <label><input type="checkbox" id="topicWeather" value="Weather"> Weather</label>
+                                <label><input type="checkbox" id="topicChinaAPAC" value="China & APAC Tensions"> China & APAC Tensions</label>
+                                <label><input type="checkbox" id="topicNorthKorea" value="North Korea"> DPRK & Korea Tensions</label>
+                            </div>
+                	
+                            <label for="searchInput">
+                              Search: 
+                              <span class="tooltip">
+                                ?
+                                <span class="tooltiptext">This search bar supports the "AND" and "OR" search operators. To use, simply type the search term followed by the operator and the second search term. If you would like to see articles that refer to both Israel and Saudi Arabia, you would type: Israel AND "Saudi Arabia". Note the usage of quotation marks around search terms that are more than one word long.</span>
+                              </span>
+                            </label>
+                            <input type="text" id="searchInput" placeholder="Search...">
+                	
+                    	      <label>Source Filter:</label>
+                    	      <button id="toggleSourceFilter" class="btn btn-secondary">Toggle Source Filter</button>
+                    	      <div id="sourceFilterContainer" style="display: none; max-height: 300px; overflow-y: auto;">
+                    	        <!-- Checkboxes will be dynamically added here -->
+                    	      </div>
+                            <p>Version 1.0.31 | Last Updated 20 Oct 2024</p>
+                            
+                  	  </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer -->
+        <footer class="text-center py-3" style="background-color: #002060; color: white;">
+            <p>&copy; Tanner Porter | 2024 NewsCorp GSOC Intranet</p>
+        </footer>
+    </div>
+</body>
+</html>
