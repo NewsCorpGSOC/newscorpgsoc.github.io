@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Update</title>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        async function submitUpdate() {
+            // Collect form data
+            const formData = {
+                topic: document.getElementById('topic').value,
+                description: document.getElementById('description').value,
+                imageLink: document.getElementById('imageLink').value,
+                sourceReliability: document.getElementById('sourceReliability').value,
+                infoReliability: document.getElementById('infoReliability').value,
+                topics: Array.from(document.getElementById('topics').selectedOptions).map(option => option.value).join(', '),
+                sources: document.getElementById('sources').value,
+                analyst: document.getElementById('analyst').value,
+                profileImage: document.getElementById('profileImage').value
+            };
+
+            // Convert form data to TSV row
+            const tsvRow = `${new Date().toISOString()}\t${formData.topic}\t${formData.description}\t${formData.imageLink}\t${formData.sourceReliability}\t${formData.infoReliability}\t${formData.topics}\t${formData.sources}\t${formData.analyst}\t${formData.profileImage}\n`;
+
+            // Append the row to the TSV file (this assumes a server-side mechanism is in place)
+            await fetch('/path/to/your/append-tsv-endpoint', {
+                method: 'POST',
+                body: tsvRow
+            });
+
+            alert('Update submitted successfully!');
+        }
+    </script>
+</head>
+<body>
+    <div class="world-map-background fade"></div>
+    <div class="day-and-night-background fade"></div>
+    <div class="nightlights_background fade"></div>
+    <div id="content">
+        <div class="container-fluid">
+            <div class="row">
+                <main class="primary fade">
+                    <div class="main-content">
+                        <h1>Submit News Update</h1>
+                        <form onsubmit="submitUpdate(); return false;">
+                            <div class="form-group">
+                                <label for="topic">Topic:</label>
+                                <input type="text" class="form-control" id="topic" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="description">Description:</label>
+                                <textarea class="form-control" id="description" required></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="imageLink">Image Link:</label>
+                                <input type="url" class="form-control" id="imageLink">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="sourceReliability">Source Reliability:</label>
+                                <select class="form-control" id="sourceReliability" required>
+                                    <option>Reliable</option>
+                                    <option>Usually Reliable</option>
+                                    <option>Fairly Reliable</option>
+                                    <option>Not Usually Reliable</option>
+                                    <option>Unreliable</option>
+                                    <option>Cannot be Judged</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="infoReliability">Information Reliability:</label>
+                                <select class="form-control" id="infoReliability" required>
+                                    <option>Confirmed</option>
+                                    <option>Probably True</option>
+                                    <option>Possibly True</option>
+                                    <option>Doubtfully True</option>
+                                    <option>Improbable</option>
+                                    <option>Cannot be Judged</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="topics">Topics (Select Multiple):</label>
+                                <select class="form-control" id="topics" multiple required>
+                                    <option>General</option>
+                                    <option>Weather</option>
+                                    <option>Protests</option>
+                                    <option>Russia-Ukraine Conflict</option>
+                                    <option>Israel-Hamas Conflict</option>
+                                    <option>Israel-Hezbollah Conflict</option>
+                                    <option>MENA Regional Tensions</option>
+                                    <option>China & APAC Tensions</option>
+                                    <option>DPRK & Korean Peninsula</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="sources">Source(s):</label>
+                                <input type="text" class="form-control" id="sources" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="analyst">Reporting Analyst:</label>
+                                <input type="text" class="form-control" id="analyst" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="profileImage">Profile Image URL:</label>
+                                <input type="url" class="form-control" id="profileImage" required>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Submit Update</button>
+                        </form>
+                    </div>
+                </main>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="text-center py-3" style="background-color: #002060; color: white;">
+            <p>&copy; Tanner Porter | 2024 NewsCorp GSOC Intranet</p>
+        </footer>
+    </div>
+</body>
+</html>
