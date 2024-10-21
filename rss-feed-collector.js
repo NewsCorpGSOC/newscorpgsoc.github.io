@@ -563,7 +563,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       'Taiwan Today': -3,
       'South China Morning Post (Alt)': -9,
       'The Federalist': -7,
-      'Walla': -1,
+      'Walla': -2,
       'International Atomic Energy Agency': -2,
     };
   
