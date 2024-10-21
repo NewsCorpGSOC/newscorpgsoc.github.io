@@ -90,7 +90,7 @@
 
             feeds.forEach(feed => {
                 if (feed.length < 10) return; // Skip incomplete rows
-                const [timestamp, topic, description, imageLink, sourceReliability, infoReliability, topics, sources, analyst, profileImage] = feed;
+                const [timestamp, title, description, imageLink, sourceReliability, infoReliability, topics, sources, analyst, profileImage] = feed;
 
                 const feedItem = document.createElement('div');
                 feedItem.className = 'feed-item';
