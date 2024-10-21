@@ -50,6 +50,27 @@
 
             alert('Update submitted successfully!');
         }
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById('analyst').addEventListener('change', function() {
+                const profileImages = {
+                    "Aidan Cron": "Aidan_Cron_profile.jpg",
+                    "Bianca Lagman": "Bianca_Lagman_profile.jpg",
+                    "Camila Pulido": "Camila_Pulido_profile.jpg",
+                    "Daniel Gunabe": "Daniel_Gunabe_profile.jpg",
+                    "Diana Galindo": "Diana_Galindo_profile.jpg",
+                    "Giovanna Arena": "Giovanna_Arena_profile.jpg",
+                    "Jacob Ormand": "Jacob_Ormand_profile.jpg",
+                    "Jordy Magallanes": "Jordy_Magallanes_profile.jpg",
+                    "Nathan Wu": "Nathan_Wu_profile.jpg",
+                    "Savannah Arana": "Savannah_Arana_profile.jpg",
+                    "Tanner Porter": "Tanner_Porter_profile.jpg",
+                    "Yuridia Gastelum": "Yuri_Gastelum_profile.jpg"
+                };
+                
+                const selectedAnalyst = this.value;
+                document.getElementById('profileImage').value = `/profileimages/${profileImages[selectedAnalyst]}`;
+            });
+        });
     </script>
 </head>
 <body>
@@ -214,14 +235,23 @@
                                 <input type="text" class="form-control" id="sources" required>
                             </div>
 
-                            <div class="form-group">
-                                <label for="analyst">Reporting Analyst:</label>
-                                <input type="text" class="form-control" id="analyst" required>
-                            </div>
+                            <select class="form-control" id="analyst" required>
+                                <option>Aidan Cron</option>
+                                <option>Bianca Lagman</option>
+                                <option>Camila Pulido</option>
+                                <option>Daniel Gunabe</option>
+                                <option>Diana Galindo</option>
+                                <option>Giovanna Arena</option>
+                                <option>Jacob Ormand</option>
+                                <option>Jordy Magallanes</option>
+                                <option>Nathan Wu</option>
+                                <option>Savannah Arana</option>
+                                <option>Tanner Porter</option>
+                                <option>Yuridia Gastelum</option>
+                            </select>
 
                             <div class="form-group">
-                                <label for="profileImage">Profile Image URL:</label>
-                                <input type="url" class="form-control" id="profileImage" required>
+                                <input type="hidden" id="profileImage" required>
                             </div>
 
                             <button type="submit" class="btn btn-primary">Submit Update</button>
