@@ -338,7 +338,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     { file: 'Yonhap.tsv', source: 'New Voice of UKR', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
     { file: 'Walla.tsv', source: 'Walla', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
     { file: 'NHC.tsv', source: 'National Hurricane Center', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
-    { file: 'KoreaTimesNews.tsv', source: 'Korea Times News', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] }
+    { file: 'KoreaTimesNews.tsv', source: 'Korea Times News', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'EurasianReview.tsv', source: 'Eurasian Review', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] }
   ];
 
   // List of sources with spoiler images
