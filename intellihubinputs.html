@@ -28,7 +28,7 @@
         async function submitUpdate() {
             // Collect form data
             const formData = {
-                topic: document.getElementById('topic').value,
+                title: document.getElementById('title').value,
                 description: document.getElementById('description').value,
                 imageLink: document.getElementById('imageLink').value,
                 sourceReliability: document.getElementById('sourceReliability').value,
@@ -185,8 +185,8 @@
                     <h1>Intellihub Updates Input</h1>
                     <form onsubmit="submitUpdate(); return false;">
                         <div class="form-group">
-                            <label for="topic">Topic:</label>
-                            <input type="text" class="form-control" id="topic" required>
+                            <label for="title">Title:</label>
+                            <input type="text" class="form-control" id="title" required>
                         </div>
 
                         <div class="form-group">
@@ -224,7 +224,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="topics">Topics (Select Multiple):</label>
+                            <label for="topics">Topics(s):</label>
                             <select class="form-control" id="topics" multiple required>
                                 <option>General</option>
                                 <option>Weather</option>
