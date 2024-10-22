@@ -176,7 +176,7 @@
                   <div class="feed-content">
                     <h2 style="text-align: center;">${feed['Title']}</h2>
                     <p>${feed['Description']}</p>
-                    ${feed['Image Link'] ? `<img src="${feed['Image Link']}" alt="Image" style="max-width:100%">` : ''}
+                    ${feed['Image Link'] ? `<img src="${feed['Image Link']}" alt="Image" class="feed-image">` : ''}
                     <p><strong>Published:</strong> ${pubDate.toLocaleString()}</p>
                     <p>Source Reliability: ${feed['Source Reliability']}</p>
                     <p>Info Reliability: ${feed['Information Reliability']}</p>
