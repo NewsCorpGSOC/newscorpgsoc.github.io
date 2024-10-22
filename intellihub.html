@@ -29,6 +29,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="background.js"></script>
     <script>
+        let latestFeedDate = new Date(); // Initialize to the current time when the page is first loaded
+        
         function formatAnalystUrl(analystName) {
             if (!analystName || analystName.trim() === '') {
                 return 'aboutme_Unknown.html'; // Fallback URL for missing or undefined analyst
@@ -157,7 +159,7 @@
             feedItems.forEach(feed => {
                 const pubDate = new Date(feed['Timestamp']);  // Assuming 'Timestamp' holds the published date
         
-                // Check if the item is new and only play sound if it's new
+                // Only play the sound if this is a new feed item (published after the page load)
                 if (pubDate > latestFeedDate) {
                     latestFeedDate = pubDate; // Update latest feed date
                     playSound('sounds/news-alert-notification.mp3', feed['Title']); // Play notification sound for new items
@@ -176,7 +178,7 @@
                   <div class="feed-content">
                     <h2 style="text-align: center;">${feed['Title']}</h2>
                     <p>${feed['Description']}</p>
-                    ${feed['Image Link'] ? `<img src="${feed['Image Link']}" alt="Image" class="feed-image">` : ''}
+                    ${feed['Image Link'] ? `<img src="${feed['Image Link']}" alt="Image" class="feed-image" style="height: 200px; border: 5px solid black; border-radius: 15px;">` : ''}
                     <p><strong>Published:</strong> ${pubDate.toLocaleString()}</p>
                     <p>Source Reliability: ${feed['Source Reliability']}</p>
                     <p>Info Reliability: ${feed['Information Reliability']}</p>
@@ -197,7 +199,7 @@
             });
         }
         
-        setInterval(fetchTSV, 30000); 
+        setInterval(fetchTSV, 30000); // Fetch updates every 30 seconds
         window.onload = fetchTSV;
     </script>
 </head>
