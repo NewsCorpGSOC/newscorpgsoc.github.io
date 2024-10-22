@@ -106,9 +106,56 @@
             }
         }
         
+        const topicKeywords = {
+            "Weather": { background: '#545f38', soundFile: 'sounds/weather-alert-notification.mp3' },
+            "Protests": { background: '#4a1f7b', soundFile: 'sounds/news-alert-notification.mp3' },
+            "Russia-Ukraine Conflict": { background: '#205028', soundFile: 'sounds/ukraine-notification-alert.mp3' },
+            "Israel-Hamas Conflict": { background: '#166e84', soundFile: 'sounds/israel-notification-alert.mp3' },
+            "Israel-Hezbollah Conflict": { background: '#6e4334', soundFile: 'sounds/news-alert-notification.mp3' },
+            "MENA Regional Tensions": { background: '#6e4334', soundFile: 'sounds/news-alert-notification.mp3' },
+            "China & APAC Tensions": { background: '#632238', soundFile: 'sounds/news-alert-notification.mp3' },
+            "DPRK & Korean Peninsula": { background: '#502020', soundFile: 'sounds/news-alert-notification.mp3' },
+            "Default": { background: '#203050', soundFile: 'sounds/news-alert-notification.mp3' }
+        };
+        
+        function applyTopicStyling(feed, element) {
+            let selectedSoundFile = 'sounds/news-alert-notification.mp3'; // Default sound
+            let matchedBackground = topicKeywords["Default"].background; // Default background
+        
+            // Loop through topics to find matches
+            for (const topic in topicKeywords) {
+                if (topicKeywords.hasOwnProperty(topic)) {
+                    const { background, soundFile } = topicKeywords[topic];
+                    if (feed['Topics'] && feed['Topics'].includes(topic)) {
+                        matchedBackground = background;
+                        selectedSoundFile = soundFile;
+                        break;
+                    }
+                }
+            }
+        
+            // Set the background color for the feed element
+            if (element) {
+                element.style.background = matchedBackground;
+            }
+        
+            // Play the appropriate sound for the topic
+            playSound(selectedSoundFile, feed['Title']);
+        }
+        
+        function playSound(soundFile, itemTitle) {
+            const audio = new Audio(soundFile);
+            audio.volume = 0.5;
+            audio.play().then(() => {
+                console.log(`Sound file ${soundFile} played successfully for item: ${itemTitle}.`);
+            }).catch(error => {
+                console.error('Error playing sound:', error);
+            });
+        }
+        
         function displayFeeds(feedItems) {
             const feedsContainer = document.getElementById('feeds');
-            feedsContainer.innerHTML = ''; 
+            feedsContainer.innerHTML = ''; // Clear existing content
         
             feedItems.forEach(feed => {
                 const feedItem = document.createElement('div');
@@ -135,6 +182,9 @@
                 `;
         
                 feedsContainer.appendChild(feedItem);
+        
+                // Apply the topic styling after the feed item is added to the DOM
+                applyTopicStyling(feed, feedItem);
         
                 requestAnimationFrame(() => {
                     feedItem.classList.add('fade-in');
