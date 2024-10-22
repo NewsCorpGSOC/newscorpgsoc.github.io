@@ -151,6 +151,18 @@
                 console.error('Error playing sound:', error);
             });
         }
+
+        function formatPubDate(pubDate) {
+            // Format date as "DD MMM YYYY, HH:MM:SS"
+            const day = String(pubDate.getDate()).padStart(2, '0');
+            const month = pubDate.toLocaleString('en', { month: 'short' });
+            const year = pubDate.getFullYear();
+            const hours = String(pubDate.getHours()).padStart(2, '0');
+            const minutes = String(pubDate.getMinutes()).padStart(2, '0');
+            const seconds = String(pubDate.getSeconds()).padStart(2, '0');
+        
+            return `${day} ${month} ${year}, ${hours}:${minutes}:${seconds}`;
+        }
         
         function displayFeeds(feedItems) {
             const feedsContainer = document.getElementById('feeds');
@@ -159,7 +171,6 @@
             feedItems.forEach(feed => {
                 const pubDate = new Date(feed['Timestamp']);  // Assuming 'Timestamp' holds the published date
         
-                // Only play the sound if this is a new feed item (published after the page load)
                 if (pubDate > latestFeedDate) {
                     latestFeedDate = pubDate; // Update latest feed date
                     playSound('sounds/news-alert-notification.mp3', feed['Title']); // Play notification sound for new items
@@ -173,17 +184,21 @@
                 const analystUrl = formatAnalystUrl(feed['Reporting Analyst']); 
                 const credibilityBackground = getReliabilityBackground(feed['Source Reliability']);
         
+                const sourceHtml = feed['Source(s)'] && feed['Source Link'] 
+                    ? `<a href="${feed['Source Link']}" target="_blank">${feed['Source(s)']}</a>` 
+                    : feed['Source(s)'] || 'No Source Available';
+        
                 feedItem.innerHTML = `
                   <div class="credibility-container" style="background-color: ${credibilityBackground};"></div> 
                   <div class="feed-content">
                     <h2 style="text-align: center;">${feed['Title']}</h2>
                     ${feed['Image Link'] ? `<img src="${feed['Image Link']}" alt="Image" class="feed-image">` : ''}
                     <p>${feed['Description']}</p>
+                    <p><strong>Source(s):</strong> ${sourceHtml}</p>
                     <p>Source Reliability: ${feed['Source Reliability']}</p>
                     <p>Info Reliability: ${feed['Information Reliability']}</p>
                     <p>Topics: ${feed['Topics']}</p>
                     <p><strong>Published:</strong> ${formatPubDate(pubDate)}</p>
-                    <!-- Overlay Container for Reporting Analyst -->
                     <div class="analyst-overlay">
                         ${profileImageHtml} <a href="${analystUrl}">${analystName}</a>
                     </div>
