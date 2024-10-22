@@ -186,6 +186,16 @@ h1, h2, h3 {
   position: relative; /* Needed to position the overlay inside */
 }
 
+/* Feed image styling */
+.feed-image {
+  height: 200px; /* Force height to 200px */
+  width: auto; /* Maintain aspect ratio */
+  border: 5px solid black; /* Black border */
+  border-radius: 15px; /* Rounded corners */
+  display: block; /* Ensure the image is a block-level element */
+  margin: 10px auto; /* Center the image horizontally */
+}
+
 .analyst-overlay {
   position: absolute;
   bottom: 10px;
