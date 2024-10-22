@@ -166,14 +166,42 @@ h1, h2, h3 {
   border: 2px solid #00d3e6; /* Border color */
   border-radius: 10px; /* Smooth corners */
   overflow: hidden;
-  opacity: 0; /* Initially hidden */
+  opacity: 0;
   transform: translateY(10px); /* Start slightly below */
   transition: background 0.3s ease; /* Smooth transition for background change */
+  position: relative; /* Ensures that the overlay is positioned correctly */
 }
 
 .feed-item.fade-in {
   opacity: 1; /* Fade in */
   transform: translateY(0); /* Move back to original position */
+}
+
+.feed-content {
+  flex: 8;
+  padding: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background: inherit;
+  position: relative; /* Needed to position the overlay inside */
+}
+
+.analyst-overlay {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+  padding: 5px 10px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 12px;
+  display: flex;
+  align-items: center; /* Ensures the text and image are aligned */
+}
+
+.analyst-overlay img {
+  margin-right: 5px;
+  border-radius: 50%; /* Circular image */
 }
 
 .credibility-container {
@@ -359,53 +387,6 @@ h1, h2, h3 {
   width: 100%;
 }
 
-/* Tooltip container */
-.tooltip {
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-  margin-left: 5px;
-  color: #007bff; /* Make the "?" symbol blue for visibility */
-  font-weight: bold;
-  font-size: 16px; /* Adjust font size if necessary */
-}
-
-/* Tooltip text */
-.tooltip .tooltiptext {
-  visibility: hidden;
-  width: 300px; /* Adjust width as needed */
-  background-color: #555;
-  color: #fff;
-  text-align: left; /* Align text to the left for readability */
-  border-radius: 5px;
-  padding: 10px;
-  position: absolute;
-  z-index: 1;
-  bottom: 125%; /* Position above the tooltip container */
-  left: 50%;
-  margin-left: -150px; /* Center the tooltip */
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-
-/* Tooltip arrow */
-.tooltip .tooltiptext::after {
-  content: '';
-  position: absolute;
-  top: 100%; /* Bottom of the tooltip */
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: #555 transparent transparent transparent;
-}
-
-/* Show the tooltip text when hovering */
-.tooltip:hover .tooltiptext {
-  visibility: visible;
-  opacity: 1;
-}
-
 .connection-container a {
   color: #fff;
 }
@@ -550,110 +531,6 @@ h1, h2, h3 {
   display: inline-block; /* Make sure the button is over the image */
 }
 
-/* Thinner style for the Live Mode toggle button */
-.live-toggle-button {
-    position: relative;
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #b0b0b0; /* Default color for static mode */
-    color: #ffffff;
-    font-size: 14px;
-    font-weight: bold;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    outline: none;
-    overflow: hidden;
-    transition: all 0.3s ease;
-}
-
-/* Animated gradient for live mode */
-.live-toggle-button.live-mode {
-    background: linear-gradient(270deg, #00D6E3, #007b83, #00a2af, #00D6E3);
-    background-size: 400% 400%;
-    animation: gradientAnimation 3s ease infinite; /* Infinite gradient animation */
-}
-
-/* Keyframes for the gradient animation */
-@keyframes gradientAnimation {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-/* Styles for the live-mode text */
-.live-toggle-button span:last-child {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 10px;  /* Thinner circle */
-    height: 10px;  /* Thinner circle */
-    background-color: #ffffff;
-    border-radius: 50%;
-    opacity: 0;
-    transition: all 0.8s cubic-bezier(0.23, 1, 0.320, 1);
-}
-
-.live-toggle-button span:first-child {
-    position: relative;
-    z-index: 1;
-}
-
-/* On hover effects */
-.live-toggle-button:hover {
-    box-shadow: 0 0 0 3px #00D6E360;  /* Slightly smaller shadow */
-    background-color: #007b83;  /* Darken on hover */
-    color: #ffffff;
-}
-
-.live-toggle-button:active {
-    transform: scale(0.95);  /* Scale effect on active */
-}
-
-/* Static mode (default state) */
-.live-toggle-button.static-mode {
-    background-color: #b0b0b0; /* Gray color for static mode */
-}
-
-/* Optional: If you want the button to show a static state with different styling */
-.live-toggle-button.inactive {
-    background-color: #b0b0b0;  /* Different color for static mode */
-}
-
-/*---------------------------------- SIDEBAR ----------------------------------*/      
-#sidebar {
-    display: flex;
-    flex: 1;
-    min-height: 81.35vh;
-    background: linear-gradient(to right, #193c80, rgba(64, 64, 64, 0));
-    border-right: 5px solid #333;
-    padding-top: 10px;
-    background-color: #002060;
-    color: black;
-    font-family: 'EB Garamond', serif;
-    flex: 0 0 350px;
-    overflow: visible; /* Change overflow to visible */
-}
-
-.nav-link {
-    color: black; /* Text color for the links */
-    background-color: #007bff;
-    padding: 10px 15px;
-    border-radius: 5px;
-    margin-bottom: 15px;
-    text-align: center;
-    display: block;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    font-family: 'EB Garamond', serif;
-    font-weight: bold;
-}
-
-.nav-link:hover {
-    background-color: #0056b3;
-    text-decoration: none;
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-}
 /*---------------------------------- BACKGROUND IMAGES ----------------------------------*/
 .world-map-background {
     position: fixed;
