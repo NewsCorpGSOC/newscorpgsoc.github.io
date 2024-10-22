@@ -177,9 +177,9 @@
                   <div class="credibility-container" style="background-color: ${credibilityBackground};"></div> 
                   <div class="feed-content">
                     <h2 style="text-align: center;">${feed['Title']}</h2>
+                    ${feed['Image Link'] ? `<img src="${feed['Image Link']}" alt="Image" class="feed-image">` : ''}
                     <p>${feed['Description']}</p>
-                    ${feed['Image Link'] ? `<img src="${feed['Image Link']}" alt="Image" class="feed-image" style="height: 200px; border: 5px solid black; border-radius: 15px;">` : ''}
-                    <p><strong>Published:</strong> ${pubDate.toLocaleString()}</p>
+                    <p><strong>Published:</strong> ${formatPubDate(pubDate)}</p>
                     <p>Source Reliability: ${feed['Source Reliability']}</p>
                     <p>Info Reliability: ${feed['Information Reliability']}</p>
                     <p>Topics: ${feed['Topics']}</p>
