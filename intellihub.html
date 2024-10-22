@@ -29,40 +29,52 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="background.js"></script>
     <script>
-        let lastModifiedTime = null;
+        async function fetchTSVFile(url) {
+            try {
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error('Failed to fetch TSV file');
+                }
+                const tsvText = await response.text();
+                return tsvText;
+            } catch (error) {
+                console.error('Error fetching TSV file:', error);
+                return null;
+            }
+        }
+        
+        function parseTSV(tsvText) {
+            // Use PapaParse to handle TSV parsing with error handling
+            const parsedData = Papa.parse(tsvText, {
+                delimiter: '\t',
+                header: true,
+                skipEmptyLines: true
+            });
+        
+            if (parsedData.errors.length) {
+                console.error('Errors parsing TSV:', parsedData.errors);
+                return [];
+            }
+        
+            return parsedData.data;
+        }
         
         async function fetchTSV() {
             try {
-                const headers = {};
-                if (lastModifiedTime) {
-                    headers['If-Modified-Since'] = lastModifiedTime;
-                }
+                // Cache buster to force refresh from the server
+                const cacheBuster = new Date().getTime();
+                const tsvText = await fetchTSVFile(`NewsCorpGSOCIntellifeed/updates.tsv?cb=${cacheBuster}`);
         
-                const response = await fetch('NewsCorpGSOCIntellifeed/updates.tsv', {
-                    method: 'GET',
-                    headers: headers
-                });
-        
-                // If the status is 304, the file hasn't been modified, so no need to update the feed
-                if (response.status === 304) {
-                    console.log('TSV file not modified, skipping update.');
+                if (!tsvText) {
+                    document.getElementById('feeds').innerHTML = '<p>Error loading feed data.</p>';
                     return;
                 }
         
-                // If the file is modified, continue fetching and processing
-                if (!response.ok) {
-                    throw new Error('Failed to fetch feed');
-                }
-        
-                // Get and store the 'Last-Modified' header for future fetches
-                lastModifiedTime = response.headers.get('Last-Modified');
-        
-                const tsvData = await response.text();
-                const rows = tsvData.split('\n').map(row => row.split('\t'));
-                displayFeeds(rows);
+                const parsedFeeds = parseTSV(tsvText);
+                displayFeeds(parsedFeeds);
         
             } catch (error) {
-                console.error('Error fetching feed:', error);
+                console.error('Error processing TSV feed:', error);
                 document.getElementById('feeds').innerHTML = '<p>Error loading feed data.</p>';
             }
         }
@@ -72,21 +84,20 @@
             feedsContainer.innerHTML = ''; // Clear existing content
         
             feeds.forEach(feed => {
-                if (feed.length < 10) return; // Skip incomplete rows
-                const [timestamp, title, description, imageLink, sourceReliability, infoReliability, topics, sources, analyst, profileImage] = feed;
+                if (!feed.Title || !feed.Description) return; // Skip invalid or incomplete rows
         
                 const feedItem = document.createElement('div');
                 feedItem.className = 'feed-item';
                 feedItem.innerHTML = `
-                    <div class="credibility-container">${sourceReliability}</div>
+                    <div class="credibility-container">${feed.SourceReliability || 'Unknown'}</div>
                     <div class="feed-content">
-                        <h2>${title}</h2>
-                        <p>${description}</p>
-                        ${imageLink ? `<img src="${imageLink}" alt="Image" style="max-width:100%">` : ''}
-                        <p>Source Reliability: ${sourceReliability}</p>
-                        <p>Info Reliability: ${infoReliability}</p>
-                        <p>Topics: ${topics}</p>
-                        <p>Reporting Analyst: <a href="about-${analyst}.html"><img src="${profileImage}" style="border-radius: 50%; width: 50px;"> ${analyst}</a></p>
+                        <h2>${feed.Title}</h2>
+                        <p>${feed.Description}</p>
+                        ${feed.ImageLink ? `<img src="${feed.ImageLink}" alt="Image" style="max-width:100%">` : ''}
+                        <p>Source Reliability: ${feed.SourceReliability || 'Unknown'}</p>
+                        <p>Info Reliability: ${feed.InfoReliability || 'Unknown'}</p>
+                        <p>Topics: ${feed.Topics || 'No topics'}</p>
+                        <p>Reporting Analyst: <a href="about-${feed.Analyst}.html"><img src="${feed.ProfileImage}" style="border-radius: 50%; width: 50px;"> ${feed.Analyst}</a></p>
                     </div>
                 `;
                 feedsContainer.appendChild(feedItem);
@@ -157,10 +168,6 @@
               	    </div>
               	  
               	    <div class="filter-container">
-                        <button id="toggleLiveMode" class="live-toggle-button inactive">
-                            <span>Switch to Static Mode</span>
-                            <span></span>
-                        </button>
                         <div class="volume-slider-container">
                             <label for="volumeSlider">Ping Volume:</label>
                             <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="1">
