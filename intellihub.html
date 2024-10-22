@@ -30,13 +30,14 @@
     <script src="background.js"></script>
     <script>
         function formatAnalystUrl(analystName) {
-          if (!analystName || analystName.trim() === '') {
-            return 'aboutme_Unknown.html'; // Fallback URL for missing or undefined analyst
-          }
-          
-          const formattedName = analystName.trim().replace(/\s+/g, '_');
-          return `aboutme_${formattedName}.html`;
+            if (!analystName || analystName.trim() === '') {
+                return 'aboutme_Unknown.html'; // Fallback URL for missing or undefined analyst
+            }
+            
+            const formattedName = analystName.trim().replace(/\s+/g, '_');
+            return `aboutme_${formattedName}.html`;
         }
+    
         async function fetchTSVFile(url) {
             try {
                 const response = await fetch(url);
@@ -50,7 +51,7 @@
                 return null;
             }
         }
-        
+    
         function parseTSV(tsvText) {
             // Use PapaParse to handle TSV parsing with error handling
             const parsedData = Papa.parse(tsvText, {
@@ -58,15 +59,15 @@
                 header: true,
                 skipEmptyLines: true
             });
-        
+    
             if (parsedData.errors.length) {
                 console.error('Errors parsing TSV:', parsedData.errors);
                 return [];
             }
-        
+    
             return parsedData.data;
         }
-        
+    
         async function fetchTSV() {
             try {
                 const filePath = 'NewsCorpGSOCIntellifeed/updates.tsv'; // Define the file path explicitly
@@ -75,49 +76,50 @@
                 // Cache buster to prevent loading stale data
                 const cacheBuster = new Date().getTime();
                 const response = await fetch(`https://newscorpgsoc.github.io/${filePath}?cb=${cacheBuster}`);
-        
+    
                 if (!response.ok) {
                     throw new Error('Failed to fetch feed');
                 }
-        
+    
                 const tsvText = await response.text();
                 const parsedFeeds = parseTSV(tsvText);
-                displayFeeds(parsedFeeds);
-        
+                displayFeeds(parsedFeeds); // Pass the parsed feeds data
+    
             } catch (error) {
                 console.error('Error fetching the TSV file:', error);
                 document.getElementById('feeds').innerHTML = '<p>Error loading feed data.</p>';
             }
         }
-        
-        function displayFeeds() {
-          feedsContainer.innerHTML = ''; // Clear existing content
-        
-          feedItems.forEach(feed => {
-            const feedItem = document.createElement('div');
-            feedItem.className = 'feed-item';
-        
-            const profileImageHtml = feed.profileImage ? `<img src="${feed.profileImage}" alt="Profile Image" style="border-radius: 50%; width: 50px;">` : '';
-            
-            const analystName = feed.analyst || 'Unknown Analyst'; // Provide a fallback if the analyst is undefined
-            const analystUrl = formatAnalystUrl(feed.analyst); // Format the analyst URL properly
-        
-            feedItem.innerHTML = `
-              <div class="credibility-container">${feed.sourceReliability}</div>
-              <div class="feed-content">
-                <h2>${feed.title}</h2>
-                <p>${feed.description}</p>
-                ${feed.imageLink ? `<img src="${feed.imageLink}" alt="Image" style="max-width:100%">` : ''}
-                <p>Source Reliability: ${feed.sourceReliability}</p>
-                <p>Info Reliability: ${feed.infoReliability}</p>
-                <p>Topics: ${feed.topics}</p>
-                <p>Reporting Analyst: ${profileImageHtml} <a href="${analystUrl}">${analystName}</a></p>
-              </div>
-            `;
-            feedsContainer.appendChild(feedItem);
-          });
+    
+        function displayFeeds(feedItems) {  // Now taking feedItems as an argument
+            const feedsContainer = document.getElementById('feeds');
+            feedsContainer.innerHTML = ''; // Clear existing content
+    
+            feedItems.forEach(feed => {
+                const feedItem = document.createElement('div');
+                feedItem.className = 'feed-item';
+    
+                const profileImageHtml = feed['Profile Image'] ? `<img src="${feed['Profile Image']}" alt="Profile Image" style="border-radius: 50%; width: 50px;">` : '';
+                
+                const analystName = feed['Reporting Analyst'] || 'Unknown Analyst'; // Provide a fallback if the analyst is undefined
+                const analystUrl = formatAnalystUrl(feed['Reporting Analyst']); // Format the analyst URL properly
+    
+                feedItem.innerHTML = `
+                  <div class="credibility-container">${feed['Source Reliability']}</div>
+                  <div class="feed-content">
+                    <h2>${feed['Title']}</h2>
+                    <p>${feed['Description']}</p>
+                    ${feed['Image Link'] ? `<img src="${feed['Image Link']}" alt="Image" style="max-width:100%">` : ''}
+                    <p>Source Reliability: ${feed['Source Reliability']}</p>
+                    <p>Info Reliability: ${feed['Information Reliability']}</p>
+                    <p>Topics: ${feed['Topics']}</p>
+                    <p>Reporting Analyst: ${profileImageHtml} <a href="${analystUrl}">${analystName}</a></p>
+                  </div>
+                `;
+                feedsContainer.appendChild(feedItem);
+            });
         }
-        
+    
         setInterval(fetchTSV, 30000); // Fetch updates every 30 seconds
         window.onload = fetchTSV; // Fetch updates on page load
     </script>
