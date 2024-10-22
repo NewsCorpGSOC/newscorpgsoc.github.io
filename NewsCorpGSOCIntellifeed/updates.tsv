@@ -1,3 +1,2 @@
-Timestamp	Title	Description	Image Link	Source Reliability	Information Reliability	Topics	Sources	Reporting Analyst	Profile Image URL
-2024-10-21T12:00:00.000Z	Example Title 1	Sample details	http://example.com/image1.jpg	Reliable	Confirmed	Weather, Protests	Example Source Title	Aidan Cron	http://example.com/profile1.jpg
-2024-10-21T12:05:00.000Z	Example Title 2	More details	http://example.com/image2.jpg	Unreliable	Possibly True	Russia-Ukraine Conflict	Another Source	Bianca Lagman	http://example.com/profile2.jpg
+Timestamp	Title	Description	Image Link	Source Reliability	Information Reliability	Topics	Source(s)	Source Link	Reporting Analyst	Profile Image
+Mon Oct 21 2024 18:57:10 GMT-0700 (Pacific Daylight Time)	Advanced US Missile System ‘in Place’ in Israel: Pentagon	An advanced THAAD missile defense battery is now 'in place' in Israel, Pentagon chief Lloyd Austin said, as Washington seeks to help shield the country against Iranian attacks		Reliable	Confirmed	Israel-Hamas Conflict	Defense Post	https://thedefensepost.com/2024/10/21/us-thaad-israel/?utm_source=rss&utm_medium=rss&utm_campaign=us-thaad-israel	Tanner Porter	/profileimages/Tanner_Porter_profile.jpg
