@@ -37,7 +37,7 @@
             const formattedName = analystName.trim().replace(/\s+/g, '_');
             return `aboutme_${formattedName}.html`;
         }
-    
+        
         async function fetchTSVFile(url) {
             try {
                 const response = await fetch(url);
@@ -51,61 +51,78 @@
                 return null;
             }
         }
-    
+        
         function parseTSV(tsvText) {
-            // Use PapaParse to handle TSV parsing with error handling
             const parsedData = Papa.parse(tsvText, {
                 delimiter: '\t',
                 header: true,
                 skipEmptyLines: true
             });
-    
+        
             if (parsedData.errors.length) {
                 console.error('Errors parsing TSV:', parsedData.errors);
                 return [];
             }
-    
+        
             return parsedData.data;
         }
-    
+        
         async function fetchTSV() {
             try {
-                const filePath = 'NewsCorpGSOCIntellifeed/updates.tsv'; // Define the file path explicitly
-                console.log(`Fetching file from: https://newscorpgsoc.github.io/${filePath}`);
-                
-                // Cache buster to prevent loading stale data
+                const filePath = 'NewsCorpGSOCIntellifeed/updates.tsv'; 
                 const cacheBuster = new Date().getTime();
                 const response = await fetch(`https://newscorpgsoc.github.io/${filePath}?cb=${cacheBuster}`);
-    
+        
                 if (!response.ok) {
                     throw new Error('Failed to fetch feed');
                 }
-    
+        
                 const tsvText = await response.text();
                 const parsedFeeds = parseTSV(tsvText);
-                displayFeeds(parsedFeeds); // Pass the parsed feeds data
-    
+                displayFeeds(parsedFeeds);
+        
             } catch (error) {
                 console.error('Error fetching the TSV file:', error);
                 document.getElementById('feeds').innerHTML = '<p>Error loading feed data.</p>';
             }
         }
-    
-        function displayFeeds(feedItems) {  // Now taking feedItems as an argument
+        
+        function getReliabilityBackground(reliability) {
+            switch (reliability) {
+                case 'Reliable':
+                    return '#00cc00';
+                case 'Usually Reliable':
+                    return '#ccff66';
+                case 'Fairly Reliable':
+                    return '#ffff99';
+                case 'Not Usually Reliable':
+                    return '#ff9900';
+                case 'Unreliable':
+                    return '#cc3300';
+                case 'Cannot be Judged':
+                    return '#333300';
+                default:
+                    return '#191919'; // Default color if reliability is missing or undefined
+            }
+        }
+        
+        function displayFeeds(feedItems) {
             const feedsContainer = document.getElementById('feeds');
-            feedsContainer.innerHTML = ''; // Clear existing content
-    
+            feedsContainer.innerHTML = ''; 
+        
             feedItems.forEach(feed => {
                 const feedItem = document.createElement('div');
                 feedItem.className = 'feed-item';
-    
+        
                 const profileImageHtml = feed['Profile Image'] ? `<img src="${feed['Profile Image']}" alt="Profile Image" style="border-radius: 50%; width: 50px;">` : '';
-                
-                const analystName = feed['Reporting Analyst'] || 'Unknown Analyst'; // Provide a fallback if the analyst is undefined
-                const analystUrl = formatAnalystUrl(feed['Reporting Analyst']); // Format the analyst URL properly
-    
+                const analystName = feed['Reporting Analyst'] || 'Unknown Analyst'; 
+                const analystUrl = formatAnalystUrl(feed['Reporting Analyst']); 
+        
+                // Get the background color based on Source Reliability
+                const credibilityBackground = getReliabilityBackground(feed['Source Reliability']);
+        
                 feedItem.innerHTML = `
-                  <div class="credibility-container">${feed['Source Reliability']}</div>
+                  <div class="credibility-container" style="background-color: ${credibilityBackground};"></div> 
                   <div class="feed-content">
                     <h2>${feed['Title']}</h2>
                     <p>${feed['Description']}</p>
@@ -116,15 +133,17 @@
                     <p>Reporting Analyst: ${profileImageHtml} <a href="${analystUrl}">${analystName}</a></p>
                   </div>
                 `;
+        
                 feedsContainer.appendChild(feedItem);
+        
                 requestAnimationFrame(() => {
-                  feedItem.classList.add('fade-in');
+                    feedItem.classList.add('fade-in');
                 });
             });
         }
-    
-        setInterval(fetchTSV, 30000); // Fetch updates every 30 seconds
-        window.onload = fetchTSV; // Fetch updates on page load
+        
+        setInterval(fetchTSV, 30000); 
+        window.onload = fetchTSV; 
     </script>
 </head>
 <body>
