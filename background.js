@@ -1,4 +1,4 @@
-$(document).ready(function() {
+jQuery(document).ready(function() {
     // Dropdown hover handling
     const handleDropdownHover = function() {
         if (window.innerWidth > 768) {
