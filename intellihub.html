@@ -29,8 +29,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="background.js"></script>
     <script>
-        let latestFeedDate = new Date(); // Initialize to the current time when the page is first loaded
+        let latestFeedDate = new Date(0); // Initialize to a very old date when the page is first loaded
+        let pingVolume = 1; // Initialize the default volume to 1 (max volume)
         
+        function updateVolume() {
+            const volumeSlider = document.getElementById('volumeSlider');
+            pingVolume = parseFloat(volumeSlider.value); // Update pingVolume whenever the slider changes
+        }
+        
+        document.getElementById('volumeSlider').addEventListener('input', updateVolume); // Attach the event listener to the slider
+
         function formatAnalystUrl(analystName) {
             if (!analystName || analystName.trim() === '') {
                 return 'aboutme_Unknown.html'; // Fallback URL for missing or undefined analyst
@@ -88,7 +96,7 @@
                 document.getElementById('feeds').innerHTML = '<p>Error loading feed data.</p>';
             }
         }
-        
+ 
         function getReliabilityBackground(reliability) {
             switch (reliability) {
                 case 'Reliable':
@@ -168,13 +176,20 @@
             const feedsContainer = document.getElementById('feeds');
             feedsContainer.innerHTML = ''; // Clear existing content
         
+            // Sort feedItems in descending order by Timestamp
+            feedItems.sort((a, b) => new Date(b['Timestamp']) - new Date(a['Timestamp']));
+        
+            // Find the newest item in the feed
+            const newestItem = feedItems.length > 0 ? new Date(feedItems[0]['Timestamp']) : latestFeedDate;
+        
+            // If the newest item is newer than the latestFeedDate, play the sound
+            if (newestItem > latestFeedDate) {
+                latestFeedDate = newestItem; // Update the latestFeedDate to the newest item in the feed
+                playSound('sounds/news-alert-notification.mp3'); // Play sound only if there's a new item
+            }
+        
             feedItems.forEach(feed => {
                 const pubDate = new Date(feed['Timestamp']);  // Assuming 'Timestamp' holds the published date
-        
-                if (pubDate > latestFeedDate) {
-                    latestFeedDate = pubDate; // Update latest feed date
-                    playSound('sounds/news-alert-notification.mp3', feed['Title']); // Play notification sound for new items
-                }
         
                 const feedItem = document.createElement('div');
                 feedItem.className = 'feed-item';
@@ -211,6 +226,16 @@
                 requestAnimationFrame(() => {
                     feedItem.classList.add('fade-in');
                 });
+            });
+        }
+        
+        function playSound(soundFile) {
+            const audio = new Audio(soundFile);
+            audio.volume = pingVolume; // Use the pingVolume from the slider
+            audio.play().then(() => {
+                console.log(`Sound file ${soundFile} played successfully with volume: ${pingVolume}.`);
+            }).catch(error => {
+                console.error('Error playing sound:', error);
             });
         }
         
