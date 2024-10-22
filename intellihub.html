@@ -179,10 +179,10 @@
                     <h2 style="text-align: center;">${feed['Title']}</h2>
                     ${feed['Image Link'] ? `<img src="${feed['Image Link']}" alt="Image" class="feed-image">` : ''}
                     <p>${feed['Description']}</p>
-                    <p><strong>Published:</strong> ${formatPubDate(pubDate)}</p>
                     <p>Source Reliability: ${feed['Source Reliability']}</p>
                     <p>Info Reliability: ${feed['Information Reliability']}</p>
                     <p>Topics: ${feed['Topics']}</p>
+                    <p><strong>Published:</strong> ${formatPubDate(pubDate)}</p>
                     <!-- Overlay Container for Reporting Analyst -->
                     <div class="analyst-overlay">
                         ${profileImageHtml} <a href="${analystUrl}">${analystName}</a>
