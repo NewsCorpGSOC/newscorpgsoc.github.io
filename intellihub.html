@@ -117,6 +117,9 @@
                   </div>
                 `;
                 feedsContainer.appendChild(feedItem);
+                requestAnimationFrame(() => {
+                  feedItem.classList.add('fade-in');
+                });
             });
         }
     
