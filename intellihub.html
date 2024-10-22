@@ -30,8 +30,8 @@
     <script src="background.js"></script>
     <script>
         function formatAnalystUrl(analystName) {
-          if (!analystName) {
-            return 'aboutme_Unknown.html'; // Fallback in case analyst name is missing
+          if (!analystName || analystName.trim() === '') {
+            return 'aboutme_Unknown.html'; // Fallback URL for missing or undefined analyst
           }
           
           const formattedName = analystName.trim().replace(/\s+/g, '_');
@@ -90,33 +90,32 @@
             }
         }
         
-        function displayFeeds(feeds) {
-            const feedsContainer = document.getElementById('feeds');
-            feedsContainer.innerHTML = ''; // Clear existing content
+        function displayFeeds() {
+          feedsContainer.innerHTML = ''; // Clear existing content
         
-            feeds.forEach(feed => {
-                if (!feed.Title || !feed.Description) return; // Skip invalid or incomplete rows
+          feedItems.forEach(feed => {
+            const feedItem = document.createElement('div');
+            feedItem.className = 'feed-item';
         
-                const feedItem = document.createElement('div');
-                feedItem.className = 'feed-item';
-                const profileImageHtml = feed.profileImage ? `<img src="${feed.profileImage}" alt="Profile Image" style="border-radius: 50%; width: 50px;">` : '';
-                const analystName = feed.analyst || 'Unknown Analyst';
-                const analystUrl = formatAnalystUrl(feed.analyst);
-                
-                feedItem.innerHTML = `
-                  <div class="credibility-container">${feed.sourceReliability}</div>
-                  <div class="feed-content">
-                    <h2>${feed.title}</h2>
-                    <p>${feed.description}</p>
-                    ${feed.imageLink ? `<img src="${feed.imageLink}" alt="Image" style="max-width:100%">` : ''}
-                    <p>Source Reliability: ${feed.sourceReliability}</p>
-                    <p>Info Reliability: ${feed.infoReliability}</p>
-                    <p>Topics: ${feed.topics}</p>
-                    <p>Reporting Analyst: ${profileImageHtml} <a href="${analystUrl}">${analystName}</a></p>
-                  </div>
-                `;
-                feedsContainer.appendChild(feedItem);
-            });
+            const profileImageHtml = feed.profileImage ? `<img src="${feed.profileImage}" alt="Profile Image" style="border-radius: 50%; width: 50px;">` : '';
+            
+            const analystName = feed.analyst || 'Unknown Analyst'; // Provide a fallback if the analyst is undefined
+            const analystUrl = formatAnalystUrl(feed.analyst); // Format the analyst URL properly
+        
+            feedItem.innerHTML = `
+              <div class="credibility-container">${feed.sourceReliability}</div>
+              <div class="feed-content">
+                <h2>${feed.title}</h2>
+                <p>${feed.description}</p>
+                ${feed.imageLink ? `<img src="${feed.imageLink}" alt="Image" style="max-width:100%">` : ''}
+                <p>Source Reliability: ${feed.sourceReliability}</p>
+                <p>Info Reliability: ${feed.infoReliability}</p>
+                <p>Topics: ${feed.topics}</p>
+                <p>Reporting Analyst: ${profileImageHtml} <a href="${analystUrl}">${analystName}</a></p>
+              </div>
+            `;
+            feedsContainer.appendChild(feedItem);
+          });
         }
         
         setInterval(fetchTSV, 30000); // Fetch updates every 30 seconds
