@@ -29,6 +29,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="background.js"></script>
     <script>
+        function formatAnalystUrl(analystName) {
+          if (!analystName) {
+            return 'aboutme_Unknown.html'; // Fallback in case analyst name is missing
+          }
+          
+          const formattedName = analystName.trim().replace(/\s+/g, '_');
+          return `aboutme_${formattedName}.html`;
+        }
         async function fetchTSVFile(url) {
             try {
                 const response = await fetch(url);
@@ -91,17 +99,21 @@
         
                 const feedItem = document.createElement('div');
                 feedItem.className = 'feed-item';
+                const profileImageHtml = feed.profileImage ? `<img src="${feed.profileImage}" alt="Profile Image" style="border-radius: 50%; width: 50px;">` : '';
+                const analystName = feed.analyst || 'Unknown Analyst';
+                const analystUrl = formatAnalystUrl(feed.analyst);
+                
                 feedItem.innerHTML = `
-                    <div class="credibility-container">${feed.SourceReliability || 'Unknown'}</div>
-                    <div class="feed-content">
-                        <h2>${feed.Title}</h2>
-                        <p>${feed.Description}</p>
-                        ${feed.ImageLink ? `<img src="${feed.ImageLink}" alt="Image" style="max-width:100%">` : ''}
-                        <p>Source Reliability: ${feed.SourceReliability || 'Unknown'}</p>
-                        <p>Info Reliability: ${feed.InfoReliability || 'Unknown'}</p>
-                        <p>Topics: ${feed.Topics || 'No topics'}</p>
-                        <p>Reporting Analyst: <a href="about-${feed.Analyst}.html"><img src="${feed.ProfileImage}" style="border-radius: 50%; width: 50px;"> ${feed.Analyst}</a></p>
-                    </div>
+                  <div class="credibility-container">${feed.sourceReliability}</div>
+                  <div class="feed-content">
+                    <h2>${feed.title}</h2>
+                    <p>${feed.description}</p>
+                    ${feed.imageLink ? `<img src="${feed.imageLink}" alt="Image" style="max-width:100%">` : ''}
+                    <p>Source Reliability: ${feed.sourceReliability}</p>
+                    <p>Info Reliability: ${feed.infoReliability}</p>
+                    <p>Topics: ${feed.topics}</p>
+                    <p>Reporting Analyst: ${profileImageHtml} <a href="${analystUrl}">${analystName}</a></p>
+                  </div>
                 `;
                 feedsContainer.appendChild(feedItem);
             });
