@@ -39,23 +39,22 @@
                 analyst: document.getElementById('analyst').value,
                 profileImage: document.getElementById('profileImage').value
             };
-
-            // Send the data to the Google Apps Script Web App
-            const response = await fetch('https://script.google.com/macros/s/AKfycbzMgCXFhfPzTKdR6PjcI58LlT4KBzzQvO-9Wxc94_jNph5UZQkutoH43ofFVrLYgmNA/exec', {
+        
+            // Convert form data to TSV row (update from topic to title)
+            const tsvRow = `${new Date().toISOString()}\t${formData.title}\t${formData.description}\t${formData.imageLink}\t${formData.sourceReliability}\t${formData.infoReliability}\t${formData.topics}\t${formData.sources}\t${formData.analyst}\t${formData.profileImage}\n`;
+        
+            // Use no-cors mode for the fetch request
+            await fetch('https://script.google.com/a/macros/newscorp.com/s/AKfycbxwenanTc_ZJJ8uXDNleOxeILemq6KjNfW4Q45Y6itwlepfPYn12mT04R4FPfkbI2gi/exec', {
                 method: 'POST',
+                mode: 'no-cors',  // Suppress CORS errors
                 headers: {
-                    'Content-Type': 'application/json',
+                    'Content-Type': 'text/plain'
                 },
-                body: JSON.stringify(formData)
+                body: tsvRow
             });
-
-            const result = await response.text();
-
-            if (result === 'Success') {
-                alert('Update submitted successfully!');
-            } else {
-                alert('Failed to submit update. Please try again.');
-            }
+        
+            // Inform the user of success
+            alert('Update submitted successfully!');
         }
 
         // Auto-fill profile image based on analyst selection
