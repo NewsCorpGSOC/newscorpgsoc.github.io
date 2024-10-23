@@ -211,26 +211,24 @@ h1, h2, h3 {
 .credibility-container {
   display: flex;
   justify-content: space-between; /* Source and Info reliability on two halves */
-  padding: 10px;
   background-color: #191919;
 }
 
 .source-reliability, .info-reliability {
   flex: 1;
   text-align: center;
-  padding: 10px;
   color: white;
   font-weight: bold;
 }
 
 .analyst-container {
-  width: 150px;
-  padding-right: 20px;
+  width: 115px;
+  padding-right: 5px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  background-color: #191919; /* You can adjust the background color here */
+  background-color: #002060; /* You can adjust the background color here */
   padding: 10px;
 }
 
