@@ -208,12 +208,12 @@ h1, h2, h3 {
 }
 
 .analyst-overlay img {
-  margin-right: 5px;
   border-radius: 50%; /* Circular image */
 }
 
 .credibility-container {
   display: flex;
+  padding: 10px;
   justify-content: space-between; /* Source and Info reliability on two halves */
   background-color: #191919;
 }
@@ -221,6 +221,7 @@ h1, h2, h3 {
 .source-reliability, .info-reliability {
   flex: 1;
   text-align: center;
+  padding: 3px;
   color: black;
   font-weight: bold;
 }
@@ -295,27 +296,6 @@ h1, h2, h3 {
   font-size: 14px;
 }
 
-.connection-container {
-  flex: 0.2;
-  display: flex;
-  flex-direction: column;
-  max-height: 85vh;
-  overflow-y: scroll;
-  gap: 20px;
-  background-color: #191919;
-  padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.connection-container h2 {
-  font-weight: bold;
-  text-align: center;
-  text-decoration: underline;
-  margin-top: -4px;
-  margin-bottom: -8px;
-  padding-bottom: -5px;
-}
-
 .filter-container {
   flex: 1;
   min-width: 350px;
@@ -371,22 +351,6 @@ h1, h2, h3 {
 .filter-bar label {
   color: white;
   margin-bottom: -8px;
-}
-
-.loading-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-  font-size: 24px;
-  z-index: 10;
-  display: none; /* Hidden by default */
 }
 
 .btn {
