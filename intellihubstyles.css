@@ -241,6 +241,7 @@ h1, h2, h3 {
 .feed-item h2 {
   margin: 0 0 10px;
   font-size: 19px;
+  font-weight: bold;
 }
 
 .feed-item a {
