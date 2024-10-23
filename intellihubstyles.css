@@ -272,7 +272,6 @@ h1, h2, h3 {
 
 .credibility-container {
   display: flex;
-  padding: 10px;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   justify-content: space-between; /* Source and Info reliability on two halves */
