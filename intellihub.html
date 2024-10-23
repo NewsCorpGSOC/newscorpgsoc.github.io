@@ -184,50 +184,70 @@
             function displayFeeds(feedItems) {
                 const feedsContainer = document.getElementById('feeds');
                 feedsContainer.innerHTML = ''; // Clear existing content
-        
+            
                 // Sort feedItems in descending order by Timestamp
                 feedItems.sort((a, b) => new Date(b['Timestamp']) - new Date(a['Timestamp']));
-        
+            
                 // Update latestFeedDate to the newest item in the feed, without playing sound again
                 if (feedItems.length > 0) {
                     latestFeedDate = new Date(feedItems[0]['Timestamp']);
                 }
-        
+            
                 feedItems.forEach(feed => {
                     const pubDate = new Date(feed['Timestamp']);  // Assuming 'Timestamp' holds the published date
-        
-                    const feedItem = document.createElement('div');
-                    feedItem.className = 'feed-item';
-        
+            
+                    // Reliability background colors
+                    const sourceReliabilityBackground = getReliabilityBackground(feed['Source Reliability']);
+                    const infoReliabilityBackground = getReliabilityBackground(feed['Information Reliability']);
+            
+                    // Analyst information
                     const profileImageHtml = feed['Profile Image'] ? `<img src="${feed['Profile Image']}" alt="Profile Image" style="border-radius: 50%; width: 30px; height: 30px; border: 2px solid white;">` : '';
                     const analystName = feed['Reporting Analyst'] || 'Unknown Analyst'; 
-                    const analystUrl = formatAnalystUrl(feed['Reporting Analyst']); 
-                    const credibilityBackground = getReliabilityBackground(feed['Source Reliability']);
-        
+                    const analystUrl = formatAnalystUrl(feed['Reporting Analyst']);
+            
+                    // Source link
                     const sourceHtml = feed['Source(s)'] && feed['Source Link'] 
                         ? `<a href="${feed['Source Link']}" target="_blank">${feed['Source(s)']}</a>` 
                         : feed['Source(s)'] || 'No Source Available';
-        
+            
+                    // Create the feed item
+                    const feedItem = document.createElement('div');
+                    feedItem.className = 'feed-item';
+            
+                    // Insert the credibility-container and feed-content dynamically
                     feedItem.innerHTML = `
-                      <div class="credibility-container" style="background-color: ${credibilityBackground};"></div> 
-                      <div class="feed-content">
-                        <h2 style="text-align: center;">${feed['Title']}</h2>
-                        ${feed['Image Link'] ? `<img src="${feed['Image Link']}" alt="Image" class="feed-image">` : ''}
-                        <p>${feed['Description']}</p>
-                        <p><strong>Source(s):</strong> ${sourceHtml}</p>
-                        <p>Source Reliability: ${feed['Source Reliability']}</p>
-                        <p>Info Reliability: ${feed['Information Reliability']}</p>
-                        <p>Topics: ${feed['Topics']}</p>
-                        <p><strong>Published:</strong> ${formatPubDate(pubDate)}</p>
-                        <div class="analyst-overlay">
-                            ${profileImageHtml} <a href="${analystUrl}">${analystName}</a>
+                        <div class="credibility-container">
+                            <div class="source-reliability" style="flex: 1; background-color: ${sourceReliabilityBackground}; padding: 10px;">
+                                Source Reliability: ${feed['Source Reliability']}
+                            </div>
+                            <div class="info-reliability" style="flex: 1; background-color: ${infoReliabilityBackground}; padding: 10px;">
+                                Info Reliability: ${feed['Information Reliability']}
+                            </div>
                         </div>
-                      </div>
+            
+                        <div style="display: flex;">
+                            <!-- Analyst Container -->
+                            <div class="analyst-container">
+                                ${profileImageHtml}
+                                <p><a href="${analystUrl}">${analystName}</a></p>
+                                <p>Topics: ${feed['Topics']}</p>
+                            </div>
+            
+                            <!-- Feed Content -->
+                            <div class="feed-content">
+                                <h2 style="text-align: center;">${feed['Title']}</h2>
+                                ${feed['Image Link'] ? `<img src="${feed['Image Link']}" alt="Image" class="feed-image">` : ''}
+                                <p>${feed['Description']}</p>
+                                <p><strong>Source(s):</strong> ${sourceHtml}</p>
+                                <p><strong>Published:</strong> ${formatPubDate(pubDate)}</p>
+                            </div>
+                        </div>
                     `;
-        
+            
+                    // Append the feed item to the feeds container
                     feedsContainer.appendChild(feedItem);
                     applyTopicStyling(feed, feedItem);
-        
+            
                     requestAnimationFrame(() => {
                         feedItem.classList.add('fade-in');
                     });
@@ -373,10 +393,6 @@
                 	
                             <label for="searchInput">
                               Search: 
-                              <span class="tooltip">
-                                ?
-                                <span class="tooltiptext">This search bar supports the "AND" and "OR" search operators. To use, simply type the search term followed by the operator and the second search term. If you would like to see articles that refer to both Israel and Saudi Arabia, you would type: Israel AND "Saudi Arabia". Note the usage of quotation marks around search terms that are more than one word long.</span>
-                              </span>
                             </label>
                             <input type="text" id="searchInput" placeholder="Search...">
                             <p>Version 1.0.31 | Last Updated 20 Oct 2024</p>
