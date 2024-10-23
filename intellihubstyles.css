@@ -245,6 +245,10 @@ h1, h2, h3 {
     padding-top: 5px;
 }
 
+.feed-content a {
+    font-size: 12px;
+}
+
 .feed-image {
     float: left; /* Float the image to the left of the description */
     height: 200px;
