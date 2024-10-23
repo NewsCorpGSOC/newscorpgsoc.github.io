@@ -155,6 +155,7 @@ h1, h2, h3 {
   border: 2mm ridge rgba(25, 25, 25, .6);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   max-height: 80.5vh;
+  min-width: 50vh;
   overflow-y: auto;
   padding: 35px 20px 20px 20px;
   position: relative;
