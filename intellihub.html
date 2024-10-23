@@ -199,7 +199,7 @@
                     const feedItem = document.createElement('div');
                     feedItem.className = 'feed-item';
         
-                    const profileImageHtml = feed['Profile Image'] ? `<img src="${feed['Profile Image']}" alt="Profile Image" style="border-radius: 50%; width: 30px; height: 30px;">` : '';
+                    const profileImageHtml = feed['Profile Image'] ? `<img src="${feed['Profile Image']}" alt="Profile Image" style="border-radius: 50%; width: 30px; height: 30px; border: 5px solid white;">` : '';
                     const analystName = feed['Reporting Analyst'] || 'Unknown Analyst'; 
                     const analystUrl = formatAnalystUrl(feed['Reporting Analyst']); 
                     const credibilityBackground = getReliabilityBackground(feed['Source Reliability']);
