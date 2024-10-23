@@ -212,8 +212,8 @@
             
                     // Analyst information with fallbacks for missing data
                     const profileImageHtml = feed['Profile Image'] 
-                        ? `<img src="${feed['Profile Image']}" alt="Profile Image" style="border-radius: 50%; width: 30px; height: 30px; border: 2px solid white;">` 
-                        : `<img src="default-analyst.png" alt="Default Image" style="border-radius: 50%; width: 30px; height: 30px; border: 2px solid white;">`; // Default image
+                        ? `<img src="${feed['Profile Image']}" alt="Profile Image" style="border-radius: 50%; width: 50px; height: 50px; border: 2px solid white;">` 
+                        : `<img src="default-analyst.png" alt="Default Image" style="border-radius: 50%; width: 50px; height: 50px; border: 2px solid white;">`; // Default image
                     const analystName = feed['Reporting Analyst'] || 'Unknown Analyst'; 
                     const analystUrl = formatAnalystUrl(feed['Reporting Analyst'] || 'Unknown Analyst'); // Fallback to 'Unknown Analyst'
             
@@ -239,7 +239,8 @@
             
                         <div style="display: flex;">
                             <!-- Analyst Container -->
-                            <div class="analyst-container" style="width: 150px; padding-right: 20px; text-align: center;">
+                            <div class="analyst-container" style="width: 115px; padding-right: 20px; text-align: center;">
+                                <p><u>Reporting Analyst</u></p>
                                 ${profileImageHtml}
                                 <p><a href="${analystUrl}">${analystName}</a></p>
                                 <p>Topics: ${feed['Topics'] || 'No Topics'}</p>
