@@ -138,6 +138,7 @@ h1, h2, h3 {
 
 /*---------------------------------- Online Status Container ----------------------------------*/      
 .analyst-status-container {
+    flex: 2;
     width: 20vw; /* Adjust width as needed */
     padding: 10px;
     background-color: #191919;
