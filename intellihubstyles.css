@@ -138,13 +138,13 @@ h1, h2, h3 {
 
 /*---------------------------------- Online Status Container ----------------------------------*/      
 .analyst-status-container {
-    width: 200px; /* Adjust width as needed */
+    width: 20vw; /* Adjust width as needed */
     padding: 10px;
     background-color: #191919;
     border-radius: 10px;
     margin-right: 20px;
     float: left;
-    height: 100vh; /* Full height */
+    height: 80.5vh; /* Full height */
     overflow-y: auto; /* Allow scrolling if necessary */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     color: white;
