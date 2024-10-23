@@ -136,6 +136,65 @@ h1, h2, h3 {
     text-decoration: underline; /* Optional: Add underline on hover */
 }
 
+/*---------------------------------- Online Status Container ----------------------------------*/      
+.analyst-status-container {
+    width: 200px; /* Adjust width as needed */
+    padding: 10px;
+    background-color: #191919;
+    border-radius: 10px;
+    margin-right: 20px;
+    float: left;
+    height: 100vh; /* Full height */
+    overflow-y: auto; /* Allow scrolling if necessary */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: white;
+}
+
+.analyst-status-container h2 {
+    text-align: center;
+    color: white;
+}
+
+.analyst-status-list {
+    list-style: none;
+    padding: 0;
+}
+
+.analyst-status-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.analyst-status-item img {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.analyst-status-item .status-icon {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin-left: 10px;
+}
+
+.online {
+    background-color: green;
+    animation: blink 1s infinite; /* Add blinking animation for online */
+}
+
+.offline {
+    background-color: red;
+}
+
+/* Blinking animation */
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
 /*---------------------------------- RSS Feeds ----------------------------------*/      
 .container {
   display: flex;
