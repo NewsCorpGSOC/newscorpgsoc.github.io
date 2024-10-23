@@ -273,6 +273,8 @@ h1, h2, h3 {
 .credibility-container {
   display: flex;
   padding: 10px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
   justify-content: space-between; /* Source and Info reliability on two halves */
   background-color: #191919;
 }
@@ -295,6 +297,7 @@ h1, h2, h3 {
   text-align: center;
   background-color: #002060; /* You can adjust the background color here */
   padding: 10px;
+  border-bottom-left-radius: 8px;
 }
 
 .analyst-container img {
