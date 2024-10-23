@@ -200,10 +200,12 @@
                     const sourceReliabilityBackground = getReliabilityBackground(feed['Source Reliability']);
                     const infoReliabilityBackground = getReliabilityBackground(feed['Information Reliability']);
             
-                    // Analyst information
-                    const profileImageHtml = feed['Profile Image'] ? `<img src="${feed['Profile Image']}" alt="Profile Image" style="border-radius: 50%; width: 30px; height: 30px; border: 2px solid white;">` : '';
+                    // Analyst information with fallbacks for missing data
+                    const profileImageHtml = feed['Profile Image'] 
+                        ? `<img src="${feed['Profile Image']}" alt="Profile Image" style="border-radius: 50%; width: 30px; height: 30px; border: 2px solid white;">` 
+                        : `<img src="default-analyst.png" alt="Default Image" style="border-radius: 50%; width: 30px; height: 30px; border: 2px solid white;">`; // Default image
                     const analystName = feed['Reporting Analyst'] || 'Unknown Analyst'; 
-                    const analystUrl = formatAnalystUrl(feed['Reporting Analyst']);
+                    const analystUrl = formatAnalystUrl(feed['Reporting Analyst'] || 'Unknown Analyst'); // Fallback to 'Unknown Analyst'
             
                     // Source link
                     const sourceHtml = feed['Source(s)'] && feed['Source Link'] 
@@ -214,7 +216,7 @@
                     const feedItem = document.createElement('div');
                     feedItem.className = 'feed-item';
             
-                    // Insert the credibility-container and feed-content dynamically
+                    // Insert the credibility-container, analyst-container, and feed-content dynamically
                     feedItem.innerHTML = `
                         <div class="credibility-container">
                             <div class="source-reliability" style="flex: 1; background-color: ${sourceReliabilityBackground}; padding: 10px;">
@@ -227,10 +229,10 @@
             
                         <div style="display: flex;">
                             <!-- Analyst Container -->
-                            <div class="analyst-container">
+                            <div class="analyst-container" style="width: 150px; padding-right: 20px; text-align: center;">
                                 ${profileImageHtml}
                                 <p><a href="${analystUrl}">${analystName}</a></p>
-                                <p>Topics: ${feed['Topics']}</p>
+                                <p>Topics: ${feed['Topics'] || 'No Topics'}</p>
                             </div>
             
                             <!-- Feed Content -->
