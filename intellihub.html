@@ -139,30 +139,18 @@
         
             function getReliabilityBackground(reliability) {
                 switch (reliability) {
-                    case 'Reliable':
-                        return '#00cc00';
-                    case 'Usually Reliable':
-                        return '#ccff66';
-                    case 'Fairly Reliable':
-                        return '#ffff99';
-                    case 'Not Usually Reliable':
-                        return '#ff9900';
-                    case 'Unreliable':
-                        return '#cc3300';
-                    case 'Confirmed': 
-                        return '#00cc00';
-                    case 'Probably True': 
-                        return '#ccff66';
-                    case 'Possibly True': 
-                        return '#ffff99';
-                    case 'Doubtfully True': 
-                        return '#ff9900';
-                    case 'Improbable': 
-                        return '#cc3300';
-                    case 'Cannot be Judged':
-                        return '#333300';
-                    default:
-                        return '#191919'; // Default color if reliability is missing or undefined
+                    case 'Reliable': return '#00cc00';
+                    case 'Usually Reliable': return '#ccff66';
+                    case 'Fairly Reliable': return '#ffff99';
+                    case 'Not Usually Reliable': return '#ff9900';
+                    case 'Unreliable': return '#cc3300';
+                    case 'Confirmed': return '#00cc00';
+                    case 'Probably True': return '#ccff66';
+                    case 'Possibly True': return '#ffff99';
+                    case 'Doubtfully True': return '#ff9900';
+                    case 'Improbable': return '#cc3300';
+                    case 'Cannot be Judged': return '#333300';
+                    default: return '#191919'; // Default color if reliability is missing or undefined
                 }
             }
             
@@ -264,11 +252,11 @@
                     // Insert the credibility-container, analyst-container, and feed-content dynamically
                     feedItem.innerHTML = `
                         <div class="credibility-container">
-                            <div class="source-reliability" style="flex: 1; background-color: ${sourceReliabilityBackground}; padding: 10px;">
-                                Source Reliability: ${feed['Source Reliability']}
+                            <div class="source-reliability" style="flex: 1; background-color: ${sourceReliabilityBackground}; padding: 10px; color: black;">
+                                <a href="https://newscorpgsoc.github.io/reliabilitymetrics.html" target="_blank">Source Reliability: ${feed['Source Reliability']}</a>
                             </div>
-                            <div class="info-reliability" style="flex: 1; background-color: ${infoReliabilityBackground}; padding: 10px;">
-                                Info Reliability: ${feed['Information Reliability']}
+                            <div class="info-reliability" style="flex: 1; background-color: ${infoReliabilityBackground}; padding: 10px; color: black;">
+                                <a href="https://newscorpgsoc.github.io/reliabilitymetrics.html" target="_blank">Info Reliability: ${feed['Information Reliability']}</a>
                             </div>
                         </div>
             
