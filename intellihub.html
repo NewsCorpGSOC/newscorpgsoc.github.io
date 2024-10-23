@@ -94,6 +94,7 @@
         
                     const tsvText = await response.text();
                     const parsedFeeds = parseTSV(tsvText);
+                    console.log('Fetching Feeds');
                     displayFeeds(parsedFeeds);
         
                 } catch (error) {
