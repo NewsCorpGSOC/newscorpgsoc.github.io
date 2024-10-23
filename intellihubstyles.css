@@ -751,7 +751,7 @@ footer {
 }
 /*---------------------------------- MEDIA EFFECTS - HIGHEST PRIORITY ----------------------------------*/
 @media (max-width: 1250px) {
-    .container .connection-container, .container .filter-container {
+    .container .analyst-status-container, .container .filter-container {
       display: none !important;
     }
 }
