@@ -283,6 +283,8 @@ h1, h2, h3 {
 .source-reliability, .info-reliability {
   flex: 1;
   text-align: center;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
   padding: 3px;
   color: black;
   font-weight: bold;
