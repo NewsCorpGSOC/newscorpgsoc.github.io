@@ -55,7 +55,9 @@
             
             async function fetchTSVFile(url) {
                 try {
-                    const response = await fetch(url);
+                    const filePath = 'NewsCorpGSOCIntellifeed/updates.tsv'; 
+                    const cacheBuster = new Date().getTime();
+                    const response = await fetch(`https://newscorpgsoc.github.io/${filePath}?cb=${cacheBuster}`);
                     if (!response.ok) {
                         throw new Error('Failed to fetch TSV file');
                     }
