@@ -53,20 +53,6 @@
                 return `aboutme_${formattedName}.html`;
             }
         
-            async function fetchTSVFile(url) {
-                try {
-                    const response = await fetch(url);
-                    if (!response.ok) {
-                        throw new Error('Failed to fetch TSV file');
-                    }
-                    const tsvText = await response.text();
-                    return tsvText;
-                } catch (error) {
-                    console.error('Error fetching TSV file:', error);
-                    return null;
-                }
-            }
-        
             function parseTSV(tsvText) {
                 const parsedData = Papa.parse(tsvText, {
                     delimiter: '\t',
@@ -103,30 +89,18 @@
         
             function getReliabilityBackground(reliability) {
                 switch (reliability) {
-                    case 'Reliable':
-                        return '#00cc00';
-                    case 'Usually Reliable':
-                        return '#ccff66';
-                    case 'Fairly Reliable':
-                        return '#ffff99';
-                    case 'Not Usually Reliable':
-                        return '#ff9900';
-                    case 'Unreliable':
-                        return '#cc3300';
-                    case 'Confirmed': 
-                        return '#00cc00';
-                    case 'Probably True': 
-                        return '#ccff66';
-                    case 'Possibly True': 
-                        return '#ffff99';
-                    case 'Doubtfully True': 
-                        return '#ff9900';
-                    case 'Improbable': 
-                        return '#cc3300';
-                    case 'Cannot be Judged':
-                        return '#333300';
-                    default:
-                        return '#191919'; // Default color if reliability is missing or undefined
+                    case 'Reliable': return '#00cc00';
+                    case 'Usually Reliable': return '#ccff66';
+                    case 'Fairly Reliable': return '#ffff99';
+                    case 'Not Usually Reliable': return '#ff9900';
+                    case 'Unreliable': return '#cc3300';
+                    case 'Confirmed': return '#00cc00';
+                    case 'Probably True': return '#ccff66';
+                    case 'Possibly True': return '#ffff99';
+                    case 'Doubtfully True': return '#ff9900';
+                    case 'Improbable': return '#cc3300';
+                    case 'Cannot be Judged': return '#333300';
+                    default: return '#191919'; // Default color if reliability is missing or undefined
                 }
             }
         
@@ -179,7 +153,6 @@
             }
         
             function formatPubDate(pubDate) {
-                // Format date as "DD MMM YYYY, HH:MM:SS"
                 const day = String(pubDate.getDate()).padStart(2, '0');
                 const month = pubDate.toLocaleString('en', { month: 'short' });
                 const year = pubDate.getFullYear();
@@ -194,10 +167,8 @@
                 const feedsContainer = document.getElementById('feeds');
                 feedsContainer.innerHTML = ''; // Clear existing content
         
-                // Sort feedItems in descending order by Timestamp
                 feedItems.sort((a, b) => new Date(b['Timestamp']) - new Date(a['Timestamp']));
         
-                // Update latestFeedDate to the newest item in the feed, without playing sound again
                 if (feedItems.length > 0) {
                     latestFeedDate = new Date(feedItems[0]['Timestamp']);
                 }
@@ -205,27 +176,23 @@
                 feedItems.forEach(feed => {
                     const pubDate = new Date(feed['Timestamp']);  // Assuming 'Timestamp' holds the published date
         
-                    // Reliability background colors
                     const sourceReliabilityBackground = getReliabilityBackground(feed['Source Reliability']);
                     const infoReliabilityBackground = getReliabilityBackground(feed['Information Reliability']);
         
-                    // Analyst information with fallbacks for missing data
                     const profileImageHtml = feed['Profile Image'] 
                         ? `<img src="${feed['Profile Image']}" alt="Profile Image" style="border-radius: 50%; width: 50px; height: 50px; border: 2px solid white;">` 
-                        : `<img src="default-analyst.png" alt="Default Image" style="border-radius: 50%; width: 50px; height: 50px; border: 2px solid white;">`; // Default image
-                    const analystName = feed['Reporting Analyst'] || 'Unknown Analyst'; 
-                    const analystUrl = formatAnalystUrl(feed['Reporting Analyst'] || 'Unknown Analyst'); // Fallback to 'Unknown Analyst'
+                        : `<img src="default-analyst.png" alt="Default Image" style="border-radius: 50%; width: 50px; height: 50px; border: 2px solid white;">`;
         
-                    // Source link
+                    const analystName = feed['Reporting Analyst'] || 'Unknown Analyst'; 
+                    const analystUrl = formatAnalystUrl(feed['Reporting Analyst'] || 'Unknown Analyst');
+        
                     const sourceHtml = feed['Source(s)'] && feed['Source Link'] 
                         ? `<a href="${feed['Source Link']}" target="_blank">${feed['Source(s)']}</a>` 
                         : feed['Source(s)'] || 'No Source Available';
         
-                    // Create the feed item
                     const feedItem = document.createElement('div');
                     feedItem.className = 'feed-item';
         
-                    // Insert the credibility-container, analyst-container, and feed-content dynamically
                     feedItem.innerHTML = `
                         <div class="credibility-container">
                             <div class="source-reliability" style="flex: 1; background-color: ${sourceReliabilityBackground}; padding: 10px; color: black;">
@@ -237,7 +204,6 @@
                         </div>
         
                         <div style="display: flex;">
-                            <!-- Analyst Container -->
                             <div class="analyst-container" style="width: 150px; text-align: center;">
                                 <p><u><b>Reporting Analyst</b></u></p>
                                 ${profileImageHtml}
@@ -245,7 +211,6 @@
                                 <p>Topics: ${feed['Topics'] || 'No Topics'}</p>
                             </div>
         
-                            <!-- Feed Content -->
                             <div class="feed-content">
                                 <h2 style="text-align: center;">${feed['Title']}</h2>
                                 ${feed['Image Link'] ? `<img src="${feed['Image Link']}" alt="Image" class="feed-image">` : ''}
@@ -256,7 +221,6 @@
                         </div>
                     `;
         
-                    // Append the feed item to the feeds container
                     feedsContainer.appendChild(feedItem);
                     applyTopicStyling(feed, feedItem);
         
@@ -269,7 +233,6 @@
             setInterval(fetchTSV, 30000); // Fetch updates every 30 seconds
             window.onload = fetchTSV;
         });
-    </script>
 </head>
 <body>
     <div class="world-map-background"></div>
