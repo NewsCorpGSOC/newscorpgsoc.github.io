@@ -285,6 +285,12 @@ h1, h2, h3 {
   color: black;
 }
 
+.credibility-container a {
+  color: black;
+  font-size: 12;
+  font-weight: bold;
+}
+
 .info-reliability {
   flex: 1;
   text-align: center;
@@ -301,6 +307,7 @@ h1, h2, h3 {
   color: black;
   font-weight: bold;
 }
+
 
 .analyst-container {
   width: 115px;
