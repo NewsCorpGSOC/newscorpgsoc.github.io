@@ -308,6 +308,16 @@ h1, h2, h3 {
   font-weight: bold;
 }
 
+.source-reliability a {
+  color: black;
+  font-weight: bold;
+}
+
+.info-reliability a {
+  color: black;
+  font-weight: bold;
+}
+
 
 .analyst-container {
   width: 115px;
