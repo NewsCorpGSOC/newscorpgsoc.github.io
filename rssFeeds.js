@@ -427,20 +427,6 @@ const rssFeeds = [
     ]
   },
   {
-    url: 'https://www.thecipherbrief.com/feed',
-    source: 'Cipher Brief',
-    priorityLevel: 'Very Low',
-    requiredTerms: [],
-    ignoreTerms: [],
-    reliability: 'Credible',
-    background: '#203050',
-    backups: [
-      '${PROXY_URL}https://www.thecipherbrief.com/feed',
-      'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.thecipherbrief.com%2Ffeed',
-      'https://corsproxy.io/?https%3A%2F%2Fwww.thecipherbrief.com%2Ffeed',
-    ]
-  },
-  {
     url: 'https://www.ctvnews.ca/rss/world/ctvnews-ca-world-public-rss-1.822289',
     source: 'CTV News',
     priorityLevel: 'Very Low',
