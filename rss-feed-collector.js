@@ -340,7 +340,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     { file: 'NHC.tsv', source: 'National Hurricane Center', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
     { file: 'KoreaTimesNews.tsv', source: 'Korea Times News', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
     { file: 'EurasianReview.tsv', source: 'Eurasian Review', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
-    { file: 'KyodaNews.tsv', source: 'Kyoda News', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] }
+    { file: 'KyodaNews.tsv', source: 'Kyoda News', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'CipherBrief.tsv', source: 'Cipher Brief', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] }
   ];
 
   // List of sources with spoiler images
@@ -557,7 +558,6 @@ document.addEventListener('DOMContentLoaded', async () => {
       'U.S. Department of Defense': -2,
       'ISW': -7,
       'CBC': -3,
-      'Cipher Brief': -7,
       'Factal Forecast': -3,
       'World News Era': -7,
       'South China Morning Post': -15, // Note: duplicate source entry removed
