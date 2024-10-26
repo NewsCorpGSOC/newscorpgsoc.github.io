@@ -282,42 +282,39 @@ h1, h2, h3 {
   border-top-right-radius: 8px;
   justify-content: space-between; /* Source and Info reliability on two halves */
   background-color: #191919;
-  color: black;
 }
 
 .credibility-container a {
+  color: black !important;
+  font-size: 12px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.info-reliability,
+.source-reliability {
+  flex: 1;
+  text-align: center;
+  padding: 3px;
   color: black;
-  font-size: 12;
   font-weight: bold;
 }
 
 .info-reliability {
-  flex: 1;
-  text-align: center;
   border-top-right-radius: 8px;
-  padding: 3px;
-  color: black;
-  font-weight: bold;
 }
+
 .source-reliability {
-  flex: 1;
-  text-align: center;
   border-top-left-radius: 8px;
-  padding: 3px;
-  color: black;
-  font-weight: bold;
 }
 
+/* Specific link selectors (to ensure override if necessary) */
+.info-reliability a,
 .source-reliability a {
-  color: black;
+  color: black !important;
   font-weight: bold;
+  text-decoration: none;
 }
-
-.info-reliability a {
-  color: black;
-  font-weight: bold;
-}
-
 
 .analyst-container {
   width: 115px;
