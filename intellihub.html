@@ -253,13 +253,17 @@
                     feedItem.innerHTML = `
                         <div class="credibility-container">
                             <div class="source-reliability" style="flex: 1; background-color: ${sourceReliabilityBackground}; padding: 10px; color: black;">
-                                <a href="https://newscorpgsoc.github.io/reliabilitymetrics.html" target="_blank">Source Reliability: ${feed['Source Reliability']}</a>
+                                <a href="https://newscorpgsoc.github.io/reliabilitymetrics.html" target="_blank" style="color: black; font-weight: bold; text-decoration: none;">
+                                    Source Reliability: ${feed['Source Reliability']}
+                                </a>
                             </div>
                             <div class="info-reliability" style="flex: 1; background-color: ${infoReliabilityBackground}; padding: 10px; color: black;">
-                                <a href="https://newscorpgsoc.github.io/reliabilitymetrics.html" target="_blank">Info Reliability: ${feed['Information Reliability']}</a>
+                                <a href="https://newscorpgsoc.github.io/reliabilitymetrics.html" target="_blank" style="color: black; font-weight: bold; text-decoration: none;">
+                                    Info Reliability: ${feed['Information Reliability']}
+                                </a>
                             </div>
                         </div>
-            
+
                         <div style="display: flex;">
                             <!-- Analyst Container -->
                             <div class="analyst-container" style="width: 150px; text-align: center;">
