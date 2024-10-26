@@ -11,9 +11,9 @@ function checkLogin(event) {
   if (users[username] && users[username].password === password) {
     // User is authenticated
     const userRole = users[username].role;
-    sessionStorage.setItem('loggedIn', 'true');
-    sessionStorage.setItem('username', username);
-    sessionStorage.setItem('role', userRole);
+    localStorage.setItem('loggedIn', 'true');
+    localStorage.setItem('username', username);
+    localStorage.setItem('role', userRole);
     window.location.href = 'index.html';
   } else {
     alert('Incorrect username or password. Please try again.');
