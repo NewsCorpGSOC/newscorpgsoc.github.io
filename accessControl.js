@@ -26,7 +26,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // If not logged in, redirect to login page
     if (!loggedIn) {
+        // Save the current URL to localStorage so we can redirect back to it after login
+        localStorage.setItem('redirectAfterLogin', window.location.href);
         window.location.href = 'login.html';
+    }
     } else {
         // Define allowed pages per role
         const allowedPages = {
