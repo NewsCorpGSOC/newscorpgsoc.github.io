@@ -60,6 +60,57 @@
                     window.location = linkLocation;
                 }, 1000); // Adjust the delay to match the fade-out duration
             });
+            
+            async function fetchAnalystStatus() {
+                try {
+                    const filePath = 'AnalystOnlineStatus.tsv';
+                    const cacheBuster = new Date().getTime();
+                    const tsvText = await fetchTSVFile(`${filePath}?cb=${cacheBuster}`);
+                    if (!tsvText) return;
+                    
+                    const parsedData = parseTSV(tsvText);
+                    displayAnalystStatus(parsedData);
+                } catch (error) {
+                    console.error('Error fetching Analyst Status TSV:', error);
+                }
+            }
+    
+            function displayAnalystStatus(analysts) {
+                const analystStatusContainer = document.getElementById('analyst-status-list');
+                analystStatusContainer.innerHTML = ''; 
+    
+                const currentTime = new Date();
+    
+                analysts.forEach(analyst => {
+                    const isOnline = checkAnalystOnlineStatus(analyst, currentTime);
+                    const analystElement = document.createElement('div');
+                    analystElement.className = 'analyst-item';
+    
+                    analystElement.innerHTML = `
+                        <div class="analyst-profile">
+                            <img src="${analyst['Profile Image'] || 'default-analyst.png'}" 
+                                 alt="Profile Image" 
+                                 style="border-radius: 50%; width: 50px; height: 50px;">
+                            <span>${analyst['Name']}</span>
+                            <span class="online-status" style="color: ${isOnline ? 'green' : 'gray'};">
+                                ${isOnline ? 'Online' : 'Offline'}
+                            </span>
+                        </div>
+                    `;
+                    analystStatusContainer.appendChild(analystElement);
+                });
+            }
+    
+            function checkAnalystOnlineStatus(analyst, currentTime) {
+                const startTime = new Date(currentTime);
+                const endTime = new Date(currentTime);
+                startTime.setHours(analyst['Start Time'].split(':')[0], analyst['Start Time'].split(':')[1]);
+                endTime.setHours(analyst['End Time'].split(':')[0], analyst['End Time'].split(':')[1]);
+                return currentTime >= startTime && currentTime <= endTime;
+            }
+    
+            setInterval(fetchAnalystStatus, 60000); // Check every minute
+            fetchAnalystStatus(); // Initial call
         });
     </script>
     <script>
