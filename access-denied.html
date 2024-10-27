@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Access Denied</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link your CSS file if needed -->
+    <link rel="stylesheet" href="styles.css">
     <style>
-        /* Styles for centering content */
         body {
             display: flex;
             align-items: center;
@@ -30,7 +29,7 @@
         }
         p {
             margin: 10px 0;
-            font-size: 2em;
+            font-size: 1.5em;
         }
         a {
             color: #007BFF;
@@ -47,6 +46,18 @@
         <h1>🚫 Access Denied 🚫</h1>
         <p>You are not allowed to access this webpage.</p>
         <p>Please return to the Intranet <a href="https://newscorpgsoc.github.io/index.html">home page</a>.</p>
+        <!-- Placeholder for Return to Previous Page Link -->
+        <p id="return-link"></p>
     </div>
+
+    <script>
+        // Check if a previous page exists in localStorage
+        const lastAttemptedPage = localStorage.getItem('lastAttemptedPage');
+        if (lastAttemptedPage) {
+            // Dynamically add a "Return to Previous Page" link
+            const returnLink = document.getElementById('return-link');
+            returnLink.innerHTML = `<a href="${lastAttemptedPage}">Return to Previous Page</a>`;
+        }
+    </script>
 </body>
 </html>
