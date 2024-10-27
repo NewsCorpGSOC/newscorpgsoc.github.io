@@ -65,7 +65,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             let latestFeedDate = new Date(0); // Initialize to a very old date when the page is first loaded
-            let pingVolume = 0.5; // Initialize the default volume to 1 (max volume)
+            let pingVolume = 0.0; // Initialize the default volume to 1 (max volume)
             let processedFeedItems = new Set(); // To track which feed items have been processed
         
             function updateVolume() {
@@ -75,6 +75,7 @@
         
             const volumeSlider = document.getElementById('volumeSlider');
             if (volumeSlider) {
+                volumeSlider.value = pingVolume; // Set the initial slider value to match the initial pingVolume
                 volumeSlider.addEventListener('input', updateVolume); // Attach the event listener to the slider
             }
         
