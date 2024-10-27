@@ -46,6 +46,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Redirect to access denied page if role is not allowed to access the page
         if (!allowedPages[role] || !allowedPages[role].includes(currentPage)) {
+            // Save the current page in localStorage as the last visited page
+            localStorage.setItem('lastAttemptedPage', window.location.href);
             window.location.href = 'access-denied.html';
         }
 
