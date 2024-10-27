@@ -17,6 +17,10 @@ const config = {
     'sarana.consultant@newscorp.com': { password: 'd33kBto2oFO0', role: 'operations' },
     'ygastelum.consultant@newscorp.com': { password: '96a07QR7X2vw', role: 'operations' },
     'jmagallanes.consultant@newscorp.com': { password: 'highschoolmusical3', role: 'operations' },
+    'peter.emerson-thomas@news.co.uk': { password: 'PeteETNewsUK2024!', role: 'securitymanager' },
+    'harry.frankham@dowjones.com': { password: 'HarryFRDowJones2024!', role: 'securitymanager' },
+    'gary.simpson@dowjones.com': { password: 'GarySIMDowJones2024!', role: 'securitymanager' },
+    'paul.hutchinson@dowjones.com': { password: 'PaulHUTCHDowJones2024!', role: 'securitymanager' },
     'guest': { password: 'guest1234', role: 'guest' }
   },
   roles: {
@@ -43,6 +47,10 @@ const config = {
     intelops: {
       pages: ['DNC.html', 'DNCMap.html', 'NYCWebCams.html', 'RNCMap.html', 'RSSFeeds.html', 'emergency-response-los-angeles.html', 'global-map.html', 'google-earth-assets-map.html', 'gsoc-osint-toolbox.html', 'index.html', 'mena-map.html', 'onboarding.html', 'page1.html', 'ukraine-conflict-map.html'],
       displayName: 'Intelligence Operations'
+    },
+    securitymanager: {
+      pages: ['RSSFeeds.html', 'index.html', 'mena-map.html', 'ukraine-conflict-map.html', 'intellihub.html', 'aboutme_Tanner_Porter.html', 'reliabilitymetrics.html', 'aboutme_Aidan_Cron.html', 'aboutme_Bianca_Lagman.html', 'aboutme_Camila_Pulido.html', 'aboutme_Daniel_Gunabe.html', 'aboutme_Diana_Galindo.html', 'aboutme_Giovanna_Arena.html', 'aboutme_Jacob_Ormand.html', 'aboutme_Jordy_Magallanes.html', 'aboutme_Nathan_Wu.html', 'aboutme_Savannah_Arana.html', 'aboutme_Yuri_Gastelum.html'],
+      displayName: 'Security Manager'
     },
     guest: {
       pages: ['index.html'],
