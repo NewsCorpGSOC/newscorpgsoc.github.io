@@ -30,7 +30,6 @@ document.addEventListener('DOMContentLoaded', function() {
         // Save the current URL to localStorage so we can redirect back to it after login
         localStorage.setItem('redirectAfterLogin', window.location.href);
         window.location.href = 'login.html';
-    }
     } else {
         // Define allowed pages per role
         const allowedPages = {
