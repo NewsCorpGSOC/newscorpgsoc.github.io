@@ -138,17 +138,13 @@ h1, h2, h3 {
 
 /*---------------------------------- Online Status Container ----------------------------------*/      
 .analyst-status-container {
-    flex: 2;
-    width: 100%; /* Adjust width as needed */
+    width: 100%; 
     max-width: 20.5vw;
     padding: 10px;
     background-color: #191919;
     border-radius: 10px;
-    margin-right: 20px;
-    float: left;
-    height: 80.5vh; /* Full height */
-    overflow-y: auto; /* Allow scrolling if necessary */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 80.5vh; 
+    overflow-y: auto; 
     color: white;
 }
 
@@ -164,10 +160,11 @@ h1, h2, h3 {
     padding: 10px;
 }
 
+/* List of analyst items */
 #analyst-status-list {
-    list-style: none;
-    width: 100%;
-    max-width: 150px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Spacing between items */
     padding: 10px;
 }
 
@@ -205,6 +202,28 @@ h1, h2, h3 {
     0% { opacity: 1; }
     50% { opacity: 0.5; }
     100% { opacity: 1; }
+}
+
+/* Individual analyst item */
+.analyst-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #333;
+    padding: 8px;
+    border-radius: 5px;
+}
+
+/* Profile image styling */
+.analyst-item img {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+
+/* Online/Offline status */
+.online-status {
+    font-weight: bold;
 }
 /*---------------------------------- RSS Feeds ----------------------------------*/      
 .container {
