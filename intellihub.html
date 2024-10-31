@@ -118,12 +118,12 @@
             let latestFeedDate = new Date(0); // Initialize to a very old date when the page is first loaded
             let pingVolume = 0.0; // Initialize the default volume to 1 (max volume)
             let processedFeedItems = new Set(); // To track which feed items have been processed
-        
+    
+            // Volume control setup
             function updateVolume() {
                 const volumeSlider = document.getElementById('volumeSlider');
                 pingVolume = parseFloat(volumeSlider.value); // Update pingVolume whenever the slider changes
             }
-        
             const volumeSlider = document.getElementById('volumeSlider');
             if (volumeSlider) {
                 volumeSlider.value = pingVolume; // Set the initial slider value to match the initial pingVolume
@@ -142,11 +142,8 @@
             async function fetchTSVFile(url) {
                 try {
                     const response = await fetch(url);
-                    if (!response.ok) {
-                        throw new Error('Failed to fetch TSV file');
-                    }
-                    const tsvText = await response.text();
-                    return tsvText;
+                    if (!response.ok) throw new Error('Failed to fetch TSV file');
+                    return await response.text();
                 } catch (error) {
                     console.error('Error fetching TSV file:', error);
                     return null;
@@ -159,12 +156,7 @@
                     header: true,
                     skipEmptyLines: true
                 });
-            
-                if (parsedData.errors.length) {
-                    console.error('Errors parsing TSV:', parsedData.errors);
-                    return [];
-                }
-            
+                if (parsedData.errors.length) console.error('Errors parsing TSV:', parsedData.errors);
                 return parsedData.data;
             }
             
@@ -173,20 +165,59 @@
                     const filePath = 'NewsCorpGSOCIntellifeed/updates.tsv'; 
                     const cacheBuster = new Date().getTime();
                     const response = await fetch(`https://newscorpgsoc.github.io/${filePath}?cb=${cacheBuster}`);
-        
-                    if (!response.ok) {
-                        throw new Error('Failed to fetch feed');
-                    }
-        
+                    if (!response.ok) throw new Error('Failed to fetch feed');
                     const tsvText = await response.text();
-                    const parsedFeeds = parseTSV(tsvText);
-                    console.log('Fetching Feeds');
-                    displayFeeds(parsedFeeds);
-        
+                    displayFeeds(parseTSV(tsvText));
                 } catch (error) {
                     console.error('Error fetching the TSV file:', error);
                     document.getElementById('feeds').innerHTML = '<p>Error loading feed data.</p>';
                 }
+            }
+            
+            async function fetchAnalystStatus() {
+                try {
+                    const filePath = 'AnalystOnlineStatus.tsv';
+                    const cacheBuster = new Date().getTime();
+                    const tsvText = await fetchTSVFile(`${filePath}?cb=${cacheBuster}`);
+                    if (tsvText) displayAnalystStatus(parseTSV(tsvText));
+                } catch (error) {
+                    console.error('Error fetching Analyst Status TSV:', error);
+                }
+            }
+
+            // Display analyst online status
+            function displayAnalystStatus(analysts) {
+                const analystStatusContainer = document.getElementById('analyst-status-list');
+                analystStatusContainer.innerHTML = '';
+                const currentTime = new Date();
+    
+                analysts.forEach(analyst => {
+                    const isOnline = checkAnalystOnlineStatus(analyst, currentTime);
+                    const analystElement = document.createElement('div');
+                    analystElement.className = 'analyst-item';
+    
+                    analystElement.innerHTML = `
+                        <div class="analyst-profile">
+                            <img src="${analyst['Profile Image'] || 'default-analyst.png'}" 
+                                 alt="Profile Image" 
+                                 style="border-radius: 50%; width: 50px; height: 50px;">
+                            <span>${analyst['Name']}</span>
+                            <span class="online-status" style="color: ${isOnline ? 'green' : 'gray'};">
+                                ${isOnline ? 'Online' : 'Offline'}
+                            </span>
+                        </div>
+                    `;
+                    analystStatusContainer.appendChild(analystElement);
+                });
+            }
+
+            // Check if the analyst is online
+            function checkAnalystOnlineStatus(analyst, currentTime) {
+                const startTime = new Date(currentTime);
+                const endTime = new Date(currentTime);
+                startTime.setHours(analyst['Start Time'].split(':')[0], analyst['Start Time'].split(':')[1]);
+                endTime.setHours(analyst['End Time'].split(':')[0], analyst['End Time'].split(':')[1]);
+                return currentTime >= startTime && currentTime <= endTime;
             }
         
             function getReliabilityBackground(reliability) {
@@ -346,8 +377,11 @@
                 });
             }
         
+            // Initial data fetch and periodic updates
             setInterval(fetchTSV, 30000); // Fetch updates every 30 seconds
-            window.onload = fetchTSV;
+            setInterval(fetchAnalystStatus, 60000); // Check analyst status every minute
+            fetchTSV(); // Initial feed fetch
+            fetchAnalystStatus(); // Initial analyst status fetch
         });
     </script>
 </head>
