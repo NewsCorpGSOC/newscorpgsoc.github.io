@@ -153,7 +153,6 @@
                 });
             }
 
-
             function checkAnalystOnlineStatus(analyst, currentTime, currentDateString) {
                 const scheduledDate = new Date(analyst['DayFetched']).toLocaleDateString("en-US");
             
@@ -177,10 +176,17 @@
                 const startTime = new Date(currentTime);
                 const endTime = new Date(currentTime);
             
+                // Set the hours and minutes based on the schedule
                 startTime.setHours(parseInt(startTimeStr.slice(0, 2)), parseInt(startTimeStr.slice(2)));
                 endTime.setHours(parseInt(endTimeStr.slice(0, 2)), parseInt(endTimeStr.slice(2)));
             
-                // Check if the current time is within the scheduled hours
+                // Check if endTime is technically on the following day
+                if (endTime < startTime) {
+                    // Move endTime to the next day
+                    endTime.setDate(endTime.getDate() + 1);
+                }
+            
+                // Check if the current time falls within the scheduled start and end time range
                 return currentTime >= startTime && currentTime <= endTime;
             }
         
