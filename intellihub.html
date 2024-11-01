@@ -112,28 +112,25 @@
                 analystStatusContainer.innerHTML = ''; 
             
                 const currentTime = new Date();
-                const currentDateString = currentTime.toLocaleDateString("en-US"); // Format to match DayFetched format (MM/DD/YYYY)
             
-                // Use a Map to keep only the latest entry for each unique analyst
-                const uniqueAnalysts = new Map();
+                // Filter and sort analysts by online status and name
+                const uniqueAnalysts = Array.from(
+                    new Map(analysts.map(analyst => [analyst.AnalystName, analyst])).values()
+                );
             
-                analysts.forEach(analyst => {
-                    uniqueAnalysts.set(analyst['AnalystName'], {
+                const sortedAnalysts = uniqueAnalysts
+                    .map(analyst => ({
                         ...analyst,
-                        isOnline: checkAnalystOnlineStatus(analyst, currentTime, currentDateString)
-                    });
-                });
-            
-                // Convert the map values to an array and sort by online status and name
-                const sortedAnalysts = Array.from(uniqueAnalysts.values())
+                        isOnline: checkAnalystOnlineStatus(analyst, currentTime)
+                    }))
                     .sort((a, b) => {
                         if (a.isOnline === b.isOnline) {
                             return a['AnalystName'].localeCompare(b['AnalystName']);
                         }
-                        return a.isOnline ? -1 : 1; // Online first
+                        return a.isOnline ? -1 : 1;
                     });
             
-                // Populate the container with sorted, unique analysts
+                // Populate the container with sorted analysts
                 sortedAnalysts.forEach(analyst => {
                     const analystElement = document.createElement('div');
                     analystElement.className = 'analyst-item';
@@ -142,13 +139,22 @@
                         <div class="analyst-profile">
                             <img src="${analyst['ProfileImageURL'] || 'default-analyst.png'}" 
                                  alt="Profile Image" 
-                                 style="border-radius: 50%; width: 40px; height: 40px;">
+                                 style="border-radius: 50%; width: 40px; height: 40px; cursor: pointer;"
+                                 data-url="${analyst['AboutMePage'] || `https://newscorpgsoc.github.io/aboutme_${analyst['AnalystName'].replace(/\s+/g, '_')}.html`}"
+                            >
                             <span>${analyst['AnalystName']}</span>
-                            <span class="online-status" style="color: ${analyst.isOnline ? 'green' : 'gray'};">
+                            <span class="online-status" style="color: ${analyst.isOnline ? 'springgreen' : 'gray'};">
                                 ${analyst.isOnline ? 'Online' : 'Offline'}
                             </span>
                         </div>
                     `;
+                    
+                    // Add event listener to profile image for navigation
+                    const profileImage = analystElement.querySelector('img');
+                    profileImage.addEventListener('click', () => {
+                        window.open(profileImage.getAttribute('data-url'), '_blank');
+                    });
+            
                     analystStatusContainer.appendChild(analystElement);
                 });
             }
