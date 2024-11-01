@@ -99,7 +99,7 @@
                     const cacheBuster = new Date().getTime();
                     const tsvText = await fetchTSVFile(`${filePath}?cb=${cacheBuster}`);
                     if (!tsvText) return;
-        
+            
                     const parsedData = parseTSV(tsvText);
                     displayAnalystStatus(parsedData);
                 } catch (error) {
@@ -112,6 +112,7 @@
                 analystStatusContainer.innerHTML = ''; 
             
                 const currentTime = new Date();
+                const currentDateString = currentTime.toLocaleDateString("en-US"); // Current date in "MM/DD/YYYY" format
             
                 // Filter and sort analysts by online status and name
                 const uniqueAnalysts = Array.from(
@@ -121,13 +122,13 @@
                 const sortedAnalysts = uniqueAnalysts
                     .map(analyst => ({
                         ...analyst,
-                        isOnline: checkAnalystOnlineStatus(analyst, currentTime)
+                        isOnline: checkAnalystOnlineStatus(analyst, currentTime, currentDateString)
                     }))
                     .sort((a, b) => {
                         if (a.isOnline === b.isOnline) {
                             return a['AnalystName'].localeCompare(b['AnalystName']);
                         }
-                        return a.isOnline ? -1 : 1;
+                        return a.isOnline ? -1 : 1; // Online (true) should appear before offline (false)
                     });
             
                 // Populate the container with sorted analysts
@@ -158,11 +159,11 @@
                     analystStatusContainer.appendChild(analystElement);
                 });
             }
-
-            function checkAnalystOnlineStatus(analyst, currentTime, currentDateString) {
-                const scheduledDate = new Date(analyst['DayFetched']).toLocaleDateString("en-US");
             
-                // Ensure the scheduled date matches today's date
+            function checkAnalystOnlineStatus(analyst, currentTime, currentDateString) {
+                const scheduledDate = new Date(analyst['DayFetched']).toLocaleDateString("en-US"); // Convert to "MM/DD/YYYY" format for comparison
+            
+                // Check if the scheduled date matches the current date
                 if (scheduledDate !== currentDateString) {
                     return false; // Not scheduled today
                 }
@@ -191,6 +192,13 @@
                     // Move endTime to the next day
                     endTime.setDate(endTime.getDate() + 1);
                 }
+            
+                // Debugging: Log the times for each analyst
+                console.log(`Analyst: ${analyst['AnalystName']}`);
+                console.log(`Current Time: ${currentTime}`);
+                console.log(`Start Time: ${startTime}`);
+                console.log(`End Time: ${endTime}`);
+                console.log(`Is Online: ${currentTime >= startTime && currentTime <= endTime}`);
             
                 // Check if the current time falls within the scheduled start and end time range
                 return currentTime >= startTime && currentTime <= endTime;
