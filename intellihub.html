@@ -28,92 +28,6 @@
     <script src="https://cdn.jsdelivr.net/npm/date-fns@3.6.0/cdn.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const handleDropdownHover = function() {
-                if (window.innerWidth > 768) {
-                    $(this).find('.dropdown-menu').first().stop(true, true).slideDown();
-                }
-            };
-            const handleDropdownHoverOut = function() {
-                if (window.innerWidth > 768) {
-                    $(this).find('.dropdown-menu').first().stop(true, true).slideUp();
-                }
-            };
-            $('.nav-item.dropdown').hover(handleDropdownHover, handleDropdownHoverOut);
-            $('.dropdown-submenu').hover(handleDropdownHover, handleDropdownHoverOut);
-            $('.dropdown-menu').click(function(e) {
-                e.stopPropagation();
-            });
-            const elementsToFade = document.querySelectorAll('.fade');
-            setTimeout(function() {
-                elementsToFade.forEach(el => el.classList.add('visible'));
-            }, 10);
-            $("a").click(function(event) {
-                if (this.target === "_blank") {
-                    return;
-                }
-                event.preventDefault();
-                var linkLocation = this.href;
-                elementsToFade.forEach(el => el.classList.remove('visible'));
-                elementsToFade.forEach(el => el.classList.add('fade-out'));
-                setTimeout(function() {
-                    window.location = linkLocation;
-                }, 1000); // Adjust the delay to match the fade-out duration
-            });
-            
-            async function fetchAnalystStatus() {
-                try {
-                    const filePath = 'AnalystOnlineStatus.tsv';
-                    const cacheBuster = new Date().getTime();
-                    const tsvText = await fetchTSVFile(`${filePath}?cb=${cacheBuster}`);
-                    if (!tsvText) return;
-                    
-                    const parsedData = parseTSV(tsvText);
-                    displayAnalystStatus(parsedData);
-                } catch (error) {
-                    console.error('Error fetching Analyst Status TSV:', error);
-                }
-            }
-    
-            function displayAnalystStatus(analysts) {
-                const analystStatusContainer = document.getElementById('analyst-status-list');
-                analystStatusContainer.innerHTML = ''; 
-    
-                const currentTime = new Date();
-    
-                analysts.forEach(analyst => {
-                    const isOnline = checkAnalystOnlineStatus(analyst, currentTime);
-                    const analystElement = document.createElement('div');
-                    analystElement.className = 'analyst-item';
-    
-                    analystElement.innerHTML = `
-                        <div class="analyst-profile">
-                            <img src="${analyst['Profile Image'] || 'default-analyst.png'}" 
-                                 alt="Profile Image" 
-                                 style="border-radius: 50%; width: 50px; height: 50px;">
-                            <span>${analyst['Name']}</span>
-                            <span class="online-status" style="color: ${isOnline ? 'green' : 'gray'};">
-                                ${isOnline ? 'Online' : 'Offline'}
-                            </span>
-                        </div>
-                    `;
-                    analystStatusContainer.appendChild(analystElement);
-                });
-            }
-    
-            function checkAnalystOnlineStatus(analyst, currentTime) {
-                const startTime = new Date(currentTime);
-                const endTime = new Date(currentTime);
-                startTime.setHours(analyst['Start Time'].split(':')[0], analyst['Start Time'].split(':')[1]);
-                endTime.setHours(analyst['End Time'].split(':')[0], analyst['End Time'].split(':')[1]);
-                return currentTime >= startTime && currentTime <= endTime;
-            }
-    
-            setInterval(fetchAnalystStatus, 60000); // Check every minute
-            fetchAnalystStatus(); // Initial call
-        });
-    </script>
-    <script>
         document.addEventListener('DOMContentLoaded', () => {
             let latestFeedDate = new Date(0); // Initialize to a very old date when the page is first loaded
             let pingVolume = 0.0; // Initialize the default volume to 1 (max volume)
@@ -142,7 +56,9 @@
             async function fetchTSVFile(url) {
                 try {
                     const response = await fetch(url);
-                    if (!response.ok) throw new Error('Failed to fetch TSV file');
+                    if (!response.ok) {
+                        throw new Error('Failed to fetch TSV file');
+                    }
                     return await response.text();
                 } catch (error) {
                     console.error('Error fetching TSV file:', error);
@@ -156,7 +72,10 @@
                     header: true,
                     skipEmptyLines: true
                 });
-                if (parsedData.errors.length) console.error('Errors parsing TSV:', parsedData.errors);
+                if (parsedData.errors.length) {
+                    console.error('Errors parsing TSV:', parsedData.errors);
+                    return [];
+                }
                 return parsedData.data;
             }
             
@@ -179,31 +98,48 @@
                     const filePath = 'AnalystOnlineStatus.tsv';
                     const cacheBuster = new Date().getTime();
                     const tsvText = await fetchTSVFile(`${filePath}?cb=${cacheBuster}`);
-                    if (tsvText) displayAnalystStatus(parseTSV(tsvText));
+                    if (!tsvText) return;
+        
+                    const parsedData = parseTSV(tsvText);
+                    displayAnalystStatus(parsedData);
                 } catch (error) {
                     console.error('Error fetching Analyst Status TSV:', error);
                 }
             }
 
-            // Display analyst online status
             function displayAnalystStatus(analysts) {
                 const analystStatusContainer = document.getElementById('analyst-status-list');
-                analystStatusContainer.innerHTML = '';
+                analystStatusContainer.innerHTML = ''; 
+        
                 const currentTime = new Date();
-    
-                analysts.forEach(analyst => {
-                    const isOnline = checkAnalystOnlineStatus(analyst, currentTime);
+        
+                // Map analysts with online status and sort
+                const sortedAnalysts = analysts
+                    .map(analyst => ({
+                        ...analyst,
+                        isOnline: checkAnalystOnlineStatus(analyst, currentTime)
+                    }))
+                    .sort((a, b) => {
+                        // Sort by online status (online first) and then alphabetically
+                        if (a.isOnline === b.isOnline) {
+                            return a['AnalystName'].localeCompare(b['AnalystName']);
+                        }
+                        return a.isOnline ? -1 : 1; // Online (true) should appear before offline (false)
+                    });
+        
+                // Populate the container with sorted analysts
+                sortedAnalysts.forEach(analyst => {
                     const analystElement = document.createElement('div');
                     analystElement.className = 'analyst-item';
-    
+        
                     analystElement.innerHTML = `
                         <div class="analyst-profile">
-                            <img src="${analyst['Profile Image'] || 'default-analyst.png'}" 
+                            <img src="${analyst['ProfileImageURL'] || 'default-analyst.png'}" 
                                  alt="Profile Image" 
-                                 style="border-radius: 50%; width: 50px; height: 50px;">
-                            <span>${analyst['Name']}</span>
-                            <span class="online-status" style="color: ${isOnline ? 'green' : 'gray'};">
-                                ${isOnline ? 'Online' : 'Offline'}
+                                 style="border-radius: 50%; width: 40px; height: 40px;">
+                            <span>${analyst['AnalystName']}</span>
+                            <span class="online-status" style="color: ${analyst.isOnline ? 'green' : 'gray'};">
+                                ${analyst.isOnline ? 'Online' : 'Offline'}
                             </span>
                         </div>
                     `;
@@ -211,12 +147,27 @@
                 });
             }
 
-            // Check if the analyst is online
+
             function checkAnalystOnlineStatus(analyst, currentTime) {
+                const scheduledHours = analyst['ScheduledHours'];
+                if (!scheduledHours) {
+                    console.warn('Scheduled hours missing for analyst:', analyst['AnalystName']);
+                    return false;
+                }
+        
+                const [startTimeStr, endTimeStr] = scheduledHours.split(' - ');
+                if (!startTimeStr || !endTimeStr) {
+                    console.error('Invalid time format in ScheduledHours:', scheduledHours);
+                    return false;
+                }
+        
                 const startTime = new Date(currentTime);
                 const endTime = new Date(currentTime);
-                startTime.setHours(analyst['Start Time'].split(':')[0], analyst['Start Time'].split(':')[1]);
-                endTime.setHours(analyst['End Time'].split(':')[0], analyst['End Time'].split(':')[1]);
+        
+                startTime.setHours(parseInt(startTimeStr.slice(0, 2)), parseInt(startTimeStr.slice(2)));
+                endTime.setHours(parseInt(endTimeStr.slice(0, 2)), parseInt(endTimeStr.slice(2)));
+        
+                // Check if the current time is within the scheduled hours
                 return currentTime >= startTime && currentTime <= endTime;
             }
         
