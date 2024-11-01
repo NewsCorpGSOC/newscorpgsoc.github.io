@@ -110,28 +110,33 @@
             function displayAnalystStatus(analysts) {
                 const analystStatusContainer = document.getElementById('analyst-status-list');
                 analystStatusContainer.innerHTML = ''; 
-        
+            
                 const currentTime = new Date();
-        
-                // Map analysts with online status and sort
-                const sortedAnalysts = analysts
-                    .map(analyst => ({
+            
+                // Use a Map to keep only the latest entry for each unique analyst
+                const uniqueAnalysts = new Map();
+            
+                analysts.forEach(analyst => {
+                    uniqueAnalysts.set(analyst['AnalystName'], {
                         ...analyst,
                         isOnline: checkAnalystOnlineStatus(analyst, currentTime)
-                    }))
+                    });
+                });
+            
+                // Convert the map values to an array and sort by online status and name
+                const sortedAnalysts = Array.from(uniqueAnalysts.values())
                     .sort((a, b) => {
-                        // Sort by online status (online first) and then alphabetically
                         if (a.isOnline === b.isOnline) {
                             return a['AnalystName'].localeCompare(b['AnalystName']);
                         }
-                        return a.isOnline ? -1 : 1; // Online (true) should appear before offline (false)
+                        return a.isOnline ? -1 : 1; // Online first
                     });
-        
-                // Populate the container with sorted analysts
+            
+                // Populate the container with sorted, unique analysts
                 sortedAnalysts.forEach(analyst => {
                     const analystElement = document.createElement('div');
                     analystElement.className = 'analyst-item';
-        
+            
                     analystElement.innerHTML = `
                         <div class="analyst-profile">
                             <img src="${analyst['ProfileImageURL'] || 'default-analyst.png'}" 
