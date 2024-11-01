@@ -832,8 +832,8 @@ footer {
     }
 }
 
-@media (min-width: 1200px) {
-    .container, .container-lg, .container-md, .container-sm, .container-xl {
+@media (min-width: 1251px) {
+    .container {
         max-width: 95vw !important;
     }
 }
