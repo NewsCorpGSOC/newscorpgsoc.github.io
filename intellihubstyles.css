@@ -834,6 +834,6 @@ footer {
 
 @media (min-width: 1200px) {
     .container, .container-lg, .container-md, .container-sm, .container-xl {
-        max-width: 2440px !important;
+        max-width: 95vw !important;
     }
 }
