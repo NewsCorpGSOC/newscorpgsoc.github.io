@@ -112,6 +112,7 @@
                 analystStatusContainer.innerHTML = ''; 
             
                 const currentTime = new Date();
+                const currentDateString = currentTime.toLocaleDateString("en-US"); // Format to match DayFetched format (MM/DD/YYYY)
             
                 // Use a Map to keep only the latest entry for each unique analyst
                 const uniqueAnalysts = new Map();
@@ -119,7 +120,7 @@
                 analysts.forEach(analyst => {
                     uniqueAnalysts.set(analyst['AnalystName'], {
                         ...analyst,
-                        isOnline: checkAnalystOnlineStatus(analyst, currentTime)
+                        isOnline: checkAnalystOnlineStatus(analyst, currentTime, currentDateString)
                     });
                 });
             
@@ -153,25 +154,32 @@
             }
 
 
-            function checkAnalystOnlineStatus(analyst, currentTime) {
+            function checkAnalystOnlineStatus(analyst, currentTime, currentDateString) {
+                const scheduledDate = new Date(analyst['DayFetched']).toLocaleDateString("en-US");
+            
+                // Ensure the scheduled date matches today's date
+                if (scheduledDate !== currentDateString) {
+                    return false; // Not scheduled today
+                }
+            
                 const scheduledHours = analyst['ScheduledHours'];
                 if (!scheduledHours) {
                     console.warn('Scheduled hours missing for analyst:', analyst['AnalystName']);
                     return false;
                 }
-        
+            
                 const [startTimeStr, endTimeStr] = scheduledHours.split(' - ');
                 if (!startTimeStr || !endTimeStr) {
                     console.error('Invalid time format in ScheduledHours:', scheduledHours);
                     return false;
                 }
-        
+            
                 const startTime = new Date(currentTime);
                 const endTime = new Date(currentTime);
-        
+            
                 startTime.setHours(parseInt(startTimeStr.slice(0, 2)), parseInt(startTimeStr.slice(2)));
                 endTime.setHours(parseInt(endTimeStr.slice(0, 2)), parseInt(endTimeStr.slice(2)));
-        
+            
                 // Check if the current time is within the scheduled hours
                 return currentTime >= startTime && currentTime <= endTime;
             }
