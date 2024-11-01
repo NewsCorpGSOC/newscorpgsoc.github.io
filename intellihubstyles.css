@@ -573,7 +573,6 @@ h1, h2, h3 {
     flex-basis: 20.5vw; /* Control width using flex-basis */
     max-width: 300px; /* Add a maximum limit if necessary */
     height: 80.5vh;
-    overflow-y: auto;
     background-color: #191919;
     border-radius: 10px;
     padding: 10px;
@@ -591,6 +590,7 @@ h1, h2, h3 {
     width: 100%;
     max-width: 150px;
     padding: 10px;
+    overflow-y: auto;
 }
 
 #analyst-status-list {
