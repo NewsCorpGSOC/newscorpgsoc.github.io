@@ -140,7 +140,7 @@ h1, h2, h3 {
 /*---------------------------------- RSS Feeds ----------------------------------*/      
 .container {
   display: flex;
-  flex-wrap: nowrap; /* Prevent items from wrapping if not desired */
+  flex: 8;
   justify-content: space-between;
   align-items: flex-start;
   gap: 20px; /* Adjust spacing between items */
@@ -571,6 +571,7 @@ h1, h2, h3 {
 /*---------------------------------- Online Status Container ----------------------------------*/      
 .analyst-status-container {
     flex-basis: 20.5vw; /* Control width using flex-basis */
+    flex-grow: 1;
     max-width: 300px; /* Add a maximum limit if necessary */
     height: 80.5vh;
     background-color: #191919;
