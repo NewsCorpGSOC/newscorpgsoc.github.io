@@ -140,10 +140,11 @@ h1, h2, h3 {
 /*---------------------------------- RSS Feeds ----------------------------------*/      
 .container {
   display: flex;
-  flex: 8;
+  flex-wrap: nowrap; /* Prevent items from wrapping if not desired */
   justify-content: space-between;
   align-items: flex-start;
-  margin-top: 20px; /* Align to the top and center horizontally */
+  gap: 20px; /* Adjust spacing between items */
+  margin-top: 20px;
   padding: 20px;
   box-sizing: border-box;
 }
@@ -569,9 +570,8 @@ h1, h2, h3 {
 
 /*---------------------------------- Online Status Container ----------------------------------*/      
 .analyst-status-container {
-    flex-grow: 1;
-    width: 300px; 
-    flex-basis: 20.5vw;
+    flex-basis: 20.5vw; /* Control width using flex-basis */
+    max-width: 300px; /* Add a maximum limit if necessary */
     height: 80.5vh;
     overflow-y: auto;
     background-color: #191919;
