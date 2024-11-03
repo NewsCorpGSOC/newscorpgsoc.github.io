@@ -32,6 +32,7 @@
             let latestFeedDate = new Date(0); // Initialize to a very old date when the page is first loaded
             let pingVolume = 0.0; // Initialize the default volume
             let feedItems = []; // Store fetched feed items globally for filtering
+            let processedFeedItems = new Set(); // Initialize the Set to track processed feed items
             const timezoneSelector = document.getElementById('timezoneSelector');
             const timelineFilter = document.getElementById('timelineFilter');
             const searchInput = document.getElementById('searchInput');
