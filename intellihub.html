@@ -33,6 +33,7 @@
             let pingVolume = 0.0; // Initialize the default volume
             let originalFeedItems = []; // Store original fetched feed items
             let feedItems = []; // Store currently displayed feed items (filtered)
+            let processedFeedItems = new Set(); // Initialize processed items tracking set
             const timezoneSelector = document.getElementById('timezoneSelector');
             const timelineFilter = document.getElementById('timelineFilter');
             const searchInput = document.getElementById('searchInput');
