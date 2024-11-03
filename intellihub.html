@@ -133,6 +133,8 @@
             
                 // Populate the container with sorted analysts
                 sortedAnalysts.forEach(analyst => {
+                    const aboutMeUrl = analyst['AboutMePage'] || `https://newscorpgsoc.github.io/aboutme_${analyst['AnalystName'].replace(/\s+/g, '_')}.html`;
+            
                     const analystElement = document.createElement('div');
                     analystElement.className = 'analyst-item';
             
@@ -140,20 +142,28 @@
                         <div class="analyst-profile">
                             <img src="${analyst['ProfileImageURL'] || 'default-analyst.png'}" 
                                  alt="Profile Image" 
-                                 style="border-radius: 50%; width: 40px; height: 40px; cursor: pointer;"
-                                 data-url="${analyst['AboutMePage'] || `https://newscorpgsoc.github.io/aboutme_${analyst['AnalystName'].replace(/\s+/g, '_')}.html`}"
+                                 style="border-radius: 50%; width: 40px; height: 40px; padding-right: 5px; cursor: pointer;"
+                                 data-url="${aboutMeUrl}"
                             >
-                            <span>${analyst['AnalystName']}</span>
+                            <span style="cursor: pointer; color: #00d6e3;" data-url="${aboutMeUrl}">
+                                ${analyst['AnalystName']}
+                            </span>
                             <span class="online-status" style="color: ${analyst.isOnline ? 'springgreen' : 'gray'};">
                                 ${analyst.isOnline ? 'Online' : 'Offline'}
                             </span>
                         </div>
                     `;
-                    
-                    // Add event listener to profile image for navigation
+            
+                    // Add event listeners to both the profile image and the name for navigation
                     const profileImage = analystElement.querySelector('img');
+                    const analystName = analystElement.querySelector('span[data-url]');
+            
                     profileImage.addEventListener('click', () => {
                         window.open(profileImage.getAttribute('data-url'), '_blank');
+                    });
+            
+                    analystName.addEventListener('click', () => {
+                        window.open(analystName.getAttribute('data-url'), '_blank');
                     });
             
                     analystStatusContainer.appendChild(analystElement);
