@@ -38,6 +38,7 @@
             const timelineFilter = document.getElementById('timelineFilter');
             const searchInput = document.getElementById('searchInput');
             const topicFilters = Array.from(document.querySelectorAll('.topic-filter input[type="checkbox"]'));
+            timelineFilter.value = 'all'; // Set default to "all"
 
             const timezoneMap = {
                 'Pacific Time': 'America/Los_Angeles',
@@ -582,12 +583,12 @@
                             </select>
                             
                             <label for="timelineFilter">Timeline Filter:</label>
-              	            <select id="timelineFilter">
-              	                <option value="lastHour">Last Hour</option>
-                      	        <option value="last12Hours">Last 12 Hours</option>
-                      	        <option value="lastDay">Last Day</option>
-                      	        <option value="all">All</option>
-                    	      </select>
+                            <select id="timelineFilter">
+                                <option value="lastHour">Last Hour</option>
+                                <option value="last12Hours">Last 12 Hours</option>
+                                <option value="lastDay">Last Day</option>
+                                <option value="all" selected>All</option> <!-- Add this or ensure "all" is included -->
+                            </select>
                             
                             <div class="topic-filter">
                                 <label>Topic Filter:</label>
