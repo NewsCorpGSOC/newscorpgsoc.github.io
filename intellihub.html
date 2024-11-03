@@ -30,8 +30,20 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             let latestFeedDate = new Date(0); // Initialize to a very old date when the page is first loaded
-            let pingVolume = 0.0; // Initialize the default volume to 1 (max volume)
-            let processedFeedItems = new Set(); // To track which feed items have been processed
+            let pingVolume = 0.0; // Initialize the default volume
+            let feedItems = []; // Store fetched feed items globally for filtering
+            const timezoneSelector = document.getElementById('timezoneSelector');
+            const timelineFilter = document.getElementById('timelineFilter');
+            const searchInput = document.getElementById('searchInput');
+            const topicFilters = Array.from(document.querySelectorAll('.topic-filter input[type="checkbox"]'));
+        
+            // Timezone mapping
+            const timezoneMap = {
+                'Pacific Time': 'America/Los_Angeles',
+                'Mountain Time': 'America/Denver',
+                'Central Time': 'America/Chicago',
+                'Eastern Time': 'America/New_York'
+            };
     
             // Volume control setup
             function updateVolume() {
@@ -43,6 +55,12 @@
                 volumeSlider.value = pingVolume; // Set the initial slider value to match the initial pingVolume
                 volumeSlider.addEventListener('input', updateVolume); // Attach the event listener to the slider
             }
+
+            // Attach the event listeners to the filters to apply filters on change/input
+            timezoneSelector.addEventListener('change', applyAndDisplayFilteredFeeds);
+            timelineFilter.addEventListener('change', applyAndDisplayFilteredFeeds);
+            searchInput.addEventListener('input', applyAndDisplayFilteredFeeds);
+            topicFilters.forEach(checkbox => checkbox.addEventListener('change', applyAndDisplayFilteredFeeds));
         
             function formatAnalystUrl(analystName) {
                 if (!analystName || analystName.trim() === '') {
@@ -91,6 +109,43 @@
                     console.error('Error fetching the TSV file:', error);
                     document.getElementById('feeds').innerHTML = '<p>Error loading feed data.</p>';
                 }
+            }
+
+            function applyAndDisplayFilteredFeeds() {
+                const filteredFeeds = applyFilters(feedItems);
+                displayFeeds(filteredFeeds);
+            }
+        
+            function applyFilters(items) {
+                const now = new Date();
+            
+                // **Timeline Filter** - Apply this filter first
+                const timelineValue = timelineFilter.value;
+                if (timelineValue === 'lastHour') {
+                    items = items.filter(item => now - new Date(item.Timestamp) <= 3600000); // 1 hour
+                } else if (timelineValue === 'last12Hours') {
+                    items = items.filter(item => now - new Date(item.Timestamp) <= 43200000); // 12 hours
+                } else if (timelineValue === 'lastDay') {
+                    items = items.filter(item => now - new Date(item.Timestamp) <= 86400000); // 1 day
+                }
+            
+                // **Topic Filter** - Apply this filter next
+                const selectedTopics = topicFilters.filter(checkbox => checkbox.checked).map(cb => cb.value);
+                if (selectedTopics.length > 0) {
+                    items = items.filter(item => selectedTopics.some(topic => item.Topics && item.Topics.includes(topic)));
+                }
+            
+                // **Search Filter** - Apply this filter last
+                const searchTerm = searchInput.value.trim().toLowerCase();
+                if (searchTerm) {
+                    items = items.filter(item =>
+                        item.Title.toLowerCase().includes(searchTerm) ||
+                        item.Description.toLowerCase().includes(searchTerm) ||
+                        item.Source.toLowerCase().includes(searchTerm)
+                    );
+                }
+            
+                return items;
             }
             
             async function fetchAnalystStatus() {
@@ -298,12 +353,43 @@
                 // Sort feedItems in descending order by Timestamp
                 feedItems.sort((a, b) => new Date(b['Timestamp']) - new Date(a['Timestamp']));
             
-                // Update latestFeedDate to the newest item in the feed, without playing sound again
-                if (feedItems.length > 0) {
-                    latestFeedDate = new Date(feedItems[0]['Timestamp']);
+                // Apply filters
+                const now = new Date();
+                const timelineValue = document.getElementById('timelineFilter').value;
+                const searchTerm = document.getElementById('searchInput').value.trim().toLowerCase();
+                const selectedTopics = Array.from(document.querySelectorAll('.topic-filter input[type="checkbox"]:checked')).map(cb => cb.value);
+            
+                // Filter by timeline
+                let filteredItems = feedItems;
+                if (timelineValue === 'lastHour') {
+                    filteredItems = filteredItems.filter(item => now - new Date(item.Timestamp) <= 3600000); // 1 hour
+                } else if (timelineValue === 'last12Hours') {
+                    filteredItems = filteredItems.filter(item => now - new Date(item.Timestamp) <= 43200000); // 12 hours
+                } else if (timelineValue === 'lastDay') {
+                    filteredItems = filteredItems.filter(item => now - new Date(item.Timestamp) <= 86400000); // 1 day
                 }
             
-                feedItems.forEach(feed => {
+                // Filter by topics
+                if (selectedTopics.length > 0) {
+                    filteredItems = filteredItems.filter(item => selectedTopics.some(topic => item.Topics && item.Topics.includes(topic)));
+                }
+            
+                // Filter by search term
+                if (searchTerm) {
+                    filteredItems = filteredItems.filter(item =>
+                        item.Title.toLowerCase().includes(searchTerm) ||
+                        item.Description.toLowerCase().includes(searchTerm) ||
+                        (item['Source(s)'] && item['Source(s)'].toLowerCase().includes(searchTerm))
+                    );
+                }
+            
+                // Update latestFeedDate to the newest item in the filtered feed, without playing sound again
+                if (filteredItems.length > 0) {
+                    latestFeedDate = new Date(filteredItems[0]['Timestamp']);
+                }
+            
+                // Display filtered feeds
+                filteredItems.forEach(feed => {
                     const pubDate = new Date(feed['Timestamp']);  // Assuming 'Timestamp' holds the published date
             
                     // Reliability background colors
@@ -340,7 +426,7 @@
                                 </a>
                             </div>
                         </div>
-
+            
                         <div style="display: flex;">
                             <!-- Analyst Container -->
                             <div class="analyst-container" style="width: 150px; text-align: center;">
@@ -482,13 +568,6 @@
                         </div>
                         
               	        <div class="filter-bar">
-                            <div class="credibility-filter">
-                                <label>Credibility Filter:</label>
-                                <label><input type="checkbox" id="credibleFilter" checked> ✅ Credible</label>
-                                <label><input type="checkbox" id="dubiousFilter" checked> ⚠️ Dubious</label>
-                                <label><input type="checkbox" id="requiresVerificationFilter" checked> 🛑 Requires Verification</label>
-                            </div>
-                          
                             <label for="timezoneSelector">Select Timezone:</label>
                             <select id="timezoneSelector">
                               <option value="Pacific Time">Pacific Time</option>
