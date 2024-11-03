@@ -37,8 +37,7 @@
             const timelineFilter = document.getElementById('timelineFilter');
             const searchInput = document.getElementById('searchInput');
             const topicFilters = Array.from(document.querySelectorAll('.topic-filter input[type="checkbox"]'));
-        
-            // Timezone mapping
+
             const timezoneMap = {
                 'Pacific Time': 'America/Los_Angeles',
                 'Mountain Time': 'America/Denver',
@@ -106,10 +105,9 @@
                     if (!response.ok) throw new Error('Failed to fetch feed');
                     const tsvText = await response.text();
                     
-                    // Parse and set both originalFeedItems and feedItems
-                    originalFeedItems = parseTSV(tsvText);
-                    feedItems = [...originalFeedItems]; // Initial display matches original data
-                    applyAndDisplayFilteredFeeds(); // Display filtered feeds
+                    originalFeedItems = parseTSV(tsvText); // Parse TSV and store in original
+                    feedItems = [...originalFeedItems]; // Set initial feedItems for display
+                    applyAndDisplayFilteredFeeds(); // Apply filters and display items
                 } catch (error) {
                     console.error('Error fetching the TSV file:', error);
                     document.getElementById('feeds').innerHTML = '<p>Error loading feed data.</p>';
@@ -117,11 +115,11 @@
             }
 
             function applyAndDisplayFilteredFeeds() {
-                // Start filtering from the original unmodified items
-                feedItems = applyFilters(originalFeedItems);
+                // Apply filters on a fresh copy of originalFeedItems each time
+                feedItems = applyFilters([...originalFeedItems]);
                 displayFeeds(feedItems);
             }
-        
+            
             function applyFilters(items) {
                 const now = new Date();
     
@@ -147,7 +145,7 @@
                     items = items.filter(item =>
                         item.Title.toLowerCase().includes(searchTerm) ||
                         item.Description.toLowerCase().includes(searchTerm) ||
-                        item.Source.toLowerCase().includes(searchTerm)
+                        (item['Source(s)'] && item['Source(s)'].toLowerCase().includes(searchTerm))
                     );
                 }
     
