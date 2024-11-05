@@ -5,7 +5,7 @@ const config = {
     'lagsoc@newscorp.com': { password: 'GSOCIntranet2024', role: 'operations' },
     'acron.consultant@newscorp.com': { password: '4X70KSQrSuZp', role: 'manager' },
     'jormand.consultant@newscorp.com': { password: 'i7M2fLz72p6i', role: 'manager' },
-    'ejany@newscorp.com': { password: 'Wekplarhosh23!', role: 'admin' },
+    'ejany@newscorp.com': { password: 'Wekplarhosh23!', role: 'securitymanager' },
     'okay@newscorp.com': { password: 'D6kQj96EY94l', role: 'director' },
     'dgalindo.consultant@newscorp.com': { password: '5Zq2l51U5Lf9', role: 'intelops' },
     'blagman.consultant@newscorp.com': { password: 'w8xcv4DXf8o3', role: 'operations' },
@@ -21,6 +21,8 @@ const config = {
     'harry.frankham@dowjones.com': { password: 'HarryFRDowJones2024!', role: 'securitymanager' },
     'gary.simpson@dowjones.com': { password: 'GarySIMDowJones2024!', role: 'securitymanager' },
     'paul.hutchinson@dowjones.com': { password: 'PaulHUTCHDowJones2024!', role: 'securitymanager' },
+    'pkapoukakis@newscorp.com': { password: 'PeteKAPNewsCorp2024!', role: 'securitymanager' },
+    'kmcenroe@newscorp.com': { password: 'KristenMCENNewsCorp2024!', role: 'securitymanager' },
     'guest': { password: 'guest1234', role: 'guest' }
   },
   roles: {
