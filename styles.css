@@ -151,7 +151,7 @@ h1, h2, h3 {
 }
 
 @media (min-width: 1250px) {
-    .body {
+    .main-content {
       width: 100vw !important;
     }
 }
