@@ -144,6 +144,12 @@ h1, h2, h3 {
     }
 }
 
+@media (max-width: 1250px) {
+    #sidebar {
+      display: none !important;
+    }
+}
+
 /*---------------------------------- SIDEBAR ----------------------------------*/      
 #sidebar {
     display: flex;
