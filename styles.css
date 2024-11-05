@@ -150,6 +150,12 @@ h1, h2, h3 {
     }
 }
 
+@media (min-width: 1250px) {
+    .body {
+      width: 100vw !important;
+    }
+}
+
 /*---------------------------------- SIDEBAR ----------------------------------*/      
 #sidebar {
     display: flex;
