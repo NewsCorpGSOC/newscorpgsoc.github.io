@@ -18,20 +18,6 @@ const rssFeeds = [
     ]
   },
   {
-    url: 'https://wol.com/feed/',
-    source: 'World Online',
-    priorityLevel: 'Very Low',
-    requiredTerms: [],
-    ignoreTerms: [],
-    reliability: 'Dubious',
-    background: '#203050',
-    backups: [
-      '${PROXY_URL}https://wol.com/feed/',
-      'https://api.allorigins.win/get?url=https%3A%2F%2Fwol.com%2Ffeed%2F',
-      'https://corsproxy.io/?https%3A%2F%2Fwol.com%2Ffeed%2F',
-    ]
-  },
-  {
     url: 'https://moxie.foxnews.com/google-publisher/world.xml',
     source: 'Fox News - World',
     priorityLevel: 'Very Low',
@@ -57,20 +43,6 @@ const rssFeeds = [
       '${PROXY_URL}https://moxie.foxnews.com/google-publisher/latest.xml',
       'https://api.allorigins.win/get?url=https%3A%2F%2Fmoxie.foxnews.com%2Fgoogle-publisher%2Flatest.xml',
       'https://corsproxy.io/?https%3A%2F%2Fmoxie.foxnews.com%2Fgoogle-publisher%2Flatest.xml',
-    ]
-  },
-  {
-    url: 'https://feeds.npr.org/1001/rss.xml',
-    source: 'NPR News',
-    priorityLevel: 'Very Low',
-    requiredTerms: [],
-    ignoreTerms: [],
-    reliability: 'Credible',
-    background: '#203050',
-    backups: [
-      '${PROXY_URL}https://feeds.npr.org/1001/rss.xml',
-      'https://api.allorigins.win/get?url=https%3A%2F%2Ffeeds.npr.org%2F1001%2Frss.xml',
-      'https://corsproxy.io/?https%3A%2F%2Ffeeds.npr.org%2F1001%2Frss.xml',
     ]
   },
   {
