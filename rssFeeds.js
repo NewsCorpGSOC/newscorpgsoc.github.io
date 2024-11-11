@@ -2,20 +2,24 @@ const PROXY_URL = 'http://localhost:3000/rss?url=';
 
 const rssFeeds = [
   {
-    url: 'https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml',
-    source: 'The New York Times',
+    url: 'https://rss.nytimes.com/services/xml/rss/nyt/World.xml',
+    source: 'The New York Times - World',
     priorityLevel: 'Very Low',
     requiredTerms: [],
     ignoreTerms: [],
     reliability: 'Credible',
     background: '#203050',
-    backups: [
-      '${PROXY_URL}https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml',
-      'https://api.allorigins.win/get?url=https%3A%2F%2Frss.nytimes.com%2Fservices%2Fxml%2Frss%2Fnyt%2FWorld.xml',
-      'https://corsproxy.io/?https%3A%2F%2Frss.nytimes.com%2Fservices%2Fxml%2Frss%2Fnyt%2FHomePage.xml',
-      'https://corsproxy.io/?https%3A%2F%2Frss.nytimes.com%2Fservices%2Fxml%2Frss%2Fnyt%2FWorld.xml',
-      'https://corsproxy.io/?https%3A%2F%2Frss.nytimes.com%2Fservices%2Fxml%2Frss%2Fnyt%2FUS.xml'
-    ]
+    backups: []
+  },
+  {
+    url: 'https://rss.nytimes.com/services/xml/rss/nyt/Politics.xml',
+    source: 'The New York Times - Politics',
+    priorityLevel: 'Very Low',
+    requiredTerms: [],
+    ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#203050',
+    backups: []
   },
   {
     url: 'https://moxie.foxnews.com/google-publisher/world.xml',
@@ -99,48 +103,6 @@ const rssFeeds = [
       '${PROXY_URL}https://www.brandonsun.com/feed?path=%2Fnational%2Fbreaking-news',
       'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.brandonsun.com%2Ffeed%3Fpath%3D%252Fnational%252Fbreaking-news',
       'https://corsproxy.io/?https%3A%2F%2Fwww.brandonsun.com%2Ffeed%3Fpath%3D%252Fnational%252Fbreaking-news',
-    ]
-  },
-  {
-    url: 'https://www.thehindubusinessline.com/news/?service=rss',
-    source: 'The Hindu Business Line',
-    priorityLevel: 'Dubious',
-    requiredTerms: [],
-    ignoreTerms: [],
-    reliability: 'Credible',
-    background: '#203050',
-    backups: [
-      '${PROXY_URL}https://www.thehindubusinessline.com/news/?service=rss',
-      'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.thehindubusinessline.com%2Fnews%2F%3Fservice%3Drss',
-      'https://corsproxy.io/?https%3A%2F%2Fwww.thehindubusinessline.com%2Fnews%2F%3Fservice%3Drss',
-    ]
-  },
-  {
-    url: 'https://zeenews.india.com/rss/world-news.xml',
-    source: 'Zee News India',
-    priorityLevel: 'Very Low',
-    requiredTerms: [],
-    ignoreTerms: [],
-    reliability: 'Dubious',
-    background: '#203050',
-    backups: [
-      '${PROXY_URL}https://zeenews.india.com/rss/world-news.xml',
-      'https://api.allorigins.win/get?url=https%3A%2F%2Fzeenews.india.com%2Frss%2Fworld-news.xml',
-      'https://corsproxy.io/?https%3A%2F%2Fzeenews.india.com%2Frss%2Fworld-news.xml',
-    ]
-  },
-  {
-    url: 'https://www.livemint.com/rss/politics',
-    source: 'Live Mint India',
-    priorityLevel: 'Very Low',
-    requiredTerms: [],
-    ignoreTerms: [],
-    reliability: 'Dubious',
-    background: '#203050',
-    backups: [
-      '${PROXY_URL}https://www.livemint.com/rss/politics',
-      'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.livemint.com%2Frss%2Fpolitics',
-      'https://corsproxy.io/?https%3A%2F%2Fwww.livemint.com%2Frss%2Fpolitics',
     ]
   },
   {
