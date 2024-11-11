@@ -550,7 +550,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       'South China Morning Post (Alt)': -9,
       'The Federalist': -7,
       'Walla': -2,
-      'International Atomic Energy Agency': -2,
+      'International Atomic Energy Agency': -3,
     };
   
     // Set default time adjustment if no specific entry is found (0 hours adjustment).
