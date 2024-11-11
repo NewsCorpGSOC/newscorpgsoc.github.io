@@ -234,76 +234,6 @@ const rssFeeds = [
     ]
   },
   {
-    url: 'https://www.state.gov/rss-feed/africa/feed/',
-    source: 'U.S. State Department - Africa',
-    priorityLevel: 'Very Low',
-    requiredTerms: [],
-    ignoreTerms: [],
-    reliability: 'Credible',
-    background: '#203050',
-    backups: [
-      '${PROXY_URL}https://www.state.gov/rss-feed/africa/feed/',
-      'https://corsproxy.io/?https%3A%2F%2Fwww.state.gov%2Frss-feed%2Fafrica%2Ffeed%2F',
-      'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.state.gov%2Frss-feed%2Fafrica%2Ffeed%2F',
-    ]
-  },
-  {
-    url: 'https://www.state.gov/rss-feed/east-asia-and-the-pacific/feed/',
-    source: 'U.S. State Department - East Asia and the Pacific',
-    priorityLevel: 'Very Low',
-    requiredTerms: [],
-    ignoreTerms: [],
-    reliability: 'Credible',
-    background: '#203050',
-    backups: [
-      '${PROXY_URL}https://www.state.gov/rss-feed/east-asia-and-the-pacific/feed/',
-      'https://corsproxy.io/?https%3A%2F%2Fwww.state.gov%2Frss-feed%2Feast-asia-and-the-pacific%2Ffeed%2F',
-      'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.state.gov%2Frss-feed%2Feast-asia-and-the-pacific%2Ffeed%2F',
-    ]
-  },
-  {
-    url: 'https://www.state.gov/rss-feed/europe-and-eurasia/feed/',
-    source: 'U.S. State Department - Europe and Eurasia',
-    priorityLevel: 'Very Low',
-    requiredTerms: [],
-    ignoreTerms: [],
-    reliability: 'Credible',
-    background: '#203050',
-    backups: [
-      '${PROXY_URL}https://www.state.gov/rss-feed/europe-and-eurasia/feed/',
-      'https://corsproxy.io/?https%3A%2F%2Fwww.state.gov%2Frss-feed%2Feurope-and-eurasia%2Ffeed%2F',
-      'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.state.gov%2Frss-feed%2Feurope-and-eurasia%2Ffeed%2F',
-    ]
-  },
-  {
-    url: 'https://www.state.gov/rss-feed/near-east/feed/',
-    source: 'U.S. State Department - Near East',
-    priorityLevel: 'Very Low',
-    requiredTerms: [],
-    ignoreTerms: [],
-    reliability: 'Credible',
-    background: '#203050',
-    backups: [
-      '${PROXY_URL}https://www.state.gov/rss-feed/near-east/feed/',
-      'https://corsproxy.io/?https%3A%2F%2Fwww.state.gov%2Frss-feed%2Fnear-east%2Ffeed%2F',
-      'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.state.gov%2Frss-feed%2Fnear-east%2Ffeed%2F',
-    ]
-  },
-  {
-    url: 'https://www.state.gov/rss-feed/south-and-central-asia/feed/',
-    source: 'U.S. State Department - South and Central Asia',
-    priorityLevel: 'Very Low',
-    requiredTerms: [],
-    ignoreTerms: [],
-    reliability: 'Credible',
-    background: '#203050',
-    backups: [
-      '${PROXY_URL}https://www.state.gov/rss-feed/south-and-central-asia/feed/',
-      'https://corsproxy.io/?https%3A%2F%2Fwww.state.gov%2Frss-feed%2Fsouth-and-central-asia%2Ffeed%2F',
-      'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.state.gov%2Frss-feed%2Fsouth-and-central-asia%2Ffeed%2F',
-    ]
-  },
-  {
     url: 'https://www.defense.gov/DesktopModules/ArticleCS/RSS.ashx?ContentType=9&Site=945&max=10',
     source: 'U.S. Department of Defense',
     priorityLevel: 'Very Low',
@@ -329,21 +259,6 @@ const rssFeeds = [
       '${PROXY_URL}https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=100727362',
       'https://api.allorigins.win/get?url=https%3A%2F%2Fsearch.cnbc.com%2Frs%2Fsearch%2Fcombinedcms%2Fview.xml%3FpartnerId%3Dwrss01%26id%3D100727362',
       'https://corsproxy.io/?https%3A%2F%2Fsearch.cnbc.com%2Frs%2Fsearch%2Fcombinedcms%2Fview.xml%3FpartnerId%3Dwrss01%26id%3D100727362',
-    ]
-  },
-  {
-    url: 'https://www.understandingwar.org/rss.xml',
-    source: 'ISW',
-    priorityLevel: 'Very Low',
-    requiredTerms: [],
-    ignoreTerms: [],
-    reliability: 'Credible',
-    background: '#203050',
-    backups: [
-      '${PROXY_URL}https://www.understandingwar.org/rss.xml',
-      'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.understandingwar.org%2Frss.xml',
-      'https://corsproxy.io/?https%3A%2F%2Fwww.understandingwar.org%2Frss.xml',
-      'https://corsproxy.io/?https%3A%2F%2Fwww.understandingwar.org%2Ffeeds.xml',
     ]
   },
   {
@@ -456,62 +371,6 @@ const rssFeeds = [
       '${PROXY_URL}https://thefederalist.com/feed/',
       'https://api.allorigins.win/get?url=https%3A%2F%2Fthefederalist.com%2Ffeed%2F',
       'https://corsproxy.io/?https%3A%2F%2Fthefederalist.com%2Ffeed%2F',
-    ]
-  },
-  {
-    url: 'https://www.reddit.com/r/breakingnews/new.rss',
-    source: 'Breaking News Subreddit',
-    priorityLevel: 'Very Low',
-    requiredTerms: [],
-    ignoreTerms: [],
-    reliability: 'Requires Verification',
-    background: '#203050',
-    backups: [
-      '${PROXY_URL}https://www.reddit.com/r/breakingnews/new.rss',
-      'https://corsproxy.io/?https%3A%2F%2Fwww.reddit.com%2Fr%2Fbreakingnews.rss',
-      'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.reddit.com%2Fr%2Fbreakingnews.rss',
-    ]
-  },
-  {
-    url: 'https://www.reddit.com/r/YemeniCrisis/new.rss',
-    source: 'Yemeni Crisis Subreddit',
-    priorityLevel: 'Very Low',
-    requiredTerms: [],
-    ignoreTerms: [],
-    reliability: 'Requires Verification',
-    background: '#203050',
-    backups: [
-      '${PROXY_URL}https://www.reddit.com/r/YemeniCrisis/new.rss',
-      'https://corsproxy.io/?https%3A%2F%2Fwww.reddit.com%2Fr%2FYemeniCrisis%2Fnew.rss',
-      'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.reddit.com%2Fr%2FYemeniCrisis%2Fnew.rss',
-    ]
-  },
-  {
-    url: 'https://www.reddit.com/r/worldnews/rising.rss',
-    source: 'World News Subreddit',
-    priorityLevel: 'Very Low',
-    requiredTerms: [],
-    ignoreTerms: [],
-    reliability: 'Requires Verification',
-    background: '#203050',
-    backups: [
-      '${PROXY_URL}https://www.reddit.com/r/worldnews/rising.rss',
-      'https://corsproxy.io/?https%3A%2F%2Fwww.reddit.com%2Fr%2Fworldnews%2Frising.rss',
-      'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.reddit.com%2Fr%2Fworldnews%2Frising.rss',
-    ]
-  },
-  {
-    url: 'https://www.reddit.com/r/InternationalNews.rss',
-    source: 'International News Subreddit',
-    priorityLevel: 'Very Low',
-    requiredTerms: [],
-    ignoreTerms: [],
-    reliability: 'Requires Verification',
-    background: '#203050',
-    backups: [
-      '${PROXY_URL}https://www.reddit.com/r/InternationalNews.rss',
-      'https://corsproxy.io/?https%3A%2F%2Fwww.reddit.com%2Fr%2FInternationalNews.rss',
-      'https://api.allorigins.win/get?url=https%3A%2F%2Fwww.reddit.com%2Fr%2FInternationalNews.rss',
     ]
   },
   {
