@@ -63,6 +63,11 @@ const topicKeywords = {
     background: '#4a1f7b',
     soundFile: 'sounds/news-alert-notification.mp3'
   },
+  'US 2024 Election & Transition': {
+    keywords: ['trump', 'vance', 'january 6', 'U.S. election unrest', 'election violence', 'election disruptions', 'election ballot box fires', 'election polling place violence', 'election protest clashes','election security threats', 'election extremist activities', 'election law enforcement response', 'election unrest in [State/City Name]', 'election violence in swing states', 'election disruptions in [State/City Name]', 'election aftermath violence', 'election protest analysis', 'election security assessment', 'election voter concerns about violence', 'election political violence fears', 'election public safety concerns', 'election social media disinformation', 'election online threats', 'election conspiracy theories', 'election National Guard deployment', 'election emergency response', 'election state emergency declarations', 'election voter intimidation', 'election poll worker threats', 'election safety measures'],
+    background: '#4a1f7b',
+    soundFile: 'sounds/news-alert-notification.mp3'
+  },
 };
 
 document.addEventListener('DOMContentLoaded', async () => {
