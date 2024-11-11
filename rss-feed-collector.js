@@ -769,7 +769,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
   function displayFeeds(isReset = true) {
-    console.log("Displaying feeds...");
   
     // Only clear feeds and reset the number of items when necessary (e.g., for new search or filter change)
     if (isReset) {
