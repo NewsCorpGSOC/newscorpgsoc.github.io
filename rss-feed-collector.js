@@ -672,16 +672,16 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
 
-  async function fetchNewFeeds() {
+async function fetchNewFeeds() {
     console.log("Fetching new feeds immediately upon switching to live mode...");
     
     const tsvFeedItems = await fetchTSVFiles();
-    feedItems = [...feedItems, ...tsvFeedItems];
+    feedItems = [...removeDuplicateTitles([...feedItems, ...tsvFeedItems])];
     await Promise.all(rssFeeds.map(feed => fetchFeedAndUpdate(feed)));
     
-    feedItems.sort((a, b) => b.pubDate - a.pubDate); // Sort by date
-    displayFeeds();  // Append new items without clearing the container
-  }
+    feedItems.sort((a, b) => b.pubDate - a.pubDate);
+    displayFeeds(false);
+}
 
   async function fetchFeedAndUpdate(feed) {
     console.log(`Fetching feed from ${feed.source}`);
@@ -764,17 +764,17 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   function displayFeeds(isReset = false) {
     console.log("Displaying feeds...");
-  
+
     if (isReset) {
-      currentlyDisplayedFeeds = 0;  // Reset feed count only on reset
-      feedsContainer.innerHTML = '';  // Clear feed container only if needed
+        feedsContainer.innerHTML = '';  // Clear feeds if reset is specified
+        currentlyDisplayedFeeds = 0;  // Reset count only when needed
     }
     feedItems = removeDuplicateTitles(feedItems);
   
     const now = new Date();
     const oneYearAgo = new Date(now.setFullYear(now.getFullYear() - 1));
   
-    const filteredFeeds = applyFilter(feedItems);
+    let filteredFeeds = applyFilter(feedItems);
   
     const searchTerm = searchInput.value.trim().toLowerCase();
     const searchTerms = parseSearchTerm(searchTerm);
