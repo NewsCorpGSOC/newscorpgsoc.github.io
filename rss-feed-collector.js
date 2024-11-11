@@ -609,44 +609,37 @@ document.addEventListener('DOMContentLoaded', async () => {
         toggleLiveModeButton.classList.add('live-mode');
         toggleLiveModeButton.classList.remove('static-mode');
 
-        // Immediate fetch on switch to live mode (only once per toggle)
         if (!hasFetchedOnLiveToggle) {
-          fetchNewFeeds();
+          fetchNewFeeds();  // Fetch immediately once on toggle to live mode
           hasFetchedOnLiveToggle = true;
         }
 
-        // Start/resume interval fetching
-        startFetchingInterval();
+        startFetchingInterval();  // Resume interval fetching
 
       } else {
         toggleLiveModeText.textContent = 'Switch to Live Mode';
         toggleLiveModeButton.classList.remove('live-mode');
         toggleLiveModeButton.classList.add('static-mode');
 
-        // Stop interval fetching in static mode
-        stopFetchingInterval();
-
-        // Reset flag for the next toggle to live mode
-        hasFetchedOnLiveToggle = false;
+        stopFetchingInterval();  // Pause fetching in static mode
+        hasFetchedOnLiveToggle = false;  // Reset for next live toggle
       }
 
       console.log(`Live Mode: ${isLiveMode}`);
     }
 
-    // Initial live-mode class application if starting in live mode
     if (isLiveMode) {
       toggleLiveModeButton.classList.add('live-mode');
       toggleLiveModeText.textContent = 'Switch to Static Mode';
       startFetchingInterval();
     }
 
-    // Add event listener to toggle live/static mode
     toggleLiveModeButton.addEventListener('click', toggleLiveMode);
   } else {
     console.error("Toggle Live Mode button not found in the DOM.");
   }
 
-  // Start fetching feeds at intervals (only in live mode)
+
   function startFetchingInterval() {
     if (fetchIntervalID) {
       clearInterval(fetchIntervalID);
@@ -655,10 +648,9 @@ document.addEventListener('DOMContentLoaded', async () => {
       if (isLiveMode && !isFetchingFeeds) {
         fetchFeedsSequentially();
       }
-    }, 60000); // Fetch interval (1 minute)
+    }, 60000);  // Adjust interval as needed
   }
 
-  // Stop fetching interval
   function stopFetchingInterval() {
     if (fetchIntervalID) {
       clearInterval(fetchIntervalID);
@@ -668,36 +660,34 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   async function fetchFeedsSequentially() {
     if (!isLiveMode || isFetchingFeeds) return;
-    
-    isFetchingFeeds = true; // Set fetching flag
+
+    isFetchingFeeds = true;
     console.log('Fetching feeds...');
 
     try {
       const tsvFeedItems = await fetchTSVFiles();
-      console.log(`TSV Feed Items: ${JSON.stringify(tsvFeedItems, null, 2)}`);
       feedItems = [...feedItems, ...tsvFeedItems];
-      
       await Promise.all(rssFeeds.map(feed => fetchFeedAndUpdate(feed)));
       
-      feedItems.sort((a, b) => b.pubDate - a.pubDate); // Sort by date, newest first
-      displayFeeds();
+      feedItems.sort((a, b) => b.pubDate - a.pubDate); // Sort by newest
+      displayFeeds();  // Do not reset unless necessary
     } catch (error) {
       console.error('Error during feed fetching:', error);
     } finally {
-      isFetchingFeeds = false; // Reset fetching flag after completion or error
+      isFetchingFeeds = false;  // Allow next fetch
     }
   }
+
 
   async function fetchNewFeeds() {
     console.log("Fetching new feeds immediately upon switching to live mode...");
     
     const tsvFeedItems = await fetchTSVFiles();
     feedItems = [...feedItems, ...tsvFeedItems];
-    
     await Promise.all(rssFeeds.map(feed => fetchFeedAndUpdate(feed)));
     
-    feedItems.sort((a, b) => b.pubDate - a.pubDate); // Sort by date, newest first
-    displayFeeds(true); // Reset and display the newly fetched feeds
+    feedItems.sort((a, b) => b.pubDate - a.pubDate); // Sort by date
+    displayFeeds();  // Append new items without clearing the container
   }
 
   async function fetchFeedAndUpdate(feed) {
@@ -707,14 +697,9 @@ document.addEventListener('DOMContentLoaded', async () => {
       console.log(`No items found in feed from ${feed.source}`);
     }
     feedItems = [...feedItems.filter(item => item.source !== feed.source), ...data];
-    feedItems.sort((a, b) => b.pubDate - a.pubDate); // Sort by date, newest first
+    feedItems.sort((a, b) => b.pubDate - a.pubDate);
 
-    if (data.length > 0 && data[0].pubDate > latestFeedDate) {
-      latestFeedDate = data[0].pubDate;
-      applyTopicStyling(data[0]);
-    }
-
-    displayFeeds();
+    displayFeeds();  // Append only new items to avoid flickering
   }
 
   function applyTopicStyling(item, element) {
