@@ -34,10 +34,13 @@
             let originalFeedItems = []; // Store original fetched feed items
             let feedItems = []; // Store currently displayed feed items (filtered)
             let processedFeedItems = new Set(); // Initialize processed items tracking set
+            const feedsContainer = document.getElementById('feeds');
             const timezoneSelector = document.getElementById('timezoneSelector');
             const timelineFilter = document.getElementById('timelineFilter');
             const searchInput = document.getElementById('searchInput');
             const topicFilters = Array.from(document.querySelectorAll('.topic-filter input[type="checkbox"]'));
+            const audioElement = new Audio(); // Reusable audio element
+            audioElement.volume = pingVolume;
             timelineFilter.value = 'all'; // Set default to "all"
 
             const timezoneMap = {
@@ -53,17 +56,17 @@
                 pingVolume = parseFloat(volumeSlider.value); // Update pingVolume whenever the slider changes
             }
             const volumeSlider = document.getElementById('volumeSlider');
-            if (volumeSlider) {
-                volumeSlider.value = pingVolume; // Set the initial slider value to match the initial pingVolume
-                volumeSlider.addEventListener('input', updateVolume); // Attach the event listener to the slider
-            }
+            volumeSlider.addEventListener('input', () => {
+                pingVolume = parseFloat(volumeSlider.value);
+                audioElement.volume = pingVolume;
+            });
 
             // Attach the event listeners to the filters to apply filters on change/input
             timezoneSelector.addEventListener('change', applyAndDisplayFilteredFeeds);
             timelineFilter.addEventListener('change', applyAndDisplayFilteredFeeds);
             searchInput.addEventListener('input', applyAndDisplayFilteredFeeds);
             topicFilters.forEach(checkbox => checkbox.addEventListener('change', applyAndDisplayFilteredFeeds));
-        
+
             function formatAnalystUrl(analystName) {
                 if (!analystName || analystName.trim() === '') {
                     return 'aboutme_Unknown.html'; // Fallback URL for missing or undefined analyst
@@ -117,7 +120,7 @@
             }
 
             function applyAndDisplayFilteredFeeds() {
-                // Apply filters on a fresh copy of originalFeedItems each time
+                // Filtered feed logic and display updates
                 feedItems = applyFilters([...originalFeedItems]);
                 displayFeeds(feedItems);
             }
@@ -331,14 +334,9 @@
                 }
             }
             
-            function playSound(soundFile, itemTitle) {
-                const audio = new Audio(soundFile);
-                audio.volume = pingVolume; // Use the pingVolume from the slider
-                audio.play().then(() => {
-                    console.log(`Sound file ${soundFile} played successfully for item: ${itemTitle}.`);
-                }).catch(error => {
-                    console.error('Error playing sound:', error);
-                });
+            function playSound(soundFile) {
+                audioElement.src = soundFile;
+                audioElement.play().catch(error => console.error('Error playing sound:', error));
             }
         
             function formatPubDate(pubDate) {
