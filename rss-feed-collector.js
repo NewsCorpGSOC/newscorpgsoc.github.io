@@ -192,8 +192,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       try {
         const cacheBuster = new Date().getTime();
         const cacheBustedUrl = `${url}${url.includes('?') ? '&' : '?'}cache-bust=${cacheBuster}`;
-        
-        console.log(`Fetching URL: ${cacheBustedUrl}`);
+
         const response = await fetch(cacheBustedUrl);
         const data = await response.text();
         const parser = new DOMParser();
@@ -244,10 +243,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         feedItems = filterFeedItems(feedItems, feed.requiredTerms, feed.ignoreTerms);
   
         updateStatus(feed.source, feed.url, true);
-        console.log(`Fetched ${feedItems.length} items from ${feed.source}`);
         return feedItems;
       } catch (error) {
-        console.error(`Error fetching RSS feed from ${feed.source}:`, error);
         updateStatus(feed.source, feed.url, false);
         if (retries > 0) {
           await delay(2000); // wait before retrying
@@ -364,7 +361,6 @@ document.addEventListener('DOMContentLoaded', async () => {
       const tsvText = await response.text();
       return tsvText;
     } catch (error) {
-      console.error('Error fetching TSV file:', error);
       return null;
     }
   }
@@ -391,17 +387,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       const imageUrl = item.Image?.trim(); // Extract the image URL from the TSV
       const magnitude = parseFloat(item.Magnitude?.trim());
   
-      // Debug logs to check for missing data
-      console.log(`Processing TSV item #${index + 1}:`, item);
-      if (!title) console.warn(`Missing title for row ${index + 2}`);
-      if (!link) console.warn(`Missing link for row ${index + 2}`);
-      if (!description) console.warn(`Missing description for row ${index + 2}`);
-      if (!pubDate) console.warn(`Invalid or missing pubDate for row ${index + 2}`);
-      if (isNaN(magnitude)) console.warn(`Invalid or missing magnitude for row ${index + 2}`);
-      if (!imageUrl) console.warn(`Missing image URL for row ${index + 2}`); // Log missing image URL
-  
       if (!pubDate) {
-        console.warn(`Skipping row ${index + 2} due to invalid date: ${JSON.stringify(item)}`);
         return null; // Skip rows with invalid dates
       }
   
@@ -417,9 +403,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         magnitudeImage = 'icons/EarthquakeLow.png';
       }
   
-      console.log(`Magnitude: ${magnitude}, Image: ${magnitudeImage}`);
-  
-      // Include the image from the TSV file or the magnitude-based image
       const earthquakeImage = magnitudeImage
         ? `<img src="${magnitudeImage}" alt="Earthquake Severity" width="50" height="50" style="border:0;" />`
         : '';
@@ -453,10 +436,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       try {
         const cacheBuster = new Date().getTime();
         const tsvText = await fetchTSVFile(`GoogleSheets/${file}?cb=${cacheBuster}`);
-        console.log(`Fetched TSV: ${file}`);
-        console.log(tsvText); // Log fetched TSV text for debugging
         const parsedTSV = parseTSV(tsvText, source, reliability, background, requiredTerms, ignoreTerms);
-        console.log(parsedTSV); // Log parsed TSV data for debugging
   
         if (parsedTSV.length > 0) {
           // Check if any new items are newer than the latest feed date
@@ -534,7 +514,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   function parseDate(dateString) {
     const parsedDate = new Date(dateString);
     if (isNaN(parsedDate)) {
-      console.error(`Invalid date value: ${dateString}`);
       return null; // Return null for invalid dates
     }
     return parsedDate;
@@ -665,7 +644,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   
     // Fetch TSV files first
     const tsvFeedItems = await fetchTSVFiles();
-    console.log(`TSV Feed Items: ${JSON.stringify(tsvFeedItems, null, 2)}`); // Debugging statement
     feedItems = [...feedItems, ...tsvFeedItems];
     
     // Fetch RSS feeds after TSV feeds
@@ -679,8 +657,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     fetchIntervalID = setInterval(() => {
       if (isLiveMode) {
         rssFeeds.forEach(feed => {
-          const fetchInterval = priorityIntervals[feed.priorityLevel] || 180000; // Default to 3 minutes if not specified
-          console.log(`Periodic fetch for ${feed.source}`);
+          const fetchInterval = priorityIntervals[feed.priorityLevel] || 180000;
           fetchFeedAndUpdate(feed);
         });
       }
@@ -692,7 +669,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         const tsvFeedItems = await fetchTSVFiles();
         feedItems = [...feedItems.filter(item => !tsvFeedItems.find(tsvItem => tsvItem.title === item.title)), ...tsvFeedItems];
         feedItems.sort((a, b) => b.pubDate - a.pubDate); // Sort by date, newest first
-        console.log('Combined Feed Items:', feedItems); // Log combined feed items for debugging
         displayFeeds();
       }
     }, 60000); // Fetch TSV files every 1 minute
@@ -713,7 +689,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
   async function fetchFeedAndUpdate(feed) {
-    console.log(`Fetching feed from ${feed.source}`);
     const data = await fetchFeed(feed);
     if (data.length === 0) {
       console.log(`No items found in feed from ${feed.source}`);
@@ -730,10 +705,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
   function applyTopicStyling(item, element) {
-    console.log("Applying topic styling for item:", item.title);
-    console.log(`Current latestFeedDate: ${latestFeedDate}`);
-    console.log(`Item publication date: ${item.pubDate}`);
-  
     let isNewItem = false;
     let selectedSoundFile = 'sounds/news-alert-notification.mp3'; // Default sound
     let matchedTopics = [];
@@ -749,7 +720,6 @@ document.addEventListener('DOMContentLoaded', async () => {
               item.title.toLowerCase().includes(keyword.toLowerCase())
           )
         ) {
-          console.log(`Matched topic: ${topic} for item: ${item.title}`);
           matchedTopics.push({ topic, background, soundFile });
   
           // Set the background and sound for the first match
@@ -760,18 +730,11 @@ document.addEventListener('DOMContentLoaded', async () => {
   
           // Check if the item is new
           if (item.pubDate > latestFeedDate) {
-            console.log(
-              `New item detected. Previous latestFeedDate: ${latestFeedDate}, New item date: ${item.pubDate}`
-            );
             isNewItem = true;
             latestFeedDate = item.pubDate; // Update after processing
-            console.log(`Updated latestFeedDate: ${latestFeedDate}`);
             playSound(selectedSoundFile, item.title); // Play the topic-specific sound
-          } else {
-            console.log('Item is not newer than latestFeedDate, no sound will be played.');
           }
-  
-          // Break after finding two matches
+
           if (matchedTopics.length === 2) {
             break; // Stop checking after finding the first two matches
           }
@@ -789,17 +752,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (!isNewItem) {
       item.background = item.background || '#203050'; // Default background color
     }
-  
-    console.log(`Sound selected for item: ${item.title} is ${selectedSoundFile}`);
-  
-    // Apply the background directly to the passed element
+
     if (element) {
       element.style.background = item.background; // Apply dynamic background
     }
   }
   
   function playSound(soundFile, itemTitle) {
-    console.log(`Attempting to play sound file: ${soundFile} for item: ${itemTitle}`);
     const audio = new Audio(soundFile);
     audio.volume = pingVolume;
     audio.play().then(() => {
@@ -823,13 +782,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     const oneYearAgo = new Date(now.setFullYear(now.getFullYear() - 1));
   
     const filteredFeeds = applyFilter();
-    console.log(`Filtered feeds count: ${filteredFeeds.length}`);
   
     const searchTerm = searchInput.value.trim().toLowerCase();
     const searchTerms = parseSearchTerm(searchTerm);
   
     const recentFeeds = filteredFeeds.filter(item => item.pubDate > oneYearAgo);
-    console.log(`Recent feeds count: ${recentFeeds.length}`);
   
     // Retrieve checkbox states
     const showCredible = document.getElementById('credibleFilter').checked;
@@ -843,8 +800,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (item.reliability === 'Requires Verification' && showRequiresVerification) return true;
         return false;
     });
-    
-    console.log(`Credibility filtered feeds count: ${credibilityFilteredFeeds.length}`);
   
     searchFilteredFeeds = credibilityFilteredFeeds.filter(item =>
         searchTerms.every(termGroup =>
@@ -855,7 +810,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             )
         )
     );
-    console.log(`Search filtered feeds count: ${searchFilteredFeeds.length}`);
   
     // **Sort the feeds by pubDate in descending order (newest first)**
     searchFilteredFeeds.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
@@ -875,8 +829,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   
   function loadFeedsInBatches(feeds) {
     if (isFetchingFeeds) return; // Prevent fetching if another fetch is in progress
-    isFetchingFeeds = true; // Set fetching flag
-    console.log(`Loading feeds... Batch size: ${feedsBatchSize}`);
+    isFetchingFeeds = true;
 
     // Save the current scroll position and container height before adding new items
     const scrollTopBefore = feedsContainer.scrollTop;
@@ -1005,8 +958,6 @@ document.addEventListener('DOMContentLoaded', async () => {
       // Re-attach the observer only if more feeds are available to load
       if (currentlyDisplayedFeeds < feeds.length) {
         observeLastFeedItem();
-      } else {
-        console.log('All feeds loaded.');
       }
     
       // Add event listeners for "See More" and "See Less" links
@@ -1042,7 +993,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   function handleFeedIntersection(entries, observer) {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        console.log("Intersection observed. Loading more feeds.");
         observer.unobserve(entry.target); // Stop observing the current target
         loadFeedsInBatches(searchFilteredFeeds); // Load more feeds
       }
@@ -1053,7 +1003,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   function observeLastFeedItem() {
     const lastFeed = document.querySelector('.feed-item:last-child');
     if (lastFeed && feedsObserver) {
-      console.log("Observing last feed item.");
       feedsObserver.observe(lastFeed); // Observe the last feed item to load more on scroll
     }
   }
@@ -1190,11 +1139,9 @@ document.addEventListener('DOMContentLoaded', async () => {
   function applyFilter() {
     const now = new Date();
     let filteredFeeds = [...feedItems];
-    console.log(`Total feed items: ${feedItems.length}`);
   
     // Timeline filter
     const timelineValue = timelineFilter.value;
-    console.log(`Timeline filter value: ${timelineValue}`);
   
     if (timelineValue === 'lastHour') {
       filteredFeeds = filteredFeeds.filter(item => now - item.pubDate <= 3600000);
@@ -1203,7 +1150,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     } else if (timelineValue === 'lastDay') {
       filteredFeeds = filteredFeeds.filter(item => now - item.pubDate <= 86400000);
     }
-    console.log(`Filtered feeds after timeline filter: ${filteredFeeds.length}`);
   
       // Topic filter: collect checked topics and apply filter
     const selectedTopics = [];
@@ -1227,18 +1173,15 @@ document.addEventListener('DOMContentLoaded', async () => {
   
     // Source filter
     const checkedSources = Array.from(document.querySelectorAll('input[name="sourceFilter"]:checked')).map(cb => cb.value);
-    console.log(`Checked sources: ${checkedSources.join(', ')}`);
   
     if (checkedSources.length > 0 && !checkedSources.includes('all')) {
       filteredFeeds = filteredFeeds.filter(item => checkedSources.includes(item.source));
     }
-    console.log(`Filtered feeds after source filter: ${filteredFeeds.length}`);
   
     // Credibility filter
     const showCredible = document.getElementById('credibleFilter').checked;
     const showDubious = document.getElementById('dubiousFilter').checked;
     const showRequiresVerification = document.getElementById('requiresVerificationFilter').checked;
-    console.log(`Credibility filters - Credible: ${showCredible}, Dubious: ${showDubious}, Requires Verification: ${showRequiresVerification}`);
   
     filteredFeeds = filteredFeeds.filter(item => {
       if (item.reliability === 'Credible' && showCredible) return true;
@@ -1246,7 +1189,6 @@ document.addEventListener('DOMContentLoaded', async () => {
       if (item.reliability === 'Requires Verification' && showRequiresVerification) return true;
       return false; // Exclude the item if it doesn't match any selected filters
     });
-    console.log(`Filtered feeds after credibility filter: ${filteredFeeds.length}`);
   
     return filteredFeeds;
   }
