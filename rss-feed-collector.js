@@ -97,6 +97,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   const toggleLiveModeText = toggleLiveModeButton.querySelector('span:first-child'); // Text span
   let hasFetchedOnLiveToggle = false; // Track if `fetchNewFeeds` has been triggered on live toggle
   let fetchIntervalID; // Store the interval ID to manage it effectively
+  const displayedItems = new Set();
 
   console.log("DOM fully loaded and parsed");
 
@@ -761,20 +762,19 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
   }
 
-  function displayFeeds(isReset = true) {
+  function displayFeeds(isReset = false) {
     console.log("Displaying feeds...");
   
-    // Only clear feeds and reset the number of items when necessary (e.g., for new search or filter change)
     if (isReset) {
-        currentlyDisplayedFeeds = 0; // Reset the number of displayed feeds only when necessary
-        feedsContainer.innerHTML = ''; // Clear the container for a fresh start
+      currentlyDisplayedFeeds = 0;  // Reset feed count only on reset
+      feedsContainer.innerHTML = '';  // Clear feed container only if needed
     }
     feedItems = removeDuplicateTitles(feedItems);
   
     const now = new Date();
     const oneYearAgo = new Date(now.setFullYear(now.getFullYear() - 1));
   
-    const filteredFeeds = applyFilter();
+    const filteredFeeds = applyFilter(feedItems);
   
     const searchTerm = searchInput.value.trim().toLowerCase();
     const searchTerms = parseSearchTerm(searchTerm);
