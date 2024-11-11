@@ -671,17 +671,16 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
   }
 
-
-async function fetchNewFeeds() {
-    console.log("Fetching new feeds immediately upon switching to live mode...");
-    
-    const tsvFeedItems = await fetchTSVFiles();
-    feedItems = [...removeDuplicateTitles([...feedItems, ...tsvFeedItems])];
-    await Promise.all(rssFeeds.map(feed => fetchFeedAndUpdate(feed)));
-    
-    feedItems.sort((a, b) => b.pubDate - a.pubDate);
-    displayFeeds(false);
-}
+  async function fetchNewFeeds() {
+      console.log("Fetching new feeds immediately upon switching to live mode...");
+      
+      const tsvFeedItems = await fetchTSVFiles();
+      feedItems = [...removeDuplicateTitles([...feedItems, ...tsvFeedItems])];
+      await Promise.all(rssFeeds.map(feed => fetchFeedAndUpdate(feed)));
+      
+      feedItems.sort((a, b) => b.pubDate - a.pubDate);
+      displayFeeds(false);
+  }
 
   async function fetchFeedAndUpdate(feed) {
     console.log(`Fetching feed from ${feed.source}`);
