@@ -91,12 +91,12 @@ document.addEventListener('DOMContentLoaded', async () => {
   let currentlyDisplayedFeeds = 0; // Number of feeds currently displayed
   let feedsObserver; // Intersection observer to handle lazy loading
   let searchFilteredFeeds = []; // Global variable to store filtered feeds
-  let isFetchingFeeds = false; // Debounce flag
+  let isFetchingFeeds = false; // Flag to prevent overlap
   let isLiveMode = true; // Start in live mode
-  const toggleLiveModeButton = document.querySelector('.live-toggle-button'); // Select the button by its class
-  const toggleLiveModeText = toggleLiveModeButton.querySelector('span:first-child'); // Select the first span for text
-  let hasFetchedOnLiveToggle = false; // Track if `fetchNewFeeds` has been triggered on live mode toggle
-  let fetchIntervalID; // Store the interval ID to avoid setting multiple intervals
+  const toggleLiveModeButton = document.querySelector('.live-toggle-button');
+  const toggleLiveModeText = toggleLiveModeButton.querySelector('span:first-child'); // Text span
+  let hasFetchedOnLiveToggle = false; // Track if `fetchNewFeeds` has been triggered on live toggle
+  let fetchIntervalID; // Store the interval ID to manage it effectively
 
   console.log("DOM fully loaded and parsed");
 
@@ -601,115 +601,103 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
   if (toggleLiveModeButton) {
-      function toggleLiveMode() {
-          isLiveMode = !isLiveMode;
+    function toggleLiveMode() {
+      isLiveMode = !isLiveMode;
 
-          if (isLiveMode) {
-              toggleLiveModeText.textContent = 'Switch to Static Mode';  // Update the text in the first span
-              toggleLiveModeButton.classList.add('live-mode');  // Add live-mode class for the gradient animation
-              toggleLiveModeButton.classList.remove('static-mode');  // Remove static-mode class
-
-              // Fetch feeds immediately when switching to live mode (only once)
-              if (!hasFetchedOnLiveToggle) {
-                  fetchNewFeeds();  // Fetch new feeds once immediately
-                  hasFetchedOnLiveToggle = true;  // Set flag to true so this only runs once per live toggle
-              }
-
-              if (!fetchIntervalID) {
-                  fetchFeedsSequentially(); // Restart regular fetching if switched back to live mode
-              }
-          } else {
-              toggleLiveModeText.textContent = 'Switch to Live Mode';  // Update the text in the first span
-              toggleLiveModeButton.classList.remove('live-mode');  // Remove live-mode class
-              toggleLiveModeButton.classList.add('static-mode');  // Add static-mode class
-
-              // Reset the flag so that `fetchNewFeeds` will trigger again next time live mode is enabled
-              hasFetchedOnLiveToggle = false;
-          }
-
-          console.log(`Live Mode: ${isLiveMode}`);
-      }
-
-      // Add initial live-mode class when the page loads if it's in live mode
       if (isLiveMode) {
-          toggleLiveModeButton.classList.add('live-mode');
-          toggleLiveModeText.textContent = 'Switch to Static Mode';
-          fetchFeedsSequentially(); // Start fetching immediately when the page loads in live mode
+        toggleLiveModeText.textContent = 'Switch to Static Mode';
+        toggleLiveModeButton.classList.add('live-mode');
+        toggleLiveModeButton.classList.remove('static-mode');
+
+        // Immediate fetch on switch to live mode (only once per toggle)
+        if (!hasFetchedOnLiveToggle) {
+          fetchNewFeeds();
+          hasFetchedOnLiveToggle = true;
+        }
+
+        // Start/resume interval fetching
+        startFetchingInterval();
+
+      } else {
+        toggleLiveModeText.textContent = 'Switch to Live Mode';
+        toggleLiveModeButton.classList.remove('live-mode');
+        toggleLiveModeButton.classList.add('static-mode');
+
+        // Stop interval fetching in static mode
+        stopFetchingInterval();
+
+        // Reset flag for the next toggle to live mode
+        hasFetchedOnLiveToggle = false;
       }
 
-      // Add event listener to toggle live/static mode when button is clicked
-      toggleLiveModeButton.addEventListener('click', toggleLiveMode);
+      console.log(`Live Mode: ${isLiveMode}`);
+    }
+
+    // Initial live-mode class application if starting in live mode
+    if (isLiveMode) {
+      toggleLiveModeButton.classList.add('live-mode');
+      toggleLiveModeText.textContent = 'Switch to Static Mode';
+      startFetchingInterval();
+    }
+
+    // Add event listener to toggle live/static mode
+    toggleLiveModeButton.addEventListener('click', toggleLiveMode);
   } else {
-      console.error("Toggle Live Mode button not found in the DOM.");
+    console.error("Toggle Live Mode button not found in the DOM.");
+  }
+
+  // Start fetching feeds at intervals (only in live mode)
+  function startFetchingInterval() {
+    if (fetchIntervalID) {
+      clearInterval(fetchIntervalID);
+    }
+    fetchIntervalID = setInterval(() => {
+      if (isLiveMode && !isFetchingFeeds) {
+        fetchFeedsSequentially();
+      }
+    }, 60000); // Fetch interval (1 minute)
+  }
+
+  // Stop fetching interval
+  function stopFetchingInterval() {
+    if (fetchIntervalID) {
+      clearInterval(fetchIntervalID);
+      fetchIntervalID = null;
+    }
   }
 
   async function fetchFeedsSequentially() {
-    if (fetchIntervalID) {
-      clearInterval(fetchIntervalID);  // Clear any existing interval to avoid duplicate intervals
-    }
-
-    if (!isLiveMode) {
-      console.log('Static Mode: Fetching paused');
-      return; // Don't fetch feeds if in static mode
-    }
-
-    const interval = 3000; // 3 seconds interval
-  
-    const priorityIntervals = {
-      'Very High': 30000, // 30 seconds
-      'High': 60000, // 1 minute
-      'Medium': 180000, // 3 minutes
-      'Low': 300000, // 5 minutes
-      'Very Low': 600000 // 10 minutes
-    };
-  
-    // Fetch TSV files first
-    const tsvFeedItems = await fetchTSVFiles();
-    console.log(`TSV Feed Items: ${JSON.stringify(tsvFeedItems, null, 2)}`); // Debugging statement
-    feedItems = [...feedItems, ...tsvFeedItems];
+    if (!isLiveMode || isFetchingFeeds) return;
     
-    // Fetch RSS feeds after TSV feeds
-    await Promise.all(rssFeeds.map(feed => fetchFeedAndUpdate(feed)));
-  
-    // Sort by date, newest first
-    feedItems.sort((a, b) => b.pubDate - a.pubDate);
-    displayFeeds();
-  
-    // Schedule periodic fetching of RSS feeds (Only set interval once)
-    fetchIntervalID = setInterval(() => {
-      if (isLiveMode) {
-        rssFeeds.forEach(feed => {
-          const fetchInterval = priorityIntervals[feed.priorityLevel] || 180000; // Default to 3 minutes if not specified
-          console.log(`Periodic fetch for ${feed.source}`);
-          fetchFeedAndUpdate(feed);
-        });
-      }
-    }, interval);
+    isFetchingFeeds = true; // Set fetching flag
+    console.log('Fetching feeds...');
 
-    // Fetch TSV files periodically
-    fetchIntervalID = setInterval(async () => {
-      if (isLiveMode) {
-        const tsvFeedItems = await fetchTSVFiles();
-        feedItems = [...feedItems.filter(item => !tsvFeedItems.find(tsvItem => tsvItem.title === item.title)), ...tsvFeedItems];
-        feedItems.sort((a, b) => b.pubDate - a.pubDate); // Sort by date, newest first
-        console.log('Combined Feed Items:', feedItems); // Log combined feed items for debugging
-        displayFeeds();
-      }
-    }, 60000); // Fetch TSV files every 1 minute
-  }
-
-  async function fetchNewFeeds() {
-      console.log("Fetching new feeds immediately upon switching to live mode...");
-      
-      // Fetch the feeds as you would in your sequential fetching logic
+    try {
       const tsvFeedItems = await fetchTSVFiles();
+      console.log(`TSV Feed Items: ${JSON.stringify(tsvFeedItems, null, 2)}`);
       feedItems = [...feedItems, ...tsvFeedItems];
       
       await Promise.all(rssFeeds.map(feed => fetchFeedAndUpdate(feed)));
       
-      // Sort by date, newest first
-      feedItems.sort((a, b) => b.pubDate - a.pubDate);
-      displayFeeds(true);  // Reset and display the newly fetched feeds
+      feedItems.sort((a, b) => b.pubDate - a.pubDate); // Sort by date, newest first
+      displayFeeds();
+    } catch (error) {
+      console.error('Error during feed fetching:', error);
+    } finally {
+      isFetchingFeeds = false; // Reset fetching flag after completion or error
+    }
+  }
+
+  async function fetchNewFeeds() {
+    console.log("Fetching new feeds immediately upon switching to live mode...");
+    
+    const tsvFeedItems = await fetchTSVFiles();
+    feedItems = [...feedItems, ...tsvFeedItems];
+    
+    await Promise.all(rssFeeds.map(feed => fetchFeedAndUpdate(feed)));
+    
+    feedItems.sort((a, b) => b.pubDate - a.pubDate); // Sort by date, newest first
+    displayFeeds(true); // Reset and display the newly fetched feeds
   }
 
   async function fetchFeedAndUpdate(feed) {
