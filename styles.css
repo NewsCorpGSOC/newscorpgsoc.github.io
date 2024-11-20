@@ -147,6 +147,7 @@ h1, h2, h3 {
 @media (max-width: 1250px) {
     #sidebar {
       display: none !important;
+      max-width: 88vw !important;  
     }
 }
 
