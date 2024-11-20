@@ -153,7 +153,7 @@ h1, h2, h3 {
 @media (min-width: 1250px) {
     .main-content {
       width: 100vw !important;
-      max-width: 80vw !important;  
+      max-width: 73vw !important;  
     }
 }
 
