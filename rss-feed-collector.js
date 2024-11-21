@@ -342,7 +342,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     { file: 'NHC.tsv', source: 'National Hurricane Center', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
     { file: 'KoreaTimesNews.tsv', source: 'Korea Times News', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
     { file: 'EurasianReview.tsv', source: 'Eurasian Review', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
-    { file: 'KyodaNews.tsv', source: 'Kyoda News', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'KyodoNews.tsv', source: 'Kyodo News', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
     { file: 'CipherBrief.tsv', source: 'Cipher Brief', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
     { file: 'LopezDoriga.tsv', source: 'Lopez Doriga', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] },
     { file: 'WorldOnline.tsv', source: 'World Online', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] },
