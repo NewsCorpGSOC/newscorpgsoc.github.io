@@ -172,7 +172,7 @@ h1, h2, h3 {
     border: 2px solid #00d3e6;
     border-radius: 10px;
     background-color: #333;
-    opacity: 1;
+    opacity: 1 !important;
 }
 
 .feed-item.fade-in {
