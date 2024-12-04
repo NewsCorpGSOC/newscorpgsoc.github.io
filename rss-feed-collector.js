@@ -348,7 +348,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     { file: 'WorldOnline.tsv', source: 'World Online', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] },
     { file: 'NPR.tsv', source: 'NPR', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] },
     { file: 'Reddit.tsv', source: 'Reddit', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] },
-    { file: 'IslamTimes.tsv', source: 'IslamTimes', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] }
+    { file: 'IslamTimes.tsv', source: 'Islam Times', reliability: 'Dubious', background: '#203050', requiredTerms: [], ignoreTerms: [] },
+    { file: 'FactalAlerts.tsv', source: 'Factal Alerts', reliability: 'Credible', background: '#203050', requiredTerms: [], ignoreTerms: [] }
   ];
 
   // List of sources with spoiler images
