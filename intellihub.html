@@ -400,6 +400,7 @@
                     // Reliability background colors
                     const sourceReliabilityBackground = getReliabilityBackground(feed['Source Reliability']);
                     const infoReliabilityBackground = getReliabilityBackground(feed['Information Reliability']);
+                    const eventSeverityMetric = getSeverityMetric(feed['Event Severity Metric']);
             
                     // Analyst information with fallbacks for missing data
                     const profileImageHtml = feed['Profile Image'] 
@@ -444,6 +445,7 @@
                             <!-- Feed Content -->
                             <div class="feed-content">
                                 <h2 style="text-align: center;">${feed['Title']}</h2>
+                                <h4 style="text-align: center;"><strong>Event Severity:</strong> ${eventSeverityMetric}</h4>
                                 ${feed['Image Link'] ? `<img src="${feed['Image Link']}" alt="Image" class="feed-image">` : ''}
                                 <p>${feed['Description']}</p>
                                 <p><strong>Source(s):</strong> ${sourceHtml}</p>
