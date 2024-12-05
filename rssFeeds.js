@@ -516,6 +516,78 @@ const rssFeeds = [
       '${PROXY_URL}https://www.usnews.com/rss/new',
     ]
   },
+  {
+    url: 'https://www.turkiyetoday.com/world/feed/',
+    source: 'Turkey Today',
+    priorityLevel: 'Low',
+    requiredTerms: [],
+    ignoreTerms: [],
+    reliability: 'Dubious',
+    background: '#203050',
+    backups: [
+      '${PROXY_URL}https://www.turkiyetoday.com/world/feed/',
+    ]
+  },
+  {
+    url: 'https://thecradle.co/feed',
+    source: 'The Cradle',
+    priorityLevel: 'Low',
+    requiredTerms: [],
+    ignoreTerms: [],
+    reliability: 'Dubious',
+    background: '#203050',
+    backups: [
+      '${PROXY_URL}https://thecradle.co/feed',
+    ]
+  },
+  {
+    url: 'https://www.dropsitenews.com/feed',
+    source: 'Drop Site News',
+    priorityLevel: 'Low',
+    requiredTerms: [],
+    ignoreTerms: [],
+    reliability: 'Dubious',
+    background: '#203050',
+    backups: [
+      '${PROXY_URL}https://www.dropsitenews.com/feed',
+    ]
+  },
+  {
+    url: 'https://www.navalnews.com/feed/',
+    source: 'Naval News',
+    priorityLevel: 'Low',
+    requiredTerms: [],
+    ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#203050',
+    backups: [
+      '${PROXY_URL}https://www.navalnews.com/feed/',
+    ]
+  },
+  {
+    url: 'https://foreignpolicy.com/feed/',
+    source: 'Foreign Policy News',
+    priorityLevel: 'Low',
+    requiredTerms: [],
+    ignoreTerms: [],
+    reliability: 'Credible',
+    background: '#203050',
+    backups: [
+      '${PROXY_URL}https://foreignpolicy.com/feed/',
+    ]
+  },
+  {
+    url: 'https://feeds.feedburner.com/ndtvnews-top-stories',
+    source: 'NDTV India News',
+    priorityLevel: 'Low',
+    requiredTerms: [],
+    ignoreTerms: [],
+    reliability: 'Dubious',
+    background: '#203050',
+    backups: [
+      '${PROXY_URL}https://feeds.feedburner.com/ndtvnews-top-stories',
+    ]
+  },
 //  {
 //    url: 'https://apiprevmet3.inmet.gov.br/avisos/rss',
 //    source: 'Brazil Weather Alerts',
