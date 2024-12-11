@@ -24,6 +24,7 @@ const config = {
     'pkapoukakis@newscorp.com': { password: 'PeteKAPNewsCorp2024!', role: 'securitymanager' },
     'kmcenroe@newscorp.com': { password: 'KristenMCENNewsCorp2024!', role: 'securitymanager' },
     'dale.cochrane@rea-group.com': { password: 'DaleCOCHRANERea-Group2024!', role: 'securitymanager' },
+    'brady.webb@dowjones.com': { password: 'BradyWEBBDowJones2024!', role: 'securitymanager' },
     'guest': { password: 'guest1234', role: 'guest' }
   },
   roles: {
