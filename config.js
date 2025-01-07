@@ -6,7 +6,7 @@ const config = {
     'acron.consultant@newscorp.com': { password: '4X70KSQrSuZp', role: 'manager' },
     'jormand.consultant@newscorp.com': { password: 'i7M2fLz72p6i', role: 'manager' },
     'ejany@newscorp.com': { password: 'Wekplarhosh23!', role: 'securitymanager' },
-    'okay@newscorp.com': { password: 'D6kQj96EY94l', role: 'director' },
+    'alabarre@newscorp.com': { password: 'AnsleyLBARNewsCorp2025!', role: 'director' },
     'dgalindo.consultant@newscorp.com': { password: '5Zq2l51U5Lf9', role: 'intelops' },
     'blagman.consultant@newscorp.com': { password: 'w8xcv4DXf8o3', role: 'operations' },
     'cpulido.consultant@newscorp.com': { password: 'kGx3iPzRh85z', role: 'operations' },
