@@ -12,13 +12,13 @@ const config = {
     'cpulido.consultant@newscorp.com': { password: 'kGx3iPzRh85z', role: 'operations' },
     'dgunabe.consultant@newscorp.com': { password: '6xhIY34zxb1u', role: 'operations' },
     'garena.consultant@newscorp.com': { password: '03Tul00kGrzq', role: 'operations' },
-    'mhassan.consultant@newscorp.com': { password: '9A8xxV1UOVJh', role: 'operations' },
+    //'mhassan.consultant@newscorp.com': { password: '9A8xxV1UOVJh', role: 'operations' }, <-- Fired Employee
     'nwu.consultant@newscorp.com': { password: 'kvDcHW94993s', role: 'operations' },
     'sarana.consultant@newscorp.com': { password: 'd33kBto2oFO0', role: 'operations' },
     'ygastelum.consultant@newscorp.com': { password: '96a07QR7X2vw', role: 'operations' },
     'jmagallanes.consultant@newscorp.com': { password: 'highschoolmusical3', role: 'operations' },
     'peter.emerson-thomas@news.co.uk': { password: 'PeteETNewsUK2024!', role: 'securitymanager' },
-    'harry.frankham@dowjones.com': { password: 'HarryFRDowJones2024!', role: 'securitymanager' },
+    //'harry.frankham@dowjones.com': { password: 'HarryFRDowJones2024!', role: 'securitymanager' }, <-- Moved on to Better Roles
     'gary.simpson@dowjones.com': { password: 'GarySIMDowJones2024!', role: 'securitymanager' },
     'paul.hutchinson@dowjones.com': { password: 'PaulHUTCHDowJones2024!', role: 'securitymanager' },
     'pkapoukakis@newscorp.com': { password: 'PeteKAPNewsCorp2024!', role: 'securitymanager' },
