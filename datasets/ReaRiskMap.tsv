@@ -1,0 +1,13 @@
+Country	Final Risk Rating	Political Stability	Crime	Environment 	Medical	LGBTQI	Natural Disaster 	Security
+France	Low	0.34	55.43	9.5	Low	75	7.54	Low
+Hong Kong	Low	0.67	21.51	15.6	Low	66	21.31	Low
+India	High	-0.64	44.3	54.4	High	61	40.96	Moderate
+Malaysia	Moderate	0.17	48.96	22.5	Moderate	16	14.5	Low
+New Zealand	Low	1.36	48.15	4.3	Low	75	14.34	Low
+Philippines	Moderate	-0.57	43.11	13.5	Moderate	57	46.91	Moderate
+Singapore	Low	1.42	23.41	13.4	Low	52	0.8	Low
+Sri Lanka	Moderate	-0.51	42.12	19.3	Moderate	30	6.16	Moderate
+Thailand	Moderate	-0.28	37.46	23.3	Moderate	62	21.7	Low*
+UAE	Moderate	0.68	15.56	43	Low	13	4.54	Low
+United Kingdom	Low	0.51	48.18	7.7	Low	71	5.7	Low
+United States	Low	0.03	49.25	9.1	Low	71	22.56	Low*
